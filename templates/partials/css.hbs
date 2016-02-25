@@ -1,0 +1,56 @@
+{{!< default}}
+{{!-- 
+/**
+	* Engagement Lab Website
+	* Developed by Engagement Lab, 2015
+	* ==============
+	* 
+	* Document includes partial 
+	* ==========
+	*/
+--}}
+
+<!-- DOCS START -->
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+<!-- For third-generation iPad with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/favicon_144.png">
+<!-- For iPhone with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/favicon_114.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/favicon_72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="/images/favicons/favicon_57.png">
+
+{{#ifeq environment "production"}}
+
+	{{!-- PRODUCTION --}}
+	<link href="/release/bootstrap.min.css" rel="stylesheet">
+	<link href="/release/production.css" rel="stylesheet">
+
+{{else}}
+
+	{{!-- DEVELOPMENT --}}
+	<!-- Custom fonts -->
+	<link href="/fonts/fonts.css" rel="stylesheet"/>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/styles/bootstrap/bootstrap.css" rel="stylesheet">
+	
+	{{!-- UI --}}
+	<link href="/styles/jquery-ui.min.css" rel="stylesheet">
+
+	<link href="/styles/site.css" rel="stylesheet">
+	<link href="/styles/cmp.css" rel="stylesheet">
+
+	<!-- Font Awesome CSS -->
+	<link href="/fonts/icons/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+	<!-- Fontello CSS -->
+	<link href="/fonts/icons/fontello/css/fontello.css" rel="stylesheet">
+
+	{{!-- Bower plugins --}}
+	<link rel="stylesheet" href="/bower_components/glidejs/dist/css/glide.core.css">
+
+{{/ifeq}}

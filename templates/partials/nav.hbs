@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+    	<div class="row">
+    		
+    		<div class="col-xs-10 col-sm-12 col-md-4" id="logo-col">
+	    		<a href="/">
+		    		<div class="logo-container">
+		    			<img id="logo_img" src="/images/logos/logo_color_small.png" alt="Engagement Lab"> <p>Haha I am the cmp site</p>
+			    		<br>
+			    		<p id="at-emerson-sm">@ Emerson College</p>
+		    		</div>
+		    	</a>
+    		</div>
+
+    		{{!-- menu --}}
+    		<div class="col-xs-2 col-sm-12 col-md-8">
+	    		<div class="main-navigation animated with-dropdown-buttons">
+	    			<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-8">
+	    		<div class="main-navigation animated with-dropdown-buttons">
+					<div class="collapse navbar-collapse" id="navbar-collapse-1">
+		    			<ul class="nav navbar-nav">
+
+		    			    {{# each navLinks}}
+	    						<li class="{{#if this.subLinks}}dropdown{{else}}mega-menu{{/if}} {{#ifeq ../section key}}active{{else}}{{/ifeq}}">
+	    							<a class="dropdown-toggle"{{#if this.subLinks}} data-toggle="dropdown_{{key}}"{{/if}} href="{{ href }}">{{ label }}</a>
+	    							
+	    							{{#if this.subLinks}}
+
+	    								<ul class="dropdown-menu">
+											{{#each this.subLinks}}
+
+												<li{{#ifeq sub_section key}} class="active"{{/ifeq}}>
+													<a href="{{href}}">{{label}}</a>
+												</li>
+											
+											{{/each}}
+	    								</ul>
+	    							{{/if}}
+	    						
+	    						</li>
+	    					{{/each}}
+    						<li class="mega-menu emerson-logo">
+    							<a href="https://www.emerson.edu"><img src="/images/logos/emerson_color.png" alt=""></a>
+    						</li>
+		    			</ul>
+		    		</div>
+	    		</div> <!-- .main-navigation -->
+    		</div> <!-- .col-md-8 -->
+    	</div> <!-- .row -->
+    </div> <!-- .container -->
+</nav>

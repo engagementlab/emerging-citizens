@@ -1,0 +1,28 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Bot
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for individual sections
+ * ==========
+ */
+--}}
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		
+		{{!-- INDEX Template Script --}}
+		{{#ifeq section 'home'}}
+			
+  var availableTags = '{{users}}'.split(',');
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  });
+	
+		{{/ifeq}}
+});
+
+</script>

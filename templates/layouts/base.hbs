@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Engagement Lab Bot</title>
+        <meta name="description" content="We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.">
+        <meta name="author" content="Engagement Lab">
+        <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#78cbd1">
+
+        {{!-- Open Graph --}}
+        <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" />
+
+        {{!-- Load our CSS/docs --}}
+        {{> css environment=env}}
+        
+        {{!-- This file provides the default styling for the KeystoneJS Content Editor
+        - only renders when user is logged in and admin--}}
+        {{!-- {{{isAdminEditorCSS user}}} --}}
+    </head>
+    
+    <body class="page-loader-3">
+
+        {{!-- {{> nav}} --}}
+
+        <!-- page wrapper start -->
+        <!-- ================ -->
+        <div class="page-wrapper">
+            
+            <!--
+                Flash messages allow you to display once-off status messages to users, e.g. form
+                validation errors, success messages, etc
+            -->
+            {{#if messages}}
+            <div id="flash-messages" class="container">
+                {{#if messages.info}}
+                <div class="alert alert-info">
+                    {{{flashMessages messages.info}}}
+                </div>
+                {{/if}}
+                {{#if messages.success}}
+                <div class="alert alert-success">
+                    {{{flashMessages messages.success}}}
+                </div>
+                {{/if}}
+                {{#if messages.warning}}
+                <div class="alert alert-warning">
+                    {{{flashMessages messages.warning}}}
+                </div>
+                {{/if}}
+                {{#if messages.error}}
+                <div class="alert alert-danger">
+                    {{{flashMessages messages.error}}}
+                </div>
+                {{/if}}
+            </div>
+            {{/if}}
+
+            <!-- BODY CONTENT START -->
+            {{{body}}}
+                        
+            {{!-- {{> footer}} --}}
+
+            <!-- page-wrapper end -->
+            {{#ifeq env "development"}}
+                {{> script/development section=section subSection=sub_section}}
+            {{else}}
+                {{> script/production section=section}}
+            {{/ifeq}}
+
+            {{{isAdminEditorJS user}}}
+        </div>
+    </body>
+</html>

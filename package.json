@@ -1,0 +1,16 @@
+{
+  "name": "emerging-citizens",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engagementgamelab/emerging-citizens.git"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "app-root-path": "^1.0.0",
+    "keystone": "0.3.15",
+    "node-sass-middleware": "^0.9.7",
+    "socket.io": "^1.4.5",
+    "underscore": "^1.8.3"
+  }
+}
