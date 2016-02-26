@@ -74,3 +74,10 @@ exports.initErrorHandlers = function(req, res, next) {
     next();
     
 };
+
+/*exports.socket = function(req, res, next) {
+
+    var io = keystone.get('sockets');
+
+    
+}*/

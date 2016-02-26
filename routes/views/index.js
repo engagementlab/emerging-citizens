@@ -14,13 +14,11 @@
  */
 var keystone = require('keystone');
 var _ = require('underscore');
-var rootDir = require('app-root-path')
+var Tweet = keystone.list('Tweet');
+var _twitter = keystone.get('twitter');
 
-
-    // console.log(keystone)
 // console.trace()
 exports = module.exports = function(req, res) {
-var sockets = require(rootDir + '/lib/sockets')(req.app.server);
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
@@ -29,9 +27,33 @@ var sockets = require(rootDir + '/lib/sockets')(req.app.server);
     // item in the header navigation.
     locals.section = 'home';
 
-  /*  view.on('init', function(next) {
+    view.on('init', function(next) {
 
-	  });*/
+    	  var queryTweet = Tweet.model.findOne({}, {}, {
+            sort: {
+                'createdAt': -1
+            }
+        });
+
+        queryTweet.exec(function(err, tweet) {
+
+        	_twitter.get('statuses/lookup', {id: '695343359607468034'}, function(err, tweets, response) {
+                
+	          if (err) throw error;
+
+	        	locals.tweet = tweets[0].text.substring(0, tweets[0].text.indexOf('#'));
+	          
+	          next(err);
+
+          });
+
+        });
+
+	    /*socket.on('chat message', function(msg){
+	      io.emit('chat message', msg);
+	    });*/
+
+	  });
 
     // Render the view
     view.render('index');

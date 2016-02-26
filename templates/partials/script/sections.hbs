@@ -17,10 +17,29 @@
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
 			
-  var availableTags = '{{users}}'.split(',');
-  $( "#tags" ).autocomplete({
-    source: availableTags
-  });
+    var socket = io();
+	  $('form').submit(function(){
+	    socket.emit('chat message', $('#m').val());
+	    $('#m').val('');
+	    return false;
+	  });
+
+	  socket.on('new player', function(msg){
+	  	var i = 0;
+	    $('#team').empty();
+	    
+	    while(i < msg.count) {
+		    $('#team').append($(msg.html));
+		    i++;
+		  }
+	  });
+	  
+	  socket.on('user disconnected', function(msg){
+	  	var i = 0;
+	  	console.log('removed')
+	    $('#team .col-lg-4:last-child').remove();
+	  });
+
 	
 		{{/ifeq}}
 });
