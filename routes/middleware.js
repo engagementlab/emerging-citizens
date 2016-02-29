@@ -75,9 +75,13 @@ exports.initErrorHandlers = function(req, res, next) {
     
 };
 
-/*exports.socket = function(req, res, next) {
+exports.socket = function(req, res, next) {
 
-    var io = keystone.get('sockets');
+    // var io = keystone.parent.app.io;
+
+    // console.log(keystone.app.parent.io)
+
+    next();
 
     
-}*/
+}

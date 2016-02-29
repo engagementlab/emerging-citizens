@@ -18,18 +18,20 @@
 		{{#ifeq section 'home'}}
 			
     var socket = io();
+    socket.emit('helloworld')
 	  $('form').submit(function(){
 	    socket.emit('chat message', $('#m').val());
 	    $('#m').val('');
 	    return false;
 	  });
 
-	  socket.on('new player', function(msg){
+	  socket.on('message', function(msg){
+	  	console.log(msg)
 	  	var i = 0;
 	    $('#team').empty();
 	    
 	    while(i < msg.count) {
-		    $('#team').append($(msg.html));
+		    $('#team').append($(msg));
 		    i++;
 		  }
 	  });
