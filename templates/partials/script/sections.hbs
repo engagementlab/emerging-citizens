@@ -17,8 +17,27 @@
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
 			
-    var socket = io();
-    socket.emit('helloworld')
+    socket = io();
+
+		var lobby = socket.subscribe('lobby');
+
+		lobby.watch(function (msg) {
+		  console.log('player # ' + msg.playerId + ' ' + msg.status + '!');
+		});
+
+	  socket.on('user:new', function(msg) {
+	  	console.log(msg)
+ 	  	var i = 0;
+ 	    
+ 	    while(i < msg.count) {
+		    // $('#team').append($(msg.html));
+		    $('#team').append($(msg));
+ 		    i++;
+ 		  }
+ 	  });
+
+
+/*    
 	  $('form').submit(function(){
 	    socket.emit('chat message', $('#m').val());
 	    $('#m').val('');
@@ -40,7 +59,7 @@
 	  	var i = 0;
 	  	console.log('removed')
 	    $('#team .col-lg-4:last-child').remove();
-	  });
+	  });*/
 
 	
 		{{/ifeq}}

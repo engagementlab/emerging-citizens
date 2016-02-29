@@ -22,8 +22,8 @@ exports = module.exports = function(app) {
 
     // Views
     app.get('/', routes.views.index);
-    app.post('/login', routes.views.user.login);
+    // app.post('/login', routes.views.user.login);
 
-  	app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);
+  	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);
 
 };
