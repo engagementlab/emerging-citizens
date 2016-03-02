@@ -1,0 +1,47 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+/*#hashtag-code {
+	display: none;
+}
+#meme-code {
+	display: none;
+}
+#geeks-code {
+	display: none;
+}
+*/
+.class-code{
+	margin-top: 5%;
+
+}
+.game {
+	text-align: center;
+	margin: auto;
+	background-color: gray;
+	width: 50%;
+}
+
+.playerResponses {
+	margin-top: 5%;
+}
+.hashtagResponse {
+	height: 100px;
+}
+
+.scoreboard {
+	background-color: black;
+	color: white;
+	margin: 5%;
+	padding: 5%;
+}
+
+.topText {
+	top:0;
+	bottom: auto;
+}
