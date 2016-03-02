@@ -1,12 +1,17 @@
 // Return server object
 serverStart = function() {
 
-	// var express = require('express')();
+	var express = require('express');
+	var app = express();
 	// var server = express.http();
 
 	// server.io();
 
-	return require('express')();
+	var bodyParser = require('body-parser');
+	app.use(bodyParser.json()); // support json encoded bodies
+	app.use(bodyParser.urlencoded({ extended: true }));
+
+	return app;
 
 };
 

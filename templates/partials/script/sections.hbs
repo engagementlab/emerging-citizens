@@ -1,7 +1,7 @@
 {{!< default}}
 {{!-- 
 /**
- * Engagement Lab Bot
+ * Emerging Citizens
  * Developed by Engagement Lab, 2016
  * ==============
  * 
@@ -13,54 +13,58 @@
 <script type="text/javascript">
 	
 	$(document).ready(function() {
+			
+    socket = io('/hashtag-youre-it');
 		
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
-			
-    socket = io();
 
-		var lobby = socket.subscribe('lobby');
-
-		lobby.watch(function (msg) {
-		  console.log('player # ' + msg.playerId + ' ' + msg.status + '!');
+   	socket.on('connect', function() {
+		   // Connected, let's sign-up for to receive messages for this room
+		   socket.emit('room', 'lobby');
 		});
 
-	  socket.on('user:new', function(msg) {
+    socket.on('user:update', function(msg) {
 	  	console.log(msg)
- 	  	var i = 0;
- 	    
- 	    while(i < msg.count) {
-		    // $('#team').append($(msg.html));
-		    $('#team').append($(msg));
- 		    i++;
- 		  }
+	    $('#team').html(msg.join('<br />'));
  	  });
 
+		$('#btn_submit').click(function(e) {
+		  socket.emit('hashtagSubmitted', $('#tweet_input').val());
+		});
 
-/*    
-	  $('form').submit(function(){
-	    socket.emit('chat message', $('#m').val());
-	    $('#m').val('');
-	    return false;
-	  });
+		{{/ifeq}}
 
-	  socket.on('message', function(msg){
+		{{#ifeq section 'moderator'}}
+
+		$('#btn_submit').click(function(e) {
+			var data = $(":input").serializeArray();
+		  $.post( 
+		  	"/api/create/",
+				data,
+				function( data ) {
+				  window.location = data;
+				}
+			);
+		});
+
+		{{/ifeq}}
+
+		{{#ifeq section 'moderator/monitor'}}
+
+   	socket.on('connect', function() {
+		   socket.emit('getUsers');
+		});
+
+    socket.on('user:update', function(msg) {
 	  	console.log(msg)
-	  	var i = 0;
-	    $('#team').empty();
-	    
-	    while(i < msg.count) {
-		    $('#team').append($(msg));
-		    i++;
-		  }
-	  });
-	  
-	  socket.on('user disconnected', function(msg){
-	  	var i = 0;
-	  	console.log('removed')
-	    $('#team .col-lg-4:last-child').remove();
-	  });*/
+	    $('#team').html(msg.join('<br />'));
+ 	  });
 
+    socket.on('hashtagReceived', function(msg) {
+	  	console.log(msg);
+	  	$('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
+ 	  });
 	
 		{{/ifeq}}
 });

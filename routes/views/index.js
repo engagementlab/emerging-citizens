@@ -1,5 +1,5 @@
 /**
- * Engagement Lab Website
+ * Emerging Citizens
  * Developed by Engagement Lab, 2015
  * ==============
  * Home page view controller.
@@ -16,8 +16,8 @@ var keystone = require('keystone');
 var _ = require('underscore');
 var Tweet = keystone.list('Tweet');
 var _twitter = keystone.get('twitter');
+var GameSession = require(require('app-root-path') + '/models/GameSession');
 
-// console.trace()
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
@@ -29,7 +29,15 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-    	var queryTweet = Tweet.model.findOne({}, {}, {
+        GameSession.findOne({accessCode: req.params.accesscode}, function (err, game) {
+
+            locals.game = game;
+
+            next(err);
+
+        });
+
+/*    	var queryTweet = Tweet.model.findOne({}, {}, {
             sort: {
                 'createdAt': -1
             }
@@ -47,8 +55,8 @@ exports = module.exports = function(req, res) {
 
           });
 
-        });
-        
+        });*/
+
 	  });
 
     // Render the view

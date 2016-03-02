@@ -21,7 +21,12 @@ var routes = {
 exports = module.exports = function(app) {
 
     // Views
-    app.get('/', routes.views.index);
+    app.get('/:accesscode', routes.views.index);
+    
+    app.get('/moderator', routes.views.moderator.index);
+    app.get('/moderator/monitor', routes.views.moderator.monitor);
+    
+    app.post('/api/create', routes.views.api.create);
     // app.post('/login', routes.views.user.login);
 
   	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);
