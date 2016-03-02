@@ -11,6 +11,7 @@
 --}}
 
 <script type="text/javascript">
+	localStorage.debug = '*';
 	
 	$(document).ready(function() {
 			
@@ -25,14 +26,21 @@
 		});
 
     socket.on('user:update', function(msg) {
-	  	console.log(msg)
-	    $('#team').html(msg.join('<br />'));
+    	$('.login-box').hide();
+	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
+ 	  });
+
+    socket.on('game:start', function(html) {
+	    $('#gameContent').html(html);
  	  });
 
 		$('#btn_submit').click(function(e) {
 		  socket.emit('hashtagSubmitted', $('#tweet_input').val());
 		});
 
+		$('#btn_submit').click(function(e) {
+		  socket.emit('loginSubmit', {room: 'lobby', username: $('#player_name').val()});
+		});
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator'}}
@@ -57,8 +65,13 @@
 		});
 
     socket.on('user:update', function(msg) {
+	  	console.log(_.pluck(msg, 'username'))
+	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
+ 	  });
+
+    socket.on('player:login', function(msg) {
 	  	console.log(msg)
-	    $('#team').html(msg.join('<br />'));
+	    // $('#team').html(msg.join('<br />'));
  	  });
 
     socket.on('hashtagReceived', function(msg) {

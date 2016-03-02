@@ -1,3 +1,16 @@
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * Hashtag submission socket handler.
+ *
+ * @class sockets/handlers
+ * @static
+ * @author Johnny Richardson
+ *
+ * ==========
+ */
+
 var Hashtag = function (nsp, socket) {
     this.nsp = nsp;
     this.socket = socket;
