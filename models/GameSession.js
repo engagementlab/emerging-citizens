@@ -23,7 +23,8 @@ var _ = require('underscore');
 var gameSessionSchema = new mongoose.Schema({
 
   name: { type: String, required: true },
-  accessCode: {type: String, required: true},
+  accessCode: { type: String, required: true },
+  playerCap: { type: Number, required: true },
   gameType: { type: String, required: true }
 
 });

@@ -13,21 +13,31 @@
  * ==========
  */
 
-var keystone = require('keystone');
-var _ = require('underscore');
-var GameSession = require('../../../models/GameSession');
+var keystone = require('keystone'),
+		redis = require("redis").createClient(),
+    _ = require('underscore'),
+    appRoot = require('app-root-path');
+
+var GameSession = require(appRoot + '/models/GameSession');
+var GameManager = require(appRoot + '/lib/GameManager');
 
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
 
-    console.log(req.body)
-
     var session = new GameSession(req.body);
 
     session.save(function (err) {
+
         if (err) 
             throw err;
+
+		redis.on("error", function (err) {
+		 throw err;
+		});
+
+		// Save this session to memory for faster retrieval (deleted when game ends)
+		CREATE_SESSION(session.accessCode, new GameManager(session));
 
         res.send('/moderator/monitor');
 

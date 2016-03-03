@@ -11,9 +11,12 @@
  * ==========
  */
 
+var currentSpace;
+var currentSocket;
+
 var Hashtag = function (nsp, socket) {
-    this.nsp = nsp;
-    this.socket = socket;
+    currentSpace = nsp;
+    currentSocket = socket;
 
     // Expose handler methods for events
     this.handler = {
@@ -23,9 +26,14 @@ var Hashtag = function (nsp, socket) {
 
 // Events
 
-function submitted(text) {
+function submitted(package) {
 
-    this.nsp.in('lobby').emit('hashtagReceived', {hashtag: text, user: this.socket.id});
+    GET_SESSION(package.gameId).
+    HashtagSubmitted(
+											currentSocket.id,
+											currentSpace,
+											package.data
+										);
 
 };
 

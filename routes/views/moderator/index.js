@@ -25,7 +25,7 @@ exports = module.exports = function(req, res) {
 	    0 : "Hash Tag You're It",
 	    1 : "Wait, Wait, Don't Tell MEME",
 	    2 : "WikiGeeks"
-		}
+	}
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
@@ -36,6 +36,8 @@ exports = module.exports = function(req, res) {
 											  charset: 'alphabetic'
 											}).toUpperCase();
     locals.gameTypes = _.values(GameType);
+
+    console.log('moderator')
 
     // Render the view
     view.render('moderator');

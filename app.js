@@ -23,6 +23,23 @@ appStart = function(app) {
 	var rootDir = require('app-root-path');
 	var io = require(rootDir + '/sockets/')(appServer)
 
+	_GAME_SESSIONS = {};
+	CREATE_SESSION = function(id, session) {
+		_GAME_SESSIONS[id] = session;
+	};
+
+	GET_SESSION = function(id) {
+
+		var sesh = _GAME_SESSIONS[id];
+
+		if(sesh === undefined){
+			console.trace();
+			throw "Game with id '" + id + "' not found!";
+		}
+
+		return sesh;
+	};
+
 	// keystone.set('sockets', io)
 
 };

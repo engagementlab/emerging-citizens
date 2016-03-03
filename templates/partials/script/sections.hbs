@@ -12,20 +12,21 @@
 
 <script type="text/javascript">
 	localStorage.debug = '*';
-	
+
 	$(document).ready(function() {
 			
-    socket = io('/hashtag-youre-it');
+    socket = io();
 		
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
+		var gameCode = '{{game.accessCode}}';
 
    	socket.on('connect', function() {
 		   // Connected, let's sign-up for to receive messages for this room
-		   socket.emit('room', 'lobby');
+		   socket.emit('room', emitData('player'));
 		});
 
-    socket.on('user:update', function(msg) {
+    socket.on('players:update', function(msg) {
     	$('.login-box').hide();
 	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
  	  });
@@ -34,12 +35,20 @@
 	    $('#gameContent').html(html);
  	  });
 
+    socket.on('hashtags:received', function(msg) {
+	  	console.log(msg);
+	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
+ 	  });
+
 		$('#btn_submit').click(function(e) {
-		  socket.emit('hashtagSubmitted', $('#tweet_input').val());
+		  socket.emit('hashtagSubmitted', emitData($('#tweet_input').val()));
 		});
 
 		$('#btn_submit').click(function(e) {
-		  socket.emit('loginSubmit', {room: 'lobby', username: $('#player_name').val()});
+		  socket.emit('loginSubmit', emitData({ 
+																					  username: $('#player_name').val()
+																					}
+																				));
 		});
 		{{/ifeq}}
 
@@ -59,12 +68,15 @@
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator/monitor'}}
+		
+		var gameCode = '{{game.accessCode}}-moderator';
 
    	socket.on('connect', function() {
-		   socket.emit('getUsers');
+		   // Connected, let's sign-up for to receive messages for this room
+		   socket.emit('room', emitData('moderator'));
 		});
 
-    socket.on('user:update', function(msg) {
+    socket.on('players:update', function(msg) {
 	  	console.log(_.pluck(msg, 'username'))
 	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
  	  });
@@ -74,12 +86,17 @@
 	    // $('#team').html(msg.join('<br />'));
  	  });
 
-    socket.on('hashtagReceived', function(msg) {
+    socket.on('hashtags:received', function(msg) {
 	  	console.log(msg);
-	  	$('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
+	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
  	  });
 	
 		{{/ifeq}}
+		
+		function emitData(data) {
+			return { gameId: gameCode, msgData: data };
+		}
+		
 });
 
 </script>

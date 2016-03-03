@@ -24,6 +24,8 @@ input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10
                   <option value="{{@index}}">{{this}}</option>
                 {{/each}}
                 </select><br />
+
+                <input id="player_count" name="playerCap" class="element text medium" type="number" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Player Cap"><br />
                 
                 Access Code:<br />
                 <input id="access_code" name="accessCode" class="element text medium" type="text" maxlength="255" value="{{gameCode}}" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;">

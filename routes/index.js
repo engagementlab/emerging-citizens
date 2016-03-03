@@ -21,7 +21,7 @@ var routes = {
 exports = module.exports = function(app) {
 
     // Views
-    app.get('/:accesscode', routes.views.index);
+    app.get('/game/:accesscode/', routes.views.index);
     
     app.get('/moderator', routes.views.moderator.index);
     app.get('/moderator/monitor', routes.views.moderator.monitor);

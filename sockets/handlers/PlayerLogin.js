@@ -18,6 +18,9 @@ var redis = require("redis").createClient(),
 
 var currentSpace;
 var currentSocket;
+
+var _playerGameId;
+
 var EventEmitter;
 
 redis.on("error", function (err) {
@@ -40,24 +43,21 @@ var PlayerLogin = function (nsp, socket, emitter) {
 };
 
 // Events
-function submitted(msg) {
+function submitted(package) {
 
-  var user = {id: currentSocket.id, username: msg.username};
+  var user = {id: currentSocket.id, username: package.msgData.username};
 
+  currentSocket.join(package.gameId, function(err) {
 
-  currentSocket.join(msg.room, function(err) {
+    if(err)
+      throw err;
 
-    users.push(user);
+    _playerGameId = package.gameId;
 
-    redis.set('ec_users', JSON.stringify(users));
+    GET_SESSION(package.gameId).PlayerReady(user, currentSpace);
 
-    // currentSocket.emit('user:joined');
-    currentSpace.emit('user:update', users);
-
-    if(users.length == 1) {
-      EventEmitter.emit('gameReady');
-    }
-
+    console.log(user.username  + ' logged in.');
+    
   });
 
 };
@@ -65,21 +65,8 @@ function submitted(msg) {
 
 function disconnected() {
 
-  redis.get('ec_users', function (err, users) {
-
-    console.log('left', currentSocket.id);
-
-    var updatedUsers = _.reject(JSON.parse(users), function(user) {
-
-      return user.id === currentSocket.id; 
-    
-    });
-
-   redis.set('ec_users', JSON.stringify(updatedUsers), redis.print);
-
-    currentSpace.emit('user:update', updatedUsers);
-
-  });
+  if(_playerGameId !== undefined)
+    GET_SESSION(_playerGameId).PlayerLost(currentSocket.id, currentSpace);
 
 };
 
