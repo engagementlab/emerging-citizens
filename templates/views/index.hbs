@@ -15,15 +15,19 @@ input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10
                 </h1>
             </div>
         </div>
+
+        <div class="row input-box login-box">
+            <input id="player_name" name="player_name" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Name">
+            
+            <input id="btn_submit" class="button_text" type="submit" name="submit" value="Submit">
+        </div>
+
         Waiting for players...
 
         <div class="row" id="team">
         </div>
- {{!--        <div class="row input-box">
-                <input id="tweet_input" name="element_1" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" autofocus="autofocus">
 
-                <input id="btn_submit" class="button_text" type="submit" name="submit" value="Submit">
-                <span class="hash">#</span>
-        </div> --}}
+        <div class="row" id="gameContent">
+        </div>
 
         <i>Game Instance: {{game.name}}</i>
