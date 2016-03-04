@@ -40,16 +40,35 @@
 	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
  	  });
 
-		$('#btn_submit').click(function(e) {
-		  socket.emit('hashtagSubmitted', emitData($('#tweet_input').val()));
+		// $('#btn_submit').click(function(e) {
+		//   socket.emit('login:submit', emitData({ 
+		// 																			  username: $('#player_name').val()
+		// 																			}
+		// 																		));
+		// });
+
+		$(document).on('click', '.input-box :submit', function() {
+			var event = $(this).data().event;
+			var pkg = $(this).data().package;
+
+			if($.isPlainObject(pkg)) {
+				$.each(Object.keys(pkg), function( key, value ) {
+				  pkg[value] = $('#' + pkg[value].toString()).val();
+				});
+			}
+			else
+				pkg = $('#' + pkg).val()
+			
+			socket.emit(event, emitData(pkg));
 		});
 
-		$('#btn_submit').click(function(e) {
-		  socket.emit('loginSubmit', emitData({ 
-																					  username: $('#player_name').val()
-																					}
-																				));
-		});
+		function tweet() {
+
+			$('#btn_submit').click(function(e) {
+			  socket.emit('hashtagSubmitted', emitData($('#tweet_input').val()));
+			});
+
+		}
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator'}}

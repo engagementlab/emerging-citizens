@@ -12,8 +12,12 @@
  *
  * ==========
  */
-var keystone = require('keystone');
-var _ = require('underscore');
+var keystone = require('keystone'),
+	_ = require('underscore'),
+  appRoot = require('app-root-path');
+
+var GameSession = require(appRoot + '/models/GameSession'),
+    GameManager = require(appRoot + '/lib/GameManager');
 
 exports = module.exports = function(req, res) {
 
@@ -23,6 +27,22 @@ exports = module.exports = function(req, res) {
   // locals.section is used to set the currently selected
   // item in the header navigation.
   locals.section = 'moderator/monitor';
+
+  view.on('init', function(next) {
+
+    GameSession.findOne({accessCode: req.params.accesscode}, function (err, game) {
+
+    		// TODO: Dev only?
+    		if(GET_SESSION(game.accessCode) === undefined)
+    			CREATE_SESSION(game.accessCode, new GameManager(game));
+
+        locals.game = game;
+
+        next();
+
+    });
+
+  });
 
   // Render the view
   view.render('moderator/monitor');

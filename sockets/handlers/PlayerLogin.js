@@ -35,7 +35,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     // Expose handler methods for events
     this.handler = {
-      loginSubmit: submitted.bind(this),
+      'login:submit': submitted.bind(this),
       disconnect: disconnected.bind(this),
       getUsers: getUsers.bind(this)
     };

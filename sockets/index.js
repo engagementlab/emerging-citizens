@@ -15,7 +15,7 @@ module.exports = function(app) {
     // Create event handlers for this socket
     var eventHandlers = {
         hashtag: new HashtagHandler(io, socket),
-        login: new PlayerLogin(io, socket, EventEmitter)
+        login: new PlayerLogin(io, socket)
     };
 
     // Bind events to handlers

@@ -39,7 +39,7 @@ exports = module.exports = function(req, res) {
 		// Save this session to memory for faster retrieval (deleted when game ends)
 		CREATE_SESSION(session.accessCode, new GameManager(session));
 
-        res.send('/moderator/monitor');
+        res.send('/moderator/monitor/' + session.accessCode);
 
     });
 

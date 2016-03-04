@@ -25,6 +25,9 @@ appStart = function(app) {
 
 	_GAME_SESSIONS = {};
 	CREATE_SESSION = function(id, session) {
+
+		console.log('CREATE_SESSION: ', id)
+
 		_GAME_SESSIONS[id] = session;
 	};
 
@@ -33,8 +36,7 @@ appStart = function(app) {
 		var sesh = _GAME_SESSIONS[id];
 
 		if(sesh === undefined){
-			console.trace();
-			throw "Game with id '" + id + "' not found!";
+			console.warn("Game with id '" + id + "' not found!");
 		}
 
 		return sesh;

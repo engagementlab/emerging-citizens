@@ -11,16 +11,15 @@
  * ==========
  */
 
-var currentSpace;
-var currentSocket;
-
 var Hashtag = function (nsp, socket) {
-    currentSpace = nsp;
-    currentSocket = socket;
+    this.currentSpace = nsp;
+    this.currentSocket = socket;
+
+    console.log("socket", socket.id)
 
     // Expose handler methods for events
     this.handler = {
-        hashtagSubmitted: submitted.bind(this)    // and this.socket in events
+        'hashtags:submit': submitted.bind(this)    // and this.socket in events
     };
 }
 
@@ -30,9 +29,9 @@ function submitted(package) {
 
     GET_SESSION(package.gameId).
     HashtagSubmitted(
-											currentSocket.id,
-											currentSpace,
-											package.data
+											this.currentSocket.id,
+											package.msgData,
+											this.currentSpace
 										);
 
 };

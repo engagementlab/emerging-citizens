@@ -24,7 +24,7 @@ exports = module.exports = function(app) {
     app.get('/game/:accesscode/', routes.views.index);
     
     app.get('/moderator', routes.views.moderator.index);
-    app.get('/moderator/monitor', routes.views.moderator.monitor);
+    app.get('/moderator/monitor/:accesscode', routes.views.moderator.monitor);
     
     app.post('/api/create', routes.views.api.create);
     // app.post('/login', routes.views.user.login);
