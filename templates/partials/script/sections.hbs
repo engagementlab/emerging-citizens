@@ -34,6 +34,14 @@
     socket.on('game:start', function(html) {
 	    $('#gameContent').html(html);
  	  });
+    socket.on('game:end', function(html) {
+	    console.log('game was ended');
+ 	  });
+    socket.on('game:notfound', function(html) {
+	    console.log('game not found!');
+	    $('#error-box').text('game not found!');
+	    $('#error-box').show();
+ 	  });
 
     socket.on('hashtags:received', function(msg) {
 	  	console.log(msg);
@@ -89,15 +97,25 @@
 		{{#ifeq section 'moderator/monitor'}}
 		
 		var gameCode = '{{game.accessCode}}-moderator';
+		var currentPlayers = [];
 
    	socket.on('connect', function() {
 		   // Connected, let's sign-up for to receive messages for this room
 		   socket.emit('room', emitData('moderator'));
 		});
 
-    socket.on('players:update', function(msg) {
-	  	console.log(_.pluck(msg, 'username'))
-	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
+    socket.on('players:update', function(players) {
+	  	currentPlayers = players;
+	    $('#gameContent').html(_.values(players).join('joined. <br />'));
+ 	  });
+
+    socket.on('game:start', function(html) {
+	    $('#gameContent').html(html);
+ 	  });
+
+    socket.on('hashtags:received', function(msg) {
+	  	var html = _.map(msg, function(hashtag, user){ return currentPlayers[user] + ': ' + hashtag; });
+	    $('#gameContent').html(html);
  	  });
 
     socket.on('player:login', function(msg) {

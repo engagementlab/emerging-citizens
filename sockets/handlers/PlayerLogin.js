@@ -16,70 +16,77 @@ var redis = require("redis").createClient(),
     _ = require('underscore'),
     users = [];
 
-var currentSpace;
-var currentSocket;
-
-var _playerGameId;
-
-var EventEmitter;
-
 redis.on("error", function (err) {
   console.log("Error " + err);
 });
 
 var PlayerLogin = function (nsp, socket, emitter) {
 
-    currentSpace = nsp;
-    currentSocket = socket;
-    EventEmitter = emitter;
+  var currentSpace;
+  var currentSocket;
 
-    // Expose handler methods for events
-    this.handler = {
-      'login:submit': submitted.bind(this),
-      disconnect: disconnected.bind(this),
-      getUsers: getUsers.bind(this)
-    };
+  var playerGameId;
+  var isModerator;
 
-};
+  currentSpace = nsp;
+  currentSocket = socket;
 
-// Events
-function submitted(package) {
+  // Expose handler methods for events
+  this.handler = {
 
-  var user = {id: currentSocket.id, username: package.msgData.username};
+    room: function(package) {
 
-  currentSocket.join(package.gameId, function(err) {
+      // If '-moderator' specified as room affix, remove for game id
+      if(package.gameId.indexOf('-moderator') !== -1)
+          playerGameId = package.gameId.replace('-moderator', '');
+      else
+        playerGameId = package.gameId;
+      
+      if(GET_SESSION(playerGameId) === undefined) {
+        currentSocket.emit('game:notfound');
+        return;
+      }
 
-    if(err)
-      throw err;
+      currentSocket.join(package.gameId, function(err) {
 
-    _playerGameId = package.gameId;
+        if(err)
+          throw err;
+      });
 
-    GET_SESSION(package.gameId).PlayerReady(user, currentSpace);
+      isModerator = package.msgData == 'moderator';
+        
+      console.log(currentSocket.id + ' connected to room.');
 
-    console.log(user.username  + ' logged in.');
+    },
     
-  });
+    'login:submit': function(package) {
+
+      var user = {id: currentSocket.id, username: package.msgData.username};
+
+      GET_SESSION(package.gameId).PlayerReady(user, currentSpace);
+
+      console.log(user.username  + ' logged in.');
+
+    },
+
+    disconnect: function(package) {
+
+      var session = GET_SESSION(playerGameId);
+
+      if(playerGameId !== undefined && session !== undefined) {
+        session.PlayerLost(currentSocket.id, currentSpace);
+
+        if(isModerator) {
+          console.log('is moderator')
+          session.End(currentSpace);
+        }
+
+      }
+    }
+  
+  };
+
+  console.log("New PlayerLogin for socket: " + currentSocket.id);
 
 };
-
-
-function disconnected() {
-
-  if(_playerGameId !== undefined)
-    GET_SESSION(_playerGameId).PlayerLost(currentSocket.id, currentSpace);
-
-};
-
-function getUsers() {
-
-  redis.get('ec_users', function (err, users) {
-
-    console.log('getUsers')
-
-    currentSocket.emit('user:update', JSON.parse(users));
-
-  });
-
-};
-
 module.exports = PlayerLogin;
