@@ -1,20 +1,5 @@
-<style>
-.input-box { position: relative; }
-input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10px 10px 10px 20px; width: 195px; }
-.hash { position: absolute; display: block; left: 5px; top: 10px; z-index: 9; color: #47527D; }
-</style>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Introduction Row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Hashtag youre it
-                    <small>{{tweet}}</small>
-                </h1>
-            </div>
-        </div>
+<div class="game">
+    <div id="submission">
 
         <div class="row input-box login-box">
             <input id="player_name" name="player_name" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Name">
@@ -22,12 +7,13 @@ input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10
             <input id="btn_submit" data-event="login:submit" data-package='{"username": "player_name"}' class="button_text" type="submit" name="submit" value="Submit">
         </div>
 
-        Waiting for players...
+    </div>
 
-        <div class="row" id="team">
-        </div>
+    <div id="submitted" style="display:none">
+      <h4>Waiting for other players...!</h4>
+    </div>
+    
 
-        <div class="row" id="gameContent">
-        </div>
+    <i>Game Instance: {{game.name}}</i>
 
-        <i>Game Instance: {{game.name}}</i>
+</div>

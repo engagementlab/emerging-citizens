@@ -56,6 +56,7 @@
 		// });
 
 		$(document).on('click', '.input-box :submit', function() {
+			
 			var event = $(this).data().event;
 			var pkg = $(this).data().package;
 
@@ -68,15 +69,12 @@
 				pkg = $('#' + pkg).val()
 			
 			socket.emit(event, emitData(pkg));
+
+			$('#submission').hide();
+			$('#submitted').show();
+
 		});
 
-		function tweet() {
-
-			$('#btn_submit').click(function(e) {
-			  socket.emit('hashtagSubmitted', emitData($('#tweet_input').val()));
-			});
-
-		}
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator'}}

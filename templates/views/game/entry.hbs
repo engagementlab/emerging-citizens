@@ -1,11 +1,21 @@
-<p>Ready to play? Enter your class code and name below!</p>
-<div class="input-box">
+<div class="game">
 
-	<input id="player_name" type="text" class="form-control" placeholder="Name">
+  <div id="submission">
+	  <p>Ready to play? Enter your class code and name below!</p>
+		<div class="input-box">
 
-	{{!-- <input type="text" class="form-control" placeholder="Class Code" > --}}
-	<input id="btn_submit" data-event="login:submit" data-package='{"username": "player_name"}' class="btn btn-default" type="submit" name="submit" value="Submit">
+			<input id="player_name" type="text" class="form-control" placeholder="Name">
 
-	<i>Game Instance: {{game.name}}</i>
+			{{!-- <input type="text" class="form-control" placeholder="Class Code" > --}}
+			<input id="btn_submit" data-event="login:submit" data-package='{"username": "player_name"}' class="btn btn-default" type="submit" name="submit" value="Submit">
 
+			<i>Game Instance: {{game.name}}</i>
+
+		</div>
+	</div>
+
+  <div id="submitted" style="display:none">
+    <h4>Waiting for other players...!</h4>
+  </div>
+  
 </div>
