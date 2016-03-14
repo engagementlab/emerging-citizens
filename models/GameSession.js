@@ -24,6 +24,7 @@ var gameSessionSchema = new mongoose.Schema({
 
   name: { type: String, required: true },
   accessCode: { type: String, required: true },
+  timeLimit: { type: Number, required: true },
   playerCap: { type: Number, required: true },
   gameType: { type: String, required: true }
 

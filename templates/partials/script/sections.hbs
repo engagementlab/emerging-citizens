@@ -42,6 +42,12 @@
 	    $('#error-box').text('game not found!');
 	    $('#error-box').show();
  	  });
+    socket.on('game:countdown', function(seconds) {
+    	var minutes = Math.floor(seconds / 60);
+    	var seconds = seconds - minutes * 60;
+
+	    $('#countdownTimer').html(minutes + ':' + seconds);
+ 	  });
 
     socket.on('hashtags:received', function(msg) {
 	  	console.log(msg);
@@ -104,15 +110,22 @@
 
     socket.on('players:update', function(players) {
 	  	currentPlayers = players;
-	    $('#gameContent').html(_.values(players).join('joined. <br />'));
+	    $('#playersContent').html(_.values(players).join(' joined. <br />'));
  	  });
 
     socket.on('game:start', function(html) {
 	    $('#gameContent').html(html);
  	  });
 
-    socket.on('hashtags:received', function(msg) {
-	  	var html = _.map(msg, function(hashtag, user){ return currentPlayers[user] + ': ' + hashtag; });
+    socket.on('game:countdown', function(seconds) {
+    	var minutes = Math.floor(seconds / 60);
+    	var seconds = seconds - minutes * 60;
+
+	    $('#countdownTimer').html(minutes + ':' + seconds);
+ 	  });
+
+    socket.on('hashtags:received', function(html) {
+	  	// var html = _.map(msg, function(hashtag, user){ return currentPlayers[user] + ': ' + hashtag; });
 	    $('#gameContent').html(html);
  	  });
 
@@ -121,9 +134,9 @@
 	    // $('#team').html(msg.join('<br />'));
  	  });
 
-    socket.on('hashtags:received', function(msg) {
-	  	console.log(msg);
-	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
+    socket.on('hashtags:received', function(html) {
+	  	console.log(html);
+	    $('#gameContent').html(html);
  	  });
 	
 		{{/ifeq}}
