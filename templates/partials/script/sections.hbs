@@ -49,8 +49,8 @@
 	    $('#countdownTimer').html(minutes + ':' + seconds);
  	  });
 
-    socket.on('hashtags:received', function(msg) {
-	  	console.log(msg);
+    socket.on('hashtags:received', function(html) {
+	  	 $('#gameContent').html(html);
 	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
  	  });
 
@@ -80,6 +80,17 @@
 			$('#submitted').show();
 
 		});
+
+		$(document).bind('click', '.hashtag-button', function(){
+			var event = $(this).data().event;
+			var pkg = $(this).data().package;
+
+			$('.hashtag-button').hide();
+			$('.hashtag-button').show();
+
+		});
+
+
 
 		{{/ifeq}}
 

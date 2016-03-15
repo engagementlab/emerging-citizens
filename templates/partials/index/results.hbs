@@ -1,24 +1,7 @@
-<div>{{this}}</div>
+<h4>Pick which you think is the real hashtag:</h4>
+    {{#each this}}  
+    <button class="btn btn-default hashtag-button" id="{{this}}" type="submit"> {{this}} </button>
+    {{/each}}
 
-<div class="game">
- <p>Here is the real tweet:</p>
-  {{!-- <img src="http://i2.cdn.turner.com/cnnnext/dam/assets/140606144927-cia-tweet-story-top.jpg" style="width:200px;height:200px;"> --}}
-  <div class="playerResponses">
-    <div class="row">
-      <div class="hashtagResponse col-sm-4"><p>#hashtag</p><div class="hashtagVotes">* * *</div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag2</p><div class="hashtagVotes">*</div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag3</p><div class="hashtagVotes">* *</div></div>
-    </div>
-    <div class="row">
-      <div class="hashtagResponse col-sm-4"><p>#hashtag4</p><div class="hashtagVotes">* * * *</div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag5</p><div class="hashtagVotes">* * *</div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag6</p><div class="hashtagVotes"></div></div>
-    </div>
-    <div class="row">
-      <div class="hashtagResponse col-sm-4"><p>#hashtag7</p><div class="hashtagVotes"></div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag8</p><div class="hashtagVotes">* *</div></div>
-      <div class="hashtagResponse col-sm-4"><p>#hashtag9</p><div class="hashtagVotes">*</div></div>
-    </div>
-  </div>
-  <h3>Cast your vote for the real hashtag!!</h3>
-</div>
+
+
