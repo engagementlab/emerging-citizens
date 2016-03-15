@@ -9,6 +9,7 @@
   "dependencies": {
     "app-root-path": "^1.0.0",
     "body-parser": "^1.15.0",
+    "express": "4.13.4",
     "handlebars": "^4.0.5",
     "keystone": "0.3.15",
     "mongoose": "^4.4.5",
