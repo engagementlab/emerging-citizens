@@ -14,10 +14,10 @@
  */
 var keystone = require('keystone'),
 	_ = require('underscore'),
-  appRoot = require('app-root-path');
+  appRoot = require('app-root-path'),
+  GameSession = keystone.list('GameSession');
 
-var GameSession = require(appRoot + '/models/GameSession'),
-    GameManager = require(appRoot + '/lib/GameManager');
+var GameManager = require(appRoot + '/lib/GameManager');
 
 exports = module.exports = function(req, res) {
 
@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 
   view.on('init', function(next) {
 
-    GameSession.findOne({accessCode: req.params.accesscode}, function (err, game) {
+    GameSession.model.findOne({accessCode: req.params.accesscode}, function (err, game) {
 
     		// TODO: Dev only?
     		if(GET_SESSION(game.accessCode) === undefined)

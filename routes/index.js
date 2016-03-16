@@ -14,6 +14,7 @@ keystone.pre('routes', middleware.initLocals);
 
 // Import Route Controllers
 var routes = {
+    api: importRoutes('./api'),
     views: importRoutes('./views')
 };
 
@@ -26,7 +27,7 @@ exports = module.exports = function(app) {
     app.get('/moderator', routes.views.moderator.index);
     app.get('/moderator/monitor/:accesscode', routes.views.moderator.monitor);
     
-    app.post('/api/create', routes.views.api.create);
+    app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     // app.post('/login', routes.views.user.login);
 
   	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);

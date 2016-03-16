@@ -2,36 +2,40 @@
  * Emerging Citizens
  * 
  * GameSession Model
- * @module tweet
- * @class tweet
+ * @module models
+ * @class GameSession
  * @author Johnny Richardson
  * 
  * ==========
  */
+"use strict";
+
+var keystone = require('keystone');
 
 /**
  * GameSession Model
  * ==========
  */
-"use strict";
+var GameSession = new keystone.List('GameSession', {
+		editable: false,
+    track: true
+});
+/**
+ * Model Fields
+ * @main GameSession
+ */
+GameSession.add({
 
-// grab the things we need
-var mongoose = require('keystone').get('mongoose');
-var _ = require('underscore');
-
-// create a schema
-var gameSessionSchema = new mongoose.Schema({
-
-  name: { type: String, required: true },
-  accessCode: { type: String, required: true },
-  timeLimit: { type: Number, required: true },
-  playerCap: { type: Number, required: true },
-  gameType: { type: String, required: true }
+  name: { type: String, required: true, initial: true },
+  accessCode: { type: String, required: true, initial: true },
+  timeLimit: { type: Number, required: true, initial: true },
+  playerCap: { type: Number, required: true, initial: true },
+  gameType: { type: String, required: true, initial: true }
 
 });
 
 /**
  * Registration
  */
-var GameSession = mongoose.model('GameSession', gameSessionSchema);
-module.exports = GameSession;
+GameSession.register();
+exports = module.exports = GameSession;

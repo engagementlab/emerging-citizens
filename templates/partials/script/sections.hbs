@@ -81,16 +81,11 @@
 
 		});
 
-		$(document).bind('click', '.hashtag-button', function(){
-			var event = $(this).data().event;
-			var pkg = $(this).data().package;
-
-			$('.hashtag-button').hide();
-			$('.hashtag-button').show();
+		$(document).bind('click', '.hashtag-button', function(event){
+			
+			socket.emit('hashtag:vote', emitData(event.target.id));
 
 		});
-
-
 
 		{{/ifeq}}
 
@@ -98,6 +93,7 @@
 
 		$('#btn_submit').click(function(e) {
 			var data = $(":input").serializeArray();
+			console.log(data);
 		  $.post( 
 		  	"/api/create/",
 				data,
@@ -148,6 +144,13 @@
     socket.on('hashtags:received', function(html) {
 	  	console.log(html);
 	    $('#gameContent').html(html);
+ 	  });
+
+    socket.on('hashtags:voted', function(html) {
+	  	console.log(html);
+	  	 
+	  	 // $('#gameContent').html(html);
+	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
  	  });
 	
 		{{/ifeq}}

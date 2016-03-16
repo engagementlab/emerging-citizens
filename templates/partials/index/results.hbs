@@ -1,6 +1,7 @@
 <h4>Pick which you think is the real hashtag:</h4>
+{{jsonPrint this}}
     {{#each this}}  
-    <button class="btn btn-default hashtag-button" id="{{this}}" type="submit"> {{this}} </button>
+    <button class="btn btn-default hashtag-button" id="{{@key}}" type="submit"> {{this}} </button>
     {{/each}}
 
 

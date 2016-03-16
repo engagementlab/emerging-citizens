@@ -24,10 +24,21 @@ var Hashtag = function (nsp, socket) {
 
             GET_SESSION(package.gameId).
             HashtagSubmitted(
-                                                    currentSocket.id,
-                                                    package.msgData,
-                                                    currentSpace
-                                                );
+                                currentSocket.id,
+                                package.msgData,
+                                currentSpace
+                            );
+
+        },
+
+        'hashtag:vote': function(package) {
+
+            GET_SESSION(package.gameId).
+            HashtagVote(
+                            currentSocket.id,
+                            package.msgData,
+                            currentSpace
+                        );
 
         }
     
