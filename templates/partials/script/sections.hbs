@@ -68,11 +68,11 @@
 
 			if($.isPlainObject(pkg)) {
 				$.each(Object.keys(pkg), function( key, value ) {
-				  pkg[value] = $('#' + pkg[value].toString()).val();
+				  pkg[value] = $(pkg[value].toString()).val();
 				});
 			}
 			else
-				pkg = $('#' + pkg).val()
+				pkg = $(pkg).val()
 			
 			socket.emit(event, emitData(pkg));
 
@@ -81,11 +81,11 @@
 
 		});
 
-		$(document).bind('click', '.hashtag-button', function(event){
+		/*$(document).bind('click', '.hashtag-button', function(event){
 			
 			socket.emit('hashtag:vote', emitData(event.target.id));
 
-		});
+		});*/
 
 		{{/ifeq}}
 
@@ -141,15 +141,15 @@
 	    // $('#team').html(msg.join('<br />'));
  	  });
 
-    socket.on('hashtags:received', function(html) {
-	  	console.log(html);
-	    $('#gameContent').html(html);
- 	  });
+    // socket.on('hashtags:received', function(html) {
+	  	// console.log(html);
+	   //  $('#gameContent').html(html);
+ 	  // });
 
-    socket.on('hashtags:voted', function(html) {
+    socket.on('hashtags:reveal', function(html) {
 	  	console.log(html);
 	  	 
-	  	 // $('#gameContent').html(html);
+	  	 $('#gameContent').html(html);
 	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
  	  });
 	

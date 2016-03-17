@@ -16,7 +16,7 @@ var keystone = require('keystone');
 var _ = require('underscore');
 var Tweet = keystone.list('Tweet');
 var _twitter = keystone.get('twitter');
-var GameSession = require(require('app-root-path') + '/models/GameSession');
+var GameSession = keystone.list('GameSession');
 
 exports = module.exports = function(req, res) {
 
@@ -29,33 +29,13 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        GameSession.findOne({accessCode: req.params.accesscode}, function (err, game) {
+        GameSession.model.findOne({accessCode: req.params.accesscode}, function (err, game) {
 
             locals.game = game;
 
             next(err);
 
         });
-
-/*    	var queryTweet = Tweet.model.findOne({}, {}, {
-            sort: {
-                'createdAt': -1
-            }
-        });
-
-        queryTweet.exec(function(err, tweet) {
-
-        	_twitter.get('statuses/lookup', {id: '695343359607468034'}, function(err, tweets, response) {
-                
-	          if (err) throw error;
-
-	        	locals.tweet = tweets[0].text.substring(0, tweets[0].text.indexOf('#'));
-	          
-	          next(err);
-
-          });
-
-        });*/
 
 	  });
 

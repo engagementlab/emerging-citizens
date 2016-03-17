@@ -1,10 +1,11 @@
 <div class="game">
 	<div id="submission">
 	  <h4>Guess the missing hashtag!</h4>
+	  {{this}}
 	  <div class="row input-box">
 			<input id="tweet_input" name="element_1" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" autofocus="autofocus">
 
-			<input id="btn_submit" data-event="hashtags:submit" data-package='tweet_input' class="button_text" type="submit" name="submit" value="Submit">
+			<input id="btn_submit" data-event="hashtags:submit" data-package='#tweet_input' class="button_text" type="submit" name="submit" value="Submit">
 			<span class="hash">#</span>
 		</div>
 	</div>
