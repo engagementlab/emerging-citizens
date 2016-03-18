@@ -16,144 +16,82 @@
 	$(document).ready(function() {
 			
     socket = io();
+
+		var eventIds = [
+
+			'connect',
+			'players:update',
+			'game:start',
+			'game:end',
+			'game:notfound',
+			'game:countdown',
+			'hashtags:received',
+			'hashtags:reveal'
+		
+		];
 		
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
-		var gameCode = '{{game.accessCode}}';
+    
+		  var gameCode = '{{game.accessCode}}';
+	
+			// Load events for players
+			{{> script/player_events}}
+			$(document).on('click', '.input-box :submit', function() {
+				
+				var event = $(this).data().event;
+				var pkg = $(this).data().package;
 
-   	socket.on('connect', function() {
-		   // Connected, let's sign-up for to receive messages for this room
-		   socket.emit('room', emitData('player'));
-		});
+				if($.isPlainObject(pkg)) {
+					$.each(Object.keys(pkg), function( key, value ) {
+					  pkg[value] = $(pkg[value].toString()).val();
+					});
+				}
+				else
+					pkg = $(pkg).val()
+				
+				socket.emit(event, emitData(pkg));
 
-    socket.on('players:update', function(msg) {
-    	$('.login-box').hide();
-	    $('#team').html(_.pluck(msg, 'username').join('<br />'));
- 	  });
+				$('#submission').hide();
+				$('#submitted').show();
 
-    socket.on('game:start', function(html) {
-	    $('#gameContent').html(html);
- 	  });
-    socket.on('game:end', function(html) {
-	    console.log('game was ended');
- 	  });
-    socket.on('game:notfound', function(html) {
-	    console.log('game not found!');
-	    $('#error-box').text('game not found!');
-	    $('#error-box').show();
- 	  });
-    socket.on('game:countdown', function(seconds) {
-    	var minutes = Math.floor(seconds / 60);
-    	var seconds = seconds - minutes * 60;
-
-	    $('#countdownTimer').html(minutes + ':' + seconds);
- 	  });
-
-    socket.on('hashtags:received', function(html) {
-	  	 $('#gameContent').html(html);
-	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
- 	  });
-
-		// $('#btn_submit').click(function(e) {
-		//   socket.emit('login:submit', emitData({ 
-		// 																			  username: $('#player_name').val()
-		// 																			}
-		// 																		));
-		// });
-
-		$(document).on('click', '.input-box :submit', function() {
-			
-			var event = $(this).data().event;
-			var pkg = $(this).data().package;
-
-			if($.isPlainObject(pkg)) {
-				$.each(Object.keys(pkg), function( key, value ) {
-				  pkg[value] = $(pkg[value].toString()).val();
-				});
-			}
-			else
-				pkg = $(pkg).val()
-			
-			socket.emit(event, emitData(pkg));
-
-			$('#submission').hide();
-			$('#submitted').show();
-
-		});
-
-		/*$(document).bind('click', '.hashtag-button', function(event){
-			
-			socket.emit('hashtag:vote', emitData(event.target.id));
-
-		});*/
+			});
 
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator'}}
 
-		$('#btn_submit').click(function(e) {
-			var data = $(":input").serializeArray();
-			console.log(data);
-		  $.post( 
-		  	"/api/create/",
-				data,
-				function( data ) {
-				  window.location = data;
-				}
-			);
-		});
+			$('#btn_submit').click(function(e) {
+				var data = $(":input").serializeArray();
+				console.log(data);
+			  $.post( 
+			  	"/api/create/",
+					data,
+					function( data ) {
+					  window.location = data;
+					}
+				);
+			});
 
 		{{/ifeq}}
 
 		{{#ifeq section 'moderator/monitor'}}
 		
-		var gameCode = '{{game.accessCode}}-moderator';
-		var currentPlayers = [];
+			var gameCode = '{{game.accessCode}}-moderator';
 
-   	socket.on('connect', function() {
-		   // Connected, let's sign-up for to receive messages for this room
-		   socket.emit('room', emitData('moderator'));
-		});
-
-    socket.on('players:update', function(players) {
-	  	currentPlayers = players;
-	    $('#playersContent').html(_.values(players).join(' joined. <br />'));
- 	  });
-
-    socket.on('game:start', function(html) {
-	    $('#gameContent').html(html);
- 	  });
-
-    socket.on('game:countdown', function(seconds) {
-    	var minutes = Math.floor(seconds / 60);
-    	var seconds = seconds - minutes * 60;
-
-	    $('#countdownTimer').html(minutes + ':' + seconds);
- 	  });
-
-    socket.on('hashtags:received', function(html) {
-	  	// var html = _.map(msg, function(hashtag, user){ return currentPlayers[user] + ': ' + hashtag; });
-	    $('#gameContent').html(html);
- 	  });
-
-    socket.on('player:login', function(msg) {
-	  	console.log(msg)
-	    // $('#team').html(msg.join('<br />'));
- 	  });
-
-    // socket.on('hashtags:received', function(html) {
-	  	// console.log(html);
-	   //  $('#gameContent').html(html);
- 	  // });
-
-    socket.on('hashtags:reveal', function(html) {
-	  	console.log(html);
-	  	 
-	  	 $('#gameContent').html(html);
-	  	// $('#team').append('<br />User ' + msg.user + ' sent in hashtag #' + msg.hashtag);
- 	  });
-	
+			// Load events for moderators
+			{{> script/moderator_events}}
+		
 		{{/ifeq}}
+
+		$.each(eventIds, function(index, id) {
+		  
+		  socket.on(id, function(eventData) {
+		  	console.log(eventData)
+			 	socketEvents(id, eventData); 
+			});
+
+		});
 		
 		function emitData(data) {
 			return { gameId: gameCode, msgData: data };

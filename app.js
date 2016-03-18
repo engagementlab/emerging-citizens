@@ -26,7 +26,7 @@ appStart = function(app) {
 	_GAME_SESSIONS = {};
 	CREATE_SESSION = function(id, session) {
 
-		console.log('CREATE_SESSION: ', id)
+		console.log('CREATE_SESSION: ', id);
 
 		_GAME_SESSIONS[id] = session;
 	};

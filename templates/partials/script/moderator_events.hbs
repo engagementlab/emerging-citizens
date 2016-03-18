@@ -1,0 +1,68 @@
+{{!< default}}
+{{!-- 
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for MODERATOR socket.io events
+ * ==========
+ */
+--}}			
+
+var socketEvents = function(eventId, eventData) {
+		
+		var currentPlayers = [];
+
+    switch (eventId) {
+
+        case 'connect':
+
+				   // Connected, let's sign-up for to receive messages for this room
+				   socket.emit('room', emitData('moderator'));
+
+            break;
+
+        case 'players:update':
+
+				  	currentPlayers = eventData;
+				    $('#playersContent').html(_.values(eventData).join(' joined. <br />'));
+
+            break;
+
+        case 'game:start':
+
+            ('#gameContent').html(eventData);
+
+            break;
+
+        case 'game:end':
+
+            console.log('game was ended');
+
+            break;
+
+        case 'game:countdown':
+
+            var minutes = Math.floor(eventData / 60);
+            var seconds = eventData - minutes * 60;
+
+            $('#countdownTimer').html(minutes + ':' + seconds);
+
+            break;
+
+        case 'hashtags:received':
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+        case 'hashtags:reveal':
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+    }
+    
+};

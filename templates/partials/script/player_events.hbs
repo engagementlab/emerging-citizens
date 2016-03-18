@@ -1,0 +1,69 @@
+{{!< default}}
+{{!-- 
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for PLAYERS socket.io events
+ * ==========
+ */
+--}}			
+
+var socketEvents = function(eventId, eventData) {
+
+    switch (eventId) {
+
+        case 'connect':
+
+            // Connected, let's sign-up for to receive messages for this room
+            socket.emit('room', emitData('player'));
+
+            break;
+
+        case 'players:update':
+
+            $('.login-box').hide();
+            $('#team').html(_.pluck(eventData, 'username').join('<br />'));
+
+            break;
+
+        case 'game:start':
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+        case 'game:end':
+
+            console.log('game was ended');
+
+            break;
+
+        case 'game:notfound':
+
+            console.log('game was ended');
+
+            $('#error-box').text('game not found!');
+            $('#error-box').show();
+
+            break;
+
+        case 'game:countdown':
+
+            var minutes = Math.floor(eventData / 60);
+            var seconds = eventData - minutes * 60;
+
+            $('#countdownTimer').html(minutes + ':' + seconds);
+
+            break;
+
+        case 'hashtags:received':
+
+            $('#gameContent').html(eventData);
+
+            break;
+
+    }
+
+};

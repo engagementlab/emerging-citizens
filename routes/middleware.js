@@ -20,13 +20,6 @@ var _ = require('underscore');
 exports.initLocals = function(req, res, next) {
 
     var locals = res.locals;
-
-    /*locals.navLinks = [{
-        label: 'About',
-        key: 'about',
-        href: '/about'
-    }];*/
-
     locals.user = req.user;
 
     next();
@@ -74,14 +67,3 @@ exports.initErrorHandlers = function(req, res, next) {
     next();
     
 };
-
-exports.socket = function(req, res, next) {
-
-    // var io = keystone.parent.app.io;
-
-    // console.log(keystone.app.parent.io)
-
-    next();
-
-    
-}
