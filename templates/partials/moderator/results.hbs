@@ -1,10 +1,23 @@
 <div class="game">
  <p>Here is the real tweet:</p>
  {{tweet}}
+
   <div class="playerResponses">
     <div class="row">
+
 	  	{{#each this.hashtags}}
-	      <div class="hashtagResponse col-sm-4"{{!--  style="opacity:0" --}}><p>{{this.hashtag}} (by <em>{{@key}}</em>)</p>
+	      
+	      <div class="hashtagResponse col-sm-10" style="display:none">
+		      <p 
+		      	{{#if this.real}}
+		      		style="color:green"
+		      	{{else}}
+		      		style="color:red"
+		      	{{/if}} 
+		      >
+			      {{this.hashtag}} (by <em>{{@key}}</em>)
+		      </p>
+
 		  	{{#if this.votes}}
 		      <div class="hashtagVotes">Votes from: 
 				  	{{#each this.votes}}
@@ -15,7 +28,9 @@
 						<span class="vote">No votes!</span>
 				{{/if}}
 	      </div>
+
 	    {{/each}}
+
     </div>
   </div>
   {{!-- <h3>Cast your vote for the real hashtag!!</h3> --}}

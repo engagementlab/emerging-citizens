@@ -11,24 +11,29 @@
 --}}
 
 <script type="text/javascript">
+
+	// For socket debugging
 	localStorage.debug = '*';
+
+  // All possible socket event IDs
+	var eventIds = [
+
+		'connect',
+		'players:update',
+		'game:start',
+		'game:end',
+		'game:notfound',
+		'game:countdown',
+		'hashtag:submitted',
+		'hashtags:received',
+		'hashtags:reveal'
+	
+	];
 
 	$(document).ready(function() {
 			
+		// Open socket connection
     socket = io();
-
-		var eventIds = [
-
-			'connect',
-			'players:update',
-			'game:start',
-			'game:end',
-			'game:notfound',
-			'game:countdown',
-			'hashtags:received',
-			'hashtags:reveal'
-		
-		];
 		
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
@@ -37,6 +42,14 @@
 	
 			// Load events for players
 			{{> script/player_events}}
+
+			/**
+			 * Listen for forms that dispatch socket events.
+			 *
+			 * ### Examples:
+			 *
+			 * @class sections
+			 */
 			$(document).on('click', '.input-box :submit', function() {
 				
 				var event = $(this).data().event;
@@ -87,7 +100,10 @@
 		$.each(eventIds, function(index, id) {
 		  
 		  socket.on(id, function(eventData) {
-		  	console.log(eventData)
+
+				console.log("EVENT ID: ", id);
+				console.log("EVENT DATA: (" + eventData + ")");
+
 			 	socketEvents(id, eventData); 
 			});
 

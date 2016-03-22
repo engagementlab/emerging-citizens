@@ -14,6 +14,9 @@ var socketEvents = function(eventId, eventData) {
 		
 		var currentPlayers = [];
 
+		console.log("EVENT ID: ", eventId);
+		console.log("EVENT DATA: (" + eventData + ")");
+
     switch (eventId) {
 
         case 'connect':
@@ -31,8 +34,8 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-
-            ('#gameContent').html(eventData);
+            
+            $('#gameContent').html(eventData);
 
             break;
 
@@ -51,6 +54,7 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'hashtag:submitted':
         case 'hashtags:received':
 
             $('#gameContent').html(eventData);
@@ -60,6 +64,31 @@ var socketEvents = function(eventId, eventData) {
         case 'hashtags:reveal':
 
             $('#gameContent').html(eventData);
+
+            //instantiate a TimelineLite    
+            var tl = new TimelineLite();
+
+            var elements = $('.hashtagResponse');
+
+            _.each(elements, function(el, index) {
+                setTimeout(function() {
+
+                    $(el).show().css('opacity', '0');
+                    $(el).fadeIn(500, function() {
+
+                        setTimeout(function() {
+
+                            $(el).fadeOut(500, function() { $(el).hide(); });
+
+                        }, 6000);
+
+                    });
+
+
+
+                
+                }, 8000 * index);
+            });
 
             break;
 
