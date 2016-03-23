@@ -47,10 +47,13 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:countdown':
 
-            var minutes = Math.floor(eventData / 60);
-            var seconds = eventData - minutes * 60;
+            /*var minutes = Math.floor(eventData / 60);
+            var seconds = eventData - minutes * 60;*/
 
-            $('#countdownTimer').html(minutes + ':' + seconds);
+            var clock = $('#countdownTimer').FlipClock({
+                countdown: true
+            });
+            clock.setTime(eventData);
 
             break;
 
@@ -71,6 +74,7 @@ var socketEvents = function(eventId, eventData) {
             var elements = $('.hashtagResponse');
 
             _.each(elements, function(el, index) {
+                console.log(elements.length, index)
                 setTimeout(function() {
 
                     $(el).show().css('opacity', '0');
@@ -83,9 +87,6 @@ var socketEvents = function(eventId, eventData) {
                         }, 6000);
 
                     });
-
-
-
                 
                 }, 8000 * index);
             });

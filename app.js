@@ -3,12 +3,10 @@ serverStart = function() {
 
 	var express = require('express');
 	var app = express();
-	// var server = express.http();
-
-	// server.io();
-
+	
+	 // support json encoded bodies
 	var bodyParser = require('body-parser');
-	app.use(bodyParser.json()); // support json encoded bodies
+	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 
 	return app;
@@ -42,13 +40,23 @@ appStart = function(app) {
 		return sesh;
 	};
 
-	// keystone.set('sockets', io)
-
 };
 
-module.exports = function() { return { 
-		keystone: require('keystone'),
+module.exports = function() {
+
+	require('app-module-path').addPath(__dirname + '/node_modules'); 
+	require('app-module-path').addPath(__dirname + '/../EL-Website/node_modules'); 
+	
+	var appRootPath = require('app-root-path').path
+	var keystoneInst = require('keystone');
+	
+	keystoneInst.set('module root', appRootPath);
+
+	return { 
+		keystone: keystoneInst,
 		server: serverStart,
 		start: appStart	
 
-}}();
+	}
+
+}();
