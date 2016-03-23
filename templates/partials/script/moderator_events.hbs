@@ -12,10 +12,7 @@
 
 var socketEvents = function(eventId, eventData) {
 		
-		var currentPlayers = [];
-
-		console.log("EVENT ID: ", eventId);
-		console.log("EVENT DATA: (" + eventData + ")");
+	var currentPlayers = [];
 
     switch (eventId) {
 
@@ -50,10 +47,12 @@ var socketEvents = function(eventId, eventData) {
             /*var minutes = Math.floor(eventData / 60);
             var seconds = eventData - minutes * 60;*/
 
-            var clock = $('#countdownTimer').FlipClock({
+            console.log('countdown' , eventData)
+
+            var clock = $('#countdownTimer').FlipClock(eventData, {
+                clockFace: 'MinuteCounter',
                 countdown: true
             });
-            clock.setTime(eventData);
 
             break;
 
@@ -71,6 +70,7 @@ var socketEvents = function(eventId, eventData) {
             //instantiate a TimelineLite    
             var tl = new TimelineLite();
 
+            /* 
             var elements = $('.hashtagResponse');
 
             _.each(elements, function(el, index) {
@@ -89,6 +89,16 @@ var socketEvents = function(eventId, eventData) {
                     });
                 
                 }, 8000 * index);
+            });*/
+            
+            $('#countdownTimer').hide();
+
+            var slider = $('.my-slider').unslider({arrows: false, autoplay: true, delay: 7000, speed: 1000, nav: false});
+            var slideCount = $('.unslider-carousel li').length;
+
+            slider.on('unslider.change', function(event, index, slide) {
+                if(index == slideCount-1)
+                    slider.stop();
             });
 
             break;

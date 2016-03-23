@@ -12,13 +12,8 @@
  */
 
 
-var redis = require("redis").createClient(),
-    _ = require('underscore'),
+var _ = require('underscore'),
     users = [];
-
-redis.on("error", function (err) {
-  console.log("Error " + err);
-});
 
 var PlayerLogin = function (nsp, socket, emitter) {
 

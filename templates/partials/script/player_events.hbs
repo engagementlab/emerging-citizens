@@ -49,15 +49,13 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:countdown':
+        case 'game:countdown_ending':
 
-            var minutes = Math.floor(eventData / 60);
-            var seconds = eventData - minutes * 60;
-
-            $('#countdownTimer').html(minutes + ':' + seconds);
+            $('#countdownTimer').html(eventData);
 
             break;
 
+        case 'game:countdown_end':
         case 'hashtags:received':
 
             $('#gameContent').html(eventData);

@@ -1,37 +1,47 @@
 <div class="game">
- <p>Here is the real tweet:</p>
- {{tweet}}
+    <p>Here is the real tweet:</p>
+    {{tweet}}
 
-  <div class="playerResponses">
-    <div class="row">
+    <div class="playerResponses">
+        <div class="row">
 
-	  	{{#each this.hashtags}}
-	      
-	      <div class="hashtagResponse col-sm-10" style="opacity:0">
-		      <p 
-		      	{{#if this.real}}
-		      		style="color:green"
-		      	{{else}}
-		      		style="color:red"
-		      	{{/if}} 
-		      >
-			      {{this.hashtag}} (by <em>{{@key}}</em>)
-		      </p>
 
-		  	{{#if this.votes}}
-		      <div class="hashtagVotes">Votes from: 
-				  	{{#each this.votes}}
-							<span class="vote">{{this}}<br /></span>
-						{{/each}}
-					</div>
-				{{else}}
-						<span class="vote">No votes!</span>
-				{{/if}}
-	      </div>
+            <div class="hashtagResponse col-sm-10">
+                <div class="my-slider">
+                    <ul>
 
-	    {{/each}}
+                        {{#each this.hashtags}}
+                        <li>
+                            <p {{#if real}} style="color:green" {{else}} style="color:red" {{/if}}>
+                                {{this.hashtag}} (by <em>{{@key}}</em>)
+                            </p>
 
+                            {{#if this.votes}}
+                            <div class="hashtagVotes">Votes from: {{#each this.votes}}
+                                <span class="vote">{{this}}<br /></span> {{/each}}
+                            </div>
+                            {{else}}
+                            <span class="vote">No votes!</span> {{/if}}
+
+                            {{#unless real}}
+
+                            	**** {{score}} points for {{username}} ****
+
+                            {{/unless}}
+
+                        </li>
+                        {{/each}}
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-  </div>
-  {{!-- <h3>Cast your vote for the real hashtag!!</h3> --}}
+
+
+		<input id="btn_submit" data-event="game:next_round" class="button_text" type="submit" name="submit" value="next round">
+    {{!--
+    <h3>Cast your vote for the real hashtag!!</h3> --}}
 </div>

@@ -20,8 +20,6 @@ var Hashtag = function (nsp, socket) {
 
         'hashtags:submit': function(package) {
 
-            console.log("HashtagSubmitted", package.msgData)
-
             GET_SESSION(package.gameId).
             HashtagSubmitted(
                                 currentSocket.id,
@@ -39,6 +37,13 @@ var Hashtag = function (nsp, socket) {
                             package.msgData,
                             currentSpace
                         );
+
+        },
+
+        'game:next_round': function(package) {
+
+            GET_SESSION(package.gameId).
+            AdvanceRound(currentSpace);
 
         }
     

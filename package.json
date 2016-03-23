@@ -1,6 +1,6 @@
 {
   "name": "emerging-citizens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/engagementgamelab/emerging-citizens.git"
@@ -14,10 +14,11 @@
     "express": "4.13.4",
     "keystone": "0.3.15",
     "mongoose": "^4.4.5",
+    "node-sass-middleware": "^0.9.7",
     "randomize-obj": "^1.0.0",
     "randomstring": "^1.1.4",
     "shuffle-array": "^0.1.2",
     "socket.io": "^1.4.5",
-    "socket.io-client": "^1.4.5",
+    "socket.io-client": "^1.4.5"
   }
 }
