@@ -31,7 +31,9 @@ appStart = function(app) {
 
 	GET_SESSION = function(id) {
 
-		var sesh = _GAME_SESSIONS[id];
+		// ID can be from mod but stored w/o that affix
+		var sessionId = id.replace('-moderator', '');
+		var sesh = _GAME_SESSIONS[sessionId];
 
 		if(sesh === undefined){
 			console.warn("Game with id '" + id + "' not found!");

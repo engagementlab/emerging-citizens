@@ -36,7 +36,38 @@
 			
 		// Open socket connection
     socket = io();
+
+		/**
+		 * Listen for forms that dispatch socket events.
+		 *
+		 * ### Examples:
+		 *
+		 * @class sections
+		 */
+		$(document).on('click', '.input-box :submit', function() {
+			
+			var event = $(this).data().event;
+			var pkg = $(this).data().package;
+
+			if($.isPlainObject(pkg)) {
+				$.each(Object.keys(pkg), function( key, value ) {
+				  pkg[value] = $(pkg[value].toString()).val();
+				});
+			}
+			else
+				pkg = $(pkg).val()
+			
+			socket.emit(event, emitData(pkg));
+
+			$('#submission').hide();
+			$('#submitted').show();
+
+		});
 		
+		function emitData(data) {
+			return { gameId: gameCode, msgData: data };
+		}
+	
 		{{!-- INDEX Template Script --}}
 		{{#ifeq section 'home'}}
     
@@ -44,33 +75,6 @@
 	
 			// Load events for players
 			{{> script/player_events}}
-
-			/**
-			 * Listen for forms that dispatch socket events.
-			 *
-			 * ### Examples:
-			 *
-			 * @class sections
-			 */
-			$(document).on('click', '.input-box :submit', function() {
-				
-				var event = $(this).data().event;
-				var pkg = $(this).data().package;
-
-				if($.isPlainObject(pkg)) {
-					$.each(Object.keys(pkg), function( key, value ) {
-					  pkg[value] = $(pkg[value].toString()).val();
-					});
-				}
-				else
-					pkg = $(pkg).val()
-				
-				socket.emit(event, emitData(pkg));
-
-				$('#submission').hide();
-				$('#submitted').show();
-
-			});
 
 		{{/ifeq}}
 
@@ -110,10 +114,6 @@
 			});
 
 		});
-		
-		function emitData(data) {
-			return { gameId: gameCode, msgData: data };
-		}
 		
 });
 
