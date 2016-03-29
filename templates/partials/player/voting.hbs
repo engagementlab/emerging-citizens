@@ -1,0 +1,24 @@
+<h4>Pick which you think is the real hashtag:</h4>
+
+  <div id="submission">
+
+	  <div class="row input-box">
+			<select id="hashtagsSelect">
+		    {{#each this}}
+				  <option value="{{@key}}">{{this.hashtag}}</option>
+		    {{/each}}
+			</select>
+
+			<input id="btn_submit" data-event="hashtag:vote" data-package='#hashtagsSelect option:selected' class="button_text" type="submit" name="submit" value="Submit">
+
+			<div id="countdownTimer"></div>
+		</div>
+		
+	</div>
+
+  <div id="submitted" style="display:none">
+    <h4>Waiting for other players to vote...!</h4>
+  </div>
+
+
+

@@ -17,20 +17,51 @@
                             </p>
 
                             {{#if this.votes}}
-                            <div class="hashtagVotes">Votes from: {{#each this.votes}}
-                                <span class="vote">{{this}}<br /></span> {{/each}}
-                            </div>
+                                
+                                <div class="hashtagVotes">Votes from: 
+                                    {{#each this.votes}}
+                                        <span class="vote">{{username}}<br /></span> 
+                                    {{/each}}
+                                </div>
+                                
                             {{else}}
-                            <span class="vote">No votes!</span> {{/if}}
+                                
+                                <span class="vote">No votes!</span> 
+                            
+                            {{/if}}
 
                             {{#unless real}}
 
-                            	**** {{score}} points for {{username}} ****
+                                {{#if score}}
+
+                                	**** {{score}} points for {{username}} ****
+
+                                {{/if}}
 
                             {{/unless}}
 
                         </li>
                         {{/each}}
+
+                        <li>
+                            <b>Scores totals:</b>
+                            <p style="color:cyan">
+                                {{#each this.players}}
+                                    <em>{{this.username}}</em>
+                                    {{#if this.score_total}}
+                                    
+                                        - {{this.score_total}}
+                                     
+                                     {{else}}
+                                     
+                                        - 0
+                                    
+                                    {{/if}}
+                                    <br />
+                                {{/each}}
+                            </p>
+
+                        </li>
 
                     </ul>
                 </div>
