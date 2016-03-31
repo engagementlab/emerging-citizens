@@ -12,15 +12,17 @@
  */
 
 var Hashtag = function (nsp, socket) {
-    var currentSpace = nsp;
-    var currentSocket = socket;
+    var currentSpace = nsp,
+        currentSocket = socket, 
+        appRoot = require('app-root-path'),
+        Session = require(appRoot + '/lib/SessionManager');
 
     // Expose handler methods for events
     this.handler = {
 
         'hashtags:submit': function(package) {
 
-            GET_SESSION(package.gameId).
+            Session.Get(package.gameId).
             HashtagSubmitted(
                                 currentSocket.id,
                                 package.msgData,
@@ -31,7 +33,7 @@ var Hashtag = function (nsp, socket) {
 
         'hashtag:vote': function(package) {
 
-            GET_SESSION(package.gameId).
+            Session.Get(package.gameId).
             HashtagVote(
                             currentSocket.id,
                             package.msgData,
@@ -42,7 +44,7 @@ var Hashtag = function (nsp, socket) {
 
         'game:next_round': function(package) {
 
-            GET_SESSION(package.gameId).
+            Session.Get(package.gameId).
             AdvanceRound(currentSpace);
 
         }

@@ -19,17 +19,26 @@ var Types = keystone.Field.Types;
  */
 
 var GameConfig = new keystone.List('GameConfig', {
-		label: 'HTYI Config',
+		label: 'Games Config',
     track: true,
     candelete: false
 });
 
 GameConfig.add({
 
-	name: { type: String, required: true, default: "Global Game Config" },
-	roundNumber: { type: Number, label: "Number of Rounds", required: true, initial: true }
+		name: { type: String, required: true, default: "Global Game Config" }
 
-});
+	},
+
+	"Hashtag You're It", {
+	
+		roundNumber: { type: Number, label: "Number of Rounds", required: true, initial: true },
+		voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
+		voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }
+
+	}
+
+);
 
 /**
  * Registration

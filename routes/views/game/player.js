@@ -2,7 +2,7 @@
  * Emerging Citizens
  * Developed by Engagement Lab, 2015
  * ==============
- * Game entry view controller.
+ * Game player view controller.
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
@@ -26,7 +26,7 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'entry';
+    locals.section = 'player';
 
     view.on('init', function(next) {
 
@@ -44,6 +44,6 @@ exports = module.exports = function(req, res) {
 	  });
 
     // Render the view
-    view.render('game/entry');
+    view.render('game/player');
 
 };
