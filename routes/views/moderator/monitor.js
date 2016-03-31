@@ -17,8 +17,9 @@ var keystone = require('keystone'),
   appRoot = require('app-root-path'),
   GameSession = keystone.list('GameSession');
 
-var GameManager = require(appRoot + '/lib/GameManager');
-
+var GameManager = require(appRoot + '/lib/GameManager'), 
+    Session = require(appRoot + '/lib/SessionManager');
+    
 exports = module.exports = function(req, res) {
 
   var view = new keystone.View(req, res);
@@ -33,8 +34,8 @@ exports = module.exports = function(req, res) {
     GameSession.model.findOne({accessCode: req.params.accesscode}, function (err, game) {
 
     		// TODO: Dev only?
-    		if(GET_SESSION(game.accessCode) === undefined)
-    			CREATE_SESSION(game.accessCode, new GameManager(game));
+    		if(Session.Get(game.accessCode) === undefined)
+    			Session.Create(game.accessCode, new GameManager(game));
 
         locals.game = game;
 

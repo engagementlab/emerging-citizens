@@ -13,7 +13,8 @@
 
 
 var _ = require('underscore'),
-    users = [];
+    appRoot = require('app-root-path'),
+    Session = require(appRoot + '/lib/SessionManager');
 
 var PlayerLogin = function (nsp, socket, emitter) {
 
@@ -37,7 +38,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
       else
         playerGameId = package.gameId;
       
-      if(GET_SESSION(playerGameId) === undefined) {
+      if(Session.Get(playerGameId) === undefined) {
         currentSocket.emit('game:notfound');
         return;
       }
@@ -58,7 +59,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       var user = {id: currentSocket.id, username: package.msgData.username};
 
-      GET_SESSION(package.gameId).PlayerReady(user, currentSpace);
+      Session.Get(package.gameId).PlayerReady(user, currentSpace);
 
       console.log(user.username  + ' logged in.');
 
@@ -66,7 +67,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     disconnect: function(package) {
 
-      var session = GET_SESSION(playerGameId);
+      var session = Session.Get(playerGameId);
 
       if(playerGameId !== undefined && session !== undefined) {
         session.PlayerLost(currentSocket.id, currentSpace);

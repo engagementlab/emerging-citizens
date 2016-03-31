@@ -19,28 +19,7 @@ appStart = function(app) {
 	var keystone = require('keystone');
 	var appServer = keystone.get('appServer');
 	var rootDir = require('app-root-path');
-	var io = require(rootDir + '/sockets/')(appServer)
-
-	_GAME_SESSIONS = {};
-	CREATE_SESSION = function(id, session) {
-
-		console.log('CREATE_SESSION: ', id);
-
-		_GAME_SESSIONS[id] = session;
-	};
-
-	GET_SESSION = function(id) {
-
-		// ID can be from mod but stored w/o that affix
-		var sessionId = id.replace('-moderator', '');
-		var sesh = _GAME_SESSIONS[sessionId];
-
-		if(sesh === undefined){
-			console.warn("Game with id '" + id + "' not found!");
-		}
-
-		return sesh;
-	};
+	var io = require(rootDir + '/sockets/')(appServer);
 
 };
 

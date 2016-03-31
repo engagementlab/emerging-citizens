@@ -18,9 +18,9 @@ var keystone = require('keystone'),
     appRoot = require('app-root-path'),
     _ = require('underscore');
     
-var GameSession = keystone.list('GameSession'),
-    HashtagGame = keystone.list('HashtagGame'),
-    GameManager = require(appRoot + '/lib/GameManager');
+var HashtagGame = keystone.list('HashtagGame'),
+    Game = require(appRoot + '/lib/GameManager'),
+    Session = require(appRoot + '/lib/SessionManager');
 
 /**
  * Create a GameSession
@@ -38,7 +38,7 @@ exports.create = function(req, res) {
         if (err) return res.apiError('error', err);
 
         // Save this session to memory for faster retrieval (deleted when game ends)
-        CREATE_SESSION(data.accessCode, new GameManager(data));
+        Session.Create(data.accessCode, new Game(sessionType));
 
         res.send('/moderator/monitor/' + data.accessCode);
         

@@ -26,7 +26,7 @@ var HashtagGame = new keystone.List('HashtagGame', {
 
 HashtagGame.add({
 
-  hashtagIds: { type: Types.TextArray, required: true, initial: true, default: ["695343359607468034", "714910935178149888", "710484983807397888", "710481070328844290", "710483639801421824"] }
+  contentCategories: { type : keystone.Field.Types.Relationship, ref: 'ContentCategory', many: true }
 
 });
 

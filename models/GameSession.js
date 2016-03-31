@@ -11,6 +11,7 @@
 "use strict";
 
 var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * GameSession Model
@@ -18,6 +19,7 @@ var keystone = require('keystone');
  */
 var GameSession = new keystone.List('GameSession', {
 		editable: false,
+		cancreate: false,
     track: true
 });
 /**

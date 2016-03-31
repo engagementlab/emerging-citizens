@@ -21,13 +21,22 @@ var Types = keystone.Field.Types;
 var Tweet = new keystone.List('Tweet');
 
 Tweet.add({
-	name: { type: String, label: 'ref name', required: true, initial: true, index: true },
-	tweetId: { type: Types.Url, label: 'Tweet ID', required: true, initial: true }
+	name: { type: String, label: 'Reference Name', required: true, initial: true, index: true },
+	tweetText: { type: Types.Markdown, label: 'Tweet Text', required: true, initial: true },
+	hashtag: { type: String, label: 'Hashtag', required: true, initial: true },
+	category: {
+            type: Types.Relationship,
+            ref: 'ContentCategory',
+            required: true,
+            initial: true,
+            label: 'Category',
+            many: true
+        }
 });
 
 /**
  * Registration
  */
 
-Tweet.defaultColumns = 'name';
+Tweet.defaultColumns = 'name, hashtag, category';
 Tweet.register();

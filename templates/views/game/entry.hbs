@@ -1,21 +1,31 @@
 <div class="game">
 
-  <div id="submission">
-	  <p>Ready to play? Enter your class code and name below!</p>
-		<div class="input-box">
+	{{#if game_not_found}}
 
-			<input id="player_name" type="text" class="form-control" placeholder="Name">
+	  <div>
+	    <h4>Game not found!</h4>
+	  </div>
 
-			{{!-- <input type="text" class="form-control" placeholder="Class Code" > --}}
-			<input id="btn_submit" data-event="login:submit" data-package='{"username": "#player_name"}' class="btn btn-default" type="submit" name="submit" value="Submit">
+	{{else}}
 
-			<i>Game Instance: {{game.name}}</i>
+	  <div id="submission">
+		  <p>Ready to play? Enter your name below!</p>
+			<div class="input-box">
 
+				<input id="player_name" type="text" class="form-control" placeholder="Name">
+
+				{{!-- <input type="text" class="form-control" placeholder="Class Code" > --}}
+				<input id="btn_submit" data-event="login:submit" data-package='{"username": "#player_name"}' class="btn btn-default" type="submit" name="submit" value="Submit">
+
+				<i>Game Instance: {{game.name}}</i>
+
+			</div>
 		</div>
-	</div>
 
-  <div id="submitted" style="display:none">
-    <h4>Waiting for other players...!</h4>
-  </div>
+	  <div id="submitted" style="display:none">
+	    <h4>Waiting for other players...!</h4>
+	  </div>
+
+  {{/if}}
   
 </div>

@@ -1,0 +1,133 @@
+{{!< default}}
+{{!-- 
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for individual sections
+ * ==========
+ */
+--}}
+
+<script type="text/javascript">
+
+	// For socket debugging
+	localStorage.debug = '*';
+
+  // All possible socket event IDs
+	var eventIds = [
+
+		'connect',
+		'players:update',
+		'game:start',
+		'game:end',
+		'game:notfound',
+		'game:countdown',
+		'game:countdown_ending',
+		'game:countdown_end',
+		'game:round_over',
+		'hashtag:submitted',
+		'hashtags:received',
+		'hashtags:reveal'
+	
+	];
+
+	$(document).ready(function() {
+			
+		{{#ifnoteq section 'index'}}
+			
+			// Open socket connection
+	    socket = io();
+
+			/**
+			 * Listen for forms that dispatch socket events.
+			 *
+			 * ### Examples:
+			 *
+			 * @class sections
+			 */
+			$(document).on('click', '.input-box :submit', function() {
+				
+				var event = $(this).data().event;
+				var pkg = $(this).data().package;
+
+				if($.isPlainObject(pkg)) {
+					$.each(Object.keys(pkg), function( key, value ) {
+					  pkg[value] = $(pkg[value].toString()).val();
+					});
+				}
+				else
+					pkg = $(pkg).val()
+				
+				socket.emit(event, emitData(pkg));
+
+				$('#submission').hide();
+				$('#submitted').show();
+
+			});
+			
+			function emitData(data) {
+				return { gameId: gameCode, msgData: data };
+			}
+		
+			{{!-- INDEX Template Script --}}
+			{{#ifeq section 'home'}}
+	    
+			  var gameCode = '{{game.accessCode}}';
+		
+				// Load events for players
+				{{> script/player_events}}
+
+			{{/ifeq}}
+
+			{{#ifeq section 'moderator'}}
+
+				$('#btn_submit').click(function(e) {
+					var data = $(":input").serializeArray();
+					
+				  $.post( 
+				  	"/api/create/",
+						data,
+						function( data ) {
+						  window.location = data;
+						}
+					);
+				});
+
+			{{/ifeq}}
+
+			{{#ifeq section 'moderator/monitor'}}
+			
+				var gameCode = '{{game.accessCode}}-moderator';
+
+				// Load events for moderators
+				{{> script/moderator_events}}
+			
+			{{/ifeq}}
+
+			$.each(eventIds, function(index, id) {
+			  
+			  socket.on(id, function(eventData) {
+
+					console.log("EVENT ID: ", id);
+					console.log("EVENT DATA: (" + eventData + ")");
+
+				 	socketEvents(id, eventData); 
+				});
+
+			});
+
+		{{/ifnoteq}}
+
+		{{#ifeq section 'index'}}
+			
+			$('#btn_submit_code').click(function(evt) {
+				window.location = '/game/' + $('#class_code').val();
+			});
+
+		{{/ifeq}}
+		
+});
+
+</script>
