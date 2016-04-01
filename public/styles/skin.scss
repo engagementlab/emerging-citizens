@@ -5,3 +5,64 @@ a:hover {
 	color: white;
 	text-decoration: none;
 }
+
+.twitter-logo {
+
+	float: left;
+  height: 100%;
+  padding-top: 20px;
+
+}
+
+.tweet {
+
+	#tweet-author {
+		display: block;
+    text-align: left;
+	}
+
+}
+
+.hashtag {
+
+	text-align: center;
+	margin: auto;
+	padding: 1%;
+	background-color: lightskyblue;
+	width: 400px;
+	height: 100%;
+	font-style: italic;
+
+}
+
+#hashtag-votes {
+
+	width: 400px;
+	margin: auto;
+
+	div {
+
+		float: left;
+		margin: auto;
+		text-align: center;
+		color: white;
+		font-weight: bold;
+		background-color: fuchsia;
+    padding: 20px;
+    border-radius: 130px;
+
+	}
+
+	.no-votes  {
+
+		margin: auto;
+		text-align: center;
+		color: white;
+		font-weight: bold;
+		background-color: crimson;
+    padding: 20px;
+    border-radius: 130px;
+
+	}
+
+}

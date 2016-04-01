@@ -68,38 +68,27 @@ var socketEvents = function(eventId, eventData) {
             $('#gameContent').html(eventData);
 
             //instantiate a TimelineLite    
-            var tl = new TimelineLite();
+            var t1 = new TimelineLite();
 
-            /* 
-            var elements = $('.hashtagResponse');
+            
+            var elements = $('.hashtag-response');
 
             _.each(elements, function(el, index) {
-                console.log(elements.length, index)
-                setTimeout(function() {
 
-                    $(el).show().css('opacity', '0');
-                    $(el).fadeIn(500, function() {
+                t1.from(el, 1, {x:-100, autoAlpha:0})
+                .staggerFrom($(el).find('.hashtag-vote, .no-votes'), 3, {scale:0, opacity:0, ease:Elastic.easeOut, onStart: function() {
 
-                        setTimeout(function() {
+                        ion.sound.play("button_tiny");
 
-                            $(el).fadeOut(500, function() { $(el).hide(); });
+                }}, 2)
+                .to(el, 1, {x:100, autoAlpha:0, display:'none'});
 
-                        }, 6000);
-
-                    });
-                
-                }, 8000 * index);
-            });*/
-            
-            $('#countdownTimer').hide();
-
-            var slider = $('.my-slider').unslider({arrows: false, autoplay: true, delay: 7000, speed: 1000, nav: false});
-            var slideCount = $('.unslider-carousel li').length;
-
-            slider.on('unslider.change', function(event, index, slide) {
-                if(index == slideCount-1)
-                    slider.stop();
             });
+            t1.play();
+            
+            // .to($('#results-2'), 1, {y:-100, autoAlpha:0, display:'none', ease:Elastic.easeIn});
+
+            $('#countdownTimer').hide();
 
             break;
 

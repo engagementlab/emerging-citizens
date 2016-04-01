@@ -15,6 +15,18 @@
 	// For socket debugging
 	localStorage.debug = '*';
 
+	ion.sound({
+    sounds: [
+        {
+            name: "button_tiny"
+        }
+    ],
+    volume: 0.5,
+    path: "/sfx/",
+    preload: true,
+    ready_callback: function(obj) { console.log('sounds ready', obj); }
+	});
+
   // All possible socket event IDs
 	var eventIds = [
 
