@@ -11,6 +11,7 @@
     "app-root-path": "^1.0.0",
     "async": "^1.5.2",
     "body-parser": "^1.15.0",
+    "connect-mongostore": "^0.1.4",
     "express": "4.13.4",
     "keystone": "0.3.15",
     "mongoose": "^4.4.5",
