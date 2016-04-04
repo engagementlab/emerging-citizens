@@ -12,6 +12,8 @@ module.exports = function(app) {
 
   io.on('connection', function (socket) {
 
+    console.log("Player connection", socket.id)
+
     // Create event handlers for this socket
     var eventHandlers = {
         hashtag: new HashtagHandler(io, socket),

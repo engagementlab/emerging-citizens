@@ -29,19 +29,7 @@ var socketEvents = function(eventId, eventData) {
 				    $('#playersContent').html(currentPlayers.join(' joined. <br />'));
 
             break;
-
-        case 'game:start':
             
-            $('#gameContent').html(eventData);
-
-            break;
-
-        case 'game:end':
-
-            console.log('game was ended');
-
-            break;
-
         case 'game:countdown':
 
             /*var minutes = Math.floor(eventData / 60);
@@ -56,6 +44,9 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
+
+        case 'game:start':
+        case 'game:end':
         case 'hashtag:submitted':
         case 'hashtags:received':
 

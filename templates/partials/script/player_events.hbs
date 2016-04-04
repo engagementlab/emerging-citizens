@@ -37,12 +37,6 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:end':
-
-            console.log('game was ended');
-
-            break;
-
         case 'game:notfound':
 
             console.log('game was ended');
@@ -58,6 +52,8 @@ var socketEvents = function(eventId, eventData) {
 
             break;
             
+
+        case 'game:end':
         case 'game:round_over':
         case 'game:countdown_end':
         case 'hashtags:received':
