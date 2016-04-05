@@ -34,6 +34,18 @@ var socketEvents = function(eventId, eventData) {
 
             // Clear countdown warnings
             $('#countdownTimer').empty();
+            break;
+
+        case 'game:ending':
+
+            $('#error-box').text(eventData);
+            $('#error-box').show();
+
+            break;
+
+        case 'game:resumed':
+
+            $('#error-box').hide();
 
             break;
 

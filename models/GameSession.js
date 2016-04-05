@@ -32,7 +32,18 @@ GameSession.add({
   accessCode: { type: String, required: true, initial: true },
   timeLimit: { type: Number, required: true, initial: true },
   playerCap: { type: Number, required: true, initial: true },
-  gameType: { type: String, required: true, initial: true }
+  gameType: { type: String, required: true, initial: true },
+
+  dateCreated: { type: Date, noedit: true }
+
+});
+
+
+GameSession.schema.pre('save', function(next) {
+  
+  this.dateCreated = new Date();
+
+  next();
 
 });
 

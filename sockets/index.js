@@ -1,8 +1,5 @@
 module.exports = function(app) {
 
-  var events = require('events');
-  var EventEmitter = new events.EventEmitter();
-
   var io = require('socket.io')(app);
 
   var GameManager = require('../lib/GameManager');
@@ -27,6 +24,8 @@ module.exports = function(app) {
             socket.on(event, handler[event]);
         }
     }
+
+    socket.send(socket.id);
 
   });
 

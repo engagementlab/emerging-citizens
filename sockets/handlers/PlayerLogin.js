@@ -22,7 +22,6 @@ var PlayerLogin = function (nsp, socket, emitter) {
   var currentSocket;
 
   var playerGameId;
-  var isModerator;
 
   currentSpace = nsp;
   currentSocket = socket;
@@ -49,7 +48,12 @@ var PlayerLogin = function (nsp, socket, emitter) {
           throw err;
       });
 
-      isModerator = package.msgData == 'moderator';
+      if(package.msgData == 'moderator') {
+
+        Session.Moderate(package.gameId, currentSocket.id);
+        Session.Get(playerGameId).ModeratorJoin(currentSpace);
+
+      }
         
       console.log(currentSocket.id + ' connected to room.');
 
@@ -72,12 +76,18 @@ var PlayerLogin = function (nsp, socket, emitter) {
       if(playerGameId !== undefined && session !== undefined) {
         session.PlayerLost(currentSocket.id, currentSpace);
 
-        if(isModerator) {
+        if(currentSocket.id === Session.Get(playerGameId).moderator) {
           console.log('is moderator')
           session.End(currentSpace);
         }
 
       }
+    },
+
+    error: function(err) {
+    
+      console.error('socket error!', err);
+
     }
   
   };
