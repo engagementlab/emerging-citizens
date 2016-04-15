@@ -1,0 +1,96 @@
+html, body {
+  height: 100%;
+}
+body {
+  background-color: #262626;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+}
+#box {
+  background-color: #88ce02;
+  position: absolute;
+  top: 50%;
+  left: -2200px;
+  width: 2100px;
+  height: 100px;
+  z-index: 1;
+}
+ 
+h1{text-align: center;}
+
+#scalerbox {
+  width: 150px;
+  height: 175px;
+  background-image: url("http://vignette3.wikia.nocookie.net/zelda/images/5/5c/Kirby.png/revision/latest?cb=20090606231810");
+  background-size: contain;
+  background-repeat: no-repeat; 
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+}
+
+#scalerbox1 {
+  width: 150px;
+  height: 125px;
+  background-image: url("http://vignette3.wikia.nocookie.net/zelda/images/5/5c/Kirby.png/revision/latest?cb=20090606231810");
+  background-size: contain;
+  background-repeat: no-repeat; 
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+#scalerbox2 {
+  width: 200px;
+  height: 150px;
+  background-image: url("http://vignette3.wikia.nocookie.net/zelda/images/5/5c/Kirby.png/revision/latest?cb=20090606231810");
+  background-size: contain;
+  background-repeat: no-repeat; 
+  margin-left: 70%;
+  margin-top: 10px;
+}
+#scalerbox3 {
+  width: 6px;
+  height: 4px;
+  background-image: url("http://t7.rbxcdn.com/1d650bb693018ddfabb96978e1611b14");
+  background-size: contain;
+  background-repeat: no-repeat; 
+  margin-left: 60%;
+  transform: translateX(-50%);
+  margin-top: -10%;
+}
+
+#banner {
+  background-image: url("http://vignette2.wikia.nocookie.net/thefakegees/images/4/4d/Sanic.png/revision/latest?cb=20141101165057");
+  position: absolute;
+    background-size: contain;
+  background-repeat: no-repeat; 
+  top: 50%;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+#textHolder {
+  width: 400px;
+  padding: 100px;
+  font-family: arial;
+  font-size: 40px;
+  top: 40%;
+  visibility: hidden, position: relative;
+  background-color: white;
+}
+
+#txt {
+  position: absolute;
+}
+
+#cursor {
+  position: absolute;
+  color: white;
+  display: block
+}
+
+.char {
+  visibility: hidden
+}
