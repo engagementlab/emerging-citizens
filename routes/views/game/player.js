@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        GameSession.model.findOne({accessCode: req.params.accesscode}, function (err, game) {
+        GameSession.model.findOne({ accessCode: req.params.accesscode.toLowerCase() }, function (err, game) {
 
             if(game === null) 
                 locals.game_not_found = true;
