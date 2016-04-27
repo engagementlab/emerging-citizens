@@ -1,0 +1,23 @@
+$background-style:    src="../images/ec_background_tileable.png";
+$primary-color: #333;
+
+body {
+  background-image: $background-style;
+  background-color: orange;
+}
+
+row input-box {
+	position: absolute;
+}
+
+room-container{
+	position: absolute;
+	margin: 0 auto;
+	background-color: white;
+}
+
+playerIcon {
+	background-image: src="../images/HYI_avatar_circle.png";
+}
+
+

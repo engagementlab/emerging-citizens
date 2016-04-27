@@ -85,6 +85,14 @@
 		background-color:#FB9973;
 		border-color:rgba(255, 255, 255, 0);
 	}
+  .container-bottom{
+    background-color:#FB9973;
+    border-color:rgba(255, 255, 255, 0);
+    width:100%;
+    position:relative;
+    bottom:0%;
+    height: 164px;
+  }
 	.loginColor{
 		color: #FD7D4B;
 	}
@@ -94,6 +102,31 @@
 	.aboutColor{
 		color:#20C5C1;
 	}
+  .icon-row
+  {
+    padding-top: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .icon-container{
+    position:absolute;
+    padding:0;
+    width:100%;
+  }
+  .player-icon{
+    position:relative;
+    z-index: 2;
+  }
+  .left-icon
+  {
+    float:left;
+    padding-left:60px;
+  }
+  .right-icon
+  {
+    float:right;
+    padding-right: 40px;
+  }
     </style>
 
     
@@ -160,21 +193,37 @@
 						<p>WikiGeeks is a realtime race played on Wikipedia.org that pits players against each other in a search for specific pages using only links embedded within articles. This game tests a broad cross section of knowledge, especially knowing how different topics relate to one another and how they are mapped digitally. It has the secondary benefit of helping students become familiar with Wikipedia's pages and navigation.</p>
 						<a href="geeksHub.html" class="btn btn-default" type="submit">Ready?</a> -->
 						<img src="css/ec_logo_data_box.png">
-
 					</div>
 				</div>
-      </div>
-
-      <nav class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
+        </div>
+    </div>
+    <!-- /.container -->
+        <div class="container icon-container">
+            <div id="player-icon-test"><button type="button">Icon Test</button></div>
+            <div class="row icon-row" id="icon-row-1">
+            <div id="player-icon1" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
+            <div id="player-icon5" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+            <div class="row icon-row" id="icon-row-2">
+           <div id="player-icon2" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
+            <div id="player-icon6" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+            <div class="row icon-row" id="icon-row-3">
+            <div id="player-icon3" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
+             <div id="player-icon7" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+            <div class="row icon-row" id="icon-row-4">
+           <div id="player-icon4" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
+           <div id="player-icon8" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>  
+            </div>
+            
+      <div class="container-bottom">
       <div class="col-xs-5"></div>
       <div class="col-xs-2"><img src="css/logo_white.png" style="margin-bottom: -25px"></div>
       <div class="col-xs-5"></div>
       <div class ="col-xs-12"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
       </div>
-    </nav>
-
-    </div><!-- /.container -->
+      </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -184,5 +233,9 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="js/animTest.js"></script>
   </body>
 </html>
