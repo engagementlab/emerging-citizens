@@ -14,6 +14,9 @@
 
 var _ = require('underscore'),
     appRoot = require('app-root-path'),
+    logger = require('winston'),
+    colors = require('colors'),
+
     Session = require(appRoot + '/lib/SessionManager');
 
 var PlayerLogin = function (nsp, socket, emitter) {
@@ -55,7 +58,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       }
         
-      console.log(currentSocket.id + ' connected to room.');
+      logger.info(currentSocket.id + ' connected to room.');
 
     },
     
@@ -65,11 +68,16 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       Session.Get(package.gameId).PlayerReady(user, currentSpace);
 
-      console.log(user.username  + ' logged in.');
+      logger.info(user.username  + ' logged in.');
 
     },
 
     disconnect: function(package) {
+
+      logger.info("Player '" + currentSocket.id + "' disconnecting.");
+
+      if(Session.Get(playerGameId) === undefined)
+        return;
 
       var session = Session.Get(playerGameId);
 
@@ -77,7 +85,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         session.PlayerLost(currentSocket.id, currentSpace);
 
         if(currentSocket.id === Session.Get(playerGameId).moderator) {
-          console.log('is moderator')
+          logger.debug('is moderator')
           session.End(currentSpace);
         }
 
@@ -92,7 +100,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
   
   };
 
-  console.log("New PlayerLogin for socket: " + currentSocket.id);
+  logger.info("New PlayerLogin for socket: ".green + currentSocket.id);
 
 };
 module.exports = PlayerLogin;
