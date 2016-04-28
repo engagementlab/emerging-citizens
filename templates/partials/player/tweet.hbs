@@ -3,7 +3,10 @@
 	  <h4>Guess the missing hashtag!</h4>
 	  <div style="color:white"> {{{this.html}}} </div>
 	  <div class="row input-box">
-			<input id="tweet_input" name="element_1" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" autofocus="autofocus">
+			
+			<span class="tweet_hashtag_prepend" style="border: 1px inset gray">#
+				<input id="tweet_input" name="element_1" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x; border: 0" autofocus="autofocus">
+			</span>
 
 			<input id="btn_submit" data-event="hashtags:submit" data-package='#tweet_input' class="button_text" type="submit" name="submit" value="Submit">
 			<span class="hash">#</span>

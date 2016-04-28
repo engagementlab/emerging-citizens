@@ -3,6 +3,7 @@
     {{> shared/tweet text=tweet}}
 
     {{#each hashtags}}
+        
         <div id="results-{{@index}}" class="hashtag-response" style="visibility:hidden">
 
             <div class="hashtag">
@@ -16,11 +17,11 @@
             <div id="hashtag-votes">
 
                 {{#if this.votes}}
-                    
+                
                     {{#each this.votes}}
                         <div class="hashtag-vote">
 
-                            {{username}}<br />+100
+                            {{username}}<br />+{{score}}
 
                         </div>
                     {{/each}}
@@ -38,80 +39,16 @@
             </div>
 
        </div>
+
    {{/each}}
 
-{{!--     <div class="playerResponses">
-        <div class="row">
+   {{#each players}}
 
+   <div>{{this.username}} - {{this.score_total}}</div>
 
-            <div class="hashtagResponse col-sm-10">
-                <div class="my-slider">
-                    <ul>
-
-                        {{#each this.hashtags}}
-                        <li>
-                            <p {{#if real}} style="color:green" {{else}} style="color:red" {{/if}}>
-                                {{this.hashtag}} (by <em>{{@key}}</em>)
-                            </p>
-
-                            {{#if this.votes}}
-                                
-                                <div class="hashtagVotes">Votes from: 
-                                    {{#each this.votes}}
-                                        <span class="vote">{{username}}<br /></span> 
-                                    {{/each}}
-                                </div>
-                                
-                            {{else}}
-                                
-                                <span class="vote">No votes!</span> 
-                            
-                            {{/if}}
-
-                            {{#unless real}}
-
-                                {{#if score}}
-
-                                	**** {{score}} points for {{username}} ****
-
-                                {{/if}}
-
-                            {{/unless}}
-
-                        </li>
-                        {{/each}}
-
-                        <li>
-                            <b>Scores totals:</b>
-                            <p style="color:cyan">
-                                {{#each this.players}}
-                                    <em>{{this.username}}</em>
-                                    {{#if this.score_total}}
-                                    
-                                        - {{this.score_total}}
-                                     
-                                     {{else}}
-                                     
-                                        - 0
-                                    
-                                    {{/if}}
-                                    <br />
-                                {{/each}}
-                            </p>
-
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-    </div> --}}
+   {{/each}}
 
 	<div class="row input-box">
 		<input id="btn_submit" data-event="game:next_round" class="button_text" type="submit" name="submit" value="next round">
 	</div>
-    {{!--
-    <h3>Cast your vote for the real hashtag!!</h3> --}}
 </div>
