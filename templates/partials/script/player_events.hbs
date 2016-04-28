@@ -21,6 +21,12 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:id':
+
+            $('#debug-info').text('Player id: ' + eventData);
+
+            break;
+
         case 'players:update':
 
             $('.login-box').hide();

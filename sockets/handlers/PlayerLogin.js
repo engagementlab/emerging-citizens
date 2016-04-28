@@ -70,6 +70,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       logger.info(user.username  + ' logged in.');
 
+      currentSocket.emit('player:id', currentSocket.id);
+
     },
 
     disconnect: function(package) {
