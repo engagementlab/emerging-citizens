@@ -19,18 +19,17 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
-
+<!-- Styling for this page that varies from bootstrap.min.css -->
     <style>
+    @font-face{
+      font-family: Aileron;
+      src: url(css/Aileron-Regular.otf);
+    }
+  
     @font-face {
-    font-family: Aileron;
-    src: url(css/Aileron-Regular.otf);
-  }
-  @font-face {
-    font-family: Aileron-Thin;
-    src: url(css/Aileron-Thin.otf);
-}
-
-
+      font-family: Aileron-Thin;
+      src: url(css/Aileron-Thin.otf);
+    }
 
     body{
       background-image: url("css/ec_background_tileable.png");
@@ -42,7 +41,22 @@
       font-size: 36pt;
       text-align: center;
       padding-bottom: 30px;
-      font-family: Aileron;
+      font-family: Aileron-Thin;
+      z-index: 3;
+    }
+    #room-code{
+      position: relative;
+      padding-top: 125px;
+      visibility: hidden;
+      margin-bottom:0;
+      padding-bottom: 0;
+    }
+
+    #code{
+      padding:0;
+      position: relative;
+      font-size:72px;
+      visibility: hidden;
     }
 
     img{
@@ -95,11 +109,15 @@
   .container-bottom{
     background-color:#FB9973;
     border-color:rgba(255, 255, 255, 0);
-    width:101%;
+    width:100%;
     position:relative;
     bottom:0px;
     height: 164px;
-    overflow: hidden;
+  }
+  .egl-logo{
+    position: relative;
+    margin:auto;
+    width:50%;
   }
   .loginColor{
     color: #FD7D4B;
@@ -110,6 +128,18 @@
   .aboutColor{
     color:#20C5C1;
   }
+  #letter-1{
+    color:#ff6445;
+  }
+  #letter-2{
+    color:#ff8f5d;
+  }
+  #letter-3{
+    color:#fad735;
+  }
+  #letter-4{
+    color:#00cb86;
+  }
   .pane-container
   {
     position: relative;
@@ -119,14 +149,18 @@
   #game-pane
   {
     position:absolute;
-    width:50%;
+    width:100%;
     z-index: 2;
-    left: 24%;
+    margin: auto;
+    padding: 0;
   }
   #pane{
     position: absolute;
-    width:100%;
     visibility: hidden;
+    width:40%;
+    padding:0;
+    padding-right: 90px;
+    padding-top: 75px;
   }
 
   .icon-container{
@@ -146,16 +180,22 @@
     padding:0;
     float:left;
     visibility: hidden;
+    margin: auto;
   }
   .left-icon{
-    left: 15%;
   }
   .right-icon{
-    right:10%;
+    padding-left: 20px;
+  }
+  #player-icon4{
+    margin-bottom: 40px;
+  }
+  #player-icon8{
+    margin-bottom: 40px;
   }
 
     </style>
-
+<!-- End Style -->
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -166,7 +206,7 @@
   </head>
 
   <body>
-
+<!-- Top Navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
       <div class="col-md-5"></div>
@@ -187,7 +227,9 @@
         </div>
       </div>
     </nav>
+<!-- End Navbar -->
 
+<!-- Start game buttons -->
     <div class="container">
 
       <div class="starter-template" >
@@ -219,46 +261,63 @@
           <!-- <h2>Wiki Geeks</h2>
             <p>WikiGeeks is a realtime race played on Wikipedia.org that pits players against each other in a search for specific pages using only links embedded within articles. This game tests a broad cross section of knowledge, especially knowing how different topics relate to one another and how they are mapped digitally. It has the secondary benefit of helping students become familiar with Wikipedia's pages and navigation.</p>
             <a href="geeksHub.html" class="btn btn-default" type="submit">Ready?</a> -->
-            <img src="css/ec_logo_data_box.png">
+          <img src="css/ec_logo_data_box.png">
           </div>
         </div>
         </div>
     </div>
+    <!-- End Game Buttons -->
     <!-- /.container -->
+
+    <!-- Start Icon section -->
     <div class="pane-container">
     <div id="player-icon-test"><button type="button">Icon Test</button></div>
-    <div id="game-pane">
-    <img id="pane" src="css/HYI_waitingroom.png">
+    <div id="game-pane" class="row">
+    <div class ="col-md-4"></div>
+    <img id="pane" class="col-md-4" src="css/HYI_waitingroom.png">
+    <h1 id="room-code"> Room Code: </h1>
+    <h1 id="code"><span id="letter-1">A</span><span id="letter-2">B</span><span id="letter-3">C</span><span id="letter-4">D</span></h1>
+    <div class ="col-md-4"></div>
     </div>
     <div class="container icon-container">
             <div class="row icon-row" id="icon-row-1">
-                <div id="player-icon1" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
-                <div id="player-icon5" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+              <div class ="col-md-3"></div>
+                <div id="player-icon1" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+                <div class ="col-md-4"></div>
+                <div id="player-icon5" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
             </div>
-               <div class="row icon-row" id="icon-row-2">
-               <div id="player-icon2" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
-               <div id="player-icon6" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+              <div class="row icon-row" id="icon-row-2">
+               <div class ="col-md-3"></div>
+               <div id="player-icon2" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="player-icon6" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
             </div>
                <div class="row icon-row" id="icon-row-3">
-               <div id="player-icon3" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
-               <div id="player-icon7" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-3"></div>
+               <div id="player-icon3" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="player-icon7" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
             </div>
                <div class="row icon-row" id="icon-row-4">
-               <div id="player-icon4" class="player-icon left-icon col-md-10"><img src="css/HYI_avatar_color.png"></div>
-               <div id="player-icon8" class="player-icon right-icon col-md-2"><img src="css/HYI_avatar_color.png"></div>  
+               <div class ="col-md-3"></div>
+               <div id="player-icon4" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="player-icon8" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>  
             </div>
             </div>
     </div>       
+<!-- End Icon Section -->
 
 
+<!-- Footer/Bottom Container start -->
 
       <div class="container-bottom">
       <div class="col-xs-5"></div>
-      <div class="col-xs-2"><img src="css/logo_white.png" style="margin-bottom: -25px"></div>
+      <div class="col-xs-2"><img class="egl-logo" src="css/logo_white.png" style="margin-bottom: -25px"></div>
       <div class="col-xs-5"></div>
       <div class ="col-xs-12"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
       </div>
-      
+      <!-- End Bottom Container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
