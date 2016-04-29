@@ -5,23 +5,97 @@ input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10
 </style>
 
     <!-- Page Content -->
-<div class="container">
-    <!-- Introduction Row -->
-    <div class="room-container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Room Code: {{game.accessCode}}
-                </h1>
+<div class="page-container">
+    <div class="row">
+        <div class="col-lg-3 players">
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
             </div>
         </div>
+        <!-- Introduction Row -->
+        <div class="col-lg-6 room-container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="game-header">Room Code:
+                    </h1>
+                    <h1 style="font-size: 8em" class="game-header">{{game.accessCode}}</h1>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20%;">
+                <div class="col-lg-12">
+                    <h4 class="game-header">Game Name: {{game.name}}
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 5%;">
+                    <h4 class="game-header">Waiting for players...
+                    </h4>
+                    <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit">
+                </div>
+            </div>
+            <!-- Team Members Row -->
+            <div class="row" id="playersContent">
+            </div>
 
-        <!-- Team Members Row -->
-        <div class="row" id="playersContent">
         </div>
 
-        Waiting for players...
-    </div>
-    {{#each User}}
-    <div class="playerIcon">{{this.GameUser}}</div>
-    {{/each}}
+        <div class="col-lg-3 players">
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row playerBackground">
+                <div class="playerStatic">
+                    {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        
+
+    </div> {{!-- end page row --}}
 </div>

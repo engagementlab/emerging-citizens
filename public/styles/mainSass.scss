@@ -1,23 +1,115 @@
-$background-style:    src="../images/ec_background_tileable.png";
+$background-main: url(/images/ec_background_tileable.png);
+$background-game: url(/images/raindrops_tileable_salmon.png);
+$playerImageStatic: url(/images/HYI_avatar_circle.png);
+$playerImageIcon: url(/images/HYI_avatar_nameplate.png);
+$playerSize: 100px;
+$playerColor: orange;
+
 $primary-color: #333;
 
-body {
-  background-image: $background-style;
+@mixin circle($width, $color) {
+  width: $width;
+  height: $width;
+  background: $color;
+  -webkit-border-radius: $width/2;
+     -moz-border-radius: $width/2;
+          border-radius: $width/2;
+}
+
+@mixin boxShadow ($pixels, $color) {
+	box-shadow: $pixels $pixels $pixels $color;
+}
+
+#logo_img {
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+}
+
+.navRow {
+	text-align: center;
+	position: fixed;
+	top: 0;
+	margin: 0 auto;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	height: 100px;
+	background-color: orange;
+}
+
+.body {
+	overflow: hidden;
+  background-image: $background-main;
   background-color: orange;
 }
 
-row input-box {
+.player-view-container{
+	background-image: $background-main;
+	background-style: repeat center;
+}
+
+.game {
+	height: 100%;
+	width: 100%;
+}
+
+.row .input-box {
 	position: absolute;
 }
 
-room-container{
-	position: absolute;
-	margin: 0 auto;
+.game-header {
+	text-align: center;
+	margin: 40 auto;
+}
+
+.page-container {
+	top: 10%;
+	bottom: 0px;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-image: $background-game;
+}
+
+.room-container{
+	top: 10%;
+	bottom: 10%;
+	position: relative;
+	margin: 10px auto;
 	background-color: white;
+	@include boxShadow(10px, #888888)
 }
 
-playerIcon {
-	background-image: src="../images/HYI_avatar_circle.png";
+.players {
+	height: 100%;
+	width: 100%;
+	top: 10%;
+	bottom: 10%;
+	position: relative;
+	margin: 10px auto;
 }
 
+.playerBackground {
+	left: 25%;
+	display: block;
+	position: relative;
+	margin: 10px auto;
+	@include circle ($playerSize+10, $playerColor);
+}
 
+.playerStatic {
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: $playerSize;
+	background-repeat: no-repeat;
+	background-image: $playerImageStatic;
+}
+
+.playerIcon {
+	background-size: 100% 100%;
+	background-image: $playerImageIcon;
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://localhost:3000/moderator/monitor/NZPA -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Emerging Citizens ALPHA</title>
+        <meta name="description" content="We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.">
+        <meta name="author" content="Engagement Lab">
+        <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#78cbd1">
+
+        <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png">
+
+        
+        <!-- DOCS START -->
+        
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="http://localhost:3000/images/favicons/favicon.ico">
+        <!-- For third-generation iPad with high-resolution Retina display: -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:3000/images/favicons/favicon_144.png">
+        <!-- For iPhone with high-resolution Retina display: -->
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:3000/images/favicons/favicon_114.png">
+        <!-- For first- and second-generation iPad: -->
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:3000/images/favicons/favicon_72.png">
+        <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+        <link rel="apple-touch-icon-precomposed" href="http://localhost:3000/images/favicons/favicon_57.png">
+        
+        
+        	<link href="http://localhost:3000/public/styles/mainSass.scss" rel="stylesheet">
+        	<!-- Custom fonts -->
+        	<link href="./Emerging Citizens ALPHA_files/fonts.css" rel="stylesheet">
+        	
+        	<!-- Bootstrap core CSS -->
+        	<link href="./Emerging Citizens ALPHA_files/bootstrap.css" rel="stylesheet">
+        
+        	<link href="./Emerging Citizens ALPHA_files/bootstrap.min.css" rel="stylesheet">
+        	<link href="./Emerging Citizens ALPHA_files/starter-template.css" rel="stylesheet">
+        	<link href="./Emerging Citizens ALPHA_files/skin.css" rel="stylesheet">
+        	
+        	<link href="./Emerging Citizens ALPHA_files/jquery-ui.min.css" rel="stylesheet">
+        	<link href="./Emerging Citizens ALPHA_files/round-about.css" rel="stylesheet">
+        	<link href="./Emerging Citizens ALPHA_files/flipclock.css" rel="stylesheet">
+        
+        	<!-- Font Awesome CSS -->
+        	<link href="./Emerging Citizens ALPHA_files/font-awesome.css" rel="stylesheet">
+        
+        	<!-- Fontello CSS -->
+        	<link href="./Emerging Citizens ALPHA_files/fontello.css" rel="stylesheet">
+        
+        	<link rel="stylesheet" href="./Emerging Citizens ALPHA_files/glide.core.css">
+        	
+        	<link href="./Emerging Citizens ALPHA_files/unslider-dots.css" rel="stylesheet">
+        	<link href="./Emerging Citizens ALPHA_files/unslider.css" rel="stylesheet">
+        
+        
+    <style type="text/css"></style><script>var EXTENSION_URL = "chrome-extension://kkocmgaoibklfmejhklahodlookklfjk/";var EXTENSION_VERSION = "2.5.6";var EXTENSION_USER = "default";window.onerror = function (errorMsg, url, lineNumber) { };</script><style type="text/css"></style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+    
+    <body>
+
+
+        <!-- page wrapper start -->
+        <!-- ================ -->
+        <div class="page-wrapper">
+            
+            <!--
+                Flash messages allow you to display once-off status messages to users, e.g. form
+                validation errors, success messages, etc
+            -->
+                        
+
+            <!-- page-wrapper end -->
+                
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/jquery-2.1.4.js"></script>
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/jquery.plugin.js"></script>
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/bootstrap-3.3.5.js"></script>
+                
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/jquery-ui.min.js"></script>
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/underscore.js"></script>
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/flipclock.min.js"></script>
+                
+                <script src="./Emerging Citizens ALPHA_files/TweenMax.min.js"></script>
+                
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/jquery.browser.js"></script>
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/SmoothScroll.js"></script>
+                
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/socket.io.js"></script>
+                
+                <script type="text/javascript" src="./Emerging Citizens ALPHA_files/ion.sound.js"></script>
+                
+                
+                
+                
+                <script type="text/javascript">
+                
+                	// For socket debugging
+                	localStorage.debug = '*';
+                
+                	ion.sound({
+                    sounds: [
+                        {
+                            name: "button_tiny"
+                        }
+                    ],
+                    volume: 0.5,
+                    path: "/sfx/",
+                    preload: true,
+                    ready_callback: function(obj) { console.log('sounds ready', obj); }
+                	});
+                
+                  // All possible socket event IDs
+                	var eventIds = [
+                
+                		'connect',
+                		'players:update',
+                		'game:start',
+                		'game:ending',
+                		'game:end',
+                		'game:resumed',
+                		'game:notfound',
+                		'game:countdown',
+                		'game:countdown_ending',
+                		'game:countdown_end',
+                		'game:round_over',
+                		'hashtag:submitted',
+                		'hashtags:received',
+                		'hashtags:reveal'
+                	
+                	];
+                
+                	$(document).ready(function() {
+                			
+                			
+                			// Open socket connection
+                	    var socket = io();
+                
+                			/**
+                			 * Listen for forms that dispatch socket events.
+                			 *
+                			 * ### Examples:
+                			 *
+                			 * @class sections
+                			 */
+                			$(document).on('click', '.input-box :submit', function() {
+                				
+                				var event = $(this).data().event;
+                				var pkg = $(this).data().package;
+                
+                				if($.isPlainObject(pkg)) {
+                					$.each(Object.keys(pkg), function( key, value ) {
+                					  pkg[value] = $(pkg[value].toString()).val();
+                					});
+                				}
+                				else
+                					pkg = $(pkg).val()
+                				
+                				socket.emit(event, emitData(pkg));
+                
+                				$('#submission').hide();
+                				$('#submitted').show();
+                
+                			});
+                			
+                			function emitData(data) {
+                				return { gameId: gameCode, msgData: data };
+                			}
+                		
+                
+                
+                			
+                				var gameCode = 'NZPA-moderator';
+                
+                				// Load events for moderators
+                				
+                				var socketEvents = function(eventId, eventData) {
+                						
+                					var currentPlayers = [];
+                				
+                				    switch (eventId) {
+                				
+                				        case 'connect':
+                				
+                								   // Connected, let's sign-up for to receive messages for this room
+                								   socket.emit('room', emitData('moderator'));
+                				
+                				            break;
+                				
+                				        case 'players:update':
+                				
+                								  	currentPlayers = _.pluck(eventData, 'username');
+                								    $('#playersContent').html(currentPlayers.join(' joined. <br />'));
+                				
+                				            break;
+                				            
+                				        case 'game:countdown':
+                				
+                				            /*var minutes = Math.floor(eventData / 60);
+                				            var seconds = eventData - minutes * 60;*/
+                				
+                				            console.log('countdown' , eventData)
+                				
+                				            var clock = $('#countdownTimer').FlipClock(eventData, {
+                				                clockFace: 'MinuteCounter',
+                				                countdown: true
+                				            });
+                				
+                				            break;
+                				
+                				
+                				        case 'game:start':
+                				        case 'game:end':
+                				        case 'hashtag:submitted':
+                				        case 'hashtags:received':
+                				
+                				            $('#gameContent').html(eventData);
+                				
+                				            break;
+                				
+                				        case 'hashtags:reveal':
+                				
+                				            $('#gameContent').html(eventData);
+                				
+                				            //instantiate a TimelineLite    
+                				            var t1 = new TimelineLite();
+                				
+                				            
+                				            var elements = $('.hashtag-response');
+                				
+                				            _.each(elements, function(el, index) {
+                				
+                				                t1.from(el, 1, {x:-100, autoAlpha:0})
+                				                .staggerFrom($(el).find('.hashtag-vote, .no-votes'), 3, {scale:0, opacity:0, ease:Elastic.easeOut, onStart: function() {
+                				
+                				                        ion.sound.play("button_tiny");
+                				
+                				                }}, 2)
+                				                .to(el, 1, {x:100, autoAlpha:0, display:'none'});
+                				
+                				            });
+                				            t1.play();
+                				            
+                				            // .to($('#results-2'), 1, {y:-100, autoAlpha:0, display:'none', ease:Elastic.easeIn});
+                				
+                				            $('#countdownTimer').hide();
+                				
+                				            break;
+                				
+                				    }
+                				    
+                				};			
+                
+                			$.each(eventIds, function(index, id) {
+                			  
+                			  socket.on(id, function(eventData) {
+                
+                					console.log("EVENT ID: ", id);
+                					console.log("EVENT DATA: (" + eventData + ")");
+                
+                				 	socketEvents(id, eventData); 
+                				});
+                
+                			});
+                
+                
+                		
+                });
+                
+                </script>
+            
+        </div>
+
+        <div id="error-box">
+        </div>
+
+        <div id="debug-info">
+        </div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="http://localhost:3000/moderator/monitor/NZPA#">Emerging Citizens</a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container">
+            <div class="start-template">
+            <h1>#You'reIt</h1>
+              <div id="gameContent">
+
+                <!-- BODY CONTENT START -->
+                <style>
+.input-box { position: relative; }
+input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10px 10px 10px 20px; width: 195px; }
+.hash { position: absolute; display: block; left: 5px; top: 10px; z-index: 9; color: #47527D; }
+</style>
+
+    <!-- Page Content -->
+<div class="container">
+    <!-- Introduction Row -->
+    <div class="room-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Room Code: NZPA
+                </h1>
+            </div>
+        </div>
+
+        <!-- Team Members Row -->
+        <div class="row" id="playersContent">
+        </div>
+
+        Waiting for players...
+    </div>
+</div>
+
+              </div>
+
+            </div>
+            <div id="countdownTimer"></div>
+        </div><!-- /.container -->
+
+    
+
+<div></div></body></html>
