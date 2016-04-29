@@ -17,6 +17,17 @@ var $gamePane= $("#pane");
 var $roomCode= $("#room-code");
 var $code= $("#code");
 
+var $tweetIcon1 = $("#tweet-player-icon1");
+var $tweetIcon2 = $("#tweet-player-icon2");
+var $tweetIcon3 = $("#tweet-player-icon3");
+var $tweetIcon4 = $("#tweet-player-icon4");
+var $tweetIcon5 = $("#tweet-player-icon5");
+var $tweetIcon6 = $("#tweet-player-icon6");
+var $tweetIcon7 = $("#tweet-player-icon7");
+var $tweetIcon8 = $("#tweet-player-icon8");
+var $tweetTest= $("#tweet-pane-test");
+var $tweetIcons= $(".tweet-player-icon");
+var $tweetGamePane= $("#tweet-game-pane");
 
 TweenMax.fromTo($hashtag, .9, {scale:0}, {scale:1, ease:Elastic.easeOut});
 TweenMax.fromTo($wwdmm, .7, {scale:0}, {scale:1, ease:Elastic.easeOut})
@@ -28,24 +39,46 @@ $iconTest.click(function(){
 	setTimeout(PaneIn, 500);
 });
 
+$tweetTest.click(function(){
+	TweetIconsIn();
+	setTimeout(TweetPaneIn, 500);
+});
+
 
 function IconsIn(){
 $icons.css("visibility","visible");
-TweenMax.fromTo($icon1, 2, {left: -500},{left:-200, ease:Elastic.easeOut});
-TweenMax.fromTo($icon2, 2, {left: -500},{left:-200, ease:Elastic.easeOut, delay:.1});
-TweenMax.fromTo($icon3, 2, {left: -500},{left:-200, ease:Elastic.easeOut, delay:.2});
-TweenMax.fromTo($icon4, 2, {left: -500},{left:-200, ease:Elastic.easeOut, delay:.3});
-TweenMax.fromTo($icon5, 2, {right: -500},{right:-200, ease:Elastic.easeOut});
-TweenMax.fromTo($icon6, 2, {right: -500},{right:-200, ease:Elastic.easeOut, delay:.1});
-TweenMax.fromTo($icon7, 2, {right: -500},{right:-200, ease:Elastic.easeOut, delay:.2});
-TweenMax.fromTo($icon8, 2, {right: -500},{right:-200, ease:Elastic.easeOut, delay:.3});
+TweenMax.fromTo($icon1, 2, {left: -500},{left:-75, ease:Elastic.easeOut});
+TweenMax.fromTo($icon2, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.1});
+TweenMax.fromTo($icon3, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.2});
+TweenMax.fromTo($icon4, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.3});
+TweenMax.fromTo($icon5, 2, {right: -500},{right:-75, ease:Elastic.easeOut});
+TweenMax.fromTo($icon6, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.1});
+TweenMax.fromTo($icon7, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.2});
+TweenMax.fromTo($icon8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.3});
 return;
 }
-
 function PaneIn(){
 $gamePane.css("visibility", "visible");
 TweenMax.fromTo($gamePane, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
+TweenMax.fromTo($roomCode, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
+TweenMax.fromTo($code, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 $roomCode.css("visibility", "visible");
 $code.css("visibility", "visible");
+return;
+}
+function TweetIconsIn(){
+$tweetIcons.css("visibility","visible");
+TweenMax.fromTo($tweetIcon1, 2, {left: -500},{left:-75, ease:Elastic.easeOut});
+TweenMax.fromTo($tweetIcon2, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.1});
+TweenMax.fromTo($tweetIcon3, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.2});
+TweenMax.fromTo($tweetIcon4, 2, {left: -500},{left:-75, ease:Elastic.easeOut, delay:.3});
+TweenMax.fromTo($tweetIcon5, 2, {right: -500},{right:-75, ease:Elastic.easeOut});
+TweenMax.fromTo($tweetIcon6, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.1});
+TweenMax.fromTo($tweetIcon7, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.2});
+TweenMax.fromTo($tweetIcon8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.3});
+}
+function TweetPaneIn(){
+$tweetGamePane.css("visibility", "visible");
+TweenMax.fromTo($tweetGamePane, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 return;
 }

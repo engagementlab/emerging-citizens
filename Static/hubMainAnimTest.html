@@ -21,6 +21,8 @@
     <link href="starter-template.css" rel="stylesheet">
 <!-- Styling for this page that varies from bootstrap.min.css -->
     <style>
+/*Import Fonts*/
+
     @font-face{
       font-family: Aileron;
       src: url(css/Aileron-Regular.otf);
@@ -30,12 +32,14 @@
       font-family: Aileron-Thin;
       src: url(css/Aileron-Thin.otf);
     }
-
+/*End Fonts*/
+/*Background Image*/
     body{
       background-image: url("css/ec_background_tileable.png");
       background-repeat: repeat;
     }
-
+/*Background Image End*/
+/*Text Formatting*/
     h1{
       color: black;
       font-size: 36pt;
@@ -57,8 +61,30 @@
       position: relative;
       font-size:72px;
       visibility: hidden;
-    }
-
+    } 
+  .loginColor{
+    color: #FD7D4B;
+  }
+  .helpColor{
+    color:#FECD40;
+  }
+  .aboutColor{
+    color:#20C5C1;
+  }
+  #letter-1{
+    color:#ff6445;
+  }
+  #letter-2{
+    color:#ff8f5d;
+  }
+  #letter-3{
+    color:#fad735;
+  }
+  #letter-4{
+    color:#00cb86;
+  }
+/*End Text Formatting*/
+/*Element formatting*/
     img{
       padding-bottom: 20px;
     }
@@ -97,11 +123,12 @@
     .h1Top{
       font-family:Aileron-Thin;
     }
-    
+    /*Top Nav color*/
     .navbar-inverse {
     background-color: #FFF;
     border-color: #080808;
 }
+/*Bottom bar color*/
   .navbar-fixed-bottom{
     background-color:#FB9973;
     border-color:rgba(255, 255, 255, 0);
@@ -119,27 +146,8 @@
     margin:auto;
     width:50%;
   }
-  .loginColor{
-    color: #FD7D4B;
-  }
-  .helpColor{
-    color:#FECD40;
-  }
-  .aboutColor{
-    color:#20C5C1;
-  }
-  #letter-1{
-    color:#ff6445;
-  }
-  #letter-2{
-    color:#ff8f5d;
-  }
-  #letter-3{
-    color:#fad735;
-  }
-  #letter-4{
-    color:#00cb86;
-  }
+   /*End element styling*/
+/*Lobby Pane formatting*/
   .pane-container
   {
     position: relative;
@@ -164,7 +172,7 @@
   }
 
   .icon-container{
-/*    background-image: url("css/");*/
+    background-image: url("css/raindrops_tileable_peach.png");
     position:relative;
     padding:0;
     width:100%;
@@ -193,7 +201,50 @@
   #player-icon8{
     margin-bottom: 40px;
   }
+/*End Lobby Pane Formatting*/
+/*Start Tweet Pane Formatting*/
+.tweet-pane-container
+  {
+    position: relative;
+    width:100%;
+    margin:auto;
+    background-image: url("css/raindrops_tileable_peach.png");
+  }
+  #tweet-game-pane
+  {
+    position:absolute;
+    width:100%;
+    z-index: 2;
+    margin: auto;
+    padding: 0;
+    visibility: hidden;
+  }
+  #tweet-pane{
+    position: absolute;
+    width:40%;
+    padding:0;
+    padding-right: 70px;
+    padding-top: 75px;
+  }
 
+  .tweet-icon-container{
+    position:relative;
+    padding:0;
+    width:100%;
+    visibility: hidden;
+  }
+  .left-icon{
+  }
+  .right-icon{
+    padding-left: 20px;
+  }
+  #player-icon4{
+    margin-bottom: 40px;
+  }
+  #player-icon8{
+    margin-bottom: 40px;
+  }
+/*End Tweet Pane Formatting*/
     </style>
 <!-- End Style -->
     
@@ -305,10 +356,45 @@
                <div id="player-icon8" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>  
             </div>
             </div>
+    </div>
+<!-- End Icon Section -->
+<!-- Start Tweet Section -->
+<div class="tweet-pane-container">
+    <div id="tweet-pane-test"><button type="button">Tweet Game Test</button></div>
+    <div id="tweet-game-pane" class="row">
+    <div class ="col-md-4"></div>
+    <img id="tweet-pane" class="col-md-4" src="css/HYI_timerbackground.png">
+    <div class ="col-md-4"></div>
+    </div>
+    <div class="container tweet-icon-container">
+            <div class="row icon-row" id="icon-row-1">
+              <div class ="col-md-3"></div>
+                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+                <div class ="col-md-4"></div>
+                <div id="tweet-player-icon5" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+              <div class="row icon-row" id="icon-row-2">
+               <div class ="col-md-3"></div>
+               <div id="tweet-player-icon2" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="tweet-player-icon6" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+               <div class="row icon-row" id="icon-row-3">
+               <div class ="col-md-3"></div>
+               <div id="tweet-player-icon3" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="tweet-player-icon7" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+               <div class="row icon-row" id="icon-row-4">
+               <div class ="col-md-3"></div>
+               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+               <div class ="col-md-4"></div>
+               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+            </div>
+            </div>
     </div>       
 <!-- End Icon Section -->
-
-
+<!-- End Tweet Section -->
 <!-- Footer/Bottom Container start -->
 
       <div class="container-bottom">
