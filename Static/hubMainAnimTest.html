@@ -50,7 +50,8 @@
     }
     #room-code{
       position: relative;
-      padding-top: 125px;
+      padding-top: 10%;
+      padding-left: 9%;
       visibility: hidden;
       margin-bottom:0;
       padding-bottom: 0;
@@ -58,6 +59,7 @@
 
     #code{
       padding:0;
+      padding-left: 9%;
       position: relative;
       font-size:72px;
       visibility: hidden;
@@ -84,6 +86,9 @@
     color:#00cb86;
   }
 /*End Text Formatting*/
+
+
+
 /*Element formatting*/
     img{
       padding-bottom: 20px;
@@ -165,7 +170,7 @@
   #pane{
     position: absolute;
     visibility: hidden;
-    width:40%;
+    width:50%;
     padding:0;
     padding-right: 90px;
     padding-top: 75px;
@@ -221,12 +226,39 @@
   }
   #tweet-pane{
     position: absolute;
-    width:40%;
+    width:50%;
     padding:0;
-    padding-right: 70px;
-    padding-top: 75px;
+    padding-right: 4%;
+    padding-top: 2%;
   }
-
+#real-tweet{
+	position: absolute;
+	z-index:3;
+	width:42%;
+	padding-top:50px;
+	padding-left:57px;
+}
+#clock-face{
+	position: absolute;
+	z-index:3;
+	width: 12%;
+	padding-top:27%;
+	padding-left:1px;
+	padding-right:1%;
+	padding-bottom:0;
+	visibility: hidden;
+}
+#clock-hand{
+	position:absolute;
+	padding-top: 27%;
+	width:11%;
+	visibility: hidden;
+}
+#tweet-pane-stuff{
+	z-index:3;
+	padding:0;
+	position: relative;
+}
   .tweet-icon-container{
     position:relative;
     padding:0;
@@ -236,13 +268,13 @@
   .left-icon{
   }
   .right-icon{
-    padding-left: 20px;
+    padding-left: 7%;
   }
   #player-icon4{
-    margin-bottom: 40px;
+    margin-bottom: 4%;
   }
   #player-icon8{
-    margin-bottom: 40px;
+    margin-bottom: 4%;
   }
 /*End Tweet Pane Formatting*/
     </style>
@@ -360,38 +392,51 @@
 <!-- End Icon Section -->
 <!-- Start Tweet Section -->
 <div class="tweet-pane-container">
-    <div id="tweet-pane-test"><button type="button">Tweet Game Test</button></div>
-    <div id="tweet-game-pane" class="row">
-    <div class ="col-md-4"></div>
-    <img id="tweet-pane" class="col-md-4" src="css/HYI_timerbackground.png">
-    <div class ="col-md-4"></div>
-    </div>
-    <div class="container tweet-icon-container">
-            <div class="row icon-row" id="icon-row-1">
-              <div class ="col-md-3"></div>
-                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-                <div class ="col-md-4"></div>
-                <div id="tweet-player-icon5" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
-            </div>
-              <div class="row icon-row" id="icon-row-2">
-               <div class ="col-md-3"></div>
-               <div id="tweet-player-icon2" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="tweet-player-icon6" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
-            </div>
-               <div class="row icon-row" id="icon-row-3">
-               <div class ="col-md-3"></div>
-               <div id="tweet-player-icon3" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="tweet-player-icon7" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
-            </div>
-               <div class="row icon-row" id="icon-row-4">
-               <div class ="col-md-3"></div>
-               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
-            </div>
-            </div>
+
+	<div id="tweet-pane-test"><button type="button">Tweet Game Test</button></div>
+
+<!-- Tweet Pane -->
+	    <div id="tweet-game-pane" class="row">
+	    <div class ="col-md-4"></div>
+	    <img id="tweet-pane" class="col-md-4" src="css/HYI_timerbackground.png">
+	    <img id ="real-tweet" class ="col-md-4" src="css/sample_tweet.png">
+	    <div class ="col-md-4"></div>
+	    </div>
+
+	    <div id="tweet-pane-stuff" class="row">
+	    <div class ="col-md-6"></div>
+	    <img id="clock-face" class ="col-md-5" src="css/HYI_clock.png">
+	    <img id="clock-hand" src="css/HYI_clockhand2.png">
+	    </div>
+
+<!-- Player Icons -->
+	    <div class="container tweet-icon-container">
+	            <div class="row icon-row" id="icon-row-1">
+	              <div class ="col-md-3"></div>
+	                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+	                <div class ="col-md-4"></div>
+	                <div id="tweet-player-icon5" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	            </div>
+	              <div class="row icon-row" id="icon-row-2">
+	               <div class ="col-md-3"></div>
+	               <div id="tweet-player-icon2" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+	               <div class ="col-md-4"></div>
+	               <div id="tweet-player-icon6" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	            </div>
+	               <div class="row icon-row" id="icon-row-3">
+	               <div class ="col-md-3"></div>
+	               <div id="tweet-player-icon3" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+	               <div class ="col-md-4"></div>
+	               <div id="tweet-player-icon7" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	            </div>
+	               <div class="row icon-row" id="icon-row-4">
+	               <div class ="col-md-3"></div>
+	               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
+	               <div class ="col-md-4"></div>
+	               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	            </div>
+	            </div>
+	    <div id="clock-test"><<button type="button" id="clock-button"></button></div>
     </div>       
 <!-- End Icon Section -->
 <!-- End Tweet Section -->
