@@ -16,6 +16,8 @@ var $icon8 = $("#player-icon8");
 var $gamePane= $("#pane");
 var $roomCode= $("#room-code");
 var $code= $("#code");
+var $clockFace= $("#clock-face");
+var $clockHand= $("#clock-hand");
 
 var $tweetIcon1 = $("#tweet-player-icon1");
 var $tweetIcon2 = $("#tweet-player-icon2");
@@ -80,5 +82,9 @@ TweenMax.fromTo($tweetIcon8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, 
 function TweetPaneIn(){
 $tweetGamePane.css("visibility", "visible");
 TweenMax.fromTo($tweetGamePane, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
+$clockFace.css("visibility", "visible");
+$clockHand.css("visibility", "visible");
+TweenMax.fromTo($clockFace, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
+TweenMax.fromTo($clockHand, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 return;
 }
