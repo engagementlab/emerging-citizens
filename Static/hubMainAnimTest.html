@@ -153,6 +153,7 @@
   }
    /*End element styling*/
 /*Lobby Pane formatting*/
+
   .pane-container
   {
     position: relative;
@@ -214,6 +215,7 @@
     width:100%;
     margin:auto;
     background-image: url("css/raindrops_tileable_peach.png");
+    z-index: 1;
   }
   #tweet-game-pane
   {
@@ -235,8 +237,8 @@
 	position: absolute;
 	z-index:3;
 	width:42%;
-	padding-top:50px;
-	padding-left:57px;
+	padding-top:4%;
+	padding-left:4%;
 }
 #clock-face{
 	position: absolute;
@@ -277,6 +279,84 @@
     margin-bottom: 4%;
   }
 /*End Tweet Pane Formatting*/
+/*Start Winner's Circle Formatting*/
+#winners-circle-container{
+	background-image: url("css/raindrops_tileable_peach.png");
+	background-clip: padding-box;
+	height: 725px;
+	padding-bottom: 150px;
+}
+
+#winners-header{
+	color:white;
+	font-family:Aileron;
+	font-size: 48pt;
+}
+
+#header-box{
+	background-color: #ff9b6e;
+	width:30%;
+	margin:auto;
+	padding:0;
+}
+
+#fake-row{
+	padding:0;
+	height:25%;
+	background-color: white;
+	z-index: 0;
+	visibility:hidden;
+}
+.winners-template{
+	padding:0;
+	position:relative;
+	width: 33%;
+}
+.winner-row{
+	padding:0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height:33%;
+}
+.winner{
+	padding:0;
+	position:relative;
+	width: 43%;
+	height:109%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#winners-pane{
+	height:75%;
+}
+#winner-row-1{
+	z-index:1;
+}
+#winner-1{
+	background-image: url("css/HYI_finalscoretop.png");
+	margin-left: 15%;
+	margin-right: 85%;
+	visibility: hidden;
+}
+#winner-row-2{
+	z-index:2;
+}
+#winner-2{
+	background-image: url("css/HYI_finalscoremiddle.png");
+	margin-left: 30%;
+	margin-right:70%;
+	visibility: hidden;
+}
+#winner-row-3{
+	z-index:3;
+}
+#winner-3{
+	background-image: url("css/HYI_finalscorebottom.png");
+	margin-left:45%;
+	margin-right:55%;
+	visibility: hidden;
+}
+/*End Winner's Circle Formatting*/
     </style>
 <!-- End Style -->
     
@@ -411,7 +491,7 @@
 
 <!-- Player Icons -->
 	    <div class="container tweet-icon-container">
-	            <div class="row icon-row" id="icon-row-1">
+	        <div class="row icon-row" id="icon-row-1">
 	              <div class ="col-md-3"></div>
 	                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
 	                <div class ="col-md-4"></div>
@@ -434,12 +514,42 @@
 	               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
 	               <div class ="col-md-4"></div>
 	               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
-	            </div>
-	            </div>
-	    <div id="clock-test"><<button type="button" id="clock-button"></button></div>
+	        </div>
+	    </div>
     </div>       
 <!-- End Icon Section -->
 <!-- End Tweet Section -->
+<!-- Start Winner's Circle -->
+<div id="winners-circle-container">
+	<div id="winners-circle-test"><button type="button">Winner's Circle Test</button></div>
+	<div id="fake-row" class="row">
+		<div class ="col-md-4"></div>
+		<img src="css/HYI_logo512.png" style="height: 100%; padding: 0; padding-top:5px; padding-bottom:15px;" class="col-md-4">
+		<div class ="col-md-4"></div>
+	</div>
+	<div id="header-box">
+		<h1 id="winners-header">Final Scores!</h1>
+	</div>
+	<div id="winners-pane">
+		<div class="row winner-row" id="winner-row-1">
+
+			<div class= "winner" id="winner-1">
+		
+			</div>
+		</div>
+		<div class="row winner-row" id="winner-row-2">
+
+			<div class= "winner" id="winner-2">
+			</div>
+		</div>
+		<div class="row winner-row" id="winner-row-3">
+
+			<div class= "winner" id="winner-3">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Winner's Circle -->
 <!-- Footer/Bottom Container start -->
 
       <div class="container-bottom">
