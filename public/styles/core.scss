@@ -1,7 +1,10 @@
-$background-main: url(/images/ec_background_tileable.png);
-$background-game: url(/images/raindrops_tileable_salmon.png);
-$playerImageStatic: url(/images/HYI_avatar_circle.png);
-$playerImageIcon: url(/images/HYI_avatar_nameplate.png);
+@import "core/functions";
+@import "core/forms";
+
+$background-main: url(/images/layout/background_tileable.png);
+$background-game: url(/images/layout/raindrops_tileable_salmon.png);
+$playerImageStatic: url(/images/hyi/avatar_circle.png);
+$playerImageIcon: url(/images/hyi/avatar_nameplate.png);
 $playerSize: 100px;
 $playerColor: orange;
 
@@ -20,17 +23,30 @@ $primary-color: #333;
 	box-shadow: $pixels $pixels $pixels $color;
 }
 
+// Navbar START
+
 #logo_img {
 	height: 50px;
 	width: 50px;
 	margin: 0 auto;
 }
 
-.navRow {
-	text-align: center;
-	position: fixed;
-	top: 0;
-	margin: 0 auto;
+// Top Nav color
+.navbar-inverse {
+background-color: #FFF;
+border-color: #080808;
+}
+
+  nav.navbar {
+  	#login{
+    color: #FD7D4B;
+  }
+  #help {
+    color:#FECD40;
+  }
+  #about {
+    color:#20C5C1;
+  }
 }
 
 .footer {
@@ -43,7 +59,13 @@ $primary-color: #333;
 .body {
 	overflow: hidden;
   background-image: $background-main;
-  background-color: orange;
+}
+
+.body.login {
+
+  @include linear_transition(background, 0.5s);
+  background-color: #fdae8f;
+
 }
 
 .player-view-container{
@@ -113,3 +135,17 @@ $primary-color: #333;
 	background-size: 100% 100%;
 	background-image: $playerImageIcon;
 }
+
+// START Main Content
+.gameLanding {
+	
+	margin-top: 10%;
+
+}
+#gameContent {
+
+		padding: 40px 15px;
+    text-align: center;
+
+}
+// END Main Content

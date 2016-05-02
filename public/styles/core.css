@@ -1,13 +1,33 @@
+.form input {
+  padding: 20px;
+  font-size: x-large;
+  margin-bottom: 20px; }
+  .form input:focus {
+    outline: none !important;
+    border: 6px solid #00c5c2;
+    box-shadow: 0 0 10px #719ECE; }
+
+.form input[type=submit] {
+  color: #00c5c2;
+  font-weight: bold; }
+
 #logo_img {
   height: 50px;
   width: 50px;
   margin: 0 auto; }
 
-.navRow {
-  text-align: center;
-  position: fixed;
-  top: 0;
-  margin: 0 auto; }
+.navbar-inverse {
+  background-color: #FFF;
+  border-color: #080808; }
+
+nav.navbar #login {
+  color: #FD7D4B; }
+
+nav.navbar #help {
+  color: #FECD40; }
+
+nav.navbar #about {
+  color: #20C5C1; }
 
 .footer {
   position: fixed;
@@ -17,11 +37,18 @@
 
 .body {
   overflow: hidden;
-  background-image: url(/images/ec_background_tileable.png);
-  background-color: orange; }
+  background-image: url(/images/layout/background_tileable.png); }
+
+.body.login {
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+  background-color: #fdae8f; }
 
 .player-view-container {
-  background-image: url(/images/ec_background_tileable.png);
+  background-image: url(/images/layout/background_tileable.png);
   background-style: repeat center; }
 
 .game {
@@ -41,7 +68,7 @@
   position: relative;
   height: 100%;
   width: 100%;
-  background-image: url(/images/raindrops_tileable_salmon.png); }
+  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
 
 .room-container {
   top: 10%;
@@ -77,8 +104,15 @@
   background-position: center;
   background-size: 100px;
   background-repeat: no-repeat;
-  background-image: url(/images/HYI_avatar_circle.png); }
+  background-image: url(/images/hyi/avatar_circle.png); }
 
 .playerIcon {
   background-size: 100% 100%;
-  background-image: url(/images/HYI_avatar_nameplate.png); }
+  background-image: url(/images/hyi/avatar_nameplate.png); }
+
+.gameLanding {
+  margin-top: 10%; }
+
+#gameContent {
+  padding: 40px 15px;
+  text-align: center; }
