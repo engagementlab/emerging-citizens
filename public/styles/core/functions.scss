@@ -1,0 +1,9 @@
+@mixin linear_transition($prop, $duration) {
+
+  -webkit-transition: $prop $duration linear;
+  -moz-transition: $prop $duration linear;
+  -ms-transition: $prop $duration linear;
+  -o-transition: $prop $duration linear;
+  transition: $prop $duration linear;
+
+}

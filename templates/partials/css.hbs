@@ -30,19 +30,21 @@
 	<link href="/release/production.css" rel="stylesheet">
 
 {{else}}
-
-	{{!-- Sass --}}
-	<link href="/styles/mainSass.css" rel="stylesheet"/>
+	
 	{{!-- DEVELOPMENT --}}
-	<!-- Custom fonts -->
-	<link href="/fonts/fonts.css" rel="stylesheet"/>
 	
 	<!-- Bootstrap core CSS -->
-	<link href="/styles/bootstrap/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	{{!-- Core layout --}}
+	<link href="/styles/core.css" rel="stylesheet"/>
+	
+	<!-- Custom fonts -->
+	<link href="/fonts/fonts.css" rel="stylesheet"/>
 
 	{{!-- Theme --}}
-	<link href="/styles/bootstrap.min.css" rel="stylesheet">
-	<link href="/styles/starter-template.css" rel="stylesheet">
+	{{!-- <link href="/styles/bootstrap.min.css" rel="stylesheet"> --}}
+	{{!-- <link href="/styles/starter-template.css" rel="stylesheet"> --}}
 	<link href="/styles/skin.css" rel="stylesheet">
 	
 	{{!-- UI --}}

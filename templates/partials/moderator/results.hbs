@@ -17,7 +17,7 @@
             <div id="hashtag-votes">
 
                 {{#if this.votes}}
-                
+
                     {{#each this.votes}}
                         <div class="hashtag-vote">
 
@@ -43,8 +43,12 @@
    {{/each}}
 
    {{#each players}}
-
-   <div>{{this.username}} - {{this.score_total}}</div>
+      
+        {{#if score_total}}
+           <div>{{username}} - {{score_total}}</div>
+        {{else}}
+           <div>{{username}} - 0</div>
+        {{/if}}
 
    {{/each}}
 

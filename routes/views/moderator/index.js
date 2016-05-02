@@ -15,7 +15,6 @@
 var keystone = require('keystone'),
     _ = require('underscore'),
     randomstring = require('randomstring'),
-    appRoot = require('app-root-path'),
     ContentCategory = keystone.list('ContentCategory');
 
 exports = module.exports = function(req, res) {

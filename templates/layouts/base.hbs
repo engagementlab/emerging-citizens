@@ -5,15 +5,15 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Emerging Citizens ALPHA</title>
-        <meta name="description" content="We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.">
+        <title>Emerging Citizens</title>
+        <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
         <!-- Mobile Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#78cbd1">
 
         {{!-- Open Graph --}}
-        <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" />
+        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
         {{!-- Load our CSS/docs --}}
         {{> css environment=env}}
@@ -23,7 +23,7 @@
         {{!-- {{{isAdminEditorCSS user}}} --}}
     </head>
     
-    <body>
+    <body class="body">
 
         {{!-- {{> nav}} --}}
 
@@ -78,38 +78,26 @@
         <div id="debug-info">
         </div>
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Emerging Citizens</a>
+        {{> nav}}
+
+        <!-- Start game buttons -->
+        <div class="container">
+
+            <div class="starter-template">
+            
             </div>
-            {{!-- <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="hubMain.html">Teacher</a></li>
-                <li><a href="playerInterface.html">Student</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div><!--/.nav-collapse --> --}}
-          </div>
-        </nav>
+
+        </div>
+        <!-- End Game Buttons -->
 
         <div class="container">
-            <div class="start-template">
-            <h1>#You'reIt</h1>
+            {{!-- <h1>#You'reIt</h1> --}}
               <div id="gameContent">
 
                 <!-- BODY CONTENT START -->
                 {{{body}}}
 
               </div>
-
-            </div>
             <div id="countdownTimer"></div>
         </div><!-- /.container -->
     </body>
