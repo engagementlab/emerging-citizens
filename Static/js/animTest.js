@@ -31,6 +31,12 @@ var $tweetTest= $("#tweet-pane-test");
 var $tweetIcons= $(".tweet-player-icon");
 var $tweetGamePane= $("#tweet-game-pane");
 
+var $fakeRow= $("#fake-row");
+var $winnersTest= $("#winners-circle-test");
+var $winner1= $("#winner-1");
+var $winner2= $("#winner-2");
+var $winner3= $("#winner-3");
+
 TweenMax.fromTo($hashtag, .9, {scale:0}, {scale:1, ease:Elastic.easeOut});
 TweenMax.fromTo($wwdmm, .7, {scale:0}, {scale:1, ease:Elastic.easeOut})
 TweenMax.fromTo($wikigeeks, .8, {scale:0}, {scale:1, ease:Elastic.easeOut});
@@ -44,6 +50,12 @@ $iconTest.click(function(){
 $tweetTest.click(function(){
 	TweetIconsIn();
 	setTimeout(TweetPaneIn, 500);
+});
+
+$winnersTest.click(function(){
+	$fakeRow.css("visibility","visible");
+	TweenMax.from($fakeRow, 1, {top:-250} , {top:0, ease:Elastic.easeIn});
+	WinnersCircle();
 });
 
 
@@ -87,4 +99,13 @@ $clockHand.css("visibility", "visible");
 TweenMax.fromTo($clockFace, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 TweenMax.fromTo($clockHand, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 return;
+}
+
+function WinnersCircle(){
+	$winner1.css("visibility", "visible");
+	TweenMax.from($winner1, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
+	$winner2.css("visibility", "visible");
+	TweenMax.from($winner2, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
+	$winner3.css("visibility", "visible");
+	TweenMax.from($winner3, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
 }
