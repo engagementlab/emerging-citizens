@@ -23,8 +23,8 @@ exports = module.exports = function(app) {
 
     // Views
     app.get('/', routes.views.index);
-    app.get('/game/:type/', routes.views.game.entry);
-    // app.get('/game/:accesscode/', routes.views.game.player);
+    app.get('/game/:accesscode/', routes.views.game.player);
+    app.get('/game/get/:type/', routes.views.game.entry);
     
     app.get('/moderator', routes.views.moderator.index);
     app.get('/moderator/monitor/:accesscode', routes.views.moderator.monitor);

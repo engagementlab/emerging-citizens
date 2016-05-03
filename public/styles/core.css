@@ -19,6 +19,9 @@
 .navbar-inverse {
   background-color: #FFF;
   border-color: #080808; }
+  @media (max-width: 480px) {
+    .navbar-inverse {
+      display: none; } }
 
 nav.navbar #login {
   color: #FD7D4B; }
@@ -38,6 +41,9 @@ nav.navbar #about {
 .body {
   overflow: hidden;
   background-image: url(/images/layout/background_tileable.png); }
+  @media (max-width: 480px) {
+    .body {
+      background-color: #fdae8f; } }
 
 .body.login {
   -webkit-transition: background 0.5s linear;
@@ -47,13 +53,19 @@ nav.navbar #about {
   transition: background 0.5s linear;
   background-color: #fdae8f; }
 
-.player-view-container {
-  background-image: url(/images/layout/background_tileable.png);
-  background-style: repeat center; }
-
 .game {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  box-shadow: 10px 10px 10px #888888;
+  min-height: 200px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
 
 .row .input-box {
   position: absolute; }
@@ -112,6 +124,16 @@ nav.navbar #about {
 
 .gameLanding {
   margin-top: 10%; }
+  @media only screen and (min-width: 769px) {
+    .gameLanding #desktop {
+      display: block; }
+    .gameLanding #mobile {
+      display: none; } }
+  @media (max-width: 480px) {
+    .gameLanding #desktop {
+      display: none; }
+    .gameLanding #mobile {
+      display: block; } }
 
 #gameContent {
   padding: 40px 15px;

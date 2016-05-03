@@ -1,3 +1,4 @@
+@import "core/mixins";
 @import "core/functions";
 @import "core/forms";
 
@@ -10,19 +11,6 @@ $playerColor: orange;
 
 $primary-color: #333;
 
-@mixin circle($width, $color) {
-  width: $width;
-  height: $width;
-  background: $color;
-  -webkit-border-radius: $width/2;
-     -moz-border-radius: $width/2;
-          border-radius: $width/2;
-}
-
-@mixin boxShadow ($pixels, $color) {
-	box-shadow: $pixels $pixels $pixels $color;
-}
-
 // Navbar START
 
 #logo_img {
@@ -33,8 +21,14 @@ $primary-color: #333;
 
 // Top Nav color
 .navbar-inverse {
-background-color: #FFF;
-border-color: #080808;
+
+	background-color: #FFF;
+	border-color: #080808;
+
+	@include mobile-only {
+		display: none;
+	}
+
 }
 
   nav.navbar {
@@ -59,6 +53,10 @@ border-color: #080808;
 .body {
 	overflow: hidden;
   background-image: $background-main;
+
+	@include mobile-only {
+	  background-color: #fdae8f;
+	}
 }
 
 .body.login {
@@ -68,14 +66,16 @@ border-color: #080808;
 
 }
 
-.player-view-container{
-	background-image: $background-main;
-	background-style: repeat center;
-}
-
 .game {
 	height: 100%;
 	width: 100%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  box-shadow: 10px 10px 10px #888888;
+  min-height: 200px;
+
+  @include vertical-align();
 }
 
 .row .input-box {
@@ -140,6 +140,24 @@ border-color: #080808;
 .gameLanding {
 	
 	margin-top: 10%;
+
+	@include tablet-landscape-and-up {
+		#desktop {
+			display: block;
+		}
+		#mobile {
+			display: none;
+		}
+	}
+
+	@include mobile-only {
+		#desktop {
+			display: none;
+		}
+		#mobile {
+			display: block;
+		}
+	}
 
 }
 #gameContent {

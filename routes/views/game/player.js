@@ -12,38 +12,37 @@
  *
  * ==========
  */
-var keystone = require('keystone');
-var _ = require('underscore');
-var Tweet = keystone.list('Tweet');
-var _twitter = keystone.get('twitter');
-var GameSession = keystone.list('GameSession');
+var keystone = require('keystone'),
+    _ = require('underscore'),
+    appRoot = require('app-root-path'),
+    GameSession = keystone.list('GameSession');
+    Templates = require(appRoot + '/lib/TemplateLoader');
 
 exports = module.exports = function(req, res) {
 
-    var view = new keystone.View(req, res);
     var locals = res.locals;
+    var template;
+
     locals.game_not_found = false;
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
     locals.section = 'player';
 
-    view.on('init', function(next) {
+    GameSession.model.findOne({ accessCode: req.params.accesscode.toUpperCase() }, function (err, game) {
 
-        GameSession.model.findOne({ accessCode: req.params.accesscode.toUpperCase() }, function (err, game) {
+        if(game === null) 
+            locals.game_not_found = true;
+        else
+            locals.game = game;
 
-            if(game === null) 
-                locals.game_not_found = true;
-            else
-                locals.game = game;
-
-            next(err);
-
+        // Send the view
+        Templates.Load('views/game/player', locals, function(html) {
+            template = html;
+            
+            res.send({code: game.accessCode, html: template});
         });
 
-	  });
-
-    // Render the view
-    view.render('game/player');
+    });
 
 };

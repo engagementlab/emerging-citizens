@@ -29,10 +29,8 @@ exports = module.exports = function(req, res) {
     // Set game type
     locals.gameType = req.params.type;
 
-    Templates.Load('game/entry', locals, function(html) {
-        template = html;
-            
-        res.send(template);
+    Templates.Load('partials/game/entry', locals, function(html) {            
+        res.send(html);
     });
 
 };
