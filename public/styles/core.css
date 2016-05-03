@@ -7,9 +7,49 @@
     border: 6px solid #00c5c2;
     box-shadow: 0 0 10px #719ECE; }
 
-.form input[type=submit] {
+.form input[type=submit].default {
   color: #00c5c2;
-  font-weight: bold; }
+  font-weight: bold;
+  border: 0; }
+
+.form input.prompt {
+  width: 100%;
+  display: inline; }
+
+.form .input-container {
+  position: relative; }
+
+.form .input-container input {
+  width: 100%;
+  padding-left: 30px;
+  margin-bottom: -20px; }
+
+.form .input-container .octothorp {
+  position: absolute;
+  display: block;
+  top: 24px;
+  color: gray;
+  padding-left: 5px;
+  width: 45px;
+  font-size: x-large;
+  vertical-align: middle; }
+
+.form-prompt {
+  color: white;
+  background-color: #ff5e41;
+  font-size: large;
+  padding: 10px; }
+
+.post-button {
+  color: white;
+  background-color: #00c5c2;
+  font-size: large;
+  width: 100%;
+  border: 0; }
+
+@font-face {
+  font-family: "aileron";
+  src: url("../fonts/aileron-regular-webfont.eot?") format("eot"), url("../fonts/aileron-regular-webfont.woff") format("woff"), url("../fonts/aileron-regular-webfont.ttf") format("truetype"); }
 
 #logo_img {
   height: 50px;
@@ -40,7 +80,8 @@ nav.navbar #about {
 
 .body {
   overflow: hidden;
-  background-image: url(/images/layout/background_tileable.png); }
+  background-image: url(/images/layout/background_tileable.png);
+  font-family: "aileron"; }
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
@@ -52,6 +93,14 @@ nav.navbar #about {
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
   background-color: #fdae8f; }
+
+.body.player {
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+  background-image: url(/images/layout/raindrops_tileable_orange.png); }
 
 .game {
   height: 100%;
@@ -80,7 +129,7 @@ nav.navbar #about {
   position: relative;
   height: 100%;
   width: 100%;
-  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
+  background-image: url(/images/layout/raindrops_tileable_orange.png); }
 
 .room-container {
   top: 10%;

@@ -1,15 +1,15 @@
-<div class="game">
-	<div id="submission">
-	  <h4>Guess the missing hashtag!</h4>
-	  <div style="color:white"> {{{this.html}}} </div>
-	  <div class="row input-box">
-			
-			<span class="tweet_hashtag_prepend" style="border: 1px inset gray">#
-				<input id="tweet_input" name="element_1" class="element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x; border: 0" autofocus="autofocus">
-			</span>
+	<div class="col-sm-4"></div>
+	<div id="tweet-submission" class="col-sm-4">
+	  <div class="form-prompt">create the #hashtag that could go with the tweet onscreen!</div>
+	  <div class="form">
 
-			<input id="btn_submit" data-event="hashtags:submit" data-package='#tweet_input' class="button_text" type="submit" name="submit" value="Submit">
-			<span class="hash">#</span>
+				<div class="input-container">
+					<input id="tweet_input" name="element_1" class="prompt" type="text" maxlength="255" value="" autofocus="autofocus">
+					<span class="octothorp">#</span>
+				</div>
+				<br />
+				<input id="btn_submit" data-event="hashtags:submit" data-package='#tweet_input' class="post-button submit" type="submit" name="submit" value="post">
+		
 		</div>
 	</div>
 
@@ -19,4 +19,3 @@
 	  <h4>Thanks for submitting your hashtag, now wait for the other players!</h4>
   </div>
     {{!-- <a href="hashtagGameVote.html" class="btn btn-default" type="submit">Ready?</a> --}}
-</div>

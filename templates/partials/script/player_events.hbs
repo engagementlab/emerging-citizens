@@ -40,6 +40,9 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
+            // Change background
+            $('.body').addClass('player');
+
             // Clear countdown warnings
             $('#countdownTimer').empty();
             break;

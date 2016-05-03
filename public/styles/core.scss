@@ -1,15 +1,11 @@
+@import "core/variables";
 @import "core/mixins";
 @import "core/functions";
+@import "core/fonts";
 @import "core/forms";
+@import "core/player";
 
-$background-main: url(/images/layout/background_tileable.png);
-$background-game: url(/images/layout/raindrops_tileable_salmon.png);
-$playerImageStatic: url(/images/hyi/avatar_circle.png);
-$playerImageIcon: url(/images/hyi/avatar_nameplate.png);
-$playerSize: 100px;
-$playerColor: orange;
-
-$primary-color: #333;
+@include font-face(aileron, 'aileron-regular-webfont', null, null, eot woff ttf);
 
 // Navbar START
 
@@ -53,6 +49,7 @@ $primary-color: #333;
 .body {
 	overflow: hidden;
   background-image: $background-main;
+  font-family: "aileron";
 
 	@include mobile-only {
 	  background-color: #fdae8f;
@@ -63,6 +60,13 @@ $primary-color: #333;
 
   @include linear_transition(background, 0.5s);
   background-color: #fdae8f;
+
+}
+
+.body.player {
+
+  @include linear_transition(background, 0.5s);
+  background-image: $background-game;
 
 }
 
