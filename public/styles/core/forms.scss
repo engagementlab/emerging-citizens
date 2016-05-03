@@ -5,6 +5,7 @@
 		padding: 20px;
 	  font-size: x-large;
 	  margin-bottom: 20px;
+	  position: relative;
 
 	  &:focus {
 	    outline: none !important;
@@ -52,4 +53,22 @@
 	
 	}
 
+}
+
+.input [type=checkbox] {
+		margin: 1px;
+		
+	}
+
+.input-box {
+	background-color: white;
+	border: solid black 1px;	
+}
+
+.moderatorInput {
+	margin: 10px auto;
+	display: block; 
+	border: 1px solid #d7d6d6; 
+	background: #fff; 
+	padding: 10px 10px 10px 20px; 
 }

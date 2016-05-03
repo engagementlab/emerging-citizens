@@ -26,8 +26,12 @@ var socketEvents = function(eventId, eventData) {
         case 'players:update':
 
 				  	currentPlayers = _.pluck(eventData, 'username');
-				    $('#playersContent').html(currentPlayers.join(' joined. <br />'));
+				    $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
 
+                    {{!-- var players = $('.hashtag-response');
+                    _.each(elements, function(el, index) {
+
+                    }); --}}
             break;
             
         case 'game:countdown':
