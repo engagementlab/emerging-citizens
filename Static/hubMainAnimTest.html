@@ -37,6 +37,8 @@
     body{
       background-image: url("css/ec_background_tileable.png");
       background-repeat: repeat;
+      overflow-x: hidden;
+      padding:0;
     }
 /*Background Image End*/
 /*Text Formatting*/
@@ -291,6 +293,7 @@
 	color:white;
 	font-family:Aileron;
 	font-size: 48pt;
+	display:none;
 }
 
 #header-box{
@@ -299,7 +302,22 @@
 	margin:auto;
 	padding:0;
 }
-
+.winner-pane-text{
+	position:absolute;
+	font-family: Aileron;
+	font-size: 18pt;
+	color:white;
+	padding-left: 125px;
+	margin-top:2px;
+}
+.score-text{
+	position: absolute;
+	font-family: Aileron;
+	font-size: 36pt;
+	padding-left: 105pt;
+	padding-top: 5pt;
+	color: #ffca00;
+}
 #fake-row{
 	padding:0;
 	height:25%;
@@ -316,9 +334,9 @@
 	padding:0;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	height:33%;
+	height:25%;
 }
-.winner{
+.winner-pane{
 	padding:0;
 	position:relative;
 	width: 43%;
@@ -332,7 +350,7 @@
 #winner-row-1{
 	z-index:1;
 }
-#winner-1{
+#winner-1-pane{
 	background-image: url("css/HYI_finalscoretop.png");
 	margin-left: 15%;
 	margin-right: 85%;
@@ -341,22 +359,132 @@
 #winner-row-2{
 	z-index:2;
 }
-#winner-2{
+#winner-2-pane{
 	background-image: url("css/HYI_finalscoremiddle.png");
-	margin-left: 30%;
-	margin-right:70%;
+	margin-left: 40%;
+	margin-right:60%;
 	visibility: hidden;
 }
 #winner-row-3{
 	z-index:3;
 }
-#winner-3{
+#winner-3-pane{
 	background-image: url("css/HYI_finalscorebottom.png");
-	margin-left:45%;
-	margin-right:55%;
+	margin-left:65%;
+	margin-right:35%;
 	visibility: hidden;
 }
+#winner-row-4{
+	z-index:4;
+}
+.score-mark{
+	position: absolute;
+	z-index: 5;
+	width: 250px;
+	padding-left: 110px;
+	padding-top: 35px;
+}
+.winner-icon{
+	background-image:url("css/HYI_avatar_color.png");
+	position: absolute;
+	z-index: 6;
+	width:95px;
+	height:95px;
+	background-repeat: no-repeat;
+	background-size:contain;
+}
+
 /*End Winner's Circle Formatting*/
+/*Start Leaderboard Formatting*/
+#leaderboard{
+	position:relative;
+	z-index: 11;
+}
+#leaderboard-container{
+	background-image: url("css/raindrops_tileable_peach.png");
+	background-clip: padding-box;
+	height: 885px;
+	width:100%;
+}
+#leaderboard-header{
+	color: white;
+	font-family: Aileron;
+	font-size: 48pt;
+}
+.player-name{
+	position: absolute;
+	font-family: Aileron-Thin;
+	padding-top: 91px;
+	padding-left: 35px;
+	color:blue;
+}
+.leaderboard-row{ 
+	padding:0;
+	padding-bottom:20px;
+	z-index:3;
+}
+.leaderboard-block{
+	background-color: white;
+	height: 150px;
+	width: 40%;
+	padding: 0;
+}
+.leaderboard-icon-left{
+	position: absolute;
+	height:100%;
+	width: 35%;
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-image:url("css/HYI_avatar_circle_no_shadow.png");
+}
+.leaderboard-icon-right{
+	position: absolute;
+	height:100%;
+	width: 35%;
+	left:65%;
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-image:url("css/HYI_avatar_circle_no_shadow.png");
+}
+.left-score{
+	position: absolute;
+	font-family:Aileron;
+	font-size:58pt;
+	padding-left: 180px;
+	padding-top:10px;
+}
+.right-score{
+	position: absolute;
+	font-family:Aileron;
+	font-size:58pt;
+	padding-left: 100px;
+	padding-top:10px;
+}
+#place-1-score{
+
+}
+#place-2-score{
+	
+}
+#place-3-score{
+	
+}
+#place-4-score{
+	
+}
+#place-5-score{
+	
+}
+#place-6-score{
+	
+}
+#place-7-score{
+	
+}
+#place-8-score{
+	
+}
+/*End Leaderboard Formatting*/
     </style>
 <!-- End Style -->
     
@@ -370,7 +498,7 @@
 
   <body>
 <!-- Top Navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse" style="top:0px; width:100%">
       <div class="container">
       <div class="col-md-5"></div>
         <img src="css/ec_logo_ec.png" class="col-md-2"style="margin-bottom: -25px; margin-top: 5px">
@@ -396,7 +524,7 @@
     <div class="container">
 
       <div class="starter-template" >
-        <div class="row">
+        <div class="row" style="padding:0">
           <div id="hashtag-info" class="col-sm-6">
             <!-- <h2>#You're It</h2>
             <p>Hash Tag You’re It is a fun bluffing game where players need to use convincing rhetorical language to craft tweets using real hashtag campaigns. By manipulating hashtags and exploring their meanings, students will learn about real hashtag campaigns for marketing or activism (their context, structure, and purpose) and how to rhetorically craft a 140 character limited statement to effectively convey the message of the campaign, or subvert it for a new purpose.</p>
@@ -532,24 +660,108 @@
 	</div>
 	<div id="winners-pane">
 		<div class="row winner-row" id="winner-row-1">
-
-			<div class= "winner" id="winner-1">
-		
+			<div class= "winner-pane" id="winner-1-pane">
+			<div class="winner-icon" id="winner-1-icon"></div>
+				<div class= "winner" id="winner-1"><h1 class="winner-pane-text">player one</h1>
+				<img class="score-mark" src="css/HYI_finalscores_topscoremarks.png">
+				<h2 class="score-text">300</h2>
+				
+				</div>
 			</div>
 		</div>
 		<div class="row winner-row" id="winner-row-2">
 
-			<div class= "winner" id="winner-2">
+			<div class= "winner-pane" id="winner-2-pane">
+			<div class="winner-icon" id="winner-2-icon"></div>
+			<div class= "winner" id="winner-2"><h1 class="winner-pane-text">player two</h1>
+			<h2 class="score-text">250</h2>
+			
+			</div>
 			</div>
 		</div>
 		<div class="row winner-row" id="winner-row-3">
 
-			<div class= "winner" id="winner-3">
+			<div class= "winner-pane" id="winner-3-pane">
+			<div class="winner-icon" id="winner-3-icon"></div>
+			<div class= "winner" id="winner-3"><h1 class="winner-pane-text">player three</h1>
+			<h2 class="score-text">200</h2>
+			
+			</div>
 			</div>
 		</div>
+		</div>
 	</div>
-</div>
 <!-- End Winner's Circle -->
+<!-- Start Leaderboard -->
+<div class="container" id="leaderboard-container">
+<div id="leaderboard-test"><button type="button" style="width:100%">Leaderboard Test</button></div>
+<div id="leaderboard" class="container">
+		<div class="row leaderboard-row">
+			<h1 id="leaderboard-header">Final Scores!</h1>
+		</div>
+		<div class="row leaderboard-row">
+			<div id="leaderboard-1-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-1-icon" class="leaderboard-icon-left">
+					<h3 class="player-name">player 1</h3>
+				</div>
+				<h1 id="place-1-score" class="left-score">800</h1>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="leaderboard-5-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-5-icon" class="leaderboard-icon-right">
+					<h3 class="player-name">player 5</h3>
+				</div>
+				<h1 id="place-5-score" class="right-score">350</h1>
+			</div>
+		</div>
+		<div class="row leaderboard-row">
+			<div id="leaderboard-2-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-2-icon" class="leaderboard-icon-left">
+					<h3 class="player-name">player 2</h3>
+				</div>
+				<h1 id="place-2-score" class="left-score">750</h1>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="leaderboard-6-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-6-icon" class="leaderboard-icon-right">
+					<h3 class="player-name">player 6</h3>
+				</div>
+				<h1 id="place-6-score" class="right-score">300</h1>
+			</div>
+		</div>
+		<div class="row leaderboard-row">
+			<div id="leaderboard-3-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-3-icon" class="leaderboard-icon-left">
+					<h3 class="player-name">player 3</h3>
+				</div>
+				<h1 id="place-3-score" class="left-score">600</h1>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="leaderboard-7-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-7-icon" class="leaderboard-icon-right">
+					<h3 class="player-name">player 7</h3>
+				</div>
+				<h1 id="place-7-score" class="right-score">250</h1>
+			</div>
+		</div>
+		<div class="row leaderboard-row">
+			<div id="leaderboard-4-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-4-icon" class="leaderboard-icon-left">
+					<h3 class="player-name">player 4</h3>
+				</div>
+				<h1 id="place-4-score" class="left-score">450</h1>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="leaderboard-8-place" class="leaderboard-block col-md-5">
+				<div id="leaderboard-8-icon" class="leaderboard-icon-right">
+					<h3 class="player-name">player 8</h3>
+				</div>
+				<h1 id="place-8-score" class="right-score">150</h1>
+			</div>
+		</div>
+		</div>
+</div>
+<!-- End Leaderboard -->
 <!-- Footer/Bottom Container start -->
 
       <div class="container-bottom">

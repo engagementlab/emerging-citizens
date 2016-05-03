@@ -32,10 +32,13 @@ var $tweetIcons= $(".tweet-player-icon");
 var $tweetGamePane= $("#tweet-game-pane");
 
 var $fakeRow= $("#fake-row");
+var $winnersHeader= $("#winners-header");
+var $leaderboardTest= $("#leaderboard-test");
 var $winnersTest= $("#winners-circle-test");
-var $winner1= $("#winner-1");
-var $winner2= $("#winner-2");
-var $winner3= $("#winner-3");
+var $winnersPane= $("#winners-pane");
+var $winner1= $("#winner-1-pane");
+var $winner2= $("#winner-2-pane");
+var $winner3= $("#winner-3-pane");
 
 TweenMax.fromTo($hashtag, .9, {scale:0}, {scale:1, ease:Elastic.easeOut});
 TweenMax.fromTo($wwdmm, .7, {scale:0}, {scale:1, ease:Elastic.easeOut})
@@ -53,11 +56,16 @@ $tweetTest.click(function(){
 });
 
 $winnersTest.click(function(){
+	$winnersHeader.fadeIn();
 	$fakeRow.css("visibility","visible");
-	TweenMax.from($fakeRow, 1, {top:-250} , {top:0, ease:Elastic.easeIn});
-	WinnersCircle();
+	TweenMax.from($fakeRow, .5, {top:-250} , {top:0, ease:Elastic.easeIn});
+	WinnersCircleIn();
+	
 });
-
+$leaderboardTest.click(function(){
+	WinnersCircleOut();
+	$winnersHeader.fadeOut();
+});
 
 function IconsIn(){
 $icons.css("visibility","visible");
@@ -101,11 +109,19 @@ TweenMax.fromTo($clockHand, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 return;
 }
 
-function WinnersCircle(){
+function WinnersCircleIn(){
 	$winner1.css("visibility", "visible");
-	TweenMax.from($winner1, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
+	TweenMax.from($winner1, .75, {right:-1000} , {right:0, ease:Elastic.easeOut});
 	$winner2.css("visibility", "visible");
-	TweenMax.from($winner2, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
+	TweenMax.from($winner2, .75, {right:-1000} , {right:0, ease:Elastic.easeOut, delay:.5});
 	$winner3.css("visibility", "visible");
-	TweenMax.from($winner3, .75, {right:-1000} , {right:0, ease:Elastic.easeIn});
+	TweenMax.from($winner3, .75, {right:-1000} , {right:0, ease:Elastic.easeOut, delay:1});
+}
+function WinnersCircleOut(){
+	TweenMax.fromTo($winner1, .75, {left:0} , {left:-1250});
+	TweenMax.fromTo($winner2, .75, {left:0} , {left:-1500, delay:.5});
+	TweenMax.fromTo($winner3, .75, {left:0} , {left:-1700, delay:1});
+}
+function LeaderboardIn(){
+
 }
