@@ -3,7 +3,7 @@
 @import "core/forms";
 
 $background-main: url(/images/layout/background_tileable.png);
-$background-game: url(/images/layout/raindrops_tileable_salmon.png);
+$background-monitor: url(/images/layout/raindrops_tileable_salmon.png);
 $playerImageStatic: url(/images/hyi/avatar_circle.png);
 $playerImageIcon: url(/images/hyi/avatar_nameplate.png);
 $playerSize: 100px;
@@ -66,6 +66,12 @@ $primary-color: #333;
 
 }
 
+.body.monitor {
+  background-image: $background-monitor;
+
+
+}
+
 .game {
 	height: 100%;
 	width: 100%;
@@ -78,9 +84,6 @@ $primary-color: #333;
   @include vertical-align();
 }
 
-.row .input-box {
-	position: absolute;
-}
 
 .game-header {
 	text-align: center;
@@ -93,7 +96,6 @@ $primary-color: #333;
 	position: relative;
 	height: 100%;
 	width: 100%;
-	background-image: $background-game;
 }
 
 .room-container{
@@ -107,7 +109,6 @@ $primary-color: #333;
 
 .players {
 	height: 100%;
-	width: 100%;
 	top: 10%;
 	bottom: 10%;
 	position: relative;
@@ -115,12 +116,17 @@ $primary-color: #333;
 }
 
 .playerBackground {
-	left: 25%;
 	display: block;
 	position: relative;
-	margin: 10px auto;
+	margin: 20px auto;
 	@include circle ($playerSize+10, $playerColor);
+
 }
+
+.playerBackground.playerIcon {
+		background-size: 100% 100%;
+		background-image: $playerImageIcon;
+	}
 
 .playerStatic {
 	height: 100%;
@@ -131,10 +137,7 @@ $primary-color: #333;
 	background-image: $playerImageStatic;
 }
 
-.playerIcon {
-	background-size: 100% 100%;
-	background-image: $playerImageIcon;
-}
+
 
 // START Main Content
 .gameLanding {

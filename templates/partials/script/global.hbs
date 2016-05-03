@@ -142,7 +142,7 @@
 			
 				{{!-- INDEX Template Script --}}
 				{{#ifeq section 'moderator/monitor'}}
-				
+					
 					// Open socket connection
 			    socket = io();
 			    registerEvents();
@@ -151,6 +151,7 @@
 
 					// Load events for moderators
 					{{> script/moderator_events}}
+					$('.body').addClass('monitor');
 
 				{{else}}
 

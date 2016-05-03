@@ -1,7 +1,8 @@
 .form input {
   padding: 20px;
   font-size: x-large;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  position: relative; }
   .form input:focus {
     outline: none !important;
     border: 6px solid #00c5c2;
@@ -10,6 +11,20 @@
 .form input[type=submit] {
   color: #00c5c2;
   font-weight: bold; }
+
+.input [type=checkbox] {
+  margin: 1px; }
+
+.input-box {
+  background-color: white;
+  border: solid black 1px; }
+
+.moderatorInput {
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #d7d6d6;
+  background: #fff;
+  padding: 10px 10px 10px 20px; }
 
 #logo_img {
   height: 50px;
@@ -53,6 +68,9 @@ nav.navbar #about {
   transition: background 0.5s linear;
   background-color: #fdae8f; }
 
+.body.monitor {
+  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
+
 .game {
   height: 100%;
   width: 100%;
@@ -67,9 +85,6 @@ nav.navbar #about {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
 
-.row .input-box {
-  position: absolute; }
-
 .game-header {
   text-align: center;
   margin: 40 auto; }
@@ -79,8 +94,7 @@ nav.navbar #about {
   bottom: 0px;
   position: relative;
   height: 100%;
-  width: 100%;
-  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
+  width: 100%; }
 
 .room-container {
   top: 10%;
@@ -92,23 +106,25 @@ nav.navbar #about {
 
 .players {
   height: 100%;
-  width: 100%;
   top: 10%;
   bottom: 10%;
   position: relative;
   margin: 10px auto; }
 
 .playerBackground {
-  left: 25%;
   display: block;
   position: relative;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 110px;
   height: 110px;
   background: orange;
   -webkit-border-radius: 55px;
   -moz-border-radius: 55px;
   border-radius: 55px; }
+
+.playerBackground.playerIcon {
+  background-size: 100% 100%;
+  background-image: url(/images/hyi/avatar_nameplate.png); }
 
 .playerStatic {
   height: 100%;
@@ -117,10 +133,6 @@ nav.navbar #about {
   background-size: 100px;
   background-repeat: no-repeat;
   background-image: url(/images/hyi/avatar_circle.png); }
-
-.playerIcon {
-  background-size: 100% 100%;
-  background-image: url(/images/hyi/avatar_nameplate.png); }
 
 .gameLanding {
   margin-top: 10%; }
