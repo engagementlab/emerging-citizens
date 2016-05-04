@@ -183,6 +183,7 @@
     background-image: url("css/raindrops_tileable_peach.png");
     position:relative;
     padding:0;
+    padding-bottom:5%;
     width:100%;
   }
   .icon-row
@@ -410,6 +411,7 @@
 	color: white;
 	font-family: Aileron;
 	font-size: 48pt;
+	display: none;
 }
 .player-name{
 	position: absolute;
@@ -426,8 +428,13 @@
 .leaderboard-block{
 	background-color: white;
 	height: 150px;
-	width: 40%;
+	width: 42%;
 	padding: 0;
+	visibility: hidden;
+}
+
+.right-block{
+	float:right;
 }
 .leaderboard-icon-left{
 	position: absolute;
@@ -450,39 +457,39 @@
 	position: absolute;
 	font-family:Aileron;
 	font-size:58pt;
-	padding-left: 180px;
+	padding-left: 200px;
 	padding-top:10px;
 }
 .right-score{
 	position: absolute;
 	font-family:Aileron;
 	font-size:58pt;
-	padding-left: 100px;
+	padding-left: 90px;
 	padding-top:10px;
 }
 #place-1-score{
-
+	color: #ff6363;
 }
 #place-2-score{
-	
+	color: #fec500;
 }
 #place-3-score{
-	
+	color: #ffa800;
 }
 #place-4-score{
-	
+	color: #0dd0ff;
 }
 #place-5-score{
-	
+	color: #c3ec03;
 }
 #place-6-score{
-	
+	color: #6e6eff;
 }
 #place-7-score{
-	
+	color: #ff3c00;
 }
 #place-8-score{
-	
+	color: #ffa177;
 }
 /*End Leaderboard Formatting*/
     </style>
@@ -707,7 +714,7 @@
 				<h1 id="place-1-score" class="left-score">800</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-5-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-5-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-5-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 5</h3>
 				</div>
@@ -722,7 +729,7 @@
 				<h1 id="place-2-score" class="left-score">750</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-6-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-6-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-6-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 6</h3>
 				</div>
@@ -737,7 +744,7 @@
 				<h1 id="place-3-score" class="left-score">600</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-7-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-7-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-7-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 7</h3>
 				</div>
@@ -752,7 +759,7 @@
 				<h1 id="place-4-score" class="left-score">450</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-8-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-8-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-8-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 8</h3>
 				</div>
