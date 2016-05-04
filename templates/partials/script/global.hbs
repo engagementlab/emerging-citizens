@@ -72,6 +72,7 @@
 	$(document).ready(function() {
 
 		{{#ifeq section 'moderator'}}
+			
 
 			$('#btn_submit').click(function(e) {
 				var data = $(":input").serializeArray();
@@ -152,7 +153,8 @@
 					// Load events for moderators
 					{{> script/moderator_events}}
 					$('.body').addClass('monitor');
-
+					$('.navbar').attr ('style', 'display:none;');
+          // $('.body').addClass('monitor');
 				{{else}}
 
 					// Load events for players

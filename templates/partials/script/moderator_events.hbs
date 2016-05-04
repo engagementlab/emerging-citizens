@@ -13,6 +13,8 @@
 var socketEvents = function(eventId, eventData) {
 		
 	var currentPlayers = [];
+    var staticPlayers = [];
+    var index = 0;
 
     switch (eventId) {
 
@@ -20,18 +22,23 @@ var socketEvents = function(eventId, eventData) {
 
 				   // Connected, let's sign-up for to receive messages for this room
 				   socket.emit('room', emitData('moderator'));
-
+                   
             break;
 
         case 'players:update':
 
+                    staticPlayers = $('#playerStatic');
 				  	currentPlayers = _.pluck(eventData, 'username');
 				    $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
 
-                    {{!-- var players = $('.hashtag-response');
-                    _.each(elements, function(el, index) {
 
-                    }); --}}
+                    _.each(currentPlayers, function(player, index) {
+                        $(staticPlayers[index]).attr ('id', 'playerIcon');
+                        $(staticPlayers[index]).html(player.toString('<p> </p>'));
+                        index++;
+
+                    });
+
             break;
             
         case 'game:countdown':
@@ -50,6 +57,9 @@ var socketEvents = function(eventId, eventData) {
 
 
         case 'game:start':
+
+            
+
         case 'game:end':
         case 'hashtag:submitted':
         case 'hashtags:received':
