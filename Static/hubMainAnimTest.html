@@ -225,6 +225,7 @@
     margin:auto;
     background-image: url("css/raindrops_tileable_peach.png");
     z-index: 1;
+    padding-bottom:8%;
   }
   #tweet-game-pane
   {
@@ -304,6 +305,20 @@
   #player-icon8{
     margin-bottom: 4%;
   }
+  #hashtagging-instructions{
+  	color: #ffa480;
+  	position: relative;
+  	z-index: 4;
+  	margin:auto;
+  	padding-top: 15%;
+  	padding-left:2%;
+  }
+  #bold-hashtag{
+  	font-family:Aileron;
+  	font-size:60pt;
+  	position: relative;
+  	top:.15em;
+  }
 /*End Tweet Pane Formatting*/
 /*Start Winner's Circle Formatting*/
 #winners-circle-container{
@@ -344,8 +359,7 @@
 }
 #fake-row{
 	padding:0;
-	height:25%;
-	background-color: white;
+	height:15%;
 	z-index: 0;
 	visibility:hidden;
 }
@@ -639,9 +653,11 @@
 	    <img id="tweet-pane" class="col-md-4" src="css/HYI_timerbackground.png">
 	    <img id ="real-tweet" class ="col-md-4" src="css/sample_tweet.png">
 	    <div class ="col-md-4"></div>
+	    <h1 id="hashtagging-instructions">make up a <span id="bold-hashtag">hashtag!</span></h1>
 	    </div>
 
 	    <div id="tweet-pane-stuff" class="row">
+
 	    <img id="clock-face" class ="col-md-5" src="css/HYI_clock.png">
 	    <img id="clock-hand" src="css/HYI_clockhand2.png">
 	    </div>
@@ -676,13 +692,25 @@
     </div>       
 <!-- End Icon Section -->
 <!-- End Tweet Section -->
+
+<!-- Start Hashtag Options -->
+<div class="container" id="options-container">
+<div id="hashtag-options-test"><button type="button">Hashtag Options Test</button></div>
+
+</div>
+<!-- End Hashtag Options -->
+
+<!-- Start Voting Results -->
+<div class="container" id="results-container">
+<div id="voting-results-test"><button type="button">Voting Results Test</button></div>
+
+</div>
+<!-- End Voting Results -->
+
 <!-- Start Winner's Circle -->
 <div id="winners-circle-container">
 	<div id="winners-circle-test"><button type="button">Winner's Circle Test</button></div>
 	<div id="fake-row" class="row">
-		<div class ="col-md-4"></div>
-		<img src="css/HYI_logo512.png" style="height: 100%; padding: 0; padding-top:5px; padding-bottom:15px;" class="col-md-4">
-		<div class ="col-md-4"></div>
 	</div>
 	<div id="header-box">
 		<h1 id="winners-header">Final Scores!</h1>
