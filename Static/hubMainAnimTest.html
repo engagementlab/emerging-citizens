@@ -51,17 +51,15 @@
       z-index: 3;
     }
     #room-code{
+    margin-top:15%;
       position: relative;
-      padding-top: 10%;
-      padding-left: 9%;
       visibility: hidden;
       margin-bottom:0;
       padding-bottom: 0;
     }
 
     #code{
-      padding:0;
-      padding-left: 9%;
+    	top: 20%;
       position: relative;
       font-size:72px;
       visibility: hidden;
@@ -174,6 +172,7 @@
     position: absolute;
     visibility: hidden;
     width:50%;
+    left: 28%;
     padding:0;
     padding-right: 90px;
     padding-top: 75px;
@@ -183,6 +182,7 @@
     background-image: url("css/raindrops_tileable_peach.png");
     position:relative;
     padding:0;
+    padding-bottom:5%;
     width:100%;
   }
   .icon-row
@@ -194,14 +194,21 @@
   .player-icon{
     position:relative;
     padding:0;
+    margin-top: 2%;
     float:left;
     visibility: hidden;
-    margin: auto;
+    background-image: url("css/HYI_avatar_color.png");
+    background-repeat: no-repeat;
+	background-size:contain;
+	height: 128px;
+	width: 128px;
   }
   .left-icon{
+  	margin-left: 20%;
   }
   .right-icon{
-    padding-left: 20px;
+    margin-right: 20%;
+    float:right;
   }
   #player-icon4{
     margin-bottom: 40px;
@@ -227,6 +234,7 @@
     margin: auto;
     padding: 0;
     visibility: hidden;
+
   }
   #tweet-pane{
     position: absolute;
@@ -234,13 +242,15 @@
     padding:0;
     padding-right: 4%;
     padding-top: 2%;
+     left:28%;
+
   }
 #real-tweet{
 	position: absolute;
 	z-index:3;
 	width:42%;
 	padding-top:4%;
-	padding-left:4%;
+	left: 30%;
 }
 #clock-face{
 	position: absolute;
@@ -262,6 +272,19 @@
 	z-index:3;
 	padding:0;
 	position: relative;
+	left: 46%;
+}
+.tweet-player-icon{
+	position:relative;
+    padding:0;
+    margin-top: 2%;
+    float:left;
+    visibility: hidden;
+    background-image: url("css/HYI_avatar_color.png");
+    background-repeat: no-repeat;
+	background-size:contain;
+	height: 128px;
+	width: 128px;
 }
   .tweet-icon-container{
     position:relative;
@@ -270,9 +293,10 @@
     visibility: hidden;
   }
   .left-icon{
+  	float:left;
   }
   .right-icon{
-    padding-left: 7%;
+    float:right;
   }
   #player-icon4{
     margin-bottom: 4%;
@@ -410,6 +434,7 @@
 	color: white;
 	font-family: Aileron;
 	font-size: 48pt;
+	display: none;
 }
 .player-name{
 	position: absolute;
@@ -426,8 +451,13 @@
 .leaderboard-block{
 	background-color: white;
 	height: 150px;
-	width: 40%;
+	width: 42%;
 	padding: 0;
+	visibility: hidden;
+}
+
+.right-block{
+	float:right;
 }
 .leaderboard-icon-left{
 	position: absolute;
@@ -450,39 +480,39 @@
 	position: absolute;
 	font-family:Aileron;
 	font-size:58pt;
-	padding-left: 180px;
+	padding-left: 200px;
 	padding-top:10px;
 }
 .right-score{
 	position: absolute;
 	font-family:Aileron;
 	font-size:58pt;
-	padding-left: 100px;
+	padding-left: 90px;
 	padding-top:10px;
 }
 #place-1-score{
-
+	color: #ff6363;
 }
 #place-2-score{
-	
+	color: #fec500;
 }
 #place-3-score{
-	
+	color: #ffa800;
 }
 #place-4-score{
-	
+	color: #0dd0ff;
 }
 #place-5-score{
-	
+	color: #c3ec03;
 }
 #place-6-score{
-	
+	color: #6e6eff;
 }
 #place-7-score{
-	
+	color: #ff3c00;
 }
 #place-8-score{
-	
+	color: #ffa177;
 }
 /*End Leaderboard Formatting*/
     </style>
@@ -564,36 +594,36 @@
     <div class="pane-container">
     <div id="player-icon-test"><button type="button">Icon Test</button></div>
     <div id="game-pane" class="row">
-    <div class ="col-md-4"></div>
+
     <img id="pane" class="col-md-4" src="css/HYI_waitingroom.png">
     <h1 id="room-code"> Room Code: </h1>
     <h1 id="code"><span id="letter-1">A</span><span id="letter-2">B</span><span id="letter-3">C</span><span id="letter-4">D</span></h1>
-    <div class ="col-md-4"></div>
+
     </div>
     <div class="container icon-container">
             <div class="row icon-row" id="icon-row-1">
-              <div class ="col-md-3"></div>
-                <div id="player-icon1" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-                <div class ="col-md-4"></div>
-                <div id="player-icon5" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+ 
+                <div id="player-icon1" class="player-icon left-icon col-md-1"></div>
+
+                <div id="player-icon5" class="player-icon right-icon col-md-4"></div>
             </div>
               <div class="row icon-row" id="icon-row-2">
-               <div class ="col-md-3"></div>
-               <div id="player-icon2" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon6" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+
+               <div id="player-icon2" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon6" class="player-icon right-icon col-md-4"></div>
             </div>
                <div class="row icon-row" id="icon-row-3">
-               <div class ="col-md-3"></div>
-               <div id="player-icon3" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon7" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+
+               <div id="player-icon3" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon7" class="player-icon right-icon col-md-4"></div>
             </div>
                <div class="row icon-row" id="icon-row-4">
-               <div class ="col-md-3"></div>
-               <div id="player-icon4" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon8" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>  
+
+               <div id="player-icon4" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon8" class="player-icon right-icon col-md-4"></div>  
             </div>
             </div>
     </div>
@@ -612,7 +642,6 @@
 	    </div>
 
 	    <div id="tweet-pane-stuff" class="row">
-	    <div class ="col-md-6"></div>
 	    <img id="clock-face" class ="col-md-5" src="css/HYI_clock.png">
 	    <img id="clock-hand" src="css/HYI_clockhand2.png">
 	    </div>
@@ -620,28 +649,28 @@
 <!-- Player Icons -->
 	    <div class="container tweet-icon-container">
 	        <div class="row icon-row" id="icon-row-1">
-	              <div class ="col-md-3"></div>
-	                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-	                <div class ="col-md-4"></div>
-	                <div id="tweet-player-icon5" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	              
+	                <div id="tweet-player-icon1" class="tweet-player-icon left-icon col-md-1"></div>
+	                
+	                <div id="tweet-player-icon5" class="tweet-player-icon right-icon col-md-4"></div>
 	            </div>
 	              <div class="row icon-row" id="icon-row-2">
-	               <div class ="col-md-3"></div>
-	               <div id="tweet-player-icon2" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-	               <div class ="col-md-4"></div>
-	               <div id="tweet-player-icon6" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	               
+	               <div id="tweet-player-icon2" class="tweet-player-icon left-icon col-md-1"></div>
+	               
+	               <div id="tweet-player-icon6" class="tweet-player-icon right-icon col-md-4"></div>
 	            </div>
 	               <div class="row icon-row" id="icon-row-3">
-	               <div class ="col-md-3"></div>
-	               <div id="tweet-player-icon3" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-	               <div class ="col-md-4"></div>
-	               <div id="tweet-player-icon7" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	               
+	               <div id="tweet-player-icon3" class="tweet-player-icon left-icon col-md-1"></div>
+	               
+	               <div id="tweet-player-icon7" class="tweet-player-icon right-icon col-md-4"></div>
 	            </div>
 	               <div class="row icon-row" id="icon-row-4">
-	               <div class ="col-md-3"></div>
-	               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-	               <div class ="col-md-4"></div>
-	               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+	               
+	               <div id="tweet-player-icon4" class="tweet-player-icon left-icon col-md-1"></div>
+	               
+	               <div id="tweet-player-icon8" class="tweet-player-icon right-icon col-md-4"></div>
 	        </div>
 	    </div>
     </div>       
@@ -707,7 +736,7 @@
 				<h1 id="place-1-score" class="left-score">800</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-5-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-5-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-5-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 5</h3>
 				</div>
@@ -722,7 +751,7 @@
 				<h1 id="place-2-score" class="left-score">750</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-6-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-6-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-6-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 6</h3>
 				</div>
@@ -737,7 +766,7 @@
 				<h1 id="place-3-score" class="left-score">600</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-7-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-7-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-7-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 7</h3>
 				</div>
@@ -752,7 +781,7 @@
 				<h1 id="place-4-score" class="left-score">450</h1>
 			</div>
 			<div class ="col-md-2"></div>
-			<div id="leaderboard-8-place" class="leaderboard-block col-md-5">
+			<div id="leaderboard-8-place" class="leaderboard-block right-block col-md-5">
 				<div id="leaderboard-8-icon" class="leaderboard-icon-right">
 					<h3 class="player-name">player 8</h3>
 				</div>
