@@ -1,0 +1,26 @@
+{{!< default}}
+{{!-- 
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script include for global logic
+ * ==========
+ */
+--}}
+
+function playerEntry() {
+
+	var animTiming = [.5, .6, .7, .8];
+	var entryButtons = $('.gameLanding a');
+	
+  _.each(entryButtons, function(el, index) {
+
+		timeline.add(TweenMax.fromTo(el, animTiming[index], {scale:0}, {scale:1, ease:Elastic.easeOut}));
+
+  });
+
+  timeline.play();
+
+}

@@ -1,24 +1,18 @@
-<h4>Pick which you think is the real hashtag:</h4>
-
-  <div id="submission">
-
-	  <div class="row input-box">
-			<select id="hashtagsSelect">
+	<div class="col-sm-4"></div>
+	<div id="tweet-submission" class="col-sm-4">
+	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
+	  <div class="form">
 		    {{#each this}}
-				  <option value="{{@key}}">{{this.hashtag}}</option>
+				  {{!-- <option value="{{@key}}">{{this.hashtag}}</option> --}}
+					<button id="btn_submit" data-event="hashtags:submit" data-package='{{@key}}' class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
 		    {{/each}}
-			</select>
-
-			<input id="btn_submit" data-event="hashtag:vote" data-package='#hashtagsSelect option:selected' class="button_text" type="submit" name="submit" value="Submit">
-
-			<div id="countdownTimer"></div>
-		</div>
 		
+		</div>
 	</div>
 
-  <div id="submitted" style="display:none">
-    <h4>Waiting for other players to vote...!</h4>
+	<div id="countdownTimer"></div>
+
+	<div id="submitted" style="display:none">
+	  <h4>Thanks for submitting your hashtag, now wait for the other players!</h4>
   </div>
-
-
-
+    {{!-- <a href="hashtagGameVote.html" class="btn btn-default" type="submit">Ready?</a> --}}

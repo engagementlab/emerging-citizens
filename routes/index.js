@@ -25,6 +25,7 @@ exports = module.exports = function(app) {
     app.get('/', routes.views.index);
     app.get('/game/:accesscode/', routes.views.game.player);
     app.get('/game/get/:type/', routes.views.game.entry);
+    app.post('/game/load', routes.views.game.template_load);
     
     app.get('/moderator', routes.views.moderator.index);
     app.get('/moderator/monitor/:accesscode', routes.views.moderator.monitor);

@@ -5,7 +5,7 @@
  * Developed by Engagement Lab, 2016
  * ==============
  * 
- * Script includes partial for individual sections
+ * Script include for global logic
  * ==========
  */
 --}}
@@ -68,6 +68,15 @@
 
 		return { gameId: gameCode, msgData: data };
 	}
+
+	{{#ifeq section 'moderator/monitor'}}
+
+	{{else}}
+
+		// Load animations
+		{{> script/player_animation}}
+
+	{{/ifeq}}
 
 	$(document).ready(function() {
 
@@ -167,6 +176,7 @@
 						function( data ) {
 
 							gameCode = data.code;
+							$('.navbar').slideUp();
 							
 							// Open socket connection
 					    socket = io();
@@ -186,6 +196,8 @@
 
 			{{#ifeq section 'index'}}
 
+				playerEntry();
+
 				$(document).on('click', '.btn.game_entry', function() {
 					
 					var type = $(this).data().game;
@@ -195,7 +207,6 @@
 						function( data ) {
 
 							$('.body').addClass('login');
-							$('.navbar').slideUp();
 
 	            $('#gameContent').html(data);
 
@@ -221,6 +232,24 @@
 			{{/ifeq}}
 
 		{{/ifeq}}
+
+		$("#template_selector").change(function() {
+			
+			var selected = $(this).find('option:selected');
+			var template = selected.val();
+			var templateData = selected.data('key');
+
+		  $.post( 
+		  	"/game/load/",
+		  	{ template_path: template, debug_key: templateData },
+				function( data ) {
+
+          $('#gameContent').html(data);
+
+				}
+			);
+
+		});
 		
 });
 

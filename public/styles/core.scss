@@ -5,7 +5,20 @@
 @import "core/forms";
 @import "core/player";
 
-@include font-face(aileron, 'aileron-regular-webfont', null, null, eot woff ttf);
+@include font-face(aileron, '../bower_components/aileron-webfont/fonts/aileron-regular-webfont', null, null, eot woff ttf);
+
+.desktop-only {
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
+}
+.mobile-only {
+	// Hide for desktop
+	@include desktop-and-up {
+		display: none;
+	}
+}
 
 // Navbar START
 
@@ -22,7 +35,9 @@
 	border-color: #080808;
 
 	@include mobile-only {
-		display: none;
+		li {
+	    display: inline-block;
+		}
 	}
 
 }
@@ -42,8 +57,14 @@
 .footer {
 	position: fixed;
 	bottom: 0;
+	right: 0;
 	height: 100px;
-	background-color: orange;
+	background-color: #ff9971;
+
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
 }
 
 .body {

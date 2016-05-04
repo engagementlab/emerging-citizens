@@ -15,9 +15,10 @@
 
 	}
 
-	input[type=submit].default {
+	input[type=submit].default, button.default {
 
 		color: #00c5c2;
+	  font-size: x-large;
 		font-weight: bold;
 		border: 0;
 
@@ -51,6 +52,11 @@
     font-size: x-large;
     vertical-align: middle;
 	
+	}
+
+	button.mobile-login {
+    background: white;
+    margin-top: 10%;
 	}
 
 }
