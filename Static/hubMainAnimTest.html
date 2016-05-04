@@ -51,17 +51,15 @@
       z-index: 3;
     }
     #room-code{
+    margin-top:15%;
       position: relative;
-      padding-top: 10%;
-      padding-left: 9%;
       visibility: hidden;
       margin-bottom:0;
       padding-bottom: 0;
     }
 
     #code{
-      padding:0;
-      padding-left: 9%;
+    	top: 20%;
       position: relative;
       font-size:72px;
       visibility: hidden;
@@ -174,6 +172,7 @@
     position: absolute;
     visibility: hidden;
     width:50%;
+    left: 28%;
     padding:0;
     padding-right: 90px;
     padding-top: 75px;
@@ -195,14 +194,21 @@
   .player-icon{
     position:relative;
     padding:0;
+    margin-top: 2%;
     float:left;
     visibility: hidden;
-    margin: auto;
+    background-image: url("css/HYI_avatar_color.png");
+    background-repeat: no-repeat;
+	background-size:contain;
+	height: 128px;
+	width: 128px;
   }
   .left-icon{
+  	margin-left: 20%;
   }
   .right-icon{
-    padding-left: 20px;
+    margin-right: 20%;
+    float:right;
   }
   #player-icon4{
     margin-bottom: 40px;
@@ -571,36 +577,36 @@
     <div class="pane-container">
     <div id="player-icon-test"><button type="button">Icon Test</button></div>
     <div id="game-pane" class="row">
-    <div class ="col-md-4"></div>
+
     <img id="pane" class="col-md-4" src="css/HYI_waitingroom.png">
     <h1 id="room-code"> Room Code: </h1>
     <h1 id="code"><span id="letter-1">A</span><span id="letter-2">B</span><span id="letter-3">C</span><span id="letter-4">D</span></h1>
-    <div class ="col-md-4"></div>
+
     </div>
     <div class="container icon-container">
             <div class="row icon-row" id="icon-row-1">
-              <div class ="col-md-3"></div>
-                <div id="player-icon1" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-                <div class ="col-md-4"></div>
-                <div id="player-icon5" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+ 
+                <div id="player-icon1" class="player-icon left-icon col-md-1"></div>
+
+                <div id="player-icon5" class="player-icon right-icon col-md-4"></div>
             </div>
               <div class="row icon-row" id="icon-row-2">
-               <div class ="col-md-3"></div>
-               <div id="player-icon2" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon6" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+
+               <div id="player-icon2" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon6" class="player-icon right-icon col-md-4"></div>
             </div>
                <div class="row icon-row" id="icon-row-3">
-               <div class ="col-md-3"></div>
-               <div id="player-icon3" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon7" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>
+
+               <div id="player-icon3" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon7" class="player-icon right-icon col-md-4"></div>
             </div>
                <div class="row icon-row" id="icon-row-4">
-               <div class ="col-md-3"></div>
-               <div id="player-icon4" class="player-icon left-icon col-md-1"><img src="css/HYI_avatar_color.png"></div>
-               <div class ="col-md-4"></div>
-               <div id="player-icon8" class="player-icon right-icon col-md-4"><img src="css/HYI_avatar_color.png"></div>  
+
+               <div id="player-icon4" class="player-icon left-icon col-md-1"></div>
+
+               <div id="player-icon8" class="player-icon right-icon col-md-4"></div>  
             </div>
             </div>
     </div>
