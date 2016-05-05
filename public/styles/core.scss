@@ -96,6 +96,29 @@
 
 }
 
+.orange-font {
+	color: $color-light-orange;
+}
+
+.teal-font {
+	color: $color-teal;
+}
+
+.tweetImg {
+	height: 300px;
+	width: 100%;
+	top: -100px;
+	position: relative;
+}
+
+.clockImg {
+	height: 150px;
+	width: 150px;
+	bottom: -50px;
+	position: relative;
+	@include circle(150px, white);
+}
+
 .game {
 	height: 100%;
 	width: 100%;
@@ -110,10 +133,29 @@
 
 .game-header {
 	text-align: center;
-	margin: 40 auto;
+	margin: 20px auto;
+}
+
+.game_code {
+	margin-top: 20%;
+
+	#first {
+		color: $color-light-red;
+	}
+	#second {
+		color: $color-salmon;
+	}
+	#third {
+		color: $color-light-orange;
+	}
+	#fourth {
+		color: $color-teal;
+	}
+
 }
 
 .game-message {
+	margin-bottom: 10%;
 	font-size: medium;
 	color: $color-teal;
 }
@@ -132,40 +174,54 @@
 	position: relative;
 	margin: 10px auto;
 	background-color: white;
-	@include boxShadow(10px, #888888)
+	// @include boxShadow(10px, #888888)
 }
 
 .players {
 	height: 100%;
-	top: 10%;
+	top: -50px;
 	bottom: 10%;
 	position: relative;
 	margin: 10px auto;
 }
 
 .playerBackground {
+	height: 120px;
+	width: 120px;
 	display: block;
 	position: relative;
 	margin: 20px auto;
-	@include circle ($playerSize+10, $playerColor);
+	// @include circle ($playerSize+10, $playerColor);
 
 }
 
-#playerIcon {
-		background-size: 100% 100%;
-		background-image: $playerImageIcon;
-	}
+.playerIcon.active {
+	background-size: 100% 100%;
+	background-image: $playerImageIcon;
+	opacity: 1;
+}
 
-.playerStatic {
+.playerIcon {
+	margin: 10px auto;
+	display: block;
+	position:relative;
 	height: 100%;
 	width: 100%;
 	background-position: center;
-	background-size: $playerSize;
+	background-size: 120px;
 	background-repeat: no-repeat;
 	background-image: $playerImageStatic;
+	opacity: 0.5;
 }
 
+.playerName {
+	position: relative;
+	padding-top: 75%;
+}
 
+.button_text {
+	margin: 0 auto;
+}
 
 // START Main Content
 .gameLanding {

@@ -37,6 +37,8 @@ exports = module.exports = function(req, res) {
     		if(Session.Get(game.accessCode) === undefined)
     			Session.Create(game.accessCode, new GameManager(game));
 
+        locals.accessCodeSplit = game.accessCode.split('');
+
         locals.game = game;
 
         next();

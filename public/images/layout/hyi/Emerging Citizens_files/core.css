@@ -249,26 +249,11 @@ nav.navbar #about {
 .orange-font {
   color: #ffb71d; }
 
-.teal-font {
-  color: #36d5d9; }
-
 .tweetImg {
-  height: 300px;
+  height: 100px;
   width: 100%;
-  top: -100px;
-  position: relative; }
-
-.clockImg {
-  height: 150px;
-  width: 150px;
-  bottom: -50px;
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background: white;
-  -webkit-border-radius: 75px;
-  -moz-border-radius: 75px;
-  border-radius: 75px; }
+  padding-bottom: 10%;
+  background-image: url(/images/layout/hyi/tweetexample.jpeg); }
 
 .game {
   height: 100%;
@@ -320,38 +305,26 @@ nav.navbar #about {
 
 .players {
   height: 100%;
-  top: -50px;
+  top: 10%;
   bottom: 10%;
   position: relative;
   margin: 10px auto; }
 
-.playerBackground {
-  height: 120px;
-  width: 120px;
-  display: block;
-  position: relative;
-  margin: 20px auto; }
-
 .playerIcon.active {
   background-size: 100% 100%;
-  background-image: url(/images/layout/hyi/avatar_nameplate.png);
-  opacity: 1; }
+  background-image: url(/images/layout/hyi/avatar_nameplate.png); }
 
 .playerIcon {
-  margin: 10px auto;
+  margin: 20px auto;
   display: block;
   position: relative;
   height: 100%;
   width: 100%;
   background-position: center;
-  background-size: 120px;
+  background-size: 100px;
   background-repeat: no-repeat;
   background-image: url(/images/layout/hyi/avatar_circle.png);
   opacity: 0.5; }
-
-.playerName {
-  position: relative;
-  padding-top: 75%; }
 
 .button_text {
   margin: 0 auto; }
