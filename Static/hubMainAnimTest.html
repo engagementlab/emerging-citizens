@@ -133,6 +133,22 @@
     background-color: #FFF;
     border-color: #080808;
 }
+#ec-logo{
+	background-image: url("css/ec_logo_ec.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	width: 256px;
+	height: 256px;
+	position: relative;
+	margin:auto;
+}
+
+#navbar{
+	position: relative;
+	left:39%;
+	right:61%;
+}
+
 /*Bottom bar color*/
   .navbar-fixed-bottom{
     background-color:#FB9973;
@@ -146,12 +162,61 @@
     bottom:0px;
     height: 164px;
   }
-  .egl-logo{
-    position: relative;
+  #egl-logo{
+    position: absolute;
     margin:auto;
-    width:50%;
+    width:66%;
+    height:66%;
+    left: 47%;
+    right:53%;
+    background-image: url("css/logo_white.png");
+    background-repeat: no-repeat;
+	background-size:contain;
+  }
+  #footer-text{
+  	position:absolute;
+  	top: 60%;
   }
    /*End element styling*/
+#hub-container{
+	margin-bottom: 20%;
+}
+#hub-row{
+	position: relative;
+	padding-top:20%;
+}
+
+#hashtag-info{
+	background-image: url("css/ec_logo_youreit_box.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	width:256px;
+	height:256px;
+	left:15%;
+	right:85%;
+}
+#meme-info{
+	background-image: url("css/ec_logo_wwdmm_box.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	width:256px;
+	height:256px;
+	left:39%;
+	right: 61%;
+}
+#geeks-info{
+	background-image: url("css/ec_logo_wiki_box.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position:absolute;
+	width:256px;
+	height:256px;
+	left: 62%;
+	right: 38%;
+}
+
 /*Lobby Pane formatting*/
 
   .pane-container
@@ -243,7 +308,7 @@
     padding:0;
     padding-right: 4%;
     padding-top: 2%;
-     left:28%;
+    left:28%;
 
   }
 #real-tweet{
@@ -309,9 +374,8 @@
   	color: #ffa480;
   	position: relative;
   	z-index: 4;
-  	margin:auto;
-  	padding-top: 15%;
   	padding-left:2%;
+  	padding-top:14%;
   }
   #bold-hashtag{
   	font-family:Aileron;
@@ -543,62 +607,45 @@
   <body>
 <!-- Top Navbar -->
     <nav class="navbar navbar-inverse" style="top:0px; width:100%">
-      <div class="container">
-      <div class="col-md-5"></div>
-        <img src="css/ec_logo_ec.png" class="col-md-2"style="margin-bottom: -25px; margin-top: 5px">
-        <div class ="col-md-5"></div>
-      </div>
+      <div id="ec-logo"></div>
       <div class="container">
         <div id="navbar" class="collapse navbar-collapse">
-        <div class ="col-sm-5"></div>
-
-          <ul class="nav navbar-nav col-xl-2">
+          <ul class="nav navbar-nav">
             <li><a href="hubMain.html"><span class="loginColor">login</span></a></li>
             <li><a href="playerInterface.html"><span class="aboutColor">about</span></a></li>
             <li><a href="#contact"><span class="helpColor">help</span></a></li>
           </ul>
-
-          <div class ="col-sm-4"></div>
         </div>
       </div>
     </nav>
 <!-- End Navbar -->
 
 <!-- Start game buttons -->
-    <div class="container">
-
-      <div class="starter-template" >
-        <div class="row" style="padding:0">
-          <div id="hashtag-info" class="col-sm-6">
+    <div class="container" id="hub-container">
+        <div class="row" id="hub-row" style="padding:0">
+          <div id="hashtag-info" class="col-sm-4">
             <!-- <h2>#You're It</h2>
             <p>Hash Tag You’re It is a fun bluffing game where players need to use convincing rhetorical language to craft tweets using real hashtag campaigns. By manipulating hashtags and exploring their meanings, students will learn about real hashtag campaigns for marketing or activism (their context, structure, and purpose) and how to rhetorically craft a 140 character limited statement to effectively convey the message of the campaign, or subvert it for a new purpose.</p>
             
             <a href="hashtagHub.html" class="btn btn-default" type="submit">Ready?</a> -->
 
-            <a href="hashtagHub.html" class="btn" type="submit"><img src="css/ec_logo_youreit_box.png"></a>
+            <a href="hashtagHub.html" class="btn" type="submit"></a>
 
           </div>
-          <div id="meme-info" class="col-sm-6">
+          <div id="meme-info" class="col-sm-4">
 <!--          <h2>Wait Wait Don't Tell Meme</h2>
             <p>Based on the popular NPR game show Wait, Wait Don't Tell Me, Wait, Wait Don't Tell MEME is a investigative bluffing game that teaches players how to quickly fact check image based viral content. This game puts students in the role of conversation-shapers by tasking them to create memes about cultural and political issues through playful acts of creation. They will then learn to parse content for media messages, intent, and impact by ranking the created memes by various measures including political spectrum, tone, intention, and "truthfulness."</p>
             <a href="memeHub.html" class="btn btn-default" type="submit">Ready?</a> -->
 
-          <a href="memeHub.html" class="btn" type="submit"><img src="css/ec_logo_wwdmm_box.png"></a>
+          <a href="memeHub.html" class="btn" type="submit"></a>
           </div>
-          <div id="geeks-info" class="col-sm-6">
+          <div id="geeks-info" class="col-sm-4">
           <!-- <h2>Wiki Geeks</h2>
             <p>WikiGeeks is a realtime race played on Wikipedia.org that pits players against each other in a search for specific pages using only links embedded within articles. This game tests a broad cross section of knowledge, especially knowing how different topics relate to one another and how they are mapped digitally. It has the secondary benefit of helping students become familiar with Wikipedia's pages and navigation.</p>
             <a href="geeksHub.html" class="btn btn-default" type="submit">Ready?</a> -->
-            <a href="geeksHub.html" class="btn" type="submit"><img src="css/ec_logo_wiki_box.png"></a>
+            <a href="geeksHub.html" class="btn" type="submit"></a>
 
           </div>
-          <div id="stories-info" class="col-sm-6">
-          <!-- <h2>Wiki Geeks</h2>
-            <p>WikiGeeks is a realtime race played on Wikipedia.org that pits players against each other in a search for specific pages using only links embedded within articles. This game tests a broad cross section of knowledge, especially knowing how different topics relate to one another and how they are mapped digitally. It has the secondary benefit of helping students become familiar with Wikipedia's pages and navigation.</p>
-            <a href="geeksHub.html" class="btn btn-default" type="submit">Ready?</a> -->
-          <img src="css/ec_logo_data_box.png">
-          </div>
-        </div>
         </div>
     </div>
     <!-- End Game Buttons -->
@@ -822,10 +869,8 @@
 <!-- Footer/Bottom Container start -->
 
       <div class="container-bottom">
-      <div class="col-xs-5"></div>
-      <div class="col-xs-2"><img class="egl-logo" src="css/logo_white.png" style="margin-bottom: -25px"></div>
-      <div class="col-xs-5"></div>
-      <div class ="col-xs-12"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
+      <div id="egl-logo"></div>
+      <div class ="col-xs-12" id="footer-text"><p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p></div>
       </div>
       <!-- End Bottom Container -->
 
