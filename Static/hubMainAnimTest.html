@@ -113,7 +113,9 @@
       position:relative;
       display:block;
     }
-
+    h2{
+    	font-family:Aileron-Thin;
+    }
     .btn{
       background:none;
       border:none;
@@ -179,11 +181,11 @@
   }
    /*End element styling*/
 #hub-container{
-	margin-bottom: 20%;
+	margin-bottom: 30%;
 }
 #hub-row{
 	position: relative;
-	padding-top:20%;
+	margin-top: 9%;
 }
 
 #hashtag-info{
@@ -311,12 +313,12 @@
     left:28%;
 
   }
-#real-tweet{
+#sample-tweet{
 	position: absolute;
 	z-index:3;
-	width:42%;
-	padding-top:4%;
-	left: 30%;
+	width:40%;
+	padding-top:3%;
+	left: 31%;
 }
 #clock-face{
 	position: absolute;
@@ -384,6 +386,155 @@
   	top:.15em;
   }
 /*End Tweet Pane Formatting*/
+/*Start Hashtag Options Pane Formatting*/
+#options-container{
+	position: relative;
+    width:100%;
+    margin:0;
+    padding:0;
+    background-image: url("css/raindrops_tileable_peach.png");
+    z-index: 1;
+}
+#guess-real{
+	background-image: url("css/HYI_guessthereal.png");
+    background-repeat: no-repeat;
+	background-size:contain;
+	width: 732px;
+	height:294px;
+	margin:auto;
+}
+#real-tweet-options{
+	background-image: url("css/sample_tweet.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	width: 475px;
+	height: 150px;
+	top: 11%;
+	left:18%;
+}
+#guess-instructions{
+	color: white;
+	position:absolute;
+	top: 90%;
+	left: 7%;
+}
+#bold-real{
+	font-family: Aileron;
+	color: #cbe543;
+}
+.options-block{
+	background-color: white;
+	height: 125px;
+	width: 42%;
+	padding: 0;
+}
+.options-row{
+	padding-bottom :10px;
+	padding-top:10px;
+}
+.hashtag-option{
+	position:absolute;
+	left: 29%;
+	top: 22%;
+}
+/*End Hashtag Options Pane Formatting*/
+/*Start Voting Results Formatting*/
+#results-container{
+	background-image: url("css/raindrops_tileable_peach.png");
+	background-clip: padding-box;
+	position: relative;
+    width:100%;
+    height:900px;
+    margin:0;
+    padding:0;
+}
+#real-tweet{
+	background-image: url("css/sample_tweet.png");
+		background-size:contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 596px;
+	height: 280px;
+	z-index:2;
+	left:34%;
+	right:67%;
+	top: 10%;
+}
+#results-pane{
+	background-image:url("css/HYI_realtag.png");
+	position: absolute;
+	width: 630px;
+	height: 385px;
+	left:33%;
+	right:68%;
+	top:10%;
+	z-index:1;
+}
+#wrong-voters-row{
+	position:absolute;
+	padding:0;
+	height:256px;
+	width:100%;
+	top: 65%;
+}
+#correct-voters-row{
+	position:absolute;
+	padding:0;
+	height:256px;
+	width:100%;
+	top: 65%;
+}
+.correct-voter{
+	background-image:url("css/HYI_avatar_color.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height:128px;
+	width: 128px;
+	position:relative;
+	float:left;
+	left:37%;
+	right: 63%;
+	visibility: hidden;
+	z-index: 4;
+}
+#created-by{
+	position:absolute;
+	color:white;
+	left:16%;
+	top:13%;
+	z-index: 0;
+}
+#hashtag-spot{
+	position:absolute;
+	left:23%;
+	top:63%;
+	color: #ff6e54;
+}
+.wrong-voter{
+	background-image:url("css/HYI_avatar_color.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height:128px;
+	width: 128px;
+	position:relative;
+	left:37%;
+	right: 63%;
+	float:left;
+	visibility: hidden;
+}
+#hashtag-author{
+	background-image:url("css/HYI_avatar_color.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height:172px;
+	width: 172px;
+	position:absolute;
+	left: 20%;
+	top: 34%;
+	visibility: hidden;
+}
+/*End Voting Results Formatting*/
 /*Start Winner's Circle Formatting*/
 #winners-circle-container{
 	background-image: url("css/raindrops_tileable_peach.png");
@@ -623,29 +774,29 @@
 <!-- Start game buttons -->
     <div class="container" id="hub-container">
         <div class="row" id="hub-row" style="padding:0">
-          <div id="hashtag-info" class="col-sm-4">
+          <a href="hashtagHub.html"><div id="hashtag-info" class="col-sm-4">
             <!-- <h2>#You're It</h2>
             <p>Hash Tag You’re It is a fun bluffing game where players need to use convincing rhetorical language to craft tweets using real hashtag campaigns. By manipulating hashtags and exploring their meanings, students will learn about real hashtag campaigns for marketing or activism (their context, structure, and purpose) and how to rhetorically craft a 140 character limited statement to effectively convey the message of the campaign, or subvert it for a new purpose.</p>
             
             <a href="hashtagHub.html" class="btn btn-default" type="submit">Ready?</a> -->
 
-            <a href="hashtagHub.html" class="btn" type="submit"></a>
+            
 
-          </div>
-          <div id="meme-info" class="col-sm-4">
+          </div></a>
+          <a href="memeHub.html" class="btn" type="submit"> <div id="meme-info" class="col-sm-4">
 <!--          <h2>Wait Wait Don't Tell Meme</h2>
             <p>Based on the popular NPR game show Wait, Wait Don't Tell Me, Wait, Wait Don't Tell MEME is a investigative bluffing game that teaches players how to quickly fact check image based viral content. This game puts students in the role of conversation-shapers by tasking them to create memes about cultural and political issues through playful acts of creation. They will then learn to parse content for media messages, intent, and impact by ranking the created memes by various measures including political spectrum, tone, intention, and "truthfulness."</p>
             <a href="memeHub.html" class="btn btn-default" type="submit">Ready?</a> -->
 
-          <a href="memeHub.html" class="btn" type="submit"></a>
-          </div>
-          <div id="geeks-info" class="col-sm-4">
+          
+          </div></a>
+          <a href="geeksHub.html"> <div id="geeks-info" class="col-sm-4">
           <!-- <h2>Wiki Geeks</h2>
             <p>WikiGeeks is a realtime race played on Wikipedia.org that pits players against each other in a search for specific pages using only links embedded within articles. This game tests a broad cross section of knowledge, especially knowing how different topics relate to one another and how they are mapped digitally. It has the secondary benefit of helping students become familiar with Wikipedia's pages and navigation.</p>
             <a href="geeksHub.html" class="btn btn-default" type="submit">Ready?</a> -->
-            <a href="geeksHub.html" class="btn" type="submit"></a>
+            
 
-          </div>
+          </div></a>
         </div>
     </div>
     <!-- End Game Buttons -->
@@ -698,7 +849,7 @@
 	    <div id="tweet-game-pane" class="row">
 	    <div class ="col-md-4"></div>
 	    <img id="tweet-pane" class="col-md-4" src="css/HYI_timerbackground.png">
-	    <img id ="real-tweet" class ="col-md-4" src="css/sample_tweet.png">
+	    <img id="sample-tweet" class ="col-md-4" src="css/sample_tweet.png">
 	    <div class ="col-md-4"></div>
 	    <h1 id="hashtagging-instructions">make up a <span id="bold-hashtag">hashtag!</span></h1>
 	    </div>
@@ -742,18 +893,94 @@
 
 <!-- Start Hashtag Options -->
 <div class="container" id="options-container">
-<div id="hashtag-options-test"><button type="button">Hashtag Options Test</button></div>
-
+	<div id="hashtag-options-test"><button type="button">Hashtag Options Test</button></div>
+	<div id="guess-real">
+		<div id="real-tweet-options">
+			<h1 id="guess-instructions">guess the <span id="bold-real">real</span> tweet!</h1>
+		</div>
+	</div>
+	<div id="vote-options" class="container">
+		<div class="row options-row">
+			<div id="options-1-place" class="options-block col-md-5">
+				<div id="options-1-icon" class="options-icon-left">
+				</div>
+				<h2 id="options-1-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="options-5-place" class="options-block right-block col-md-5">
+				<div id="options-5-icon" class="options-icon-right">
+				</div>
+				<h2 id="options-5-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+		</div>
+		<div class="row options-row">
+			<div id="options-2-place" class="options-block col-md-5">
+				<div id="options-2-icon" class="options-icon-left">
+				</div>
+				<h2 id-"options-2-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="options-6-place" class="options-block right-block col-md-5">
+				<div id="options-6-icon" class="options-icon-right">
+				</div>
+				<h2 id="options-6-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+		</div>
+		<div class="row options-row">
+			<div id="options-3-place" class="options-block col-md-5">
+				<div id="options-3-icon" class="options-icon-left">	
+				</div>
+				<h2 id="options-3-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="options-7-place" class="options-block right-block col-md-5">
+				<div id="options-7-icon" class="options-icon-right">
+				</div>
+				<h2 id="options-7-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+		</div>
+		<div class="row options-row">
+			<div id="options-4-place" class="options-block col-md-5">
+				<div id="options-4-icon" class="options-icon-left">
+				</div>
+				<h2 id="options-4-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+			<div class ="col-md-2"></div>
+			<div id="options-8-place" class="options-block right-block col-md-5">
+				<div id="options-8-icon" class="options-icon-right">
+				</div>
+				<h2 id="options-8-hashtag" class="hashtag-option">blahhashtagblah</h2>
+			</div>
+		</div>
+		</div>
 </div>
 <!-- End Hashtag Options -->
-
 <!-- Start Voting Results -->
 <div class="container" id="results-container">
-<div id="voting-results-test"><button type="button">Voting Results Test</button></div>
+	<div id="voting-results-test"><button type="button">Voting Results Test</button></div>
+	<div id="voting-results-reveal"><button type="button">Reveal Results Test</button></div>
+	<div id="results-pane">
+		<h1 id="created-by">the real hashtag was:</h1>
+		<h1 id="hashtag-spot">#randomhashtag</h1>
+	</div>
+	<div id="real-tweet"></div>
+	<div id="hashtag-author"></div>
+	<div id="wrong-voters-row" class="row">
+	<div class="wrong-voter" id="wrong-voter-1"></div>
+	<div class="wrong-voter" id="wrong-voter-2"></div>
+	<div class="wrong-voter" id="wrong-voter-3"></div>
+	<div class="wrong-voter" id="wrong-voter-4"></div>
+	</div>
+
+	<div id="correct-voters-row" class="row">
+	<div class="correct-voter" id="correct-voter-1"></div>
+	<div class="correct-voter" id="correct-voter-2"></div>
+	<div class="correct-voter" id="correct-voter-3"></div>
+	<div class="correct-voter" id="correct-voter-4"></div>
+	</div>
 
 </div>
 <!-- End Voting Results -->
-
 <!-- Start Winner's Circle -->
 <div id="winners-circle-container">
 	<div id="winners-circle-test"><button type="button">Winner's Circle Test</button></div>
