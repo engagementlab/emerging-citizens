@@ -66,12 +66,19 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       var user = {id: currentSocket.id, username: package.msgData.username};
 
+      // Advance player to waiting screen
+      Templates.Load('partials/player/waiting', undefined, function(html) {
+        currentSocket.emit('players:update', html);
+      });
+
+      // Mark player as ready inside game session
       Session.Get(package.gameId).PlayerReady(user, currentSpace);
 
       logger.info(user.username  + ' logged in.');
 
+      // Send player's id (debugging)
       currentSocket.emit('player:id', currentSocket.id);
-
+      
     },
 
     disconnect: function(package) {

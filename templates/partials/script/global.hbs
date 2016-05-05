@@ -97,22 +97,6 @@
 
 		{{else}}
 
-				function registerEvents() {
-
-					$.each(eventIds, function(index, id) {
-					  
-					  socket.on(id, function(eventData) {
-
-							console.log("EVENT ID: ", id);
-							console.log("EVENT DATA: (" + eventData + ")");
-
-						 	socketEvents(id, eventData); 
-						});
-
-					});
-
-				}
-
 				/**
 				 * Listen for forms that dispatch socket events.
 				 *
@@ -149,6 +133,40 @@
 						return false;
 
 				});
+				
+				/* 
+				 Logs player into game with room code and name
+				*/
+				$(document).on('click', '.btn.game_login', function() {
+
+				  $.get( 
+				  	"/game/" + $('#class_code').val(),
+						function( data ) {
+
+							if(data.error_code !== undefined) {
+
+								$('.form #class_code').addClass('invalid');
+								$('.form .error').text(data.msg).fadeIn();
+								
+								return;
+							}
+
+							gameCode = data.code;
+							$('.navbar').slideUp();
+							
+							// Open socket connection
+					    socket = io();
+					    registerEvents();
+
+							playerName = $('#player_name').val()
+
+			        // Log player in
+							socket.emit('login:submit', emitData({"username": playerName}));
+
+						}
+					);
+
+				});
 			
 				{{!-- INDEX Template Script --}}
 				{{#ifeq section 'moderator/monitor'}}
@@ -165,36 +183,29 @@
 					$('.navbar').attr ('style', 'display:none;');
           // $('.body').addClass('monitor');
 				{{else}}
+					
+					$('.body').addClass('login');
 
 					// Load events for players
 					{{> script/player_events}}
 				
 				{{/ifeq}}
-				
-				$(document).on('click', '.btn.game_login', function() {
 
-				  $.get( 
-				  	"/game/" + $('#class_code').val(),
-						function( data ) {
+				function registerEvents() {
 
-							gameCode = data.code;
-							$('.navbar').slideUp();
-							
-							// Open socket connection
-					    socket = io();
-					    registerEvents();
+					$.each(eventIds, function(index, id) {
+					  
+					  socket.on(id, function(eventData) {
 
-							playerName = $('#player_name').val()
+							console.log("EVENT ID: ", id);
+							console.log("EVENT DATA: (" + eventData + ")");
 
-			        $('#gameContent').html(data.html);
+						 	socketEvents(id, eventData); 
+						});
 
-			        // Log player in
-							socket.emit('login:submit', emitData({"username": playerName}));
+					});
 
-						}
-					);
-
-				});
+				}
 
 			{{#ifeq section 'index'}}
 
@@ -207,8 +218,6 @@
 				  $.get( 
 				  	"/game/get/" + type,
 						function( data ) {
-
-							$('.body').addClass('login');
 
 	            $('#gameContent').html(data);
 

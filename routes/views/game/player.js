@@ -31,16 +31,18 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({ accessCode: req.params.accesscode.toUpperCase() }, function (err, game) {
 
-        if(game === null) 
+        if(game === null) {
             locals.game_not_found = true;
+            res.send({error_code: 'wrong_code', msg: 'Game for room code "' + req.params.accesscode.toUpperCase() + '" not found.'});
+        }
         else
             locals.game = game;
+            
+        res.send({code: game.accessCode});
 
         // Send the view
         Templates.Load('views/game/player', locals, function(html) {
             template = html;
-            
-            res.send({code: game.accessCode, html: template});
         });
 
     });

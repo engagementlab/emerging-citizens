@@ -29,13 +29,6 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'players:update':
-
-            $('.login-box').hide();
-            $('#team').html(_.pluck(eventData, 'username').join('<br />'));
-
-            break;
-
         case 'game:start':
 
             $('#gameContent').html(eventData);
@@ -79,6 +72,7 @@ var socketEvents = function(eventId, eventData) {
         case 'game:end':
         case 'game:round_over':
         case 'game:countdown_end':
+        case 'players:update':
         case 'hashtags:received':
 
             $('#gameContent').html(eventData);

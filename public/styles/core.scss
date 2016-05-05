@@ -68,7 +68,6 @@
 }
 
 .body {
-	overflow: hidden;
   background-image: $background-main;
   font-family: "aileron";
 
@@ -109,10 +108,14 @@
   @include vertical-align();
 }
 
-
 .game-header {
 	text-align: center;
 	margin: 40 auto;
+}
+
+.game-message {
+	font-size: medium;
+	color: $color-teal;
 }
 
 .page-container {

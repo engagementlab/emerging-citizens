@@ -1,5 +1,23 @@
 .form { 
 
+	// Animation keyframes
+	@include keyframes(invalid-field) {
+	
+	  0%   {left:8px;}
+		10%  {left:-8px;}
+		30%  {left:8px;}
+		60%  {left:-8px;}
+		100% {left:0px;}
+	
+	}
+
+	// Center all divs
+	div {
+
+    margin-left: auto;
+    margin-right: auto;
+	}
+
 	input {
 
 		padding: 20px;
@@ -13,6 +31,11 @@
 	    box-shadow: 0 0 10px #719ECE;
 		}
 
+		&.invalid
+		{
+			@include animation('invalid-field .5s 1');
+			box-shadow:0 0 5px 1px $color-light-red;
+		}
 	}
 
 	input[type=submit].default, button.default {
@@ -57,6 +80,18 @@
 	button.mobile-login {
     background: white;
     margin-top: 10%;
+	}
+
+	// Form error box
+	.error {
+		display: none;
+		color: white;
+		background-color: $color-light-red;
+		font-size: medium;
+		width: 40%;
+		min-height: 50px;
+		padding: 10px;
+		border: 0;
 	}
 
 }

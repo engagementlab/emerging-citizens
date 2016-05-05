@@ -1,3 +1,55 @@
+@-webkit-keyframes invalid-field {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@-moz-keyframes invalid-field {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@-o-keyframes invalid-field {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@keyframes invalid-field {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+.form div {
+  margin-left: auto;
+  margin-right: auto; }
+
 .form input {
   padding: 20px;
   font-size: x-large;
@@ -7,6 +59,12 @@
     outline: none !important;
     border: 6px solid #00c5c2;
     box-shadow: 0 0 10px #719ECE; }
+  .form input.invalid {
+    -webkit-animation: invalid-field .5s 1;
+    -moz-animation: invalid-field .5s 1;
+    -o-animation: invalid-field .5s 1;
+    animation: invalid-field .5s 1;
+    box-shadow: 0 0 5px 1px #ab3724; }
 
 .form input[type=submit].default, .form button.default {
   color: #00c5c2;
@@ -39,6 +97,16 @@
 .form button.mobile-login {
   background: white;
   margin-top: 10%; }
+
+.form .error {
+  display: none;
+  color: white;
+  background-color: #ab3724;
+  font-size: medium;
+  width: 40%;
+  min-height: 50px;
+  padding: 10px;
+  border: 0; }
 
 .input [type=checkbox] {
   margin: 1px; }
@@ -153,7 +221,6 @@ nav.navbar #about {
       display: none; } }
 
 .body {
-  overflow: hidden;
   background-image: url(/images/layout/background_tileable.png);
   font-family: "aileron"; }
   @media (max-width: 480px) {
@@ -197,6 +264,10 @@ nav.navbar #about {
   text-align: center;
   margin: 40 auto; }
 
+.game-message {
+  font-size: medium;
+  color: #36d5d9; }
+
 .page-container {
   top: 10%;
   bottom: 0px;
@@ -230,9 +301,9 @@ nav.navbar #about {
   -moz-border-radius: 55px;
   border-radius: 55px; }
 
-.playerBackground.playerIcon {
+#playerIcon {
   background-size: 100% 100%;
-  background-image: url(/images/hyi/avatar_nameplate.png); }
+  background-image: url(/images/layout/hyi/avatar_nameplate.png); }
 
 .playerStatic {
   height: 100%;
@@ -240,7 +311,7 @@ nav.navbar #about {
   background-position: center;
   background-size: 100px;
   background-repeat: no-repeat;
-  background-image: url(/images/hyi/avatar_circle.png); }
+  background-image: url(/images/layout/hyi/avatar_circle.png); }
 
 .gameLanding {
   margin-top: 10%; }
