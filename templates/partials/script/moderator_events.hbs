@@ -14,7 +14,6 @@ var socketEvents = function(eventId, eventData) {
 		
 	var currentPlayers = [];
     var staticPlayers = [];
-    var index = 0;
 
     switch (eventId) {
 
@@ -27,17 +26,15 @@ var socketEvents = function(eventId, eventData) {
 
         case 'players:update':
 
-                    staticPlayers = $('#playerStatic');
-				  	currentPlayers = _.pluck(eventData, 'username');
-				    $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
+            staticPlayers = $('.playerStatic');
+		  	currentPlayers = _.pluck(eventData, 'username');
+		    $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
 
 
-                    _.each(currentPlayers, function(player, index) {
-                        $(staticPlayers[index]).attr ('id', 'playerIcon');
-                        $(staticPlayers[index]).html(player.toString('<p> </p>'));
-                        index++;
-
-                    });
+            _.each(currentPlayers, function(player, index) {
+                $(staticPlayers[index]).addClass('playerIcon');
+                $(staticPlayers[index]).html(player);
+            });
 
             break;
             

@@ -194,21 +194,22 @@
   width: 50px;
   margin: 0 auto; }
 
-.navbar-inverse {
+nav.navbar.main {
   background-color: #FFF;
   border-color: #080808; }
   @media (max-width: 480px) {
-    .navbar-inverse li {
+    nav.navbar.main li {
       display: inline-block; } }
+  nav.navbar.main #login {
+    color: #FD7D4B; }
+  nav.navbar.main #help {
+    color: #FECD40; }
+  nav.navbar.main #about {
+    color: #20C5C1; }
 
-nav.navbar #login {
-  color: #FD7D4B; }
-
-nav.navbar #help {
-  color: #FECD40; }
-
-nav.navbar #about {
-  color: #20C5C1; }
+nav.header {
+  background-color: white;
+  padding-bottom: 1%; }
 
 .footer {
   position: fixed;
@@ -266,7 +267,14 @@ nav.navbar #about {
 
 .game-message {
   font-size: medium;
-  color: #36d5d9; }
+  color: #4343ff;
+  min-height: 265px;
+  background-image: url(/images/layout/hyi/cloud.png);
+  background-repeat: no-repeat; }
+  .game-message span {
+    width: 50%;
+    margin-top: 25%;
+    margin-left: -3%; }
 
 .page-container {
   top: 10%;
@@ -281,7 +289,9 @@ nav.navbar #about {
   position: relative;
   margin: 10px auto;
   background-color: white;
-  box-shadow: 10px 10px 10px #888888; }
+  -webkit-box-shadow: 10px 0px 0px #888888;
+  -moz-box-shadow: 10px 0px 0px #888888;
+  box-shadow: 10px 0px 0px #888888; }
 
 .players {
   height: 100%;
@@ -296,12 +306,15 @@ nav.navbar #about {
   margin: 20px auto;
   width: 110px;
   height: 110px;
-  background: orange;
+  background: white;
   -webkit-border-radius: 55px;
   -moz-border-radius: 55px;
-  border-radius: 55px; }
+  border-radius: 55px;
+  -webkit-box-shadow: 2px 10px 46px #000000;
+  -moz-box-shadow: 2px 10px 46px #000000;
+  box-shadow: 2px 10px 46px #000000; }
 
-#playerIcon {
+.playerIcon {
   background-size: 100% 100%;
   background-image: url(/images/layout/hyi/avatar_nameplate.png); }
 
