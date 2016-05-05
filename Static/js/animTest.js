@@ -5,6 +5,7 @@ var $wikigeeks =$("#geeks-info");
 var $stories = $("#stories-info");
 //icontest vars
 var $iconTest = $("#player-icon-test");
+var $iconClearTest = $("#icon-clear-test");
 var $icons = $(".player-icon")
 var $icon1 = $("#player-icon1");
 var $icon2 = $("#player-icon2");
@@ -29,12 +30,14 @@ var $tweetIcon6 = $("#tweet-player-icon6");
 var $tweetIcon7 = $("#tweet-player-icon7");
 var $tweetIcon8 = $("#tweet-player-icon8");
 var $tweetTest= $("#tweet-pane-test");
+var $tweetClearTest= $("#tweet-pane-clear-test");
 var $tweetIcons= $(".tweet-player-icon");
 var $tweetGamePane= $("#tweet-game-pane");
 
 //hashtag options vars
 var $guessRealPane = $("#guess-real");
 var $testTagOptions = $("#hashtag-options-test");
+var $optionsClearTest = $("#options-clear-test");
 var $hashtagOptions = $(".options-block");
 var $hashtagOption1 = $("#options-1-place");
 var $hashtagOption2 = $("#options-2-place");
@@ -95,13 +98,26 @@ $iconTest.click(function(){
 	setTimeout(PaneIn, 500);
 });
 
+$iconClearTest.click(function(){
+	IconsOut();
+	setTimeout(PaneOut, 500);
+});
+
 $tweetTest.click(function(){
 	TweetIconsIn();
 	setTimeout(TweetPaneIn, 500);
 });
 
+$tweetClearTest.click(function(){
+	TweetIconsOut();
+	setTimeout(TweetPaneOut, 500);
+});
+
 $testTagOptions.click(function(){
 	HashtagOptionsIn();
+});
+$optionsClearTest.click(function(){
+	HashtagOptionsOut();
 });
 $votingResultsTest.click(function(){
 	ResultsIn();
@@ -141,6 +157,17 @@ $icons.css("visibility","visible");
 	TweenMax.fromTo($icon8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.3});
 	return;
 }
+function IconsOut(){
+	TweenMax.to($icon1, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon2, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon3, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon4, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon5, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon6, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon7, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($icon8, 2,{right:-600, ease:Elastic.easeOut});
+	return;
+}
 function PaneIn(){
 	$gamePane.css("visibility", "visible");
 	TweenMax.fromTo($gamePane, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
@@ -148,6 +175,14 @@ function PaneIn(){
 	TweenMax.fromTo($code, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 	$roomCode.css("visibility", "visible");
 	$code.css("visibility", "visible");
+	return;
+}
+function PaneOut(){
+	
+	TweenMax.fromTo($gamePane, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
+	TweenMax.fromTo($roomCode, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
+	TweenMax.fromTo($code, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
+
 	return;
 }
 function TweetIconsIn(){
@@ -161,6 +196,17 @@ function TweetIconsIn(){
 	TweenMax.fromTo($tweetIcon7, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.2});
 	TweenMax.fromTo($tweetIcon8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.3});
 }
+function TweetIconsOut(){
+	TweenMax.to($tweetIcon1, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon2, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon3, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon4, 2, {left:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon5, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon6, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon7, 2, {right:-600, ease:Elastic.easeOut});
+	TweenMax.to($tweetIcon8, 2,{right:-600, ease:Elastic.easeOut});
+	return;
+}
 function TweetPaneIn(){
 	$tweetGamePane.css("visibility", "visible");
 	TweenMax.fromTo($tweetGamePane, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
@@ -168,6 +214,15 @@ function TweetPaneIn(){
 	$clockHand.css("visibility", "visible");
 	TweenMax.fromTo($clockFace, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
 	TweenMax.fromTo($clockHand, 1, {scale:0}, {scale:1, ease:Elastic.easeOut});
+	return;
+}
+
+function TweetPaneOut(){
+	
+	TweenMax.fromTo($tweetGamePane, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
+	$clockHand.css("visibility","hidden");
+	$clockFace.css("visibility","hidden");
+
 	return;
 }
 
@@ -181,6 +236,17 @@ function HashtagOptionsIn(){
 	TweenMax.fromTo($hashtagOption6, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.1});
 	TweenMax.fromTo($hashtagOption7, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.2});
 	TweenMax.fromTo($hashtagOption8, 2, {right: -500},{right:-75, ease:Elastic.easeOut, delay:.3});
+}
+function HashtagOptionsOut(){
+	TweenMax.fromTo($guessRealPane, 1.5, {top: 0},{top:-500, ease:Elastic.easeOut});
+	TweenMax.fromTo($hashtagOption1, .5, {left: 0},{left:-900});
+	TweenMax.fromTo($hashtagOption2, .5, {left: 0},{left:-900});
+	TweenMax.fromTo($hashtagOption3, .5, {left: 0},{left:-900});
+	TweenMax.fromTo($hashtagOption4, .5, {left: 0},{left:-900});
+	TweenMax.fromTo($hashtagOption5, .5, {right: 0},{right:-900});
+	TweenMax.fromTo($hashtagOption6, .5, {right: 0},{right:-900});
+	TweenMax.fromTo($hashtagOption7, .5, {right: 0},{right:-900});
+	TweenMax.fromTo($hashtagOption8, .5, {right: 0},{right:-900});
 }
 
 function ResultsIn(){
