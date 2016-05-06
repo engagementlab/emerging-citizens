@@ -79,27 +79,6 @@
         </div>
 
         {{> nav}}
-
-        {{#ifeq section 'moderator/monitor'}}
-            
-            <select id="template_selector" name="template_selector_player">
-              <option value="">choose:</option>
-              <option value="partials/moderator/waiting">waiting</option>
-              <option value="partials/player/voting" data-key="voting">voting</option>
-              <option value="wait">wait</option>
-            </select>
-
-        {{else}}
-
-            <select id="template_selector" name="template_selector_player">
-              <option value="">choose:</option>
-              <option value="partials/player/tweet">tweet</option>
-              <option value="partials/player/results" data-key="results">results</option>
-              <option value="wait">wait</option>
-            </select>
-
-        {{/ifeq}}
-
         <div class="container">
               <div id="gameContent">
 
@@ -109,5 +88,28 @@
               </div>
             <div id="countdownTimer"></div>
         </div><!-- /.container -->
+
+        <div style="right:0;position: absolute;">
+            {{#ifeq section 'moderator/monitor'}}
+                
+                <select id="template_selector" name="template_selector_player">
+                  <option value="">choose:</option>
+                  <option value="partials/moderator/waiting">waiting</option>
+                  <option value="partials/player/voting" data-key="voting">voting</option>
+                  <option value="wait">wait</option>
+                </select>
+
+            {{else}}
+
+                <select id="template_selector" name="template_selector_player">
+                  <option value="">choose:</option>
+                  <option value="partials/player/tweet">tweet</option>
+                  <option value="partials/player/results" data-key="results">results</option>
+                  <option value="wait">wait</option>
+                </select>
+
+            {{/ifeq}}
+        </div>
+
     </body>
 </html>

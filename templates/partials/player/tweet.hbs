@@ -15,7 +15,21 @@
 
 	<div id="countdownTimer"></div>
 
-	<div id="submitted" style="display:none">
-	  <h4>Thanks for submitting your hashtag, now wait for the other players!</h4>
-  </div>
+  <section id="submitted" data-hide="tweet-submission" class="row" style="display:none">
+	    
+  		<div class="col-lg-12">
+	  		<div class="col-lg-4"></div>
+		    <div class="col-lg-4 game-message">
+		    		<div class="col-lg-3"></div>
+		        <span class="text col-lg-6">submission received, please wait!</span>
+		    		<div class="col-lg-3"></div>
+
+		        <div class="col-lg-5"></div>
+		        <div id="tweet_sketch" class="col-lg-4">
+			        {{!-- <img src="/images/layout/hyi/twittersketch.png" alt=""> --}}
+		        </div>
+		    </div>
+	    </div>
+
+	</section>
     {{!-- <a href="hashtagGameVote.html" class="btn btn-default" type="submit">Ready?</a> --}}

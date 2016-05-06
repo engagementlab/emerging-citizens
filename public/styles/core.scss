@@ -28,8 +28,8 @@
 	margin: 0 auto;
 }
 
-// Top Nav color
-.navbar-inverse {
+// Top Nav
+nav.navbar.main {
 
 	background-color: #FFF;
 	border-color: #080808;
@@ -40,10 +40,7 @@
 		}
 	}
 
-}
-
-  nav.navbar {
-  	#login{
+	#login{
     color: #FD7D4B;
   }
   #help {
@@ -52,6 +49,13 @@
   #about {
     color:#20C5C1;
   }
+
+}
+
+// Group view header
+nav.header {
+	background-color: white;
+  padding-bottom: 1%;
 }
 
 .footer {
@@ -157,7 +161,16 @@
 .game-message {
 	margin-bottom: 10%;
 	font-size: medium;
-	color: $color-teal;
+	color: $color-blue;
+  min-height: 265px;
+  background-image: url(/images/layout/hyi/cloud.png);
+  background-repeat: no-repeat; 
+
+  span {
+  	width: 50%;
+    margin-top: 25%;
+    margin-left: -3%;
+  }
 }
 
 .page-container {
@@ -174,7 +187,7 @@
 	position: relative;
 	margin: 10px auto;
 	background-color: white;
-	// @include boxShadow(10px, #888888)
+	@include box-shadow(10px, 0px, 0px, #888888);
 }
 
 .players {
@@ -191,15 +204,21 @@
 	display: block;
 	position: relative;
 	margin: 20px auto;
-	// @include circle ($playerSize+10, $playerColor);
-
+	@include circle ($playerSize+10, white);
+	@include box-shadow(2px, 10px, 46px, #000000);
+}
+.playerNameplate {
+  position: relative;
+  transform: translateY(102px);
+  background-color: white;
+  padding: 2px;
+  box-shadow: 0px 21px 46px #000000;
 }
 
-.playerIcon.active {
-	background-size: 100% 100%;
-	background-image: $playerImageIcon;
-	opacity: 1;
-}
+.playerIcon {
+		background-size: 100% 100%;
+		background-image: $playerImageIcon;
+	}
 
 .playerIcon {
 	margin: 10px auto;
@@ -217,10 +236,6 @@
 .playerName {
 	position: relative;
 	padding-top: 75%;
-}
-
-.button_text {
-	margin: 0 auto;
 }
 
 // START Main Content
