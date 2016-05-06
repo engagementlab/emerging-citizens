@@ -1,0 +1,36 @@
+{{!-- Players column --}}
+<div class="col-lg-3 players {{#if left}}left{{/if}}">
+    
+    {{#each players}}
+    
+        {{#if ../active}}
+
+            <div class="player-background">
+                <div class="player-static">
+                    <div class="icon active">
+                        <img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{incIndex @index}}{{else}}{{add @index ../../offset}}{{/if}}.png" />
+                    </div>
+                    <div class="nameplate active">
+
+                        {{this.username}}
+
+                    </div>
+                </div>
+            </div>
+        
+        {{else}}
+
+            <div class="player-background">
+                <div class="player-static">
+                    <div class="icon"><img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{incIndex @index}}{{else}}{{add @index ../../../offset}}{{/if}}.png" /></div>
+                    <div class="nameplate"> 
+
+                    </div>
+                </div>
+            </div>
+
+        {{/if}}
+
+    {{/each}}
+
+</div>

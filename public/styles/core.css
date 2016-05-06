@@ -177,9 +177,159 @@
   height: 100px;
   background-color: white; }
 
+.game_code {
+  margin-top: 20%; }
+  .game_code #first {
+    color: #fe6444; }
+  .game_code #second {
+    color: #ffb71d; }
+  .game_code #third {
+    color: #fbd738; }
+  .game_code #fourth {
+    color: #13e695; }
+
+.room-container {
+  top: 10%;
+  bottom: 10%;
+  padding: 10%;
+  position: relative;
+  margin: 10px auto;
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 50px #000;
+  -moz-box-shadow: 10px 10px 50px #000;
+  box-shadow: 10px 10px 50px #000; }
+
+.players {
+  height: 100%;
+  bottom: 10%;
+  position: relative;
+  margin: 10px auto; }
+  .players.left div.player-background:nth-child(4) {
+    transform: translate(212px, -176px); }
+  .players div.player-background:nth-child(4) {
+    transform: translate(-212px, -176px); }
+
+.player-background {
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  background: white;
+  width: 140px;
+  height: 140px;
+  background: white;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  border-radius: 70px;
+  -webkit-box-shadow: 2px 10px 46px #000000;
+  -moz-box-shadow: 2px 10px 46px #000000;
+  box-shadow: 2px 10px 46px #000000; }
+  .player-background .icon {
+    margin: 10px auto;
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3; }
+    .player-background .icon.active {
+      opacity: 1; }
+    .player-background .icon img {
+      width: 130px;
+      height: 130px; }
+  .player-background .nameplate {
+    position: relative;
+    background-color: white;
+    padding: 2px;
+    opacity: 0;
+    font-weight: bold;
+    font-size: small;
+    color: #4343ff;
+    -webkit-box-shadow: 0px 21px 46px #000;
+    -moz-box-shadow: 0px 21px 46px #000;
+    box-shadow: 0px 21px 46px #000;
+    -moz-transform: translate(0px, -32px);
+    -o-transform: translate(0px, -32px);
+    -ms-transform: translate(0px, -32px);
+    -webkit-transform: translate(0px, -32px);
+    transform: translate(0px, -32px);
+    -moz-transition: opacity 0.5s, transform 0.5s;
+    -o-transition: opacity 0.5s, transform 0.5s;
+    -webkit-transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s; }
+    .player-background .nameplate.active {
+      opacity: 1;
+      -moz-transform: translate(0px, -18px);
+      -o-transform: translate(0px, -18px);
+      -ms-transform: translate(0px, -18px);
+      -webkit-transform: translate(0px, -18px);
+      transform: translate(0px, -18px); }
+
+#current-tweet {
+  background-color: white;
+  color: black;
+  font-size: medium;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  -webkit-box-shadow: 5px 5px 10px #000;
+  -moz-box-shadow: 5px 5px 10px #000;
+  box-shadow: 5px 5px 10px #000; }
+  #current-tweet #author {
+    color: #36d5d9; }
+
+#hashtag-submissions-prompt {
+  color: white;
+  font-family: 'aileron-light';
+  font-size: x-large;
+  background-color: #7c90ff;
+  border: solid 10px white; }
+  #hashtag-submissions-prompt #real {
+    color: #13e695;
+    font-family: 'aileron-bold'; }
+
+#hashtag-submissions .hashtag {
+  background-color: white;
+  padding: 20px;
+  margin: 20px; }
+  #hashtag-submissions .hashtag .octothorp {
+    font-size: x-large; }
+
 @font-face {
   font-family: "aileron";
   src: url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "aileron-light";
+  src: url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "aileron-bold";
+  src: url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.ttf") format("truetype"); }
+
+.body {
+  background-image: url(/images/layout/background_tileable.png);
+  font-family: "aileron"; }
+  @media (max-width: 480px) {
+    .body {
+      background-color: #fdae8f; } }
+
+.body.login {
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+  background-color: #fdae8f; }
+
+.body.player {
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+  background-image: url(/images/layout/raindrops_tileable_orange.png); }
+
+.body.monitor {
+  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
 
 @media (max-width: 480px) {
   .desktop-only {
@@ -221,31 +371,29 @@ nav.header {
     .footer {
       display: none; } }
 
-.body {
-  background-image: url(/images/layout/background_tileable.png);
-  font-family: "aileron"; }
-  @media (max-width: 480px) {
-    .body {
-      background-color: #fdae8f; } }
+.orange-font {
+  color: #ffb71d; }
 
-.body.login {
-  -webkit-transition: background 0.5s linear;
-  -moz-transition: background 0.5s linear;
-  -ms-transition: background 0.5s linear;
-  -o-transition: background 0.5s linear;
-  transition: background 0.5s linear;
-  background-color: #fdae8f; }
+.teal-font {
+  color: #36d5d9; }
 
-.body.player {
-  -webkit-transition: background 0.5s linear;
-  -moz-transition: background 0.5s linear;
-  -ms-transition: background 0.5s linear;
-  -o-transition: background 0.5s linear;
-  transition: background 0.5s linear;
-  background-image: url(/images/layout/raindrops_tileable_orange.png); }
+.tweetImg {
+  height: 300px;
+  width: 100%;
+  top: -100px;
+  position: relative; }
 
-.body.monitor {
-  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
+.clockImg {
+  height: 150px;
+  width: 150px;
+  bottom: -50px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: white;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px; }
 
 .game {
   height: 100%;
@@ -254,18 +402,18 @@ nav.header {
   margin: 10px auto;
   background-color: white;
   box-shadow: 10px 10px 10px #888888;
-  min-height: 200px;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  min-height: 200px; }
 
 .game-header {
   text-align: center;
-  margin: 40 auto; }
+  font-size: 4em;
+  letter-spacing: -0.06em; }
+  .game-header span {
+    margin: -5px;
+    font-family: "aileron-bold"; }
 
 .game-message {
+  margin-bottom: 10%;
   font-size: medium;
   color: #4343ff;
   min-height: 265px;
@@ -282,49 +430,6 @@ nav.header {
   position: relative;
   height: 100%;
   width: 100%; }
-
-.room-container {
-  top: 10%;
-  bottom: 10%;
-  position: relative;
-  margin: 10px auto;
-  background-color: white;
-  -webkit-box-shadow: 10px 0px 0px #888888;
-  -moz-box-shadow: 10px 0px 0px #888888;
-  box-shadow: 10px 0px 0px #888888; }
-
-.players {
-  height: 100%;
-  top: 10%;
-  bottom: 10%;
-  position: relative;
-  margin: 10px auto; }
-
-.playerBackground {
-  display: block;
-  position: relative;
-  margin: 20px auto;
-  width: 110px;
-  height: 110px;
-  background: white;
-  -webkit-border-radius: 55px;
-  -moz-border-radius: 55px;
-  border-radius: 55px;
-  -webkit-box-shadow: 2px 10px 46px #000000;
-  -moz-box-shadow: 2px 10px 46px #000000;
-  box-shadow: 2px 10px 46px #000000; }
-
-.playerIcon {
-  background-size: 100% 100%;
-  background-image: url(/images/layout/hyi/avatar_nameplate.png); }
-
-.playerStatic {
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-size: 100px;
-  background-repeat: no-repeat;
-  background-image: url(/images/layout/hyi/avatar_circle.png); }
 
 .gameLanding {
   margin-top: 10%; }

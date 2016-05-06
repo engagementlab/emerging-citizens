@@ -1,0 +1,138 @@
+.game_code {
+	margin-top: 20%;
+
+	#first {
+		color: $color-red;
+	}
+	#second {
+		color: $color-light-orange;
+	}
+	#third {
+		color: $color-yellow;
+	}
+	#fourth {
+		color: $color-light-green;
+	}
+
+}
+
+.room-container {
+	top: 10%;
+	bottom: 10%;
+	padding: 10%;
+	position: relative;
+	margin: 10px auto;
+	background-color: white;
+	@include box-shadow(10px, 10px, 50px, #000);
+}
+
+.players {
+	height: 100%;
+	bottom: 10%;
+	position: relative;
+	margin: 10px auto;
+
+	// Move last one in column to the right or left
+	&.left {
+		div.player-background:nth-child(4) {
+			transform: translate(212px, -176px);
+		}
+	}
+	div.player-background:nth-child(4) {
+		transform: translate(-212px, -176px);
+	}
+}
+
+.player-background {
+	
+	display: block;
+	position: relative;
+	margin: 20px auto;
+	margin-bottom: 40px;
+	background: white;
+	@include circle ($playerSize, white);
+	@include box-shadow(2px, 10px, 46px, #000000);
+	
+	.icon {
+		margin: 10px auto;
+		display: block;
+		position:relative;
+		height: 100%;
+		width: 100%;
+		opacity: 0.3;
+
+		&.active {
+			opacity: 1;
+		}
+
+		img {
+			width: 130px;
+			height: 130px;
+		}
+	}
+
+	.nameplate {
+
+	  position: relative;
+	  background-color: white;
+	  padding: 2px;
+	  opacity: 0;
+	  font-weight: bold;
+	  font-size: small;
+	  color: $color-blue;
+
+		@include box-shadow(0px, 21px, 46px, #000);
+		@include translate(0px, -32px);
+
+		@include transition(opacity .5s, transform .5s);
+
+		&.active {
+			opacity: 1;
+			@include translate(0px, -18px);
+		}
+	}
+
+}
+
+// TWEET template
+#current-tweet {
+	background-color: white;
+	color: black;
+	font-size: medium;
+	margin-top: 5%;
+	margin-bottom: 5%;
+
+	@include box-shadow(5px, 5px, 10px, #000);
+
+	#author {
+		color: $color-teal;
+	}
+}
+
+// SUBMISSIONS
+#hashtag-submissions-prompt {
+
+	color: white;
+	font-family: 'aileron-light';
+	font-size: x-large;
+	background-color: $color-violet;
+	border: solid 10px white;
+
+	#real {
+		color: $color-light-green;
+		font-family: 'aileron-bold';
+	}
+
+}
+#hashtag-submissions {
+	
+	.hashtag {
+		background-color: white;
+		padding: 20px;
+		margin: 20px;
+
+		.octothorp {
+			font-size: x-large;
+		}
+	}
+}

@@ -33,6 +33,22 @@ module.exports = function() {
 
     };
 
+    //  ### int addition helper
+    // Used for increasing int by amount
+    //
+    //  @amt: Amount to offset
+    //
+    //  *Usage example:*
+    //  `{{add @index}}
+
+    _helpers.add = function(ind, amt) {
+
+        console.log(ind, amt)
+ 
+        return parseInt(ind) + amt;
+
+    }
+
     return _helpers;
 
 

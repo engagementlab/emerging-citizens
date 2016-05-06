@@ -1,21 +1,3 @@
-@mixin linear_transition($prop, $duration) {
-
-  -webkit-transition: $prop $duration linear;
-  -moz-transition: $prop $duration linear;
-  -ms-transition: $prop $duration linear;
-  -o-transition: $prop $duration linear;
-  transition: $prop $duration linear;
-
-}
-
-@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
 // =============================================================================
 // String Replace
 // =============================================================================

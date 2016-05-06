@@ -13,27 +13,30 @@
 var socketEvents = function(eventId, eventData) {
 		
 	var currentPlayers = [];
-    var staticPlayers = [];
 
     switch (eventId) {
 
         case 'connect':
 
-				   // Connected, let's sign-up for to receive messages for this room
-				   socket.emit('room', emitData('moderator'));
-                   
+			   // Connected, let's sign-up for to receive messages for this room
+			   socket.emit('room', emitData('moderator'));
+               
             break;
 
         case 'players:update':
 
-                    staticPlayers = $('.playerIcon');
-				  	currentPlayers = _.pluck(eventData, 'username');
-				    $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
+                var staticPlayers = $('.player-static');
+			  	currentPlayers = _.pluck(eventData, 'username');
+	
+    		    // $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
 
+                _.each(currentPlayers, function(name, index) {
 
-                    _.each(currentPlayers, function(player, index) {
-                        $(staticPlayers[index]).addClass ('active');
-                        $(staticPlayers[index]).html('<div class="playerName">' + player.toString() + ' </div>');
+                    var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+                    $(staticPlayers[index]).children('.icon').addClass('active');
+                    $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+                });
 
             break;
             

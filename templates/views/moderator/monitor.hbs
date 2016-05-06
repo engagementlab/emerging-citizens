@@ -1,59 +1,29 @@
-<style>
-.input-box { position: relative; }
-input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10px 10px 10px 20px; width: 195px; }
-.hash { position: absolute; display: block; left: 5px; top: 10px; z-index: 9; color: #47527D; }
-</style>
-
 {{> moderator/header_htyi }}
 
-    <!-- Page Content -->
 <div class="page-container">
     <div class="row">
-        <div class="col-lg-3 players">
-            <div class="playerBackground">
-                <div class="playerStatic">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerStatic">
-                    <div class="playerNameplate">name</div>
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerStatic">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerStatic">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-        </div>
-        <!-- Introduction Row -->
-        <div class="col-lg-6 room-container">
-            <div class="row game_code">
+        
+        {{> moderator/players_column players=players.left offset=0 left=true }}
+
+        {{!-- Room Code Container --}}
+        <section class="col-lg-6">
+            <div class="row room-container game_code">
                 <div class="col-lg-12">
-                    <h1 style="font-size: 6em" class="game-header">Room Code:
+                    <h1 class="game-header">Room Code:
                     </h1>
-                    {{!-- <h1 style="font-size: 8em" class="game-header">{{game.accessCode}}</h1> --}}
-                    <h1 style="font-size: 8em" class="game-header">
-                        {{!-- {{jsonPrint this}} --}}
+                    <h1 class="game-header">
                         <span id="first">{{accessCodeSplit.[0]}}</span>
                         <span id="second">{{accessCodeSplit.[1]}}</span>
                         <span id="third">{{accessCodeSplit.[2]}}</span>
                         <span id="fourth">{{accessCodeSplit.[3]}}</span>
                     </h1>
+
+                    <div class="row">
+                        <div class="col-lg-12" style="margin-top: 5%;">
+                            <h1 style="font-size: 1.5em;" class="game-header teal-font">waiting for other players....</h1>
+                            {{!-- <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit"> --}}
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -62,51 +32,13 @@ input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10
                     <h4 class="game-header">Game Name: {{game.name}}
                     </h4>
                 </div>
+            </div>
+            <div class="row" id="playersContent">
             </div> --}}
-            <div class="row">
-                <div class="col-lg-12" style="margin-top: 5%;">
-                    <h4 class="game-message">Waiting for players...
-                    </h4>
-                    {{!-- <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit"> --}}
-                </div>
-            </div>
-            <!-- Team Members Row -->
-            {{!-- <div class="row" id="playersContent">
-            </div> --}}
-
-        </div>
-
-        <div class="col-lg-3 players">
-            <div class="playerBackground">
-                <div class="playerIcon">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerIcon">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerIcon">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-            <div class="playerBackground">
-                <div class="playerIcon">
-                    {{!-- {{#each User}}
-                    <div class="playerIcon">{{this.GameUser}}</div>
-                    {{/each}} --}}
-                </div>
-            </div>
-        </div>
+        </section>
+        
+        {{> moderator/players_column players=players.right offset=5 left=false }}
         
 
-    </div> {{!-- end page row --}}
+    </div>
 </div>

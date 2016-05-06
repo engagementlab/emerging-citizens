@@ -92,11 +92,12 @@
         <div style="right:0;position: absolute;">
             {{#ifeq section 'moderator/monitor'}}
                 
+                <button id="template_reload">reload</button>
                 <select id="template_selector" name="template_selector_player">
                   <option value="">choose:</option>
-                  <option value="partials/moderator/waiting">waiting</option>
-                  <option value="partials/player/voting" data-key="voting">voting</option>
-                  <option value="wait">wait</option>
+                  <option value="partials/moderator/tweet" data-key="tweet">tweet</option>
+                  <option value="partials/moderator/voting" data-key="voting">voting</option>
+                  <option value="partials/moderator/submissions" data-key="submissions">submissions</option>
                 </select>
 
             {{else}}

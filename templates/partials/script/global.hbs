@@ -243,9 +243,9 @@
 
 		{{/ifeq}}
 
-		$("#template_selector").change(function() {
-			
-			var selected = $(this).find('option:selected');
+		function templateLoad() {
+
+			var selected = $('#template_selector').find('option:selected');
 			var template = selected.val();
 			var templateData = selected.data('key');
 
@@ -259,6 +259,14 @@
 				}
 			);
 
+		}
+		$("#template_reload").click(function() {
+
+			templateLoad();
+
+		});
+		$("#template_selector").change(function() {
+			templateLoad();
 		});
 		
 });

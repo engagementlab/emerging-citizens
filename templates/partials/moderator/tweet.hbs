@@ -1,0 +1,27 @@
+{{> moderator/header_htyi }}
+
+<div class="page-container">
+    <div class="row">
+        {{> moderator/players_column players=players.left offset=0 left=true active=true }}
+        
+        {{!-- Room Code Container --}}
+        <section class="col-lg-6 room-container">
+        	{{!-- <img class="tweetImg" src="/images/layout/hyi/tweetexample.jpeg"></img> --}}
+            {{tweetText}}
+            
+            <div class="row">
+                <div class="col-lg-12">
+                <h1 style="font-size: 3em;" class="game-header orange-font">make up a <span style="font-weight:bold;">hashtag!</span>
+                    </h1>
+                <h1 style="font-size: 1em;" class="game-header teal-font">(other players should think it's the real one)
+                    </h1>
+
+                </div>
+            </div>
+            <img class="clockImg" src="/images/layout/hyi/clock.png"></img>
+        </section>
+        
+        {{> moderator/players_column players=players.right offset=5 left=false active=true }}
+
+    </div> {{!-- end page row --}}
+</div>

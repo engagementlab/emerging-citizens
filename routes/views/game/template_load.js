@@ -29,6 +29,38 @@ var debugData = {
         user7: {hashtag: 'headtohead'},
         user8: {hashtag: 'idontknowanythinganymore'}
     
+    },
+    submissions: {
+
+        tweet: {
+            html: "<p>Remember when Zoe claimed Maya had never worked for her?\nThat was a lie, Maya even tried to cover it up!</p>\n"
+        },
+
+        hashtags: [ {
+            user1: {hashtag: 'pillows'},
+            user2: {hashtag: 'sleep'},
+            user3: {hashtag: 'bedtimemagic'},
+            user4: {hashtag: 'pitchdecklife'}
+            },
+            {
+            user5: {hashtag: 'advertisersanon'},
+            user6: {hashtag: 'lesoreillers'},
+            user7: {hashtag: 'headtohead'},
+            user8: {hashtag: 'idontknowanythinganymore'}
+            }
+        ]
+    },
+    tweet: {
+
+        players: {
+            left: {
+                user1: {username: 'pillows'},
+                user2: {username: 'sleep'},
+                user3: {username: 'bedtimemagic'}
+            }
+        },
+        tweetText: 'Remember when Zoe claimed Maya had never worked for her? That was a lie, Maya even tried to cover it up!'
+    
     }
 }
 

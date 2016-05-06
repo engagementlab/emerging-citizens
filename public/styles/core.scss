@@ -4,8 +4,39 @@
 @import "core/fonts";
 @import "core/forms";
 @import "core/player";
+@import "core/groupview";
 
 @include font-face(aileron, '../bower_components/aileron-webfont/fonts/aileron-regular-webfont', null, null, eot woff ttf);
+@include font-face(aileron-light, '../bower_components/aileron-webfont/fonts/aileron-light-webfont', null, null, eot woff ttf);
+@include font-face(aileron-bold, '../bower_components/aileron-webfont/fonts/aileron-bold-webfont', null, null, eot woff ttf);
+
+// Body
+.body {
+  background-image: $background-main;
+  font-family: "aileron";
+
+	@include mobile-only {
+	  background-color: #fdae8f;
+	}
+}
+
+.body.login {
+
+  @include linear_transition(background, 0.5s);
+  background-color: #fdae8f;
+
+}
+
+.body.player {
+
+  @include linear_transition(background, 0.5s);
+  background-image: $background-game;
+
+}
+
+.body.monitor {
+  background-image: $background-monitor;
+}
 
 .desktop-only {
 	// Hide for mobile
@@ -71,35 +102,6 @@ nav.header {
 	}
 }
 
-.body {
-  background-image: $background-main;
-  font-family: "aileron";
-
-	@include mobile-only {
-	  background-color: #fdae8f;
-	}
-}
-
-.body.login {
-
-  @include linear_transition(background, 0.5s);
-  background-color: #fdae8f;
-
-}
-
-.body.player {
-
-  @include linear_transition(background, 0.5s);
-  background-image: $background-game;
-
-}
-
-.body.monitor {
-  background-image: $background-monitor;
-
-
-}
-
 .orange-font {
 	color: $color-light-orange;
 }
@@ -131,31 +133,17 @@ nav.header {
   background-color: white;
   box-shadow: 10px 10px 10px #888888;
   min-height: 200px;
-
-  @include vertical-align();
 }
 
 .game-header {
 	text-align: center;
-	margin: 20px auto;
-}
+	font-size: 4em;
+	letter-spacing: -0.06em;
 
-.game_code {
-	margin-top: 20%;
-
-	#first {
-		color: $color-light-red;
+	span {
+		margin: -5px;
+	  font-family: "aileron-bold";
 	}
-	#second {
-		color: $color-salmon;
-	}
-	#third {
-		color: $color-light-orange;
-	}
-	#fourth {
-		color: $color-teal;
-	}
-
 }
 
 .game-message {
@@ -179,63 +167,6 @@ nav.header {
 	position: relative;
 	height: 100%;
 	width: 100%;
-}
-
-.room-container{
-	top: 10%;
-	bottom: 10%;
-	position: relative;
-	margin: 10px auto;
-	background-color: white;
-	@include box-shadow(10px, 0px, 0px, #888888);
-}
-
-.players {
-	height: 100%;
-	top: -50px;
-	bottom: 10%;
-	position: relative;
-	margin: 10px auto;
-}
-
-.playerBackground {
-	height: 120px;
-	width: 120px;
-	display: block;
-	position: relative;
-	margin: 20px auto;
-	@include circle ($playerSize+10, white);
-	@include box-shadow(2px, 10px, 46px, #000000);
-}
-.playerNameplate {
-  position: relative;
-  transform: translateY(102px);
-  background-color: white;
-  padding: 2px;
-  box-shadow: 0px 21px 46px #000000;
-}
-
-.playerIcon {
-		background-size: 100% 100%;
-		background-image: $playerImageIcon;
-	}
-
-.playerIcon {
-	margin: 10px auto;
-	display: block;
-	position:relative;
-	height: 100%;
-	width: 100%;
-	background-position: center;
-	background-size: 120px;
-	background-repeat: no-repeat;
-	background-image: $playerImageStatic;
-	opacity: 0.5;
-}
-
-.playerName {
-	position: relative;
-	padding-top: 75%;
 }
 
 // START Main Content
