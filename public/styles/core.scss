@@ -10,6 +10,11 @@
 @include font-face(aileron-light, '../bower_components/aileron-webfont/fonts/aileron-light-webfont', null, null, eot woff ttf);
 @include font-face(aileron-bold, '../bower_components/aileron-webfont/fonts/aileron-bold-webfont', null, null, eot woff ttf);
 
+// Use for any elements hidden initilly
+.hidden {
+	visibility: hidden;
+}
+
 // Body
 .body {
   background-image: $background-main;

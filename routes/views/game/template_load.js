@@ -34,6 +34,7 @@ var debugData = {
 
         tweet: {
             html: "<p>Remember when Zoe claimed Maya had never worked for her?\nThat was a lie, Maya even tried to cover it up!</p>\n"
+            
         },
 
         hashtags: [ {
@@ -49,6 +50,41 @@ var debugData = {
             user8: {hashtag: 'idontknowanythinganymore'}
             }
         ]
+    },
+    results: {
+
+        tweet: {
+            html: "<p>Remember when Zoe claimed Maya had never worked for her?\nThat was a lie, Maya even tried to cover it up!</p>\n"
+            
+        },
+
+        hashtags: {
+            user1: {hashtag: 'pillows', username: 'user1', votes: [
+                                                                { 
+                                                                    username: 'user2',
+                                                                    score: 50 
+                                                                },
+                                                                {
+                                                                    username: 'user3',
+                                                                    score: 50 
+                                                                }
+                                                            ]},
+            user2: {hashtag: 'sleep', username: 'user2', real: true},
+            user3: {hashtag: 'bedtimemagic', username: 'user3', votes: [
+                                                                { 
+                                                                    username: 'user1',
+                                                                    score: 50 
+                                                                }
+                                                            ]}
+
+        },
+
+        players: {
+            user1: {score_total: 100, username: 'user1'},
+            user2: {score_total: 50, username: 'user2'},
+            user4: {score_total: 25, username: 'user4'},
+            user3: {score_total: 0, username: 'user3'}
+        }
     },
     tweet: {
 
@@ -76,7 +112,7 @@ exports = module.exports = function(req, res) {
     locals.section = 'debug';
     
     Templates.Load(data.template_path, debugData[data.debug_key], function(html) {            
-        res.send(html);
+        res.send({id: data.event_id, eventData: html});
     });
 
 };

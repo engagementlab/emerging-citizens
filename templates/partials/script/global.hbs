@@ -248,13 +248,15 @@
 			var selected = $('#template_selector').find('option:selected');
 			var template = selected.val();
 			var templateData = selected.data('key');
+			var eventId = selected.data('event_id');
 
 		  $.post( 
 		  	"/game/load/",
-		  	{ template_path: template, debug_key: templateData },
+		  	{ template_path: template, debug_key: templateData, event_id: eventId },
 				function( data ) {
 
-          $('#gameContent').html(data);
+          // $('#gameContent').html(data);
+				 	socketEvents(data.id, data.eventData);
 
 				}
 			);

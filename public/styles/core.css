@@ -264,26 +264,33 @@
       -webkit-transform: translate(0px, -18px);
       transform: translate(0px, -18px); }
 
+.tweet #tweet-author {
+  display: block;
+  text-align: left; }
+
 #current-tweet {
   background-color: white;
   color: black;
   font-size: medium;
   margin-top: 5%;
-  margin-bottom: 5%;
-  -webkit-box-shadow: 5px 5px 10px #000;
-  -moz-box-shadow: 5px 5px 10px #000;
-  box-shadow: 5px 5px 10px #000; }
+  padding: 1%;
+  text-align: left;
+  -webkit-box-shadow: 0px 2px 10px #000;
+  -moz-box-shadow: 0px 2px 10px #000;
+  box-shadow: 0px 2px 10px #000; }
   #current-tweet #author {
-    color: #36d5d9; }
+    color: #328FB5; }
 
 #hashtag-submissions-prompt {
   color: white;
   font-family: 'aileron-light';
   font-size: x-large;
-  background-color: #7c90ff;
-  border: solid 10px white; }
+  background-color: #6768FE;
+  padding-bottom: 2%;
+  padding-left: 3%;
+  padding-right: 3%; }
   #hashtag-submissions-prompt #real {
-    color: #13e695;
+    color: #C8E646;
     font-family: 'aileron-bold'; }
 
 #hashtag-submissions .hashtag {
@@ -292,6 +299,23 @@
   margin: 20px; }
   #hashtag-submissions .hashtag .octothorp {
     font-size: x-large; }
+
+#hashtag-results .hashtag {
+  background-color: #FFD255;
+  padding: 20px;
+  color: #FD6D59;
+  font-size: large; }
+  #hashtag-results .hashtag .octothorp {
+    font-size: 1.3em; }
+
+#hashtag-results .creator {
+  position: absolute;
+  transform: translate(-75%, -38%); }
+
+#hashtag-results .voter {
+  margin: 0;
+  float: left;
+  transform: scale(0.6); }
 
 @font-face {
   font-family: "aileron";
@@ -304,6 +328,9 @@
 @font-face {
   font-family: "aileron-bold";
   src: url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.ttf") format("truetype"); }
+
+.hidden {
+  visibility: hidden; }
 
 .body {
   background-image: url(/images/layout/background_tileable.png);

@@ -95,17 +95,27 @@
 }
 
 // TWEET template
+.tweet {
+
+	#tweet-author {
+		display: block;
+    text-align: left;
+	}
+
+}
 #current-tweet {
 	background-color: white;
 	color: black;
 	font-size: medium;
 	margin-top: 5%;
-	margin-bottom: 5%;
+	// margin-bottom: 5%;
+  padding: 1%;
+	text-align: left;
 
-	@include box-shadow(5px, 5px, 10px, #000);
+	@include box-shadow(0px, 2px, 10px, #000);
 
 	#author {
-		color: $color-teal;
+		color: #328FB5;
 	}
 }
 
@@ -115,11 +125,14 @@
 	color: white;
 	font-family: 'aileron-light';
 	font-size: x-large;
-	background-color: $color-violet;
-	border: solid 10px white;
+	background-color: $color-dark-purple;
+
+  padding-bottom: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
 
 	#real {
-		color: $color-light-green;
+		color: $color-neon-green;
 		font-family: 'aileron-bold';
 	}
 
@@ -134,5 +147,35 @@
 		.octothorp {
 			font-size: x-large;
 		}
+	}
+}
+
+// RESULTS
+#hashtag-results {
+	
+	.hashtag {
+		background-color: $color-bright-yellow;
+		padding: 20px;
+		color: $color-orange;
+		font-size: large;
+
+		.octothorp {
+			font-size: 1.3em;
+		}
+	}
+
+	.creator {
+		position: absolute;
+    transform: translate(-75%, -38%);
+	}
+	.voter {
+		margin: 0;
+		float: left;
+		transform: scale(0.6);
+	}
+
+	.score {
+		padding: 2%;
+		color: $color-yellow;
 	}
 }

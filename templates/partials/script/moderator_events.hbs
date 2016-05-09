@@ -71,28 +71,48 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
-            //instantiate a TimelineLite    
-            var t1 = new TimelineLite();
+            //instantiate a TimelineLite for hashtags animation
+            var hashtagsAnim = new TimelineLite({ paused:true, onComplete:function() { showReal(); }});
+            var realHashtagAnim = new TimelineLite({ paused:true, onComplete:function() { showScore(); }});
+            var scoreAnim = new TimelineLite();
 
+            var elements = $('#hashtag-results .result.fake');
             
-            var elements = $('.hashtag-response');
-
+            // 1) Show hashtags
+            hashtagsAnim.from($('#hashtags'), 1.5, {top:-200, autoAlpha:0, ease:Bounce.easeOut});
+            
             _.each(elements, function(el, index) {
 
-                t1.from(el, 1, {x:-100, autoAlpha:0})
-                .staggerFrom($(el).find('.hashtag-vote, .no-votes'), 3, {scale:0, opacity:0, ease:Elastic.easeOut, onStart: function() {
+                hashtagsAnim.from(el, 1, {y:-200, autoAlpha:0, ease:Bounce.easeOut})
+                .staggerFrom($(el).find('.voter'), 3, {scale:0, opacity:0, ease:Elastic.easeOut, onStart: function() {
 
                         ion.sound.play("button_tiny");
 
                 }}, 2)
-                .to(el, 1, {x:100, autoAlpha:0, display:'none'});
+                .to(el, 1, {delay: 5, y:200, autoAlpha:0, display:'none'});
 
             });
-            t1.play();
-            
-            // .to($('#results-2'), 1, {y:-100, autoAlpha:0, display:'none', ease:Elastic.easeIn});
+            hashtagsAnim.play();
 
-            $('#countdownTimer').hide();
+            function showReal() {
+
+                realHashtagAnim
+                .from($('#hashtag-submissions-prompt'), 1, {y:-45, autoAlpha:0})
+                .from($('#hashtag-results .result.real'), 1, {delay: 0.5, y:-200, autoAlpha:0, ease:Bounce.easeOut})
+                .to($('#hashtags'), 1, {delay: 5, y:-200, autoAlpha:0, display:'none', ease:Elastic.easeIn});
+
+                realHashtagAnim.play();
+
+            }
+
+            function showScore() {
+
+                scoreAnim.from($('#scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut});
+                scoreAnim.play();
+
+            }
+
+            // $('#countdownTimer').hide();
 
             break;
 

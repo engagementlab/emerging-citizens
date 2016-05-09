@@ -1,58 +1,70 @@
-<div class="game">
-    {{!-- <p>Here is the real tweet:</p> --}}
-    {{> shared/tweet text=tweet}}
+{{> moderator/header_htyi }}
 
-    {{#each hashtags}}
+<div class="page-container">
+
+    <div id="hashtags" style="visibility: hidden;">
         
-        <div id="results-{{@index}}" class="hashtag-response" style="visibility:hidden">
-
-            <div class="hashtag">
-
-                <span {{#if real}} style="color:green" {{else}} style="color:red" {{/if}}>
-                    {{this.hashtag}} (by <em>{{@key}}</em>)
-                </span>
-
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            {{> shared/tweet text=tweet}}
+            
+            <div id="hashtag-submissions-prompt" style="visibility: hidden;">
+                <div>the real hashtag was:</div>
             </div>
+            
+            <div id="hashtag-results">
 
-            <div id="hashtag-votes">
+                {{#each hashtags}}
+                    <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
+                  
+                        {{> moderator/player_badge username=user avatar_ind=@index creator=true }}
+                        <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
-                {{#if this.votes}}
+                        {{#if this.votes}}
 
-                    {{#each this.votes}}
-                        <div class="hashtag-vote">
+                            {{#each this.votes}}
 
-                            {{username}}<br />+{{score}}
+                                {{> moderator/player_badge username=username avatar_ind=@index voter=true }}
+                            
+                            {{/each}}
+                        
+                        {{else}}
+                            
+                            <div class="no-votes">
 
-                        </div>
-                    {{/each}}
-                
-                {{else}}
-                    
-                    <div class="no-votes">
+                                No votes!
 
-                        No votes!
+                            </div>
+                        
+                        {{/if}}
 
                     </div>
-                
-                {{/if}}
+
+                {{/each}}
 
             </div>
+        </div>
+        <div class="col-sm-4"></div>
 
-       </div>
+    </div>
 
-   {{/each}}
+    <div id="scores" style="visibility: hidden;">
 
-   {{#each players}}
-      
-        {{#if score_total}}
-           <div>{{username}} - {{score_total}}</div>
-        {{else}}
-           <div>{{username}} - 0</div>
-        {{/if}}
+        <h1>Final Scores!</h1>
 
-   {{/each}}
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            {{> moderator/player_badge username=players.[0].username avatar_ind=0 creator=true }}
+            {{players.[0].username}} {{#if players.[0].score_total}}{{players.[0].score_total}}{{else}}0{{/if}}
+        </div>
+        <div class="col-sm-3"></div><div class="col-sm-4">{{players.[1].username}} {{#if players.[1].score_total}}{{players.[1].score_total}}{{else}}0{{/if}}</div>
+        <div class="col-sm-5"></div><div class="col-sm-4">{{players.[2].username}} {{#if players.[2].score_total}}{{players.[2].score_total}}{{else}}0{{/if}}</div>
 
-	<div class="row input-box">
+    </div>
+
+    
+	{{!-- <div class="row input-box">
 		<input id="btn_submit" data-event="game:next_round" class="button_text" type="submit" name="submit" value="next round">
-	</div>
+	</div> --}}
+
 </div>
