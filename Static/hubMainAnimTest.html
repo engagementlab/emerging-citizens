@@ -402,6 +402,7 @@
 	width: 732px;
 	height:294px;
 	margin:auto;
+	visibility:hidden;
 }
 #real-tweet-options{
 	background-image: url("css/sample_tweet.png");
@@ -416,8 +417,9 @@
 #guess-instructions{
 	color: white;
 	position:absolute;
-	top: 90%;
-	left: 7%;
+	font-size: 34pt;
+	top: 75%;
+	left: 4%;
 }
 #bold-real{
 	font-family: Aileron;
@@ -428,6 +430,7 @@
 	height: 125px;
 	width: 42%;
 	padding: 0;
+	visibility:hidden;
 }
 .options-row{
 	padding-bottom :10px;
@@ -451,32 +454,33 @@
 }
 #real-tweet{
 	background-image: url("css/sample_tweet.png");
-		background-size:contain;
+	background-size:contain;
 	background-repeat: no-repeat;
-	position: absolute;
+	position: relative;
 	width: 596px;
 	height: 280px;
 	z-index:2;
-	left:34%;
-	right:67%;
-	top: 10%;
+	margin:auto;
+	top: -32.6%;
+	visibility: hidden;
 }
 #results-pane{
 	background-image:url("css/HYI_realtag.png");
-	position: absolute;
+	position: relative;
 	width: 630px;
 	height: 385px;
-	left:33%;
-	right:68%;
+	margin:auto;
 	top:10%;
 	z-index:1;
+	visibility: hidden;
 }
 #wrong-voters-row{
-	position:absolute;
+	position:relative;
 	padding:0;
 	height:256px;
-	width:100%;
-	top: 65%;
+	width:27%;
+	top: -20%;
+	margin: auto;
 }
 #correct-voters-row{
 	position:absolute;
@@ -518,11 +522,11 @@
 	height:128px;
 	width: 128px;
 	position:relative;
-	left:37%;
-	right: 63%;
 	float:left;
 	visibility: hidden;
+	z-index:3;
 }
+
 #hashtag-author{
 	background-image:url("css/HYI_avatar_color.png");
 	background-size: contain;
@@ -530,9 +534,10 @@
 	height:172px;
 	width: 172px;
 	position:absolute;
-	left: 20%;
-	top: 34%;
+	left: 25%;
+	top: 36%;
 	visibility: hidden;
+	z-index: 4;
 }
 /*End Voting Results Formatting*/
 /*Start Winner's Circle Formatting*/
@@ -559,18 +564,25 @@
 .winner-pane-text{
 	position:absolute;
 	font-family: Aileron;
-	font-size: 18pt;
-	color:white;
-	padding-left: 125px;
-	margin-top:2px;
+	font-size: 14pt;
+	color:black;
+	margin-top: 14%;
+	margin-left: 2%;
+	z-index: 7;
 }
 .score-text{
 	position: absolute;
 	font-family: Aileron;
-	font-size: 36pt;
-	padding-left: 105pt;
-	padding-top: 5pt;
+	font-size: 54pt;
+	padding-left: 27%;
 	color: #ffca00;
+}
+.score-mark{
+	position: absolute;
+	z-index: 5;
+	width: 215px;
+	padding-top: 4%;
+	left: 20%;
 }
 #fake-row{
 	padding:0;
@@ -593,7 +605,7 @@
 	padding:0;
 	position:relative;
 	width: 43%;
-	height:109%;
+	height:145%;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -630,23 +642,49 @@
 #winner-row-4{
 	z-index:4;
 }
-.score-mark{
-	position: absolute;
-	z-index: 5;
-	width: 250px;
-	padding-left: 110px;
-	padding-top: 35px;
-}
 .winner-icon{
-	background-image:url("css/HYI_avatar_color.png");
+	background-image:url("css/HYI_blankavatar.png");
 	position: absolute;
 	z-index: 6;
-	width:95px;
-	height:95px;
+	width:128px;
+	height:128px;
 	background-repeat: no-repeat;
 	background-size:contain;
 }
 
+#winner-1-icon{
+	background-image: url("css/avatar3.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	z-index:8;
+	padding:0;
+	left:11px;
+}
+#winner-2-icon{
+	background-image: url("css/avatar5.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	z-index:8;
+	padding:0;
+	left:11px;
+}
+#winner-3-icon{
+	background-image: url("css/avatar7.png");
+	background-repeat: no-repeat;
+	background-size:contain;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	z-index:8;
+	padding:0;
+	left:11px;
+}
 /*End Winner's Circle Formatting*/
 /*Start Leaderboard Formatting*/
 #leaderboard{
@@ -899,7 +937,7 @@
 		<div id="options-clear-test"><button type="button">Options Clear Test</button></div>
 	<div id="guess-real">
 		<div id="real-tweet-options">
-			<h1 id="guess-instructions">guess the <span id="bold-real">real</span> tweet!</h1>
+			<h1 id="guess-instructions">guess the <span id="bold-real">real</span> hashtag!</h1>
 		</div>
 	</div>
 	<div id="vote-options" class="container">
@@ -907,52 +945,52 @@
 			<div id="options-1-place" class="options-block col-md-5">
 				<div id="options-1-icon" class="options-icon-left">
 				</div>
-				<h2 id="options-1-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-1-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 			<div class ="col-md-2"></div>
 			<div id="options-5-place" class="options-block right-block col-md-5">
 				<div id="options-5-icon" class="options-icon-right">
 				</div>
-				<h2 id="options-5-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-5-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 		</div>
 		<div class="row options-row">
 			<div id="options-2-place" class="options-block col-md-5">
 				<div id="options-2-icon" class="options-icon-left">
 				</div>
-				<h2 id-"options-2-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id-"options-2-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 			<div class ="col-md-2"></div>
 			<div id="options-6-place" class="options-block right-block col-md-5">
 				<div id="options-6-icon" class="options-icon-right">
 				</div>
-				<h2 id="options-6-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-6-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 		</div>
 		<div class="row options-row">
 			<div id="options-3-place" class="options-block col-md-5">
 				<div id="options-3-icon" class="options-icon-left">	
 				</div>
-				<h2 id="options-3-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-3-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 			<div class ="col-md-2"></div>
 			<div id="options-7-place" class="options-block right-block col-md-5">
 				<div id="options-7-icon" class="options-icon-right">
 				</div>
-				<h2 id="options-7-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-7-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 		</div>
 		<div class="row options-row">
 			<div id="options-4-place" class="options-block col-md-5">
 				<div id="options-4-icon" class="options-icon-left">
 				</div>
-				<h2 id="options-4-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-4-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 			<div class ="col-md-2"></div>
 			<div id="options-8-place" class="options-block right-block col-md-5">
 				<div id="options-8-icon" class="options-icon-right">
 				</div>
-				<h2 id="options-8-hashtag" class="hashtag-option">blahhashtagblah</h2>
+				<h2 id="options-8-hashtag" class="hashtag-option">#blahhashtagblah</h2>
 			</div>
 		</div>
 		</div>
@@ -962,6 +1000,8 @@
 <div class="container" id="results-container">
 	<div id="voting-results-test"><button type="button">Voting Results Test</button></div>
 	<div id="voting-results-reveal"><button type="button">Reveal Results Test</button></div>
+	<div id="voting-results-clear"><button type="button">Clear Results Test</button></div>
+	
 	<div id="results-pane">
 		<h1 id="created-by">the real hashtag was:</h1>
 		<h1 id="hashtag-spot">#randomhashtag</h1>
@@ -995,7 +1035,8 @@
 	<div id="winners-pane">
 		<div class="row winner-row" id="winner-row-1">
 			<div class= "winner-pane" id="winner-1-pane">
-			<div class="winner-icon" id="winner-1-icon"></div>
+			<div class="winner-icon"></div>
+			<div id="winner-1-icon"></div>
 				<div class= "winner" id="winner-1"><h1 class="winner-pane-text">player one</h1>
 				<img class="score-mark" src="css/HYI_finalscores_topscoremarks.png">
 				<h2 class="score-text">300</h2>
@@ -1006,7 +1047,8 @@
 		<div class="row winner-row" id="winner-row-2">
 
 			<div class= "winner-pane" id="winner-2-pane">
-			<div class="winner-icon" id="winner-2-icon"></div>
+			<div class="winner-icon"></div>
+			<div id="winner-2-icon"></div>
 			<div class= "winner" id="winner-2"><h1 class="winner-pane-text">player two</h1>
 			<h2 class="score-text">250</h2>
 			
@@ -1016,7 +1058,8 @@
 		<div class="row winner-row" id="winner-row-3">
 
 			<div class= "winner-pane" id="winner-3-pane">
-			<div class="winner-icon" id="winner-3-icon"></div>
+			<div class="winner-icon"></div>
+			<div id="winner-3-icon"></div>
 			<div class= "winner" id="winner-3"><h1 class="winner-pane-text">player three</h1>
 			<h2 class="score-text">200</h2>
 			
@@ -1029,6 +1072,7 @@
 <!-- Start Leaderboard -->
 <div class="container" id="leaderboard-container">
 <div id="leaderboard-test"><button type="button" style="width:100%">Leaderboard Test</button></div>
+<div id="leaderboard-clear-test"><button type="button" style="width:100%">Leaderboard Clear Test</button></div>
 <div id="leaderboard" class="container">
 		<div class="row leaderboard-row">
 			<h1 id="leaderboard-header">Final Scores!</h1>
