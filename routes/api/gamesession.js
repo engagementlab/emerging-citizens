@@ -30,8 +30,11 @@ exports.create = function(req, res) {
     var sessionType;
     var data = (req.method == 'POST') ? req.body : req.query;
     
-    if(data.gameType === "0")
+    // if(data.gameType === "0")
         sessionType = new HashtagGame.model();
+
+    // TODO: temporary
+    data.gameType = "0";
 
     sessionType.getUpdateHandler(req).process(data, function(err) {
         

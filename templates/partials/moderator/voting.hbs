@@ -1,1 +1,27 @@
-<div>Waiting for votes...</div>
+{{> moderator/header_htyi }}
+
+<div class="page-container">
+
+    <div class="col-sm-3"></div>
+    <div id="hashtag-submissions-prompt" class="col-sm-6">
+        {{> shared/tweet text=tweet}}
+
+        <div>guess the <span id="real">real</span> hashtag!</div>
+    </div>
+
+
+    <div class="row">
+        <section id="hashtag-submissions" class="col-sm-12">
+
+            <div class="col-sm-6">
+                {{#each hashtags}}
+                    <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+
+                   {{#ifeq @index 3}}</div><div class="col-sm-6">{{/ifeq}}
+                {{/each}}
+            </div>
+            
+            </div>
+        </section>
+    </div>
+</div>

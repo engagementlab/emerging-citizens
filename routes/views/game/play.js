@@ -13,7 +13,8 @@
  * ==========
  */
 
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 
@@ -21,7 +22,10 @@ exports = module.exports = function(req, res) {
   var locals = res.locals;
 
   // locals.section is used to set the currently loaded view
-  locals.section = 'player';
+  locals.section = 'play';
+
+  if(req.params.debug === 'debug')
+	  locals.debug = true;
 
   view.on('init', function(next) {
         next();

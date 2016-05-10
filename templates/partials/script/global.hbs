@@ -71,6 +71,19 @@
 
 	{{#ifeq section 'moderator/monitor'}}
 
+		$(document).ready(function() {
+            
+			var openAnim = new TimelineLite();
+
+			openAnim
+			.from($('.room-container'), 1, {scale:0, delay: 1, ease:Elastic.easeOut})
+			.staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+			.staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+
+			openAnim.play();
+
+		});
+
 	{{else}}
 
 		// Load animations
@@ -82,9 +95,22 @@
 
 		{{#ifeq section 'moderator'}}
 			
+      $('.body').addClass('login');
+			$('.navbar.main').hide();
+
+			$('.voting-button').click(function(e) {
+
+				$(e.currentTarget).toggleClass('inactive');
+				$(e.currentTarget).toggleClass('active');
+
+			});
 
 			$('#btn_submit').click(function(e) {
-				var data = $(":input").serializeArray();
+				var data = {};
+				data.contentCategories = $(".form :input.active").map(function(){
+																    return $(this).val();
+																 }).get();
+				data.accessCode = $('#access-code').text();
 
 			  $.post( 
 			  	"/api/create/",
@@ -114,8 +140,8 @@
 						  pkg[value] = $(pkg[value].toString()).val();
 						});
 					}
-					else
-						pkg = $(pkg).val()
+					else if(!$(this).is('button'))
+						pkg = $(pkg).val();
 					
 					socket.emit(event, emitData(pkg));
 
@@ -240,6 +266,12 @@
 				});
 
 			{{/ifeq}}
+
+			{{#ifeq section 'play'}}
+
+          $('.body').addClass('login');
+
+      {{/ifeq}}
 
 		{{/ifeq}}
 

@@ -1,3 +1,21 @@
+// CONTENT SELECTION
+#tweet-submission {
+	
+	button {
+		color: white;
+		background-color: $color-orange;
+	  @include linear_transition(background-color, 0.3s);
+
+		&.inactive {
+			background-color: $color-gray-orange;
+		}
+	}
+	#access-code {
+		font-size: xx-large; 
+	}
+
+}
+
 .game_code {
 	margin-top: 20%;
 
@@ -11,7 +29,7 @@
 		color: $color-yellow;
 	}
 	#fourth {
-		color: $color-light-green;
+		color: $color-green;
 	}
 
 }
@@ -57,7 +75,7 @@
 		margin: 10px auto;
 		display: block;
 		position:relative;
-		height: 100%;
+		height: 118px;
 		width: 100%;
 		opacity: 0.3;
 
@@ -164,6 +182,39 @@
 		}
 	}
 
+}
+#scores {
+
+	.score-box {
+		padding: 20px;
+		background-color: $color-orange;
+		font-size: large;
+
+		img {
+			float: left;
+		}
+		score {
+			color: $color-yellow;
+			font-size: xx-large;
+		}
+	}
+
+}
+#leaderboard {
+	
+	.player {
+		background-color: white;
+		padding: 20px;
+		margin: 20px;
+	}
+}
+.results {
+
+	.row {
+	  margin-bottom: 12%;
+    margin-top: 5%;
+	}
+
 	.creator {
 		position: absolute;
     transform: translate(-75%, -38%);
@@ -174,8 +225,4 @@
 		transform: scale(0.6);
 	}
 
-	.score {
-		padding: 2%;
-		color: $color-yellow;
-	}
 }

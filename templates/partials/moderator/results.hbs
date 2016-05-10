@@ -2,7 +2,7 @@
 
 <div class="page-container">
 
-    <div id="hashtags" style="visibility: hidden;">
+    <div id="hashtags" class="results" style="visibility: hidden;">
         
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
@@ -17,7 +17,7 @@
                 {{#each hashtags}}
                     <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
                   
-                        {{> moderator/player_badge username=user avatar_ind=@index creator=true }}
+                        {{> moderator/player_badge username=username avatar_ind=@index creator=true }}
                         <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
                         {{#if this.votes}}
@@ -48,19 +48,50 @@
 
     </div>
 
-    <div id="scores" style="visibility: hidden;">
+    <div id="scores" class="results" style="visibility: hidden;">
 
         <h1>Final Scores!</h1>
 
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4">
-            {{> moderator/player_badge username=players.[0].username avatar_ind=0 creator=true }}
-            {{players.[0].username}} {{#if players.[0].score_total}}{{players.[0].score_total}}{{else}}0{{/if}}
-        </div>
-        <div class="col-sm-3"></div><div class="col-sm-4">{{players.[1].username}} {{#if players.[1].score_total}}{{players.[1].score_total}}{{else}}0{{/if}}</div>
-        <div class="col-sm-5"></div><div class="col-sm-4">{{players.[2].username}} {{#if players.[2].score_total}}{{players.[2].score_total}}{{else}}0{{/if}}</div>
+        {{#each players}}
+    
+            {{#iflt @index 3}}
+                <div class="row">
+                
+                    <div class="col-sm-{{add (add @index 2) @index}}"></div>
+
+                    <div class="col-sm-4">
+                        <div class="score-box" style="visibility: hidden;">
+                            {{> moderator/player_badge username=username avatar_ind=@index creator=true }}
+
+                            <score>
+                                {{#if score_total}}
+                                    {{score_total}}
+                                {{else}}
+                                    0
+                                {{/if}}
+                            </score>
+                        </div>
+                    </div>
+                
+                </div>
+            {{/iflt}}
+    
+        {{/each}}
 
     </div>
+
+    <section id="leaderboard" class="col-sm-12" style="visibility: hidden;">
+
+        <div class="col-sm-6 left">
+            {{#each players}}
+                <div class="player">{{username}}: {{score_total}}</div>
+
+               {{#ifeq @index 3}}</div><div class="col-sm-6 right">{{/ifeq}}
+            {{/each}}
+        </div>
+
+        <div id="next-round"></div>
+    </section>
 
     
 	{{!-- <div class="row input-box">

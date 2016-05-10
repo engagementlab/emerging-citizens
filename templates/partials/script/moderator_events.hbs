@@ -45,19 +45,19 @@ var socketEvents = function(eventId, eventData) {
             /*var minutes = Math.floor(eventData / 60);
             var seconds = eventData - minutes * 60;*/
 
-            console.log('countdown' , eventData)
-
-            var clock = $('#countdownTimer').FlipClock(eventData, {
-                clockFace: 'MinuteCounter',
-                countdown: true
-            });
-
             break;
 
 
         case 'game:start':
-
             
+            var openAnim = new TimelineLite();
+
+            openAnim
+            .from($('.room-container'), 1, {scale:0, delay: 1, ease:Elastic.easeOut})
+            .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+            .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+
+            openAnim.play();            
 
         case 'game:end':
         case 'hashtag:submitted':
@@ -74,7 +74,7 @@ var socketEvents = function(eventId, eventData) {
             //instantiate a TimelineLite for hashtags animation
             var hashtagsAnim = new TimelineLite({ paused:true, onComplete:function() { showReal(); }});
             var realHashtagAnim = new TimelineLite({ paused:true, onComplete:function() { showScore(); }});
-            var scoreAnim = new TimelineLite();
+            var scoreAnim = new TimelineLite({paused: true, onComplete:function() { nextRound(); }});
 
             var elements = $('#hashtag-results .result.fake');
             
@@ -107,12 +107,38 @@ var socketEvents = function(eventId, eventData) {
 
             function showScore() {
 
-                scoreAnim.from($('#scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut});
+                scoreAnim
+                .from($('#scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
+                
+                .staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
+                .staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2)
+                
+                .to($('#scores h1'), 1, {autoAlpha:0, display:'none'})
+                .to($('#scores'), .1, {display:'none'})
+                .from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+
+                .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
+
                 scoreAnim.play();
 
             }
 
-            // $('#countdownTimer').hide();
+            function nextRound() {
+
+                var secondsLeft = 10;
+                var roundCountdown = setInterval(function() {
+                    secondsLeft--;
+
+                    $('#next-round').text('Next round in ' + secondsLeft + 's');
+
+                    if(secondsLeft == 0) {
+                        socket.emit('game:next_round', emitData(null));
+                        clearInterval(roundCountdown);
+                    }
+               }, 1000);
+
+            }
 
             break;
 

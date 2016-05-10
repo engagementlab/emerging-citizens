@@ -1,18 +1,29 @@
 	<div class="col-sm-4"></div>
-	<div id="tweet-submission" class="col-sm-4">
+	<div id="content-submission" class="col-sm-4">
 	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
 	  <div class="form">
 		    {{#each this}}
 				  {{!-- <option value="{{@key}}">{{this.hashtag}}</option> --}}
-					<button id="btn_submit" data-event="hashtags:submit" data-package='{{@key}}' class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
+					<button id="btn_submit" data-event="hashtag:vote" data-package='{{@key}}' class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
 		    {{/each}}
 		
 		</div>
 	</div>
 
-	<div id="countdownTimer"></div>
+  <section id="submitted" data-hide="content-submission" class="row" style="display:none">
+	    
+  		<div class="col-lg-12">
+	  		<div class="col-lg-4"></div>
+		    <div class="col-lg-4 game-message">
+		    		<div class="col-lg-3"></div>
+		        <span class="text col-lg-6">vote received, please wait!</span>
+		    		<div class="col-lg-3"></div>
 
-	<div id="submitted" style="display:none">
-	  <h4>Thanks for submitting your hashtag, now wait for the other players!</h4>
-  </div>
-    {{!-- <a href="hashtagGameVote.html" class="btn btn-default" type="submit">Ready?</a> --}}
+		        <div class="col-lg-5"></div>
+		        <div id="tweet_sketch" class="col-lg-4">
+			        {{!-- <img src="/images/layout/hyi/twittersketch.png" alt=""> --}}
+		        </div>
+		    </div>
+	    </div>
+
+	</section>

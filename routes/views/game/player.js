@@ -40,11 +40,6 @@ exports = module.exports = function(req, res) {
             
         res.send({code: game.accessCode});
 
-        // Send the view
-        Templates.Load('views/game/player', locals, function(html) {
-            template = html;
-        });
-
     });
 
 };

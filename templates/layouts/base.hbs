@@ -89,29 +89,31 @@
             <div id="countdownTimer"></div>
         </div><!-- /.container -->
 
-        <div style="right:0;position: absolute;">
-            {{#ifeq section 'moderator/monitor'}}
-                
-                <button id="template_reload">reload</button>
-                <select id="template_selector" name="template_selector_player">
-                  <option value="">choose:</option>
-                  <option value="partials/moderator/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
-                  <option value="partials/moderator/voting" data-key="voting" data-event_id="hashtags:received">voting</option>
-                  <option value="partials/moderator/results" data-key="results" data-event_id="hashtags:reveal">results</option>
-                  <option value="partials/moderator/submissions" data-key="submissions" data-event_id="hashtag:submitted">submissions</option>
-                </select>
+        {{#ifeq debug true}}
+            <div style="right:0;position: absolute;">
+                {{#ifeq section 'moderator/monitor'}}
+                    
+                    <button id="template_reload">reload</button>
+                    <select id="template_selector" name="template_selector_player">
+                      <option value="">choose:</option>
+                      <option value="partials/moderator/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                      <option value="partials/moderator/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
+                      <option value="partials/moderator/results" data-key="results" data-event_id="hashtags:reveal">results</option>
+                      <option value="partials/moderator/submissions" data-key="submissions" data-event_id="hashtag:submitted">submissions</option>
+                    </select>
 
-            {{else}}
+                {{else}}
 
-                <select id="template_selector" name="template_selector_player">
-                  <option value="">choose:</option>
-                  <option value="partials/player/tweet">tweet</option>
-                  <option value="partials/player/results" data-key="results">results</option>
-                  <option value="wait">wait</option>
-                </select>
+                    <select id="template_selector" name="template_selector_player">
+                      <option value="">choose:</option>
+                      <option value="partials/player/tweet">tweet</option>
+                      <option value="partials/player/results" data-key="results">results</option>
+                      <option value="wait">wait</option>
+                    </select>
 
-            {{/ifeq}}
-        </div>
+                {{/ifeq}}
+            </div>
+        {{/ifeq}}
 
     </body>
 </html>

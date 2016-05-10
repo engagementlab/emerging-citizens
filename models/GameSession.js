@@ -28,10 +28,7 @@ var GameSession = new keystone.List('GameSession', {
  */
 GameSession.add({
 
-  name: { type: String, required: true, initial: true },
   accessCode: { type: String, required: true, initial: true },
-  timeLimit: { type: Number, required: true, initial: true },
-  playerCap: { type: Number, required: true, initial: true },
   gameType: { type: String, required: true, initial: true },
 
   dateCreated: { type: Date, noedit: true }

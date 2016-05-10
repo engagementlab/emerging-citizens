@@ -20,25 +20,16 @@
 
                     <div class="row">
                         <div class="col-lg-12" style="margin-top: 5%;">
-                            <h1 style="font-size: 1.5em;" class="game-header teal-font">waiting for other players....</h1>
+                            <h1 style="font-size: 1.5em;" class="game-header green-font">waiting for other players....</h1>
                             {{!-- <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit"> --}}
                         </div>
                     </div>
 
                 </div>
             </div>
-            {{!-- <div class="row" style="margin-top: 10%;">
-                <div class="col-lg-12">
-                    <h4 class="game-header">Game Name: {{game.name}}
-                    </h4>
-                </div>
-            </div>
-            <div class="row" id="playersContent">
-            </div> --}}
         </section>
         
-        {{> moderator/players_column players=players.right offset=5 left=false }}
+        {{> moderator/players_column players=players.right offset=4 left=false }}
         
-
     </div>
 </div>

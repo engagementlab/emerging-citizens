@@ -31,7 +31,9 @@ GameConfig.add({
 	},
 
 	"Hashtag You're It", {
-	
+
+	  playerCap: { type: Number, label: "Player Cap", required: true, initial: true },
+	  timeLimit: { type: Number, label: "Time Limit", required: true, initial: true },
 		roundNumber: { type: Number, label: "Number of Rounds", required: true, initial: true },
 		voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
 		voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }

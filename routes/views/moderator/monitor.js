@@ -29,6 +29,9 @@ exports = module.exports = function(req, res) {
   // item in the header navigation.
   locals.section = 'moderator/monitor';
 
+  if(req.params.debug === 'debug')
+    locals.debug = true;
+
   view.on('init', function(next) {
 
     GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, game) {

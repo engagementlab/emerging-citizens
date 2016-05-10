@@ -80,11 +80,15 @@ var debugData = {
         },
 
         players: {
-            user1: {score_total: 100, username: 'user1'},
-            user2: {score_total: 50, username: 'user2'},
-            user4: {score_total: 25, username: 'user4'},
-            user3: {score_total: 0, username: 'user3'}
-        }
+                user1: {score_total: 350, username: 'user1'},
+                user2: {score_total: 250, username: 'user2'},
+                user4: {score_total: 200, username: 'user4'},
+                user3: {score_total: 150, username: 'user3'},
+                user5: {score_total: 150, username: 'user5'},
+                user6: {score_total: 50, username: 'user6'},
+                user7: {score_total: 0, username: 'user7'},
+                user8: {score_total: 0, username: 'user8'}
+            }
     },
     tweet: {
 

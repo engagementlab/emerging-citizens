@@ -10,6 +10,18 @@ module.exports = function() {
      * ===================
      */
 
+
+    //  ### less than checker
+    _helpers.iflt = function(a, b, options) {
+
+        if (a < b) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
+
+    };
+
     // run a function
     _helpers.runFunction = function(funcName) {
 
@@ -39,7 +51,7 @@ module.exports = function() {
     //  @amt: Amount to offset
     //
     //  *Usage example:*
-    //  `{{add @index}}
+    //  `{{add @index 3}}
 
     _helpers.add = function(ind, amt) {
 
@@ -47,7 +59,22 @@ module.exports = function() {
  
         return parseInt(ind) + amt;
 
-    }
+    };
+
+    // TODO: Keep?
+    _helpers.math = function(lvalue, operator, rvalue, options) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+            
+        return {
+            "+": lvalue + rvalue,
+            "-": lvalue - rvalue,
+            "*": lvalue * rvalue,
+            "/": lvalue / rvalue,
+            "%": lvalue % rvalue
+        }[operator];
+    };
+
 
     return _helpers;
 

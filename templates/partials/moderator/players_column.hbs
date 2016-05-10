@@ -1,5 +1,5 @@
 {{!-- Players column --}}
-<div class="col-lg-3 players {{#if left}}left{{/if}}">
+<div class="col-lg-3 players {{#if left}}left{{else}}right{{/if}}">
     
     {{#each players}}
     
@@ -8,7 +8,7 @@
             <div class="player-background">
                 <div class="player-static">
                     <div class="icon active">
-                        <img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{incIndex @index}}{{else}}{{add @index ../../offset}}{{/if}}.png" />
+                        <img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{@index}}{{else}}{{add @index ../../offset}}{{/if}}.png" />
                     </div>
                     <div class="nameplate active">
 
@@ -22,7 +22,7 @@
 
             <div class="player-background">
                 <div class="player-static">
-                    <div class="icon"><img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{incIndex @index}}{{else}}{{add @index ../../../offset}}{{/if}}.png" /></div>
+                    <div class="icon"><img src="/images/layout/hyi/icons/avatar{{#if ../../left}}{{@index}}{{else}}{{add @index ../../../offset}}{{/if}}.png" /></div>
                     <div class="nameplate"> 
 
                     </div>

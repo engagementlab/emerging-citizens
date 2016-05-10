@@ -1,51 +1,29 @@
-<style>
-/*.input-box { position: relative; }
-*//*input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10px 10px 10px 20px; width: 195px; }*/
-.hash { position: absolute; display: block; left: 5px; top: 10px; z-index: 9; color: #47527D; }
-</style>
+{{> moderator/header_htyi }}
 
-    <!-- Page Content -->
-    <div>
+<div class="page-container">
+    <div class="row">
+        <div class="col-sm-12">                
+            {{!-- <select id="game_type" name="gameType">
+            {{#each gameTypes}}
+              <option value="{{@index}}">{{this}}</option>
+            {{/each}}
+            </select><br /> --}}
 
-        <!-- Introduction Row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Moderator
-                </h1>
+            <div class="col-sm-3"></div>
+            <div id="tweet-submission" class="col-sm-6 input-box">
+              <div class="form-prompt white">de-select any content to not include in this session:</div>
+              <div class="form">
+                    {{#each categories}}
+                        <button value="{{id}}" class="voting-button active submit">{{name}}</button>
+                    {{/each}}                
+                </div>
+            
+                <div class="form-prompt white">access code:</div>
+                <div id="access-code">{{gameCode}}</div>
+
+                <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Start!">
             </div>
-        </div>
 
-
-        <div class="row">
-            <div class="col-lg-4">
-            </div>
-            <div class="col-lg-4 input-box">
-                <input id="game_name" name="name" class="moderatorInput element text medium" type="text" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Game Name">
-                
-                <select id="game_type" name="gameType">
-                {{#each gameTypes}}
-                  <option value="{{@index}}">{{this}}</option>
-                {{/each}}
-                </select><br />
-
-                Content Buckets:<br />
-
-                {{#each categories}}
-                    <input type="checkbox" name="contentCategories" value="{{this.id}}">{{this.name}}<br />
-                {{/each}}
-
-                <input id="time_limit" name="timeLimit" class="moderatorInput element text medium" type="text" maxlength="1" value="2" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Time Limit"> minutes
-
-                <input id="player_count" name="playerCap" class="moderatorInput element text medium" type="number" maxlength="255" value="" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;" placeholder="Player Cap"><br />
-
-
-                
-                Access Code:<br />
-                <input id="access_code" name="accessCode" class="moderatorInput element text medium" type="text" maxlength="255" value="{{gameCode}}" style="background-image: url(&quot;http://www.phpform.org/images/shadow.gif&quot;); background-position: 50% 0%; background-repeat: repeat-x;">
-                <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit">
-            </div>
-            <div class="col-lg-4">
-            </div>
         </div>
     </div>
-
+</div>
