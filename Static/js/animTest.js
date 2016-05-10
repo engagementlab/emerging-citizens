@@ -110,6 +110,26 @@ $tweetTest.click(function(){
 	setTimeout(TweetPaneIn, 500);
 });
 
+
+
+
+
+setInterval(function() {
+
+	function r(el, deg) {
+		el.css({
+			transform:'rotateZ('+ deg + 'deg)'
+		})
+	}
+	var d = new Date()
+	r($clockHand, 6*d.getSeconds())
+
+}, 1000);
+
+
+
+
+
 $tweetClearTest.click(function(){
 	TweetIconsOut();
 	setTimeout(TweetPaneOut, 500);
@@ -191,8 +211,8 @@ function PaneIn(){
 function PaneOut(){
 	
 	TweenMax.fromTo($gamePane, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
-	TweenMax.fromTo($roomCode, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
-	TweenMax.fromTo($code, 1, {scale:1}, {scale:0, ease:Elastic.easeOut});
+	TweenMax.fromTo($roomCode, .35, {scale:1}, {scale:0, ease:Elastic.easeOut});
+	TweenMax.fromTo($code, .35, {scale:1}, {scale:0, ease:Elastic.easeOut});
 
 	return;
 }
@@ -229,8 +249,8 @@ function TweetPaneIn(){
 }
 
 function TweetPaneOut(){
-	TweenMax.fromTo($clockHand, 1, {scale:1}, {scale:0, ease:Power3.easeIn});
-	TweenMax.fromTo($clockFace, 1, {scale:1}, {scale:0, ease:Power3.easeIn});
+	TweenMax.fromTo($clockHand, .95, {scale:1}, {scale:0, ease:Power3.easeIn});
+	TweenMax.fromTo($clockFace, .95, {scale:1}, {scale:0, ease:Power3.easeIn});
 	TweenMax.fromTo($tweetGamePane, 1, {scale:1}, {scale:0, ease:Power4.easeIn});
 	return;
 }
@@ -238,15 +258,15 @@ function TweetPaneOut(){
 function HashtagOptionsIn(){
 	$guessRealPane.css("visibility", "visible");
 	$hashtagOptions.css("visibility", "visible");
-	TweenMax.fromTo($guessRealPane, 1.5, {top: -700},{top:0, ease:Elastic.easeOut});
-	TweenMax.fromTo($hashtagOption1, 2, {left: -700},{left: 0, ease:Elastic.easeOut, delay:.5});
-	TweenMax.fromTo($hashtagOption2, 2, {left: -700},{left: 0, ease:Elastic.easeOut, delay:1});
-	TweenMax.fromTo($hashtagOption3, 2, {left: -700},{left: 0, ease:Elastic.easeOut, delay:1.5});
-	TweenMax.fromTo($hashtagOption4, 2, {left: -700},{left: 0, ease:Elastic.easeOut, delay:2});
-	TweenMax.fromTo($hashtagOption5, 2, {right: -700},{right: 0, ease:Elastic.easeOut, delay: .5});
-	TweenMax.fromTo($hashtagOption6, 2, {right: -700},{right: 0, ease:Elastic.easeOut, delay:1});
-	TweenMax.fromTo($hashtagOption7, 2, {right: -700},{right: 0, ease:Elastic.easeOut, delay:1.5});
-	TweenMax.fromTo($hashtagOption8, 2, {right: -700},{right: 0, ease:Elastic.easeOut, delay:2});
+	TweenMax.fromTo($guessRealPane, 1.5, {top: -875},{top:0, ease:Elastic.easeOut});
+	TweenMax.fromTo($hashtagOption1, 2, {left: -875},{left: 0, ease:Elastic.easeOut, delay:.5});
+	TweenMax.fromTo($hashtagOption2, 2, {left: -875},{left: 0, ease:Elastic.easeOut, delay:1});
+	TweenMax.fromTo($hashtagOption3, 2, {left: -875},{left: 0, ease:Elastic.easeOut, delay:1.5});
+	TweenMax.fromTo($hashtagOption4, 2, {left: -875},{left: 0, ease:Elastic.easeOut, delay:2});
+	TweenMax.fromTo($hashtagOption5, 2, {right: -875},{right: 0, ease:Elastic.easeOut, delay: .5});
+	TweenMax.fromTo($hashtagOption6, 2, {right: -875},{right: 0, ease:Elastic.easeOut, delay:1});
+	TweenMax.fromTo($hashtagOption7, 2, {right: -875},{right: 0, ease:Elastic.easeOut, delay:1.5});
+	TweenMax.fromTo($hashtagOption8, 2, {right: -875},{right: 0, ease:Elastic.easeOut, delay:2});
 }
 function HashtagOptionsOut(){
 	TweenMax.fromTo($guessRealPane, 1.5, {top: 0},{top:-500, ease:Elastic.easeOut, delay: 1.5});
@@ -318,23 +338,23 @@ function WinnersCircleOut(){
 }
 function LeaderboardIn(){
 
-	TweenMax.fromTo($leader1, 2, {left: -650},{left:-75, ease:Elastic.easeOut});
-	TweenMax.fromTo($leader2, 2, {left: -650},{left:-75, ease:Elastic.easeOut, delay:.5});
-	TweenMax.fromTo($leader3, 2, {left: -650},{left:-75, ease:Elastic.easeOut, delay: 1});
-	TweenMax.fromTo($leader4, 2, {left: -650},{left:-75, ease:Elastic.easeOut, delay: 1.5});
-	TweenMax.fromTo($leader5, 2, {right: -650},{right:-75, ease:Elastic.easeOut});
-	TweenMax.fromTo($leader6, 2, {right: -650},{right:-75, ease:Elastic.easeOut, delay:.5});
-	TweenMax.fromTo($leader7, 2, {right: -650},{right:-75, ease:Elastic.easeOut, delay: 1});
-	TweenMax.fromTo($leader8, 2, {right: -650},{right:-75, ease:Elastic.easeOut, delay:1.5});
+	TweenMax.fromTo($leader1, 2, {left: -875},{left:-75, ease:Elastic.easeOut});
+	TweenMax.fromTo($leader2, 2, {left: -875},{left:-75, ease:Elastic.easeOut, delay:.5});
+	TweenMax.fromTo($leader3, 2, {left: -875},{left:-75, ease:Elastic.easeOut, delay: 1});
+	TweenMax.fromTo($leader4, 2, {left: -875},{left:-75, ease:Elastic.easeOut, delay: 1.5});
+	TweenMax.fromTo($leader5, 2, {right: -875},{right:-75, ease:Elastic.easeOut});
+	TweenMax.fromTo($leader6, 2, {right: -875},{right:-75, ease:Elastic.easeOut, delay:.5});
+	TweenMax.fromTo($leader7, 2, {right: -875},{right:-75, ease:Elastic.easeOut, delay: 1});
+	TweenMax.fromTo($leader8, 2, {right: -875},{right:-75, ease:Elastic.easeOut, delay:1.5});
 }
 
 function LeaderboardOut(){
-	TweenMax.to($leader1, 2, {left:-650, ease:Elastic.easeOut});
-	TweenMax.to($leader2, 2, {left:-650, ease:Elastic.easeOut, delay:.5});
-	TweenMax.to($leader3, 2, {left:-650, ease:Elastic.easeOut, delay: 1});
-	TweenMax.to($leader4, 2, {left:-650, ease:Elastic.easeOut, delay: 1.5});
-	TweenMax.to($leader5, 2, {right:-650, ease:Elastic.easeOut});
-	TweenMax.to($leader6, 2, {right:-650, ease:Elastic.easeOut, delay:.5});
-	TweenMax.to($leader7, 2, {right:-650, ease:Elastic.easeOut, delay: 1});
-	TweenMax.to($leader8, 2, {right:-650, ease:Elastic.easeOut, delay:1.5});
+	TweenMax.to($leader1, 2, {left:-875, ease:Elastic.easeOut});
+	TweenMax.to($leader2, 2, {left:-875, ease:Elastic.easeOut, delay:.5});
+	TweenMax.to($leader3, 2, {left:-875, ease:Elastic.easeOut, delay: 1});
+	TweenMax.to($leader4, 2, {left:-875, ease:Elastic.easeOut, delay: 1.5});
+	TweenMax.to($leader5, 2, {right:-875, ease:Elastic.easeOut});
+	TweenMax.to($leader6, 2, {right:-875, ease:Elastic.easeOut, delay:.5});
+	TweenMax.to($leader7, 2, {right:-875, ease:Elastic.easeOut, delay: 1});
+	TweenMax.to($leader8, 2, {right:-875, ease:Elastic.easeOut, delay:1.5});
 }

@@ -324,23 +324,22 @@
 	position: absolute;
 	z-index:3;
 	width: 12%;
-	padding-top:27%;
-	padding-left:1px;
-	padding-right:1%;
-	padding-bottom:0;
 	visibility: hidden;
 }
 #clock-hand{
+	z-index: 4;
 	position:absolute;
-	padding-top: 27%;
 	width:11%;
 	visibility: hidden;
+	left: .5%;
 }
 #tweet-pane-stuff{
 	z-index:3;
 	padding:0;
-	position: relative;
-	left: 46%;
+	position: absolute;
+	width:100%;
+	top: 100%;
+	left: 44.5%;
 }
 .tweet-player-icon{
 	position:relative;
@@ -563,32 +562,38 @@
 }
 .winner-pane-text{
 	position:absolute;
+	padding:0;
+	margin:0;
 	font-family: Aileron;
 	font-size: 14pt;
 	color:black;
-	margin-top: 14%;
-	margin-left: 2%;
+	left:1.75%;
+	top:72.5%;
 	z-index: 7;
 }
 .score-text{
 	position: absolute;
 	font-family: Aileron;
 	font-size: 54pt;
-	padding-left: 27%;
+	left: 21%;
+	top: -1%;
 	color: #ffca00;
 }
 .score-mark{
 	position: absolute;
 	z-index: 5;
 	width: 215px;
-	padding-top: 4%;
-	left: 20%;
+	top: 21.5%;
+	left: 15.25%;
 }
 #fake-row{
 	padding:0;
 	height:15%;
 	z-index: 0;
 	visibility:hidden;
+}
+.winner{
+
 }
 .winners-template{
 	padding:0;
@@ -892,13 +897,13 @@
 	    <img id="sample-tweet" class ="col-md-4" src="css/sample_tweet.png">
 	    <div class ="col-md-4"></div>
 	    <h1 id="hashtagging-instructions">make up a <span id="bold-hashtag">hashtag!</span></h1>
-	    </div>
-
-	    <div id="tweet-pane-stuff" class="row">
-
-	    <img id="clock-face" class ="col-md-5" src="css/HYI_clock.png">
+	    <div id="tweet-pane-stuff">
+	    <img id="clock-face" src="css/HYI_clock.png">
 	    <img id="clock-hand" src="css/HYI_clockhand2.png">
 	    </div>
+	    </div>
+
+
 
 <!-- Player Icons -->
 	    <div class="container tweet-icon-container">
@@ -1037,11 +1042,11 @@
 			<div class= "winner-pane" id="winner-1-pane">
 			<div class="winner-icon"></div>
 			<div id="winner-1-icon"></div>
-				<div class= "winner" id="winner-1"><h1 class="winner-pane-text">player one</h1>
-				<img class="score-mark" src="css/HYI_finalscores_topscoremarks.png">
-				<h2 class="score-text">300</h2>
 				
-				</div>
+				<h2 class="score-text">300</h2>
+				<img class="score-mark" src="css/HYI_finalscores_topscoremarks.png">
+				
+				<h1 class="winner-pane-text">player one</h1>
 			</div>
 		</div>
 		<div class="row winner-row" id="winner-row-2">
@@ -1049,10 +1054,11 @@
 			<div class= "winner-pane" id="winner-2-pane">
 			<div class="winner-icon"></div>
 			<div id="winner-2-icon"></div>
-			<div class= "winner" id="winner-2"><h1 class="winner-pane-text">player two</h1>
+			
+
 			<h2 class="score-text">250</h2>
 			
-			</div>
+			<h1 class="winner-pane-text">player two</h1>
 			</div>
 		</div>
 		<div class="row winner-row" id="winner-row-3">
@@ -1060,10 +1066,11 @@
 			<div class= "winner-pane" id="winner-3-pane">
 			<div class="winner-icon"></div>
 			<div id="winner-3-icon"></div>
-			<div class= "winner" id="winner-3"><h1 class="winner-pane-text">player three</h1>
+			
+
 			<h2 class="score-text">200</h2>
 			
-			</div>
+			<h1 class="winner-pane-text">player three</h1>
 			</div>
 		</div>
 		</div>
