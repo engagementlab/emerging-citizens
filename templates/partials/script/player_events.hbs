@@ -38,7 +38,7 @@ var socketEvents = function(eventId, eventData) {
             $('.body').addClass('player');
 
             // Clear countdown warnings
-            $('#countdownTimer').empty();
+            $('#countdownTimer').clear();
             break;
 
         case 'game:ending':
@@ -70,6 +70,8 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'hashtags:received':  
+
+            $('#countdownTimer').clear();
 
             // TODO: Server-side?    
             $('#gameContent').html(eventData);

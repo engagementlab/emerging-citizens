@@ -1,0 +1,128 @@
+<style>
+.input-box { position: relative; }
+input { display: block; border: 1px solid #d7d6d6; background: #fff; padding: 10px 10px 10px 20px; width: 195px; }
+.hash { position: absolute; display: block; left: 5px; top: 10px; z-index: 9; color: #47527D; }
+</style>
+
+{{> moderator/header_htyi }}
+
+    <!-- Page Content -->
+<div class="page-container">
+    <div class="row">
+        <div class="col-lg-3 players">
+            <div class="playerBackground">
+<<<<<<< HEAD
+                <div class="playerIcon">
+=======
+                <div class="playerStatic">
+>>>>>>> 3ee66fe68ef4fcd6291157ed41260f9b02026e94
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+<<<<<<< HEAD
+                <div class="playerIcon">
+=======
+                <div class="playerStatic">
+                    <div class="playerNameplate">name</div>
+>>>>>>> 3ee66fe68ef4fcd6291157ed41260f9b02026e94
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+<<<<<<< HEAD
+                <div class="playerIcon">
+=======
+                <div class="playerStatic">
+>>>>>>> 3ee66fe68ef4fcd6291157ed41260f9b02026e94
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+<<<<<<< HEAD
+                <div class="playerIcon">
+=======
+                <div class="playerStatic">
+>>>>>>> 3ee66fe68ef4fcd6291157ed41260f9b02026e94
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+        </div>
+        <!-- Introduction Row -->
+        <div class="col-lg-6 room-container">
+            <div class="row game_code">
+                <div class="col-lg-12">
+                    <h1 style="font-size: 6em" class="game-header">Room Code:
+                    </h1>
+                    {{!-- <h1 style="font-size: 8em" class="game-header">{{game.accessCode}}</h1> --}}
+                    <h1 style="font-size: 8em" class="game-header">
+                        {{!-- {{jsonPrint this}} --}}
+                        <span id="first">{{accessCodeSplit.[0]}}</span>
+                        <span id="second">{{accessCodeSplit.[1]}}</span>
+                        <span id="third">{{accessCodeSplit.[2]}}</span>
+                        <span id="fourth">{{accessCodeSplit.[3]}}</span>
+                    </h1>
+
+                </div>
+            </div>
+            {{!-- <div class="row" style="margin-top: 10%;">
+                <div class="col-lg-12">
+                    <h4 class="game-header">Game Name: {{game.name}}
+                    </h4>
+                </div>
+            </div> --}}
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 5%;">
+                    <h4 class="game-message">Waiting for players...
+                    </h4>
+                    {{!-- <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit"> --}}
+                </div>
+            </div>
+            <!-- Team Members Row -->
+            {{!-- <div class="row" id="playersContent">
+            </div> --}}
+
+        </div>
+
+        <div class="col-lg-3 players">
+            <div class="playerBackground">
+                <div class="playerIcon">
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+                <div class="playerIcon">
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+                <div class="playerIcon">
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+            <div class="playerBackground">
+                <div class="playerIcon">
+                    {{!-- {{#each User}}
+                    <div class="playerIcon">{{this.GameUser}}</div>
+                    {{/each}} --}}
+                </div>
+            </div>
+        </div>
+        
+
+    </div> {{!-- end page row --}}
+</div>
