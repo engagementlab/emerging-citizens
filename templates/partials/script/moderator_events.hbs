@@ -92,9 +92,13 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
+
+
             break;
 
         case 'hashtags:reveal':
+
+            $('#countdownTimer').clear();
 
             $('#gameContent').html(eventData);
 

@@ -156,13 +156,17 @@ nav.header {
 	font-size: medium;
 	color: $color-blue;
   min-height: 265px;
+  min-width: 345px;
   background-image: url(/images/layout/hyi/cloud.png);
   background-repeat: no-repeat; 
+  position:absolute;
 
   span {
-  	width: 50%;
-    margin-top: 25%;
-    margin-left: -3%;
+  	width: 75%;
+  	left: 10%;
+  	top: 45%;
+    position: absolute;
+    height: 100%;
   }
 }
 

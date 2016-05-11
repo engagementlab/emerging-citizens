@@ -74,9 +74,10 @@
 
         <div id="error-box">
         </div>
-
-        <div id="debug-info">
-        </div>
+        {{#ifeq debug true}}
+            <div id="debug-info">
+            </div>
+        {{/ifeq}}
 
         {{> nav}}
         <div class="container">
