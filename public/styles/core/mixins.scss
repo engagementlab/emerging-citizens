@@ -143,6 +143,14 @@ $mq-desktop				: 1382px !default;
           border-radius: $width/2;
 }
 
+@mixin radius($radius) {
+
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+
+}
+
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow:inset $top $left $blur $color;

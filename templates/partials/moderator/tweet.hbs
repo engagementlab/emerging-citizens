@@ -5,7 +5,7 @@
         {{> moderator/players_column players=players.left offset=0 left=true active=true }}
         
         {{!-- Room Code Container --}}
-        <section class="col-lg-6 room-container">
+        <section class="col-lg-6 room-container" id="tweet-container">
         	{{!-- <img class="tweetImg" src="/images/layout/hyi/tweetexample.jpeg"></img> --}}
             {{{tweetText.html}}}
             
@@ -18,7 +18,15 @@
 
                 </div>
             </div>
-            <img class="clockImg" src="/images/layout/hyi/clock.png"></img>
+
+            <div class="col-sm-4"></div>
+            <div class="col-sm-6" id="clock-bg">
+                <div id="clock-face">
+                    <img id="clock-hand" src="/images/layout/hyi/clockhand.png">
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+
         </section>
         
         {{> moderator/players_column players=players.right offset=4 left=false active=true }}

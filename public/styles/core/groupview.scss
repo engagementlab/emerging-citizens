@@ -113,6 +113,9 @@
 }
 
 // TWEET template
+#tweet-container {
+	padding: 3%;
+}
 .tweet {
 
 	#tweet-author {
@@ -135,6 +138,22 @@
 	#author {
 		color: #328FB5;
 	}
+}
+
+#clock-face{
+  background: url("/images/layout/hyi/clock.png") no-repeat;
+}
+#clock-hand{
+  left: -.5%;
+  position: relative;
+}
+#clock-bg {
+  width: 184px;
+	height: 168px;
+	top: 82px;
+	background: white;
+	
+	@include radius (83px);
 }
 
 // SUBMISSIONS

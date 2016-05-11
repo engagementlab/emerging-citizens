@@ -278,6 +278,9 @@
       -webkit-transform: translate(0px, -18px);
       transform: translate(0px, -18px); }
 
+#tweet-container {
+  padding: 3%; }
+
 .tweet #tweet-author {
   display: block;
   text-align: left; }
@@ -294,6 +297,22 @@
   box-shadow: 0px 2px 10px #000; }
   #current-tweet #author {
     color: #328FB5; }
+
+#clock-face {
+  background: url("/images/layout/hyi/clock.png") no-repeat; }
+
+#clock-hand {
+  left: -.5%;
+  position: relative; }
+
+#clock-bg {
+  width: 184px;
+  height: 168px;
+  top: 82px;
+  background: white;
+  -webkit-border-radius: 83px;
+  -moz-border-radius: 83px;
+  border-radius: 83px; }
 
 #hashtag-submissions-prompt {
   color: white;
