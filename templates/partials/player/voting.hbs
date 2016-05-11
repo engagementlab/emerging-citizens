@@ -1,16 +1,15 @@
 	<div class="col-sm-4"></div>
-	<div id="content-submission" class="col-sm-4">
+	<div id="vote-submission" class="col-sm-4">
 	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
 	  <div class="form">
 		    {{#each this}}
-				  {{!-- <option value="{{@key}}">{{this.hashtag}}</option> --}}
-					<button id="btn_submit" data-event="hashtag:vote" data-package='{{@key}}' class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
+					<button data-event="hashtag:vote" data-package='{{@key}}' class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
 		    {{/each}}
 		
 		</div>
 	</div>
 
-  <section id="submitted" data-hide="content-submission" class="row" style="display:none">
+  <section id="submitted" data-hide="vote-submission" class="row" style="display:none">
 	    
   		<div class="col-lg-12">
 	  		<div class="col-lg-4"></div>

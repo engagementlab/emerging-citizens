@@ -86,8 +86,8 @@ var debugData = {
                 user3: {score_total: 150, username: 'user3'},
                 user5: {score_total: 150, username: 'user5'},
                 user6: {score_total: 50, username: 'user6'},
-                user7: {score_total: 0, username: 'user7'},
-                user8: {score_total: 0, username: 'user8'}
+                user7: {username: 'user7'},
+                user8: {username: 'user8'}
             }
     },
     tweet: {

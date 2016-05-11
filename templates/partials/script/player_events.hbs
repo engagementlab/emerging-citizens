@@ -25,7 +25,8 @@ var socketEvents = function(eventId, eventData) {
 
         case 'player:id':
 
-            {{!-- $('#debug-info').text('Player id: ' + eventData); --}}
+            $('#debug-info').text('Player id: ' + eventData);
+            playerId = eventData;
 
             break;
 
@@ -67,13 +68,21 @@ var socketEvents = function(eventId, eventData) {
             $('#countdownTimer').html(eventData);
 
             break;
-            
+
+        case 'hashtags:received':  
+
+            // TODO: Server-side?    
+            $('#gameContent').html(eventData);
+
+            // Remove current player's submission from selections
+            $('#vote-submission').find('button[data-package="' + playerId + '"]').remove();
+
+            break;
 
         case 'game:end':
         case 'game:round_over':
         case 'game:countdown_end':
         case 'players:update':
-        case 'hashtags:received':
 
             $('#gameContent').html(eventData);
             
