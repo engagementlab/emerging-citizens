@@ -29,6 +29,11 @@ exports.create = function(req, res) {
 
     var sessionType;
     var data = (req.method == 'POST') ? req.body : req.query;
+
+    if(data.contentCategories === undefined || data.contentCategories.length === 0) {
+       res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
+       return;
+    }
     
     // if(data.gameType === "0")
         sessionType = new HashtagGame.model();

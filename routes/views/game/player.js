@@ -31,9 +31,11 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({ accessCode: req.params.accesscode.toUpperCase() }, function (err, game) {
 
-        if(game === null) {
+        if(game === null || game === undefined) {
             locals.game_not_found = true;
             res.send({error_code: 'wrong_code', msg: 'Game for room code "' + req.params.accesscode.toUpperCase() + '" not found.'});
+
+            return;
         }
         else
             locals.game = game;

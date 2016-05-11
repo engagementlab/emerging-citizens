@@ -11,6 +11,12 @@
 	
 	}
 
+	.invalid
+	{
+		@include animation('invalid-field .5s 1');
+		box-shadow:0 0 5px 1px $color-light-red;
+	}
+
 	// Center all divs
 	div {
 
@@ -29,12 +35,6 @@
 	    outline: none !important;
 	    border:6px solid #00c5c2;
 	    box-shadow: 0 0 10px #719ECE;
-		}
-
-		&.invalid
-		{
-			@include animation('invalid-field .5s 1');
-			box-shadow:0 0 5px 1px $color-light-red;
 		}
 	}
 

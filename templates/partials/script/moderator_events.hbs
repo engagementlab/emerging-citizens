@@ -13,6 +13,7 @@
 var socketEvents = function(eventId, eventData) {
 		
 	var currentPlayers = [];
+    var clockInterval;
 
     switch (eventId) {
 
@@ -29,7 +30,7 @@ var socketEvents = function(eventId, eventData) {
 			  	currentPlayers = _.pluck(eventData, 'username');
 
                 // Allow to start?
-                if(currentPlayers.length > 0)
+                if(currentPlayers.length == 1)
                 {
                     var startAnim = new TimelineLite();
                     startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
@@ -53,7 +54,10 @@ var socketEvents = function(eventId, eventData) {
                 var timeFactor = 360 / secondsLeft;
                 var clockHand = $('#clock-hand');
 
-                var clockInterval = setInterval(function() {
+                if(clockInterval !== undefined)
+                    clearInterval(clockInterval);
+                    
+                clockInterval = setInterval(function() {
 
                     function clockTick() {
                         clockHand.css({

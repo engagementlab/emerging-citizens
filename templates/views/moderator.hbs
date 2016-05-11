@@ -10,18 +10,21 @@
             </select><br /> --}}
 
             <div class="col-sm-3"></div>
-            <div id="tweet-submission" class="col-sm-6 input-box">
-              <div class="form-prompt white">de-select any content to not include in this session:</div>
-              <div class="form">
-                    {{#each categories}}
-                        <button value="{{id}}" class="voting-button active submit">{{name}}</button>
-                    {{/each}}                
-                </div>
-            
-                <div class="form-prompt white">access code:</div>
-                <div id="access-code">{{gameCode}}</div>
+            <div id="session-create" class="submission col-sm-6 input-box">
+                <div class="form-prompt white">de-select any content to not include in this session:</div>
+                <div class="form">
+                    <div id="categories">
+                        {{#each categories}}
+                            <button value="{{id}}" class="voting-button active submit">{{name}}</button>
+                        {{/each}} 
+                    </div>        
 
-                <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Start!">
+                    <div class="form-prompt white">access code:</div>
+                    <div id="access-code">{{gameCode}}</div>
+
+                    <div class="error">Error!</div>
+                    <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Start!">       
+                </div>
             </div>
 
         </div>

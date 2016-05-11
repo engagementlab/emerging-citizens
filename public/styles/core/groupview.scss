@@ -1,5 +1,5 @@
 // CONTENT SELECTION
-#tweet-submission {
+.submission {
 	
 	button {
 		color: white;
@@ -156,6 +156,10 @@
 	background: white;
 	
 	@include radius (83px);
+
+	&.voting {
+		background-color: $color-dark-purple;
+	}
 }
 
 // SUBMISSIONS

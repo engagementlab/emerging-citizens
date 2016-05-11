@@ -46,6 +46,13 @@
   100% {
     left: 0px; } }
 
+.form .invalid {
+  -webkit-animation: invalid-field .5s 1;
+  -moz-animation: invalid-field .5s 1;
+  -o-animation: invalid-field .5s 1;
+  animation: invalid-field .5s 1;
+  box-shadow: 0 0 5px 1px #ab3724; }
+
 .form div {
   margin-left: auto;
   margin-right: auto; }
@@ -59,12 +66,6 @@
     outline: none !important;
     border: 6px solid #00c5c2;
     box-shadow: 0 0 10px #719ECE; }
-  .form input.invalid {
-    -webkit-animation: invalid-field .5s 1;
-    -moz-animation: invalid-field .5s 1;
-    -o-animation: invalid-field .5s 1;
-    animation: invalid-field .5s 1;
-    box-shadow: 0 0 5px 1px #ab3724; }
 
 .form input[type=submit].default, .form button.default {
   color: #00c5c2;
@@ -177,7 +178,7 @@
   height: 100px;
   background-color: white; }
 
-#tweet-submission button {
+.submission button {
   color: white;
   background-color: #FD6D59;
   -webkit-transition: background-color 0.3s linear;
@@ -185,10 +186,10 @@
   -ms-transition: background-color 0.3s linear;
   -o-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear; }
-  #tweet-submission button.inactive {
+  .submission button.inactive {
     background-color: #674B47; }
 
-#tweet-submission #access-code {
+.submission #access-code {
   font-size: xx-large; }
 
 .game_code {
@@ -314,6 +315,8 @@
   -webkit-border-radius: 83px;
   -moz-border-radius: 83px;
   border-radius: 83px; }
+  #clock-bg.voting {
+    background-color: #6768FE; }
 
 #hashtag-submissions-prompt {
   color: white;
