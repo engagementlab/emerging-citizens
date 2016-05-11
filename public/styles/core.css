@@ -205,7 +205,8 @@
 .room-container {
   top: 10%;
   bottom: 10%;
-  padding: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
   position: relative;
   margin: 10px auto;
   background-color: white;
@@ -272,11 +273,11 @@
     transition: opacity 0.5s, transform 0.5s; }
     .player-background .nameplate.active {
       opacity: 1;
-      -moz-transform: translate(0px, -18px);
-      -o-transform: translate(0px, -18px);
-      -ms-transform: translate(0px, -18px);
-      -webkit-transform: translate(0px, -18px);
-      transform: translate(0px, -18px); }
+      -moz-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      -ms-transform: translate(0px, 0px);
+      -webkit-transform: translate(0px, 0px);
+      transform: translate(0px, 0px); }
 
 #tweet-container {
   padding: 3%; }
