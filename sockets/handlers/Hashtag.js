@@ -42,6 +42,13 @@ var Hashtag = function (nsp, socket) {
 
         },
 
+        'game:start': function(package) {
+
+            Session.Get(package.gameId).
+            StartGame(currentSpace);
+
+        },
+
         'game:next_round': function(package) {
 
             Session.Get(package.gameId).

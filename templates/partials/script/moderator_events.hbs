@@ -27,7 +27,14 @@ var socketEvents = function(eventId, eventData) {
 
                 var staticPlayers = $('.player-static');
 			  	currentPlayers = _.pluck(eventData, 'username');
-	
+
+                // Allow to start?
+                if(currentPlayers.length > 0)
+                {
+                    var startAnim = new TimelineLite();
+                    startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
+                }
+
     		    // $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
 
                 _.each(currentPlayers, function(name, index) {
@@ -59,7 +66,6 @@ var socketEvents = function(eventId, eventData) {
 
                     if(secondsLeft === 0)
                         clearInterval(clockInterval);
-                    
                 }, 1000);
 
             break;
