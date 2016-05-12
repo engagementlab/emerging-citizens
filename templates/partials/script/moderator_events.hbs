@@ -98,8 +98,6 @@ var socketEvents = function(eventId, eventData) {
 
         case 'hashtags:reveal':
 
-            $('#countdownTimer').clear();
-
             $('#gameContent').html(eventData);
 
             //instantiate a TimelineLite for hashtags animation
