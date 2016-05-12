@@ -30,7 +30,7 @@ var socketEvents = function(eventId, eventData) {
 			  	currentPlayers = _.pluck(eventData, 'username');
 
                 // Allow to start?
-                if(currentPlayers.length == 1)
+                if(currentPlayers.length === 2)
                 {
                     var startAnim = new TimelineLite();
                     startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
@@ -76,6 +76,7 @@ var socketEvents = function(eventId, eventData) {
 
 
         case 'game:start':
+            
             
             var openAnim = new TimelineLite();
 
