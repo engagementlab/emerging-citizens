@@ -61,13 +61,13 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-            $('#countdownTimer').html(eventData);
+            $('#countdownTimer').html("You're running out of time my good fella!");
 
             break;
 
         case 'hashtags:submit':
 
-            $('#countdownTimer').html.Empty();
+            $('#countdownTimer').empty();
 
         case 'hashtags:received':  
 
@@ -89,6 +89,7 @@ var socketEvents = function(eventId, eventData) {
         // Hashtag successfully submitted
         case 'hashtag:success':
 
+            $('#countdownTimer').empty();
             $('#tweet-submission').hide();
             $('#submitted').show();
 
