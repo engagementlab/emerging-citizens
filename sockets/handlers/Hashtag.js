@@ -26,6 +26,7 @@ var Hashtag = function (nsp, socket) {
             HashtagSubmitted(
                                 currentSocket.id,
                                 package.msgData,
+                                currentSocket,
                                 currentSpace
                             );
 
