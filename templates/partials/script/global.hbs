@@ -50,6 +50,8 @@
 		'game:round_over',
 		
 		'hashtag:submitted',
+		'hashtag:tryagain',
+		'hashtag:success',
 		'hashtags:received',
 		'hashtags:reveal'
 	
@@ -155,8 +157,10 @@
 					
 					socket.emit(event, emitData(pkg));
 
-					$('#' + $('#submitted').data('hide')).hide();
-					$('#submitted').show();
+					if($(this).data().autohide) {
+						$('#' + $('#submitted').data('hide')).hide();
+						$('#submitted').show();
+					}
 
 				});
 
