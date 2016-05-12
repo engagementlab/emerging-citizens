@@ -15,13 +15,15 @@
 var keystone = require('keystone'),
     _ = require('underscore'),
     appRoot = require('app-root-path'),
-    GameSession = keystone.list('GameSession');
+    GameSession = keystone.list('GameSession'),
+    Session = require(appRoot + '/lib/SessionManager');
     Templates = require(appRoot + '/lib/TemplateLoader');
 
 exports = module.exports = function(req, res) {
 
     var locals = res.locals;
     var template;
+    var accessCode = req.params.accesscode.toUpperCase();
 
     locals.game_not_found = false;
 
@@ -29,7 +31,12 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'player';
 
-    GameSession.model.findOne({ accessCode: req.params.accesscode.toUpperCase() }, function (err, game) {
+    if(Session.Get(accessCode) !== undefined && Session.Get(accessCode).IsFull()) {
+       res.send({error_code: 'session_full', msg: 'Sorry! This game is full!'});
+       return;
+    }
+
+    GameSession.model.findOne({ accessCode: accessCode }, function (err, game) {
 
         if(game === null || game === undefined) {
             locals.game_not_found = true;

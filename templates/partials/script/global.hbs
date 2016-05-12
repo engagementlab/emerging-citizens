@@ -122,12 +122,13 @@
 
 						if(data.error_code !== undefined) {
 
-							$('#session-create #categories').addClass('invalid');
+							if(data.error_code === 'need_content')
+								$('#session-create #categories').addClass('invalid');
+							
 							$('#session-create .error').text(data.msg).fadeIn();
 							
 							return;
 						}
-
 					  window.location = data;
 					}
 				);
