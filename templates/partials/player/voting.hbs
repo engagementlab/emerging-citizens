@@ -2,9 +2,9 @@
 	<div id="vote-submission" class="col-sm-4">
 	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
 	  <div class="form">
-	  
+
 		    {{#each this}}
-					<button data-event="hashtag:vote" data-package='{{@key}}' data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{this.hashtag}}</button>
+					<button data-event="hashtag:vote" data-package='{{id}}' data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{hashtag}}</button>
 		    {{/each}}
 		
 		</div>
