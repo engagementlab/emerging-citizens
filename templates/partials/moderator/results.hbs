@@ -17,14 +17,17 @@
                 {{#each hashtags}}
                     <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
                   
-                        {{> moderator/player_badge username=username avatar_ind=@index creator=true }}
+                        {{#unless real}}
+                            {{> moderator/player_badge username=username avatar_ind=index creator=true }}
+                        {{/unless}}
+                        
                         <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
                         {{#if this.votes}}
 
                             {{#each this.votes}}
 
-                                {{> moderator/player_badge username=username avatar_ind=@index voter=true }}
+                                {{> moderator/player_badge username=username avatar_ind=index voter=true }}
                             
                             {{/each}}
                         
@@ -61,7 +64,7 @@
 
                     <div class="col-sm-4">
                         <div class="score-box" style="visibility: hidden;">
-                            {{> moderator/player_badge username=username avatar_ind=@index creator=true }}
+                            {{> moderator/player_badge username=username avatar_ind=index creator=true }}
 
                             <score>
                                 {{#if score_total}}

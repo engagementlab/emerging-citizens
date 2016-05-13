@@ -24,7 +24,7 @@ exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
-    app.get('/game/:accesscode', routes.views.game.player);
+    app.post('/game', routes.views.game.player);
     app.post('/game/load', routes.views.game.template_load);
     
     app.get('/moderator', routes.views.moderator.index);
