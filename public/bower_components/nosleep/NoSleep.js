@@ -20,6 +20,7 @@
     source.src = dataURI;
     source.type = "video/" + type;
     element.appendChild(source);
+    document.body.appendChild(element);
   }
 
   // NoSleep instance constructor

@@ -1,6 +1,6 @@
 {
   "name": "emerging-citizens",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/engagementgamelab/emerging-citizens.git"
@@ -12,6 +12,7 @@
     "async": "^1.5.2",
     "body-parser": "^1.15.0",
     "connect-mongostore": "^0.1.4",
+    "console-remote-client": "^0.4.3",
     "express": "4.13.4",
     "keystone": "0.3.15",
     "mongoose": "^4.4.5",

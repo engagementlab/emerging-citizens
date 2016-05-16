@@ -107,10 +107,6 @@
 		// Load animations
 		{{> script/player_animation}}
 
-		// Prevent device sleep
-		var noSleep = new NoSleep();
-		noSleep.enable();
-
 	{{/ifeq}}
 
 	$(document).ready(function() {
@@ -228,7 +224,11 @@
 					    socket = io();
 					    registerEvents();
 
-							playerName = $('#player_name').val()
+							playerName = $('#player_name').val();
+
+							socket.on('disconnect', function(){
+							   alert('disconnected!')
+							});
 
 			        // Log player in
 							socket.emit('login:submit', emitData({"username": playerName}));
@@ -253,7 +253,10 @@
 					$('.navbar.main').attr ('style', 'display:none;');
           // $('.body').addClass('monitor');
 				{{else}}
-					
+
+					// Prevent device sleep
+					var noSleep = new NoSleep();
+					noSleep.enable();
 
 					// Load events for players
 					{{> script/player_events}}
