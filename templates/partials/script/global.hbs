@@ -74,11 +74,24 @@
 
 	function getFormData(submitElement) {
 
-		var pkg = submitElement.data().package;
+		var pkg;
+
+		if(submitElement[0].dataset === undefined)
+			return undefined;
+		
+		try {
+			pkg = JSON.parse(submitElement[0].dataset.package);
+		}
+		catch(e) {
+			pkg = submitElement[0].dataset.package;
+		}
 
 		if($.isPlainObject(pkg)) {
 			$.each(Object.keys(pkg), function( key, value ) {
-			  pkg[value] = $(pkg[value].toString()).val();
+
+				if(pkg[value] !== undefined)
+				  pkg[value] = $(pkg[value].toString()).val();
+
 			});
 		}
 		else if(!submitElement.is('button'))

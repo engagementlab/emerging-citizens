@@ -50,7 +50,7 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({ accessCode: accessCode }, function (err, game) {
 
-        if(game === null || game === undefined) {
+        if(game === null || game === undefined || Session.Get(accessCode) === undefined) {
             locals.game_not_found = true;
             res.send({error_code: 'wrong_code', msg: 'Game for room code "' + accessCode + '" not found.'});
 
