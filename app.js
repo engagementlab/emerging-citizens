@@ -35,7 +35,7 @@ module.exports = function(frameworkDir) {
 	require('app-module-path').addPath(frameworkDir + '/node_modules'); 
 	
 	// Obtain app root path and set as keystone's module root
-	var appRootPath = require('app-root-path').path
+	var appRootPath = require('app-root-path').path;
 	var keystoneInst = require('keystone');
 	
 	keystoneInst.set('module root', appRootPath);
