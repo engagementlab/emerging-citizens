@@ -97,7 +97,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'hashtags:reveal':
 
-            $('#gameContent').html(eventData);
+            $('#gameContent').html(eventData.html);
 
             //instantiate a TimelineLite for hashtags animation
             var hashtagsAnim = new TimelineLite({ paused:true, onComplete:function() { showReal(); }});
@@ -135,14 +135,28 @@ var socketEvents = function(eventId, eventData) {
 
             function showScore() {
 
-                scoreAnim
-                .from($('#scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
-                
-                .staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
-                .staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2)
+                if(eventData.round === 2) {
+                    scoreAnim.add([
+                    
+                        TweenLite.to($('#score-totals'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut}),
+                        
+                        TweenMax.staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2),
+                        TweenMax.staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2),
+                        
+                        TweenLite.to($('#score-totals h1'), 1, {autoAlpha:0, display:'none'}),
+                        TweenLite.to($('#score-totals'), .1, {display:'none'})
+                        
+                    ]);
+                }
+
+                scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+
+                .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
                 
                 .to($('#scores h1'), 1, {autoAlpha:0, display:'none'})
                 .to($('#scores'), .1, {display:'none'})
+
                 .from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
 
                 .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
