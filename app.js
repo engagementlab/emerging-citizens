@@ -23,7 +23,7 @@ appStart = function(app) {
 
 	if(process.env.NODE_ENV === 'staging')
 		var consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');
-	else 
+	else
 		console.re = console;
 
 };
