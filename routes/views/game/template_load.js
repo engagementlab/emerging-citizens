@@ -114,6 +114,8 @@ exports = module.exports = function(req, res) {
     // locals.section is used to set the currently selected
     // item in the header navigation.
     locals.section = 'debug';
+
+    console.log(data.template_path)
     
     Templates.Load(data.template_path, debugData[data.debug_key], function(html) {            
         res.send({id: data.event_id, eventData: html});

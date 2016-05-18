@@ -344,17 +344,17 @@
   #hashtag-results .hashtag .octothorp {
     font-size: 1.3em; }
 
-#scores .score-box {
+#final-scores .score-box {
   padding: 20px;
   background-color: #FD6D59;
   font-size: large; }
-  #scores .score-box img {
+  #final-scores .score-box img {
     float: left; }
-  #scores .score-box score {
+  #final-scores .score-box score {
     color: #fbd738;
     font-size: xx-large; }
 
-#leaderboard .player {
+#leaderboard .player, #scores .player {
   background-color: white;
   padding: 20px;
   margin: 20px; }
