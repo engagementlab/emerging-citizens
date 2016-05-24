@@ -53,26 +53,28 @@ var debugData = {
     },
     results: {
 
+        round: 2,
+
         tweet: {
             html: "<p>Remember when Zoe claimed Maya had never worked for her?\nThat was a lie, Maya even tried to cover it up!</p>\n"
             
         },
 
         hashtags: {
-            user1: {hashtag: 'pillows', username: 'user1', votes: [
+            user1: {hashtag: 'pillows', user: { username: 'user4', index: 6, submitted: true }, votes: [
                                                                 { 
-                                                                    username: 'user2',
-                                                                    score: 50 
+                                                                    user: { username: 'user2', index: 2, submitted: true },
+                                                                    score: 100 
                                                                 },
                                                                 {
-                                                                    username: 'user3',
+                                                                    user: { username: 'user3', index: 3, submitted: true },
                                                                     score: 50 
                                                                 }
                                                             ]},
-            user2: {hashtag: 'sleep', username: 'user2', real: true},
-            user3: {hashtag: 'bedtimemagic', username: 'user3', votes: [
+            user2: {hashtag: 'sleep', user: { username: 'user5', index: 7, submitted: true }, real: true},
+            user3: {hashtag: 'bedtimemagic',  user: { username: 'user6', index: 1, submitted: true }, votes: [
                                                                 { 
-                                                                    username: 'user1',
+                                                                    user: { username: 'user1', index: 4, submitted: true },
                                                                     score: 50 
                                                                 }
                                                             ]}
@@ -115,10 +117,10 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'debug';
 
-    console.log(data.template_path)
+    console.log('template_path', data.template_path);
     
     Templates.Load(data.template_path, debugData[data.debug_key], function(html) {            
-        res.send({id: data.event_id, eventData: html});
+        res.send({id: data.event_id, eventData: {round: 2, html: html}});
     });
 
 };

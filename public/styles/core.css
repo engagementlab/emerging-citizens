@@ -224,6 +224,11 @@
   .players div.player-background:nth-child(4) {
     transform: translate(-212px, -176px); }
 
+.player-badge {
+  position: relative;
+  /*background-color:#333;*/
+  float: left; }
+
 .player-background {
   display: block;
   position: relative;

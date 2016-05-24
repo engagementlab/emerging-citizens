@@ -100,7 +100,8 @@ var socketEvents = function(eventId, eventData) {
             $('#gameContent').html(eventData.html);
 
             //instantiate a TimelineLite for hashtags animation
-            var hashtagsAnim = new TimelineLite({ paused:true, onComplete:function() { showReal(); }});
+            var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showReal(); }});
+            //
             var realHashtagAnim = new TimelineLite({ paused:true, onComplete:function() { showScore(); }});
             var scoreAnim = new TimelineLite({paused: true, onComplete:function() { nextRound(); }});
 
@@ -108,15 +109,20 @@ var socketEvents = function(eventId, eventData) {
             
             // 1) Show hashtags
             hashtagsAnim.from($('#hashtags'), 1.5, {top:-200, autoAlpha:0, ease:Bounce.easeOut});
-            
             _.each(elements, function(el, index) {
 
                 hashtagsAnim.from(el, 1, {y:-200, autoAlpha:0, ease:Bounce.easeOut})
-                .staggerFrom($(el).find('.voter'), 3, {scale:0, opacity:0, ease:Elastic.easeOut, onStart: function() {
+                
+                .from($(el).find('.creator'), 1, {autoAlpha:0, delay: 2}, 'creator')
+                .staggerFrom($(el).find('.voter'), 3, {delay: 2, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
-                        ion.sound.play("button_tiny");
+                    ion.sound.play("button_tiny");
 
-                }}, 2)
+                }}, 2, 'creator+=2')
+                
+                .staggerFrom($(el).find('.score'), 3, { delay: 4, autoAlpha:0, ease:Elastic.easeOut }, 2)
+                .staggerTo($(el).find('.voter .portrait'), 1.5, { delay: 4, display: 'none', opacity:0, ease:Elastic.easeOut }, 2)
+
                 .to(el, 1, {delay: 5, y:200, autoAlpha:0, display:'none'});
 
             });
@@ -138,29 +144,31 @@ var socketEvents = function(eventId, eventData) {
                 if(eventData.round === 2) {
                     scoreAnim.add([
                     
-                        TweenLite.to($('#score-totals'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut}),
+                        TweenLite.from($('#final-scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut}),
                         
                         TweenMax.staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2),
                         TweenMax.staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2),
                         
-                        TweenLite.to($('#score-totals h1'), 1, {autoAlpha:0, display:'none'}),
-                        TweenLite.to($('#score-totals'), .1, {display:'none'})
-                        
+                        TweenLite.to($('#final-scores h1'), 1, {autoAlpha:0, display:'none'}),
+                        TweenLite.to($('#final-scores'), .1, {display:'none'})
+
                     ]);
                 }
 
-                scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+                scoreAnim.add([
+                    TweenLite.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut}),
 
-                .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
-                .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
-                
-                .to($('#scores h1'), 1, {autoAlpha:0, display:'none'})
-                .to($('#scores'), .1, {display:'none'})
+                    TweenMax.staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5),
+                    TweenMax.staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5),
+                    
+                    TweenLite.to($('#scores h1'), 1, {autoAlpha:0, display:'none'}),
+                    TweenLite.to($('#scores'), .1, {display:'none'}),
 
-                .from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+                    TweenLite.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut}),
 
-                .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
-                .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
+                    TweenMax.staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5),
+                    TweenMax.staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
+                ]);
 
                 scoreAnim.play();
 

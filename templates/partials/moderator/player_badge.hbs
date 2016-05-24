@@ -1,13 +1,51 @@
 {{!-- Player Badge --}}
-<div class="player-background {{#if creator}}creator{{/if}}{{#if voter}}voter{{/if}}">
-    <div class="player-static">
-        <div class="icon active">
-            <img src="/images/layout/hyi/icons/avatar{{avatar_ind}}.png" />
-        </div>
-        <div class="nameplate active">
+<section class="player-badge">
+	{{!-- <div class="badge"> --}}
+	  
+	  <figure class="badge-face front">
+		
+		  <div class="player-background {{#if creator}}creator{{/if}}{{#if points}}voter{{/if}}">
+			    <div class="player-static">
+			        <div class="icon active">
+			            <img src="/images/layout/hyi/icons/avatar{{user.index}}.png" class="portrait" />
+			        </div>
+							
+							{{#if points}}
+				        <div class="score" style="visibility: hidden;">
+				        	+{{points}}
+				        </div>
+				      {{/if}}
 
-            {{username}}
+			        <div class="nameplate active">
 
-        </div>
-    </div>
-</div>
+			            {{user.username}}
+
+			        </div>
+			    </div>
+			</div>
+		
+		</figure>
+
+		{{#if points}}
+
+{{!-- 		  <figure class="badge-face back" style="visibility: hidden;">
+
+		  <div class="player-background">
+			    <div class="player-static">
+			        <div class="icon active">
+							  +{{points}}
+			        </div>
+			        <div class="nameplate active">
+
+			            {{user.username}}
+
+			        </div>
+			    </div>
+			</div>
+
+		  </figure> --}}
+
+	  {{/if}}
+	
+	{{!-- </div> --}}
+</section>
