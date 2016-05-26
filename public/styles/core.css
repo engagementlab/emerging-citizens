@@ -401,6 +401,7 @@
       border-bottom: none; }
 
 .coming-soon-info {
+  font-size: large;
   color: #ff9971;
   background-color: white;
   padding: 3%;
