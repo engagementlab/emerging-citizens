@@ -378,8 +378,8 @@
   transform: scale(0.6); }
 
 #coming-soon {
-  margin-top: 3%;
-  font-size: large; }
+  margin-top: 6%;
+  font-size: x-large; }
 
 #coming-soon-banner {
   color: white;
@@ -391,7 +391,7 @@
   #coming-soon-banner #mailing-list {
     font-family: "Avenir";
     font-weight: bolder;
-    font-size: x-large;
+    font-size: xx-large;
     border-bottom: solid 2px #ffddb0; }
     #coming-soon-banner #mailing-list a {
       color: white; }
@@ -406,6 +406,8 @@
   padding: 3%;
   margin-top: 2%;
   margin-left: 2%; }
+  .coming-soon-info h1 {
+    font-size: 30px; }
 
 @font-face {
   font-family: "Avenir";
@@ -463,12 +465,15 @@
 
 nav.navbar.main {
   background-color: #FFF;
-  border-color: #080808; }
+  border-color: #080808;
+  padding-bottom: 2%; }
   @media (max-width: 480px) {
     nav.navbar.main li {
       display: inline-block; }
     nav.navbar.main #nav-logo {
       margin-left: 3%; } }
+  nav.navbar.main #nav-logo {
+    padding-top: 1%; }
   nav.navbar.main #login {
     color: #FD7D4B; }
   nav.navbar.main #help {

@@ -70,6 +70,7 @@ nav.navbar.main {
 
 	background-color: #FFF;
 	border-color: #080808;
+	padding-bottom: 2%;
 
 	@include mobile-only {
 		li {
@@ -79,6 +80,10 @@ nav.navbar.main {
 		#nav-logo {
 	    margin-left: 3%;
 		}
+	}
+
+	#nav-logo {
+		padding-top: 1%;
 	}
 
 	#login{
