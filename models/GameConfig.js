@@ -26,7 +26,8 @@ var GameConfig = new keystone.List('GameConfig', {
 
 GameConfig.add({
 
-		name: { type: String, required: true, default: "Global Game Config" }
+		name: { type: String, required: true, default: "Global Game Config" },
+		enabled: { type: Boolean, label: "Game Is Running?", note: "Disabling game will show 'coming soon'/signup page." }
 
 	},
 

@@ -5,6 +5,7 @@
 @import "core/forms";
 @import "core/player";
 @import "core/groupview";
+@import "core/comingsoon";
 
 @include font-face(aileron, '../bower_components/aileron-webfont/fonts/aileron-regular-webfont', null, null, eot woff ttf);
 @include font-face(aileron-light, '../bower_components/aileron-webfont/fonts/aileron-light-webfont', null, null, eot woff ttf);
@@ -74,6 +75,10 @@ nav.navbar.main {
 		li {
 	    display: inline-block;
 		}
+
+		#nav-logo {
+	    margin-left: 3%;
+		}
 	}
 
 	#login{
@@ -86,6 +91,10 @@ nav.navbar.main {
     color:#20C5C1;
   }
 
+}
+
+nav.notfixed {
+	position: absolute!important;
 }
 
 // Group view header

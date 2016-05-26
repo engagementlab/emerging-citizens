@@ -1,0 +1,44 @@
+// COMING SOON INDEX
+#coming-soon {
+	margin-top:	3%;
+  font-size: large;
+}
+
+#coming-soon-banner {
+
+	color: white;
+  background-color: $color-peach;
+  padding: 2%;
+
+  #intro {
+  	padding-left: 10%;
+  	padding-right: 10%;
+  }
+
+  #mailing-list {
+  	font-family: "aileron-bold";
+  	border-bottom: solid 2px #ffddb0;
+
+  	a {
+  		color: white;
+  		&:hover {
+  			text-decoration: none;
+  		}
+  	}
+
+  	&:hover {
+  		border-bottom: none;
+  	}
+  }
+
+}
+
+.coming-soon-info {
+	
+	color: $color-peach;
+	background-color: white;
+	padding: 3%;
+
+  margin-top: 2%;
+  margin-left: 2%;
+}

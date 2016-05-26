@@ -79,8 +79,14 @@
             </div>
         {{/ifeq}}
 
-        {{> nav}}
-        <div class="container">
+        {{#ifeq section "comingsoon"}}
+            {{> nav_comingsoon}}
+            <div class="col-sm-12">
+        {{else}}
+            {{> nav}}
+            <div class="container">
+        {{/ifeq}}
+
               <div id="gameContent">
 
                 <!-- BODY CONTENT START -->

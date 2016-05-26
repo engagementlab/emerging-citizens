@@ -12,18 +12,53 @@
  *
  * ==========
  */
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    GameConfig = keystone.list('GameConfig'),
+    ComingSoon = keystone.list('ComingSoon');
 
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    // locals.section is used to set the currently selected
-    // item in the header navigation.
-    locals.section = 'index';
+		// Query to get current game config data
+    var queryConfig = GameConfig.model.findOne({}, {}, {
+      sort: {
+          'createdAt': -1
+      }
+    });
 
-    // Render the view
-    view.render('index');
+    var queryComingSoon = ComingSoon.model.findOne({}, {}, {
+      sort: {
+          'createdAt': -1
+      }
+    });
+
+    queryConfig.exec(function(err, resultConfig) {
+
+    	if(resultConfig.enabled) {
+		    
+		    locals.section = 'index';
+			  
+			  // Render the view
+		    view.render('index');
+		  
+		  }
+		  else {
+
+		  	// If game is not enabled, get coming soon content
+		    queryComingSoon.exec(function(err, resultComingSoon) {
+
+		    	locals.content = resultComingSoon;
+			    locals.section = 'comingsoon';
+
+			    // Render the view
+			    view.render('comingsoon');
+
+			  });
+		  }
+
+    });
+
 
 };

@@ -15,33 +15,26 @@
             <div id="hashtag-results">
 
                 {{#each hashtags}}
-                    <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
-                  
-                        {{#unless real}}
-                            {{> moderator/player_badge user=user avatar_ind=index creator=true }}
-                        {{/unless}}
-                        
-                        <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
-                        {{#if this.votes}}
+                    {{#if this.votes}}
 
-                            {{#each this.votes}}
-
-                                {{> moderator/player_badge user=user avatar_ind=index points=score }}
+                        <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
+                      
+                            {{#unless real}}
+                                {{> moderator/player_badge user=user avatar_ind=index creator=true }}
+                            {{/unless}}
                             
-                            {{/each}}
-                        
-                        {{else}}
+                            <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+
+                                {{#each this.votes}}
+
+                                    {{> moderator/player_badge user=user avatar_ind=index points=score }}
+                                
+                                {{/each}}
+
+                        </div>
                             
-                            <div class="no-votes">
-
-                                No votes!
-
-                            </div>
-                        
-                        {{/if}}
-
-                    </div>
+                    {{/if}}
 
                 {{/each}}
 

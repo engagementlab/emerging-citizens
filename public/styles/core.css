@@ -377,6 +377,34 @@
   float: left;
   transform: scale(0.6); }
 
+#coming-soon {
+  margin-top: 3%;
+  font-size: large; }
+
+#coming-soon-banner {
+  color: white;
+  background-color: #ff9971;
+  padding: 2%; }
+  #coming-soon-banner #intro {
+    padding-left: 10%;
+    padding-right: 10%; }
+  #coming-soon-banner #mailing-list {
+    font-family: "aileron-bold";
+    border-bottom: solid 2px #ffddb0; }
+    #coming-soon-banner #mailing-list a {
+      color: white; }
+      #coming-soon-banner #mailing-list a:hover {
+        text-decoration: none; }
+    #coming-soon-banner #mailing-list:hover {
+      border-bottom: none; }
+
+.coming-soon-info {
+  color: #ff9971;
+  background-color: white;
+  padding: 3%;
+  margin-top: 2%;
+  margin-left: 2%; }
+
 @font-face {
   font-family: "aileron";
   src: url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.ttf") format("truetype"); }
@@ -436,13 +464,18 @@ nav.navbar.main {
   border-color: #080808; }
   @media (max-width: 480px) {
     nav.navbar.main li {
-      display: inline-block; } }
+      display: inline-block; }
+    nav.navbar.main #nav-logo {
+      margin-left: 3%; } }
   nav.navbar.main #login {
     color: #FD7D4B; }
   nav.navbar.main #help {
     color: #FECD40; }
   nav.navbar.main #about {
     color: #20C5C1; }
+
+nav.notfixed {
+  position: absolute !important; }
 
 nav.header {
   background-color: white;
