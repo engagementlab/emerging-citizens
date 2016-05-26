@@ -389,7 +389,9 @@
     padding-left: 10%;
     padding-right: 10%; }
   #coming-soon-banner #mailing-list {
-    font-family: "aileron-bold";
+    font-family: "Avenir";
+    font-weight: bolder;
+    font-size: x-large;
     border-bottom: solid 2px #ffddb0; }
     #coming-soon-banner #mailing-list a {
       color: white; }
@@ -406,23 +408,23 @@
   margin-left: 2%; }
 
 @font-face {
-  font-family: "aileron";
-  src: url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-regular-webfont.ttf") format("truetype"); }
+  font-family: "Avenir";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "aileron-light";
-  src: url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-light-webfont.ttf") format("truetype"); }
+  font-family: "AvenirLight";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "aileron-bold";
-  src: url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.eot?") format("eot"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.woff") format("woff"), url("../bower_components/aileron-webfont/fonts/aileron-bold-webfont.ttf") format("truetype"); }
+  font-family: "AvenirBold";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.ttf") format("truetype"); }
 
 .hidden {
   visibility: hidden; }
 
 .body {
   background-image: url(/images/layout/background_tileable.png);
-  font-family: "aileron"; }
+  font-family: "Avenir"; }
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
@@ -530,7 +532,7 @@ nav.header {
   letter-spacing: -0.06em; }
   .game-header span {
     margin: -5px;
-    font-family: "aileron-bold"; }
+    font-family: "Avenir-Bold"; }
 
 .game-message {
   margin-bottom: 10%;

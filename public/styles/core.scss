@@ -7,9 +7,9 @@
 @import "core/groupview";
 @import "core/comingsoon";
 
-@include font-face(aileron, '../bower_components/aileron-webfont/fonts/aileron-regular-webfont', null, null, eot woff ttf);
-@include font-face(aileron-light, '../bower_components/aileron-webfont/fonts/aileron-light-webfont', null, null, eot woff ttf);
-@include font-face(aileron-bold, '../bower_components/aileron-webfont/fonts/aileron-bold-webfont', null, null, eot woff ttf);
+@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf', null, null, eot woff ttf);
+@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf', null, null, eot woff ttf);
+@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf', null, null, eot woff ttf);
 
 // Use for any elements hidden initilly
 .hidden {
@@ -19,7 +19,7 @@
 // Body
 .body {
   background-image: $background-main;
-  font-family: "aileron";
+  font-family: "Avenir";
 
 	@include mobile-only {
 	  background-color: #fdae8f;
@@ -156,7 +156,7 @@ nav.header {
 
 	span {
 		margin: -5px;
-	  font-family: "aileron-bold";
+	  font-family: "Avenir-Bold";
 	}
 }
 
