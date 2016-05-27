@@ -406,7 +406,10 @@
   background-color: white;
   padding: 3%;
   margin-top: 2%;
-  margin-left: 2%; }
+  margin-left: 2%;
+  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
+  -moz-box-shadow: 6px 7px 10px #C7C6C6;
+  box-shadow: 6px 7px 10px #C7C6C6; }
   .coming-soon-info h1 {
     font-size: 30px; }
 
@@ -466,7 +469,6 @@
 
 nav.navbar.main {
   background-color: #FFF;
-  border-color: #080808;
   padding-bottom: 2%; }
   @media (max-width: 480px) {
     nav.navbar.main li {

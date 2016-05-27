@@ -17,6 +17,11 @@
   {{#ifeq section "comingsoon"}}
 
 		$(document).ready(function() {
+
+			if (jQuery.browser.mobile)
+				return;
+
+			$('.coming-soon-info').css('visibility', 'hidden');
 			
 			timeline
 			.from($('.navbar'), 1, {marginTop: "-14%", delay: 1.4, ease:Ease.easeOut})

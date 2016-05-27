@@ -45,6 +45,8 @@
   margin-top: 2%;
   margin-left: 2%;
 
+  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+
   h1 {
     font-size: 30px;
   }
