@@ -2,5 +2,6 @@
 	"name": "Emerging Citizens",
 	"subdomain": "emerging",
 	"directory": "emerging-citizens",
-	"database": "emerging-citizens"
+	"database": "emerging-citizens",
+	"allowed_domains": ["emergingcitizens.org"]
 }
