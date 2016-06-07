@@ -159,9 +159,9 @@
 
 				$('#btn_submit').click(function(e) {
 					var data = {};
-					data.contentCategories = $(".form :input.active").map(function(){
+					/*data.contentCategories = $(".form :input.active").map(function(){
 																	    return $(this).val();
-																	 }).get();
+																	 }).get();*/
 					data.accessCode = $('#access-code').text();
 
 				  $.post( 

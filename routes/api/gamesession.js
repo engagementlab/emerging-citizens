@@ -20,7 +20,8 @@ var keystone = require('keystone'),
     
 var HashtagGame = keystone.list('HashtagGame'),
     Game = require(appRoot + '/lib/GameManager'),
-    Session = require(appRoot + '/lib/SessionManager');
+    Session = require(appRoot + '/lib/SessionManager'),
+    ContentCategory = keystone.list('ContentCategory');
 
 /**
  * Create a GameSession
@@ -30,26 +31,32 @@ exports.create = function(req, res) {
     var sessionType;
     var data = (req.method == 'POST') ? req.body : req.query;
 
-    if(data.contentCategories === undefined || data.contentCategories.length === 0) {
-       res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
-       return;
-    }
-    
-    // if(data.gameType === "0")
-        sessionType = new HashtagGame.model();
+    ContentCategory.model.find({}, 'name', function (err, categories) {
 
-    // TODO: temporary
-    data.gameType = "0";
+        // TEMP: Pull all categories for all games
+        data.contentCategories = categories;
 
-    sessionType.getUpdateHandler(req).process(data, function(err) {
+        if(data.contentCategories === undefined || data.contentCategories.length === 0) {
+           res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
+           return;
+        }
         
-        if (err) return res.apiError('error', err);
+        // if(data.gameType === "0")
+            sessionType = new HashtagGame.model();
 
-        // Save this session to memory for faster retrieval (deleted when game ends)
-        Session.Create(data.accessCode, new Game(sessionType));
+        // TODO: temporary
+        data.gameType = "0";
 
-        res.send('/moderator/monitor/' + data.accessCode);
-        
+        sessionType.getUpdateHandler(req).process(data, function(err) {
+            
+            if (err) return res.apiError('error', err);
+
+            // Save this session to memory for faster retrieval (deleted when game ends)
+            Session.Create(data.accessCode, new Game(sessionType));
+
+            res.send('/moderator/monitor/' + data.accessCode);
+            
+        });
+
     });
-
 };
