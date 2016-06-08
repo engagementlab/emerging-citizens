@@ -113,8 +113,6 @@ exports = module.exports = function(req, res) {
 
     var data = (req.method == 'POST') ? req.body : req.query;
 
-    // locals.section is used to set the currently selected
-    // item in the header navigation.
     locals.section = 'debug';
 
     console.log('template_path', data.template_path);
