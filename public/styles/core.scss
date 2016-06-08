@@ -1,15 +1,11 @@
+@import "core/fonts";
 @import "core/variables";
 @import "core/mixins";
 @import "core/functions";
-@import "core/fonts";
 @import "core/forms";
 @import "core/player";
 @import "core/groupview";
 @import "core/comingsoon";
-
-@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf', null, null, eot woff ttf);
-@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf', null, null, eot woff ttf);
-@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf', null, null, eot woff ttf);
 
 // Use for any elements hidden initilly
 .hidden {
@@ -42,6 +38,7 @@
 
 .body.monitor {
   background-image: $background-monitor;
+  background-size: 35%;
 }
 
 .desktop-only {
@@ -157,11 +154,11 @@ nav.header {
 .game-header {
 	text-align: center;
 	font-size: 4em;
+	font-weight: bold;
 	letter-spacing: -0.06em;
 
 	span {
 		margin: -5px;
-	  font-family: "Avenir-Bold";
 	}
 }
 

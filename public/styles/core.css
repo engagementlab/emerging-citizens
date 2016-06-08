@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Roman.otf") format("opentype"); }
+
+@font-face {
+  font-family: "AvenirLight";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf") format("opentype"); }
+
+@font-face {
+  font-family: "AvenirBook";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf") format("opentype"); }
+
 @-webkit-keyframes invalid-field {
   0% {
     left: 8px; }
@@ -413,18 +425,6 @@
   .coming-soon-info h1 {
     font-size: 30px; }
 
-@font-face {
-  font-family: "Avenir";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd.otf.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "AvenirLight";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "AvenirBold";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf.ttf") format("truetype"); }
-
 .hidden {
   visibility: hidden; }
 
@@ -452,7 +452,8 @@
   background-image: url(/images/layout/raindrops_tileable_orange.png); }
 
 .body.monitor {
-  background-image: url(/images/layout/raindrops_tileable_salmon.png); }
+  background-image: url(/images/layout/raindrops_tileable_salmon.png);
+  background-size: 35%; }
 
 @media (max-width: 480px) {
   .desktop-only {
@@ -537,10 +538,10 @@ nav.header {
 .game-header {
   text-align: center;
   font-size: 4em;
+  font-weight: bold;
   letter-spacing: -0.06em; }
   .game-header span {
-    margin: -5px;
-    font-family: "Avenir-Bold"; }
+    margin: -5px; }
 
 .game-message {
   margin-bottom: 10%;
