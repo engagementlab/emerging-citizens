@@ -101,7 +101,7 @@ var debugData = {
                 user3: {username: 'bedtimemagic'}
             }
         },
-        tweetText: 'Remember when Zoe claimed Maya had never worked for her? That was a lie, Maya even tried to cover it up!'
+        tweetText: {html: 'Remember when [blank] Maya had never worked for her? That was a lie, Maya even tried to cover it up!'}
     
     }
 }
@@ -119,8 +119,10 @@ exports = module.exports = function(req, res) {
 
     console.log('template_path', data.template_path);
     
-    Templates.Load(data.template_path, debugData[data.debug_key], function(html) {            
-        res.send({id: data.event_id, eventData: {round: 2, html: html}});
+    Templates.Load(data.template_path, debugData[data.debug_key], function(html) {
+
+        res.send({id: data.event_id, eventData: html});
+    
     });
 
 };

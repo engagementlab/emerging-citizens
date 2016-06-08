@@ -24,7 +24,8 @@ exports = module.exports = function(req, res) {
   // locals.section is used to set the currently loaded view
   locals.section = 'play';
 
-  if(req.params.debug === 'debug')
+  // Enable debugging on staging/dev only
+  if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
 	  locals.debug = true;
 
   view.on('init', function(next) {

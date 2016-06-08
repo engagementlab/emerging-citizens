@@ -77,6 +77,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:start':
             
+            $('#gameContent').html(eventData);
             
             var openAnim = new TimelineLite();
 
@@ -85,7 +86,9 @@ var socketEvents = function(eventId, eventData) {
             .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
             .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
 
-            openAnim.play();          
+            openAnim.play();
+
+            break;      
 
         case 'game:end':
         case 'hashtag:submitted':

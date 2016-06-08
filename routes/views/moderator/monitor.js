@@ -29,7 +29,8 @@ exports = module.exports = function(req, res) {
   // item in the header navigation.
   locals.section = 'moderator/monitor';
 
-  if(req.params.debug === 'debug')
+  // Enable debugging on staging only
+  if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
     locals.debug = true;
 
   view.on('init', function(next) {

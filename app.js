@@ -26,6 +26,8 @@ appStart = function(app) {
 	else
 		console.re = console;
 
+	console.log(console.re)
+
 };
 
 module.exports = function(frameworkDir) {
