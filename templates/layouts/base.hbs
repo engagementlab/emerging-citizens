@@ -25,59 +25,8 @@
     
     <body class="body">
 
-        {{!-- {{> nav}} --}}
-
-        <!-- page wrapper start -->
-        <!-- ================ -->
-        <div class="page-wrapper">
-            
-            <!--
-                Flash messages allow you to display once-off status messages to users, e.g. form
-                validation errors, success messages, etc
-            -->
-            {{#if messages}}
-            <div id="flash-messages" class="container">
-                {{#if messages.info}}
-                <div class="alert alert-info">
-                    {{{flashMessages messages.info}}}
-                </div>
-                {{/if}}
-                {{#if messages.success}}
-                <div class="alert alert-success">
-                    {{{flashMessages messages.success}}}
-                </div>
-                {{/if}}
-                {{#if messages.warning}}
-                <div class="alert alert-warning">
-                    {{{flashMessages messages.warning}}}
-                </div>
-                {{/if}}
-                {{#if messages.error}}
-                <div class="alert alert-danger">
-                    {{{flashMessages messages.error}}}
-                </div>
-                {{/if}}
-            </div>
-            {{/if}}
-                        
-            {{!-- {{> footer}} --}}
-
-            <!-- page-wrapper end -->
-            {{#ifeq env "development"}}
-                {{> script/development section=section subSection=sub_section}}
-            {{else}}
-                {{> script/production section=section}}
-            {{/ifeq}}
-
-            {{{isAdminEditorJS user}}}
-        </div>
-
         <div id="error-box">
         </div>
-        {{#ifeq debug true}}
-            <div id="debug-info">
-            </div>
-        {{/ifeq}}
 
         {{#ifeq section "comingsoon"}}
             {{> nav_comingsoon}}
@@ -86,18 +35,13 @@
             {{> nav}}
             <div class="container">
         {{/ifeq}}
-
-              <div id="gameContent">
-
-                <!-- BODY CONTENT START -->
-                {{{body}}}
-
-              </div>
-            <div id="countdownTimer"></div>
-        </div><!-- /.container -->
-
+        
         {{#ifeq debug true}}
-            <div style="right:0;position: absolute;">
+            <div id="debug-info">
+            </div>
+            
+            {{!-- DEBUGGING --}}
+            <div style="margin-top: 3%;">
                 {{#ifeq section 'moderator/monitor'}}
                     
                     <button id="template_reload">reload</button>
@@ -119,7 +63,26 @@
                     </select>
 
                 {{/ifeq}}
+
+                <div id="slider-gsap">
+                </div>
             </div>
+        {{/ifeq}}
+
+              <div id="gameContent">
+
+                <!-- BODY CONTENT START -->
+                {{{body}}}
+
+              </div>
+            <div id="countdownTimer"></div>
+        </div><!-- /.container -->
+
+        <!-- page-wrapper end -->
+        {{#ifeq env "development"}}
+            {{> script/development section=section subSection=sub_section}}
+        {{else}}
+            {{> script/production section=section}}
         {{/ifeq}}
 
     </body>

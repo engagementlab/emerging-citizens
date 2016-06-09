@@ -71,7 +71,12 @@ var debugData = {
                                                                     score: 50 
                                                                 }
                                                             ]},
-            user2: {hashtag: 'sleep', user: { username: 'user5', index: 7, submitted: true }, real: true},
+            user2: {hashtag: 'sleep', user: { username: 'user5', index: 7, submitted: true }, real: true, votes: [
+                                                                { 
+                                                                    user: { username: 'user1', index: 5, submitted: true },
+                                                                    score: 50 
+                                                                }
+                                                            ]},
             user3: {hashtag: 'bedtimemagic',  user: { username: 'user6', index: 1, submitted: true }, votes: [
                                                                 { 
                                                                     user: { username: 'user1', index: 4, submitted: true },
@@ -90,7 +95,7 @@ var debugData = {
                 user6: {score_total: 50, username: 'user6'},
                 user7: {username: 'user7'},
                 user8: {username: 'user8'}
-            }
+        }
     },
     tweet: {
 

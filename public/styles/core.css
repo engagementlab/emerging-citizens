@@ -267,7 +267,20 @@
       opacity: 1; }
     .player-background .icon img {
       width: 130px;
-      height: 130px; }
+      height: 130px;
+      float: left; }
+  .player-background .points {
+    display: none;
+    float: left;
+    width: 100%;
+    position: absolute;
+    padding-top: 26%;
+    font-size: 3.6em; }
+  .player-background .score {
+    font-size: 4.6em;
+    font-weight: bold;
+    color: #91c92f;
+    text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
   .player-background .nameplate {
     position: relative;
     background-color: white;
@@ -335,8 +348,8 @@
     background-color: #6768FE; }
 
 #hashtag-submissions-prompt {
+  display: none;
   color: white;
-  font-family: 'aileron-light';
   font-size: x-large;
   background-color: #6768FE;
   padding-bottom: 2%;
@@ -425,7 +438,7 @@
   .coming-soon-info h1 {
     font-size: 30px; }
 
-.hidden {
+.hidden-el {
   visibility: hidden; }
 
 .body {

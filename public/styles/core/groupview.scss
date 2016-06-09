@@ -103,7 +103,29 @@
 		img {
 			width: 130px;
 			height: 130px;
+			float: left;
 		}
+	}
+
+	.points {
+		display: none;
+		float: left;
+		width: 100%;
+    position: absolute;
+    padding-top: 26%;
+		font-size: 3.6em;
+	}
+
+	.score {
+		font-size: 4.6em;
+		font-weight: bold;
+		color: #91c92f;
+	  text-shadow:
+	   -1px -1px 0 #FFF,  
+	    1px -1px 0 #FFF,
+	    -1px 1px 0 #FFF,
+	     1px 1px 0 #FFF;
+
 	}
 
 	.nameplate {
@@ -180,8 +202,9 @@
 // SUBMISSIONS
 #hashtag-submissions-prompt {
 
+	display: none;
+
 	color: white;
-	font-family: 'aileron-light';
 	font-size: x-large;
 	background-color: $color-dark-purple;
 

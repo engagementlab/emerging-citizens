@@ -8,19 +8,25 @@
 			    <div class="player-static">
 			        <div class="icon active">
 			            <img src="/images/layout/hyi/icons/avatar{{user.index}}.png" class="portrait" />
-			        </div>
 							
-							{{#if points}}
-				        <div class="score">
-				        	+{{points}}
-				        </div>
-				      {{/if}}
+									{{#if points}}
+						        <div class="points">
+						        	+{{points}}
+						        </div>
+						      {{/if}}
+			        </div>
 
 			        <div class="nameplate active">
 
 			            {{user.username}}
 
 			        </div>
+
+			        {{#if score}}
+				        <div class="score hidden-el">
+				        	+{{score}}
+				        </div>
+				      {{/if}}
 			    </div>
 			</div>
 		
