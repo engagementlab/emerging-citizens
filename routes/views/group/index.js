@@ -6,7 +6,7 @@
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
- * @class moderator
+ * @class group
  * @static
  * @author Johnny Richardson
  *
@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'moderator';
+    locals.section = 'group';
 
     view.on('init', function(next) {
 
@@ -52,6 +52,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('moderator');
+    view.render('group');
 
 };

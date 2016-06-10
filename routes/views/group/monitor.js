@@ -6,7 +6,7 @@
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
- * @class moderator
+ * @class group
  * @static
  * @author Johnny Richardson
  *
@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
 
   // locals.section is used to set the currently selected
   // item in the header navigation.
-  locals.section = 'moderator/monitor';
+  locals.section = 'group/monitor';
 
   // Enable debugging on staging only
   if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
@@ -53,6 +53,6 @@ exports = module.exports = function(req, res) {
   });
 
   // Render the view
-  view.render('moderator/monitor');
+  view.render('group/monitor');
 
 };

@@ -1,8 +1,8 @@
-{{> moderator/header_htyi }}
+{{> group/header_htyi }}
 
 <div class="page-container">
     <div class="row">
-        {{> moderator/players_column players=players.left offset=0 left=true active=true }}
+        {{> group/players_column players=players.left offset=0 left=true active=true }}
         
         {{!-- Room Code Container --}}
         <section class="col-lg-6 room-container" id="tweet-container">
@@ -29,7 +29,7 @@
 
         </section>
         
-        {{> moderator/players_column players=players.right offset=4 left=false active=true }}
+        {{> group/players_column players=players.right offset=4 left=false active=true }}
 
     </div> {{!-- end page row --}}
 </div>

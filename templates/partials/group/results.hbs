@@ -1,4 +1,4 @@
-{{> moderator/header_htyi }}
+{{> group/header_htyi }}
 
 <div class="page-container">
 
@@ -22,14 +22,14 @@
                         <div class="result {{#if real}}real{{else}}fake{{/if}}" style="visibility: hidden;">
                       
                             {{#unless real}}
-                                {{> moderator/player_badge user=user avatar_ind=index creator=true }}
+                                {{> group/player_badge user=user avatar_ind=index creator=true }}
                             {{/unless}}
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
                             {{#each this.votes}}
 
-                                {{> moderator/player_badge user=user avatar_ind=index points=score }}
+                                {{> group/player_badge user=user avatar_ind=index points=score }}
                             
                             {{/each}}
 
@@ -41,14 +41,14 @@
 
                             <div class="result real" style="visibility: hidden;">
                           
-                                {{> moderator/player_badge user=user avatar_ind=index creator=true }}
+                                {{> group/player_badge user=user avatar_ind=index creator=true }}
                       
                                 <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
                                 {{#if this.votes}}
                                     {{#each this.votes}}
 
-                                        {{> moderator/player_badge user=user avatar_ind=index points=score }}
+                                        {{> group/player_badge user=user avatar_ind=index points=score }}
                                     
                                     {{/each}}
                                 {{else}}
@@ -69,7 +69,8 @@
 
     </div>
 
-    {{#ifeq round 2}}
+    {{!-- Show FINAL scores only at last round --}}
+    {{#if last_round}}
 
         <div id="final-scores" class="results" style="visibility: hidden;">
 
@@ -84,7 +85,7 @@
 
                         <div class="col-sm-4">
                             <div class="score-box" style="visibility: hidden;">
-                                {{> moderator/player_badge user=user avatar_ind=index creator=true }}
+                                {{> group/player_badge user=user avatar_ind=index creator=true }}
 
                                 <score>
                                     {{#if score_total}}
@@ -103,7 +104,7 @@
 
         </div>
 
-    {{/ifeq}}
+    {{/if}}
 
     <section id="scores" class="col-sm-12" style="visibility: hidden;">
 
