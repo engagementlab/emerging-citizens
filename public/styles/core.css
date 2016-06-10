@@ -356,8 +356,7 @@
   padding-left: 3%;
   padding-right: 3%; }
   #hashtag-submissions-prompt #real {
-    color: #C8E646;
-    font-family: 'aileron-bold'; }
+    color: #C8E646; }
 
 #hashtag-submissions .hashtag {
   background-color: white;
@@ -563,8 +562,7 @@ nav.header {
   min-height: 265px;
   min-width: 345px;
   background-image: url(/images/layout/hyi/cloud.png);
-  background-repeat: no-repeat;
-  position: absolute; }
+  background-repeat: no-repeat; }
   .game-message span {
     width: 75%;
     left: 10%;
