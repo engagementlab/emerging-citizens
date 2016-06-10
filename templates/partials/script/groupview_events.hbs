@@ -97,6 +97,15 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
+            //instantiate a TimelineLite for hashtags received animation
+            var hashtagsVoteAnim = new TimelineLite({ paused:true });
+            $('#hashtag-submissions-prompt').show();
+            hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
+            .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+            .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
+
+            hashtagsVoteAnim.play();
+
             break;
 
         case 'hashtags:reveal':
