@@ -34,9 +34,9 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     room: function(package) {
 
-      // If '-moderator' specified as room affix, remove for game id
-      if(package.gameId.indexOf('-moderator') !== -1)
-          playerGameId = package.gameId.replace('-moderator', '');
+      // If '-group' specified as room affix, remove for game id
+      if(package.gameId.indexOf('-group') !== -1)
+          playerGameId = package.gameId.replace('-group', '');
       else
         playerGameId = package.gameId;
       
@@ -53,7 +53,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       if(package.msgData == 'moderator') {
 
-        Session.Moderate(package.gameId, currentSocket.id);
+        Session.GroupView(package.gameId, currentSocket.id);
         Session.Get(playerGameId).ModeratorJoin(currentSpace);
 
       }
@@ -93,8 +93,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
       if(playerGameId !== undefined && session !== undefined) {
         session.PlayerLost(currentSocket.id, currentSpace);
 
-        if(currentSocket.id === Session.Get(playerGameId).moderator) {
-          logger.debug('is moderator')
+        if(currentSocket.id === Session.Get(playerGameId).group) {
+          logger.debug('is group moderator')
           session.End(currentSpace);
         }
 

@@ -108,7 +108,7 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'hashtags:reveal':
+        case 'hashtags:results':
 
             $('#gameContent').html(eventData);
 
@@ -159,9 +159,12 @@ var socketEvents = function(eventId, eventData) {
             .to($('#hashtag-submissions-prompt'), 1, { y: 0, autoAlpha: 1, display: 'block', ease:Elastic.easeIn }, 'real')
             .to($('#hashtags'), 1, {delay: 5, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
 
-            hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
-                width: 600
-            });
+            {{#ifeq debug true}}
+                hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
+                    width: 600
+                });
+            {{/ifeq}}
+            
             hashtagsAnim.play();
 
             function showScore() {
@@ -214,6 +217,12 @@ var socketEvents = function(eventId, eventData) {
                }, 1000);
 
             }
+
+            break;
+
+        default:
+
+            console.error('No handler found for event "' + eventId + '"');
 
             break;
 

@@ -73,7 +73,7 @@
 			'hashtag:submitted',
 			'hashtag:tryagain',
 			'hashtag:success',
-			'hashtags:received',
+			'hashtags:results',
 			'hashtags:reveal'
 		
 		];
@@ -273,16 +273,17 @@
 					});
 				
 					{{!-- INDEX Template Script --}}
-					{{#ifeq section 'moderator/monitor'}}
+					{{#ifeq section 'group/monitor'}}
 						
 						// Open socket connection
 				    socket = io();
 				    registerEvents();
 					
-						gameCode = '{{game.accessCode}}-moderator';
+						gameCode = '{{game.accessCode}}-group';
 
-						// Load events for moderators
+						// Load events for group
 						{{> script/groupview_events}}
+						
 						$('.body').addClass('monitor');
 						$('.navbar.main').attr ('style', 'display:none;');
 	          // $('.body').addClass('monitor');

@@ -42,14 +42,14 @@
             
             {{!-- DEBUGGING --}}
             <div style="margin-top: 3%;">
-                {{#ifeq section 'moderator/monitor'}}
+                {{#ifeq section 'group/monitor'}}
                     
                     <button id="template_reload">reload</button>
                     <select id="template_selector" name="template_selector_player">
                       <option value="">choose:</option>
-                      <option value="partials/moderator/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
-                      <option value="partials/moderator/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
-                      <option value="partials/moderator/results" data-key="results" data-event_id="hashtags:reveal">results</option>
+                      <option value="partials/group/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                      <option value="partials/group/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
+                      <option value="partials/group/results" data-key="results" data-event_id="hashtags:results">results</option>
                     </select>
 
                 {{else}}
@@ -75,7 +75,6 @@
                 {{{body}}}
 
               </div>
-            <div id="countdownTimer"></div>
         </div><!-- /.container -->
 
         <!-- page-wrapper end -->

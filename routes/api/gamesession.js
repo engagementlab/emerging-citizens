@@ -54,7 +54,7 @@ exports.create = function(req, res) {
             // Save this session to memory for faster retrieval (deleted when game ends)
             Session.Create(data.accessCode, new Game(sessionType));
 
-            res.send('/moderator/monitor/' + data.accessCode);
+            res.send('/group/monitor/' + data.accessCode);
             
         });
 
