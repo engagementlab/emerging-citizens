@@ -53,6 +53,8 @@ var debugData = {
     },
     results: {
 
+        last_round: true,
+
         round: 2,
 
         tweet: {

@@ -113,7 +113,7 @@ var socketEvents = function(eventId, eventData) {
             $('#gameContent').html(eventData);
 
             //instantiate a TimelineLite for hashtags animation
-            var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScore(); }});
+            var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
             var scoreAnim = new TimelineLite({paused: true, onComplete:function() { nextRound(); }});
 
             var elements = $('#hashtag-results .result.fake');
@@ -164,10 +164,10 @@ var socketEvents = function(eventId, eventData) {
                     width: 600
                 });
             {{/ifeq}}
-            
+
             hashtagsAnim.play();
 
-            function showScore() {
+            function showScores() {
 
                 if($('#final-scores')[0] !== undefined) {
                     scoreAnim.add([
