@@ -1,5 +1,6 @@
 .form { 
-
+	min-height:100%;
+	padding: 10%;
 	// Animation keyframes
 	@include keyframes(invalid-field) {
 	
@@ -10,7 +11,12 @@
 		100% {left:0px;}
 	
 	}
-
+	.button_text {
+		min-width: 100px;
+		min-height: 60px;
+		font-size: 3em;
+		background-color: $color-peach;
+	}
 	.invalid
 	{
 		@include animation('invalid-field .5s 1');
@@ -27,9 +33,9 @@
 	input {
 
 		padding: 20px;
-	  font-size: x-large;
-	  margin-bottom: 20px;
-	  position: relative;
+	    font-size: x-large;
+	    margin-bottom: 20px;
+	    position: relative;
 
 	  &:focus {
 	    outline: none !important;
@@ -66,20 +72,20 @@
 	}
 	.input-container .octothorp {
 
-    position: absolute;
-    display: block;
-    top: 24px;
-    color: gray;
-    padding-left: 5px;
-    width: 45px;
-    font-size: x-large;
-    vertical-align: middle;
+	    position: absolute;
+	    display: block;
+	    top: 24px;
+	    color: gray;
+	    padding-left: 5px;
+	    width: 45px;
+	    font-size: x-large;
+	    vertical-align: middle;
 	
 	}
 
 	button.mobile-login {
-    background: white;
-    margin-top: 10%;
+		background: white;
+		margin-top: 10%;
 	}
 
 	// Form error box
@@ -102,6 +108,7 @@
 	}
 
 .input-box {
+	min-height: 400px;
 	background-color: white;
 	border: solid black 1px;	
 }

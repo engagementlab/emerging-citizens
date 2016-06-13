@@ -10,6 +10,10 @@
   font-family: "AvenirBook";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf") format("opentype"); }
 
+.form {
+  min-height: 100%;
+  padding: 10%; }
+
 @-webkit-keyframes invalid-field {
   0% {
     left: 8px; }
@@ -57,73 +61,69 @@
     left: -8px; }
   100% {
     left: 0px; } }
-
-.form .invalid {
-  -webkit-animation: invalid-field .5s 1;
-  -moz-animation: invalid-field .5s 1;
-  -o-animation: invalid-field .5s 1;
-  animation: invalid-field .5s 1;
-  box-shadow: 0 0 5px 1px #ab3724; }
-
-.form div {
-  margin-left: auto;
-  margin-right: auto; }
-
-.form input {
-  padding: 20px;
-  font-size: x-large;
-  margin-bottom: 20px;
-  position: relative; }
-  .form input:focus {
-    outline: none !important;
-    border: 6px solid #00c5c2;
-    box-shadow: 0 0 10px #719ECE; }
-
-.form input[type=submit].default, .form button.default {
-  color: #00c5c2;
-  font-size: x-large;
-  font-weight: bold;
-  border: 0; }
-
-.form input.prompt {
-  width: 100%;
-  display: inline; }
-
-.form .input-container {
-  position: relative; }
-
-.form .input-container input {
-  width: 100%;
-  padding-left: 30px;
-  margin-bottom: -20px; }
-
-.form .input-container .octothorp {
-  position: absolute;
-  display: block;
-  top: 24px;
-  color: gray;
-  padding-left: 5px;
-  width: 45px;
-  font-size: x-large;
-  vertical-align: middle; }
-
-.form button.mobile-login {
-  background: white;
-  margin-top: 10%; }
-
-.form .error {
-  display: none;
-  color: white;
-  background-color: #ab3724;
-  font-size: medium;
-  min-height: 50px;
-  padding: 10px;
-  border: 0; }
+  .form .button_text {
+    min-width: 100px;
+    min-height: 60px;
+    font-size: 3em;
+    background-color: #ff9971; }
+  .form .invalid {
+    -webkit-animation: invalid-field .5s 1;
+    -moz-animation: invalid-field .5s 1;
+    -o-animation: invalid-field .5s 1;
+    animation: invalid-field .5s 1;
+    box-shadow: 0 0 5px 1px #ab3724; }
+  .form div {
+    margin-left: auto;
+    margin-right: auto; }
+  .form input {
+    padding: 20px;
+    font-size: x-large;
+    margin-bottom: 20px;
+    position: relative; }
+    .form input:focus {
+      outline: none !important;
+      border: 6px solid #00c5c2;
+      box-shadow: 0 0 10px #719ECE; }
+  .form input[type=submit].default, .form button.default {
+    color: #00c5c2;
+    font-size: x-large;
+    font-weight: bold;
+    border: 0; }
+  .form input.prompt {
+    width: 100%;
+    display: inline; }
+  .form .input-container {
+    position: relative; }
+  .form .input-container input {
+    width: 100%;
+    padding-left: 30px;
+    margin-bottom: -20px; }
+  .form .input-container .octothorp {
+    position: absolute;
+    display: block;
+    top: 24px;
+    color: gray;
+    padding-left: 5px;
+    width: 45px;
+    font-size: x-large;
+    vertical-align: middle; }
+  .form button.mobile-login {
+    background: white;
+    margin-top: 10%; }
+  .form .error {
+    display: none;
+    color: white;
+    background-color: #ab3724;
+    font-size: medium;
+    min-height: 50px;
+    padding: 10px;
+    border: 0; }
 
 .input [type=checkbox] {
   margin: 1px; }
 
 .input-box {
+  min-height: 400px;
   background-color: white;
   border: solid black 1px; }
 
@@ -137,7 +137,7 @@
 .form-prompt {
   color: white;
   background-color: #ff5e41;
-  font-size: large;
+  font-size: x-large;
   padding: 10px; }
   .form-prompt.white {
     color: black;
@@ -201,7 +201,7 @@
     background-color: #674B47; }
 
 .submission #access-code {
-  font-size: xx-large; }
+  font-size: 4em; }
 
 .game_code {
   margin-top: 20%; }
