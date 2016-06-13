@@ -9,8 +9,11 @@
 
 
 @media (min-width: 1200px) {
-	.container {
+	body .container {
 		width: 100%;
+	}
+	body .gameLanding {
+		margin-top: 15%;
 	}
 }
 // Use for any elements hidden initially
