@@ -443,14 +443,16 @@
   body .gameLanding {
     margin-top: 15%; }
   body .player-background .icon {
-    height: 166px; }
+    height: 163px; }
   body .player-background {
     width: 180px;
     height: 180px;
     border-radius: 90px; }
   body .player-background .icon img {
     width: 180px;
-    height: 180px; } }
+    height: 180px; }
+  body .player-background .nameplate {
+    font-size: x-large; } }
 
 .hidden-el {
   visibility: hidden; }
