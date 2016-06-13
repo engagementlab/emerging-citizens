@@ -47,19 +47,16 @@
 }
 
 .players {
-	height: 100%;
-	bottom: 10%;
-	position: relative;
-	margin: 10px auto;
+	margin-top: -40px;
 
 	// Move last one in column to the right or left
 	&.left {
 		div.player-background:nth-child(4) {
-			transform: translate(223px, -221px);
+			transform: translate(226px, -220px);
 		}
 	}
 	div.player-background:nth-child(4) {
-		transform: translate(-223px, -221px);
+		transform: translate(-226px, -220px);
 	}
 }
 
