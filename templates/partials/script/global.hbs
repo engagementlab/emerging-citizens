@@ -295,6 +295,14 @@
 
 						// Load events for players
 						{{> script/player_events}}
+
+            {{#ifeq debug true}}
+            	// Debugging view
+	            {{#ifeq section 'play'}}
+	                $('#access_code').val('TEST');
+	                $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+	            {{/ifeq}}
+            {{/ifeq}}
 					
 					{{/ifeq}}
 
