@@ -232,9 +232,9 @@
   position: relative;
   margin: 10px auto; }
   .players.left div.player-background:nth-child(4) {
-    transform: translate(212px, -176px); }
+    transform: translate(223px, -221px); }
   .players div.player-background:nth-child(4) {
-    transform: translate(-212px, -176px); }
+    transform: translate(-223px, -221px); }
 
 .player-badge {
   position: relative;
@@ -441,7 +441,16 @@
   body .container {
     width: 100%; }
   body .gameLanding {
-    margin-top: 15%; } }
+    margin-top: 15%; }
+  body .player-background .icon {
+    height: 166px; }
+  body .player-background {
+    width: 180px;
+    height: 180px;
+    border-radius: 90px; }
+  body .player-background .icon img {
+    width: 180px;
+    height: 180px; } }
 
 .hidden-el {
   visibility: hidden; }
