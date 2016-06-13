@@ -15,6 +15,21 @@
 	body .gameLanding {
 		margin-top: 15%;
 	}
+
+	body .player-background .icon {
+		height: 166px;
+
+	}
+	body .player-background {
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+	}
+	body .player-background .icon img {
+		width: 180px;
+		height: 180px;
+	}
+
 }
 // Use for any elements hidden initially
 .hidden-el {

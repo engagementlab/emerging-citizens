@@ -55,11 +55,11 @@
 	// Move last one in column to the right or left
 	&.left {
 		div.player-background:nth-child(4) {
-			transform: translate(212px, -176px);
+			transform: translate(223px, -221px);
 		}
 	}
 	div.player-background:nth-child(4) {
-		transform: translate(-212px, -176px);
+		transform: translate(-223px, -221px);
 	}
 }
 
