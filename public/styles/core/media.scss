@@ -1,0 +1,105 @@
+
+
+@media (min-width: 1024px) {
+	body .container {
+		width: 100%;
+	}
+	body .gameLanding {
+		margin-top: 15%;
+	}
+
+	body .player-background .icon {
+		height: 163px;
+
+	}
+	body .player-background {
+		margin: 0 auto;
+		margin-bottom: 15%;
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+	}
+	body .player-background .icon img {
+		width: 180px;
+		height: 180px;
+	}
+	body .player-background .nameplate {
+		font-size: x-large;
+
+	}
+	body #waiting {
+		margin-top: 10%;
+	}
+
+}
+
+@media (max-width: 1024px) {
+	.players.left {
+		div.player-background:nth-child(4) {
+			transform: translate(218px, -214px);
+		}
+	}
+	.players.right {
+		div.player-background:nth-child(4) {
+			transform: translate(-218px, -214px);
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.players.left {
+		div.player-background:nth-child(4) {
+			transform: translate(233px, -229px);
+		}
+	}
+	.players.right {
+		div.player-background:nth-child(4) {
+			transform: translate(-233px, -229px);
+		}
+	}
+}
+
+@media (min-width: 2000px) {
+	body .game-header.wait-players {
+		font-size: 2em;
+	}
+
+	body .page-container {
+		margin-top: 10%;
+	}
+	body .player-background .icon {
+		height: 200px;
+
+	}
+	body .player-background {
+		margin: 0 auto;
+		margin-bottom: 10%;
+		width: 220px;
+		height: 220px;
+		border-radius: 110px;
+	}
+	body .player-background .icon img {
+		width: 220px;
+		height: 220px;
+	}
+	body .player-background .nameplate {
+		font-size: xx-large;
+
+	}
+
+	body .game-header {
+		font-size: 6em;
+	}
+
+	.players.left {
+		div.player-background:nth-child(4) {
+			transform: translate(290px, -281px);
+		}
+	}
+	.players.right {
+		div.player-background:nth-child(4) {
+			transform: translate(-290px, -281px);
+		}
+	}
+
+}

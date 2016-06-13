@@ -20,6 +20,7 @@ var socketEvents = function(eventId, eventData) {
         case 'connect':
 
 			   // Connected, let's sign-up for to receive messages for this room
+               $('#startGameForm').css('padding', '1%');
 			   socket.emit('room', emitData('moderator'));
                
             break;
