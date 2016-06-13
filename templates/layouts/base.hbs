@@ -32,8 +32,12 @@
             {{> nav_comingsoon}}
             <div class="col-sm-12">
         {{else}}
-            {{> nav}}
-            <div class="container">
+            {{#ifeq section "index"}}
+                {{> nav}}
+                <div class="container">
+            {{else}}
+                {{>group/header_htyi}}
+            {{/ifeq}}
         {{/ifeq}}
         
         {{#ifeq debug true}}
@@ -69,7 +73,7 @@
             </div>
         {{/ifeq}}
 
-              <div id="gameContent">
+              <div class="container" id="gameContent">
 
                 <!-- BODY CONTENT START -->
                 {{{body}}}
