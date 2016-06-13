@@ -437,6 +437,10 @@
   .coming-soon-info h1 {
     font-size: 30px; }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 100%; } }
+
 .hidden-el {
   visibility: hidden; }
 
@@ -571,8 +575,7 @@ nav.header {
     height: 100%; }
 
 .page-container {
-  top: 10%;
-  bottom: 0px;
+  margin-top: 5%;
   position: relative;
   height: 100%;
   width: 100%; }
