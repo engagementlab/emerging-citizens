@@ -438,8 +438,10 @@
     font-size: 30px; }
 
 @media (min-width: 1200px) {
-  .container {
-    width: 100%; } }
+  body .container {
+    width: 100%; }
+  body .gameLanding {
+    margin-top: 15%; } }
 
 .hidden-el {
   visibility: hidden; }
