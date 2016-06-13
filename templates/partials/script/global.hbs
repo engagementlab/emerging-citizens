@@ -70,9 +70,10 @@
 			'game:countdown_end',
 			'game:round_over',
 			
-			'hashtag:received',
 			'hashtag:tryagain',
 			'hashtag:success',
+
+			'hashtags:received',
 			'hashtags:results',
 			'hashtags:reveal'
 		
@@ -145,7 +146,7 @@
 
 		$(document).ready(function() {
 
-			{{#ifeq section 'moderator'}}
+			{{#ifeq section 'group'}}
 				
 	      $('.body').addClass('login');
 				$('.navbar.main').hide();
