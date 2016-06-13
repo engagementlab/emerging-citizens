@@ -303,11 +303,11 @@
     transition: opacity 0.5s, transform 0.5s; }
     .player-background .nameplate.active {
       opacity: 1;
-      -moz-transform: translate(0px, 0px);
-      -o-transform: translate(0px, 0px);
-      -ms-transform: translate(0px, 0px);
-      -webkit-transform: translate(0px, 0px);
-      transform: translate(0px, 0px); }
+      -moz-transform: translate(0px, -32px);
+      -o-transform: translate(0px, -32px);
+      -ms-transform: translate(0px, -32px);
+      -webkit-transform: translate(0px, -32px);
+      transform: translate(0px, -32px); }
 
 #tweet-container {
   padding: 3%; }
@@ -373,17 +373,31 @@
   #hashtag-results .hashtag .octothorp {
     font-size: 1.3em; }
 
-#final-scores .score-box {
+#winners-circle .score-box {
   padding: 20px;
   background-color: #FD6D59;
   font-size: large; }
-  #final-scores .score-box img {
+  #winners-circle .score-box img {
     float: left; }
-  #final-scores .score-box score {
+  #winners-circle .score-box score {
     color: #fbd738;
     font-size: xx-large; }
 
-#leaderboard .player, #scores .player {
+#leaderboard .player {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  clear: both; }
+
+#leaderboard .player-badge {
+  width: 50%; }
+
+#leaderboard .score {
+  float: left;
+  width: 50%;
+  font-size: 6em; }
+
+#scores .player {
   background-color: white;
   padding: 20px;
   margin: 20px; }

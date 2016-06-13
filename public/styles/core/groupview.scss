@@ -145,7 +145,7 @@
 
 		&.active {
 			opacity: 1;
-			@include translate(0px, 0px);
+			@include translate(0px, -32px);
 		}
 	}
 
@@ -245,7 +245,7 @@
 	}
 
 }
-#final-scores {
+#winners-circle {
 
 	.score-box {
 		padding: 20px;
@@ -262,8 +262,24 @@
 	}
 
 }
-#leaderboard, #scores {
+#leaderboard {
 	
+	.player {
+		background-color: white;
+		padding: 20px;
+		display: flex;
+		clear: both;
+	}
+	.player-badge {
+		width: 50%;
+	}
+	.score {
+		float: left;
+		width: 50%;
+    font-size: 6em;
+	}
+}
+#scores {	
 	.player {
 		background-color: white;
 		padding: 20px;

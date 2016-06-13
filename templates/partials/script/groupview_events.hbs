@@ -78,16 +78,6 @@ var socketEvents = function(eventId, eventData) {
         case 'game:start':
             
             $('#gameContent').html(eventData);
-            
-            var openAnim = new TimelineLite();
-
-            // Show players
-            openAnim
-            .from($('.room-container'), 1, {scale:0, delay: 1, ease:Elastic.easeOut})
-            .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-            .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-
-            openAnim.play();
 
             break;      
 
@@ -169,34 +159,36 @@ var socketEvents = function(eventId, eventData) {
 
             function showScores() {
 
-                if($('#final-scores')[0] !== undefined) {
-                    scoreAnim.add([
-                    
-                        TweenLite.from($('#final-scores'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut}),
-                        
-                        TweenMax.staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2),
-                        TweenMax.staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2),
-                        
-                        TweenLite.to($('#final-scores h1'), 1, {autoAlpha:0, display:'none'}),
-                        TweenLite.to($('#final-scores'), .1, {display:'none'})
+                $('#hashtags').remove();
 
-                    ]);
+                if(hashtagsAnimSlider !== undefined && hashtagsAnimSlider !== null)
+                    hashtagsAnimSlider.clear();
+
+                scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+                .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 1)
+                .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, 1, "players")
+                .to($('#scores'), 1, {autoAlpha:0, display:'none'})
+
+                if($('#winners-circle')[0] !== undefined) {
+                    scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
+                    .staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
+                    .staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2)
+                    .to($('#winners-circle'), 1, {autoAlpha:0, display:'none'})
+                        
+                        // TweenLite.to($('#final-scores h1'), 1, {autoAlpha:0, display:'none'}),
+                        // TweenLite.to($('#final-scores'), .1, {display:'none'})
+
                 }
 
-                scoreAnim.add([
-                    TweenLite.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut}),
+                scoreAnim.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+                .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
 
-                    TweenMax.staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5),
-                    TweenMax.staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5),
-                    
-                    TweenLite.to($('#scores h1'), 1, {autoAlpha:0, display:'none'}),
-                    TweenLite.to($('#scores'), .1, {display:'none'}),
-
-                    TweenLite.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut}),
-
-                    TweenMax.staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5),
-                    TweenMax.staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
-                ]);
+                {{#ifeq debug true}}
+                    hashtagsAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+                        width: 600
+                    });
+                {{/ifeq}}
 
                 scoreAnim.play();
 
