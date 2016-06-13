@@ -280,7 +280,12 @@
 				    socket = io();
 				    registerEvents();
 					
-						gameCode = '{{game.accessCode}}-group';
+						gameCode = '{{game.accessCode}}-group'; 
+
+						{{#ifeq debug true}}
+		        	// Debugging view
+							$('#debugging').appendTo('.header');
+		        {{/ifeq}}
 
 						// Load events for group
 						{{> script/groupview_events}}

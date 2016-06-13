@@ -41,11 +41,13 @@
         {{/ifeq}}
         
         {{#ifeq debug true}}
-            <div id="debug-info">
-            </div>
             
             {{!-- DEBUGGING --}}
-            <div style="margin-top: 3%;">
+            <div id="debugging" style="position: fixed;top: 0;">
+                
+                <div id="debug-info">
+                </div>
+
                 {{#ifeq section 'group/monitor'}}
                     
                     <button id="template_reload">reload</button>
