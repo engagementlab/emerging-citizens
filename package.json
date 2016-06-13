@@ -11,6 +11,7 @@
     "app-root-path": "^1.0.0",
     "async": "^1.5.2",
     "body-parser": "^1.15.0",
+    "browserify": "^13.0.1",
     "connect-mongostore": "^0.1.4",
     "console-remote-client": "^0.4.3",
     "express": "4.13.4",
