@@ -7,7 +7,7 @@
 		  <div class="player-background {{#if creator}}creator{{/if}}{{#if points}}voter{{/if}}">
 			    <div class="player-static">
 			        <div class="icon active">
-			            <img src="/images/layout/hyi/icons/avatar{{user.index}}.png" class="portrait" />
+			            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{user.index}}.png" class="portrait" />
 							
 									{{#if points}}
 						        <div class="points">
@@ -16,7 +16,7 @@
 						      {{/if}}
 			        </div>
 
-			        <div class="nameplate active">
+			        <div class="nameplate active {{#if hide_name}}hidden-el{{/if}}">
 
 			            {{user.username}}
 

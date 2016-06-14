@@ -70,25 +70,33 @@
 
     </div>
 
-    <section id="scores" class="col-sm-12 hidden-el">
+    <section id="scores" class="col-sm-12 results hidden-el">
 
         <h1>Round Scores</h1>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3 left">
-            {{#each players}}
-                <div class="player">{{username}}:   {{#if score}}
-                                                        +{{score}}
-                                                    {{else}}
-                                                        +0
-                                                    {{/if}}
-                </div>
 
-               {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
-            {{/each}}
+        <div class="row">
+
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3 left">
+                {{#each players}}
+                    <div class="player hidden-el">
+                        {{> group/player_face user=this avatar_ind=this.index creator=true }}
+
+                        <div class="score">
+                            {{#if score}}
+                                +{{score}}
+                            {{else}}
+                                +0
+                            {{/if}}
+                        </div>
+                    </div>
+
+                   {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
+                {{/each}}
+            </div>
+            <div class="col-sm-3"></div>
+
         </div>
-        <div class="col-sm-3"></div>
-
-        <div id="next-round"></div>
     </section>
 
     {{!-- Show FINAL scores only at last round --}}
@@ -107,7 +115,10 @@
 
                         <div class="col-sm-4">
                             <div class="score-box hidden-el">
-                                {{> group/player_badge user=this avatar_ind=user.index creator=true }}
+                                <name>
+                                    {{username}}
+                                </name>
+                                {{> group/player_badge user=this avatar_ind=user.index creator=true hide_name=true }}
 
                                 <score>
                                     {{#if score_total}}
@@ -129,28 +140,32 @@
     {{/if}}
 
 
-    <section id="leaderboard" class="col-sm-12 hidden-el">
+    <section id="leaderboard" class="col-sm-12 results hidden-el">
 
         <h1>Score Totals</h1>
+        <div class="row">
 
-        <div class="col-sm-3 left">
-            {{#each players}}
-                <div class="player hidden-el">
-                    {{> group/player_badge user=this avatar_ind=this.index creator=true }}
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3 left">
+                {{#each players}}
+                    <div class="player hidden-el">
+                        {{> group/player_face user=this avatar_ind=this.index creator=true }}
 
-                    <div class="score">
-                        {{#if score_total}}
-                            {{score_total}}
-                        {{else}}
-                            0
-                        {{/if}}
+                        <div class="score">
+                            {{#if score_total}}
+                                {{score_total}}
+                            {{else}}
+                                0
+                            {{/if}}
+                        </div>
                     </div>
-                </div>
 
-               {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
-            {{/each}}
+                   {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
+                {{/each}}
+            </div>
+            <div class="col-sm-3"></div>
+
         </div>
-
         <div id="next-round"></div>
     
     </section>

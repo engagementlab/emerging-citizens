@@ -33,31 +33,31 @@
 
 }
 
-@media (max-width: 1024px) {
-	.players.left {
-		div.player-background:nth-child(4) {
-			transform: translate(218px, -214px);
-		}
-	}
-	.players.right {
-		div.player-background:nth-child(4) {
-			transform: translate(-218px, -214px);
-		}
-	}
-}
+// @media (max-width: 1024px) {
+// 	.players.left {
+// 		div.player-background:nth-child(4) {
+// 			transform: translate(218px, -214px);
+// 		}
+// 	}
+// 	.players.right {
+// 		div.player-background:nth-child(4) {
+// 			transform: translate(-218px, -214px);
+// 		}
+// 	}
+// }
 
-@media (min-width: 1440px) {
-	.players.left {
-		div.player-background:nth-child(4) {
-			transform: translate(233px, -229px);
-		}
-	}
-	.players.right {
-		div.player-background:nth-child(4) {
-			transform: translate(-233px, -229px);
-		}
-	}
-}
+// @media (min-width: 1440px) {
+// 	.players.left {
+// 		div.player-background:nth-child(4) {
+// 			transform: translate(233px, -229px);
+// 		}
+// 	}
+// 	.players.right {
+// 		div.player-background:nth-child(4) {
+// 			transform: translate(-233px, -229px);
+// 		}
+// 	}
+// }
 
 @media (min-width: 2000px) {
 	body .game-header.wait-players {

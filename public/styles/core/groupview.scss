@@ -51,13 +51,30 @@
 
 	// Move last one in column to the right or left
 	&.left {
+		@include translate(50%, 0px);
+
+		div.player-background {
+			clear: both;
+			float: left;
+		}
 		div.player-background:nth-child(4) {
-			transform: translate(226px, -220px);
+			@include translate(55px, 0px);
+			clear: none;
 		}
 	}
-	div.player-background:nth-child(4) {
-		transform: translate(-226px, -220px);
+	&.right {
+		@include translate(-50%, 0px);
+
+		div.player-background {
+			clear: both;
+			float: right;
+		}
+		div.player-background:nth-child(4) {
+			@include translate(-55px, 0px);
+			clear: none;
+		}
 	}
+
 }
 
 .player-badge {
@@ -246,7 +263,7 @@
 
 	.score-box {
 		padding: 20px;
-		background-color: $color-orange;
+		background-color: #ff9000;
 		font-size: large;
 
 		img {
@@ -254,40 +271,50 @@
 		}
 		score {
 			color: $color-yellow;
-			font-size: xx-large;
+			font-size: 3em;
+			font-weight: bold;
+		}
+		name {
+			display: block;
+			font-size: 1.5em;
+			color: #FFF;
 		}
 	}
 
 }
-#leaderboard {
+#scores, #leaderboard {
 	
 	.player {
 		background-color: white;
-		padding: 20px;
+		padding: 8px;
 		display: flex;
+		margin-top: 2%;
 		clear: both;
-	}
-	.player-badge {
-		width: 50%;
 	}
 	.score {
 		float: left;
 		width: 50%;
-    font-size: 6em;
+		font-weight: bold;
+    font-size: 4em;
 	}
 }
-#scores {	
-	.player {
-		background-color: white;
-		padding: 20px;
-		margin: 20px;
-	}
-}
+// #scores {	
+// 	.player {
+// 		background-color: white;
+//     font-size: 3em;
+//     font-weight: bold;
+// 		padding: 20px;
+// 		margin: 20px;
+// 	}
+// }
 .results {
 
+	h1 {
+		color: #FFF;
+	}
+
 	.row {
-	  margin-bottom: 12%;
-    margin-top: 5%;
+	  margin-bottom:3%;
 	}
 
 	.creator {
