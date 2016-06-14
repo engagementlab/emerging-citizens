@@ -186,8 +186,10 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  height: 100px;
   background-color: white; }
+
+body .player-form {
+  padding: 3%; }
 
 .submission button {
   color: white;
@@ -568,6 +570,9 @@ html, body {
   height: 50px;
   width: 50px;
   margin: 0 auto; }
+
+nav.header.navbar-fixed-top {
+  position: fixed; }
 
 nav.navbar.main {
   background-color: #FFF;

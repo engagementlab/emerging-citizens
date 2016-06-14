@@ -68,9 +68,14 @@ html, body {
 }
 
 // Top Nav
+
+nav.header.navbar-fixed-top{
+	position: fixed;
+}
 nav.navbar.main {
 
 	background-color: #FFF;
+	// position: fixed;
 	// border-color: #080808;
 	padding-bottom: 2%;
 
