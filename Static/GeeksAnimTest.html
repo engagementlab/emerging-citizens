@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Hub - Emerging Citizens</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+    <style>
+    /*Import Fonts*/
+
+   	@font-face{
+    	font-family: Aileron;
+    	src: url(css/Aileron-Regular.otf);}
+  
+    @font-face{
+    	font-family: Aileron-Thin;
+    	src: url(css/Aileron-Thin.otf);}
+/*End Fonts*/
+/*Background Image*/
+    body{
+      background-image: url("css/WG_grid_tileable.png");
+      background-repeat: repeat;
+      overflow-x: hidden;
+      padding:0;}
+/*Background Image End*/
+/*Buttons*/
+#addAPlayerButton{
+	width: 100%;
+}
+#lobbyPaneButton{
+	width:100%;
+}
+/*End Buttons*/
+
+#headerIcon{
+	position: absolute;
+	height: 10%;
+	width: 10%;
+	top: 0%;
+	background-image: url("css/menu.png");
+	}
+
+/*Lobby*/
+#lobby{
+	position: relative;
+}
+#lobbyPane{
+	background-color: white;
+	width: 450px;
+	height: 445px;
+	position: relative;
+	margin-top: 8%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#waiting{
+	font-family: Aileron-Thin;
+	font-size: 16pt;
+	color: #2ae9d2;
+	position: relative;
+	width: 100%;
+	text-align:center;
+	top: 8%;
+}
+#roomCodeLabel{
+	font-family: Aileron-Thin;
+	font-size: 22pt;
+	color: #2ae9d2;
+	position: relative;
+	width: 100%;
+	text-align:center;
+	top: 65%;
+}
+#roomCode{
+	font-family: Aileron-Thin;
+	font-size: 32pt;
+	color: #f83439;
+	position: relative;
+	width: 100%;
+	text-align:center;
+	top: 65%;
+}
+
+#wikiLogo{
+	width: 80%;
+	left: 10%;
+	top: 21%;
+	position: absolute;
+}
+.avatar{
+	width:125px;
+	margin: 10px;
+	position: absolute;
+	z-index: 2;
+}
+.avatarCircle{
+	width: 150px;
+	position:absolute;
+    padding:0;
+    float:left;
+}
+#playerOne{
+	left: 18%;
+	top: 30%;
+}
+#avatarOne{
+	left: 18%;
+	top: 30%;
+}
+#playerTwo{
+	left: 18%;
+	top: 60%;
+}
+#avatarTwo{
+	left: 18%;
+	top: 59%;
+}
+#playerThree{
+	left: 18%;
+	top: 90%;
+}
+#avatarThree{
+	left: 18%;
+	top: 89%;
+}
+#playerFour{
+	left: 33%;
+	top: 107%;
+}
+#avatarFour{
+	left: 33%;
+	top: 107%;
+}
+#playerEight{
+	right: 33%;
+	top: 107%;
+}
+#avatarEight{
+	right: 33.25%;
+	top: 106%;
+}
+#playerFive{
+	right: 18%;
+	top: 30%;
+}
+#avatarFive{
+	right: 18%;
+	top: 30%;
+}
+#playerSix{
+	right: 18%;
+	top: 60%;
+}
+#avatarSix{
+	right: 18.25%;
+	top: 58.5%;
+}
+#playerSeven{
+	right: 18%;
+	top: 90%;
+}
+#avatarSeven{
+	right: 18%;
+	top: 89%;
+}
+/*End Lobby*/
+	</style>
+</head>
+
+<body>
+
+<div id="lobby">
+<button type="button" id="lobbyPaneButton">Start</button>
+<button type="button" id="addAPlayerButton">Add a Player</button>
+	<div id="lobbyPane">
+		<div id="waiting">waiting for players...</div>
+		<img id="wikiLogo" src="css/wiki_logo.png">
+		<div id="roomCodeLabel">Room Code:</div>
+		<div id="roomCode">ABCD</div>
+	</div>
+<img class="avatarCircle" id="playerOne" src="css/avatar_circle.png">
+<img class="avatar" id="avatarOne" src="css/avatar0.png">
+<img class="avatarCircle" id="playerTwo" src="css/avatar_circle.png">
+<img class="avatar" id="avatarTwo" src="css/avatar1.png">
+<img class="avatarCircle" id="playerThree" src="css/avatar_circle.png">
+<img class="avatar" id="avatarThree" src="css/avatar2.png">
+<img class="avatarCircle" id="playerFour" src="css/avatar_circle.png">
+<img class="avatar" id="avatarFour" src="css/avatar3.png">
+<img class="avatarCircle" id="playerFive" src="css/avatar_circle.png">
+<img class="avatar" id="avatarFive" src="css/avatar4.png">
+<img class="avatarCircle" id="playerSix" src="css/avatar_circle.png">
+<img class="avatar" id="avatarSix" src="css/avatar5.png">
+<img class="avatarCircle" id="playerSeven" src="css/avatar_circle.png">
+<img class="avatar" id="avatarSeven" src="css/avatar6.png">
+<img class="avatarCircle" id="playerEight" src="css/avatar_circle.png">
+<img class="avatar" id="avatarEight" src="css/avatar7.png">
+</div>
+
+<div id="startContext">
+</div>
+
+<div id="targetArticle">
+</div>
+
+<div id="topThree">
+</div>
+
+<div id="leaderboard">
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="GeeksTest.js"></script>
+  </body>
+</html>

@@ -94,8 +94,10 @@ var socketEvents = function(eventId, eventData) {
             var hashtagsVoteAnim = new TimelineLite({ paused:true });
             $('#hashtag-submissions-prompt').show();
             hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
-            .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-            .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
+            .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+            .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+            .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+            .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
 
             hashtagsVoteAnim.play();
 
@@ -149,7 +151,8 @@ var socketEvents = function(eventId, eventData) {
 
             }}, 1)
             .to($(realHashtag), 1, { y:0, ease:Elastic.easeOut }, 'real')
-            .to($('#hashtag-submissions-prompt'), 1, { y: 0, autoAlpha: 1, display: 'block', ease:Elastic.easeIn }, 'real')
+            .from($('#hashtag-results #prompt'), 1, { y: 100, scale: 0, autoAlpha: 0, ease: Elastic.easeOut }, 'real')
+            .to($(realHashtag).find('.hashtag'), 1, { y: 0, autoAlpha: 1}, 'real')
             .to($('#hashtags'), 1, {delay: 5, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
 
             {{#ifeq debug true}}
