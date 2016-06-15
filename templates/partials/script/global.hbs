@@ -13,34 +13,6 @@
 <script type="text/javascript">
 
 	var timeline = new TimelineLite();
-	
-	var $el = $("body");
-	var elHeight = $el.outerHeight();
-	var elWidth = $el.outerWidth();
-
-	var $wrapper = $('body');
-
-	// Thanks GOTA
-	function doResize() {
-
-		if($(window).outerWidth() >= 1680)
-		  $('nav.header').css('right', '0');
-		else
-		  $('nav.header').css('right', 'auto');
-	  
-	  var scale = Math.min(
-	    $(window).outerWidth() / 1680, 1.0
-	  );
-	  
-	  $wrapper.css({
-	    transform: "scale(" + scale + ")", "transform-origin": "0% top"
-	  });
-
-	}
-	$(window).resize(function() {
-		doResize();
-	});
-	doResize();
 
   {{#ifeq section "comingsoon"}}
 
@@ -150,20 +122,7 @@
 			return pkg;
 		}
 
-		{{#ifeq section 'moderator/monitor'}}
-
-			$(document).ready(function() {
-	            
-				var openAnim = new TimelineLite();
-
-				openAnim
-				.from($('.room-container'), 1, {scale:0, delay: 1, ease:Elastic.easeOut})
-				.staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-				.staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-
-				openAnim.play();
-				console.log ("we played the animation");
-			});
+		{{#ifeq section 'group/monitor'}}
 
 		{{else}}
 
@@ -310,6 +269,30 @@
 					
 						gameCode = '{{game.accessCode}}-group'; 
 
+						var nav = $('nav.header');
+
+						// Thanks GOTA
+						function doResize() {
+
+							if($(window).outerWidth() >= 1680)
+							  nav.css('right', '0');
+							else
+							  nav.css('right', 'auto');
+						  
+						  var scale = Math.min(
+						    $(window).outerWidth() / 1680, 1.0
+						  );
+						  
+						  $('body').css({
+						    transform: "scale(" + scale + ")", "transform-origin": "0% top"
+						  });
+
+						}
+						$(window).resize(function() {
+							doResize();
+						});
+						doResize();
+
 						{{#ifeq debug true}}
 		        	// Debugging view
 							$('#debugging').appendTo('.header');
@@ -319,6 +302,7 @@
 						{{> script/groupview_events}}
 						
 						$('.body').addClass('monitor').addClass('group');
+						$('#wrapper').addClass('group');
 						$('.navbar.main').attr ('style', 'display:none;');
 
             var openAnim = new TimelineLite();

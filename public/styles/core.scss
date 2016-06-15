@@ -50,23 +50,6 @@ body {
   background-size: 35%;
 }
 
-#wrapper {
-
-
-  position: relative;
-  // left: 50%;
-  // top: 50%;
-  // transform: translate(-50%, -50%);
-  transform-origin: center center;
-
-}
-.container {
-
-  width: 1680px !important;
-  max-width: none !important;
-
-}
-
 .desktop-only {
 	// Hide for mobile
 	@include mobile-only {
@@ -92,7 +75,7 @@ body {
 
 nav.header.navbar-fixed-top{
 	position: fixed;
-	right: auto;
+	// right: auto;
 }
 nav.navbar.main {
 
@@ -151,7 +134,7 @@ nav.header {
 }
 
 .orange-font {
-	color: $color-light-orange;
+	color: #ffa76d;
 }
 
 .green-font {

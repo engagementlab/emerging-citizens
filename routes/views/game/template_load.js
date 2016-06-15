@@ -37,19 +37,16 @@ var debugData = {
             
         },
 
-        hashtags: [ {
+        hashtags: {
             user1: {hashtag: 'pillows'},
             user2: {hashtag: 'sleep'},
             user3: {hashtag: 'bedtimemagic'},
-            user4: {hashtag: 'pitchdecklife'}
-            },
-            {
+            user4: {hashtag: 'pitchdecklife'},
             user5: {hashtag: 'advertisersanon'},
             user6: {hashtag: 'lesoreillers'},
             user7: {hashtag: 'headtohead'},
             user8: {hashtag: 'idontknowanythinganymore'}
-            }
-        ]
+        }
     },
     results: {
 
@@ -73,13 +70,13 @@ var debugData = {
                                                                     score: 50 
                                                                 }
                                                             ]},
-            user2: {hashtag: 'sleep', user: { username: 'user5', index: 7, submitted: true }, real: true, votes: [
+            user2: {hashtag: 'sleep', user: { username: 'user5', index: 7, submitted: true }, votes: [
                                                                 { 
                                                                     user: { username: 'user1', index: 5, submitted: true },
                                                                     score: 50 
                                                                 }
                                                             ]},
-            user3: {hashtag: 'bedtimemagic',  user: { username: 'user6', index: 1, submitted: true }, votes: [
+            user3: {hashtag: 'bedtimemagic',  user: { username: 'user6', index: 1, submitted: true }, real: true, votes: [
                                                                 { 
                                                                     user: { username: 'user1', index: 4, submitted: true },
                                                                     score: 50 

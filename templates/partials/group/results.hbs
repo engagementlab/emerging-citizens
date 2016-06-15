@@ -9,10 +9,6 @@
         <div class="col-sm-6">
             {{> shared/tweet text=tweet}}
             
-            <div id="hashtag-submissions-prompt" class="hidden-el">
-                <div>the real hashtag was:</div>
-            </div>
-            
             <div id="hashtag-results">
 
                 {{#each hashtags}}
@@ -24,6 +20,10 @@
                       
                             {{#unless real}}
                                 {{> group/player_badge user=user avatar_ind=index creator=true }}
+                            {{else}}
+                                <div id="prompt" class="hidden-el">
+                                    <div>the real hashtag was:</div>
+                                </div>
                             {{/unless}}
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
