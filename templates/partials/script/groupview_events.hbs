@@ -88,6 +88,8 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
+            
+
             //instantiate a TimelineLite for hashtags received animation
             var hashtagsVoteAnim = new TimelineLite({ paused:true });
             $('#hashtag-submissions-prompt').show();
