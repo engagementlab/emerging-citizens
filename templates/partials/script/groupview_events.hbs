@@ -171,13 +171,11 @@ var socketEvents = function(eventId, eventData) {
                 .to($('#scores'), 1, {autoAlpha:0, display:'none'})
 
                 if($('#winners-circle')[0] !== undefined) {
+
                     scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
                     .staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
-                    .staggerTo($('.score-box'), 1.5, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, 2)
+                    .staggerTo($('.score-box'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, .3)
                     .to($('#winners-circle'), 1, {autoAlpha:0, display:'none'})
-                        
-                        // TweenLite.to($('#final-scores h1'), 1, {autoAlpha:0, display:'none'}),
-                        // TweenLite.to($('#final-scores'), .1, {display:'none'})
 
                 }
 

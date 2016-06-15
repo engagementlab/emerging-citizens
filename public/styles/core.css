@@ -230,10 +230,38 @@ body .player-form {
 
 .players {
   margin-top: -40px; }
-  .players.left div.player-background:nth-child(4) {
-    transform: translate(226px, -220px); }
-  .players div.player-background:nth-child(4) {
-    transform: translate(-226px, -220px); }
+  .players.left {
+    -moz-transform: translate(50%, 0px);
+    -o-transform: translate(50%, 0px);
+    -ms-transform: translate(50%, 0px);
+    -webkit-transform: translate(50%, 0px);
+    transform: translate(50%, 0px); }
+    .players.left div.player-background {
+      clear: both;
+      float: left; }
+    .players.left div.player-background:nth-child(4) {
+      -moz-transform: translate(55px, 0px);
+      -o-transform: translate(55px, 0px);
+      -ms-transform: translate(55px, 0px);
+      -webkit-transform: translate(55px, 0px);
+      transform: translate(55px, 0px);
+      clear: none; }
+  .players.right {
+    -moz-transform: translate(-50%, 0px);
+    -o-transform: translate(-50%, 0px);
+    -ms-transform: translate(-50%, 0px);
+    -webkit-transform: translate(-50%, 0px);
+    transform: translate(-50%, 0px); }
+    .players.right div.player-background {
+      clear: both;
+      float: right; }
+    .players.right div.player-background:nth-child(4) {
+      -moz-transform: translate(-55px, 0px);
+      -o-transform: translate(-55px, 0px);
+      -ms-transform: translate(-55px, 0px);
+      -webkit-transform: translate(-55px, 0px);
+      transform: translate(-55px, 0px);
+      clear: none; }
 
 .player-badge {
   position: relative;
@@ -374,36 +402,37 @@ body .player-form {
 
 #winners-circle .score-box {
   padding: 20px;
-  background-color: #FD6D59;
+  background-color: #ff9000;
   font-size: large; }
   #winners-circle .score-box img {
     float: left; }
   #winners-circle .score-box score {
     color: #fbd738;
-    font-size: xx-large; }
+    font-size: 3em;
+    font-weight: bold; }
+  #winners-circle .score-box name {
+    display: block;
+    font-size: 1.5em;
+    color: #FFF; }
 
-#leaderboard .player {
+#scores .player, #leaderboard .player {
   background-color: white;
-  padding: 20px;
+  padding: 8px;
   display: flex;
+  margin-top: 2%;
   clear: both; }
 
-#leaderboard .player-badge {
-  width: 50%; }
-
-#leaderboard .score {
+#scores .score, #leaderboard .score {
   float: left;
   width: 50%;
-  font-size: 6em; }
+  font-weight: bold;
+  font-size: 4em; }
 
-#scores .player {
-  background-color: white;
-  padding: 20px;
-  margin: 20px; }
+.results h1 {
+  color: #FFF; }
 
 .results .row {
-  margin-bottom: 12%;
-  margin-top: 5%; }
+  margin-bottom: 3%; }
 
 .results .creator {
   position: absolute;
@@ -473,18 +502,6 @@ body .player-form {
   body .game-header.wait-players {
     font-size: 2em; } }
 
-@media (max-width: 1024px) {
-  .players.left div.player-background:nth-child(4) {
-    transform: translate(218px, -214px); }
-  .players.right div.player-background:nth-child(4) {
-    transform: translate(-218px, -214px); } }
-
-@media (min-width: 1440px) {
-  .players.left div.player-background:nth-child(4) {
-    transform: translate(233px, -229px); }
-  .players.right div.player-background:nth-child(4) {
-    transform: translate(-233px, -229px); } }
-
 @media (min-width: 2000px) {
   body .game-header.wait-players {
     font-size: 2em; }
@@ -509,6 +526,9 @@ body .player-form {
     transform: translate(290px, -281px); }
   .players.right div.player-background:nth-child(4) {
     transform: translate(-290px, -281px); } }
+
+html, body {
+  max-height: 100%; }
 
 .hidden-el {
   visibility: hidden; }
@@ -648,10 +668,7 @@ nav.header {
     height: 100%; }
 
 .page-container {
-  margin-top: 5%;
-  position: relative;
-  height: 100%;
-  width: 100%; }
+  margin-top: 5%; }
 
 .gameLanding {
   margin-top: 10%; }

@@ -8,6 +8,10 @@
 @import "core/comingsoon";
 @import "core/media";
 
+html, body {
+	max-height: 100%;
+}
+
 // Use for any elements hidden initially
 .hidden-el {
 	visibility: hidden;
@@ -189,9 +193,9 @@ nav.header {
 
 .page-container {
 	margin-top:5%;
-	position: relative;
-	height: 100%;
-	width: 100%;
+	// position: relative;
+	// height: 100%;
+	// width: 100%;
 }
 
 // START Main Content

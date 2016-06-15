@@ -89,14 +89,14 @@ var debugData = {
         },
 
         players: {
-                user1: {score_total: 350, username: 'user1', index: 1},
-                user2: {score_total: 250, username: 'user2', index: 2},
+                user1: {score_total: 50, username: 'user1', index: 1},
+                user2: {score_total: 350, username: 'user2', index: 2},
                 user4: {score_total: 200, username: 'user4', index: 3},
                 user3: {score_total: 150, username: 'user3', index: 4},
                 user5: {score_total: 150, username: 'user5', index: 5},
                 user6: {score_total: 50, username: 'user6', index: 6},
-                user7: {username: 'user7'},
-                user8: {username: 'user8'}
+                user7: {username: 'user7', index: 7},
+                user8: {username: 'user8', index: 8}
         }
     },
     tweet: {
