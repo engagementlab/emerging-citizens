@@ -469,7 +469,9 @@ body .player-form {
   body .player-background .nameplate {
     font-size: x-large; }
   body #waiting {
-    margin-top: 10%; } }
+    margin-top: 10%; }
+  body .game-header.wait-players {
+    font-size: 2em; } }
 
 @media (max-width: 1024px) {
   .players.left div.player-background:nth-child(4) {
@@ -666,4 +668,5 @@ nav.header {
 
 #gameContent {
   padding: 40px 15px;
+  padding-top: 5%;
   text-align: center; }
