@@ -12,6 +12,9 @@ html, body {
 	max-height: 100%;
 }
 
+body {
+}
+
 // Use for any elements hidden initially
 .hidden-el {
 	visibility: hidden;
@@ -19,6 +22,7 @@ html, body {
 
 // Body
 .body {
+  
   background-image: $background-main;
   font-family: "Avenir";
 
@@ -46,6 +50,23 @@ html, body {
   background-size: 35%;
 }
 
+#wrapper {
+
+
+  position: relative;
+  // left: 50%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
+  transform-origin: center center;
+
+}
+.container {
+
+  width: 1680px !important;
+  max-width: none !important;
+
+}
+
 .desktop-only {
 	// Hide for mobile
 	@include mobile-only {
@@ -71,6 +92,7 @@ html, body {
 
 nav.header.navbar-fixed-top{
 	position: fixed;
+	right: auto;
 }
 nav.navbar.main {
 

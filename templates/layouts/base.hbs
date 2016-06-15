@@ -9,14 +9,14 @@
         <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
         <!-- Mobile Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
         <meta name="theme-color" content="#78cbd1">
 
         {{!-- Open Graph --}}
         {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
         {{!-- Load our CSS/docs --}}
-        {{> css environment=env}}
+        {{> css environment=env section=section}}
         
         {{!-- This file provides the default styling for the KeystoneJS Content Editor
         - only renders when user is logged in and admin--}}
@@ -25,70 +25,74 @@
     
     <body class="body">
 
-        <div id="error-box">
-        </div>
+        <div id="wrapper" class="container">
 
-        {{#ifeq section "comingsoon"}}
-            {{> nav_comingsoon}}
-            <div class="col-sm-12">
-        {{else}}
-            {{#ifeq section "index"}}
-                {{> nav}}
-                <div class="container">
-            {{else}}
-                {{>group/header_htyi}}
-            {{/ifeq}}
-        {{/ifeq}}
-        
-        {{#ifeq debug true}}
-            
-            {{!-- DEBUGGING --}}
-            <div id="debugging" style="position: fixed;top: 0;">
-                
-                <div id="debug-info">
-                </div>
-
-                {{#ifeq section 'group/monitor'}}
-                    
-                    <button id="template_reload">reload</button>
-                    <select id="template_selector" name="template_selector_player">
-                      <option value="">choose:</option>
-                      <option value="partials/group/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
-                      <option value="partials/group/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
-                      <option value="partials/group/results" data-key="results" data-event_id="hashtags:results">results</option>
-                    </select>
-
-                {{else}}
-
-                    <select id="template_selector" name="template_selector_player">
-                      <option value="">choose:</option>
-                      <option value="partials/player/tweet">tweet</option>
-                      <option value="partials/player/voting" data-key="voting" data-event_id="hashtags:received">voting</option>
-                      <option value="partials/player/results" data-key="results">results</option>
-                      <option value="wait">wait</option>
-                    </select>
-
-                {{/ifeq}}
-
-                <div id="slider-gsap">
-                </div>
+            <div id="error-box">
             </div>
-        {{/ifeq}}
 
-              <div class="container" id="gameContent">
+            {{#ifeq section "comingsoon"}}
+                {{> nav_comingsoon}}
+                <div class="col-sm-12">
+            {{else}}
+                {{#ifeq section "index"}}
+                    {{> nav}}
+                    <div class="container">
+                {{else}}
+                    {{>group/header_htyi}}
+                {{/ifeq}}
+            {{/ifeq}}
+            
+            {{#ifeq debug true}}
+                
+                {{!-- DEBUGGING --}}
+                <div id="debugging" style="position: fixed;top: 0;">
+                    
+                    <div id="debug-info">
+                    </div>
 
-                <!-- BODY CONTENT START -->
-                {{{body}}}
+                    {{#ifeq section 'group/monitor'}}
+                        
+                        <button id="template_reload">reload</button>
+                        <select id="template_selector" name="template_selector_player">
+                          <option value="">choose:</option>
+                          <option value="partials/group/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                          <option value="partials/group/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
+                          <option value="partials/group/results" data-key="results" data-event_id="hashtags:results">results</option>
+                        </select>
 
-              </div>
-        </div><!-- /.container -->
+                    {{else}}
 
-        <!-- page-wrapper end -->
-        {{#ifeq env "development"}}
-            {{> script/development section=section subSection=sub_section}}
-        {{else}}
-            {{> script/production section=section}}
-        {{/ifeq}}
+                        <select id="template_selector" name="template_selector_player">
+                          <option value="">choose:</option>
+                          <option value="partials/player/tweet">tweet</option>
+                          <option value="partials/player/voting" data-key="voting" data-event_id="hashtags:received">voting</option>
+                          <option value="partials/player/results" data-key="results">results</option>
+                          <option value="wait">wait</option>
+                        </select>
+
+                    {{/ifeq}}
+
+                    <div id="slider-gsap">
+                    </div>
+                </div>
+            {{/ifeq}}
+
+                  <div class="container" id="gameContent">
+
+                    <!-- BODY CONTENT START -->
+                    {{{body}}}
+
+                  </div>
+            </div><!-- /.container -->
+
+            <!-- page-wrapper end -->
+            {{#ifeq env "development"}}
+                {{> script/development section=section subSection=sub_section}}
+            {{else}}
+                {{> script/production section=section}}
+            {{/ifeq}}
+
+        </div>
 
     </body>
 </html>

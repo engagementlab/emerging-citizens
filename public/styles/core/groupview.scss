@@ -1,3 +1,8 @@
+// Disable scrolling on groupview
+.body.group {
+	overflow: hidden;
+}
+
 // CONTENT SELECTION
 .submission {
 	
@@ -51,7 +56,7 @@
 
 	// Move last one in column to the right or left
 	&.left {
-		@include translate(50%, 0px);
+		// @include translate(50%, 0px);
 
 		div.player-background {
 			clear: both;
@@ -63,7 +68,7 @@
 		}
 	}
 	&.right {
-		@include translate(-50%, 0px);
+		// @include translate(-50%, 0px);
 
 		div.player-background {
 			clear: both;

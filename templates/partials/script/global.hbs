@@ -13,6 +13,34 @@
 <script type="text/javascript">
 
 	var timeline = new TimelineLite();
+	
+	var $el = $("body");
+	var elHeight = $el.outerHeight();
+	var elWidth = $el.outerWidth();
+
+	var $wrapper = $('body');
+
+	// Thanks GOTA
+	function doResize() {
+
+		if($(window).outerWidth() >= 1680)
+		  $('nav.header').css('right', '0');
+		else
+		  $('nav.header').css('right', 'auto');
+	  
+	  var scale = Math.min(
+	    $(window).outerWidth() / 1680, 1.0
+	  );
+	  
+	  $wrapper.css({
+	    transform: "scale(" + scale + ")", "transform-origin": "0% top"
+	  });
+
+	}
+	$(window).resize(function() {
+		doResize();
+	});
+	doResize();
 
   {{#ifeq section "comingsoon"}}
 
@@ -290,7 +318,7 @@
 						// Load events for group
 						{{> script/groupview_events}}
 						
-						$('.body').addClass('monitor');
+						$('.body').addClass('monitor').addClass('group');
 						$('.navbar.main').attr ('style', 'display:none;');
 
             var openAnim = new TimelineLite();

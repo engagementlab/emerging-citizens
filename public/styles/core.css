@@ -191,6 +191,9 @@
 body .player-form {
   padding: 3%; }
 
+.body.group {
+  overflow: hidden; }
+
 .submission button {
   color: white;
   background-color: #FD6D59;
@@ -230,38 +233,26 @@ body .player-form {
 
 .players {
   margin-top: -40px; }
-  .players.left {
-    -moz-transform: translate(50%, 0px);
-    -o-transform: translate(50%, 0px);
-    -ms-transform: translate(50%, 0px);
-    -webkit-transform: translate(50%, 0px);
-    transform: translate(50%, 0px); }
-    .players.left div.player-background {
-      clear: both;
-      float: left; }
-    .players.left div.player-background:nth-child(4) {
-      -moz-transform: translate(55px, 0px);
-      -o-transform: translate(55px, 0px);
-      -ms-transform: translate(55px, 0px);
-      -webkit-transform: translate(55px, 0px);
-      transform: translate(55px, 0px);
-      clear: none; }
-  .players.right {
-    -moz-transform: translate(-50%, 0px);
-    -o-transform: translate(-50%, 0px);
-    -ms-transform: translate(-50%, 0px);
-    -webkit-transform: translate(-50%, 0px);
-    transform: translate(-50%, 0px); }
-    .players.right div.player-background {
-      clear: both;
-      float: right; }
-    .players.right div.player-background:nth-child(4) {
-      -moz-transform: translate(-55px, 0px);
-      -o-transform: translate(-55px, 0px);
-      -ms-transform: translate(-55px, 0px);
-      -webkit-transform: translate(-55px, 0px);
-      transform: translate(-55px, 0px);
-      clear: none; }
+  .players.left div.player-background {
+    clear: both;
+    float: left; }
+  .players.left div.player-background:nth-child(4) {
+    -moz-transform: translate(55px, 0px);
+    -o-transform: translate(55px, 0px);
+    -ms-transform: translate(55px, 0px);
+    -webkit-transform: translate(55px, 0px);
+    transform: translate(55px, 0px);
+    clear: none; }
+  .players.right div.player-background {
+    clear: both;
+    float: right; }
+  .players.right div.player-background:nth-child(4) {
+    -moz-transform: translate(-55px, 0px);
+    -o-transform: translate(-55px, 0px);
+    -ms-transform: translate(-55px, 0px);
+    -webkit-transform: translate(-55px, 0px);
+    transform: translate(-55px, 0px);
+    clear: none; }
 
 .player-badge {
   position: relative;
@@ -558,6 +549,14 @@ html, body {
   background-image: url(/images/layout/raindrops_tileable_salmon.png);
   background-size: 35%; }
 
+#wrapper {
+  position: relative;
+  transform-origin: center center; }
+
+.container {
+  width: 1680px !important;
+  max-width: none !important; }
+
 @media (max-width: 480px) {
   .desktop-only {
     display: none; } }
@@ -572,7 +571,8 @@ html, body {
   margin: 0 auto; }
 
 nav.header.navbar-fixed-top {
-  position: fixed; }
+  position: fixed;
+  right: auto; }
 
 nav.navbar.main {
   background-color: #FFF;
