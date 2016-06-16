@@ -4,7 +4,12 @@
 	  <div class="form">
 
 		    {{#each this}}
-					<button data-event="hashtag:vote" data-package='{{id}}' data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{hashtag}}</button>
+		    <p>{{jsonPrint this}}</p>
+		    {{!-- {{jsonPrint this.[0]}} --}}
+		    {{#each this.[1]}}
+		    <p>{{jsonPrint this.id}}</p>
+		    {{/each}}
+					<button data-event="hashtag:vote" data-package='{{#each this.[1]}} {{this.id}} {{/each}}' data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{this.[0]}}</button>
 		    {{/each}}
 				{{!-- Game error --}}
         <div class="error">Error!</div>
