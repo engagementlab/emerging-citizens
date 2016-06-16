@@ -52,6 +52,8 @@ var socketEvents = function(eventId, eventData) {
         case 'game:tutorial':
             
             $('#overlay').html(eventData).fadeIn();
+            
+            // Show countdown
             var secondsLeft = 8;
             var circle = new ProgressBar.Circle('#countdown', {
                 color: '#fff',
@@ -71,13 +73,14 @@ var socketEvents = function(eventId, eventData) {
                 $('#overlay').fadeOut();
             });
 
-            var roundCountdown = setInterval(function() {
+            var tutorialCountdown = setInterval(function() {
                 secondsLeft--;
 
                 $('#countdown .text').text(secondsLeft);
 
+                // End countdown and show arrow to continue
                 if(secondsLeft == 0) {
-                    clearInterval(roundCountdown);
+                    clearInterval(tutorialCountdown);
 
                     var icon = $('#continue .icon').detach();
                     $('#countdown .text').empty();
@@ -136,11 +139,10 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
-            
-
             //instantiate a TimelineLite for hashtags received animation
             var hashtagsVoteAnim = new TimelineLite({ paused:true });
             $('#hashtag-submissions-prompt').show();
+
             hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
             .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
             .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
@@ -221,7 +223,7 @@ var socketEvents = function(eventId, eventData) {
                 scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
                 .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 1)
                 .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, 1, "players")
-                .to($('#scores'), 1, {autoAlpha:0, display:'none'})
+                .to($('#scores'), 1, {autoAlpha:0, display:'none'});
 
                 if($('#winners-circle')[0] !== undefined) {
 
@@ -235,6 +237,7 @@ var socketEvents = function(eventId, eventData) {
                 scoreAnim.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
                 .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
                 .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
+                .to($('#leaderboard'), 1, {autoAlpha: 0, yPercent: 100, display:'none', delay: 5})
 
                 {{#ifeq debug true}}
                     hashtagsAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
@@ -248,17 +251,43 @@ var socketEvents = function(eventId, eventData) {
 
             function nextRound() {
 
+                $('#scores, #winners-circle, #leaderboard').remove();
+
+                // Show countdown
                 var secondsLeft = 10;
+                var countdownAnim = new ProgressBar.Circle('#next-round #countdown', {
+                    color: '#fff',
+                    duration: secondsLeft*1000,
+                    easing: 'easeInOut',
+                    strokeWidth: 6,
+                    trailColor: '#f4f4f4',
+                    trailWidth: 0.8,
+                    fill: '#00c5c2',
+                    text: {
+                        value: secondsLeft + '',
+                        className: 'text',
+                    }
+                });
+                var countdownText =  $('#next-round #countdown .text');
+
                 var roundCountdown = setInterval(function() {
                     secondsLeft--;
 
-                    $('#next-round').text('Next round in ' + secondsLeft + 's');
+                    TweenLite.to($(countdownText), .1, { scale: 0 });
+                    $(countdownText).text(secondsLeft);
+                    TweenLite.from($(countdownText), .1, { scale: 0 });
 
+                    // End countdown and show arrow to continue
                     if(secondsLeft == 0) {
                         socket.emit('game:next_round', emitData(null));
                         clearInterval(roundCountdown);
+
                     }
-               }, 1000);
+                }, 1000);
+
+                TweenLite.from($('#next-round'), 1, { autoAlpha: 0, scale: 0 });
+
+                countdownAnim.animate(1);
 
             }
 

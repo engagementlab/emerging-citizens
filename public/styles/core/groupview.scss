@@ -343,15 +343,7 @@
     font-size: 4em;
 	}
 }
-// #scores {	
-// 	.player {
-// 		background-color: white;
-//     font-size: 3em;
-//     font-weight: bold;
-// 		padding: 20px;
-// 		margin: 20px;
-// 	}
-// }
+
 .results {
 
 	h1 {
@@ -372,4 +364,12 @@
 		transform: scale(0.6);
 	}
 
+}
+
+// NEXT ROUND COUNTDOWN
+#next-round {
+	.text {
+	  font-size: 26em;
+  	top: 58% !important;
+	}
 }
