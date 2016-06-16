@@ -2,10 +2,12 @@
 .body.group {
 	overflow: hidden;
 }
-#wrapper.container.group {
+#wrapper.group {
 
   width: 1680px !important;
   max-width: none !important;
+  margin-right: auto;
+  margin-left: auto;
 
 }
 

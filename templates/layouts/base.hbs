@@ -24,26 +24,26 @@
     </head>
     
     <body class="body">
+
+        {{#ifeq section "comingsoon"}}
+            {{> nav_comingsoon}}
+            <div class="col-sm-12">
+        {{else}}
+            {{#ifeq section "index"}}
+                {{> nav}}
+                <div class="container">
+            {{else}}
+                {{> group/header_htyi}}
+            {{/ifeq}}
+        {{/ifeq}}
+
         <div id="wrapper" class="container">
 
             <div id="overlay" class="modal">
             
             </div>
 
-            {{#ifeq section "comingsoon"}}
-                {{> nav_comingsoon}}
-                <div class="col-sm-12">
-            {{else}}
-                {{#ifeq section "index"}}
-                    {{> nav}}
-                    <div class="container">
-                {{else}}
-                    {{>group/header_htyi}}
-                {{/ifeq}}
-            {{/ifeq}}
-            
             {{#ifeq debug true}}
-
                 <div id="error-box">
                 </div>
                 
