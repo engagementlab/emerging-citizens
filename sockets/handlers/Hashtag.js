@@ -43,6 +43,13 @@ var Hashtag = function (nsp, socket) {
 
         },
 
+        'game:tutorial': function(package) {
+
+            Session.Get(package.gameId).
+            StartTutorial(currentSpace);
+
+        },
+
         'game:start': function(package) {
 
             Session.Get(package.gameId).

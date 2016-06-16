@@ -24,10 +24,10 @@
     </head>
     
     <body class="body">
-
         <div id="wrapper" class="container">
 
-            <div id="error-box">
+            <div id="overlay" class="modal">
+            
             </div>
 
             {{#ifeq section "comingsoon"}}
@@ -43,6 +43,9 @@
             {{/ifeq}}
             
             {{#ifeq debug true}}
+
+                <div id="error-box">
+                </div>
                 
                 {{!-- DEBUGGING --}}
                 <div id="debugging" style="position: fixed;top: 0;">

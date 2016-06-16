@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Avenir";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Roman.otf") format("opentype"); }
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.ttf") format("truetype"); }
 
 @font-face {
   font-family: "AvenirLight";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Light.otf") format("opentype"); }
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0.ttf") format("truetype"); }
 
 @font-face {
-  font-family: "AvenirBook";
-  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1464291836/emerging-citizens/fonts/AvenirLTStd-Book.otf") format("opentype"); }
+  font-family: "AvenirBold";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.ttf") format("truetype"); }
 
 .form {
   min-height: 100%;
@@ -572,6 +572,34 @@ html, body {
 .body.monitor {
   background-image: url(/images/layout/raindrops_tileable_salmon.png);
   background-size: 35%; }
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(254, 120, 70, 0.7);
+  z-index: 1999;
+  top: 0;
+  left: 0; }
+  .modal .tutorial #countdown, .modal .tutorial #continue {
+    position: fixed !important;
+    bottom: 10%;
+    right: 4%;
+    width: 150px;
+    cursor: pointer; }
+    .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      margin-top: 22%; }
+    .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
+      width: 0.8212890625em; }
+    .modal .tutorial #countdown .text, .modal .tutorial #continue .text {
+      font-size: 8em;
+      top: 58% !important;
+      color: #fff !important; }
 
 @media (max-width: 480px) {
   .desktop-only {

@@ -60,6 +60,7 @@
 			'player:id',
 			'players:update',
 
+			'game:tutorial',
 			'game:start',
 			'game:ending',
 			'game:end',
@@ -180,10 +181,17 @@
 					 *
 					 * @class sections
 					 */
-					$(document).on('click', '.form :submit.submit', function() {
+					$(document).on('click', '.form .submit', function() {
 						
 						var event = $(this).data().event;
+						var localEvent = $(this).data().local_event;
 						var pkg = getFormData($(this));
+
+						// If this is a local event, call immediately (don't emit)
+						if(localEvent !== undefined) {
+							socketEvents(localEvent);
+							return;
+						}
 
 						socket.emit(event, emitData(pkg));
 
