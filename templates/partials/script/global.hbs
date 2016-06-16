@@ -195,6 +195,8 @@
 
 						socket.emit(event, emitData(pkg));
 
+						
+
 						if($(this).data().autohide) {
 							$('#' + $('#submitted').data('hide')).hide();
 							$('#submitted').show();
@@ -206,7 +208,7 @@
 					 Disallows input from octothorp (#) character for hashtag submission
 					*/
 					$(document).on('keypress', '#tweet_input', function(key) {
-
+						
 						if(key.charCode === 35)
 							return false;
 

@@ -74,7 +74,7 @@ module.exports = function() {
             "%": lvalue % rvalue
         }[operator];
     };
-
+    
     _helpers.tweetFormat = function(tweetStr) {
         return tweetStr.replace('[blank]', '&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95')
     }
