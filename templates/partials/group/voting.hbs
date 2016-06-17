@@ -23,11 +23,14 @@
 
 
     <div class="row">
+    {{!-- {{jsonPrint this}} --}}
         <section id="hashtag-submissions" class="col-sm-12">
 
             <div class="col-sm-3 leftmost">
-                {{#each hashtags}}
-                    <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+            
+                {{#each this.[hashtags]}}
+                
+                    <div class="hashtag"><span class="octothorp">#</span>{{this.[0]}}</div>
 
                    {{#ifeq @index 2}}</div><div class="col-sm-3 left">{{/ifeq}}
                    {{#ifeq @index 5}}</div><div class="col-sm-3 right">{{/ifeq}}

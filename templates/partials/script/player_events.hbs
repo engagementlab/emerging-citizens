@@ -11,6 +11,7 @@
 --}}
 
 var playerName;
+var playerHashtag;
 
 var socketEvents = function(eventId, eventData) {
 
@@ -26,6 +27,7 @@ var socketEvents = function(eventId, eventData) {
         case 'player:id':
 
             $('#debug-info').text('Player id: ' + eventData);
+            console.log (eventData + " is the player ID event data");
             playerId = eventData;
 
             break;
@@ -79,9 +81,11 @@ var socketEvents = function(eventId, eventData) {
 
             // TODO: Server-side?    
             $('#gameContent').html(eventData);
+            
 
             // Remove current player's submission from selections
-            $('#vote-submission').find('button[data-package="' + playerId + '"]').remove();
+            console.log (playerHashtag + " is the hashtag");
+            $('#vote-submission').find('button[data-package="' + playerHashtag + '"]').remove();
 
             break;
 
@@ -98,6 +102,9 @@ var socketEvents = function(eventId, eventData) {
             $('#countdownTimer').empty();
             $('#tweet-submission').hide();
             $('#submitted').show();
+
+            playerHashtag = eventData;
+            console.log (playerHashtag + " is the hashtag");
 
             break;
 
