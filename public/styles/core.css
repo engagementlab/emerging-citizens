@@ -194,9 +194,11 @@ body .player-form {
 .body.group {
   overflow: hidden; }
 
-#wrapper.container.group {
+#wrapper.group {
   width: 1680px !important;
-  max-width: none !important; }
+  max-width: none !important;
+  margin-right: auto;
+  margin-left: auto; }
 
 .submission button {
   color: white;
@@ -456,6 +458,10 @@ body .player-form {
   float: left;
   transform: scale(0.6); }
 
+#next-round .text {
+  font-size: 26em;
+  top: 58% !important; }
+
 #coming-soon {
   margin-top: 6%;
   font-size: x-large; }
@@ -615,7 +621,7 @@ html, body {
   margin: 0 auto; }
 
 nav.header.navbar-fixed-top {
-  position: fixed; }
+  position: static; }
 
 nav.navbar.main {
   background-color: #FFF;
@@ -707,9 +713,6 @@ nav.header {
     top: 45%;
     position: absolute;
     height: 100%; }
-
-.page-container {
-  margin-top: 5%; }
 
 .gameLanding {
   margin-top: 10%; }
