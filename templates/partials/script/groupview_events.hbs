@@ -156,6 +156,7 @@ var socketEvents = function(eventId, eventData) {
         case 'hashtags:results':
 
             $('#gameContent').html(eventData);
+            console.log (eventData + " is the goddamn event data");
 
             //instantiate a TimelineLite for hashtags animation
             var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
