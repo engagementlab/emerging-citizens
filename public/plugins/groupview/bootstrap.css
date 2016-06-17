@@ -735,17 +735,17 @@ address {
 }
 @media (min-width: 2px) {
   .container {
-    width: 750px;
+    width: 100%;
   }
 }
 @media (min-width: 3px) {
   .container {
-    width: 970px;
+    width: 100%;
   }
 }
 @media (min-width: 9999px) {
   .container {
-    width: 1170px;
+    width: 100%;
   }
 }
 .container-fluid {
