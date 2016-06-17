@@ -9,55 +9,61 @@
             {{> shared/tweet text=tweet}}
             
             <div id="hashtag-results">
-
+            {{jsonPrint hashtags}}<p>hashtags</p>
                 {{#each hashtags}}
+                <p>{{jsonPrint this.[0]}} this hashtag</p>
+                <p>{{jsonPrint this.[1].}} hashtags this</p>
 
                     {{!-- Show non-real hashtags only if they have votes --}}
-                    {{#if this.votes}}
+                    {{#each this}}
+                    <p>{{jsonPrint this}} this</p>
+                        {{#if this.votes}}
 
-                        <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
-                      
-                            {{#unless real}}
-                                {{> group/player_badge user=user avatar_ind=index creator=true }}
-                            {{else}}
-                                <div id="prompt" class="hidden-el">
-                                    <div>the real hashtag was:</div>
-                                </div>
-                            {{/unless}}
-                            
-                            <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
-
-                            {{#each this.votes}}
-
-                                {{> group/player_badge user=user avatar_ind=index points=score }}
-                            
-                            {{/each}}
-
-                        </div>
-
-                    {{else}}
-
-                        {{#if real}}
-
-                            <div class="result real hidden-el">
-                            
+                            <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
+                          
+                                {{#unless real}}
+                                    {{> group/player_badge user=user avatar_ind=index creator=true }}
+                                {{else}}
+                                    <div id="prompt" class="hidden-el">
+                                        <div>the real hashtag was:</div>
+                                    </div>
+                                {{/unless}}
+                                
                                 <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
-                                {{#if this.votes}}
-                                    {{#each this.votes}}
+                                {{#each this.votes}}
 
-                                        {{> group/player_badge user=user avatar_ind=index points=score }}
-                                    
-                                    {{/each}}
-                                {{else}}
-                                    No votes!
-                                {{/if}}
+                                    {{> group/player_badge user=user avatar_ind=index points=score }}
+                                
+                                {{/each}}
 
                             </div>
-                            
+
+                        {{else}}
+
+                            {{#if real}}
+
+                                <div class="result real hidden-el">
+                                
+                                    <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+
+                                    {{#if this.votes}}
+                                        {{#each this.votes}}
+
+                                            {{> group/player_badge user=user avatar_ind=index points=score }}
+                                        
+                                        {{/each}}
+                                    {{else}}
+                                        No votes!
+                                    {{/if}}
+
+                                </div>
+                                
+                            {{/if}}
+
                         {{/if}}
 
-                    {{/if}}
+                    {{/each}}
      
                 {{/each}}
 
