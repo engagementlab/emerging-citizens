@@ -31,6 +31,13 @@ body {
 	}
 }
 
+.body.game-bg {
+
+  // TODO: mixin?
+	background-image: $background-main, linear-gradient(1deg, rgba(255,155,110,1) 0%, rgba(255,155,110,1) 30%, rgba(255,174,67,1) 30%); /* W3C compliant */
+
+}
+
 .body.login {
 
   @include linear_transition(background, 0.5s);
@@ -41,12 +48,12 @@ body {
 .body.player {
 
   @include linear_transition(background, 0.5s);
-  background-image: $background-game;
+  background-image: $background-main;
 
 }
 
 .body.monitor {
-  background-image: $background-monitor;
+  background-image: $background-main;
   background-size: 35%;
 }
 
