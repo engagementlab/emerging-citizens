@@ -458,7 +458,7 @@ body .player-form {
   float: left;
   transform: scale(0.6); }
 
-#next-round .text {
+.last .text {
   font-size: 26em;
   top: 58% !important; }
 
@@ -622,15 +622,22 @@ html, body {
 
 nav.header.navbar-fixed-top {
   position: static; }
+  @media (max-width: 480px) {
+    nav.header.navbar-fixed-top {
+      display: none; } }
 
 nav.navbar.main {
   background-color: #FFF;
-  padding-bottom: 2%; }
-  @media (max-width: 480px) {
-    nav.navbar.main li {
-      display: inline-block; }
-    nav.navbar.main #nav-logo {
-      margin-left: 3%; } }
+  padding-bottom: 2%;
+  /* @include mobile-only {
+		li {
+	    display: inline-block;
+		}
+
+		#nav-logo {
+	    margin-left: 3%;
+		}
+	} */ }
   nav.navbar.main #nav-logo {
     padding-top: 1%; }
   nav.navbar.main #login {

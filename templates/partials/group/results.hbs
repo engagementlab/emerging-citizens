@@ -165,17 +165,30 @@
         </div>
     
     </section>
+    {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
+    {{#if last_round}}
+        <div id="game-ended" class="col-sm-12 hidden-el results last">
+            
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h1 id="text">Game ended! Going back home in...</h1>
+                <div id="countdown"></div>
+            </div>
+            <div class="col-sm-4"></div>
 
-    <div id="next-round" class="col-sm-12 hidden-el results">
-        
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <h1 id="text">Next round in</h1>
-            <div id="countdown"></div>
         </div>
-        <div class="col-sm-4"></div>
+    {{else}}
+        <div id="next-round" class="col-sm-12 hidden-el results last">
+            
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h1 id="text">Next round in</h1>
+                <div id="countdown"></div>
+            </div>
+            <div class="col-sm-4"></div>
 
-    </div>
+        </div>
+    {{/if}}
 
     
 	{{!-- <div class="row input-box">

@@ -14,7 +14,7 @@ var socketEvents = function(eventId, eventData) {
 		
 	var currentPlayers = [];
     var clockInterval;
-
+    
     switch (eventId) {
 
         case 'connect':
@@ -255,7 +255,7 @@ var socketEvents = function(eventId, eventData) {
 
                 // Show countdown
                 var secondsLeft = 10;
-                var countdownAnim = new ProgressBar.Circle('#next-round #countdown', {
+                var countdownAnim = new ProgressBar.Circle('.last #countdown', {
                     color: '#fff',
                     duration: secondsLeft*1000,
                     easing: 'easeInOut',
@@ -268,7 +268,7 @@ var socketEvents = function(eventId, eventData) {
                         className: 'text',
                     }
                 });
-                var countdownText =  $('#next-round #countdown .text');
+                var countdownText =  $('.last #countdown .text');
 
                 var roundCountdown = setInterval(function() {
                     secondsLeft--;
@@ -277,15 +277,18 @@ var socketEvents = function(eventId, eventData) {
                     $(countdownText).text(secondsLeft);
                     TweenLite.from($(countdownText), .1, { scale: 0 });
 
-                    // End countdown and show arrow to continue
+                    // End countdown
                     if(secondsLeft == 0) {
-                        socket.emit('game:next_round', emitData(null));
-                        clearInterval(roundCountdown);
-
+                        if($('#next_round')[0] !== undefined) {
+                            socket.emit('game:next_round', emitData(null));
+                            clearInterval(roundCountdown);
+                        }
+                        else
+                            location.href = '\\';
                     }
                 }, 1000);
 
-                TweenLite.from($('#next-round'), 1, { autoAlpha: 0, scale: 0 });
+                TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
 
                 countdownAnim.animate(1);
 
