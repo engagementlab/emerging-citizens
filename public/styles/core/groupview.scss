@@ -48,7 +48,6 @@
 }
 
 .room-container {
-	top: 10%;
 	bottom: 10%;
 	padding-left: 10%;
   padding-right: 10%;
@@ -57,6 +56,10 @@
 	background-color: white;
 
 	@include box-shadow(10px, 10px, 50px, #000);
+
+	h1 {
+		font-size: 6em;
+	}
 }
 
 .players {

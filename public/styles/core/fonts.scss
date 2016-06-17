@@ -28,3 +28,10 @@
 @include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0', null, null, woff2 woff eot ttf);
 @include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
 @include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
+
+.light {
+	font-family: "AvenirLight";
+}
+.bold {
+	font-family: "AvenirBold";
+}

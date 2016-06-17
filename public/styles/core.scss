@@ -123,19 +123,7 @@ nav.header.navbar-fixed-top{
 nav.navbar.main {
 
 	background-color: #FFF;
-	// position: fixed;
-	// border-color: #080808;
 	padding-bottom: 2%;
-
-	/* @include mobile-only {
-		li {
-	    display: inline-block;
-		}
-
-		#nav-logo {
-	    margin-left: 3%;
-		}
-	} */
 
 	#nav-logo {
 		padding-top: 1%;
@@ -266,8 +254,8 @@ nav.header {
 #gameContent {
 
 	padding: 40px 15px;
-	padding-top: 5%;
-    text-align: center;
+	padding-top: 3%;
+  text-align: center;
 
 }
 // END Main Content
