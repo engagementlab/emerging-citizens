@@ -15,12 +15,14 @@
 var keystone = require('keystone'),
     _ = require('underscore'),
     randomstring = require('randomstring'),
+    GameSession = keystone.list('GameSession'),
     ContentCategory = keystone.list('ContentCategory');
 
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
+    var gameCode;
 
     var GameType = {
         0 : "Hash Tag You're It"
@@ -32,15 +34,35 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'group';
 
+    function generateCode() {
+
+        return randomstring.generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
+    
+    }
+
+    view.on('init', function(next) {
+
+        gameCode = generateCode();
+
+        // Check if there's already a game with the generated access code
+        GameSession.model.findOne({accessCode: gameCode}, function (err, session) {
+
+            // There is! A one in 15,000 probability! Make a new one
+            if(session !== null)
+                gameCode = generateCode();
+
+            next();
+
+        });
+
+    });
+
     view.on('init', function(next) {
 
         // Get game config and content buckets (categories)
         ContentCategory.model.find({}, 'name', function (err, categories) {
 
-            locals.gameCode = randomstring.generate({
-                                                      length: 4,
-                                                      charset: 'alphabetic'
-                                                    }).toUpperCase();
+            locals.gameCode = gameCode;
             locals.gameTypes = _.values(GameType);
 
             locals.categories = categories;

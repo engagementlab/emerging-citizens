@@ -114,6 +114,11 @@ body {
 
 nav.header.navbar-fixed-top{
   position: static;
+
+	// Hide for mobile
+	@include mobile-only {
+		display: none;
+	}
 }
 nav.navbar.main {
 
@@ -122,7 +127,7 @@ nav.navbar.main {
 	// border-color: #080808;
 	padding-bottom: 2%;
 
-	@include mobile-only {
+	/* @include mobile-only {
 		li {
 	    display: inline-block;
 		}
@@ -130,7 +135,7 @@ nav.navbar.main {
 		#nav-logo {
 	    margin-left: 3%;
 		}
-	}
+	} */
 
 	#nav-logo {
 		padding-top: 1%;
