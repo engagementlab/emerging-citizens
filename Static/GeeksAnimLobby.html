@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Hub - Emerging Citizens</title>
+    <title>WikiGeeks Lobby - Emerging Citizens</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,10 @@
 #addAPlayerButton{
 	width: 100%;
 }
-#lobbyPaneButton{
+#loseAPlayerButton{
+	width: 100%;
+}
+#avatarsOutButton{
 	width:100%;
 }
 /*End Buttons*/
@@ -187,42 +190,33 @@
 
 <div id="lobby">
 <button type="button" id="addAPlayerButton">Add a Player</button>
+<button type="button" id="loseAPlayerButton">Lose a Player</button>
+<a id="lobbyLink" href="GeeksAnimPrompt.html"><button type="button" id="avatarsOutButton">Clear Screen</button></a>
 	<div id="lobbyPane">
 		<div id="waiting">waiting for players...</div>
 		<img id="wikiLogo" src="css/wiki_logo.png">
 		<div id="roomCodeLabel">Room Code:</div>
 		<div id="roomCode">ABCD</div>
 	</div>
-<img class="avatarCircle" id="playerOne" src="css/avatar_circle.png">
-<img class="avatar" id="avatarOne" src="css/avatar0.png">
-<img class="avatarCircle" id="playerTwo" src="css/avatar_circle.png">
-<img class="avatar" id="avatarTwo" src="css/avatar1.png">
-<img class="avatarCircle" id="playerThree" src="css/avatar_circle.png">
-<img class="avatar" id="avatarThree" src="css/avatar2.png">
-<img class="avatarCircle" id="playerFour" src="css/avatar_circle.png">
-<img class="avatar" id="avatarFour" src="css/avatar3.png">
-<img class="avatarCircle" id="playerFive" src="css/avatar_circle.png">
-<img class="avatar" id="avatarFive" src="css/avatar4.png">
-<img class="avatarCircle" id="playerSix" src="css/avatar_circle.png">
-<img class="avatar" id="avatarSix" src="css/avatar5.png">
-<img class="avatarCircle" id="playerSeven" src="css/avatar_circle.png">
-<img class="avatar" id="avatarSeven" src="css/avatar6.png">
-<img class="avatarCircle" id="playerEight" src="css/avatar_circle.png">
-<img class="avatar" id="avatarEight" src="css/avatar7.png">
+	<div class="avatars">
+		<img class="avatarCircle player playerLeftOdd" id="playerOne" src="css/avatar_circle.png">
+		<img class="avatar player playerLeftOdd" id="avatarOne" src="css/avatar0.png">
+		<img class="avatarCircle player playerLeftEven" id="playerTwo" src="css/avatar_circle.png">
+		<img class="avatar player playerLeftEven" id="avatarTwo" src="css/avatar1.png">
+		<img class="avatarCircle player playerLeftOdd" id="playerThree" src="css/avatar_circle.png">
+		<img class="avatar player playerLeftOdd" id="avatarThree" src="css/avatar2.png">
+		<img class="avatarCircle player playerLeftEven" id="playerFour" src="css/avatar_circle.png">
+		<img class="avatar player playerLeftEven" id="avatarFour" src="css/avatar3.png">
+		<img class="avatarCircle player playerRightOdd" id="playerFive" src="css/avatar_circle.png">
+		<img class="avatar player playerRightOdd" id="avatarFive" src="css/avatar4.png">
+		<img class="avatarCircle player playerRightEven" id="playerSix" src="css/avatar_circle.png">
+		<img class="avatar player playerRightEven" id="avatarSix" src="css/avatar5.png">
+		<img class="avatarCircle player playerRightOdd" id="playerSeven" src="css/avatar_circle.png">
+		<img class="avatar player playerRightOdd" id="avatarSeven" src="css/avatar6.png">
+		<img class="avatarCircle player playerRightEven" id="playerEight" src="css/avatar_circle.png">
+		<img class="avatar player playerRightEven" id="avatarEight" src="css/avatar7.png">
+	</div>
 </div>
-
-<div id="startContext">
-</div>
-
-<div id="targetArticle">
-</div>
-
-<div id="topThree">
-</div>
-
-<div id="leaderboard">
-</div>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -235,6 +229,6 @@
     <!-- GreenSock library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
 <!-- Animation JS File -->
-    <script src="GeeksTest.js"></script>
+    <script src="GeeksLobbyTest.js"></script>
   </body>
 </html>
