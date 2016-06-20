@@ -29,6 +29,7 @@ var socketEvents = function(eventId, eventData) {
 
                 var staticPlayers = $('.player-static');
 			  	currentPlayers = _.pluck(eventData, 'username');
+                console.log (eventData + " player name event data" + currentPlayers);
 
                 // Allow to start?
                 if(currentPlayers.length === 2)
@@ -136,8 +137,11 @@ var socketEvents = function(eventId, eventData) {
         case 'game:end':
         case 'hashtag:submitted':
         case 'hashtags:received':
-
+            console.log (eventData + " hashtags:recieved and hashtag:submitted event data");
             $('#gameContent').html(eventData);
+            
+            currentHashtags = _.pluck(eventData, 'hashtag-submissions');
+            console.log (currentHashtags + " are the current hashtags");
 
             //instantiate a TimelineLite for hashtags received animation
             var hashtagsVoteAnim = new TimelineLite({ paused:true });
@@ -156,7 +160,7 @@ var socketEvents = function(eventId, eventData) {
         case 'hashtags:results':
 
             $('#gameContent').html(eventData);
-            console.log (eventData + " is the goddamn event data");
+            console.log (eventData + " is the hashtag:results goddamn event data");
 
             //instantiate a TimelineLite for hashtags animation
             var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
