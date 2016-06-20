@@ -9,61 +9,60 @@
             {{> shared/tweet text=tweet}}
             
             <div id="hashtag-results">
-            {{!-- {{jsonPrint hashtags}}<p>hashtags</p> --}}
+
                 {{#each hashtags}}
-                {{!-- <p>{{jsonPrint this.[0]}} this hashtag</p> --}}
-                {{!-- <p>{{jsonPrint this.[1].}} hashtags this</p> --}}
 
                     {{!-- Show non-real hashtags only if they have votes --}}
-                    {{#each this}}
-                    <p>{{jsonPrint this}} this</p>
-                        {{#if this.votes}}
+                    {{#if this.votes}}
 
-                            <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
-                          
-                                {{#unless real}}
-                                    {{> group/player_badge user=user avatar_ind=index creator=true }}
-                                {{else}}
-                                    <div id="prompt" class="hidden-el">
-                                        <div>the real hashtag was:</div>
-                                    </div>
-                                {{/unless}}
-                                
+                        <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
+                      
+                            {{#unless real}}
+                                {{#each submitters}}
+                                    {{> group/player_badge user=user avatar_ind=user.index creator=true }}
+                                {{/each}}
+                            {{else}}
+                                <div id="prompt" class="hidden-el">
+                                    <div>the real hashtag was:</div>
+                                </div>
+                            {{/unless}}
+                            
+                            <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+
+                            {{jsonPrint this.votes}}
+                            {{#each this.votes}}
+
+                                {{> group/player_badge user=user avatar_ind=index points=score }}
+                            
+                            {{/each}}
+
+                        </div>
+
+                        {{!-- TODO --}}
+                    {{else}}
+
+                        {{#if real}}
+
+                            <div class="result real hidden-el">
+                            
                                 <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
 
-                                {{#each this.votes}}
+                                {{#if this.votes}}
+                                    {{#each this.votes}}
 
-                                    {{> group/player_badge user=user avatar_ind=index points=score }}
-                                
-                                {{/each}}
+                                        {{> group/player_badge user=user avatar_ind=index points=score }}
+                                    
+                                    {{/each}}
+                                {{else}}
+                                    No votes!
+                                {{/if}}
 
                             </div>
-
-                        {{else}}
-
-                            {{#if real}}
-
-                                <div class="result real hidden-el">
-                                
-                                    <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
-
-                                    {{#if this.votes}}
-                                        {{#each this.votes}}
-
-                                            {{> group/player_badge user=user avatar_ind=index points=score }}
-                                        
-                                        {{/each}}
-                                    {{else}}
-                                        No votes!
-                                    {{/if}}
-
-                                </div>
-                                
-                            {{/if}}
-
+                            
                         {{/if}}
 
-                    {{/each}}
+                    {{/if}}
+
      
                 {{/each}}
 
