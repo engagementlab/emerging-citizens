@@ -195,15 +195,14 @@
 
 }
 #current-tweet {
+  position: absolute;
 	display: flex;
 	background-color: white;
 	color: black;
 	font-size: medium;
-	// margin-top: 5%;
-	// margin-bottom: 5%;
   padding: 1%;
   top: 0;
-  position: absolute;
+  right: 0;
   left: 0;
 	text-align: left;
 	border: 9px solid $color-dark-purple;

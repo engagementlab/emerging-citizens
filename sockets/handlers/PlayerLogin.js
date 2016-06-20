@@ -93,9 +93,9 @@ var PlayerLogin = function (nsp, socket, emitter) {
       if(playerGameId !== undefined && session !== undefined) {
         session.PlayerLost(currentSocket.id, currentSpace);
 
-        if(currentSocket.id === Session.Get(playerGameId).group) {
+        if(currentSocket.id === Session.Get(playerGameId).groupModerator) {
           logger.debug('is group moderator')
-          session.End(currentSpace);
+          session.End(currentSpace, true);
         }
 
       }

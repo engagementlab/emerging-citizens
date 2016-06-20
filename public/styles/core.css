@@ -17,8 +17,7 @@
   font-family: "AvenirBold"; }
 
 .form {
-  min-height: 100%;
-  padding: 10%; }
+  min-height: 100%; }
 
 @-webkit-keyframes invalid-field {
   0% {
@@ -349,13 +348,14 @@ body .player-form {
   text-align: left; }
 
 #current-tweet {
+  position: absolute;
   display: flex;
   background-color: white;
   color: black;
   font-size: medium;
   padding: 1%;
   top: 0;
-  position: absolute;
+  right: 0;
   left: 0;
   text-align: left;
   border: 9px solid #6768FE; }
@@ -565,9 +565,11 @@ html, body {
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
+  .body.group {
+    overflow: hidden; }
 
 .body.game-bg {
-  background-image: url(/images/layout/background_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 40%, #ffae43 40%);
+  background-image: url(/images/layout/raindrops_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 30%, #ffae43 30%, #ff763f 30%);
   /* W3C compliant */ }
 
 .body.login {
@@ -584,7 +586,8 @@ html, body {
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
-  background-image: url(/images/layout/background_tileable.png); }
+  background-image: url(/images/layout/raindrops_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 30%, #ffae43 30%, #ff763f 30%);
+  /* W3C compliant */ }
 
 .body.monitor {
   background-image: url(/images/layout/background_tileable.png);

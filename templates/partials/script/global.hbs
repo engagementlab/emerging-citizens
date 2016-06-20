@@ -63,6 +63,7 @@
 			'game:tutorial',
 			'game:start',
 			'game:ending',
+			'game:ended',
 			'game:end',
 			'game:resumed',
 			'game:notfound',
@@ -304,7 +305,7 @@
 						// Load events for group
 						{{> script/groupview_events}}
 						
-						$('.body').addClass('game-bg');
+						$('.body').addClass('game-bg group');
 						$('#wrapper').addClass('group');
 						$('.navbar.main').attr ('style', 'display:none;');
 
