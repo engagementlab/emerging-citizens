@@ -10,6 +10,12 @@
   font-family: "AvenirBold";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.ttf") format("truetype"); }
 
+.light {
+  font-family: "AvenirLight"; }
+
+.bold {
+  font-family: "AvenirBold"; }
+
 .form {
   min-height: 100%;
   padding: 10%; }
@@ -226,7 +232,6 @@ body .player-form {
     color: #00CB86; }
 
 .room-container {
-  top: 10%;
   bottom: 10%;
   padding-left: 10%;
   padding-right: 10%;
@@ -236,6 +241,8 @@ body .player-form {
   -webkit-box-shadow: 10px 10px 50px #000;
   -moz-box-shadow: 10px 10px 50px #000;
   box-shadow: 10px 10px 50px #000; }
+  .room-container h1 {
+    font-size: 6em; }
 
 .players {
   margin-top: -40px; }
@@ -559,6 +566,10 @@ html, body {
     .body {
       background-color: #fdae8f; } }
 
+.body.game-bg {
+  background-image: url(/images/layout/background_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 40%, #ffae43 40%);
+  /* W3C compliant */ }
+
 .body.login {
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
@@ -573,10 +584,10 @@ html, body {
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
-  background-image: url(/images/layout/raindrops_tileable_orange.png); }
+  background-image: url(/images/layout/background_tileable.png); }
 
 .body.monitor {
-  background-image: url(/images/layout/raindrops_tileable_salmon.png);
+  background-image: url(/images/layout/background_tileable.png);
   background-size: 35%; }
 
 .modal {
@@ -628,16 +639,7 @@ nav.header.navbar-fixed-top {
 
 nav.navbar.main {
   background-color: #FFF;
-  padding-bottom: 2%;
-  /* @include mobile-only {
-		li {
-	    display: inline-block;
-		}
-
-		#nav-logo {
-	    margin-left: 3%;
-		}
-	} */ }
+  padding-bottom: 2%; }
   nav.navbar.main #nav-logo {
     padding-top: 1%; }
   nav.navbar.main #login {
@@ -736,5 +738,5 @@ nav.header {
 
 #gameContent {
   padding: 40px 15px;
-  padding-top: 5%;
+  padding-top: 3%;
   text-align: center; }

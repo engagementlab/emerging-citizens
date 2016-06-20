@@ -304,7 +304,7 @@
 						// Load events for group
 						{{> script/groupview_events}}
 						
-						$('.body').addClass('monitor').addClass('group');
+						$('.body').addClass('game-bg');
 						$('#wrapper').addClass('group');
 						$('.navbar.main').attr ('style', 'display:none;');
 
@@ -390,7 +390,7 @@
 
 				{{#ifeq section 'play'}}
 
-	          $('.body').addClass('login');
+	          $('.body').addClass('game-bg');
 
 	      {{/ifeq}}
 
@@ -401,7 +401,7 @@
 				var selected = $('#template_selector').find('option:selected');
 				var template = selected.val();
 				var templateData = selected.data('key');
-				var eventId = selected.data('event_id');
+				var eventId = selected.data('event_id'); 
 
 			  $.post( 
 			  	"/game/load/",
