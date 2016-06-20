@@ -12,25 +12,30 @@
 
                 {{#each hashtags}}
 
+                {{!-- {{jsonPrint this}} --}}
+
                     {{!-- Show non-real hashtags only if they have votes --}}
-                    {{#if this.votes}}
+                    {{#if votes}}
 
                         <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
                       
                             {{#unless real}}
+                                
                                 {{#each submitters}}
                                     {{> group/player_badge user=user avatar_ind=user.index creator=true }}
                                 {{/each}}
+
                             {{else}}
+
                                 <div id="prompt" class="hidden-el">
                                     <div>the real hashtag was:</div>
                                 </div>
+                            
                             {{/unless}}
                             
-                            <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+                            <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
-                            {{jsonPrint this.votes}}
-                            {{#each this.votes}}
+                            {{#each votes}}
 
                                 {{> group/player_badge user=user avatar_ind=index points=score }}
                             
@@ -45,14 +50,16 @@
 
                             <div class="result real hidden-el">
                             
-                                <div class="hashtag"><span class="octothorp">#</span>{{hashtag}}</div>
+                                <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
-                                {{#if this.votes}}
-                                    {{#each this.votes}}
+                                {{#if votes}}
 
-                                        {{> group/player_badge user=user avatar_ind=index points=score }}
+                                    {{#each votes}}
+
+                                        {{> group/player_badge user=user avatar_ind=index score=score }}
                                     
                                     {{/each}}
+
                                 {{else}}
                                     No votes!
                                 {{/if}}

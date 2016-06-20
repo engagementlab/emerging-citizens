@@ -37,6 +37,11 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, game) {
 
+        if(game === null) {
+          console.log("Game with ID '" + req.params.accesscode.toUpperCase() + "' not found!");
+          return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist!');  
+        }
+
     		// TODO: Dev only?
     		if(Session.Get(game.accessCode) === undefined)
     			Session.Create(game.accessCode, new GameManager(game));
