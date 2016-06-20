@@ -114,7 +114,10 @@ var socketEvents = function(eventId, eventData) {
         case 'players:update':
 
             $('#gameContent').html(eventData);
-            
+
+            var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
+            nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
+            nextRoundAnim.play();
             break;
 
         default:
