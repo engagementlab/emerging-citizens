@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>WikiGeeks Prompt Context - Emerging Citizens</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+    <style>
+    /*Import Fonts*/
+
+   	@font-face{
+    	font-family: Aileron;
+    	src: url(css/Aileron-Regular.otf);}
+  
+    @font-face{
+    	font-family: Aileron-Thin;
+    	src: url(css/Aileron-Thin.otf);}
+/*End Fonts*/
+/*Background Image*/
+    body{
+      background-image: url("css/WG_grid_tileable.png");
+      background-repeat: repeat;
+      overflow-x: hidden;
+      padding: 0;}
+/*Background Image End*/
+#startContext{ 
+    width: 100%;
+    position: absolute;
+}
+
+#topMenu{
+    width:200px;
+    position: relative;
+    margin: 0 auto;
+}
+#menuImage{
+    width:200px;
+}
+#contextPane{
+    position: relative;
+    width: 800px;
+    height: 650px;
+    background-color: white;
+    margin: 20px auto;
+}
+
+#pinkStroke{
+    z-index: 2;
+    position: relative;
+    width: 800px;
+}
+#redStroke{
+    z-index: 3;
+    position: relative;
+    height: 650px;
+    width: 1.5%;
+    margin: 0 auto;
+}
+
+	</style>
+</head>
+
+<header>
+    <div id="topMenu">
+    <img id="menuImage" src="css/menu.png">
+    </div>
+</header>
+
+<body>
+<div id="startContext">
+    <div id="contextPane">
+    <img id="redStroke" src="css/divider_red.png">
+<!--     <img id="pinkStroke" src="css/divider_pink.png"> -->
+    </div>
+</div>
+
+<div id="targetArticle">
+</div>
+
+<div id="topThree">
+</div>
+
+<div id="leaderboard">
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="GeeksTest.js"></script>
+</body>
+</html>
