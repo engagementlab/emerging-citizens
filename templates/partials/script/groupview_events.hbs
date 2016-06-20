@@ -137,11 +137,9 @@ var socketEvents = function(eventId, eventData) {
         case 'game:end':
         case 'hashtag:submitted':
         case 'hashtags:received':
-            console.log (eventData + " hashtags:recieved and hashtag:submitted event data");
             $('#gameContent').html(eventData);
             
             currentHashtags = _.pluck(eventData, 'hashtag-submissions');
-            console.log (currentHashtags + " are the current hashtags");
 
             //instantiate a TimelineLite for hashtags received animation
             var hashtagsVoteAnim = new TimelineLite({ paused:true });
@@ -160,7 +158,6 @@ var socketEvents = function(eventId, eventData) {
         case 'hashtags:results':
 
             $('#gameContent').html(eventData);
-            console.log (eventData + " is the hashtag:results goddamn event data");
 
             //instantiate a TimelineLite for hashtags animation
             var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
@@ -225,11 +222,13 @@ var socketEvents = function(eventId, eventData) {
                 if(hashtagsAnimSlider !== undefined && hashtagsAnimSlider !== null)
                     hashtagsAnimSlider.clear();
 
+                // Current Scores
                 scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
                 .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 1)
                 .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, 1, "players")
-                .to($('#scores'), 1, {autoAlpha:0, display:'none'});
+                .to($('#scores'), 1, {autoAlpha:0, display:'none', delay: 5});
 
+                // Winner Circle, if rendered
                 if($('#winners-circle')[0] !== undefined) {
 
                     scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
@@ -239,6 +238,7 @@ var socketEvents = function(eventId, eventData) {
 
                 }
 
+                // Leaderboard
                 scoreAnim.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
                 .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
                 .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
