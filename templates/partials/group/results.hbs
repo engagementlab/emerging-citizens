@@ -12,8 +12,6 @@
 
                 {{#each hashtags}}
 
-                {{!-- {{jsonPrint this}} --}}
-
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#if votes}}
 
@@ -43,7 +41,6 @@
 
                         </div>
 
-                        {{!-- TODO --}}
                     {{else}}
 
                         {{#if real}}
@@ -56,7 +53,7 @@
 
                                     {{#each votes}}
 
-                                        {{> group/player_badge user=user avatar_ind=index score=score }}
+                                        {{> group/player_badge user=user avatar_ind=index points=user.score }}
                                     
                                     {{/each}}
 
@@ -177,6 +174,7 @@
         </div>
     
     </section>
+    
     {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
     {{#if last_round}}
         <div id="game-ended" class="col-sm-12 hidden-el results last">
