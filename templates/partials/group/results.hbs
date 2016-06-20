@@ -9,10 +9,10 @@
             {{> shared/tweet text=tweet}}
             
             <div id="hashtag-results">
-            {{jsonPrint hashtags}}<p>hashtags</p>
+            {{!-- {{jsonPrint hashtags}}<p>hashtags</p> --}}
                 {{#each hashtags}}
-                <p>{{jsonPrint this.[0]}} this hashtag</p>
-                <p>{{jsonPrint this.[1].}} hashtags this</p>
+                {{!-- <p>{{jsonPrint this.[0]}} this hashtag</p> --}}
+                {{!-- <p>{{jsonPrint this.[1].}} hashtags this</p> --}}
 
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#each this}}
