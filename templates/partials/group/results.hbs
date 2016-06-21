@@ -20,6 +20,7 @@
                                 
                                 {{!-- {{#each submitters}} --}}
 
+                                    {{!-- TODO: How to show all submitters? --}}
                                     {{#if submitters.[0].real}}
 
                                         <div id="prompt" class="hidden-el">
@@ -28,7 +29,7 @@
 
                                     {{else}}
 
-                                        {{> group/player_badge user=user avatar_ind=user.index creator=true }}
+                                        {{> group/player_badge user=submitters.[0].user avatar_ind=submitters.[0].user.index creator=true }}
                                     
                                     {{/if}}
 
