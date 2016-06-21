@@ -94,9 +94,9 @@
 
             <!-- page-wrapper end -->
             {{#ifeq env "development"}}
-                {{> script/development section=section subSection=sub_section}}
+                {{> script/development environment=env section=section subSection=sub_section}}
             {{else}}
-                {{> script/production section=section}}
+                {{> script/production environment=env section=section}}
             {{/ifeq}}
 
         </div>
