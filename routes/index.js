@@ -28,11 +28,15 @@ exports = module.exports = function(app) {
     app.get('/play/:debug?', routes.views.game.play);
     app.post('/game', routes.views.game.player);
     app.post('/game/load', routes.views.game.template_load);
+
+    // Group screen
+    app.get('/game/:accesscode/:debug?', routes.views.group.monitor);
+    
+    // Deprecated
+    app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
     
     app.get('/group', routes.views.group.index);
     app.get('/new', routes.views.group.index);
-    app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
-    app.get('/:accesscode/:debug?', routes.views.group.monitor);
     
     app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     // app.post('/login', routes.views.user.login);
