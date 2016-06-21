@@ -26,16 +26,12 @@ html, body {
 	@include mobile-only {
 	  background-color: #fdae8f;
 	}
-
-	&.group {
-		overflow: hidden;
-	}
 }
 
 .body.game-bg {
 
   // TODO: mixin?
-	background-image: $background-groupview, linear-gradient(1deg, rgba(255,155,110,1) 0%, rgba(255,155,110,1) 30%, rgba(255,174,67,1) 30%, rgba(255,118,63,1) 30%); /* W3C compliant */
+	background: $background-groupview, $color-light-orange; /* W3C compliant */
 	// background: -moz-linear-gradient(left, rgba(255,174,67,1) 0%, rgba(255,174,67,1) 32%, rgba(239,197,202,1) 32%, rgba(255,156,110,1) 69%, rgba(255,118,63,1) 70%, rgba(255,118,63,1) 100%);
 	// background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,174,67,1)), color-stop(32%, rgba(255,174,67,1)), color-stop(32%, rgba(239,197,202,1)), color-stop(69%, rgba(255,156,110,1)), color-stop(70%, rgba(255,118,63,1)), color-stop(100%, rgba(255,118,63,1)));
 	// background: -webkit-linear-gradient(left, rgba(255,174,67,1) 0%, rgba(255,174,67,1) 32%, rgba(239,197,202,1) 32%, rgba(255,156,110,1) 69%, rgba(255,118,63,1) 70%, rgba(255,118,63,1) 100%);
@@ -54,19 +50,19 @@ html, body {
 .body.player {
 
   @include linear_transition(background, 0.5s);
-  background-image: $background-groupview, linear-gradient(1deg, rgba(255,155,110,1) 0%, rgba(255,155,110,1) 30%, rgba(255,174,67,1) 30%, rgba(255,118,63,1) 30%); /* W3C compliant */
+  background-color: $color-dark-orange; /* W3C compliant */
 
 }
 
 .body.monitor {
-  background-image: $background-main;
+  background: $background-groupview, $color-light-orange;
   background-size: 35%;
 }
 
 // Modal container
 .modal {
 	display: none;
-	position: fixed;
+	position: absolute;
 	width: 100%; 
 	height: 100%; 
 	background-color: rgba(254, 120, 70, .7);
