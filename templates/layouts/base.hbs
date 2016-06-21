@@ -94,7 +94,7 @@
 
             <!-- page-wrapper end -->
             {{#ifeq env "development"}}
-                {{> script/development environment=env section=section subSection=sub_section}}
+                {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
             {{else}}
                 {{> script/production environment=env section=section}}
             {{/ifeq}}

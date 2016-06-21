@@ -67,3 +67,11 @@ exports.initErrorHandlers = function(req, res, next) {
     next();
     
 };
+
+/*exports.socketHost = function(req, res, next) {
+
+    // Save host to allow path specification for socket.io
+    keystone.get('app').locals.socketHost = req.headers.host;
+
+    next();
+}*/

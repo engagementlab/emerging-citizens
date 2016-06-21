@@ -11,6 +11,7 @@ var importRoutes = keystone.importer(__dirname);
 // Common Middleware
 keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
+// keystone.pre('routes', middleware.socketHost);
 
 // Import Route Controllers
 var routes = {
@@ -42,5 +43,6 @@ exports = module.exports = function(app) {
     // app.post('/login', routes.views.user.login);
 
   	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);
+
 
 };

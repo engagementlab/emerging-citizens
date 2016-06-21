@@ -257,7 +257,7 @@
 								$('.navbar').slideUp();
 								
 								// Open socket connection
-						    socket = io();
+						    socket = io('//{{host}}');
 						    registerEvents();
 
 								playerName = $('#player_name').val();
