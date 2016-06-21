@@ -367,7 +367,7 @@ body .player-form {
     float: right; }
 
 #clock-face {
-  background: url("/images/layout/hyi/clock.png") no-repeat; }
+  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat; }
 
 #clock-hand {
   left: -.5%;
@@ -716,7 +716,7 @@ nav.header {
   color: #4343ff;
   min-height: 265px;
   min-width: 345px;
-  background-image: url(/images/layout/hyi/cloud.png);
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
   background-repeat: no-repeat;
   background-position: center; }
   .game-message span {
