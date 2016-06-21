@@ -23,19 +23,7 @@
 <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
 <link rel="apple-touch-icon-precomposed" href="/images/favicons/apple-icon-57x57.png">
 
-{{#ifeq environment "production"}}
-
-	{{!-- PRODUCTION --}}
-
-	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
-	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	{{/ifeq}}
-	<link href="/release/production.css" rel="stylesheet">
-
-{{else}}
+{{#ifeq environment "development"}}
 	
 	{{!-- DEVELOPMENT --}}
 	
@@ -64,5 +52,17 @@
 
 	{{!-- Bower plugins --}}
 	<link rel="stylesheet" href="/bower_components/glidejs/dist/css/glide.core.css">
+
+{{else}}
+
+	{{!-- PRODUCTION --}}
+
+	{{!-- Bootstrap non-responsive for group view --}}
+	{{#ifeq section 'group/monitor'}}
+		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+	{{else}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	{{/ifeq}}
+	<link href="{{cdnAsset site='emerging-citizens' type='css' }}" rel="stylesheet">
 
 {{/ifeq}}
