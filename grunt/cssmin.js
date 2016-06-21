@@ -11,7 +11,7 @@ module.exports = function() {
   // Files to minify
   config.target.files[fileOut] = [
 
-    __dirname + '/../public/styles/cmp.css', // site SCSS
+    __dirname + '/../public/styles/core.css', // site SCSS
   
   ];
 
