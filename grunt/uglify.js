@@ -12,10 +12,10 @@ module.exports = function() {
     __dirname + '/../public/js/jquery/*.js', // jquery
     __dirname + '/../public/plugins/*.js',  // Plugins
     __dirname + '/../public/plugins/**/*.js',
-    __dirname + '/../public/plugins/bower_components/nosleep/NoSleep.js',
-    __dirname + '/../public/plugins/bower_components/progressbar.js/dist/progressbar.min.js',
-    __dirname + '/../public/plugins/bower_components/ion-sound/js/ion.sound.js',
-    __dirname + '/../public/plugins/gsap-timeline-slider.js',
+    __dirname + '/../public/bower_components/nosleep/NoSleep.js',
+    __dirname + '/../public/bower_components/progressbar.js/dist/progressbar.min.js',
+    __dirname + '/../public/bower_components/ion-sound/js/ion.sound.min.js',
+    __dirname + '/../public/gsap-timeline-slider.js',
   
   ];
 
