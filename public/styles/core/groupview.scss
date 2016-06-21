@@ -95,7 +95,8 @@
 
 .player-badge {
   
-	position:relative;
+  margin-top: 4%;
+  position:relative;
   /*background-color:#333;*/
   float:left;
 
@@ -165,7 +166,7 @@
 	  padding: 2px;
 	  opacity: 0;
 	  font-weight: bold;
-	  font-size: small;
+	  font-size: medium;
 	  color: $color-blue;
 
 		@include box-shadow(0px, 21px, 46px, #000);
@@ -184,7 +185,7 @@
 // TWEET template
 #tweet-container {
 	padding: 3%;
-	height: 300px;
+	height: 400px;
 }
 .tweet {
 
@@ -199,7 +200,7 @@
 	display: flex;
 	background-color: white;
 	color: black;
-	font-size: medium;
+	font-size: x-large;
   padding: 1%;
   top: 0;
   right: 0;
@@ -214,6 +215,7 @@
 	}
 	#left {
 		float: left;
+		padding-right: 2%;
 	}
 	#right {
 		float: right;
@@ -221,13 +223,17 @@
 }
 
 #clock-face{
-  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat;
+	margin: auto;
+	background-position: 50% 50%;
+	background-size: cover;
+  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center;
 }
 #clock-hand{
   left: -.5%;
   position: relative;
 }
 #clock-bg {
+	margin: 0 auto;
   width: 184px;
 	height: 168px;
 	// top: 82px;
@@ -244,7 +250,7 @@
 #hashtag-submissions-prompt {
 
 	display: none;
-	height: 300px;
+	height: 320px;
 
 	color: white;
 	font-size: x-large;
@@ -264,11 +270,14 @@
 #hashtag-submissions {
 	
 	.hashtag {
+		font-size: x-large;
 		background-color: white;
-		padding: 20px;
+		padding: 10px;
 		margin: 20px;
 
 		.octothorp {
+			margin-top:3%;
+
 			font-size: x-large;
 		}
 	}
@@ -282,7 +291,7 @@
 		background-color: $color-bright-yellow;
 		padding: 20px;
 		color: $color-orange;
-		font-size: large;
+		font-size: xx-large;
 
 		.octothorp {
 			font-size: 1.3em;
@@ -299,10 +308,12 @@
 		font-size: x-large;
 		background-color: $color-dark-purple;
 
-	  padding-bottom: 2%;
-	  padding-left: 3%;
-	  padding-right: 3%;
+	  padding:2%;
 
+	}
+
+	.result {
+		margin-top: 20%;
 	}
 
 }
@@ -363,7 +374,7 @@
 	.voter {
 		margin: 0;
 		float: left;
-		transform: scale(0.6);
+		transform: scale(0.8);
 	}
 
 }

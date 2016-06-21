@@ -169,12 +169,12 @@ var socketEvents = function(eventId, eventData) {
             var hashtagsAnimSlider;
             
             // 1) Show hashtags
-            hashtagsAnim.from($('#hashtags'), 1.5, {top:-200, autoAlpha:0, ease:Bounce.easeOut});
+            hashtagsAnim.from($('#hashtags'), 1.5, {top:-250, autoAlpha:0, ease:Bounce.easeOut});
             _.each(elements, function(el, index) {
 
-                hashtagsAnim.from(el, 1, {y:-200, autoAlpha:0, ease:Bounce.easeOut})
+                hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
                 
-                .from($(el).find('.creator'), 1, {autoAlpha:0, delay: 2}, 'creator')
+                .from($(el).find('.creator'), 1, {scale:1.5, autoAlpha:0, delay: 1}, 'creator')
                 .staggerFrom($(el).find('.voter'), 3, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
                     ion.sound.play("button_tiny");
@@ -184,13 +184,14 @@ var socketEvents = function(eventId, eventData) {
                 .staggerTo($(el).find('.voter .portrait'), 1.5, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 1, 'votes')
                 .staggerFromTo($(el).find('.voter .points'), 1, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 1, 'votes')
 
-                .to(el, 1, {delay: 5, y:200, autoAlpha:0, display:'none'});
+                .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
 
             });
 
             // 2) Real hashtag
             hashtagsAnim
-            .from($(realHashtag), 1, {delay: 0.5, y:-200, autoAlpha:0, ease:Bounce.easeOut})
+            .from($('#hashtag-results #prompt'), 1, {delay: 0.5, y:0, autoAlpha:1, opacity: 1, ease:Bounce.easeOut})
+            .from($(realHashtag), 1, {delay: 0.5, y:-250, autoAlpha:0, ease:Bounce.easeOut})
             .staggerFrom($(realHashtag).find('.voter'), 3, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
                 ion.sound.play("button_tiny");
@@ -205,7 +206,7 @@ var socketEvents = function(eventId, eventData) {
             .to($(realHashtag), 1, { y:0, ease:Elastic.easeOut }, 'real')
             .from($('#hashtag-results #prompt'), 1, { y: 100, scale: 0, autoAlpha: 0, ease: Elastic.easeOut }, 'real')
             .to($(realHashtag).find('.hashtag'), 1, { y: 0, autoAlpha: 1}, 'real')
-            .to($('#hashtags'), 1, {delay: 5, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
+            .to($('#hashtags'), 1, {delay: 2, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
 
             {{#ifeq debug true}}
                 hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {

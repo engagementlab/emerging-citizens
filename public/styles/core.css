@@ -267,6 +267,7 @@ body .player-form {
     clear: none; }
 
 .player-badge {
+  margin-top: 4%;
   position: relative;
   /*background-color:#333;*/
   float: left; }
@@ -317,7 +318,7 @@ body .player-form {
     padding: 2px;
     opacity: 0;
     font-weight: bold;
-    font-size: small;
+    font-size: medium;
     color: #4343ff;
     -webkit-box-shadow: 0px 21px 46px #000;
     -moz-box-shadow: 0px 21px 46px #000;
@@ -341,7 +342,7 @@ body .player-form {
 
 #tweet-container {
   padding: 3%;
-  height: 300px; }
+  height: 400px; }
 
 .tweet #tweet-author {
   display: block;
@@ -352,7 +353,7 @@ body .player-form {
   display: flex;
   background-color: white;
   color: black;
-  font-size: medium;
+  font-size: x-large;
   padding: 1%;
   top: 0;
   right: 0;
@@ -362,18 +363,23 @@ body .player-form {
   #current-tweet #author {
     color: #328FB5; }
   #current-tweet #left {
-    float: left; }
+    float: left;
+    padding-right: 2%; }
   #current-tweet #right {
     float: right; }
 
 #clock-face {
-  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat; }
+  margin: auto;
+  background-position: 50% 50%;
+  background-size: cover;
+  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center; }
 
 #clock-hand {
   left: -.5%;
   position: relative; }
 
 #clock-bg {
+  margin: 0 auto;
   width: 184px;
   height: 168px;
   background: white;
@@ -385,7 +391,7 @@ body .player-form {
 
 #hashtag-submissions-prompt {
   display: none;
-  height: 300px;
+  height: 320px;
   color: white;
   font-size: x-large;
   background-color: #6768FE;
@@ -397,10 +403,12 @@ body .player-form {
     color: #C8E646; }
 
 #hashtag-submissions .hashtag {
+  font-size: x-large;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   margin: 20px; }
   #hashtag-submissions .hashtag .octothorp {
+    margin-top: 3%;
     font-size: x-large; }
 
 #hashtag-results {
@@ -409,7 +417,7 @@ body .player-form {
     background-color: #FFD255;
     padding: 20px;
     color: #FD6D59;
-    font-size: large; }
+    font-size: xx-large; }
     #hashtag-results .hashtag .octothorp {
       font-size: 1.3em; }
   #hashtag-results .real {
@@ -418,9 +426,9 @@ body .player-form {
     color: white;
     font-size: x-large;
     background-color: #6768FE;
-    padding-bottom: 2%;
-    padding-left: 3%;
-    padding-right: 3%; }
+    padding: 2%; }
+  #hashtag-results .result {
+    margin-top: 20%; }
 
 #winners-circle .score-box {
   padding: 20px;
@@ -458,12 +466,12 @@ body .player-form {
 
 .results .creator {
   position: absolute;
-  transform: translate(-75%, -38%); }
+  transform: translate(-75%, -38%), scale(1.2); }
 
 .results .voter {
   margin: 0;
   float: left;
-  transform: scale(0.6); }
+  transform: scale(0.8); }
 
 .last .text {
   font-size: 26em;
@@ -558,6 +566,9 @@ html, body {
 
 .hidden-el {
   visibility: hidden; }
+
+.screen-title {
+  font-size: 2em; }
 
 .body {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png);

@@ -9,27 +9,32 @@
             {{> shared/tweet text=tweet}}
             
             <div id="hashtag-results">
-
+            {{!-- {{jsonPrint hashtags}} --}}
                 {{#each hashtags}}
-
+                    {{!-- <p>{{jsonPrint this}}<p> --}}
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#if votes}}
 
-                        <div class="result {{#if real}}real{{else}}fake{{/if}} hidden-el">
-                      
-                            {{#unless real}}
+                        <div class="result {{#if submitters.[0].real}}real{{else}}fake{{/if}} hidden-el">
+                            {{!-- {{jsonPrint this}} --}}
                                 
-                                {{#each submitters}}
-                                    {{> group/player_badge user=user avatar_ind=user.index creator=true }}
-                                {{/each}}
+                                {{!-- {{#each submitters}} --}}
 
-                            {{else}}
+                                    {{#if submitters.[0].real}}
 
-                                <div id="prompt" class="hidden-el">
-                                    <div>the real hashtag was:</div>
-                                </div>
+                                        <div id="prompt" class="hidden-el">
+                                            <div>the real hashtag was:</div>
+                                        </div>
+
+                                    {{else}}
+
+                                        {{> group/player_badge user=user avatar_ind=user.index creator=true }}
+                                    
+                                    {{/if}}
+
+                                {{!-- {{/each}} --}}
+
                             
-                            {{/unless}}
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
@@ -42,28 +47,37 @@
                         </div>
 
                     {{else}}
+                    {{!-- {{jsonPrint this}} --}}
+                        {{!-- {{#each submitters}} --}}
 
-                        {{#if real}}
+                            {{#if submitters.[0].real}}
+                                
 
                             <div class="result real hidden-el">
-                            
-                                <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
-
-                                {{#if votes}}
-
-                                    {{#each votes}}
-
-                                        {{> group/player_badge user=user avatar_ind=index points=user.score }}
+                                <div id="prompt" class="hidden-el">
+                                    <div>the real hashtag was:</div>
+                                </div>
                                     
-                                    {{/each}}
+                                {{!-- {{jsonPrint this}} --}}
+                                    <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
-                                {{else}}
-                                    No votes!
-                                {{/if}}
+                                    {{!-- {{#if votes}}
 
-                            </div>
-                            
-                        {{/if}}
+                                        {{#each votes}}
+
+                                            {{> group/player_badge user=user avatar_ind=index points=user.score }}
+                                        
+                                        {{/each}}
+
+                                    {{else}} --}}
+                                        No votes!
+                                    {{!-- {{/if}} --}}
+
+                                </div>
+                                
+                            {{/if}}
+
+                        {{!-- {{/each}} --}}
 
                     {{/if}}
 
@@ -78,14 +92,14 @@
 
     <section id="scores" class="col-sm-12 results hidden-el">
 
-        <h1>Round Scores</h1>
+        <h1 class="screen-title">Round Scores</h1>
 
         <div class="row">
 
             <div class="col-sm-3"></div>
             <div class="col-sm-3 left">
                 {{#each players}}
-                {{{jsonPrint this}}}
+                {{!-- {{{jsonPrint this}}} --}}
                     <div class="player hidden-el">
                         {{> group/player_face user=this avatar_ind=this.index creator=true }}
 
@@ -111,10 +125,10 @@
 
         <div id="winners-circle" class="results hidden-el">
 
-            <h1>Final Scores!</h1>
+            <h1 class="screen-title">Final Scores!</h1>
 
             {{#each players}}
-            {{{jsonPrint this}}}
+            {{!-- {{{jsonPrint this}}} --}}
         
                 {{#iflt @index 3}}
                     <div class="row">
@@ -150,13 +164,13 @@
 
     <section id="leaderboard" class="col-sm-12 results hidden-el">
 
-        <h1>Score Totals</h1>
+        <h1 class="screen-title">Score Totals</h1>
         <div class="row">
 
             <div class="col-sm-3"></div>
             <div class="col-sm-3 left">
                 {{#each players}}
-                {{{jsonPrint this}}}
+                {{!-- {{{jsonPrint this}}} --}}
                     <div class="player hidden-el">
                         {{> group/player_face user=this avatar_ind=this.index creator=true }}
 
