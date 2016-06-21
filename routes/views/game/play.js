@@ -24,6 +24,9 @@ exports = module.exports = function(req, res) {
   // locals.section is used to set the currently loaded view
   locals.section = 'play';
 
+  // Save host to allow path specification for socket.io
+  locals.socketHost = req.headers.host;
+
   // Enable debugging on staging/dev only
   if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
 	  locals.debug = true;

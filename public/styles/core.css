@@ -196,9 +196,6 @@
 body .player-form {
   padding: 3%; }
 
-.body.group {
-  overflow: hidden; }
-
 #wrapper.group {
   width: 1680px !important;
   max-width: none !important;
@@ -576,11 +573,9 @@ html, body {
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
-  .body.group {
-    overflow: hidden; }
 
 .body.game-bg {
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 30%, #ffae43 30%, #ff763f 30%);
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffb71d;
   /* W3C compliant */ }
 
 .body.login {
@@ -597,16 +592,16 @@ html, body {
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), linear-gradient(1deg, #ff9b6e 0%, #ff9b6e 30%, #ffae43 30%, #ff763f 30%);
+  background-color: #ff5e41;
   /* W3C compliant */ }
 
 .body.monitor {
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png);
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffb71d;
   background-size: 35%; }
 
 .modal {
   display: none;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(254, 120, 70, 0.7);

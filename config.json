@@ -2,6 +2,5 @@
 	"name": "Emerging Citizens",
 	"subdomain": "emerging",
 	"directory": "emerging-citizens",
-	"database": "emerging-citizens",
-	"allowed_domains": ["emergingcitizens.org, ecplay.org, ecplay.tv"]
+	"database": "emerging-citizens"
 }

@@ -37,6 +37,11 @@
 		var socket;
 	  var gameCode;
 	  var playerId;
+	  
+	  var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
+	  {{#ifeq env "development"}}
+	  	sfxPath = '/sfx/'
+	  {{/ifeq}}
 
 		// For socket debugging
 		localStorage.debug = '*';
@@ -48,7 +53,7 @@
 	        }
 	    ],
 	    volume: 0.5,
-	    path: "/sfx/",
+	    path: sfxPath,
 	    preload: true,
 	    ready_callback: function(obj) { console.log('sounds ready', obj); }
 		});
@@ -252,7 +257,7 @@
 								$('.navbar').slideUp();
 								
 								// Open socket connection
-						    socket = io();
+						    socket = io('//{{host}}');
 						    registerEvents();
 
 								playerName = $('#player_name').val();

@@ -1,13 +1,14 @@
 // Disable scrolling on groupview and fix width
-.body.group {
-	overflow: hidden;
-}
 #wrapper.group {
 
   width: 1680px !important;
   max-width: none !important;
   margin-right: auto;
   margin-left: auto;
+
+  #gameContent {
+		// overflow: hidden;
+  }
 
 }
 
