@@ -21,6 +21,8 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 
+    app.all('/*', keystone.middleware.cors);
+
     // Views
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
