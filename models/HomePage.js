@@ -1,9 +1,9 @@
 /**
  * Emerging Citizens
  * 
- * HomePage Model
- * @module homepage
- * @class homepage
+ * ComingSoon Model
+ * @module comingsoon
+ * @class comingsoon
  * @author Johnny Richardson
  * 
  * For field docs: http://keystonejs.com/docs/database/
@@ -14,21 +14,21 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * HomePage Model
+ * ComingSoon Model
  * ==========
  */
 
-var HomePage = new keystone.List('HomePage', {
+var ComingSoon = new keystone.List('ComingSoon', {
     
-    label: 'Home Page Content',
-    singular: 'Home Page Content',
+    label: 'Coming Soon',
+    singular: 'Coming Soon',
     nodelete: true
 
 });
 
-HomePage.add({
+ComingSoon.add({
     
-    name: { type: String, default: 'Coming Soon Content', hidden: true },
+    name: { type: String, default: 'Home Page Content', hidden: true },
     intro: { type: Types.Markdown, label: 'Intro Text', required: true, initial: true },
     mailing_link: { type: Types.Url, label: 'Mailing List URL', required: true, initial: true },
     htyi_blurb: { type: Types.Markdown, label: 'HTYI Blurb', required: true, initial: true },
@@ -40,5 +40,5 @@ HomePage.add({
 /**
  * Registration
  */
- HomePage.defaultColumns = 'name';
- HomePage.register();
+ ComingSoon.defaultColumns = 'name';
+ ComingSoon.register();

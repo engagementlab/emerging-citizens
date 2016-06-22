@@ -6,6 +6,7 @@
 @import "core/player";
 @import "core/groupview";
 @import "core/comingsoon";
+@import "core/homepage";
 @import "core/media";
 
 html, body {
@@ -161,11 +162,18 @@ nav.header {
   padding-bottom: 1%;
 }
 
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 1;
+}
+
 .footer {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	height: 100px;
+	// position: static;
+	// bottom: 0;
+	// right: 0;
+	// height: 100px;
 	background-color: #ff9971;
 
 	// Hide for mobile
@@ -243,7 +251,8 @@ nav.header {
 .gameLanding {
 	
 	margin-top: 10%;
-
+  margin-bottom: 3%;
+  
 	@include tablet-landscape-and-up {
 		#desktop {
 			display: block;

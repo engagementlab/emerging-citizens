@@ -12,11 +12,52 @@
 
 <script type="text/javascript">
 
+	{{#ifeq environment "production"}}
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-64617433-4', 'auto');
+	  ga('send', 'pageview');
+
+	{{else}}
+
+		// For socket debugging
+		localStorage.debug = '*';
+
+	{{/ifeq}}
+
 	var timeline = new TimelineLite();
+
+	{{#ifeq section "index"}}
+
+		$(document).ready(function() {
+
+			$('.home-page-info.coming-soon').click(function(evt) {
+				evt.preventDefault();
+				$(evt.currentTarget).addClass('invalid');
+
+				setTimeout(
+					function() {
+						$(evt.currentTarget).removeClass('invalid');
+					}, 1000);
+			});
+
+			if (jQuery.browser.mobile)
+				return;
+		});
+			
+	{{/ifeq}}
 
   {{#ifeq section "comingsoon"}}
 
 		$(document).ready(function() {
+
+			$('.home-page-info.coming-soon').click(function(evt) {
+				evt.preventDefault();
+			});
 
 			if (jQuery.browser.mobile)
 				return;
@@ -42,9 +83,6 @@
 	  {{#ifeq env "development"}}
 	  	sfxPath = '/sfx/'
 	  {{/ifeq}}
-
-		// For socket debugging
-		localStorage.debug = '*';
 
 		ion.sound({
 	    sounds: [
