@@ -463,7 +463,7 @@ body .player-form {
 
 .results .creator {
   position: absolute;
-  transform: translate(-75%, -38%), scale(1.2); }
+  transform: translate(-75%, -38%); }
 
 .results .voter {
   margin: 0;
