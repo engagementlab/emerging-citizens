@@ -114,7 +114,8 @@
     vertical-align: middle; }
   .form button.mobile-login {
     background: white;
-    margin-top: 10%; }
+    margin-top: 10%;
+    cursor: pointer; }
   .form .error {
     display: none;
     color: white;
@@ -510,6 +511,124 @@ body .player-form {
   .coming-soon-info h1 {
     font-size: 30px; }
 
+@-webkit-keyframes coming-soon {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@-moz-keyframes coming-soon {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@-o-keyframes coming-soon {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+@keyframes coming-soon {
+  0% {
+    left: 8px; }
+  10% {
+    left: -8px; }
+  30% {
+    left: 8px; }
+  60% {
+    left: -8px; }
+  100% {
+    left: 0px; } }
+
+#home-page {
+  margin-top: 6%;
+  font-size: x-large; }
+
+#home-page-banner {
+  color: white;
+  background-color: #ff9971;
+  padding: 2%; }
+  #home-page-banner #intro {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.6em; }
+
+#mailing-list {
+  color: white;
+  background-color: #ff9971;
+  padding: 2%;
+  margin-top: 2%;
+  font-family: "Avenir";
+  font-weight: bolder;
+  font-size: xx-large; }
+  #mailing-list span a {
+    color: white; }
+    #mailing-list span a:hover {
+      text-decoration: underline; }
+  #mailing-list span:hover {
+    border-bottom: none; }
+
+.home-page-info {
+  font-size: large;
+  color: #ff9971;
+  background-color: white;
+  padding: 3%;
+  margin-top: 2%;
+  margin-left: 2%;
+  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
+  -moz-box-shadow: 6px 7px 10px #C7C6C6;
+  box-shadow: 6px 7px 10px #C7C6C6;
+  -webkit-transition: -webkit-filter 0.5s linear;
+  -moz-transition: -webkit-filter 0.5s linear;
+  -ms-transition: -webkit-filter 0.5s linear;
+  -o-transition: -webkit-filter 0.5s linear;
+  transition: -webkit-filter 0.5s linear; }
+  .home-page-info.coming-soon:hover {
+    -webkit-filter: saturate(20%);
+    -moz-filter: saturate(20%);
+    -ms-filter: saturate(20%);
+    -o-filter: saturate(20%);
+    filter: saturate(20%); }
+  .home-page-info.coming-soon h1#coming-soon {
+    font-size: 2.3em;
+    color: #58c5c1; }
+  .home-page-info.coming-soon.invalid {
+    -webkit-animation: coming-soon .5s 1;
+    -moz-animation: coming-soon .5s 1;
+    -o-animation: coming-soon .5s 1;
+    animation: coming-soon .5s 1; }
+  .home-page-info.current {
+    -webkit-transition: transform 0.1s linear;
+    -moz-transition: transform 0.1s linear;
+    -ms-transition: transform 0.1s linear;
+    -o-transition: transform 0.1s linear;
+    transition: transform 0.1s linear; }
+    .home-page-info.current:hover {
+      -moz-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1); }
+
 @media (min-width: 1024px) {
   body .container {
     width: 100%; }
@@ -664,11 +783,13 @@ nav.header {
   background-color: white;
   padding-bottom: 1%; }
 
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 1; }
+
 .footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  height: 100px;
   background-color: #ff9971; }
   @media (max-width: 480px) {
     .footer {
@@ -732,7 +853,8 @@ nav.header {
     height: 100%; }
 
 .gameLanding {
-  margin-top: 10%; }
+  margin-top: 10%;
+  margin-bottom: 3%; }
   @media only screen and (min-width: 769px) {
     .gameLanding #desktop {
       display: block; }

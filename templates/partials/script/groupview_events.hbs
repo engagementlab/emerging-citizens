@@ -38,8 +38,6 @@ var socketEvents = function(eventId, eventData) {
                     startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
                 }
 
-    		    // $('#playersContent').html(currentPlayers.join('<p> joined. </p><br />'));
-
                 _.each(currentPlayers, function(name, index) {
 
                     var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
