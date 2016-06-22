@@ -243,7 +243,7 @@ var socketEvents = function(eventId, eventData) {
                 }
 
                 // Leaderboard
-                scoreAnim.from($('#leaderboard'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
+                scoreAnim.to($('#leaderboard'), 1.5, {autoAlpha:1, display: 'block', ease:Bounce.easeOut})
                 .staggerFrom($('#leaderboard .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5)
                 .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
                 .to($('#leaderboard'), 1, {autoAlpha: 0, yPercent: 100, display:'none', delay: 5})
@@ -263,43 +263,43 @@ var socketEvents = function(eventId, eventData) {
                 $('#scores, #winners-circle, #leaderboard').remove();
 
                 // Show countdown
-                var secondsLeft = 10;
-                var countdownAnim = new ProgressBar.Circle('.last #countdown', {
-                    color: '#fff',
-                    duration: secondsLeft*1000,
-                    easing: 'easeInOut',
-                    strokeWidth: 6,
-                    trailColor: '#f4f4f4',
-                    trailWidth: 0.8,
-                    fill: '#00c5c2',
-                    text: {
-                        value: secondsLeft + '',
-                        className: 'text',
-                    }
-                });
-                var countdownText =  $('.last #countdown .text');
+                // var secondsLeft = 10;
+                // var countdownAnim = new ProgressBar.Circle('.last #countdown', {
+                //     color: '#fff',
+                //     duration: secondsLeft*1000,
+                //     easing: 'easeInOut',
+                //     strokeWidth: 6,
+                //     trailColor: '#f4f4f4',
+                //     trailWidth: 0.8,
+                //     fill: '#00c5c2',
+                //     text: {
+                //         value: secondsLeft + '',
+                //         className: 'text',
+                //     }
+                // });
+                // var countdownText =  $('.last #countdown .text');
 
-                var roundCountdown = setInterval(function() {
-                    secondsLeft--;
+                // var roundCountdown = setInterval(function() {
+                //     secondsLeft--;
 
-                    TweenLite.to($(countdownText), .1, { scale: 0 });
-                    $(countdownText).text(secondsLeft);
-                    TweenLite.from($(countdownText), .1, { scale: 0 });
+                //     TweenLite.to($(countdownText), .1, { scale: 0 });
+                //     $(countdownText).text(secondsLeft);
+                //     TweenLite.from($(countdownText), .1, { scale: 0 });
 
-                    // End countdown
-                    if(secondsLeft == 0) {
-                        if($('#next-round')[0] !== undefined) {
-                            socket.emit('game:next_round', emitData(null));
-                            clearInterval(roundCountdown);
-                        }
-                        else
-                            location.href = '\\';
-                    }
-                }, 1000);
+                //     // End countdown
+                //     if(secondsLeft == 0) {
+                //         if($('#next-round')[0] !== undefined) {
+                //             socket.emit('game:next_round', emitData(null));
+                //             clearInterval(roundCountdown);
+                //         }
+                //         else
+                //             location.href = '\\';
+                //     }
+                // }, 1000);
 
                 TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
 
-                countdownAnim.animate(1);
+                // countdownAnim.animate(1);
 
             }
 
