@@ -575,8 +575,7 @@ html, body {
       background-color: #fdae8f; } }
 
 .body.game-bg {
-  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffb71d;
-  /* W3C compliant */ }
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971; }
 
 .body.login {
   -webkit-transition: background 0.5s linear;
@@ -592,7 +591,7 @@ html, body {
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
-  background-color: #ff5e41;
+  background-color: #ff9971;
   /* W3C compliant */ }
 
 .body.monitor {
