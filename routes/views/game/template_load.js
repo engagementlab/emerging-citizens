@@ -18,6 +18,7 @@ var keystone = require('keystone'),
     Templates = require(appRoot + '/lib/TemplateLoader');
 
 var debugData = {
+    none: { last_round: true },
     voting: {
 
         user1: {hashtag: 'pillows'},
