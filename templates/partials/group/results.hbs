@@ -11,12 +11,12 @@
             <div id="hashtag-results">
             {{!-- {{jsonPrint hashtags}} --}}
                 {{#each hashtags}}
-                    {{!-- <p>{{jsonPrint this}}<p> --}}
+                    
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#if votes}}
-
+                        
                         <div class="result {{#if submitters.[0].real}}real{{else}}fake{{/if}} hidden-el">
-                            {{!-- {{jsonPrint this}} --}}
+                            {{!-- <p>{{jsonPrint this}}</p> --}}
                                 
                                 {{!-- {{#each submitters}} --}}
 
@@ -28,9 +28,12 @@
                                         </div>
 
                                     {{else}}
+                                    <div class="section"> 
+                                        {{#each submitters}}
+                                            {{> group/player_badge user=this.user avatar_ind=this.user.index creator=true }}
 
-                                        {{> group/player_badge user=submitters.[0].user avatar_ind=submitters.[0].user.index creator=true }}
-                                    
+                                        {{/each}}
+                                    </div>
                                     {{/if}}
 
                                 {{!-- {{/each}} --}}
@@ -71,7 +74,7 @@
                                         {{/each}}
 
                                     {{else}} --}}
-                                        No votes!
+                                    <div class="screen-title">No votes!</div>
                                     {{!-- {{/if}} --}}
 
                                 </div>

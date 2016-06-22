@@ -18,8 +18,11 @@ html, body {
 }
 
 .screen-title {
-	font-size: 2em;
+	font-size: 4em;
+	color: white;
 }
+
+
 
 // Body
 .body {
@@ -216,6 +219,8 @@ nav.header {
 }
 
 .game-message {
+	position: relative;
+	min-height: 100%;
 	margin-bottom: 10%;
 	font-size: medium;
 	color: $color-blue;
@@ -226,8 +231,8 @@ nav.header {
   background-position: center;
 
   span {
-  	width: 75%;
-  	left: 10%;
+  	left: 0;
+  	width: 100%;
   	top: 45%;
     position: absolute;
     height: 100%;
