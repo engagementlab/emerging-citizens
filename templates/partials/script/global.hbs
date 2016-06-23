@@ -35,6 +35,9 @@
 
 		$(document).ready(function() {
 
+			if (jQuery.browser.mobile)
+				return;
+
 			$('.home-page-info.coming-soon').click(function(evt) {
 				evt.preventDefault();
 				$(evt.currentTarget).addClass('invalid');
@@ -45,8 +48,6 @@
 					}, 1000);
 			});
 
-			if (jQuery.browser.mobile)
-				return;
 		});
 			
 	{{/ifeq}}
@@ -65,10 +66,9 @@
 			$('.coming-soon-info').css('visibility', 'hidden');
 			
 			timeline
-			.from($('.navbar'), 1, {marginTop: "-14%", delay: 1.4, ease:Ease.easeOut})
-			.from($('#coming-soon-banner'), 1, {marginTop: "-32%", ease:Ease.easeOut})
+			.from($('.navbar'), 1, {marginTop: "-20%", delay: 1.4, ease:Ease.easeOut})
+			.fromTo($('#coming-soon-banner'), 1, {marginTop: "-40%"}, {marginTop: "8%", ease:Ease.easeOut})
 			.staggerFrom($('.coming-soon-info'), 2, {yPercent:5, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5);
-			// .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
 
 			timeline.play();
 
@@ -387,8 +387,12 @@
 						  
 						  socket.on(id, function(eventData) {
 
-								console.log("EVENT ID: ", id);
-								console.log("EVENT DATA: (" + eventData + ")");
+								{{#ifnoteq environment "production"}}
+
+									console.log("EVENT ID: ", id);
+									console.log("EVENT DATA: (" + eventData + ")");
+
+								{{/ifnoteq}}
 
 							 	socketEvents(id, eventData); 
 							});
