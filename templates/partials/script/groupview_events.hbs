@@ -179,7 +179,7 @@ var socketEvents = function(eventId, eventData) {
                 }}, 2, '+=0.5')
 
                 .staggerFromTo($(el).find('.creator'), 1, {scale:0, opacity:0, autoAlpha:0, delay: 0}, {scale: 1, opacity: 1, autoAlpha:1}, 2, '+=0.5')
-                .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none', ease:Bounce.easeOut}, 2, '-=0.5')
+                .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none'}, 2, '-=0.5')
                 .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
                 .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
 
