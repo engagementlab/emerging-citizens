@@ -217,6 +217,13 @@ body .player-form {
 .submission #access-code {
   font-size: 4em; }
 
+.ended-container {
+  background-color: white;
+  margin: 0 auto; }
+
+.winner {
+  background-color: white; }
+
 .game_code {
   margin-top: 20%; }
   .game_code #first {
@@ -443,6 +450,9 @@ body .player-form {
     font-size: 1.5em;
     color: #FFF; }
 
+#winners-circle .score-box.winner {
+  background-color: #fbd738; }
+
 #scores .player, #leaderboard .player {
   background-color: white;
   padding: 8px;
@@ -470,6 +480,10 @@ body .player-form {
   margin: 0;
   float: left;
   transform: scale(0.8); }
+
+.results .voter.screen-title {
+  float: none;
+  margin: 0 auto; }
 
 .last .text {
   font-size: 26em;

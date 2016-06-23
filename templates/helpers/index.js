@@ -31,6 +31,17 @@ module.exports = function() {
 
     };
 
+    // _helpers.sortBy = function (data, property, reverse) {
+    //     var result;
+    //     if (reverse){
+    //         result = _.reverse (_.sortBy (data, function(index){ return index.property; }));
+    //     } else {
+    //         result = _.sortBy (data, function(index){ return index.property; });
+    //     }
+    //     console.log ("Sorting data with helper... " + JSON.stringify(result));
+    //     return result;
+    // };
+
     // assign color class based on index for HTYI color cascade
     _helpers.htyiColor = function(index) {
 

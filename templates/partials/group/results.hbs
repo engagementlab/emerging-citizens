@@ -74,7 +74,7 @@
                                         {{/each}}
 
                                     {{else}} --}}
-                                    <div class="screen-title">No votes!</div>
+                                    <div class="voter screen-title">No votes!</div>
                                     {{!-- {{/if}} --}}
 
                                 </div>
@@ -97,7 +97,7 @@
     <section id="scores" class="col-sm-12 results hidden-el">
 
         <h1 class="screen-title">Round Scores</h1>
-
+        {{!-- {{jsonPrint sortBy players score false}} --}}
         <div class="row">
 
             <div class="col-sm-3"></div>
@@ -124,7 +124,7 @@
         </div>
     </section>
 
-        <section id="leaderboard" style="display:none" class="col-sm-12 results hidden-el">
+<section id="leaderboard" style="display:none" class="col-sm-12 results hidden-el">
 
         <h1 class="screen-title">Score Totals</h1>
         <div class="row">
@@ -160,7 +160,7 @@
         <div id="winners-circle" class="results hidden-el">
 
             <h1 class="screen-title">Final Scores!</h1>
-
+            {{!-- {{{jsonPrint sortBy players score_total true}}} --}}
             {{#each players}}
             {{!-- {{{jsonPrint this}}} --}}
         
@@ -199,15 +199,21 @@
     
     {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
     {{#if last_round}}
-        <div id="game-ended" class="col-sm-12 hidden-el results last">
-            
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <h1 id="text">Game ended! {{!-- Going back home in... --}}</h1>
-                <div id="countdown"></div>
-            </div>
-            <div class="col-sm-4"></div>
+        <div id="game-ended" class="row hidden-el results last">
+            <div class="col-sm-3"></div>
+            <section class="col-sm-6 ended-container">
+                                    
+                    <div style="margin-top:10%" class="row">
+                        <h1 style="font-size: 3em;color: #ffa76d" class="game-header">Game Ended<br>Thank you for playing Hashtag You're It!
+                            </h1>
+                        <h1 style="font-size: 2.4em;color: #85e4cc" class="game-header">Please fill out the survey on your device.
+                            </h1>
 
+                        </div>
+                    </div>
+                    
+            </section>
+            <div class="col-sm-3"></div>
         </div>
     {{else}}
         <div id="next-round" class="col-sm-12 hidden-el results last">

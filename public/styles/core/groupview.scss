@@ -30,6 +30,15 @@
 
 }
 
+.ended-container {
+	background-color: white;
+	margin: 0 auto;
+}
+
+.winner {
+	background-color: white;
+}
+
 .game_code {
 	margin-top: 20%;
 
@@ -339,6 +348,9 @@
 			color: #FFF;
 		}
 	}
+	.score-box.winner {
+		background-color: $color-yellow;
+	}
 
 }
 #scores, #leaderboard {
@@ -376,6 +388,10 @@
 		margin: 0;
 		float: left;
 		transform: scale(0.8);
+	}
+	.voter.screen-title {
+		float: none;
+		margin: 0 auto;
 	}
 
 }

@@ -36,7 +36,7 @@ var players = [8];
 
 
 //Main Code
-TweenMax.from($lobbyPane, .75, {scale:0, ease:Expo.easeIn});
+TweenMax.from($lobbyPane, 1, {scale:0, ease:Elastic.easeOut});
 TweenMax.from($(".playerLeftEven"), 1.75, {x:-800, ease:Elastic.easeOut, delay: 1.5});
 TweenMax.from($(".playerRightEven"), 2.25, {x:800, ease:Elastic.easeOut, delay: 1.5});
 TweenMax.from($(".playerLeftOdd"), 1.25, {x:-800, ease:Elastic.easeOut, delay: 1.5});
@@ -59,10 +59,10 @@ $losePlayer.click(function(){
 
 $avatarsOut.click(function(){
 	TweenMax.to($lobbyPane, .75, {scale:0, ease:Expo.easeIn});
-	TweenMax.to($(".playerLeftEven"), 1.75, {x:-800, ease:Elastic.easeOut, delay: 1.5});
-	TweenMax.to($(".playerRightEven"), 2.25, {x:800, ease:Elastic.easeOut, delay: 1.5});
-	TweenMax.to($(".playerLeftOdd"), 1.25, {x:-800, ease:Elastic.easeOut, delay: 1.5});
-	TweenMax.to($(".playerRightOdd"), 2.75, {x:800, ease:Elastic.easeOut, delay: 1.5});
+	TweenMax.to($(".playerLeftEven"), 1.75, {x:1200, ease:Elastic.easeIn});
+	TweenMax.to($(".playerRightEven"), 1.25, {x:-1200, ease:Elastic.easeIn});
+	TweenMax.to($(".playerLeftOdd"), 1.25, {x:1200, ease:Elastic.easeIn});
+	TweenMax.to($(".playerRightOdd"), 1.75, {x:-1200, ease:Elastic.easeIn});
 });
 
 $("#lobbyLink").click(function (e) {
