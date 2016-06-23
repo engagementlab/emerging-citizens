@@ -387,8 +387,12 @@
 						  
 						  socket.on(id, function(eventData) {
 
-								console.log("EVENT ID: ", id);
-								console.log("EVENT DATA: (" + eventData + ")");
+								{{#ifnoteq environment "production"}}
+
+									console.log("EVENT ID: ", id);
+									console.log("EVENT DATA: (" + eventData + ")");
+
+								{{/ifnoteq}}
 
 							 	socketEvents(id, eventData); 
 							});
