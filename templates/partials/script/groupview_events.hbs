@@ -179,7 +179,8 @@ var socketEvents = function(eventId, eventData) {
                 }}, 2, '+=0.5')
 
                 .staggerFromTo($(el).find('.creator'), 1, {scale:0, opacity:0, autoAlpha:0, delay: 0}, {scale: 1, opacity: 1, autoAlpha:1}, 2, '+=0.5')
-                .staggerTo($(el).find('.voter .portrait'), 1, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 0, '-=0.5')
+                .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none', ease:Bounce.easeOut}, 2, '-=0.5')
+                .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
                 .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
 
                 .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
@@ -192,18 +193,14 @@ var socketEvents = function(eventId, eventData) {
             .fromTo($('#hashtag-results #prompt'), 0.5, {delay: 0, y:0, autoAlpha:1, opacity: 1, ease:Elastic.easeOut}, {y: 0, autoAlpha: 1, opacity: 1}, 2,  'real +=0.5')
             {{!-- .add(function() {console.log ("prompt shown")}) --}}
             {{!-- .fromTo($('#hashtag-results #prompt'), 0.5, { y: 100, opacity:0, scale: 0, autoAlpha: 0, ease: Elastic.easeOut }, {opacity:1, scale: 1, autoAlpha: 1}, 0.5, 'real') --}}
-            .from($(realHashtag).find('.hashtag'), 1, { delay: 1, y: 100, autoAlpha: 0}, 'real +=1.5')
+            .from($(realHashtag).find('.hashtag'), 1, { delay: 0.5, y: 100, autoAlpha: 0}, 'real +=1.0')
             .staggerFrom($(realHashtag).find('.voter'), 3, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
                 ion.sound.play("button_tiny");
 
             }}, 2)
-
-            .staggerFrom($(realHashtag).find('.voter .score'), 1.5, { scale: 0, autoAlpha:0, ease:Elastic.easeOut, onStart: function() {
-
-                ion.sound.play("pop_cork");
-
-            }}, 1)
+            .staggerTo($(realHashtag).find('.voter .portrait'), 1, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 1, '=0')
+            .staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
             .add(function () { console.log ("voter animation done")})
             {{!-- .to($(realHashtag), 0.5, { y:0, ease:Elastic.easeOut } ) --}}
             .add(function() { console.log ("did a thing")})
@@ -230,15 +227,15 @@ var socketEvents = function(eventId, eventData) {
                 scoreAnim.from($('#scores'), 1.5, {autoAlpha:0, ease:Bounce.easeOut})
                 .staggerFrom($('#scores .left .player'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 1)
                 .staggerFrom($('#scores .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, 1, "players")
-                .to($('#scores'), 1, {autoAlpha:0, display:'none', delay: 5});
+                .to($('#scores'), 1, {autoAlpha:0, display:'none', delay: 3});
 
                 // Winner Circle, if rendered
                 if($('#winners-circle')[0] !== undefined) {
 
                     scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
-                    .staggerFrom($('.score-box'), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
-                    .staggerTo($('.score-box'), 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, .3)
-                    .to($('#winners-circle'), 1, {autoAlpha:0, display:'none'})
+                    .staggerTo($('.score-box').get().reverse, 1, {xPercent:-100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: 5}, .3)
+                    .staggerFrom($('.score-box').get().reverse(), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
+                    .to($('#winners-circle'), 1, {autoAlpha:0, display:'none', delay: 5})
 
                 }
 
