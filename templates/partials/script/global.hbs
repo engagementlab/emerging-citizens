@@ -366,7 +366,7 @@
 
 						// Prevent device sleep
 						var noSleep = new NoSleep();
-						noSleep.enable();
+						noSleep.enable(5000);
 
 						// Load events for players
 						{{> script/player_events}}
