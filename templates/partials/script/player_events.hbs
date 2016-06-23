@@ -10,14 +10,18 @@
  */
 --}}
 
-var playerName;
-var playerHashtag;
+var playerWasReconnected = false;
 
 var socketEvents = function(eventId, eventData) {
 
     switch (eventId) {
 
         case 'connect':
+
+            // Check player is already logged in on server (call to socket if gameCode already defined in storage)
+            // var hasGameCode = (localStorage.getItem('gameCode') !== undefined);
+            
+            // if(hasGameCode)
 
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
@@ -32,12 +36,21 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:reconnected': 
+
+            // Set local player state as reconnected
+            playerWasReconnected = true;
+
+            break;
+
         case 'game:start':
 
             $('#gameContent').html(eventData);
 
             // Change background
             $('.body').addClass('player');
+
+            sessionStorage.setItem('voted', false);
 
             break;
 
@@ -73,19 +86,20 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'hashtags:submit':
-
-            // $('#countdownTimer').empty();
-
         case 'hashtags:received':  
 
             // TODO: Server-side?    
             $('#gameContent').html(eventData);
-            
 
             // Remove current player's submission from selections
-            console.log (playerHashtag + " is the hashtag");
-            $('#vote-submission').find('button[data-package="' + playerHashtag + '"]').remove();
+            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerHashtag') + '"]').remove();
+
+            // Hide voting?
+            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
+            {
+                $('#' + $('#submitted').data('hide')).remove();
+                $('#submitted').show();
+            }
 
             break;
 
@@ -103,8 +117,7 @@ var socketEvents = function(eventId, eventData) {
             $('#tweet-submission').hide();
             $('#submitted').show();
 
-            playerHashtag = eventData;
-            console.log (playerHashtag + " is the playerHashtag @ hashtag:success");
+            sessionStorage.setItem('playerHashtag', eventData);
 
             break;
 

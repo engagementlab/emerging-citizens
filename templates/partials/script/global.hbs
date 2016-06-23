@@ -25,7 +25,7 @@
 	{{else}}
 
 		// For socket debugging
-		localStorage.debug = '*';
+		sessionStorage.debug = '*';
 
 	{{/ifeq}}
 
@@ -101,6 +101,7 @@
 
 			'connect',
 			'player:id',
+			'player:reconnected',
 			'players:update',
 
 			'game:tutorial',
@@ -218,6 +219,57 @@
 
 			{{else}}
 
+					function playerLogin(data) {
+
+						gameCode = data.code;
+
+						// Save current game code to local storage
+						sessionStorage.setItem('gameCode', gameCode);
+
+						$('.navbar').slideUp();
+						
+						// Open socket connection
+						if(socket === undefined) {
+					    socket = io('//{{host}}');
+					    registerEvents();
+					  }
+
+						playerName = $('#player_name').val();
+						sessionStorage.setItem('username', playerName);
+
+						socket.on('disconnect', function(){
+						   // alert('disconnected!')
+						});
+
+		        // Log player in
+						socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
+
+					}
+
+					function checkIfLoggedIn() {
+						
+						var hasGameCode = (sessionStorage.getItem('gameCode') !== undefined);
+
+						if(!hasGameCode)
+							return;
+
+						gameCode = sessionStorage.getItem('gameCode');
+						
+						// Open socket connection
+						if(socket === undefined) {
+					    socket = io('//{{host}}');
+					    registerEvents();
+					  }
+            
+            socket.emit('login:active', {
+						  gameId: sessionStorage.getItem('gameCode'), 
+						  username: sessionStorage.getItem('username'),
+						  uid: sessionStorage.getItem('uUID')
+						});
+
+					}
+					checkIfLoggedIn();
+
 					/**
 					 * Listen for forms that dispatch socket events.
 					 *
@@ -229,6 +281,7 @@
 						
 						var event = $(this).data().event;
 						var localEvent = $(this).data().local_event;
+						var sessionFlag = $(this).data().sessionFlag;
 						var pkg = getFormData($(this));
 
 						// If this is a local event, call immediately (don't emit)
@@ -237,10 +290,14 @@
 							return;
 						}
 
+						// If there is a session flag ('flag:value'), set it
+						if(sessionFlag !== undefined)
+							sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
+
 						socket.emit(event, emitData(pkg));
 
 						if($(this).data().autohide) {
-							$('#' + $('#submitted').data('hide')).hide();
+							$('#' + $('#submitted').data('hide')).remove();
 							$('#submitted').show();
 						}
 
@@ -262,6 +319,9 @@
 					$(document).on('click', '.btn.game_login', function() {
 
 						var data = getFormData($(this));
+
+						var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+            sessionStorage.setItem('uUID', playerUID);
 
 					  $.post( 
 					  	"/game",
@@ -287,25 +347,12 @@
 									}
 
 									$('.form .error').text(data.msg).fadeIn();
-									
 									return;
+	
 								}
 
-								gameCode = data.code;
-								$('.navbar').slideUp();
-								
-								// Open socket connection
-						    socket = io('//{{host}}');
-						    registerEvents();
-
-								playerName = $('#player_name').val();
-
-								socket.on('disconnect', function(){
-								   // alert('disconnected!')
-								});
-
-				        // Log player in
-								socket.emit('login:submit', emitData({"username": playerName}));
+		            data.uid = playerUID;
+								playerLogin(data);							
 
 							}
 						);
