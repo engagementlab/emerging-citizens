@@ -30,6 +30,14 @@
     @font-face{
     	font-family: Aileron-Thin;
     	src: url(css/Aileron-Thin.otf);}
+    @font-face{
+        font-family: OdinRounded-Regular;
+        src: url(css/OdinRoundedRegular.otf);
+    }
+    @font-face{
+        font-family: OdinRounded-Bold;
+        src: url(css/OdinRoundedBold.otf);
+    }
 /*End Fonts*/
 /*Background Image*/
     body{
@@ -40,36 +48,93 @@
 /*Background Image End*/
 #startContext{ 
     width: 100%;
-    position: absolute;
 }
 
 #topMenu{
     width:200px;
-    position: relative;
     margin: 0 auto;
 }
 #menuImage{
     width:200px;
 }
 #contextPane{
-    position: relative;
     width: 800px;
     height: 650px;
     background-color: white;
     margin: 20px auto;
 }
-
+#redStroke{
+    width: 16px;
+    height: 650px;
+    background-position: center;
+    position: relative;
+    margin: 0 auto;
+    background-image: url("css/divider_red.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 3;
+}
 #pinkStroke{
+    background-position: center;
+    margin: auto 0;
+    background-image: url("css/divider_pink.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 800px;
+    height: 18px;
     z-index: 2;
     position: relative;
-    width: 800px;
+    top:-325px;
 }
-#redStroke{
-    z-index: 3;
-    position: relative;
-    height: 650px;
-    width: 1.5%;
+
+#q1{
+    width: 400px;
+    height: 325px;
+    z-index: 1;
+    position: absolute;
+    top:10px;
+    display: inline-block;
+}
+#pakistan{
+    background-image: url("css/pakistan.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 225px;
+    height: 225px;
     margin: 0 auto;
+}
+#pakistanText{
+    font-family: OdinRounded-Regular;
+    font-size: 48pt;
+    text-align: center;
+    color: #fd7174;
+}
+#q2{
+    width: 400px;
+    height: 325px;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 400px;
+}
+#pakistanInfo{
+    
+}
+#q3{
+    width: 400px;
+    height: 325px;
+    z-index: 1;
+    position: absolute;
+    top: 335px;
+}
+#q4{
+    width: 400px;
+    height: 325px;
+    z-index: 1;
+    position: absolute;
+    top: 335px;
+    left:400px;
 }
 
 	</style>
@@ -84,8 +149,17 @@
 <body>
 <div id="startContext">
     <div id="contextPane">
-    <img id="redStroke" src="css/divider_red.png">
-<!--     <img id="pinkStroke" src="css/divider_pink.png"> -->
+        <div id="redStroke"></div>
+        <div id="pinkStroke"></div>
+        <div id="q1">
+            <div id="pakistan"></div>
+            <h2 id="pakistanText">Pakistan</h2>
+        </div>
+        <div id="q2">
+            <h3 id="pakistanInfo">Pakistan (Listeni/ˈpækᵻstæn/ or Listeni/pɑːkᵻˈstɑːn/), officially the Islamic Republic of Pakistan, is a country in South Asia. It is the sixth-most populous country with a population exceeding 199 million people.[13]</h3>
+        </div>
+        <div id="q3"></div>
+        <div id="q4"></div>
     </div>
 </div>
 
@@ -110,6 +184,6 @@
     <!-- GreenSock library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
 <!-- Animation JS File -->
-    <script src="GeeksTest.js"></script>
+    <script src="GeeksContextTest.js"></script>
 </body>
 </html>
