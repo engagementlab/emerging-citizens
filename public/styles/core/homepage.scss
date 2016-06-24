@@ -87,6 +87,11 @@
   &.current {
     @include linear_transition(transform, 0.1s);
 
+    h1 {
+      font-size: 2.3em;
+      color: #58c5c1;
+    }
+
     &:hover {
       @include scale(1.1);
     }
