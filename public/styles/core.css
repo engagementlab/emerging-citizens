@@ -594,6 +594,8 @@ body .player-form {
   font-family: "Avenir";
   font-weight: bolder;
   font-size: xx-large; }
+  #mailing-list .email {
+    color: #58c5c1; }
   #mailing-list span a {
     color: white; }
     #mailing-list span a:hover {
