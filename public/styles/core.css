@@ -594,6 +594,8 @@ body .player-form {
   font-family: "Avenir";
   font-weight: bolder;
   font-size: xx-large; }
+  #mailing-list .email {
+    color: #58c5c1; }
   #mailing-list span a {
     color: white; }
     #mailing-list span a:hover {
@@ -636,6 +638,9 @@ body .player-form {
     -ms-transition: transform 0.1s linear;
     -o-transition: transform 0.1s linear;
     transition: transform 0.1s linear; }
+    .home-page-info.current h1 {
+      font-size: 2.3em;
+      color: #58c5c1; }
     .home-page-info.current:hover {
       -moz-transform: scale(1.1);
       -o-transform: scale(1.1);
@@ -805,6 +810,8 @@ footer {
   bottom: 1; }
 
 .footer {
+  color: #FFF;
+  font-size: medium;
   background-color: #ff9971; }
   @media (max-width: 480px) {
     .footer {
