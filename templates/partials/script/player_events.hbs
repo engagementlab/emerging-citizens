@@ -63,6 +63,9 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:ended':
 
+            // Remove saved game code since game is over
+            sessionStorage.removeItem('gameCode');
+
             $('#gameContent').html(eventData);
 
             break;
