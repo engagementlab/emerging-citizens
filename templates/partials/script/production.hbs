@@ -5,17 +5,17 @@
  * Developed by Engagement Lab, 2015
  * ==============
  * 
- * Script includes partial for PRODUCTION
+ * Script includes partial for PRODUCTION/STAGING
  * ==========
  */
 --}}
 
-{{!-- PRODUCTION SCRIPTS START --}}
+{{!-- PRODUCTION/STAGING SCRIPTS START --}}
 {{!-- Core framework JS --}}
 <script type="text/javascript" src="https://res.cloudinary.com/engagement-lab-home/raw/upload/site/js/core.js"></script>
 
 {{!-- Site JS --}}
-<script type="text/javascript" src="{{cdnAsset site='emerging-citizens' type='js' }}"></script>
+<script type="text/javascript" src="{{cdnAsset site='emerging-citizens' env=environment type='js' }}"></script>
 
 {{!-- TEMP --}}
 <script type="text/javascript" src="/bower_components/nosleep/NoSleep.min.js"></script>
