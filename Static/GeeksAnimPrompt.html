@@ -63,30 +63,6 @@
     background-color: white;
     margin: 20px auto;
 }
-#redStroke{
-    width: 16px;
-    height: 650px;
-    background-position: center;
-    position: relative;
-    margin: 0 auto;
-    background-image: url("css/divider_red.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 3;
-}
-#pinkStroke{
-    background-position: center;
-    margin: auto 0;
-    background-image: url("css/divider_pink.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 800px;
-    height: 18px;
-    z-index: 2;
-    position: relative;
-    top:-325px;
-}
-
 #q1{
     width: 400px;
     height: 325px;
@@ -110,7 +86,7 @@
     text-align: center;
     color: #fd7174;
 }
-#q2{
+#q3{
     width: 400px;
     height: 325px;
     z-index: 1;
@@ -119,14 +95,29 @@
     left: 400px;
 }
 #pakistanInfo{
-    
+    font-family: Aileron-Thin;
+    color: #07e8d0;
+    text-align: center;
+    padding: 15px;
+    top: 15px;
+    position: relative;
 }
-#q3{
+#q2{
     width: 400px;
     height: 325px;
     z-index: 1;
     position: absolute;
     top: 335px;
+}
+#moreInfo{
+    font-family: Aileron-Thin;
+    font-size: 12pt;
+    line-height: 1.75em;
+    text-align: center;
+    width: 325px;
+    position: relative;
+    margin: 0 auto;
+    top: 25px;
 }
 #q4{
     width: 400px;
@@ -136,6 +127,44 @@
     top: 335px;
     left:400px;
 }
+#timerBox{
+    background-image: url("css/timer_bounding_box.png");
+    width: 200px;
+    height: 150px;
+    top: -50px;
+    right: -97.5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: relative;
+}
+#timer{
+    font-family: OdinRounded-Bold;
+    font-size: 66pt;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    top: 25%;
+    color:#FD9A06;
+
+}
+#timer1{
+    color:#fd986c;
+}
+#timerColon{
+    color:#fd986c;
+}
+#timer2{
+    color:#fd560c;
+}
+#timer3{
+    color:#FD9A06;
+}
+#linkButton{
+    width: 100%;
+}
+
 
 	</style>
 </head>
@@ -149,8 +178,6 @@
 <body>
 <div id="startContext">
     <div id="contextPane">
-        <div id="redStroke"></div>
-        <div id="pinkStroke"></div>
         <div id="q1">
             <div id="pakistan"></div>
             <h2 id="pakistanText">Pakistan</h2>
@@ -158,10 +185,16 @@
         <div id="q2">
             <h3 id="pakistanInfo">Pakistan (Listeni/ˈpækᵻstæn/ or Listeni/pɑːkᵻˈstɑːn/), officially the Islamic Republic of Pakistan, is a country in South Asia. It is the sixth-most populous country with a population exceeding 199 million people.[13]</h3>
         </div>
-        <div id="q3"></div>
-        <div id="q4"></div>
+        <div id="q3"> <h3 id="moreInfo">Put a bird on it crucifix try-hard freegan, food truck 90's actually forage cray craft beer neutra synth bespoke. Irony seitan banjo, mumblecore pabst tattooed jean shorts twee fingerstache narwhal fashion axe four dollar toast distillery. Locavore kinfolk vegan, flannel bitters everyday carry kickstarter. Ennui actually pitchfork, tattooed slow-carb mumblecore YOLO man bun authentic organic lomo. </h3></div>
+        
+        <div id="q4">
+            
+        <h2 id="timer"><span id="timer1">0</span><span id="timerColon">:</span><span id="timer2">3</span><span id="timer3">0</span></h2>
+        <div id="timerBox"></div>
+        </div>
     </div>
 </div>
+<a id="contextLink" href="GeeksTargetArticle.html"><button id="linkButton">Load Next Page</button></a>
 
 <div id="targetArticle">
 </div>
