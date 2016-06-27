@@ -16,29 +16,26 @@
                     {{#if votes}}
                         
                         <div class="result {{#if submitters.[0].real}}real{{else}}fake{{/if}} hidden-el">
-                            {{!-- <p>{{jsonPrint this}}</p> --}}
-                                
-                                {{!-- {{#each submitters}} --}}
 
-                                    {{!-- TODO: How to show all submitters? --}}
-                                    {{#if submitters.[0].real}}
+                            {{!-- {{#each submitters}} --}}
 
-                                        <div id="prompt" class="hidden-el">
-                                            <div>the real hashtag was:</div>
-                                        </div>
+                                {{!-- TODO: How to show all submitters? --}}
+                                {{#if submitters.[0].real}}
 
-                                    {{else}}
-                                    <div class="section"> 
-                                        {{#each submitters}}
-                                            {{> group/player_badge user=this.user avatar_ind=this.user.index creator=true }}
-
-                                        {{/each}}
+                                    <div id="prompt" class="hidden-el">
+                                        <div>the real hashtag was:</div>
                                     </div>
-                                    {{/if}}
 
-                                {{!-- {{/each}} --}}
+                                {{else}}
+                                <div class="section"> 
+                                    {{#each submitters}}
+                                        {{> group/player_badge user=this.user avatar_ind=this.user.index creator=true }}
 
-                            
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+
+                            {{!-- {{/each}} --}}                          
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 

@@ -14,6 +14,7 @@
 
 	{{#ifeq environment "production"}}
 		
+		// GA include
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -25,7 +26,7 @@
 	{{else}}
 
 		// For socket debugging
-		localStorage.debug = '*';
+		sessionStorage.debug = '*';
 
 	{{/ifeq}}
 
@@ -75,6 +76,7 @@
 		});
 
   {{else}}
+
 		var socket;
 	  var gameCode;
 	  var playerId;
@@ -101,6 +103,7 @@
 
 			'connect',
 			'player:id',
+			'player:reconnected',
 			'players:update',
 
 			'game:tutorial',
@@ -124,13 +127,9 @@
 		
 		];
 
-		function updateUrl(url) {
-	   
-	    if (typeof(window.history.pushState) !== "undefined")
-	      window.history.pushState(null, null, url);
-	  
-	  }
-					
+		/* 
+		 Associate provided data object with current game ID
+		*/
 		function emitData(data) {
 
 			if(gameCode === undefined && typeof(data.code) !== 'undefined')
@@ -139,6 +138,9 @@
 			return { gameId: gameCode, msgData: data };
 		}
 
+		/* 
+		 Obtains the embedded data ('data-key="something"') object from the provided submit button
+		*/
 		function getFormData(submitElement) {
 
 			var pkg;
@@ -165,16 +167,15 @@
 				pkg = $(pkg).val();
 
 			return pkg;
+
 		}
 
-		{{#ifeq section 'group/monitor'}}
-
-		{{else}}
+		{{#ifnoteq section 'group/monitor'}}
 
 			// Load animations
 			{{> script/player_animation}}
 
-		{{/ifeq}}
+		{{/ifnoteq}}
 
 		$(document).ready(function() {
 
@@ -190,6 +191,7 @@
 
 				});
 
+				// Form click to begin game
 				$('#btn_submit').click(function(e) {
 					var data = {};
 					/*data.contentCategories = $(".form :input.active").map(function(){
@@ -211,6 +213,7 @@
 								
 								return;
 							}
+
 						  window.location = data;
 						}
 					);
@@ -218,17 +221,78 @@
 
 			{{else}}
 
+					/*
+						Logs the player in
+					*/
+					function playerLogin(data) {
+
+						gameCode = data.code;
+
+						// Save current game code to local storage
+						sessionStorage.setItem('gameCode', gameCode);
+
+						$('.navbar').slideUp();
+						
+						// Open socket connection
+						if(socket === undefined) {
+					    socket = io('//{{host}}');
+					    registerEvents();
+					  }
+
+						playerName = $('#player_name').val();
+						sessionStorage.setItem('username', playerName);
+
+						socket.on('disconnect', function(){
+						   // alert('disconnected!')
+						});
+
+						console.log('Connecting to game "' + gameCode + '".');
+
+		        // Log player in
+						socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
+
+					}
+
+					/*
+						Checks if this client is logged in as a player already
+					*/
+					function checkIfLoggedIn() {
+						
+						// Check if game code saved to session (player is already logged in)
+						if(!sessionStorage.getItem('gameCode'))
+							return;
+
+						gameCode = sessionStorage.getItem('gameCode');
+
+						console.log('Trying to re-connect to game "' + gameCode + '".');
+						
+						// Open socket connection
+						if(socket === undefined) {
+					    socket = io('//{{host}}');
+					    registerEvents();
+					  }
+            
+            // Check if player is active in game
+            socket.emit('login:active', {
+						  gameId: sessionStorage.getItem('gameCode'), 
+						  username: sessionStorage.getItem('username'),
+						  uid: sessionStorage.getItem('uUID')
+						});
+
+					}
+
 					/**
 					 * Listen for forms that dispatch socket events.
 					 *
 					 * ### Examples:
 					 *
-					 * @class sections
+					 * @class global
 					 */
 					$(document).on('click', '.form .submit', function() {
 						
 						var event = $(this).data().event;
 						var localEvent = $(this).data().local_event;
+						var sessionFlag = $(this).data().sessionFlag;
 						var pkg = getFormData($(this));
 
 						// If this is a local event, call immediately (don't emit)
@@ -237,10 +301,14 @@
 							return;
 						}
 
+						// If there is a session flag ('flag:value'), set it
+						if(sessionFlag !== undefined)
+							sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
+
 						socket.emit(event, emitData(pkg));
 
 						if($(this).data().autohide) {
-							$('#' + $('#submitted').data('hide')).hide();
+							$('#' + $('#submitted').data('hide')).remove();
 							$('#submitted').show();
 						}
 
@@ -262,6 +330,9 @@
 					$(document).on('click', '.btn.game_login', function() {
 
 						var data = getFormData($(this));
+
+						var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+            sessionStorage.setItem('uUID', playerUID);
 
 					  $.post( 
 					  	"/game",
@@ -287,30 +358,20 @@
 									}
 
 									$('.form .error').text(data.msg).fadeIn();
-									
 									return;
+	
 								}
 
-								gameCode = data.code;
-								$('.navbar').slideUp();
-								
-								// Open socket connection
-						    socket = io('//{{host}}');
-						    registerEvents();
-
-								playerName = $('#player_name').val();
-
-								socket.on('disconnect', function(){
-								   // alert('disconnected!')
-								});
-
-				        // Log player in
-								socket.emit('login:submit', emitData({"username": playerName}));
+		            data.uid = playerUID;
+								playerLogin(data);							
 
 							}
 						);
 
 					});
+
+					// Check if this client is logged in on server
+					checkIfLoggedIn();
 				
 					{{!-- INDEX Template Script --}}
 					{{#ifeq section 'group/monitor'}}
@@ -427,8 +488,6 @@
 		            
 		            });
 
-
-		            // updateUrl('/game/'+type);
 							}
 						);
 
@@ -469,7 +528,9 @@
 
 			});
 			$("#template_selector").change(function() {
+
 				templateLoad();
+			
 			});
 			
 	});
