@@ -34,6 +34,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     room: function(package) {
 
+      if(package.gameId === null) {
+        console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
+        return;
+      }
+
       // If '-group' specified as room affix, remove for game id
       if(package.gameId.indexOf('-group') !== -1)
           playerGameId = package.gameId.replace('-group', '');
@@ -111,15 +116,15 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       logger.info("Player '" + currentSocket.id + "' disconnecting.");
 
-      if(Session.Get(playerGameId) === undefined)
-        return;
-
       var session = Session.Get(playerGameId);
 
-      if(playerGameId !== undefined && session !== undefined) {
+      if(!session)
+        return;
+
+      if(playerGameId) {
         // session.PlayerLost(currentSocket.id, currentSpace);
 
-        if(currentSocket.id === Session.Get(playerGameId).groupModerator) {
+        if(currentSocket.id === session.groupModerator) {
           logger.debug('is group moderator')
           session.End(currentSpace, true);
         }

@@ -14,6 +14,7 @@
 
 	{{#ifeq environment "production"}}
 		
+		// GA include
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -75,6 +76,7 @@
 		});
 
   {{else}}
+
 		var socket;
 	  var gameCode;
 	  var playerId;
@@ -125,13 +127,9 @@
 		
 		];
 
-		function updateUrl(url) {
-	   
-	    if (typeof(window.history.pushState) !== "undefined")
-	      window.history.pushState(null, null, url);
-	  
-	  }
-					
+		/* 
+		 Associate provided data object with current game ID
+		*/
 		function emitData(data) {
 
 			if(gameCode === undefined && typeof(data.code) !== 'undefined')
@@ -140,6 +138,9 @@
 			return { gameId: gameCode, msgData: data };
 		}
 
+		/* 
+		 Obtains the embedded data ('data-key="something"') object from the provided submit button
+		*/
 		function getFormData(submitElement) {
 
 			var pkg;
@@ -166,16 +167,15 @@
 				pkg = $(pkg).val();
 
 			return pkg;
+
 		}
 
-		{{#ifeq section 'group/monitor'}}
-
-		{{else}}
+		{{#ifnoteq section 'group/monitor'}}
 
 			// Load animations
 			{{> script/player_animation}}
 
-		{{/ifeq}}
+		{{/ifnoteq}}
 
 		$(document).ready(function() {
 
@@ -191,6 +191,7 @@
 
 				});
 
+				// Form click to begin game
 				$('#btn_submit').click(function(e) {
 					var data = {};
 					/*data.contentCategories = $(".form :input.active").map(function(){
@@ -212,6 +213,7 @@
 								
 								return;
 							}
+
 						  window.location = data;
 						}
 					);
@@ -219,6 +221,9 @@
 
 			{{else}}
 
+					/*
+						Logs the player in
+					*/
 					function playerLogin(data) {
 
 						gameCode = data.code;
@@ -241,19 +246,25 @@
 						   // alert('disconnected!')
 						});
 
+						console.log('Connecting to game "' + gameCode + '".');
+
 		        // Log player in
 						socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
 
 					}
 
+					/*
+						Checks if this client is logged in as a player already
+					*/
 					function checkIfLoggedIn() {
 						
-						var hasGameCode = (sessionStorage.getItem('gameCode') !== undefined);
-
-						if(!hasGameCode)
+						// Check if game code saved to session (player is already logged in)
+						if(!sessionStorage.getItem('gameCode'))
 							return;
 
 						gameCode = sessionStorage.getItem('gameCode');
+
+						console.log('Trying to re-connect to game "' + gameCode + '".');
 						
 						// Open socket connection
 						if(socket === undefined) {
@@ -261,6 +272,7 @@
 					    registerEvents();
 					  }
             
+            // Check if player is active in game
             socket.emit('login:active', {
 						  gameId: sessionStorage.getItem('gameCode'), 
 						  username: sessionStorage.getItem('username'),
@@ -268,14 +280,13 @@
 						});
 
 					}
-					checkIfLoggedIn();
 
 					/**
 					 * Listen for forms that dispatch socket events.
 					 *
 					 * ### Examples:
 					 *
-					 * @class sections
+					 * @class global
 					 */
 					$(document).on('click', '.form .submit', function() {
 						
@@ -358,6 +369,9 @@
 						);
 
 					});
+
+					// Check if this client is logged in on server
+					checkIfLoggedIn();
 				
 					{{!-- INDEX Template Script --}}
 					{{#ifeq section 'group/monitor'}}
@@ -474,8 +488,6 @@
 		            
 		            });
 
-
-		            // updateUrl('/game/'+type);
 							}
 						);
 
@@ -516,7 +528,9 @@
 
 			});
 			$("#template_selector").change(function() {
+
 				templateLoad();
+			
 			});
 			
 	});
