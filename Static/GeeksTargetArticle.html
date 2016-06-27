@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>WikiGeeks Prompt Context - Emerging Citizens</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+    <style>
+    /*Import Fonts*/
+
+   	@font-face{
+    	font-family: Avenir-Regular;
+    	src: url(css/AvenirLTStd-Book.otf);}
+    @font-face{
+        font-family: Avenir-Bold;
+        src: url(css/AvenirBold.ttf);}
+  
+    @font-face{
+        font-family: OdinRounded-Regular;
+        src: url(css/OdinRoundedRegular.otf);
+    }
+    @font-face{
+        font-family: OdinRounded-Bold;
+        src: url(css/OdinRoundedBold.otf);
+    }
+/*End Fonts*/
+/*Background Image*/
+    body{
+      background-image: url("css/WG_grid_tileable.png");
+      background-repeat: repeat;
+      overflow-x: hidden;
+      padding: 0;}
+/*Background Image End*/
+#startContext{ 
+    width: 100%;
+}
+
+#topMenu{
+    width:200px;
+    margin: 0 auto;
+}
+#menuImage{
+    width:200px;
+}
+#targetPane{
+    width: 800px;
+    height: 650px;
+    background-color: white;
+    margin: 20px auto;
+    border: 8px solid #ffc844;
+}
+#header{
+    text-align: center;
+    font-family: Avenir-Bold;
+    color: #2ae9d2;
+    font-size: 24pt;
+}
+#articleTitle{
+    font-family: Avenir-Regular;
+    font-size: 30pt;
+    color:#ff7376;
+    text-align: center;
+    margin-top: 15px;
+}
+#indianSoldiers{
+    background-image: url("css/indianSoldiers.jpg");
+    width: 250px;
+    height: 225px;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+    top: -220px;
+    right: -50px;
+}
+#articleInfo{
+    font-family: Avenir-Regular;
+    color: #575757;
+    margin-left: 375px;
+    margin-top: 50px;
+    font-size: 18pt;
+    width: 500px;
+    line-height: 1.5em;
+}
+
+	</style>
+</head>
+
+<header>
+    <div id="topMenu">
+    <img id="menuImage" src="css/menu.png">
+    </div>
+</header>
+
+<body>
+<div id="targetArticle">
+    <div id="targetPane">
+        <div><h2 id="header">Find the article!</h2></div>
+        <div id="articleTitle">"Indo-Pakistani War of 1947"</div>
+        <div id="articleInfo">The Indo-Pakistani War of 1947-1948, sometimes known as the First Kashmir War, was fought between India and Pakistan over the princely state of Kashmir and Jammu. It was the first of four Indo-Pakistan Wars fought between the two newly independent nations.</div>
+        <div id="indianSoldiers"></div>
+    </div>
+</div>
+
+<div id="topThree">
+</div>
+
+<div id="leaderboard">
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="GeeksTargetArticle.js"></script>
+</body>
+</html>
