@@ -15,8 +15,7 @@
 
 var keystone = require('keystone'),
     async = require('async'),
-    appRoot = require('app-root-path'),
-    _ = require('underscore');
+    appRoot = require('app-root-path');
     
 var HashtagGame = keystone.list('HashtagGame'),
     Game = require(appRoot + '/lib/GameManager'),

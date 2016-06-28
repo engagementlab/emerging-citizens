@@ -13,8 +13,7 @@
  * ==========
  */
 
-var keystone = require('keystone'),
-    _ = require('underscore');
+var keystone = require('keystone');
 
 exports = module.exports = function(req, res) {
 

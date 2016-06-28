@@ -12,8 +12,7 @@
  */
 
 
-var _ = require('underscore'),
-    appRoot = require('app-root-path'),
+var appRoot = require('app-root-path'),
     logger = require('winston'),
     colors = require('colors'),
 
