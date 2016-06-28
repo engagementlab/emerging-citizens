@@ -25,9 +25,9 @@ exports = module.exports = function(req, res) {
     var gameCode;
 
     var GameType = {
-        0 : "Hash Tag You're It"
+        0 : "Hash Tag You're It",
         // 1 : "Wait, Wait, Don't Tell MEME",
-        // 2 : "WikiGeeks"
+        1 : "WikiGeeks"
     }
 
     // locals.section is used to set the currently selected

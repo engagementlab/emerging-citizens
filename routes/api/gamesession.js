@@ -19,6 +19,7 @@ var keystone = require('keystone'),
     _ = require('underscore');
     
 var HashtagGame = keystone.list('HashtagGame'),
+    WikiGame = keystone.list('WikiGame'),
     Game = require(appRoot + '/lib/GameManager'),
     Session = require(appRoot + '/lib/SessionManager'),
     ContentCategory = keystone.list('ContentCategory');
@@ -40,19 +41,28 @@ exports.create = function(req, res) {
            res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
            return;
         }
+
+        data.gameType = "1";
         
-        // if(data.gameType === "0")
+        if(data.gameType === "0") {
+            console.log ("starting HTYI");
             sessionType = new HashtagGame.model();
+        } 
+        if (data.gameType === "1") {
+            console.log ("starting WikiGeeks");
+            sessionType = new WikiGame.model();
+        }
 
         // TODO: temporary
-        data.gameType = "0";
+        // data.gameType = "0";
 
         sessionType.getUpdateHandler(req).process(data, function(err) {
             
             if (err) return res.apiError('error', err);
-
+            // console.log (data.accessCode + " ...data.accessCode");
             // Save this session to memory for faster retrieval (deleted when game ends)
             Session.Create(data.accessCode, new Game(sessionType));
+
 
             res.send('/game/' + data.accessCode);
             

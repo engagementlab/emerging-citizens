@@ -24,7 +24,8 @@ var ContentCategory = new keystone.List('ContentCategory', {
 
 ContentCategory.add({
 
-  name: { type: String, required: true, initial: true, label: "Category Name" }
+  name: { type: String, required: true, initial: true, label: "Category Name" }, 
+  game: { type: Types.Select, required: true, initial: true, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true} 
 
 });
 

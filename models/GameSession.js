@@ -20,6 +20,7 @@ var Types = keystone.Field.Types;
 var GameSession = new keystone.List('GameSession', {
 		editable: false,
 		cancreate: false,
+		// hidden: true,
     track: true
 });
 /**
@@ -28,8 +29,8 @@ var GameSession = new keystone.List('GameSession', {
  */
 GameSession.add({
 
-  accessCode: { type: String, required: true, initial: true },
-  gameType: { type: String, required: true, initial: true },
+  accessCode: { type: String, required: true, initial: true, hidden: true },
+  gameType: { type: String, required: true, initial: true, hidden:true },
 
   dateCreated: { type: Date, noedit: true }
 

@@ -33,7 +33,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
   this.handler = {
 
     room: function(package) {
-
+      console.log (package);
       if(package.gameId === null) {
         console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
         return;
@@ -59,8 +59,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
       if(package.msgData == 'moderator') {
 
         Session.GroupView(package.gameId, currentSocket.id);
+        // console.log (playerGameId);
+        // console.log (currentSpace);
+        console.log ("bin");
         Session.Get(playerGameId).ModeratorJoin(currentSpace);
-
+        console.log ("msgData is moderator");
       }
         
       logger.info(currentSocket.id + ' connected to room.');
@@ -125,7 +128,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         // session.PlayerLost(currentSocket.id, currentSpace);
 
         if(currentSocket.id === session.groupModerator) {
-          logger.debug('is group moderator')
+          logger.debug('is group moderator');
           session.End(currentSpace, true);
         }
 

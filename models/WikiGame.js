@@ -12,7 +12,7 @@
  */
 var keystone = require('keystone');
 var GameSession = require('./GameSession');
-var Tweet = require('./Tweet');
+// var Tweet = require('./Tweet');
 var Types = keystone.Field.Types;
 
 /**
@@ -20,25 +20,26 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
-var HashtagGame = new keystone.List('HashtagGame', {
+var WikiGame = new keystone.List('WikiGame', {
     inherits: GameSession,
     track: true
 });
 
-HashtagGame.add({
+WikiGame.add({
 
-  contentCategories: { type: Types.Relationship, ref: 'ContentCategory', many: true },
+  contentCategories: { type: keystone.Field.Types.Relationship, ref: 'ContentCategory', many: true },
   // roundData: { type: Array }
-  tweets: { type: Types.Relationship, ref: 'Tweet', many: true }
+
+  destinationLinks: { type: Types.Relationship, ref: 'WikiLinks', many: true }
 
 });
 
 // Store all hashtag submissions/votes (not visible in admin UI)
-HashtagGame.schema.add({ submissions: Object });
+WikiGame.schema.add({ submissions: Object });
 
 /**
  * Registration
  */
 
-HashtagGame.defaultColumns = 'name';
-HashtagGame.register();
+// WikiGame.defaultColumns = 'contentCategories';
+WikiGame.register();
