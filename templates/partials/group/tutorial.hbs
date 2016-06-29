@@ -10,7 +10,12 @@
 <div class="tutorial col-sm-12">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
+    {{#ifeq game "HTYI"}}
 	    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_946/v1466105767/emerging-citizens/images/tutorial/htyi.png" id="tutorial_img">
+        {{/ifeq}}
+        {{#ifeq game "wiki"}}
+
+        {{/ifeq}}
     </div>
     <div class="col-sm-2 form">
 	      <div id="countdown" class="submit" data-event="game:start">

@@ -48,10 +48,10 @@ exports = module.exports = function(req, res) {
         locals.accessCodeSplit = game.accessCode.split('');
 
         locals.gameType = game.gameType;
-        
+
         locals.game = game;
         locals.players = {left: [1, 2, 3, 4], right: [5, 6, 7, 8]};
-
+        console.log (locals, "locals");
         next();
 
     });
