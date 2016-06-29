@@ -41,5 +41,5 @@ WikiLinks.add({
  * Registration
  */
 
-WikiLinks.defaultColumns = 'category, topic, destinationLinks';
+WikiLinks.defaultColumns = 'category, destinationLinks';
 WikiLinks.register();
