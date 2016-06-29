@@ -2,5 +2,11 @@
 	"name": "Emerging Citizens",
 	"subdomain": "emerging",
 	"directory": "emerging-citizens",
-	"database": "emerging-citizens"
+	"database": "emerging-citizens", 
+	"admin_nav": { 
+						"Game Config": ["GameConfig", "GameSession", "ContentCategory", "GameUser", "HomePage"],
+						"HTYI": ["Tweet", "HashtagGame"],
+						"WikiGeeks": ["WikiGame", "WikiLinks"]
+						
+					}
 }

@@ -33,11 +33,20 @@ GameConfig.add({
 
 	"Hashtag You're It", {
 
-	  playerCap: { type: Number, label: "Player Cap", required: true, initial: true },
-	  timeLimit: { type: Number, label: "Time Limit", required: true, initial: true },
-		roundNumber: { type: Number, label: "Number of Rounds", required: true, initial: true },
+	  playerCapHashtag: { type: Number, label: "Player Cap", required: true, initial: true },
+	  timeLimitHashtag: { type: Number, label: "Time Limit", required: true, initial: true },
+		roundNumberHashtag: { type: Number, label: "Number of Rounds", required: true, initial: true },
 		voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
 		voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }
+
+	}, 
+	"Wiki Geeks", {
+
+	  playerCapWiki: { type: Number, label: "Player Cap", required: true, initial: true },
+	  timeLimitWiki: { type: Number, label: "Time Limit", required: true, initial: true },
+		roundNumberWiki: { type: Number, label: "Number of Rounds", required: true, initial: true }
+		// voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
+		// voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }
 
 	}
 
