@@ -11,7 +11,6 @@
  **/
 
 var keystone = require('keystone');
-var _ = require('underscore');
 
 /**
 	Initialises the standard view locals

@@ -1,5 +1,11 @@
 // Return server object
 serverStart = function() {
+  
+  /* Global accessor for underscore  */
+	_ = require('underscore');
+
+  /* Global accessor for logger  */
+  logger = require('winston');
 	
 	var express = require('express');
 	var app = express();
@@ -21,14 +27,10 @@ appStart = function(app) {
 	var rootDir = require('app-root-path');
 	var io = require(rootDir + '/sockets/')(appServer);
 
-	// io.set('origins')
-
 	if(process.env.NODE_ENV === 'staging')
 		var consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');
 	else
 		console.re = console;
-
-	console.log(console.re)
 
 };
 

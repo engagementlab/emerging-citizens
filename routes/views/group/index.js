@@ -13,7 +13,6 @@
  * ==========
  */
 var keystone = require('keystone'),
-    _ = require('underscore'),
     randomstring = require('randomstring'),
     GameSession = keystone.list('GameSession'),
     ContentCategory = keystone.list('ContentCategory');

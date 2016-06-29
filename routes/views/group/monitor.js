@@ -12,8 +12,7 @@
  *
  * ==========
  */
-var keystone = require('keystone'),
-	_ = require('underscore'),
+var keystone = require('keystone')
   appRoot = require('app-root-path'),
   GameSession = keystone.list('GameSession');
 
