@@ -117,13 +117,23 @@
 			'game:countdown_ending',
 			'game:countdown_end',
 			'game:round_over',
-			
-			'hashtag:tryagain',
-			'hashtag:success',
 
-			'hashtags:received',
-			'hashtags:results',
-			'hashtags:reveal'
+			{{#ifeq gameType 'htyi'}}
+			
+				'hashtag:tryagain',
+				'hashtag:success',
+
+				'hashtags:received',
+				'hashtags:results',
+				'hashtags:reveal'
+
+			{{/ifeq}}
+
+			{{#ifeq gameType 'wikigeeks'}}
+			
+				'article:start'
+
+			{{/ifeq}}
 		
 		];
 
@@ -192,7 +202,7 @@
 				});
 
 				// Form click to begin game
-				$('#btn_submit').click(function(e) {
+				$('#btn_submit').click(function(evt) {
 					var data = {};
 					/*data.contentCategories = $(".form :input.active").map(function(){
 																	    return $(this).val();
@@ -200,7 +210,7 @@
 					data.accessCode = $('#access-code').text();
 
 				  $.post( 
-				  	"/api/create/",
+				  	"/api/create/" + $(evt.currentTarget).data().type,
 						data,
 						function( data ) {
 

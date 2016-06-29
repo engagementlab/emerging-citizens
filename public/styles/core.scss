@@ -1,13 +1,17 @@
-@import "core/fonts";
-@import "core/variables";
-@import "core/mixins";
-@import "core/functions";
-@import "core/forms";
-@import "core/player";
-@import "core/groupview";
-@import "core/comingsoon";
-@import "core/homepage";
-@import "core/media";
+@import "_core/fonts";
+@import "_core/variables";
+@import "_core/mixins";
+@import "_core/functions";
+@import "_core/forms";
+@import "_core/player";
+@import "_core/groupview";
+@import "_core/comingsoon";
+@import "_core/homepage";
+@import "_core/media";
+
+// Game-specific styling
+@import "_htyi/groupview";
+@import "_wiki/groupview";
 
 html, body {
 	max-height: 100%;
@@ -23,13 +27,13 @@ html, body {
 	color: white;
 }
 
-
-
 // Body
 .body {
-  
-  background-image: $background-main;
   font-family: "Avenir";
+
+  // &.htyi {
+	  background: $background-main, $color-peach;
+	// }
 
 	@include mobile-only {
 	  background-color: #fdae8f;
@@ -38,7 +42,14 @@ html, body {
 
 .body.game-bg {
 
-  background: $background-groupview, $color-peach;
+  @include linear_transition(background, 0.5s);
+
+  &.htyi {
+	  background: $background-groupview, $color-peach;
+	}
+	&.wikigeeks {
+	  background-image: $background-wiki;
+	}
 
 }
 
@@ -50,9 +61,6 @@ html, body {
 }
 
 .body.player {
-
-  @include linear_transition(background, 0.5s);
-  background-color: $color-peach; /* W3C compliant */
 
 }
 
@@ -122,7 +130,6 @@ html, body {
 }
 
 // Top Nav
-
 nav.header.navbar-fixed-top{
   position: static;
 

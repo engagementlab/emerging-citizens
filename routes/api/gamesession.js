@@ -28,8 +28,15 @@ var HashtagGame = keystone.list('HashtagGame'),
  */
 exports.create = function(req, res) {
 
+    // Check if game type specified
+    if(!req.params.game_type)        
+        return res.notfound('Game type not specified!', 'Sorry, but a game type needs to be specified.');  
+
     var sessionType;
     var data = (req.method == 'POST') ? req.body : req.query;
+    
+    // Set game type for model
+    data.gameType = req.params.game_type;
 
     ContentCategory.model.find({}, 'name', function (err, categories) {
 
@@ -40,28 +47,22 @@ exports.create = function(req, res) {
            res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
            return;
         }
-
-        data.gameType = "1";
         
-        if(data.gameType === "0") {
+        if(data.gameType === "htyi") {
             console.log ("starting HTYI");
             sessionType = new HashtagGame.model();
         } 
-        if (data.gameType === "1") {
+        else if (data.gameType === "wikigeeks") {
             console.log ("starting WikiGeeks");
             sessionType = new WikiGame.model();
         }
 
-        // TODO: temporary
-        // data.gameType = "0";
-
         sessionType.getUpdateHandler(req).process(data, function(err) {
             
             if (err) return res.apiError('error', err);
-            // console.log (data.accessCode + " ...data.accessCode");
+
             // Save this session to memory for faster retrieval (deleted when game ends)
             Session.Create(data.accessCode, new Game(sessionType));
-
 
             res.send('/game/' + data.accessCode);
             

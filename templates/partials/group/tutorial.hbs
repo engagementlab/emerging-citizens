@@ -7,16 +7,26 @@
 </defs>
 </svg>
 
-<div class="tutorial col-sm-12">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-	    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_946/v1466105767/emerging-citizens/images/tutorial/htyi.png" id="tutorial_img">
+{{#ifeq gameType "htyi"}}
+
+    <div class="tutorial col-sm-12">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+    	    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_946/v1466105767/emerging-citizens/images/tutorial/htyi.png" id="tutorial_img">
+        </div>
+        <div class="col-sm-2 form">
+    	      <div id="countdown" class="submit" data-event="game:start">
+            </div>
+            <div id="continue">
+              <svg class="icon icon-arrow-right hidden-el"><use xlink:href="#icon-arrow-right"></use></svg>
+            </div>
+    		</div>
     </div>
-    <div class="col-sm-2 form">
-	      <div id="countdown" class="submit" data-event="game:start">
-        </div>
-        <div id="continue">
-          <svg class="icon icon-arrow-right hidden-el"><use xlink:href="#icon-arrow-right"></use></svg>
-        </div>
-		</div>
-</div>
+
+{{/ifeq}}
+
+{{#ifeq gameType "wikigeeks"}}
+
+    Tutorial here!
+
+{{/ifeq}}
