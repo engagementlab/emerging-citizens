@@ -16,7 +16,6 @@ var keystone = require('keystone'),
     appRoot = require('app-root-path'),
     GameSession = keystone.list('GameSession'),
     Session = require(appRoot + '/lib/SessionManager');
-    Templates = require(appRoot + '/lib/TemplateLoader');
 
 exports = module.exports = function(req, res) {
 

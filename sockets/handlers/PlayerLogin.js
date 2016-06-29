@@ -16,9 +16,12 @@ var appRoot = require('app-root-path'),
     logger = require('winston'),
     colors = require('colors'),
 
+    TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
     Session = require(appRoot + '/lib/SessionManager');
 
 var PlayerLogin = function (nsp, socket, emitter) {
+
+  var Templates = new TemplateLoader();
 
   var currentSpace;
   var currentSocket;
@@ -32,7 +35,6 @@ var PlayerLogin = function (nsp, socket, emitter) {
   this.handler = {
 
     room: function(package) {
-      console.log (package);
       if(package.gameId === null) {
         console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
         return;
@@ -44,7 +46,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
       else {
         playerGameId = package.gameId;
   
-        if(Session.Get(playerGameId) === undefined) {
+        if(!Session.Get(playerGameId)) {
           currentSocket.emit('game:notfound');
           return;
         }
@@ -56,14 +58,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
           throw err;
       });
 
-      if(package.msgData == 'moderator') {
+      if(package.msgData == 'moderator' && Session.Get(playerGameId)) {
 
         Session.GroupView(package.gameId, currentSocket.id);
-        // console.log (playerGameId);
-        // console.log (currentSpace);
-        console.log ("bin");
         Session.Get(playerGameId).ModeratorJoin(currentSpace);
-        console.log ("msgData is moderator");
       }
         
       logger.info(currentSocket.id + ' connected to room.');

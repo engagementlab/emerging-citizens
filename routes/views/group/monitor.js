@@ -47,8 +47,11 @@ exports = module.exports = function(req, res) {
 
         locals.accessCodeSplit = game.accessCode.split('');
 
-        // Set game type for downstream templates
-        locals.gameType = game.gameType;
+        // Set global game type
+        gameType = game.gameType;
+
+        // Set local for this view only
+        locals.gameType = gameType;
         locals.game = game;
 
         locals.players = {left: [1, 2, 3, 4], right: [5, 6, 7, 8]};
