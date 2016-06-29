@@ -36,8 +36,12 @@
             {{#ifeq section "index"}}
                 {{> nav}}
                 <div class="container">
-            {{else}}
-                {{> group/header_htyi}}
+            {{/ifeq}}
+            {{#ifeq gameType "htyi"}}
+                {{> group/htyi/header_htyi}}
+            {{/ifeq}}
+            {{#ifeq gameType "wiki"}}
+                {{> group/wiki/header_wiki}}
             {{/ifeq}}
         {{/ifeq}}
 

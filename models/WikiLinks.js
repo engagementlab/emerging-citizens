@@ -26,7 +26,7 @@ var WikiLinks = new keystone.List('WikiLinks', {
 WikiLinks.add({
 	// name: { type: String, label: 'Reference Name', required: true, initial: true, index: true },
 	// topic: { type: Types.Relationship, label: 'General Topic', required: true, initial: true },
-	destinationLinks: { type: Types.TextArray, label: 'Destination Links'},
+	destinationLinks: { type: Types.TextArray, label: 'Destination Article Links'},
 	category: {
             type: Types.Relationship,
             ref: 'ContentCategory',
