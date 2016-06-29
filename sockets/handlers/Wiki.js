@@ -62,6 +62,13 @@ var Wiki = function (nsp, socket) {
             Session.Get(package.gameId).
             AdvanceRound(currentSpace);
 
+        },
+
+        'articles:search': function(package) {
+
+            Session.Get(package.gameId).
+            SearchArticles(currentSpace, package.msgData);
+
         }
     
     };

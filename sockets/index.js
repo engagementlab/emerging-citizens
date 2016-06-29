@@ -5,6 +5,7 @@ module.exports = function(app) {
   var GameManager = require('../lib/GameManager');
 
   var HashtagHandler = require('./handlers/Hashtag');
+  var WikiHandler = require('./handlers/Wiki');
   var PlayerLogin = require('./handlers/PlayerLogin');
 
   io.on('connection', function (socket) {
@@ -14,6 +15,7 @@ module.exports = function(app) {
     // Create event handlers for this socket
     var eventHandlers = {
         hashtag: new HashtagHandler(io, socket),
+        hashtag: new WikiHandler(io, socket),
         login: new PlayerLogin(io, socket)
     };
 

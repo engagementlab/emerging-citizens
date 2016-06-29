@@ -140,7 +140,7 @@ var socketEvents = function(eventId, eventData) {
         {{#ifeq gameType 'wikigeeks'}}
         
              // Begin article search
-            case 'article:start':
+            case 'article:found':
 
                 $('#gameContent').html(eventData);
 
