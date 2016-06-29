@@ -25,7 +25,8 @@ var ContentCategory = new keystone.List('ContentCategory', {
 ContentCategory.add({
 
   name: { type: String, required: true, initial: true, label: "Category Name" }, 
-  game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true} 
+  game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true}, 
+  description: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}
 
 });
 
