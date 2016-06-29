@@ -1,0 +1,24 @@
+/* 
+	HTYI group view styling.
+*/
+.body.htyi {
+
+	#game_code {
+		margin-top: 20%;
+
+		#first {
+			color: $color-red;
+		}
+		#second {
+			color: $color-light-orange;
+		}
+		#third {
+			color: $color-yellow;
+		}
+		#fourth {
+			color: $color-green;
+		}
+
+	}
+
+}

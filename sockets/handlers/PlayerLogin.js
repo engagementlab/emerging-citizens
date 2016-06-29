@@ -41,14 +41,15 @@ var PlayerLogin = function (nsp, socket, emitter) {
       // If '-group' specified as room affix, remove for game id
       if(package.gameId.indexOf('-group') !== -1)
           playerGameId = package.gameId.replace('-group', '');
-      else
+      else {
         playerGameId = package.gameId;
-      
-      if(Session.Get(playerGameId) === undefined) {
-        currentSocket.emit('game:notfound');
-        return;
+  
+        if(Session.Get(playerGameId) === undefined) {
+          currentSocket.emit('game:notfound');
+          return;
+        }
       }
-
+  
       currentSocket.join(package.gameId, function(err) {
 
         if(err)

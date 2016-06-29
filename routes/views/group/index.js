@@ -19,14 +19,20 @@ var keystone = require('keystone'),
 
 exports = module.exports = function(req, res) {
 
+    // Check if game type specified
+    if(!req.params.game_type)        
+        return res.notfound('Game type not specified!', 'Sorry, but a game type needs to be specified.');  
+
     var view = new keystone.View(req, res);
     var locals = res.locals;
+
+    var gameType = req.params.game_type;
     var gameCode;
 
     var GameType = {
-        0 : "Hash Tag You're It",
+        'htyi' : "Hash Tag You're It",
+        'wikigeeks' : "WikiGeeks"
         // 1 : "Wait, Wait, Don't Tell MEME",
-        1 : "WikiGeeks"
     }
 
     // locals.section is used to set the currently selected
@@ -62,7 +68,7 @@ exports = module.exports = function(req, res) {
         ContentCategory.model.find({}, 'name', function (err, categories) {
 
             locals.gameCode = gameCode;
-            locals.gameTypes = _.values(GameType);
+            locals.gameType = gameType;
 
             locals.categories = categories;
 

@@ -21,13 +21,9 @@
 
         {{!-- Load our CSS/docs --}}
         {{> css environment=env section=section}}
-        
-        {{!-- This file provides the default styling for the KeystoneJS Content Editor
-        - only renders when user is logged in and admin--}}
-        {{!-- {{{isAdminEditorCSS user}}} --}}
     </head>
     
-    <body class="body">
+    <body class="body {{gameType}}">
 
         {{#ifeq section "comingsoon"}}
             {{> nav_comingsoon}}
@@ -36,12 +32,6 @@
             {{#ifeq section "index"}}
                 {{> nav}}
                 <div class="container">
-            {{/ifeq}}
-            {{#ifeq gameType "htyi"}}
-                {{> group/htyi/header_htyi}}
-            {{/ifeq}}
-            {{#ifeq gameType "wiki"}}
-                {{> group/wiki/header_wiki}}
             {{/ifeq}}
         {{/ifeq}}
 
