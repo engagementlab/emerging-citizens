@@ -716,6 +716,17 @@ body .player-form {
 .body.wikigeeks #game_code {
   color: #fe6444; }
 
+.body.wikigeeks .room-container {
+  padding: 5%; }
+  .body.wikigeeks .room-container p {
+    color: #2bd3ee; }
+  .body.wikigeeks .room-container .topic-title {
+    color: #fe6444; }
+
+.body.wikigeeks .topic-image img {
+  max-width: 200px;
+  max-height: 200px; }
+
 html, body {
   max-height: 100%; }
 

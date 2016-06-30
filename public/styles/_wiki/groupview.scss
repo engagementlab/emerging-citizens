@@ -8,4 +8,22 @@
 		color: $color-red;
 	}
 
+	.room-container {
+		padding: 5%;
+
+		p {
+			color: $color-light-blue;
+		}
+
+		.topic-title {
+			color: $color-red;
+		}
+
+	}
+
+	.topic-image img {
+		max-width: 200px;
+		max-height: 200px;
+	}
+
 }
