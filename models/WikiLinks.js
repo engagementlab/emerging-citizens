@@ -24,8 +24,9 @@ var WikiLinks = new keystone.List('WikiLinks', {
 });
 
 WikiLinks.add({
-	// name: { type: String, label: 'Reference Name', required: true, initial: true, index: true },
-	destinationLinks: { type: Types.TextArray, label: 'Destination Article Links'},
+	articleUrl: { type: String, label: 'Article Link', required: true, initial: true, index: true },
+    articleName: { type: Types.Markdown, label: 'Destination Article Name', initial:true, required:true},
+    articleDescription: { type: Types.Markdown, label: 'Destination Article Description', initial:true, required:true},
 	category: {
             type: Types.Relationship,
             ref: 'ContentCategory',
@@ -40,5 +41,5 @@ WikiLinks.add({
  * Registration
  */
 
-WikiLinks.defaultColumns = 'category, destinationLinks';
+WikiLinks.defaultColumns = 'category, articleUrl, articleName';
 WikiLinks.register();

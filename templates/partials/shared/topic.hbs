@@ -1,14 +1,28 @@
 <div class="row" id="current-tweet">
-    <div class="col-sm-12">
-        <h1>Find a starting article based on this topic</h1>
-        <h3>{{{text}}}</h3>
+    <div class="col-sm-6">
+        <div class="topic-image">
+            
+            <img src="{{{cloudinaryUrl this.image width=auto height=auto crop='scale' quality=100}}}">
+
+        </div>
+        <h2>{{{this.topicName}}}</h2>
     </div>
-    
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+        <h3>Find a starting article based on this topic</h3>        
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
 	    <div class="topic-description">
 	    	
-        {{{text.description.html}}}
+            <p>{{{this.topicDescription}}}</p>
 
 	    </div>
+    </div>
+    <div class="col-sm-6 form">
+      <div id="countdown" class="submit" data-event="game:start"></div>
+        <div id="continue">
+          <svg class="icon icon-arrow-right hidden-el"><use xlink:href="#icon-arrow-right"></use></svg>
+        </div>        
     </div>
 </div>

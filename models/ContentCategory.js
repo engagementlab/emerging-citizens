@@ -26,7 +26,8 @@ ContentCategory.add({
 
   name: { type: String, required: true, initial: true, label: "Category Name" }, 
   game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true}, 
-  description: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}
+  description: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
+  topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
 
 });
 
