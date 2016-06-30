@@ -35,5 +35,5 @@ ContentCategory.add({
  * Registration
  */
 
-ContentCategory.defaultColumns = 'name';
+ContentCategory.defaultColumns = 'topicName, game';
 ContentCategory.register();
