@@ -102,7 +102,7 @@
 		var eventIds = [
 
 			'connect',
-			'player:id',
+			'player:loggedin',
 			'player:reconnected',
 			'players:update',
 
@@ -117,23 +117,16 @@
 			'game:countdown_ending',
 			'game:countdown_end',
 			'game:round_over',
-
-			{{#ifeq gameType 'htyi'}}
 			
-				'hashtag:tryagain',
-				'hashtag:success',
+			'hashtag:tryagain',
+			'hashtag:success',
 
-				'hashtags:received',
-				'hashtags:results',
-				'hashtags:reveal'
+			'hashtags:received',
+			'hashtags:results',
+			'hashtags:reveal',
+		
+			'article:found'
 
-			{{/ifeq}}
-
-			{{#ifeq gameType 'wikigeeks'}}
-			
-				'article:found'
-
-			{{/ifeq}}
 		
 		];
 
@@ -440,7 +433,7 @@
 						noSleep.enable(5000);
 
 						// Load events for players
-						{{> script/player_events}}
+						{{> script/player_events gameType=gameType}}
 
             {{#ifeq debug true}}
             	// Debugging view
@@ -465,7 +458,11 @@
 
 								{{/ifnoteq}}
 
-							 	socketEvents(id, eventData); 
+							 	if(typeof(gameEvents) == "function")
+									gameEvents(id, eventData);
+								
+								socketEvents(id, eventData);
+
 							});
 
 						});

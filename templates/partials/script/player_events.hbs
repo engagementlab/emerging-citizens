@@ -25,11 +25,24 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'player:id':
+        case 'player:loggedin':
 
-            $('#debug-info').text('Player id: ' + eventData);
-            console.log (eventData + " is the player ID event data");
-            playerId = eventData;
+            $('#gameContent').html(eventData.html);
+
+            $('#debug-info').text('Player id: ' + eventData.id);
+            
+            console.log (eventData.id + " is the player ID");
+
+            playerId = eventData.id;
+
+            // Get events script for the game type logged in to
+            $.getScript( '/js/events/' + eventData.gameType + '.js' )
+              .done(function( script, textStatus ) {
+                console.log( textStatus );
+              })
+              .fail(function( jqxhr, settings, exception ) {
+                console.error( "Triggered ajaxError handler." );
+            });
 
             break;
 
@@ -150,7 +163,7 @@ var socketEvents = function(eventId, eventData) {
 
         default:
 
-            console.error('No handler found for event "' + eventId + '"');
+            console.warn('No handler found for event "' + eventId + '" in socketEvents.');
 
             break;
 

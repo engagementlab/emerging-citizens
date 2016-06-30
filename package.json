@@ -18,6 +18,7 @@
     "keystone": "0.3.15",
     "mongoose": "^4.4.5",
     "node-sass-middleware": "^0.9.7",
+    "node-wikipedia": "0.0.2",
     "randomize": "0.0.4",
     "randomstring": "^1.1.4",
     "sentencer": "^0.1.5",
