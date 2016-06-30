@@ -67,7 +67,7 @@ var Wiki = function (nsp, socket) {
         'articles:search': function(package) {
 
             Session.Get(package.gameId).
-            SearchArticles(currentSpace, package.msgData);
+            SearchArticles(currentSocket, package.msgData);
 
         }
     
