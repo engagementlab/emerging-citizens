@@ -16,7 +16,33 @@ var gameEvents = function(eventId, eventData) {
          // Begin article search
         case 'article:found':
 
-            $('#gameContent').html(eventData);
+            debugger;
+
+            var articleContent = eventData.html;
+            var linksUrl = 'https://en.wikipedia.org/w/api.php?action=parse&format=json&pageid=' + eventData.articleId + '&callback=?';
+
+            $.getJSON(
+                linksUrl,
+                function(linksData) {
+   
+                  let articleMarkup = linksData.parse.text['*'];
+
+                  let doc = $(articleMarkup);
+									let links = $('a', doc);
+  
+					        _.each(links, function(link, ind) {
+
+					        	// console.log('index of ' + $(link).text(), articleContent.indexOf($(link).text()))
+
+					        	articleContent = articleContent.replace(
+																        		 new RegExp('\\b' + $(link).text() + '\\b', "g"), 
+																        		'_______' + $(link).text() + '________');
+					        
+					        });
+
+				          $('#gameContent').html(articleContent);
+
+            });
 
             break;
 
