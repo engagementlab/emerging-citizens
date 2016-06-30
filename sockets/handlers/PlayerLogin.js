@@ -72,18 +72,24 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
-      // Advance player to waiting screen
-      Templates.Load('partials/player/waiting', undefined, function(html) {
-        currentSocket.emit('players:update', html);
-      });
-
       // Mark player as ready inside game session
       Session.Get(package.gameId).PlayerReady(player, currentSpace);
 
       logger.info(player.username  + ' logged in.');
 
+      // Advance player to waiting screen
+      Templates.Load('partials/player/waiting', undefined, function(html) {
+        var data = {
+                    id: currentSocket.id,
+                    html: html,
+                    gameType: Session.Get(package.gameId).GetGameType()
+                   };
+
+        currentSocket.emit('player:loggedin', data);
+      });
+
       // Send player's id (debugging)
-      currentSocket.emit('player:id', currentSocket.id);
+      // currentSocket.emit('player:id', );
       
     },
     
