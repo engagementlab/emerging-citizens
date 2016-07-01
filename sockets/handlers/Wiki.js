@@ -69,6 +69,13 @@ var Wiki = function (nsp, socket) {
             Session.Get(package.gameId).
             SearchArticles(currentSocket, package.msgData);
 
+        },
+
+        'article:select': function(package) {
+
+            // Session.Get(package.gameId).
+            // SearchArticles(currentSocket, package.msgData);
+
         }
     
     };
