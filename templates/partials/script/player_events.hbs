@@ -41,7 +41,7 @@ var socketEvents = function(eventId, eventData) {
                 console.log( textStatus );
               })
               .fail(function( jqxhr, settings, exception ) {
-                console.error( "Triggered ajaxError handler." );
+                console.error('Unable to load %s (error: "%s")', eventData.gameType + '.js', exception);
             });
 
             break;

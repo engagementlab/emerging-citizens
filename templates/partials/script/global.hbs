@@ -460,11 +460,11 @@
 									console.log("EVENT DATA: (" + eventData + ")");
 
 								{{/ifnoteq}}
+								
+								socketEvents(id, eventData);
 
 							 	if(typeof(gameEvents) == "function")
 									gameEvents(id, eventData);
-								
-								socketEvents(id, eventData);
 
 							});
 
