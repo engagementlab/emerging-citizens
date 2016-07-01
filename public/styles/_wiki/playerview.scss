@@ -5,7 +5,21 @@
 
 	&.player {
 
-	  background-image: $background-wiki;
+	background-image: $background-wiki;
+
+	.game-message {
+		position: relative;
+		min-height: 300px;
+		margin-bottom: 10%;
+		font-size: medium;
+		color: blacks;
+		min-height: 265px;
+		min-width: 345px;
+		background-color: $color-red;
+		background-image: none;
+		background-repeat: no-repeat;
+		background-position: center;
+
 
 	}
 

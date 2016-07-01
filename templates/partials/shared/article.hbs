@@ -1,17 +1,17 @@
 <div class="row">
     <div class="col-sm-12">
         <h2>Find the article!</h2>
-        <h4 class="article-name">{{text.articleName}}</h4>
+        <h4 class="article-name">{{{this.article.html}}}</h4>
         
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-12 article-description">
-         <img src="{{{cloudinaryUrl this.topicImage width=auto height=auto crop='scale' quality=100}}}">
+         <img src="{{{cloudinaryUrl this.articleImage width=auto height=auto crop='scale' quality=100}}}">
         <div>
             
-        {{{text.description.html}}}
+        {{{this.articleDescription.html}}}
 
         </div>
     </div>

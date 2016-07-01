@@ -2,13 +2,8 @@
 
 <div class="page-container">
     <div class="row">
-
-        {{!-- Players left-hand column --}}
-        {{!-- {{> group/players_column players=players.left offset=0 left=true active=true }} --}}
-        
         {{!-- Room Code Container --}}
-        <section class="col-sm-6 room-container" id="topic-container">
-        
+        <section class="col-sm-12 room-container" id="topic-container">
             {{> shared/article text=article}}
             
             <div class="row finished-players">
@@ -17,9 +12,6 @@
             </div>
 
         </section>
-        
-        {{!-- Players right-hand column --}}
-        {{!-- {{> group/players_column players=players.right offset=4 left=false active=true }} --}}
-
+    
     </div> {{!-- end page row --}}
 </div>

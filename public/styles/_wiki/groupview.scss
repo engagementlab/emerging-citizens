@@ -9,8 +9,7 @@
 	}
 
 	.room-container {
-		padding: 5%;
-
+		
 		p {
 			color: $color-light-blue;
 		}
@@ -21,9 +20,31 @@
 
 	}
 
+	#topic-container.room-container {
+		width: 80%;
+		left: 10%;
+		padding: 5%;
+	}
+
 	.topic-image img {
 		max-width: 200px;
 		max-height: 200px;
+	}
+
+	.article-description {
+		padding: 2%;
+		border: 2px solid $color-red;
+		img {
+			display: inline-block;
+			float: left;
+			max-height: 200px;
+			max-width: 200px;
+		}
+		p {
+			display: inline-block;
+			float: right;
+
+		}
 	}
 
 }
