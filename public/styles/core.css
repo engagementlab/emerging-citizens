@@ -743,6 +743,10 @@ body .player-form {
     display: inline-block;
     float: right; }
 
+.body.wikigeeks .countdown {
+  font-size: 7em;
+  border: 5px dashed yellow; }
+
 html, body {
   max-height: 100%; }
 

@@ -410,7 +410,7 @@
 		        {{/ifeq}}
 
 						// Load events for group
-						{{> script/groupview_events}}
+						{{> script/groupview_events gameType=gameType}}
 						
 						$('.body').addClass('game-bg group');
 						$('#wrapper').addClass('group');
@@ -433,7 +433,7 @@
 						noSleep.enable(5000);
 
 						// Load events for players
-						{{> script/player_events gameType=gameType}}
+						{{> script/player_events}}
 						{{public/js/htyi}}
 
             {{#ifeq debug true}}

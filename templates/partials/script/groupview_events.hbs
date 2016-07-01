@@ -102,7 +102,29 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:start':
             
-            $('#gameContent').html(eventData);
+            $('#gameContent').html(eventData.html);
+
+            {{#ifeq gameType "wikigeeks"}}
+
+                var countdownText =  $('#countdown #text');
+                secondsLeft = eventData.timeLimit;
+
+                var topicCountdown = setInterval(function() {
+                    secondsLeft--;
+
+                    let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
+
+                    TweenLite.to(countdownText, .1, { scale: 0 });
+                    $(countdownText).text('0:' + displaySeconds);
+                    TweenLite.from(countdownText, .1, { scale: 0 });
+
+                    // End countdown
+                    if(secondsLeft == 0)
+                        clearInterval(topicCountdown);
+            
+                }, 1000);
+
+            {{/ifeq}}
 
             break;  
             
@@ -135,6 +157,7 @@ var socketEvents = function(eventId, eventData) {
         case 'game:end':
         case 'hashtag:submitted':
         case 'hashtags:received':
+
             $('#gameContent').html(eventData);
             
             currentHashtags = _.pluck(eventData, 'hashtag-submissions');
@@ -306,6 +329,12 @@ var socketEvents = function(eventId, eventData) {
             }
 
             break;
+
+        case 'topic:info':
+        
+            $('#gameContent').html(eventData);
+
+            break;    
 
         default:
 

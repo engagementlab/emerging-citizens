@@ -13,6 +13,9 @@ var gameEvents = function(eventId, eventData) {
     const API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
     var workspace;
 
+    /* 
+      Client methods for game
+    */
     var removeDom = function (selector) {
       
       $(workspace).find(selector).remove();
@@ -24,7 +27,7 @@ var gameEvents = function(eventId, eventData) {
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
       // Tell server about this article being chosen by player
-      socket.emit('article:select', articleTitle);
+      socket.emit('article:select', emitData(articleTitle));
 
       // Get article content
       $.getJSON(
@@ -92,6 +95,9 @@ var gameEvents = function(eventId, eventData) {
 
     };
 
+    /*
+      Catch socket events
+    */
     switch (eventId) {
 
         case 'game:start':
@@ -101,6 +107,7 @@ var gameEvents = function(eventId, eventData) {
               // Get a random article while debugging, for tickles!
               $.getJSON(
                 API_URL + '&action=query&format=json&list=random&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1',
+                
                 function(randomData) {
                  
                   $('#article_input').val(randomData.query.random[0].title);
@@ -115,7 +122,7 @@ var gameEvents = function(eventId, eventData) {
               retrieveArticle($('#article_input').val());
 
             });
-
+            
             break;
     
          // An article was found

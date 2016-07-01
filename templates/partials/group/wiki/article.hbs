@@ -1,17 +1,27 @@
-{{!-- {{> group/header_htyi }} --}}
-
 <div class="page-container">
     <div class="row">
-        {{!-- Room Code Container --}}
+       
+        {{!-- Topic Info Container --}}
         <section class="col-sm-12 room-container" id="topic-container">
-            {{> shared/article text=article}}
-            
-            <div class="row finished-players">
-                 {{> group/players_grid players=players.finished active=true }}
-                
-            </div>
 
-        </section>
+				<div class="row">
+				    <div class="col-sm-12">
+				        <h2>Find the article!</h2>
+				        <h4 class="article-name">{{{this.article.html}}}</h4>
+				        
+				    </div>
+				</div>
+
+				<div class="row">
+				    <div class="col-sm-12 article-description">
+				         <img src="{{{cloudinaryUrl this.articleImage width=auto height=auto crop='scale' quality=100}}}">
+				        <div>
+				            
+				        {{{this.articleDescription.html}}}
+
+				        </div>
+				    </div>
+				</div>
     
     </div> {{!-- end page row --}}
 </div>
