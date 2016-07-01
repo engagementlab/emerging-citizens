@@ -11,13 +11,13 @@
             <div id="hashtag-results">
             {{!-- {{jsonPrint hashtags}} --}}
                 {{#each hashtags}}
-                    
+                    {{jsonPrint this}}
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#if votes}}
                         
                         <div class="result {{#if submitters.[0].real}}real{{else}}fake{{/if}} hidden-el">
 
-                            {{!-- {{#each submitters}} --}}
+                            
 
                                 {{!-- TODO: How to show all submitters? --}}
                                 {{#if submitters.[0].real}}
@@ -39,7 +39,7 @@
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
-                            {{#each votes}}
+                            {{#each votes}} 
 
                                 {{> group/player_badge user=user avatar_ind=index points=score }}
                             

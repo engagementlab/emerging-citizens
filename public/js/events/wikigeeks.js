@@ -7,6 +7,7 @@
  * Script for PLAYERS' WikiGeeks socket events. Loaded to client upon successful login.
  * ==========
  */
+var playerWasReconnected = false;
 
 var gameEvents = function(eventId, eventData) {
 

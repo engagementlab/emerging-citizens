@@ -7,6 +7,8 @@
  * ==========
  */
 
+var playerWasReconnected = false;
+
 var gameEvents = function(eventId, eventData) {
 
 		console.log('binding event for ID: ' + eventId)
@@ -22,7 +24,7 @@ var gameEvents = function(eventId, eventData) {
             $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerHashtag') + '"]').remove();
 
             // Hide voting?
-            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
+            if(this.playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
             {
                 $('#' + $('#submitted').data('hide')).remove();
                 $('#submitted').show();

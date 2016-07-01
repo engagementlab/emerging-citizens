@@ -433,8 +433,7 @@
 						noSleep.enable(5000);
 
 						// Load events for players
-						{{> script/player_events}}
-						{{public/js/htyi}}
+						{{> script/player_events gameType=gameType}}
 
             {{#ifeq debug true}}
             	// Debugging view
