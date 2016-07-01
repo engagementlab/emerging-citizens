@@ -298,6 +298,9 @@
 						var sessionFlag = $(this).data().sessionFlag;
 						var pkg = getFormData($(this));
 
+						console.log (event, "event");
+						console.log (pkg, "pkg");
+
 						// If this is a local event, call immediately (don't emit)
 						if(localEvent !== undefined) {
 							socketEvents(localEvent);
@@ -434,7 +437,6 @@
 
 						// Load events for players
 						{{> script/player_events gameType=gameType}}
-						{{public/js/htyi}}
 
             {{#ifeq debug true}}
             	// Debugging view

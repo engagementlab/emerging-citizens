@@ -21,7 +21,8 @@ var Hashtag = function (nsp, socket) {
     this.handler = {
 
         'hashtags:submit': function(package) {
-
+            
+            console.log (package, "HashtagSubmitted");
             Session.Get(package.gameId).
             HashtagSubmitted(
                                 currentSocket.id,
@@ -29,7 +30,7 @@ var Hashtag = function (nsp, socket) {
                                 currentSocket,
                                 currentSpace
                             );
-            console.log (package, "HashtagSubmitted");
+
 
         },
 
