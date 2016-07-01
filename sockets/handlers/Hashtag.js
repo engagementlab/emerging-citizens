@@ -29,6 +29,7 @@ var Hashtag = function (nsp, socket) {
                                 currentSocket,
                                 currentSpace
                             );
+            console.log (package, "HashtagSubmitted");
 
         },
 
