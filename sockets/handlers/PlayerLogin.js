@@ -18,6 +18,7 @@ var appRoot = require('app-root-path'),
 
     TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
     Session = require(appRoot + '/lib/SessionManager');
+    Common = require(appRoot + '/lib/games/Common');
 
 var PlayerLogin = function (nsp, socket, emitter) {
 
@@ -76,7 +77,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
       Session.Get(package.gameId).PlayerReady(player, currentSpace);
 
       logger.info(player.username  + ' logged in.');
-
+      
       // Advance player to waiting screen
       Templates.Load('partials/player/waiting', undefined, function(html) {
         var data = {

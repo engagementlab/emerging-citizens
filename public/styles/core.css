@@ -700,7 +700,7 @@ body .player-form {
 	HTYI group view styling.
 */
 .body.htyi #game_code {
-  margin-top: 20%; }
+  margin-top: 5%; }
   .body.htyi #game_code #first {
     color: #fe6444; }
   .body.htyi #game_code #second {
