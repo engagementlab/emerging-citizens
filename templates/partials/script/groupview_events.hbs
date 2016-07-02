@@ -126,7 +126,7 @@ var socketEvents = function(eventId, eventData) {
 
             {{/ifeq}}
 
-            break;  
+            break;
             
         case 'game:countdown':
 
@@ -155,26 +155,31 @@ var socketEvents = function(eventId, eventData) {
             break;    
 
         case 'game:end':
-        case 'hashtag:submitted':
-        case 'hashtags:received':
 
-            $('#gameContent').html(eventData);
-            
-            currentHashtags = _.pluck(eventData, 'hashtag-submissions');
+        {{#ifeq gameType "htyi"}}
+          
+            case 'hashtag:submitted':
+            case 'hashtags:received':
 
-            //instantiate a TimelineLite for hashtags received animation
-            var hashtagsVoteAnim = new TimelineLite({ paused:true });
-            $('#hashtag-submissions-prompt').show();
+                $('#gameContent').html(eventData);
+                
+                currentHashtags = _.pluck(eventData, 'hashtag-submissions');
 
-            hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
-            .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-            .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-            .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-            .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
+                //instantiate a TimelineLite for hashtags received animation
+                var hashtagsVoteAnim = new TimelineLite({ paused:true });
+                $('#hashtag-submissions-prompt').show();
 
-            hashtagsVoteAnim.play();
+                hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
+                .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+                .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
 
-            break;
+                hashtagsVoteAnim.play();
+
+                break;
+
+        {{/ifeq}}
 
         case 'hashtags:results':
 
@@ -330,11 +335,14 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'topic:info':
-        
-            $('#gameContent').html(eventData);
 
-            break;    
+        {{#ifeq gameType "wikigeeks"}}
+            case 'topic:info':
+            
+                $('#gameContent').html(eventData);
+
+                break;
+        {{/ifeq}}
 
         default:
 
