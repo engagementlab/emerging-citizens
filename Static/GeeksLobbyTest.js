@@ -24,7 +24,7 @@ function Player(number, active, avatar){
 
 function TurnOn(Player){
 	TweenMax.to(Player.avatar, 1, {css:{opacity:"1.0"}});
-	TweenMax.to(Player.avatar, 1, {scale:1.2, ease:Elastic.easeOut});
+	TweenMax.to(Player.avatar, 1, {scale:1.1, ease:Elastic.easeOut});
 }
 
 function TurnOff(Player){
