@@ -64,12 +64,12 @@ var Wiki = function (nsp, socket) {
 
         },
 
-        'articles:search': function(package) {
+/*        'articles:search': function(package) {
 
             Session.Get(package.gameId).
             SearchArticles(currentSocket, package.msgData);
 
-        },
+        },*/
 
         'article:select': function(package) {
 

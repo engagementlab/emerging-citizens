@@ -43,10 +43,14 @@ GameConfig.add({
 	"Wiki Geeks", {
 
 	  playerCapWiki: { type: Number, label: "Player Cap", required: true, initial: true },
+	  articleCooldownWiki: { type: Number, label: "Article Reveal Cooldown", required: true, initial: true },
+	  
 	  timeLimitWiki: { type: Number, label: "Time Limit", required: true, initial: true },
-		roundNumberWiki: { type: Number, label: "Number of Rounds", required: true, initial: true }
-		// voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
-		// voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }
+		roundNumberWiki: { type: Number, label: "Number of Rounds", required: true, initial: true },
+
+		scoreTargetReachedWiki: { type: Number, label: "Target Reached Bonus", required: true, initial: true },
+		scorePlacementWiki: { type: Number, label: "Base score - Rank placement", required: true, initial: true },
+		scoreUnderClicksWiki: { type: Number, label: "Under Clicks Bonus", required: true, initial: true }
 
 	}
 

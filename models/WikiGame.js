@@ -30,7 +30,7 @@ WikiGame.add({
   contentCategories: { type: keystone.Field.Types.Relationship, ref: 'ContentCategory', many: true },
   // roundData: { type: Array }
 
-  roundData: { type: Types.Relationship, ref: 'WikiLinks' }
+  roundData: { type: Types.Relationship, ref: 'WikiLink' }
 
 });
 
