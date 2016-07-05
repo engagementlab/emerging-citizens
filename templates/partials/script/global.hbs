@@ -99,6 +99,7 @@
 		});
 
 	  // All possible socket event IDs
+	  // TODO: Change based on game type
 		var eventIds = [
 
 			'connect',
@@ -125,7 +126,8 @@
 			'hashtags:results',
 			'hashtags:reveal',
 		
-			'article:found'
+			'article:found',
+			'topic:info'
 
 		
 		];
@@ -298,9 +300,6 @@
 						var sessionFlag = $(this).data().sessionFlag;
 						var pkg = getFormData($(this));
 
-						console.log (event, "event");
-						console.log (pkg, "pkg");
-
 						// If this is a local event, call immediately (don't emit)
 						if(localEvent !== undefined) {
 							socketEvents(localEvent);
@@ -413,7 +412,7 @@
 		        {{/ifeq}}
 
 						// Load events for group
-						{{> script/groupview_events}}
+						{{> script/groupview_events gameType=gameType}}
 						
 						$('.body').addClass('game-bg group');
 						$('#wrapper').addClass('group');

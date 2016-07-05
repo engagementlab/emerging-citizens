@@ -63,6 +63,7 @@
 	position: relative;
 }
 #lobbyPane{
+	border-radius: 25px;
 	background-color: white;
 	width: 450px;
 	height: 445px;
@@ -113,76 +114,78 @@
 	opacity: .3;
 }
 .avatarCircle{
-	width: 150px;
+	background-color: white;
+	border-radius: 25px;
+	width: 125px;
+	height: 125px;
 	position:absolute;
     padding:0;
     float:left;
 }
 #playerOne{
-	left: 18%;
-	top: 30%;
+	left: 20%;
+	top: 38%;
 }
 #avatarOne{
-	left: 18%;
-	top: 30%;
+	left:-5%;
+	top: -13%;
 }
 #playerTwo{
-	left: 18%;
-	top: 60%;
+	left: 20%;
+	top: 70%;
 }
 #avatarTwo{
-	left: 18%;
-	top: 59%;
+	left: -5%;
+	top: -13%;
 }
 #playerThree{
-	left: 18%;
-	top: 90%;
+	left: 24%;
+	top: 101%;
 }
 #avatarThree{
-	left: 18%;
-	top: 89%;
+	left: -5%;
+	top: -13%;
 }
 #playerFour{
-	left: 33%;
+	left: 38%;
 	top: 107%;
 }
 #avatarFour{
-	left: 33.5%;
-	top: 107%;
+	left: -5%;
+	top: -14%;
 }
 #playerEight{
-	right: 33%;
+	right: 38%;
 	top: 107%;
 }
 #avatarEight{
-	right: 34%;
-	top: 106%;
-	height: 100px;
+	top: -11%;
+	height: 90px;
 	width: 80px;
 }
 #playerFive{
-	right: 18%;
-	top: 30%;
+	right: 19.5%;
+	top: 38%;
 }
 #avatarFive{
-	right: 18%;
-	top: 30%;
+	right: -7%;
+	top: -13%;
 }
 #playerSix{
-	right: 18%;
-	top: 60%;
+	right: 19.5%;
+	top: 70%;
 }
 #avatarSix{
-	right: 18.25%;
-	top: 58.5%;
+	right: -7%;
+	top: -15%;
 }
 #playerSeven{
-	right: 18%;
-	top: 90%;
+	right: 24%;
+	top: 101%;
 }
 #avatarSeven{
-	right: 18%;
-	top: 89%;
+	right: -5%;
+	top: -15%;
 }
 /*End Lobby*/
 	</style>
@@ -201,22 +204,22 @@
 		<div id="roomCode">ABCD</div>
 	</div>
 	<div class="avatars">
-		<img class="avatarCircle player playerLeftOdd" id="playerOne" src="css/avatar_circle.png">
-		<img class="avatar player playerLeftOdd" id="avatarOne" src="css/avatar0.png">
-		<img class="avatarCircle player playerLeftEven" id="playerTwo" src="css/avatar_circle.png">
-		<img class="avatar player playerLeftEven" id="avatarTwo" src="css/avatar1.png">
-		<img class="avatarCircle player playerLeftOdd" id="playerThree" src="css/avatar_circle.png">
-		<img class="avatar player playerLeftOdd" id="avatarThree" src="css/avatar2.png">
-		<img class="avatarCircle player playerLeftEven" id="playerFour" src="css/avatar_circle.png">
-		<img class="avatar player playerLeftEven" id="avatarFour" src="css/avatar3.png">
-		<img class="avatarCircle player playerRightOdd" id="playerFive" src="css/avatar_circle.png">
-		<img class="avatar player playerRightOdd" id="avatarFive" src="css/avatar4.png">
-		<img class="avatarCircle player playerRightEven" id="playerSix" src="css/avatar_circle.png">
-		<img class="avatar player playerRightEven" id="avatarSix" src="css/avatar5.png">
-		<img class="avatarCircle player playerRightOdd" id="playerSeven" src="css/avatar_circle.png">
-		<img class="avatar player playerRightOdd" id="avatarSeven" src="css/avatar6.png">
-		<img class="avatarCircle player playerRightEven" id="playerEight" src="css/avatar_circle.png">
-		<img class="avatar player playerRightEven" id="avatarEight" src="css/avatar7.png">
+		<div class= "avatarCircle" id="playerOne">
+		<img class="avatar player playerLeftOdd" id="avatarOne" src="css/avatar0.png"></div>
+		<div class= "avatarCircle" id="playerTwo">
+		<img class="avatar player playerLeftEven" id="avatarTwo" src="css/avatar1.png"></div>
+		<div class= "avatarCircle" id="playerThree">
+		<img class="avatar player playerLeftOdd" id="avatarThree" src="css/avatar2.png"></div>
+		<div class= "avatarCircle" id="playerFour">
+		<img class="avatar player playerLeftEven" id="avatarFour" src="css/avatar3.png"></div>
+		<div class= "avatarCircle" id="playerFive">
+		<img class="avatar player playerRightOdd" id="avatarFive" src="css/avatar4.png"></div>
+		<div class= "avatarCircle" id="playerSix">
+		<img class="avatar player playerRightEven" id="avatarSix" src="css/avatar5.png"></div>
+		<div class= "avatarCircle" id="playerSeven"> 
+		<img class="avatar player playerRightOdd" id="avatarSeven" src="css/avatar6.png"></div>
+		<div class= "avatarCircle" id="playerEight">
+		<img class="avatar player playerRightEven" id="avatarEight" src="css/avatar7.png"></div>
 	</div>
 </div>
 

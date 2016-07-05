@@ -73,8 +73,8 @@ var Wiki = function (nsp, socket) {
 
         'article:select': function(package) {
 
-            // Session.Get(package.gameId).
-            // SearchArticles(currentSocket, package.msgData);
+            Session.Get(package.gameId).
+            PlayerClick(currentSocket, package.msgData);
 
         }
     
