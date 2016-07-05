@@ -104,10 +104,12 @@ var socketEvents = function(eventId, eventData) {
             
             $('#gameContent').html(eventData.html);
 
-            {{#ifeq gameType "wikigeeks"}}
+            {{!-- {{#ifeq gameType "wikigeeks"}}
 
                 var countdownText =  $('#countdown #text');
-                secondsLeft = eventData.timeLimit;
+                secondsLeft = eventData.timeLimit * 60;
+                console.log ("game:start");
+                console.log (secondsLeft, "seconds left");
 
                 var topicCountdown = setInterval(function() {
                     secondsLeft--;
@@ -124,11 +126,13 @@ var socketEvents = function(eventId, eventData) {
             
                 }, 1000);
 
-            {{/ifeq}}
+            {{/ifeq}} --}}
 
             break;
             
         case 'game:countdown':
+
+        {{#ifeq gameType "htyi"}}
 
                 var secondsLeft = eventData;
                 var timeFactor = 360 / secondsLeft;
@@ -152,7 +156,32 @@ var socketEvents = function(eventId, eventData) {
                         clearInterval(clockInterval);
                 }, 1000);
 
-            break;    
+
+            break;  
+        {{/ifeq}}  
+
+        {{#ifeq gameType "wikigeeks"}}
+                var countdownText =  $('#countdown #text');
+                var secondsLeft = eventData;
+                console.log (secondsLeft, "seconds left");
+
+                var topicCountdown = setInterval(function() {
+                    secondsLeft--;
+
+                    let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
+
+                    TweenLite.to(countdownText, .1, { scale: 0 });
+                    $(countdownText).text('0:' + displaySeconds);
+                    TweenLite.from(countdownText, .1, { scale: 0 });
+
+                    // End countdown
+                    if(secondsLeft == 0)
+                        clearInterval(topicCountdown);
+            
+                }, 1000);
+
+            break;
+        {{/ifeq}}
 
         case 'game:end':
 
