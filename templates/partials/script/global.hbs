@@ -32,6 +32,15 @@
 
 	var timeline = new TimelineLite();
 
+	// $(document).ready(function () {
+	// 	// $('.markdown-span').each (function () {
+	// 			console.log ("unwrapping");
+	// 	// 		$('p').unwrap();
+	// 	// 	});
+	// 	$('.markdown-span p').contents().unwrap();
+	// });
+	
+
 	{{#ifeq section "index"}}
 
 		$(document).ready(function() {
@@ -49,7 +58,9 @@
 					}, 1000);
 			});
 
-		});
+
+ 
+		}); 
 			
 	{{/ifeq}}
 
@@ -183,6 +194,8 @@
 		{{/ifnoteq}}
 
 		$(document).ready(function() {
+
+
 
 			{{#ifeq section 'group'}}
 				

@@ -1,27 +1,31 @@
 <div class="page-container">
     <div class="row">
-       
         {{!-- Topic Info Container --}}
         <section class="col-sm-12 room-container" id="topic-container">
 
 				<div class="row">
 				    <div class="col-sm-12">
-				        <h2>Find the article!</h2>
-				        <h4 class="article-name">{{{this.article.html}}}</h4>
+				        <h4>Find the article!</h4>
+				        <h2 class="article-name">"{{{removePara this.article.html}}}"</h2>
 				        
 				    </div>
 				</div>
 
-				<div class="row">
-				    <div class="col-sm-12 article-description">
-				         <img src="{{{cloudinaryUrl this.articleImage width=auto height=auto crop='scale' quality=100}}}">
-				        <div>
-				            
-				        {{{this.articleDescription.html}}}
+			    <div class="row article-info">
 
-				        </div>
-				    </div>
-				</div>
+			    	<div class="col-sm-4 article-image"><img src="{{{cloudinaryUrl this.articleImage width=auto height=auto crop='scale' quality=100}}}"></div>
+			        <div class="col-sm-8 article-description">
+			            
+			        {{{this.articleDescription}}}
+
+			        </div>
+			    </div>
+		</section>
     
-    </div> {{!-- end page row --}}
+    </div> 
+    <div class="row">
+	    <section>
+
+	    </section>
+    </div>
 </div>

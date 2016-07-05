@@ -87,7 +87,15 @@ module.exports = function() {
     
     _helpers.tweetFormat = function(tweetStr) {
         return tweetStr.replace('[blank]', '&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95')
-    }
+    };
+
+    _helpers.removePara = function (str) {
+        console.log (str);
+        str = str.replace (/<p>/g, '').replace (/<\/p>/g, '');
+        console.log (str);
+        return str;
+
+    };
 
 
     return _helpers;

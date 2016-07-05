@@ -31,18 +31,31 @@
 		max-height: 200px;
 	}
 
-	.article-description {
+	.article-name {
+		color: $color-red;
+		display: inline-block;
+
+	}
+
+	.article-info {
 		padding: 2%;
 		border: 2px solid $color-red;
-		img {
+		.article-image {
 			display: inline-block;
 			float: left;
 			max-height: 200px;
 			max-width: 200px;
+			margin: 0 auto;
+
+			img {
+				max-height: 100%;
+				max-width: 100%;
+			}
 		}
-		p {
+		.article-description {
 			display: inline-block;
 			float: right;
+			font-size: 2em;
 
 		}
 	}

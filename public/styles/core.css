@@ -731,17 +731,26 @@ body .player-form {
   max-width: 200px;
   max-height: 200px; }
 
-.body.wikigeeks .article-description {
+.body.wikigeeks .article-name {
+  color: #fe6444;
+  display: inline-block; }
+
+.body.wikigeeks .article-info {
   padding: 2%;
   border: 2px solid #fe6444; }
-  .body.wikigeeks .article-description img {
+  .body.wikigeeks .article-info .article-image {
     display: inline-block;
     float: left;
     max-height: 200px;
-    max-width: 200px; }
-  .body.wikigeeks .article-description p {
+    max-width: 200px;
+    margin: 0 auto; }
+    .body.wikigeeks .article-info .article-image img {
+      max-height: 100%;
+      max-width: 100%; }
+  .body.wikigeeks .article-info .article-description {
     display: inline-block;
-    float: right; }
+    float: right;
+    font-size: 2em; }
 
 .body.wikigeeks .countdown {
   font-size: 7em;
