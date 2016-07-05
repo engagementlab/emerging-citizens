@@ -11,7 +11,7 @@
             <div id="hashtag-results">
             {{!-- {{jsonPrint hashtags}} --}}
                 {{#each hashtags}}
-                    {{jsonPrint this}}
+                    {{!-- {{jsonPrint this}} --}}
                     {{!-- Show non-real hashtags only if they have votes --}}
                     {{#if votes}}
                         
@@ -29,8 +29,8 @@
                                 {{else}}
                                 <div class="section"> 
                                     {{#each submitters}}
-                                        {{> group/player_badge user=this.user avatar_ind=this.user.index creator=true }}
-
+                                        {{> group/player_badge user=this avatar_ind=this.index creator=true }}
+                                    
                                     {{/each}}
                                 </div>
                                 {{/if}}
