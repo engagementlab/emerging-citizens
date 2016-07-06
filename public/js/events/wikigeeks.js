@@ -143,6 +143,18 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
+        case 'article:target':
+
+          console.log('done', eventData)
+
+          break;
+
+        case 'topic:info':
+        
+            $('section#article').show();
+
+            break;
+
     }
 
 };

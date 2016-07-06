@@ -32,6 +32,12 @@ ContentCategory.add({
 });
 
 /**
+ * Relationships
+ * =============
+ */
+ContentCategory.relationship({ ref: 'WikiLink', refPath: 'wikilinks', path: 'category' });
+
+/**
  * Registration
  */
 

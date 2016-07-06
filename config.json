@@ -6,7 +6,7 @@
 	"admin_nav": { 
 						"Game Config": ["GameConfig", "GameSession", "ContentCategory", "GameUser", "HomePage"],
 						"HTYI": ["Tweet", "HashtagGame"],
-						"WikiGeeks": ["WikiGame", "WikiLinks"]
+						"WikiGeeks": ["WikiGame", "WikiLink"]
 						
 					}
 }
