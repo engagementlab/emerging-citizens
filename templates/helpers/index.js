@@ -90,8 +90,9 @@ module.exports = function() {
     };
 
     _helpers.removePara = function (str) {
-        str = str.replace (/<p>/g, '').replace (/<\/p>/g, '');
-        return str;
+        var text;
+        text = str.replace (/<p>/g, '').replace (/<\/p>/g, '');
+        return text;
 
     };
 

@@ -729,7 +729,8 @@ body .player-form {
 
 .body.wikigeeks .topic-image {
   max-height: 400px;
-  max-width: 400px; }
+  max-width: 400px;
+  margin: 0 auto; }
   .body.wikigeeks .topic-image img {
     max-height: 100%;
     max-width: 100%; }
@@ -793,6 +794,9 @@ html, body {
   -o-transition: background 0.5s linear;
   transition: background 0.5s linear;
   background-color: #fdae8f; }
+
+.body.player.wikigeeks {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
 
 .body.monitor {
   background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffb71d;
