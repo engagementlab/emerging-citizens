@@ -1,22 +1,23 @@
 <div class="page-container">
     <div class="row">
+    		{{jsonPrint this}}
         {{!-- Topic Info Container --}}
         <section class="col-sm-12 room-container" id="topic-container">
 
 				<div class="row">
 				    <div class="col-sm-12">
 				        <h4>Find the article!</h4>
-				        <h2 class="article-name">"{{{removePara this.article}}}"</h2>
+				        <h2 class="article-name">"{{articleName}}"</h2>
 				        
 				    </div>
 				</div>
 
 			    <div class="row article-info">
 
-			    	<div class="col-sm-4 article-image"><img src="{{{cloudinaryUrl this.articleImage width=auto height=auto crop='scale' quality=100}}}"></div>
+			    	<div class="col-sm-4 article-image"><img src="{{{cloudinaryUrl articleImage width=auto height=auto crop='scale' quality=100}}}"></div>
 			        <div class="col-sm-8 article-description">
 			            
-			        {{{this.articleDescription}}}
+			        {{{articleDescription}}}
 
 			        </div>
 			    </div>
