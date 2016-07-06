@@ -27,6 +27,14 @@
 
 		display: none;
 
+		ul {
+			-webkit-margin-before: 0.1em;
+		    -webkit-margin-after: 0.1em;
+		    -webkit-margin-start: 0px;
+		    -webkit-margin-end: 0px;
+		    -webkit-padding-start: 5px;
+		}
+
 	}
 	
 }

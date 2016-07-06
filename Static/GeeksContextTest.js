@@ -8,6 +8,8 @@ var $q3 = $("#q3");
 var $q4 = $("#q4");
 var $timer = $("#timer");
 var $strokes = $("#strokes")
+var $modalPane = $("#startingModal")
+var modalTimer = $("#modalCountdown")
 
 
 //code body
@@ -18,8 +20,8 @@ TweenMax.fromTo($q2, 1, {opacity:0.0}, {opacity:1.0, delay:1.5});
 TweenMax.fromTo($q3, 1, {opacity:0.0}, {opacity:1.0, delay:1.75});
 TweenMax.fromTo($q4, 1, {opacity:0.0}, {opacity:1.0, delay:1.25});
 
-
-function countdown( elementName, minutes, seconds )
+//context Timer
+function countdownPane( elementName, minutes, seconds )
 {
     var element, endTime, hours, mins, msLeft, time;
 
@@ -35,11 +37,9 @@ function countdown( elementName, minutes, seconds )
             element.innerHTML = "Out of time!";
             timerDone=true;
             if (timerDone==true){
-				TweenMax.fromTo($q1, 1, {opacity:1.0}, {opacity:0.0, delay:.5});
-				TweenMax.fromTo($q2, 1, {opacity:1.0}, {opacity:0.0, delay:1.25});
-				TweenMax.fromTo($q3, 1, {opacity:1.0}, {opacity:0.0, delay:1.75});
-				TweenMax.fromTo($q4, 1, {opacity:1.0}, {opacity:0.0, delay:1});
-				TweenMax.fromTo($strokes, 1, {opacity:1.0}, {opacity:0.0, delay:2.5});
+				$modalPane.css("visibility", "visible");
+				TweenMax.fromTo($modalPane, 1, {opacity:0.0},{opacity:1.0});
+				countdown();
 				}
         } else {
             time = new Date( msLeft );
@@ -55,16 +55,32 @@ function countdown( elementName, minutes, seconds )
     updateTimer();
 }
 
-countdown("timer", 0, 32);
-console.log(timerDone);
+countdownPane("timer", 0, 32);
 
-$("#contextLink").click(function (e) {
-    e.preventDefault();                   // prevent default anchor behavior
-    var goTo = this.getAttribute("href"); // store anchor href
-
-    // do something while timeOut ticks ... 
-
-    setTimeout(function(){
-         window.location = goTo;
-    },3000);       
-}); 
+//Modal Timer
+var seconds;
+var temp;
+ 
+  function countdown() {
+    seconds = document.getElementById('modalCountdown').innerHTML;
+    seconds = parseInt(seconds);
+    seconds--;
+    temp = document.getElementById('modalCountdown');
+    temp.innerHTML = seconds;
+    timeout = setTimeout(countdown, 1000);
+    if (seconds==0){
+    	everyoneOut();
+		TweenMax.fromTo($modalPane, 1, {opacity:1.0},{opacity:0.0});
+		setTimeout(loadPage, 2500)
+    }
+  } 
+ function everyoneOut(){
+ 	TweenMax.fromTo($q1, 1, {opacity:1.0}, {opacity:0.0, delay:.5});
+	TweenMax.fromTo($q2, 1, {opacity:1.0}, {opacity:0.0, delay:1.25});
+	TweenMax.fromTo($q3, 1, {opacity:1.0}, {opacity:0.0, delay:1.75});
+	TweenMax.fromTo($q4, 1, {opacity:1.0}, {opacity:0.0, delay:1});
+	TweenMax.fromTo($strokes, 1, {opacity:1.0}, {opacity:0.0, delay:2.5});
+ }
+ function loadPage(){
+ 	window.location = "GeeksTargetArticle.html";
+ }
