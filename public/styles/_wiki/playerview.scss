@@ -1,18 +1,16 @@
 /* 
 	WikiGeeks player view styling.
 */
-.body.wikigeeks {
-
-	&.player {
+.body.wikigeeks.player {
 
 	background-image: $background-wiki;
+	color: $color-teal;
 
 	.game-message {
 		position: relative;
 		min-height: 300px;
 		margin-bottom: 10%;
 		font-size: medium;
-		color: blacks;
 		min-height: 265px;
 		min-width: 345px;
 		background-color: $color-red;
@@ -20,6 +18,13 @@
 		background-repeat: no-repeat;
 		background-position: center;
 
+			span {
+	    	  left: 0;
+	    	  width: 100%;
+	    	  top: 45%;
+		      position: absolute;
+		      height: 100%;
+		    }
 
 	}
 
@@ -28,13 +33,17 @@
 		display: none;
 
 		ul {
-			-webkit-margin-before: 0.1em;
-		    -webkit-margin-after: 0.1em;
-		    -webkit-margin-start: 0px;
-		    -webkit-margin-end: 0px;
-		    -webkit-padding-start: 5px;
-		}
+			padding: 2px;
+			// -webkit-margin-before: 0.1em;
+		 //    -webkit-margin-after: 0.1em;
+		 //    -webkit-margin-start: 0px;
+		 //    -webkit-margin-end: 0px;
+		 //    -webkit-padding-start: 5px;
 
+		    li {
+
+		    }
+		}
 	}
 	
 }

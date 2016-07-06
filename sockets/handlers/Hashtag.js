@@ -22,7 +22,6 @@ var Hashtag = function (nsp, socket) {
 
         'hashtags:submit': function(package) {
             
-            console.log (package, "HashtagSubmitted");
             Session.Get(package.gameId).
             HashtagSubmitted(
                                 currentSocket.id,
@@ -53,6 +52,7 @@ var Hashtag = function (nsp, socket) {
         },
 
         'game:start': function(package) {
+            console.log (package, "package");
 
             Session.Get(package.gameId).
             StartGame(currentSpace);

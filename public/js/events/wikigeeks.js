@@ -38,6 +38,8 @@ var gameEvents = function(eventId, eventData) {
             displayWikiContent(articleData);
 
             $('#topic-submission').fadeOut(function() {
+              $('section#submitted').fadeIn();
+              console.log ()
               $('#wiki-article').fadeIn();
             });
 
@@ -101,7 +103,13 @@ var gameEvents = function(eventId, eventData) {
     */
     switch (eventId) {
 
+        case 'player:loggedin':
+          console.log ("we logged in here okay");
+          $('.body').addClass('wikigeeks');
+        break;
+
         case 'game:start':
+            $('.body').addClass('wikigeeks');
 
             if(location.href.indexOf('debug') !== -1) {
 
@@ -140,6 +148,7 @@ var gameEvents = function(eventId, eventData) {
                   displayWikiContent(articleData);
 
               });
+            
 
             break;
 
@@ -150,10 +159,12 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'topic:info':
-        
+            console.log ("topic info");
+            $('section#submitted').hide();
+            
             $('section#article').show();
 
-            break;
+        break;
 
     }
 

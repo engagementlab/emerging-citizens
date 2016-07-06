@@ -51,7 +51,8 @@ var Wiki = function (nsp, socket) {
         },
 
         'game:start': function(package) {
-
+            // console.log (package, "game starting for player");
+            // debugger;
             Session.Get(package.gameId).
             StartGame(currentSpace);
 
@@ -64,13 +65,7 @@ var Wiki = function (nsp, socket) {
 
         },
 
-        'article:found': function(package) {
-
-            Session.Get(package.gameId).
-            PlayerClick(currentSocket, package.msgData);
-
-        },
-
+        
         'articles:search': function(package) {
 
             Session.Get(package.gameId).

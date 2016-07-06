@@ -12,6 +12,8 @@
 // Game-specific styling
 @import "_htyi/groupview";
 @import "_wiki/groupview";
+@import "_htyi/playerview";
+@import "_wiki/playerview";
 
 html, body {
 	max-height: 100%;
@@ -83,7 +85,7 @@ html, body {
 
   // Tutorial modal
   .tutorial {
-		#countdown, #continue {
+	#countdown, #continue {
 	    position: fixed !important; 
 	    bottom: 10%;
 	    right: 4%;
@@ -105,7 +107,7 @@ html, body {
 	    	top: 58% !important;
 	    	color: #fff !important;
 	    }
-		}
+	}
   }
 }
 
@@ -236,26 +238,7 @@ footer {
 	}
 }
 
-.game-message {
-	position: relative;
-	min-height: 100%;
-	margin-bottom: 10%;
-	font-size: medium;
-	color: $color-blue;
-  min-height: 265px;
-  min-width: 345px;
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
-  background-repeat: no-repeat;
-  background-position: center;
 
-  span {
-  	left: 0;
-  	width: 100%;
-  	top: 45%;
-    position: absolute;
-    height: 100%;
-  }
-}
 
 // START Main Content
 .gameLanding {

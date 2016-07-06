@@ -1,10 +1,26 @@
 /* 
 	HTYI player view styling.
 */
-.body.htyi {
-
-	&.player {
-
-	}
+.body.htyi.player {
 	
+	.game-message {
+  	position: relative;
+  	min-height: 100%;
+  	margin-bottom: 10%;
+  	font-size: medium;
+  	color: $color-blue;
+    min-height: 265px;
+    min-width: 345px;
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    span {
+    	left: 0;
+    	width: 100%;
+    	top: 45%;
+      position: absolute;
+      height: 100%;
+    }
+  }
 }

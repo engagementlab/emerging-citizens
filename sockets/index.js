@@ -3,7 +3,6 @@ module.exports = function(app) {
   var io = require('socket.io')(app);
 
   var GameManager = require('../lib/GameManager');
-
   var HashtagHandler = require('./handlers/Hashtag');
   var WikiHandler = require('./handlers/Wiki');
   var PlayerLogin = require('./handlers/PlayerLogin');

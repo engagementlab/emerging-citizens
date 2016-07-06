@@ -36,6 +36,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
   this.handler = {
 
     room: function(package) {
+      console.log (package, "package");
       if(package.gameId === null) {
         console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
         return;
@@ -64,6 +65,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
         Session.GroupView(package.gameId, currentSocket.id);
         Session.Get(playerGameId).ModeratorJoin(currentSpace);
       }
+
+
         
       logger.info(currentSocket.id + ' connected to room.');
 

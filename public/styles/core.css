@@ -759,6 +759,55 @@ body .player-form {
   font-size: 7em;
   border: 5px dashed yellow; }
 
+/* 
+	HTYI player view styling.
+*/
+.body.htyi.player .game-message {
+  position: relative;
+  min-height: 100%;
+  margin-bottom: 10%;
+  font-size: medium;
+  color: #4343ff;
+  min-height: 265px;
+  min-width: 345px;
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
+  background-repeat: no-repeat;
+  background-position: center; }
+  .body.htyi.player .game-message span {
+    left: 0;
+    width: 100%;
+    top: 45%;
+    position: absolute;
+    height: 100%; }
+
+/* 
+	WikiGeeks player view styling.
+*/
+.body.wikigeeks.player {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
+  color: #36d5d9; }
+  .body.wikigeeks.player .game-message {
+    position: relative;
+    min-height: 300px;
+    margin-bottom: 10%;
+    font-size: medium;
+    min-height: 265px;
+    min-width: 345px;
+    background-color: #fe6444;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center; }
+    .body.wikigeeks.player .game-message span {
+      left: 0;
+      width: 100%;
+      top: 45%;
+      position: absolute;
+      height: 100%; }
+  .body.wikigeeks.player #wiki-article, .body.wikigeeks.player #wiki-workspace {
+    display: none; }
+    .body.wikigeeks.player #wiki-article ul, .body.wikigeeks.player #wiki-workspace ul {
+      padding: 2px; }
+
 html, body {
   max-height: 100%; }
 
@@ -922,24 +971,6 @@ footer {
   letter-spacing: -0.06em; }
   .game-header span {
     margin: -5px; }
-
-.game-message {
-  position: relative;
-  min-height: 100%;
-  margin-bottom: 10%;
-  font-size: medium;
-  color: #4343ff;
-  min-height: 265px;
-  min-width: 345px;
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
-  background-repeat: no-repeat;
-  background-position: center; }
-  .game-message span {
-    left: 0;
-    width: 100%;
-    top: 45%;
-    position: absolute;
-    height: 100%; }
 
 .gameLanding {
   margin-top: 10%;
