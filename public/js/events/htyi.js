@@ -3,15 +3,13 @@
  * Developed by Engagement Lab, 2016
  * ==============
  * 
- * Script for PLAYERS' WikiGeeks socket events. Loaded to client upon successful login.
+ * Script for PLAYERS' HTYI socket events. Loaded to client upon successful login.
  * ==========
  */
 
 var playerWasReconnected = false;
 
 var gameEvents = function(eventId, eventData) {
-
-		console.log('binding event for ID: ' + eventId)
 
     switch (eventId) {
     

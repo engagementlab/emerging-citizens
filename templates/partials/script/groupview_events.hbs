@@ -21,6 +21,7 @@ var socketEvents = function(eventId, eventData) {
 
 			   // Connected, let's sign-up for to receive messages for this room
                $('#startGameForm').css('padding', '1%');
+               
 			   socket.emit('room', emitData('moderator'));
                
             break;
@@ -104,7 +105,7 @@ var socketEvents = function(eventId, eventData) {
             
             $('#gameContent').html(eventData.html);
 
-            {{!-- {{#ifeq gameType "wikigeeks"}}
+            {{#ifeq gameType "wikigeeks"}}
 
                 var countdownText =  $('#countdown #text');
                 secondsLeft = eventData.timeLimit * 60;
@@ -126,7 +127,7 @@ var socketEvents = function(eventId, eventData) {
             
                 }, 1000);
 
-            {{/ifeq}} --}}
+            {{/ifeq}}
 
             break;
             
