@@ -67,6 +67,55 @@
     background-color: white;
     margin: 20px auto;
 }
+#startingModal{
+    width: 600px;
+    height: 500px;
+    background-color:white;
+    visibility: visible;
+    position: relative;
+    margin: 0 auto;
+    top: -600px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #f2a585;
+    visibility: hidden;
+}
+#wikiLogo{
+    background-image: url("css/wikiLogoNoText.png");
+    width: 300px;
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 165px;
+    top: 40px;
+}
+#modalInstructions{
+    font-family: Aileron-Thin;
+    font-size: 18pt;
+    text-align: center;
+    color: #07e8d0;
+    position: relative;
+    top: 50px;
+}
+#countCircle{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    background-color:#02c4c3;
+    position: relative;
+    left: 220px;
+    top: 60px;
+}
+#modalCountdown{
+    text-align: center;
+    color: white;
+    font-family: Aileron;
+    font-size: 74pt;
+    position: relative;
+    top: -5px;
+    left: -3px;
+}
 #q1{
     width: 400px;
     height: 325px;
@@ -98,6 +147,17 @@
     top: 10px;
     left: 400px;
 }
+#pinkLine{
+    background-image: url(css/divider_pink.png);
+    width: 200px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-left: 95px;
+    margin-top: 50px;
+}
+
 #pakistanInfo{
     font-family: Aileron-Thin;
     color: #07e8d0;
@@ -190,7 +250,9 @@
         <div id="q2">
             <h3 id="pakistanInfo">Pakistan (Listeni/ˈpækᵻstæn/ or Listeni/pɑːkᵻˈstɑːn/), officially the Islamic Republic of Pakistan, is a country in South Asia. It is the sixth-most populous country with a population exceeding 199 million people.[13]</h3>
         </div>
-        <div id="q3"> <h3 id="instructions"> Use your mobile device to search for a starting article based on this topic!</h3></div>
+        <div id="q3"> <h3 id="instructions"> Use your mobile device to search for a starting article based on this topic!</h3>
+        <div id="pinkLine"></div>
+        </div>
         
         <div id="q4">
             
@@ -198,8 +260,16 @@
         <div id="timerBox"></div>
         </div>
     </div>
+    <div id="startingModal">
+        <div id="wikiLogo"></div>
+        <div id="modalInstructions">
+        <h2>Get Ready!</h2>
+        <h2>The target article will reveal in</h2></div>
+        <div id="countCircle">
+            <div id="modalCountdown">4</div>
+        </div>
+    </div>
 </div>
-<a id="contextLink" href="GeeksTargetArticle.html"><button id="linkButton">Load Next Page</button></a>
 
 <div id="targetArticle">
 </div>
@@ -217,6 +287,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="jquery.modal.css" type="text/css" media="screen" />
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <!-- GreenSock library -->
