@@ -727,9 +727,12 @@ body .player-form {
   left: 10%;
   padding: 5%; }
 
-.body.wikigeeks .topic-image img {
-  max-width: 200px;
-  max-height: 200px; }
+.body.wikigeeks .topic-image {
+  max-height: 400px;
+  max-width: 400px; }
+  .body.wikigeeks .topic-image img {
+    max-height: 100%;
+    max-width: 100%; }
 
 .body.wikigeeks .article-name {
   color: #fe6444;
@@ -740,9 +743,8 @@ body .player-form {
   border: 2px solid #fe6444; }
   .body.wikigeeks .article-info .article-image {
     display: inline-block;
-    float: left;
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 400px;
+    max-width: 400px;
     margin: 0 auto; }
     .body.wikigeeks .article-info .article-image img {
       max-height: 100%;

@@ -26,9 +26,13 @@
 		padding: 5%;
 	}
 
-	.topic-image img {
-		max-width: 200px;
-		max-height: 200px;
+	.topic-image {
+		max-height: 400px;
+		max-width: 400px;
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
 	}
 
 	.article-name {
@@ -42,9 +46,8 @@
 		border: 2px solid $color-red;
 		.article-image {
 			display: inline-block;
-			float: left;
-			max-height: 200px;
-			max-width: 200px;
+			max-height: 400px;
+			max-width: 400px;
 			margin: 0 auto;
 
 			img {
