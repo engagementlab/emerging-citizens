@@ -367,6 +367,7 @@ var socketEvents = function(eventId, eventData) {
 
         {{#ifeq gameType "wikigeeks"}}
             case 'topic:info':
+            case 'topic:results':
             
                 $('#gameContent').html(eventData);
 

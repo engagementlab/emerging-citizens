@@ -1,0 +1,43 @@
+<div class="page-container">
+  <div class="row">
+
+    {{!-- Results Screen Container --}}
+    <section class="col-sm-12 room-container" id="topic-container">
+
+			<div class="row">
+
+					{{#each results}}
+          
+	          {{#iflt @index 3}}
+					    <div class="col-sm-4">    
+
+			            <div>
+			                {{!-- <name>
+			                    {{user.username}}
+			                </name> --}}
+			                {{> group/player_badge user=user avatar_ind=user.index }}
+
+			                <score>
+			                  {{score_total}}
+			                </score>
+
+											<div class="row">
+												
+												{{#each articles}}
+													{{this}} <br />
+												{{/each}}
+
+					            </div>
+			            </div>
+
+			        </div>
+	          {{/iflt}}
+
+          {{/each}}
+
+			</div>
+
+		</section>
+
+	</div>
+</div>
