@@ -30,17 +30,6 @@ module.exports = function() {
 
     };
 
-    // _helpers.sortBy = function (data, property, reverse) {
-    //     var result;
-    //     if (reverse){
-    //         result = _.reverse (_.sortBy (data, function(index){ return index.property; }));
-    //     } else {
-    //         result = _.sortBy (data, function(index){ return index.property; });
-    //     }
-    //     console.log ("Sorting data with helper... " + JSON.stringify(result));
-    //     return result;
-    // };
-
     // assign color class based on index for HTYI color cascade
     _helpers.htyiColor = function(index) {
 
@@ -85,10 +74,12 @@ module.exports = function() {
         }[operator];
     };
     
+    // Replace '[blank]' in tweet text with a large space represented by entity
     _helpers.tweetFormat = function(tweetStr) {
         return tweetStr.replace('[blank]', '&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95')
     };
 
+    // Remove <p> tag from html string
     _helpers.removePara = function (str) {
 
         if(!str)
@@ -99,6 +90,16 @@ module.exports = function() {
 
     };
 
+    // Get time in minutes for provided seconds
+    _helpers.getMinutes = function (strSeconds) {
+
+        var intSeconds = parseInt(strSeconds);
+        var secondsRemainder = (intSeconds % 60);
+        var displaySeconds = (secondsRemainder < 10) ? ("0" + secondsRemainder) : secondsRemainder;  
+
+        return Math.round(intSeconds / 60) + ':' + displaySeconds; 
+
+    };
 
     return _helpers;
 

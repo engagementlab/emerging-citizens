@@ -827,6 +827,33 @@ body .player-form {
   font-size: 7em;
   border: 5px dashed yellow; }
 
+.body.wikigeeks #results-container {
+  width: 80%;
+  left: 10%;
+  padding: 5%;
+  color: #2bd3ee;
+  border: 3px solid #ff5e41;
+  font-size: 1.6em; }
+  .body.wikigeeks #results-container h1 {
+    font-size: 4em; }
+  .body.wikigeeks #results-container h2 {
+    font-size: 2em; }
+  .body.wikigeeks #results-container #article-title {
+    color: #fe6444; }
+  .body.wikigeeks #results-container .row.user {
+    padding: 1%; }
+  .body.wikigeeks #results-container .row-color-0, .body.wikigeeks #results-container .row-color-6 {
+    background-color: #fe6444;
+    color: #FFF; }
+  .body.wikigeeks #results-container .row-color-2 {
+    background-color: #ff9971;
+    color: #FFF; }
+  .body.wikigeeks #results-container .row-color-4 {
+    background-color: #ff5e41;
+    color: #FFF; }
+  .body.wikigeeks #results-container .row-color-1, .body.wikigeeks #results-container .row-color-3, .body.wikigeeks #results-container .row-color-5, .body.wikigeeks #results-container .row-color-7 {
+    background-color: #FFF; }
+
 /* 
 	HTYI player view styling.
 */

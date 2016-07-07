@@ -2,38 +2,171 @@
   <div class="row">
 
     {{!-- Results Screen Container --}}
-    <section class="col-sm-12 room-container" id="topic-container">
+    <section class="col-sm-12 room-container" id="results-container">
 
-			<div class="row">
+    	<h1>Round {{round}} Results</h1>
+
+    	<h2 id="article-title">"{{title}}"</h2>
+
+    	{{!-- RESULTS SCREEN --}}
+			<div id="results" class="row">
+
+						<div class="header row bold">
+          
+					    <div class="col-sm-4">
+						    <h2>Player</h2>
+					    </div>    
+					    <div class="col-sm-2">
+						    <h2>Score</h2>
+			        </div>
+					    <div class="col-sm-2">
+						    <h2>Time</h2>
+					    </div>
+					    <div class="col-sm-2">
+						    <h2>Click</h2>
+					    </div>
+
+					  </div>
 
 					{{#each results}}
+
+						<div class="user row row-color-{{@index}}">
           
-	          {{#iflt @index 3}}
-					    <div class="col-sm-4">    
+					    <div class="col-sm-4">
 
-			            <div>
-			                {{!-- <name>
-			                    {{user.username}}
-			                </name> --}}
-			                {{> group/player_badge user=user avatar_ind=user.index }}
+			          {{#iflt @index 3}}
+			          	{{incIndex @index}}.
+			          {{/iflt}}
 
-			                <score>
-			                  {{score_total}}
-			                </score>
+					    	{{username}}
 
+					    </div>    
+					    <div class="col-sm-2">    
+
+                {{score_sum}}
+			                
 											<div class="row">
 												
-												{{#each articles}}
+												{{!-- {{#each articles}}
 													{{this}} <br />
-												{{/each}}
+												{{/each}} --}}
 
 					            </div>
-			            </div>
 
 			        </div>
-	          {{/iflt}}
+					    <div class="col-sm-2">
+
+					    	{{getMinutes time}}
+
+					    </div>
+					    <div class="col-sm-2">
+
+						    {{clicks}}
+
+					    </div>
+
+					  </div>
 
           {{/each}}
+
+			</div>
+
+			{{!-- SCORING BREAKDOWN --}}
+			<div id="scoring" class="row hidden-el">
+
+				<div class="header row bold">
+	    
+			    <div class="col-sm-4">
+				    <h2>Player</h2>
+			    </div>    
+			    <div class="col-sm-2">
+				    <h2>Target reached bonus</h2>
+	        </div>
+			    <div class="col-sm-2">
+				    <h2>Rank bonus</h2>
+			    </div>
+			    <div class="col-sm-2">
+				    <h2>Under 10 clicks bonus</h2>
+			    </div>
+
+			  </div>
+
+				{{#each results}}
+	      
+					<div class="user row row-color-{{@index}}">
+
+				    <div class="col-sm-4">
+
+		          {{#iflt @index 3}}
+		          	{{@index}}.
+		          {{/iflt}}
+
+				    	{{user.username}}
+
+				    </div>    
+				    <div class="col-sm-2">    
+
+					    {{scores.[0]}}
+		                
+										<div class="row">
+											
+											{{!-- {{#each articles}}
+												{{this}} <br />
+											{{/each}} --}}
+
+				            </div>
+
+		        </div>
+				    <div class="col-sm-2">
+					    
+					    {{scores.[1]}}
+
+				    </div>
+				    <div class="col-sm-2">
+
+					    {{scores.[2]}}
+
+				    </div>
+
+				  </div>
+
+	      {{/each}}
+
+			</div>
+
+			{{!-- LEADERBOARD --}}
+			<div id="leaderboard" class="row hidden-el">
+
+				<div class="header row bold">
+	    
+			    <div class="col-sm-8">
+				    <h2>Player</h2>
+			    </div>
+			    <div class="col-sm-4">
+				    <h2>Score</h2>
+			    </div>
+
+			  </div>
+
+				{{#each leaderboard}}
+
+					<div class="user row row-color-{{@index}}">
+	      
+				    <div class="col-sm-8">
+
+				    	{{username}}
+
+				    </div>    
+				    
+				    <div class="col-sm-4">
+
+					    {{score_total}}
+
+				    </div>
+
+				  </div>
+
+	      {{/each}}
 
 			</div>
 

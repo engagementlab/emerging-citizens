@@ -125,15 +125,15 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     disconnect: function(package) {
 
-      logger.info("Player '" + currentSocket.id + "' disconnecting.");
-
       var session = Session.Get(playerGameId);
+      var username = session.GetPlayerById(currentSocket.id);
+
+      logger.info("Player '" + username + "' disconnecting. Nooooo!");
 
       if(!session)
         return;
 
-      if(playerGameId) {
-        // session.PlayerLost(currentSocket.id, currentSpace);
+      if(playerGameId && session) {
 
         if(currentSocket.id === session.groupModerator) {
           logger.debug('is group moderator');

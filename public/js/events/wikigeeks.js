@@ -26,15 +26,13 @@ var gameEvents = function(eventId, eventData) {
     
     };
 
-    var retrieveArticle = function(articleTitle) {
+    var retrieveArticle = function(articleTitle, initialSearch) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
       // Tell server about this article being chosen by player
-      socket.emit('article:select', emitData(articleTitle));
       var str = String(articleTitle);
-      // $('.article-name').text ( str);
-      // $("<p>" + articleTitle + "</p>").appendTo('.article-name');
+      $('.article-name').append(articleTitle).html();
 
       // Get article content
       $.getJSON(
@@ -43,11 +41,17 @@ var gameEvents = function(eventId, eventData) {
            
             displayWikiContent(articleData);
 
-            $('#topic-submission').fadeOut(function() {
-              $('section#submitted').fadeIn();
-              console.log (articleTitle, " is the title of the article");
-              
-            });
+            // Tell server about this article being chosen by player
+            socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
+
+            if(initialSearch) {
+             
+              $('#topic-submission').fadeOut(function() {
+                $('section#submitted').fadeIn();
+                $('#wiki-article').fadeIn();
+              });
+            
+            }
 
         });
 
@@ -133,7 +137,7 @@ var gameEvents = function(eventId, eventData) {
             // Form click to search for first article
             $('#btn_search').click(function(evt) {
 
-              retrieveArticle($('#article_input').val());
+              retrieveArticle($('#article_input').val(), true);
 
             });
             
