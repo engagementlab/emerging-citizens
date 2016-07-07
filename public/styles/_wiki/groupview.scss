@@ -71,4 +71,46 @@
 
 	}
 
+	// Results screen
+	#results-container {
+		width: 80%;
+		left: 10%;
+		padding: 5%;
+
+		color: $color-light-blue;
+		border: 3px solid $color-dark-orange;
+		font-size: 1.6em;
+		
+		h1 {
+		  font-size: 4em;
+		}
+		h2 {
+			font-size: 2em;
+		}
+		
+		#article-title {
+			color: $color-red;
+		}
+
+		.row.user {
+	    padding: 1%;
+		}
+
+		.row-color-0, .row-color-6 {
+			background-color: $color-red;
+			color: #FFF;
+		}
+		.row-color-2 {
+			background-color: $color-peach;
+			color: #FFF;
+		}
+		.row-color-4 {
+			background-color: $color-dark-orange;
+			color: #FFF;
+		}
+		.row-color-1, .row-color-3, .row-color-5, .row-color-7  {
+			background-color: #FFF;
+		}
+	}
+
 }
