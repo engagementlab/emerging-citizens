@@ -4,35 +4,54 @@ $mq-tablet-portrait		: 768px !default;
 $mq-tablet-landscape	: 1024px !default;
 $mq-desktop				: 1382px !default;
 
-@mixin marching-ants-init($ant-size,$ant-width,$speed,$id){
-    padding: 5px + $ant-width;
-    margin: 20px;
-    background-size: 
-      $ant-size $ant-width, 
-      $ant-size $ant-width, 
-      $ant-width $ant-size, 
-      $ant-width $ant-size;
-    background-position: 
-      0 0, 
-      0 100%, 
-      0 0, 
-      100% 0;
-    background-repeat: 
-      repeat-x, 
-      repeat-x, 
-      repeat-y, 
-      repeat-y;
-    animation: marching-ants-#{$id} $speed;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-play-state: paused;
-  &:hover, &.marching {
-    animation-play-state: running;
-  }
-  &.reverse {
-    animation-direction: reverse;
-  }  
-};
+// @mixin marching-ants-init($ant-size,$ant-width,$speed,$id){
+//     padding: 5px + $ant-width;
+//     margin: 20px;
+//     background-size: 
+//       $ant-size $ant-width, 
+//       $ant-size $ant-width, 
+//       $ant-width $ant-size, 
+//       $ant-width $ant-size;
+//     background-position: 
+//       0 0, 
+//       0 100%, 
+//       0 0, 
+//       100% 0;
+//     background-repeat: 
+//       repeat-x, 
+//       repeat-x, 
+//       repeat-y, 
+//       repeat-y;
+//     animation: marching-ants-#{$id} $speed;
+//     animation-timing-function: linear;
+//     animation-iteration-count: infinite;
+//     animation-play-state: paused;
+//   &:hover, &.marching {
+//     animation-play-state: running;
+//   }
+//   &.reverse {
+//     animation-direction: reverse;
+//   }  
+// };
+
+// @mixin marching-ants-animation($ant-size, $id){
+//   @keyframes marching-ants-#{$id} {
+//     0% {
+//       background-position: 
+//         0 0, 
+//         0 100%, 
+//         0 0, 
+//         100% 0;
+//     } 
+//     100% {
+//       background-position: 
+//         2*$ant-size 0, 
+//         -2*$ant-size 100%, 
+//         0 -2*$ant-size, 
+//         100% 2*$ant-size;
+//     }
+//   }
+// };
 
 // Both portrait and landscape
 @mixin mobile-only {
