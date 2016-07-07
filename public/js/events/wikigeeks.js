@@ -9,6 +9,9 @@
  */
 var playerWasReconnected = false;
 
+//Add 'wikigeeks' class to body
+$('.body').addClass('wikigeeks');
+
 var gameEvents = function(eventId, eventData) {
 
     const API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
@@ -103,13 +106,7 @@ var gameEvents = function(eventId, eventData) {
     */
     switch (eventId) {
 
-        case 'player:loggedin':
-          console.log ("we logged in here okay");
-          $('.body').addClass('wikigeeks');
-        break;
-
         case 'game:start':
-            $('.body').addClass('wikigeeks');
 
             if(location.href.indexOf('debug') !== -1) {
 
