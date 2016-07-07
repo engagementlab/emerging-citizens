@@ -84,17 +84,41 @@
     background-size: contain;
     position: relative;
     z-index: 1;
-    top: -220px;
-    right: -50px;
+    top: -80%;
+    right: -80px;
 }
 #articleInfo{
     font-family: Avenir-Regular;
     color: #575757;
-    margin-left: 375px;
-    margin-top: 50px;
+    margin-left: 395px;
+    position: relative;
+    top: -46%;
     font-size: 18pt;
     width: 500px;
     line-height: 1.5em;
+    z-index: 2;
+}
+#pinkBox{
+    background-image: url("css/pinkstroke_box.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 875px;
+    height: 350px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+}
+#playerRow{
+    width:75%;
+    height: 175px;
+    position: relative;
+    top: -70%;
+}
+.player{
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    margin: 0 40px;
 }
 
 	</style>
@@ -111,8 +135,19 @@
     <div id="targetPane">
         <div><h2 id="header">Find the article!</h2></div>
         <div id="articleTitle">"Indo-Pakistani War of 1947"</div>
+        <div id="pinkBox"></div>
         <div id="articleInfo">The Indo-Pakistani War of 1947-1948, sometimes known as the First Kashmir War, was fought between India and Pakistan over the princely state of Kashmir and Jammu. It was the first of four Indo-Pakistan Wars fought between the two newly independent nations.</div>
         <div id="indianSoldiers"></div>
+        <div id="playerRow">
+            <div class="player" id="player1"></div>
+            <div class="player" id="player2"></div>
+            <div class="player" id="player3"></div>
+            <div class="player" id="player4"></div>
+            <div class="player" id="player5"></div>
+            <div class="player" id="player6"></div>
+            <div class="player" id="player7"></div>
+            <div class="player" id="player8"></div>
+        </div>
     </div>
 </div>
 

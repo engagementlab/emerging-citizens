@@ -24,7 +24,6 @@ TweenMax.fromTo($q4, 1, {opacity:0.0}, {opacity:1.0, delay:1.25});
 function countdownPane( elementName, minutes, seconds )
 {
     var element, endTime, hours, mins, msLeft, time;
-
     function twoDigits( n )
     {
         return (n <= 9 ? "0" + n : n);
@@ -37,9 +36,7 @@ function countdownPane( elementName, minutes, seconds )
             element.innerHTML = "Out of time!";
             timerDone=true;
             if (timerDone==true){
-				$modalPane.css("visibility", "visible");
-				TweenMax.fromTo($modalPane, 1, {opacity:0.0},{opacity:1.0});
-				countdown();
+				setTimeout(timeDone, 500);
 				}
         } else {
             time = new Date( msLeft );
@@ -47,7 +44,7 @@ function countdownPane( elementName, minutes, seconds )
             mins = time.getUTCMinutes();
             element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
             setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-        }
+        } 
     }
 
     element = document.getElementById( elementName );
@@ -55,7 +52,7 @@ function countdownPane( elementName, minutes, seconds )
     updateTimer();
 }
 
-countdownPane("timer", 0, 32);
+countdownPane("timer", 0, 31);
 
 //Modal Timer
 var seconds;
@@ -83,4 +80,10 @@ var temp;
  }
  function loadPage(){
  	window.location = "GeeksTargetArticle.html";
+ }
+
+ function timeDone(){
+ 	$modalPane.css("visibility", "visible");
+	TweenMax.fromTo($modalPane, 1, {opacity:0.0},{opacity:1.0});
+	countdown();
  }
