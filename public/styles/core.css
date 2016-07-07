@@ -271,6 +271,11 @@ body .player-form {
     transform: translate(-55px, 0px);
     clear: none; }
 
+.players-grid img {
+  width: 100px;
+  height: 100px;
+  float: left; }
+
 .player-badge {
   margin-top: 4%;
   position: relative;
@@ -788,25 +793,33 @@ body .player-form {
   color: #36d5d9; }
   .body.wikigeeks.player .game-message {
     position: relative;
-    min-height: 300px;
     margin-bottom: 10%;
     font-size: medium;
+    color: white;
     min-height: 265px;
-    min-width: 345px;
+    min-width: 100%;
     background-color: #fe6444;
     background-image: none;
     background-repeat: no-repeat;
-    background-position: center; }
+    background-position: center;
+    background-size: cover; }
     .body.wikigeeks.player .game-message span {
       left: 0;
       width: 100%;
       top: 45%;
       position: absolute;
-      height: 100%; }
+      height: 100%;
+      text-align: center; }
+  .body.wikigeeks.player #submitted .game-message {
+    margin: 0;
+    min-height: 100px; }
   .body.wikigeeks.player #wiki-article, .body.wikigeeks.player #wiki-workspace {
     display: none; }
     .body.wikigeeks.player #wiki-article ul, .body.wikigeeks.player #wiki-workspace ul {
       padding: 2px; }
+      .body.wikigeeks.player #wiki-article ul li, .body.wikigeeks.player #wiki-workspace ul li {
+        padding: 2px;
+        text-align: left; }
 
 html, body {
   max-height: 100%; }

@@ -32,7 +32,7 @@ var gameEvents = function(eventId, eventData) {
 
       // Tell server about this article being chosen by player
       socket.emit('article:select', emitData(articleTitle));
-
+      $('.article-name').append(articleTitle).html();
       // Get article content
       $.getJSON(
           retrievalUrl,
@@ -42,8 +42,8 @@ var gameEvents = function(eventId, eventData) {
 
             $('#topic-submission').fadeOut(function() {
               $('section#submitted').fadeIn();
-              console.log ()
-              $('#wiki-article').fadeIn();
+              console.log (articleTitle, " is the title of the article");
+              
             });
 
         });
@@ -66,6 +66,11 @@ var gameEvents = function(eventId, eventData) {
       removeDom('sup');
       removeDom('table');
       removeDom('.wikitable');
+
+      //Add necessary inline style changes
+      $('li').css("text-align", "left");
+      $('li.gallerybox').css("width", "100%");
+      $('li.gallerybox div:first-child').css("width", "100%");
 
       // Remove all content below 'See also'
       $('span#See_also').parent().nextAll().remove();
@@ -158,7 +163,7 @@ var gameEvents = function(eventId, eventData) {
         case 'topic:info':
             console.log ("topic info");
             $('section#submitted').hide();
-            
+            $('#wiki-article').fadeIn();
             $('section#article').show();
 
         break;

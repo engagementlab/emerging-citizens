@@ -1,6 +1,5 @@
 <div class="page-container">
     <div class="row">
-    		{{jsonPrint this}}
         {{!-- Topic Info Container --}}
         <section class="col-sm-12 room-container" id="topic-container">
 
@@ -21,12 +20,17 @@
 
 			        </div>
 			    </div>
+			    <div class="row">
+			    	{{>group/players_grid players=this.players}}
+
+				    <div class="col-sm-4 countdown">
+				      <section id="countdown">
+				      	<span id="text">0:00</span>
+				      </section>
+				    </div>
+			    </div>
 		</section>
     
     </div> 
-    <div class="row">
-	    <section>
-
-	    </section>
-    </div>
+    
 </div>
