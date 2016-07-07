@@ -826,6 +826,9 @@ body .player-form {
 .body.wikigeeks .countdown {
   font-size: 7em;
   border: 5px dashed yellow; }
+  .body.wikigeeks .countdown #countdown {
+    width: 100%;
+    height: 100%; }
   .body.wikigeeks .countdown span {
     width: 100%;
     height: 100%; }
