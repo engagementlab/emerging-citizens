@@ -168,7 +168,7 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'topic:info':
-            console.log ("topic info");
+        
             $('section#submitted').hide();
             $('#wiki-article').fadeIn();
             $('section#article').show();

@@ -234,8 +234,9 @@ var socketEvents = function(eventId, eventData) {
                 var scoreAnim = new TimelineLite({paused: true});
 
                 scoreAnim.from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow')
-                .to($('#results'), 1, {autoAlpha:1, scale: 1, ease:Bounce.easeOut}, 'resultsHide +=5')
-                .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsHide +=1.2');
+                .to($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsHide', 'resultsShow+=5.0')
+                .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringShow', 'resultsHide+=1.2')
+                .to($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringHide', 'scoringShow+=5');
 
                 scoreAnim.play();
 
