@@ -8,15 +8,16 @@
 
 	.game-message {
 		position: relative;
-		min-height: 300px;
 		margin-bottom: 10%;
 		font-size: medium;
+		color: white;
 		min-height: 265px;
-		min-width: 345px;
+		min-width: 100%;
 		background-color: $color-red;
 		background-image: none;
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: cover;
 
 			span {
 	    	  left: 0;
@@ -24,8 +25,16 @@
 	    	  top: 45%;
 		      position: absolute;
 		      height: 100%;
+		      text-align: center;
 		    }
 
+	}
+
+	#submitted {
+		.game-message {
+			margin: 0;
+			min-height: 100px;
+		}
 	}
 
 	#wiki-article, #wiki-workspace {
@@ -41,7 +50,8 @@
 		 //    -webkit-padding-start: 5px;
 
 		    li {
-
+		    	padding: 2px;
+		    	text-align: left;
 		    }
 		}
 	}

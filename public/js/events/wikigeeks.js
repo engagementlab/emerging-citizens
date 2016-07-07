@@ -9,6 +9,9 @@
  */
 var playerWasReconnected = false;
 
+//Add 'wikigeeks' class to body
+$('.body').addClass('wikigeeks');
+
 var gameEvents = function(eventId, eventData) {
 
     const API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
@@ -26,6 +29,8 @@ var gameEvents = function(eventId, eventData) {
     var retrieveArticle = function(articleTitle, initialSearch) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
+
+      $('.article-name').append(articleTitle).html();
 
       // Get article content
       $.getJSON(
@@ -67,6 +72,11 @@ var gameEvents = function(eventId, eventData) {
       removeDom('table');
       removeDom('.wikitable');
 
+      //Add necessary inline style changes
+      $('li').css("text-align", "left");
+      $('li.gallerybox').css("width", "100%");
+      $('li.gallerybox div:first-child').css("width", "100%");
+
       // Remove all content below 'See also'
       $('span#See_also').parent().nextAll().remove();
       $('span#See_also').parent().remove();
@@ -106,13 +116,7 @@ var gameEvents = function(eventId, eventData) {
     */
     switch (eventId) {
 
-        case 'player:loggedin':
-          console.log ("we logged in here okay");
-          $('.body').addClass('wikigeeks');
-        break;
-
         case 'game:start':
-            $('.body').addClass('wikigeeks');
 
             if(location.href.indexOf('debug') !== -1) {
 
@@ -164,7 +168,7 @@ var gameEvents = function(eventId, eventData) {
         case 'topic:info':
             console.log ("topic info");
             $('section#submitted').hide();
-            
+            $('#wiki-article').fadeIn();
             $('section#article').show();
 
         break;

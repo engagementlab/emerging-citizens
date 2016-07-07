@@ -9,6 +9,9 @@
 
 var playerWasReconnected = false;
 
+//Add game type class to body
+$('.body').addClass('htyi');
+
 var gameEvents = function(eventId, eventData) {
 
     switch (eventId) {
