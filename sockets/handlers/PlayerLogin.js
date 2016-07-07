@@ -126,12 +126,13 @@ var PlayerLogin = function (nsp, socket, emitter) {
     disconnect: function(package) {
 
       var session = Session.Get(playerGameId);
-      var username = session.GetPlayerById(currentSocket.id);
-
-      logger.info("Player '" + username + "' disconnecting. Nooooo!");
 
       if(!session)
         return;
+      
+      var username = session.GetPlayerById(currentSocket.id);
+
+      logger.info("Player '" + username + "' disconnecting. Nooooo!");
 
       if(playerGameId && session) {
 
