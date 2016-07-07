@@ -30,6 +30,8 @@ var gameEvents = function(eventId, eventData) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
+      // Tell server about this article being chosen by player
+      var str = String(articleTitle);
       $('.article-name').append(articleTitle).html();
 
       // Get article content

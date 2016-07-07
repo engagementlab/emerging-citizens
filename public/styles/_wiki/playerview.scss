@@ -6,6 +6,12 @@
 	background-image: $background-wiki;
 	color: $color-teal;
 
+	.submission {
+		margin-right: 10%;
+		margin-left:10%;
+		width: 80%;
+	}
+
 	.game-message {
 		position: relative;
 		margin-bottom: 10%;

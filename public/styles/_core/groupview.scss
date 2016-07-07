@@ -104,11 +104,78 @@
 }
 
 .players-grid {
-	img {
-			width: 100px;
-			height: 100px;
+	.player-background {
+	
+	display: block;
+	position: relative;
+	margin: 20px 10px;
+	margin-bottom: 40px;
+	background: white;
+	@include circle (100px, white);
+	@include box-shadow(2px, 10px, 46px, #000000);
+	
+	.icon {
+		margin: 10px auto;
+		display: block;
+		position:relative;
+		height: 118px;
+		width: 100%;
+		opacity: 0.3;
+
+		&.active {
+			opacity: 1;
+		}
+
+		img {
+			width: 70px;
+			height: 70px;
 			float: left;
 		}
+	}
+
+	.points {
+		display: none;
+		float: left;
+		width: 100%;
+    position: absolute;
+    padding-top: 26%;
+		font-size: 3.6em;
+	}
+
+	.score {
+		font-size: 4.6em;
+		font-weight: bold;
+		color: #91c92f;
+	  text-shadow:
+	   -1px -1px 0 #FFF,  
+	    1px -1px 0 #FFF,
+	    -1px 1px 0 #FFF,
+	     1px 1px 0 #FFF;
+
+	}
+
+	.nameplate {
+
+	  position: relative;
+	  background-color: white;
+	  padding: 2px;
+	  opacity: 0;
+	  font-weight: bold;
+	  font-size: medium;
+	  color: $color-blue;
+
+		@include box-shadow(0px, 21px, 46px, #000);
+		@include translate(0px, -32px);
+
+		@include transition(opacity .5s, transform .5s);
+
+		&.active {
+			opacity: 1;
+			@include translate(0px, -32px);
+		}
+	}
+
+}
 }
 
 .player-badge {
