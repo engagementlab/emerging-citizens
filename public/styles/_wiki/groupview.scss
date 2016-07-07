@@ -18,6 +18,8 @@
 			color: $color-red;
 		}
 
+
+
 	}
 
 	#topic-container.room-container {
@@ -69,8 +71,18 @@
 		font-size: 7em;
 		border: 5px dashed yellow;
 
-		@include marching-ants-init
+		span {
+			width: 100%;
+			height: 100%;
+		}
 
+		// @include marching-ants-init (20px, 2px,1s,1);
+		// @include marching-ants-animation(20px, 2);
+
+	}
+
+	.players-countdown {
+		margin-top: 5%;
 	}
 
 	// Results screen
