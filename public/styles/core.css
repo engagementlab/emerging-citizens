@@ -271,10 +271,73 @@ body .player-form {
     transform: translate(-55px, 0px);
     clear: none; }
 
-.players-grid img {
+.players-grid .player-background {
+  display: block;
+  position: relative;
+  margin: 20px 10px;
+  margin-bottom: 40px;
+  background: white;
   width: 100px;
   height: 100px;
-  float: left; }
+  background: white;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-box-shadow: 2px 10px 46px #000000;
+  -moz-box-shadow: 2px 10px 46px #000000;
+  box-shadow: 2px 10px 46px #000000; }
+  .players-grid .player-background .icon {
+    margin: 10px auto;
+    display: block;
+    position: relative;
+    height: 118px;
+    width: 100%;
+    opacity: 0.3; }
+    .players-grid .player-background .icon.active {
+      opacity: 1; }
+    .players-grid .player-background .icon img {
+      width: 70px;
+      height: 70px;
+      float: left; }
+  .players-grid .player-background .points {
+    display: none;
+    float: left;
+    width: 100%;
+    position: absolute;
+    padding-top: 26%;
+    font-size: 3.6em; }
+  .players-grid .player-background .score {
+    font-size: 4.6em;
+    font-weight: bold;
+    color: #91c92f;
+    text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+  .players-grid .player-background .nameplate {
+    position: relative;
+    background-color: white;
+    padding: 2px;
+    opacity: 0;
+    font-weight: bold;
+    font-size: medium;
+    color: #4343ff;
+    -webkit-box-shadow: 0px 21px 46px #000;
+    -moz-box-shadow: 0px 21px 46px #000;
+    box-shadow: 0px 21px 46px #000;
+    -moz-transform: translate(0px, -32px);
+    -o-transform: translate(0px, -32px);
+    -ms-transform: translate(0px, -32px);
+    -webkit-transform: translate(0px, -32px);
+    transform: translate(0px, -32px);
+    -moz-transition: opacity 0.5s, transform 0.5s;
+    -o-transition: opacity 0.5s, transform 0.5s;
+    -webkit-transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s; }
+    .players-grid .player-background .nameplate.active {
+      opacity: 1;
+      -moz-transform: translate(0px, -32px);
+      -o-transform: translate(0px, -32px);
+      -ms-transform: translate(0px, -32px);
+      -webkit-transform: translate(0px, -32px);
+      transform: translate(0px, -32px); }
 
 .player-badge {
   margin-top: 4%;
@@ -791,6 +854,10 @@ body .player-form {
 .body.wikigeeks.player {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
   color: #36d5d9; }
+  .body.wikigeeks.player .submission {
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 80%; }
   .body.wikigeeks.player .game-message {
     position: relative;
     margin-bottom: 10%;

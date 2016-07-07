@@ -32,7 +32,10 @@ var gameEvents = function(eventId, eventData) {
 
       // Tell server about this article being chosen by player
       socket.emit('article:select', emitData(articleTitle));
-      $('.article-name').append(articleTitle).html();
+      var str = String(articleTitle);
+      // $('.article-name').text ( str);
+      // $("<p>" + articleTitle + "</p>").appendTo('.article-name');
+
       // Get article content
       $.getJSON(
           retrievalUrl,

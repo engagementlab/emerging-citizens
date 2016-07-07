@@ -69,6 +69,8 @@
 		font-size: 7em;
 		border: 5px dashed yellow;
 
+		@include marching-ants-init
+
 	}
 
 }
