@@ -3,6 +3,7 @@ module.exports = function(app) {
   var io = require('socket.io')(app);
 
   var GameManager = require('../lib/GameManager');
+  var CommonHandler = require('./handlers/Common');
   var HashtagHandler = require('./handlers/Hashtag');
   var WikiHandler = require('./handlers/Wiki');
   var PlayerLogin = require('./handlers/PlayerLogin');
@@ -13,6 +14,7 @@ module.exports = function(app) {
 
     // Create event handlers for this socket
     var eventHandlers = {
+        common: new CommonHandler(io, socket),
         hashtag: new HashtagHandler(io, socket),
         wiki: new WikiHandler(io, socket),
         login: new PlayerLogin(io, socket)

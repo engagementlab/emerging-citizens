@@ -42,28 +42,6 @@ var Hashtag = function (nsp, socket) {
                             currentSpace
                         );
 
-        },
-
-        'game:tutorial': function(package) {
-
-            Session.Get(package.gameId).
-            StartTutorial(currentSpace);
-
-        },
-
-        'game:start': function(package) {
-            console.log (package, "package");
-
-            Session.Get(package.gameId).
-            StartGame(currentSpace);
-
-        },
-
-        'game:next_round': function(package) {
-
-            Session.Get(package.gameId).
-            AdvanceRound(currentSpace);
-
         }
     
     };

@@ -31,40 +31,6 @@ var Wiki = function (nsp, socket) {
                             );
 
         },
-
-        // 'wiki:vote': function(package) {
-
-        //     Session.Get(package.gameId).
-        //     WikiVote(
-        //                     currentSocket.id,
-        //                     package.msgData,
-        //                     currentSpace
-        //                 );
-
-        // },
-
-        'game:tutorial': function(package) {
-
-            Session.Get(package.gameId).
-            StartTutorial(currentSpace);
-
-        },
-
-        'game:start': function(package) {
-            // console.log (package, "game starting for player");
-            // debugger;
-            Session.Get(package.gameId).
-            StartGame(currentSpace);
-
-        },
-
-        'game:next_round': function(package) {
-
-            Session.Get(package.gameId).
-            AdvanceRound(currentSpace);
-
-        },
-
         
         'articles:search': function(package) {
 

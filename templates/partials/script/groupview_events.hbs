@@ -104,29 +104,10 @@ var socketEvents = function(eventId, eventData) {
         case 'game:start':
             
             $('#gameContent').html(eventData.html);
-
-
+            
             {{#ifeq gameType "wikigeeks"}}
 
-                var countdownText =  $('#countdown #text');
-                secondsLeft = eventData.timeLimit * 60;
-                console.log ("game:start");
-                console.log (secondsLeft, "seconds left");
-
-                var topicCountdown = setInterval(function() {
-                    secondsLeft--;
-
-                    let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
-
-                    TweenLite.to(countdownText, .1, { scale: 0 });
-                    $(countdownText).text('0:' + displaySeconds);
-                    TweenLite.from(countdownText, .1, { scale: 0 });
-
-                    // End countdown
-                    if(secondsLeft == 0)
-                        clearInterval(topicCountdown);
-            
-                }, 1000);
+                $('#overlay').html(eventData.reveal);
 
             {{/ifeq}}
 
@@ -134,58 +115,64 @@ var socketEvents = function(eventId, eventData) {
             
         case 'game:countdown':
 
+            if(clockInterval)
+                clearInterval(clockInterval);
 
-        {{#ifeq gameType "htyi"}}
-            console.log ("htyi countdown");
-                var secondsLeft = eventData;
-                var timeFactor = 360 / secondsLeft;
-                var clockHand = $('#clock-hand');
+            {{#ifeq gameType "htyi"}}
 
-                if(clockInterval !== undefined)
-                    clearInterval(clockInterval);
-                    
-                clockInterval = setInterval(function() {
+                    var secondsLeft = eventData.duration;
+                    var timeFactor = 360 / secondsLeft;
+                    var clockHand = $('#clock-hand');
+                        
+                    clockInterval = setInterval(function() {
 
-                    function clockTick() {
-                        clockHand.css({
-                            transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
-                        });
+                        function clockTick() {
+                            clockHand.css({
+                                transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
+                            });
+                            secondsLeft--;
+                        }
+
+                        clockTick();
+
+                        if(secondsLeft === 0)
+                            clearInterval(clockInterval);
+                    }, 1000);
+
+            {{/ifeq}}  
+
+            {{#ifeq gameType "wikigeeks"}}
+
+                    var countdownText =  $('#countdown #text');
+                    var revealCountdownText = $('#reveal #countdown #text');
+
+                    var secondsLeft = eventData.duration;
+                    var clockName = eventData.name;
+
+                    clockInterval = setInterval(function() {
+
                         secondsLeft--;
-                    }
 
-                    clockTick();
+                        let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
 
-                    if(secondsLeft === 0)
-                        clearInterval(clockInterval);
-                }, 1000);
+                        TweenLite.to(countdownText, .1, { scale: 0 });
+                        
+                        $(countdownText).text('0:' + displaySeconds);
+                        $(revealCountdownText).text('0:' + displaySeconds);
+                        
+                        TweenLite.from(countdownText, .1, { scale: 0 });
 
+                        // End countdown
+                        if(secondsLeft == 0)
+                            clearInterval(clockInterval);
+                        else if(secondsLeft == 3 && clockName === 'topicReveal')
+                            $('#overlay').fadeIn();
+                
+                    }, 1000);
 
-            break;  
-        {{/ifeq}}  
-
-        {{#ifeq gameType "wikigeeks"}}
-        console.log ("wikigeeks countdown");
-                var countdownText =  $('#countdown #text');
-                var secondsLeft = eventData;
-                console.log (secondsLeft, "seconds left");
-
-                var topicCountdown = setInterval(function() {
-                    secondsLeft--;
-
-                    let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
-
-                    TweenLite.to(countdownText, .1, { scale: 0 });
-                    $(countdownText).text('0:' + displaySeconds);
-                    TweenLite.from(countdownText, .1, { scale: 0 });
-
-                    // End countdown
-                    if(secondsLeft == 0)
-                        clearInterval(topicCountdown);
-            
-                }, 1000);
+            {{/ifeq}}
 
             break;
-        {{/ifeq}}
 
         {{!-- break; --}}
 
@@ -224,8 +211,9 @@ var socketEvents = function(eventId, eventData) {
 
         {{#ifeq gameType "wikigeeks"}}
             case 'topic:info':
-            
+                        
                 $('#gameContent').html(eventData);
+                $('#overlay').fadeOut();
 
             case 'topic:results':
                 
