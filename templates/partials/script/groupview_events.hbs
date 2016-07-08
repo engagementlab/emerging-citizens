@@ -8,12 +8,11 @@
  * Script includes partial for MODERATOR socket.io events
  * ==========
  */
---}}			
+--}}		
+
+var clockInterval;
 
 var socketEvents = function(eventId, eventData) {
-		
-	var currentPlayers = [];
-    var clockInterval;
     
     switch (eventId) {
 
@@ -29,7 +28,8 @@ var socketEvents = function(eventId, eventData) {
         case 'players:update':
 
                 var staticPlayers = $('.player-static');
-			  	currentPlayers = _.pluck(eventData, 'username');
+                var currentPlayers = _.pluck(eventData, 'username');
+                
                 console.log (eventData + " player name event data" + currentPlayers);
 
                 // Allow to start?
@@ -213,18 +213,43 @@ var socketEvents = function(eventId, eventData) {
             case 'topic:info':
                         
                 $('#gameContent').html(eventData);
-                $('#overlay').fadeOut();
+                $('#overlay').fadeOut().empty();
+
+                break;
 
             case 'topic:results':
                 
                 $('#gameContent').html(eventData);
 
-                var scoreAnim = new TimelineLite({paused: true});
+                function roundCountdown() {
+                    
+                    var countdownText =  $('#countdown #text');
+                    var secondsLeft = 10;
+                    var roundInterval = setInterval(function() {
+                        
+                        secondsLeft--;
+                        $(countdownText).text(secondsLeft);
 
-                scoreAnim.from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow')
-                .to($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsHide', 'resultsShow+=5.0')
-                .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringShow', 'resultsHide+=1.2')
-                .to($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringHide', 'scoringShow+=5');
+                        if(secondsLeft == 0)
+                        {
+                            clearInterval(roundInterval);
+                            socket.emit('game:next_round', emitData(null));
+                        }
+                
+                    }, 1000);
+
+                }
+
+                var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
+
+                scoreAnim.from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}).add('resultsShow')
+                .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=5')
+                
+                .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=6')
+                .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=11')
+                
+                .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
+                .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
 
                 scoreAnim.play();
 

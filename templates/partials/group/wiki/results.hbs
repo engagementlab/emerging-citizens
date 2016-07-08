@@ -101,7 +101,7 @@
 		          	{{@index}}.
 		          {{/iflt}}
 
-				    	{{user.username}}
+				    	{{username}}
 
 				    </div>    
 				    <div class="col-sm-2">    
@@ -168,6 +168,10 @@
 
 	      {{/each}}
 
+			</div>
+
+			<div id="countdown" class="row hidden-el">
+				<h2>Round {{incIndex round}} will begin in <span id="text">10</span> seconds</h1>
 			</div>
 
 		</section>

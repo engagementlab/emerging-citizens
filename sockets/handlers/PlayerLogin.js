@@ -126,13 +126,22 @@ var PlayerLogin = function (nsp, socket, emitter) {
     disconnect: function(package) {
 
       var session = Session.Get(playerGameId);
+      var isGroup = (currentSocket.id === session.groupModerator);
 
       if(!session)
         return;
-      
-      var username = session.GetPlayerById(currentSocket.id);
 
-      logger.info("Player '" + username + "' disconnecting. Nooooo!");
+      if(isGroup)
+        logger.info(playerGameId + " group view disconnecting. Bu-bye.");
+
+      else {
+
+        var player = session.GetPlayerById(currentSocket.id);
+
+        if(player)
+          logger.info("Player '" + player.username + "' disconnecting. Nooooo!");
+
+      }
 
       if(playerGameId && session) {
 
