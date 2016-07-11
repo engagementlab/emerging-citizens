@@ -32,13 +32,22 @@ var gameEvents = function(eventId, eventData) {
 
       // Tell server about this article being chosen by player
       var str = String(articleTitle);
-      $('.article-name').append(articleTitle).html();
+      var articleInput = $('#article_input');
+
+      $(articleInput).append(articleTitle).html();
 
       // Get article content
       $.getJSON(
           retrievalUrl,
           function(articleData) {
-           
+
+            if(articleData.error) {
+              $(articleInput).addClass('invalid');
+              $('.error').text(articleData.error.info).fadeIn();
+
+              return;
+            }
+
             displayWikiContent(articleData);
 
             // Tell server about this article being chosen by player
@@ -120,6 +129,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
+            var articleInput = $('#article_input');
+
             if(location.href.indexOf('debug') !== -1) {
 
               // Get a random article while debugging, for tickles!
@@ -141,6 +152,7 @@ var gameEvents = function(eventId, eventData) {
 
             });
 
+            // Enable autocomplete to Wikipedia search API
             $("#article_input").autocomplete({
                 source: function(request, response) {
                     $.ajax({
@@ -156,6 +168,12 @@ var gameEvents = function(eventId, eventData) {
                         }
                     });
                 }
+            });
+
+            // Hide any errors during typing
+            $(articleInput).keypress(function(evt) {
+              $(evt.currentTarget).removeClass('invalid');
+              $('.error').fadeOut(250);
             });
             
             break;

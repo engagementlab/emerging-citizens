@@ -24,7 +24,7 @@ var gameEvents = function(eventId, eventData) {
             // Remove current player's submission from selections
             $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerHashtag') + '"]').remove();
 
-            // Hide voting?
+            // Hide voting (if player was reconnected and already voted)?
             if(this.playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
             {
                 $('#' + $('#submitted').data('hide')).remove();
