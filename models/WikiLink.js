@@ -32,10 +32,9 @@ WikiLink.add({
 	category: {
         type: Types.Relationship,
         ref: 'ContentCategory',
-        filter: { game: "WikiGeeks"},
-        required: true,
-        initial: true,
-        label: 'Category'
+        filters: { game: "WikiGeeks"},
+        label: 'Category', 
+        many: true
     }
 });
 
