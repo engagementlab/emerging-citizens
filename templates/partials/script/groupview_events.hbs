@@ -29,8 +29,6 @@ var socketEvents = function(eventId, eventData) {
 
                 var staticPlayers = $('.player-static');
                 var currentPlayers = _.pluck(eventData, 'username');
-                
-                console.log (eventData + " player name event data" + currentPlayers);
 
                 // Allow to start?
                 if(currentPlayers.length === 2)
