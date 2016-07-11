@@ -19,7 +19,8 @@ var Types = keystone.Field.Types;
  */
 
 var ContentCategory = new keystone.List('ContentCategory', {
-    track: true
+    track: true,
+    map: { name: 'topicName' }
 });
 
 ContentCategory.add({
@@ -41,5 +42,5 @@ ContentCategory.relationship({ ref: 'WikiLink', refPath: 'wikilinks', path: 'cat
  * Registration
  */
 
-ContentCategory.defaultColumns = 'topicName, game';
+ContentCategory.defaultColumns = 'name, game';
 ContentCategory.register();

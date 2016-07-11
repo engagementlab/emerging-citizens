@@ -65,7 +65,7 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
 
         // Get game config and content buckets (categories)
-        ContentCategory.model.find({}, 'name', function (err, categories) {
+        ContentCategory.model.find({}, 'topicName', function (err, categories) {
 
             locals.gameCode = gameCode;
             locals.gameType = gameType;
