@@ -42,5 +42,5 @@ ContentCategory.relationship({ ref: 'WikiLink', refPath: 'wikilinks', path: 'cat
  * Registration
  */
 
-ContentCategory.defaultColumns = 'name, game';
+ContentCategory.defaultColumns = 'name, game, topicDescription';
 ContentCategory.register();
