@@ -21,7 +21,8 @@ var Types = keystone.Field.Types;
 var WikiLink = new keystone.List('WikiLink', {
     nocreate: false, 
     track: true,
-    autokey: { path: 'key', from: 'articleName', unique: true }
+    autokey: { path: 'key', from: 'articleName', unique: true },
+    map: { name: 'articleName' }
 });
 
 WikiLink.add({
@@ -42,5 +43,5 @@ WikiLink.add({
  * Registration
  */
 
-WikiLink.defaultColumns = 'articleName, category, articleUrl';
+WikiLink.defaultColumns = 'name, category, articleUrl';
 WikiLink.register();
