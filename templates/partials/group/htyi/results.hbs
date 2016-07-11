@@ -121,34 +121,33 @@
         </div>
     </section>
 
-<section id="leaderboard" style="display:none" class="col-sm-12 results hidden-el">
+    <section id="leaderboard" style="display:none" class="col-sm-12 results hidden-el">
 
-        <h1 class="screen-title">Score Totals</h1>
-        <div class="row">
+            <h1 class="screen-title">Score Totals</h1>
+            <div class="row">
 
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3 left">
-                {{#each players}}
-                {{!-- {{{jsonPrint this}}} --}}
-                    <div class="player hidden-el">
-                        {{> group/player_face user=this avatar_ind=this.index creator=true }}
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3 left">
+                    {{#each players}}
+                    {{!-- {{{jsonPrint this}}} --}}
+                        <div class="player hidden-el">
+                            {{> group/player_face user=this avatar_ind=this.index creator=true }}
 
-                        <div class="score">
-                            {{#if score_total}}
-                                {{score_total}}
-                            {{else}}
-                                0
-                            {{/if}}
+                            <div class="score">
+                                {{#if score_total}}
+                                    {{score_total}}
+                                {{else}}
+                                    0
+                                {{/if}}
+                            </div>
                         </div>
-                    </div>
 
-                   {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
-                {{/each}}
+                       {{#ifeq @index 3}}</div><div class="col-sm-3 right">{{/ifeq}}
+                    {{/each}}
+                </div>
+                <div class="col-sm-3"></div>
+
             </div>
-            <div class="col-sm-3"></div>
-
-        </div>
-    
     </section>
 
     {{!-- Show FINAL scores only at last round --}}
