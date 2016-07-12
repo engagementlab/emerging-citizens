@@ -111,6 +111,11 @@
 
 		.row.user {
 	    padding: 1%;
+
+	    .ranking {
+	    	background: white;
+				@include circle (25px, white);
+	    }
 		}
 
 		.row-color-0, .row-color-6 {
@@ -128,6 +133,13 @@
 		.row-color-1, .row-color-3, .row-color-5, .row-color-7  {
 			background-color: #FFF;
 		}
+
+		.row-color-0 {
+			.ranking:before {
+				content: "1st";
+		  }	
+		}
+
 	}
 
 }

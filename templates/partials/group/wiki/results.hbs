@@ -32,7 +32,10 @@
 
 						<div class="user row row-color-{{@index}}">
           
-					    <div class="col-sm-4">
+					    <div class="col-sm-2 ranking">
+
+					    </div>
+					    <div class="col-sm-2">
 
 			          {{#iflt @index 3}}
 			          	{{incIndex @index}}.
@@ -40,7 +43,7 @@
 
 					    	{{username}}
 
-					    </div>    
+					    </div>
 					    <div class="col-sm-2">    
 
                 {{score_sum}}
@@ -134,6 +137,36 @@
 
 			</div>
 
+
+
+    {{!-- Show WINNERS CIRCLE at last round instead of leaderboard --}}
+    {{#if last_round}}
+
+      <div id="winners-circle" class="row hidden-el">
+
+          <h1 class="screen-title">Final Scores!</h1>
+          {{#each players}}
+      
+              {{#iflt @index 3}}
+
+								<div class="user row row-color-{{@index}}">
+
+							    <div class="col-sm-10">
+
+							    	{{username}}
+
+							    </div>    
+
+							  </div>
+
+              {{/iflt}}
+      
+          {{/each}}
+
+      </div>
+
+    {{else}}
+
 			{{!-- LEADERBOARD --}}
 			<div id="leaderboard" class="row hidden-el">
 
@@ -148,11 +181,14 @@
 
 			  </div>
 
-				{{#each leaderboard}}
+				{{#each players}}
 
 					<div class="user row row-color-{{@index}}">
 	      
-				    <div class="col-sm-8">
+				    <div class="col-sm-2">
+				    </div>
+
+				    <div class="col-sm-6">
 
 				    	{{username}}
 
@@ -170,8 +206,17 @@
 
 			</div>
 
+    {{/if}}
+
 			<div id="countdown" class="row hidden-el">
-				<h2>Round {{incIndex round}} will begin in <span id="text">10</span> seconds</h1>
+		    <h2>
+			    {{#if last_round}}
+						Returning to Main Menu
+					{{else}}
+						Round {{incIndex round}} will begin
+					{{/if}}
+					 in <span id="text">10</span> seconds
+				</h2>
 			</div>
 
 		</section>

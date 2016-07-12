@@ -131,7 +131,7 @@ function nextRound() {
 
             // End countdown
             if(secondsLeft == 0) {
-                if($('#next-round')[0] !== undefined) {
+                if($('#next-round')[0]) {
                     socket.emit('game:next_round', emitData(null));
                     clearInterval(roundCountdown);
                 }
