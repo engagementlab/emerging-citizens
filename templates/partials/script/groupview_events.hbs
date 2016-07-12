@@ -100,14 +100,11 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:start':
-            
+
             $('#gameContent').html(eventData.html);
+
             
-            {{#ifeq gameType "wikigeeks"}}
-
-                $('#overlay').html(eventData.reveal);
-
-            {{/ifeq}}
+            
 
             break;
             
@@ -146,10 +143,16 @@ var socketEvents = function(eventId, eventData) {
 
                     var secondsLeft = eventData.duration;
                     var clockName = eventData.name;
+                    console.log (clockName, "clockname");
+                    console.log (secondsLeft, "seconds left");
+
+                        
 
                     clockInterval = setInterval(function() {
 
                         secondsLeft--;
+                        console.log (secondsLeft, "seconds left");
+
 
                         let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
 
@@ -161,12 +164,20 @@ var socketEvents = function(eventId, eventData) {
                         TweenLite.from(countdownText, .1, { scale: 0 });
 
                         // End countdown
-                        if(secondsLeft == 0)
+                        if(secondsLeft == 0 && clockName === 'articleReveal') {
+                            console.log ("countdown ended now");
+                            $('#overlay').html(eventData).fadeOut();
                             clearInterval(clockInterval);
-                        else if(secondsLeft == 3 && clockName === 'topicReveal')
-                            $('#overlay').fadeIn();
-                
+                        }
+                        else if(secondsLeft == 4 && clockName === 'articleReveal') {
+                            console.log ("reveal countdown HBS");
+                            $('#overlay').html(eventData).fadeIn();
+                            {{!-- clearInterval(clockInterval); --}}
+                        } 
+ 
                     }, 1000);
+
+
 
             {{/ifeq}}
 
@@ -211,6 +222,13 @@ var socketEvents = function(eventId, eventData) {
             case 'topic:info':
                         
                 $('#gameContent').html(eventData);
+
+                {{#ifeq gameType "wikigeeks"}}
+
+                    $('#reveal').html(eventData.reveal);
+
+                {{/ifeq}}
+
                 $('#overlay').fadeOut().empty();
 
                 break;
