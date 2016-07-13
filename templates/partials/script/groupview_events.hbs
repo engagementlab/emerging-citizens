@@ -22,6 +22,11 @@ var socketEvents = function(eventId, eventData) {
                $('#startGameForm').css('padding', '1%');
                
 			   socket.emit('room', emitData('moderator'));
+
+               {{#ifeq gameType "wikigeeks"}}
+                    $('.body').addClass('wikigeeks');
+
+               {{/ifeq}}
                
             break;
 

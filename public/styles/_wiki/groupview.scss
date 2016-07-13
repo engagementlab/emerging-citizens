@@ -1,14 +1,104 @@
 /* 
 	WikiGeeks group view styling.
 */
+
 .body.wikigeeks {
 
-	#game_code {
-		// margin-top: 20%;
-		color: $color-red;
+	
+
+	#gameContent.container-fluid {
+		padding-top: 3%;
 	}
 
 	.room-container {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	#startGameForm {
+		top:80%;
+		right: -60px;
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		input {
+			border-radius: 20px;
+			background-color: $color-teal;
+		}
+
+	}
+
+	.logo {
+		img {
+			max-width: 80%;
+			margin-top: 2%;
+		}
+	}
+
+	.players {
+		margin-top: 5%;
+
+		// Move last one in column to the right or left
+		&.left {
+			// float: none;
+			// @include translate(50%, 0px);
+
+			div.player-background {
+				clear: both;
+				// float: left;
+			}
+			div.player-background:nth-child(1) {
+				@include translate(25px, -35px);
+				clear: both;
+			}
+			div.player-background:nth-child(2) {
+				@include translate(25px, 0px);
+				clear: both;
+			}
+			div.player-background:nth-child(3) {
+				@include translate(155px, 25px);
+				clear: both;
+			}
+			div.player-background:nth-child(4) {
+				@include translate(455px, -155px);
+				clear: none;
+			}
+		}
+		&.right {
+			// float: none;
+			// @include translate(-50%, 0px);
+
+			div.player-background {
+				clear: both;
+				// float: right;
+			}
+			div.player-background:nth-child(1) {
+				@include translate(-25px, -35px);
+				clear: both;
+			}
+			div.player-background:nth-child(2) {
+				@include translate(-25px, 0px);
+				clear: both;
+			}
+			div.player-background:nth-child(3) {
+				@include translate(-155px, 25px);
+				clear: both;
+			}
+			div.player-background:nth-child(4) {
+				@include translate(-455px, -155px);
+				clear: none;
+			}
+		}
+
+	}
+
+
+	.room-container {
+
+		border-radius: 20px;
+		box-shadow: none;
+
 		
 		p {
 			color: $color-light-blue;
@@ -32,7 +122,9 @@
 		max-height: 400px;
 		max-width: 400px;
 		margin: 0 auto;
+		position: relative;
 		img {
+			display: block;
 			max-height: 100%;
 			max-width: 100%;
 		}
@@ -69,8 +161,8 @@
 	.countdown {
 		
 		font-size: 7em;
-		border: 5px dashed yellow;
-
+		// border: 5px dashed yellow;
+		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/v1468424753/timer_bounding_box_zd0sjo.png);
 		#countdown {
 			width: 100%;
 			height: 100%;
@@ -86,6 +178,79 @@
 
 	.players-countdown {
 		margin-top: 5%;
+	}
+
+	.players {
+		.player-background {
+			border-radius: 20px;
+			box-shadow: none;
+			display: block;
+			position: relative;
+			margin: 20px auto;
+			margin-bottom: 40px;
+			background: white;
+			
+			.icon {
+				margin: 10px auto;
+				display: block;
+				position:relative;
+				height: 160px;
+				width: 100%;
+				opacity: 0.3;
+
+				&.active {
+					opacity: 1;
+				}
+
+				img {
+					width: 130px;
+					height: 130px;
+				}
+			}
+
+			.points {
+				display: none;
+				float: left;
+				width: 100%;
+			    position: absolute;
+			    padding-top: 26%;
+				font-size: 3.6em;
+			}
+
+			.score {
+				font-size: 4.6em;
+				font-weight: bold;
+				color: #91c92f;
+			  text-shadow:
+			   -1px -1px 0 #FFF,  
+			    1px -1px 0 #FFF,
+			    -1px 1px 0 #FFF,
+			     1px 1px 0 #FFF;
+
+			}
+
+			.nameplate {
+
+			  position: relative;
+			  padding: 2px;
+			  opacity: 0;
+			  font-weight: bold;
+			  font-size: medium;
+			  color: $color-bright-red;
+			  background-color: none;
+				box-shadow: none;
+
+				@include translate(0px, -32px);
+
+				@include transition(opacity .5s, transform .5s);
+
+				&.active {
+					opacity: 1;
+					@include translate(0px, -32px);
+				}
+			}
+
+		}
 	}
 
 	// Results screen
@@ -138,6 +303,82 @@
 			.ranking:before {
 				content: "1st";
 		  }	
+		}
+
+	}
+
+	.players-grid {
+		.player-background {
+			
+			display: block;
+			position: relative;
+			margin: 20px 10px;
+			margin-bottom: 40px;
+			background: white;
+			@include circle (100px, white);
+			@include box-shadow(2px, 10px, 46px, #000000);
+			
+			.icon {
+				margin: 10px auto;
+				display: block;
+				position:relative;
+				height: 118px;
+				width: 100%;
+				opacity: 0.3;
+
+				&.active {
+					opacity: 1;
+				}
+
+				img {
+					width: 70px;
+					height: 70px;
+					float: left;
+				}
+			}
+
+			.points {
+				display: none;
+				float: left;
+				width: 100%;
+		    position: absolute;
+		    padding-top: 26%;
+				font-size: 3.6em;
+			}
+
+			.score {
+				font-size: 4.6em;
+				font-weight: bold;
+				color: #91c92f;
+			  text-shadow:
+			   -1px -1px 0 #FFF,  
+			    1px -1px 0 #FFF,
+			    -1px 1px 0 #FFF,
+			     1px 1px 0 #FFF;
+
+			}
+
+			.nameplate {
+
+			  position: relative;
+			  background-color: white;
+			  padding: 2px;
+			  opacity: 0;
+			  font-weight: bold;
+			  font-size: medium;
+			  color: $color-blue;
+
+				@include box-shadow(0px, 21px, 46px, #000);
+				@include translate(0px, -32px);
+
+				@include transition(opacity .5s, transform .5s);
+
+				&.active {
+					opacity: 1;
+					@include translate(0px, -32px);
+				}
+			}
+
 		}
 
 	}

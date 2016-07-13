@@ -72,111 +72,9 @@
 	}
 }
 
-.players {
-	margin-top: -40px;
 
-	// Move last one in column to the right or left
-	&.left {
-		// @include translate(50%, 0px);
 
-		div.player-background {
-			clear: both;
-			float: left;
-		}
-		div.player-background:nth-child(4) {
-			@include translate(55px, 0px);
-			clear: none;
-		}
-	}
-	&.right {
-		// @include translate(-50%, 0px);
 
-		div.player-background {
-			clear: both;
-			float: right;
-		}
-		div.player-background:nth-child(4) {
-			@include translate(-55px, 0px);
-			clear: none;
-		}
-	}
-
-}
-
-.players-grid {
-	.player-background {
-	
-	display: block;
-	position: relative;
-	margin: 20px 10px;
-	margin-bottom: 40px;
-	background: white;
-	@include circle (100px, white);
-	@include box-shadow(2px, 10px, 46px, #000000);
-	
-	.icon {
-		margin: 10px auto;
-		display: block;
-		position:relative;
-		height: 118px;
-		width: 100%;
-		opacity: 0.3;
-
-		&.active {
-			opacity: 1;
-		}
-
-		img {
-			width: 70px;
-			height: 70px;
-			float: left;
-		}
-	}
-
-	.points {
-		display: none;
-		float: left;
-		width: 100%;
-    position: absolute;
-    padding-top: 26%;
-		font-size: 3.6em;
-	}
-
-	.score {
-		font-size: 4.6em;
-		font-weight: bold;
-		color: #91c92f;
-	  text-shadow:
-	   -1px -1px 0 #FFF,  
-	    1px -1px 0 #FFF,
-	    -1px 1px 0 #FFF,
-	     1px 1px 0 #FFF;
-
-	}
-
-	.nameplate {
-
-	  position: relative;
-	  background-color: white;
-	  padding: 2px;
-	  opacity: 0;
-	  font-weight: bold;
-	  font-size: medium;
-	  color: $color-blue;
-
-		@include box-shadow(0px, 21px, 46px, #000);
-		@include translate(0px, -32px);
-
-		@include transition(opacity .5s, transform .5s);
-
-		&.active {
-			opacity: 1;
-			@include translate(0px, -32px);
-		}
-	}
-
-}
-}
 
 .player-badge {
   
@@ -194,78 +92,78 @@
 
 }
 
-.player-background {
+// .player-background {
 	
-	display: block;
-	position: relative;
-	margin: 20px auto;
-	margin-bottom: 40px;
-	background: white;
-	@include circle ($playerSize, white);
-	@include box-shadow(2px, 10px, 46px, #000000);
+// 	display: block;
+// 	position: relative;
+// 	margin: 20px auto;
+// 	margin-bottom: 40px;
+// 	background: white;
+// 	@include circle ($playerSize, white);
+// 	@include box-shadow(2px, 10px, 46px, #000000);
 	
-	.icon {
-		margin: 10px auto;
-		display: block;
-		position:relative;
-		height: 118px;
-		width: 100%;
-		opacity: 0.3;
+// 	.icon {
+// 		margin: 10px auto;
+// 		display: block;
+// 		position:relative;
+// 		height: 118px;
+// 		width: 100%;
+// 		opacity: 0.3;
 
-		&.active {
-			opacity: 1;
-		}
+// 		&.active {
+// 			opacity: 1;
+// 		}
 
-		img {
-			width: 130px;
-			height: 130px;
-			float: left;
-		}
-	}
+// 		img {
+// 			width: 130px;
+// 			height: 130px;
+// 			float: left;
+// 		}
+// 	}
 
-	.points {
-		display: none;
-		float: left;
-		width: 100%;
-    position: absolute;
-    padding-top: 26%;
-		font-size: 3.6em;
-	}
+// 	.points {
+// 		display: none;
+// 		float: left;
+// 		width: 100%;
+//     position: absolute;
+//     padding-top: 26%;
+// 		font-size: 3.6em;
+// 	}
 
-	.score {
-		font-size: 4.6em;
-		font-weight: bold;
-		color: #91c92f;
-	  text-shadow:
-	   -1px -1px 0 #FFF,  
-	    1px -1px 0 #FFF,
-	    -1px 1px 0 #FFF,
-	     1px 1px 0 #FFF;
+// 	.score {
+// 		font-size: 4.6em;
+// 		font-weight: bold;
+// 		color: #91c92f;
+// 	  text-shadow:
+// 	   -1px -1px 0 #FFF,  
+// 	    1px -1px 0 #FFF,
+// 	    -1px 1px 0 #FFF,
+// 	     1px 1px 0 #FFF;
 
-	}
+// 	}
 
-	.nameplate {
+// 	.nameplate {
 
-	  position: relative;
-	  background-color: white;
-	  padding: 2px;
-	  opacity: 0;
-	  font-weight: bold;
-	  font-size: medium;
-	  color: $color-blue;
+// 	  position: relative;
+// 	  background-color: white;
+// 	  padding: 2px;
+// 	  opacity: 0;
+// 	  font-weight: bold;
+// 	  font-size: medium;
+// 	  color: $color-blue;
 
-		@include box-shadow(0px, 21px, 46px, #000);
-		@include translate(0px, -32px);
+// 		@include box-shadow(0px, 21px, 46px, #000);
+// 		@include translate(0px, -32px);
 
-		@include transition(opacity .5s, transform .5s);
+// 		@include transition(opacity .5s, transform .5s);
 
-		&.active {
-			opacity: 1;
-			@include translate(0px, -32px);
-		}
-	}
+// 		&.active {
+// 			opacity: 1;
+// 			@include translate(0px, -32px);
+// 		}
+// 	}
 
-}
+// }
 
 // TWEET template
 #tweet-container {

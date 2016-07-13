@@ -21,4 +21,36 @@
 
 	}
 
+	.players {
+		margin-top: -40px;
+
+		// Move last one in column to the right or left
+		&.left {
+			// @include translate(50%, 0px);
+
+			div.player-background {
+				clear: both;
+				float: left;
+			}
+			div.player-background:nth-child(4) {
+				@include translate(55px, 0px);
+				clear: none;
+			}
+		}
+		&.right {
+			// @include translate(-50%, 0px);
+
+			div.player-background {
+				clear: both;
+				float: right;
+			}
+			div.player-background:nth-child(4) {
+				@include translate(-55px, 0px);
+				clear: none;
+			}
+		}
+
+	}
+
+	
 }

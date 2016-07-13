@@ -49,6 +49,7 @@ exports = module.exports = function(req, res) {
 
         // Set global game type
         gameType = game.gameType;
+        console.log (game.gameType);
 
         // Set local for this view only
         locals.gameType = gameType;
@@ -63,6 +64,7 @@ exports = module.exports = function(req, res) {
   });
 
   // Render the view
+  // console.log (gameType);
   view.render('group/monitor');
 
 };
