@@ -56,18 +56,31 @@
                         <button id="template_reload">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
-                          <option value="partials/group/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
-                          <option value="partials/group/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
-                          <option value="partials/group/results" data-key="results" data-event_id="hashtags:results">results</option>
+
+                          {{#ifeq gameType "htyi"}}
+                              <option value="partials/group/htyi/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                              <option value="partials/group/htyi/voting" data-key="" data-event_id="hashtags:received">voting</option>
+                              <option value="partials/group/htyi/results" data-key="submissions" data-event_id="hashtags:results">results</option>
+                          {{/ifeq}}
+
+                          {{#ifeq gameType "wikigeeks"}}
+                              <option value="partials/group/wiki/topic" data-key="tweet" data-event_id="game:start">topic</option>
+                              <option value="partials/group/wiki/article" data-key="" data-event_id="hashtags:received">article</option>
+                              <option value="partials/group/wiki/results" data-key="submissions" data-event_id="wiki:results">results</option>
+                          {{/ifeq}}
+
                         </select>
 
                     {{else}}
-
+                        
+                        <button id="template_reload">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
-                          <option value="partials/player/tweet">tweet</option>
-                          <option value="partials/player/voting" data-key="voting" data-event_id="hashtags:received">voting</option>
-                          <option value="partials/player/results" data-key="none" data-event_id="game:end">results</option>
+
+                          {{!-- {{#ifeq gameType "wikigeeks"}} --}}
+                              <option value="partials/player/wiki/results" data-key="submissions" data-event_id="wiki:results">wiki-results</option>
+                          {{!-- {{/ifeq}} --}}
+
                         </select>
 
                     {{/ifeq}}

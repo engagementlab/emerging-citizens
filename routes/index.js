@@ -27,7 +27,6 @@ exports = module.exports = function(app) {
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
     app.post('/game', routes.views.game.player);
-    app.post('/game/load', routes.views.game.template_load);
 
     // Group screen
     app.get('/game/:accesscode/:debug?', routes.views.group.monitor);
@@ -39,6 +38,8 @@ exports = module.exports = function(app) {
     app.get('/new/:game_type', routes.views.group.index);
     
     app.post('/api/create/:game_type', keystone.middleware.api, routes.api.gamesession.create);
+    app.post('/api/load/', keystone.middleware.api, routes.api.templates.load);
+    
     // app.post('/login', routes.views.user.login);
 
   	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);

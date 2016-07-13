@@ -933,9 +933,25 @@ body .player-form {
       .body.wikigeeks.player #wiki-article ul li, .body.wikigeeks.player #wiki-workspace ul li {
         padding: 2px;
         text-align: left; }
+  .body.wikigeeks.player #results .row .content {
+    width: 100px;
+    height: 100px;
+    background: white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    padding-top: 1%;
+    margin-left: auto;
+    margin-right: auto; }
+  .body.wikigeeks.player #results #articles {
+    background-color: #fff; }
 
 html, body {
   max-height: 100%; }
+
+.col-centered {
+  float: none;
+  margin: 0 auto; }
 
 .hidden-el {
   visibility: hidden; }

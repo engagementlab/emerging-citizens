@@ -48,15 +48,13 @@ exports.create = function(req, res) {
            return;
         }
         
-        if(data.gameType === "htyi") {
-            console.log ("starting HTYI");
+        if(data.gameType === "htyi") 
             sessionType = new HashtagGame.model();
-        } 
-        else if (data.gameType === "wikigeeks") {
+        
+        else if (data.gameType === "wikigeeks")
             console.log ("starting WikiGeeks");
             sessionType = new WikiGame.model();
-        }
-
+        
         sessionType.getUpdateHandler(req).process(data, function(err) {
             
             if (err) return res.apiError('error', err);

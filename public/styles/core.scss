@@ -19,6 +19,12 @@ html, body {
 	max-height: 100%;
 }
 
+// Center any column, yay!
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
 // Use for any elements hidden initially
 .hidden-el {
 	visibility: hidden;

@@ -140,7 +140,7 @@
 		
 			'article:found',
 			'topic:info',
-			'topic:results'
+			'wiki:results'
 
 		
 		];
@@ -536,12 +536,14 @@
 				var eventId = selected.data('event_id'); 
 
 			  $.post( 
-			  	"/game/load/",
+			  	"/api/load/",
 			  	{ template_path: template, debug_key: templateData, event_id: eventId },
 					function( data ) {
 
-	          // $('#gameContent').html(data);
 					 	socketEvents(data.id, data.eventData);
+
+					 	if(typeof(gameEvents) == "function")
+							gameEvents(data.id, data.eventData);
 
 					}
 				);

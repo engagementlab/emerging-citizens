@@ -1,0 +1,102 @@
+{{!-- PLAYER RESULTS --}}
+<section id="results">
+	<div class="row">
+		
+		{{!-- <div class="col-sm-6"></div> --}}
+		<div class="col-xs-12 col-sm-12">
+
+						
+				<div class="row">
+	
+					<div class="col-xs-6 col-sm-6">
+						<div class="content">
+
+							<h2>clicks</h2>
+							<span>{{clicks}}</span>
+
+						</div>
+					</div>
+
+					<div class="col-xs-6 col-sm-6">
+						<div class="content">
+
+							<h2>time</h2>
+							<span>{{time}}</span>
+						
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div id="articles" class="col-lg-6 col-centered">
+
+						<h2 id="player-name">{{username}}:</h2>
+
+						{{#each articles}}
+
+							<div class="row">
+
+								{{!-- First article --}}
+								{{#if @first}}
+								
+									<h3>{{this}}</h3>
+								
+								{{else}}
+
+									<svg height="100" width="50">
+											
+										<line x1="25" y1="10" x2="25" y2="50" style="stroke:rgb(188,255,252);stroke-width:8"></line>
+
+										<circle cx="25" cy="10" r="10" stroke="black" stroke-width="0" fill="red"></circle>
+										<circle cx="25" cy="55" r="10" stroke="black" stroke-width="0" fill="red"></circle>
+
+									</svg>
+						
+									<div class="row">
+
+										{{!-- Final article (if player finished) --}}
+										{{#if @last}}
+											{{#if ../finished}}
+											
+												<h3>{{this}}</h3>
+											
+											{{else}}
+											
+												{{this}}
+											
+											{{/if}}
+
+										{{else}}
+
+											{{this}}
+
+										{{/if}}
+
+									</div>
+								
+								{{/if}}
+
+							</div>
+
+						{{/each}}
+
+					</div>
+
+				</div>
+			
+		</div>
+
+	</div>
+			
+{{!-- 		<div class="row">
+
+			<div class="col-sm-10">
+
+
+			</div>
+
+		</div> --}}
+
+</section>
