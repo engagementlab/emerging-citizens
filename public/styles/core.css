@@ -224,175 +224,60 @@ body .player-form {
 .winner {
   background-color: white; }
 
-.game_code {
-  margin-top: 20%; }
-  .game_code #first {
-    color: #fe6444; }
-  .game_code #second {
-    color: #ffaf34; }
-  .game_code #third {
-    color: #fbd738; }
-  .game_code #fourth {
-    color: #00CB86; }
-
 .room-container {
   bottom: 10%;
   padding-left: 10%;
   padding-right: 10%;
   position: relative;
   margin: 10px auto;
-  background-color: white;
-  -webkit-box-shadow: 10px 10px 50px #000;
-  -moz-box-shadow: 10px 10px 50px #000;
-  box-shadow: 10px 10px 50px #000; }
+  background-color: white; }
   .room-container h1 {
     font-size: 6em; }
 
-.player-badge {
-  margin-top: 4%;
-  position: relative;
-  /*background-color:#333;*/
-  float: left; }
-
-#tweet-container {
-  padding: 3%;
-  height: 400px; }
-
-.tweet #tweet-author {
+.player-background {
   display: block;
-  text-align: left; }
-
-#current-tweet {
-  position: absolute;
-  display: flex;
-  background-color: white;
-  color: black;
-  font-size: x-large;
-  padding: 1%;
-  top: 0;
-  right: 0;
-  left: 0;
-  text-align: left;
-  border: 9px solid #6768FE; }
-  #current-tweet #author {
-    color: #328FB5; }
-  #current-tweet #left {
-    float: left;
-    padding-right: 2%; }
-  #current-tweet #right {
-    float: right; }
-
-#clock-face {
-  margin: auto;
-  background-position: 50% 50%;
-  background-size: cover;
-  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center; }
-
-#clock-hand {
-  left: -.5%;
-  position: relative; }
-
-#clock-bg {
-  margin: 0 auto;
-  width: 184px;
-  height: 168px;
-  background: white;
-  -webkit-border-radius: 83px;
-  -moz-border-radius: 83px;
-  border-radius: 83px; }
-  #clock-bg.voting {
-    background-color: #6768FE; }
-
-#hashtag-submissions-prompt {
-  display: none;
-  height: 320px;
-  color: white;
-  font-size: x-large;
-  background-color: #6768FE;
-  padding-bottom: 2%;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin-bottom: 4%; }
-  #hashtag-submissions-prompt #real {
-    color: #C8E646; }
-
-#hashtag-submissions .hashtag {
-  font-size: x-large;
-  background-color: white;
-  padding: 10px;
-  margin: 20px; }
-  #hashtag-submissions .hashtag .octothorp {
-    margin-top: 3%;
-    font-size: x-large; }
-
-#hashtag-results {
-  margin-top: 11%; }
-  #hashtag-results .hashtag {
-    background-color: #FFD255;
-    padding: 20px;
-    color: #FD6D59;
-    font-size: xx-large; }
-    #hashtag-results .hashtag .octothorp {
-      font-size: 1.3em; }
-  #hashtag-results .real {
-    transform: translate(0px, -50px); }
-  #hashtag-results #prompt {
-    color: white;
-    font-size: x-large;
-    background-color: #6768FE;
-    padding: 2%; }
-  #hashtag-results .result {
-    margin-top: 20%; }
-
-#winners-circle .score-box {
-  padding: 20px;
-  background-color: #ff9000;
-  font-size: large; }
-  #winners-circle .score-box img {
-    float: left; }
-  #winners-circle .score-box score {
-    color: #fbd738;
-    font-size: 3em;
-    font-weight: bold; }
-  #winners-circle .score-box name {
+  position: relative;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  background: white; }
+  .player-background .icon {
+    margin: 10px auto;
     display: block;
-    font-size: 1.5em;
-    color: #FFF; }
-
-#winners-circle .score-box.winner {
-  background-color: #fbd738; }
-
-#scores .player, #leaderboard .player {
-  background-color: white;
-  padding: 8px;
-  display: flex;
-  margin-top: 2%;
-  clear: both; }
-
-#scores .score, #leaderboard .score {
-  float: left;
-  width: 50%;
-  font-weight: bold;
-  font-size: 4em; }
-
-.results h1 {
-  color: #FFF; }
-
-.results .row {
-  margin-bottom: 3%; }
-
-.results .creator {
-  position: absolute;
-  transform: translate(-75%, -38%); }
-
-.results .voter {
-  margin: 0;
-  float: left;
-  transform: scale(0.8); }
-
-.results .voter.screen-title {
-  float: none;
-  margin: 0 auto; }
+    position: relative;
+    width: 100%;
+    opacity: 0.3; }
+    .player-background .icon.active {
+      opacity: 1; }
+  .player-background .points {
+    display: none;
+    float: left;
+    width: 100%;
+    position: absolute;
+    padding-top: 26%;
+    font-size: 3.6em; }
+  .player-background .score {
+    font-size: 4.6em;
+    font-weight: bold;
+    color: #91c92f;
+    text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+  .player-background .nameplate {
+    position: relative;
+    background-color: white;
+    padding: 2px;
+    opacity: 0;
+    font-weight: bold;
+    font-size: medium;
+    -moz-transition: opacity 0.5s, transform 0.5s;
+    -o-transition: opacity 0.5s, transform 0.5s;
+    -webkit-transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s; }
+    .player-background .nameplate.active {
+      opacity: 1;
+      -moz-transform: translate(0px, -32px);
+      -o-transform: translate(0px, -32px);
+      -ms-transform: translate(0px, -32px);
+      -webkit-transform: translate(0px, -32px);
+      transform: translate(0px, -32px); }
 
 .last .text {
   font-size: 26em;
@@ -619,28 +504,253 @@ body .player-form {
   .body.htyi #game_code #fourth {
     color: #00CB86; }
 
+.body.htyi .room-container {
+  -webkit-box-shadow: 10px 10px 50px #000;
+  -moz-box-shadow: 10px 10px 50px #000;
+  box-shadow: 10px 10px 50px #000; }
+
 .body.htyi .players {
-  margin-top: -40px; }
+  margin-top: 40px; }
   .body.htyi .players.left div.player-background {
     clear: both;
-    float: left; }
+    float: left;
+    -moz-transform: translate(105px, 0px);
+    -o-transform: translate(105px, 0px);
+    -ms-transform: translate(105px, 0px);
+    -webkit-transform: translate(105px, 0px);
+    transform: translate(105px, 0px); }
   .body.htyi .players.left div.player-background:nth-child(4) {
-    -moz-transform: translate(55px, 0px);
-    -o-transform: translate(55px, 0px);
-    -ms-transform: translate(55px, 0px);
-    -webkit-transform: translate(55px, 0px);
-    transform: translate(55px, 0px);
+    -moz-transform: translate(225px, 0px);
+    -o-transform: translate(225px, 0px);
+    -ms-transform: translate(225px, 0px);
+    -webkit-transform: translate(225px, 0px);
+    transform: translate(225px, 0px);
     clear: none; }
   .body.htyi .players.right div.player-background {
     clear: both;
-    float: right; }
+    float: right;
+    -moz-transform: translate(-105px, 0px);
+    -o-transform: translate(-105px, 0px);
+    -ms-transform: translate(-105px, 0px);
+    -webkit-transform: translate(-105px, 0px);
+    transform: translate(-105px, 0px); }
   .body.htyi .players.right div.player-background:nth-child(4) {
-    -moz-transform: translate(-55px, 0px);
-    -o-transform: translate(-55px, 0px);
-    -ms-transform: translate(-55px, 0px);
-    -webkit-transform: translate(-55px, 0px);
-    transform: translate(-55px, 0px);
+    -moz-transform: translate(-225px, 0px);
+    -o-transform: translate(-225px, 0px);
+    -ms-transform: translate(-225px, 0px);
+    -webkit-transform: translate(-225px, 0px);
+    transform: translate(-225px, 0px);
     clear: none; }
+  .body.htyi .players .player-background {
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    margin-bottom: 80px;
+    background: white;
+    width: 180px;
+    height: 180px;
+    background: white;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+    -webkit-box-shadow: 2px 10px 46px #000000;
+    -moz-box-shadow: 2px 10px 46px #000000;
+    box-shadow: 2px 10px 46px #000000; }
+    .body.htyi .players .player-background .icon {
+      margin: 10px auto;
+      display: block;
+      position: relative;
+      height: 160px;
+      width: 100%;
+      opacity: 0.3; }
+      .body.htyi .players .player-background .icon.active {
+        opacity: 1; }
+      .body.htyi .players .player-background .icon img {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto; }
+    .body.htyi .players .player-background .points {
+      display: none;
+      float: left;
+      width: 100%;
+      position: absolute;
+      padding-top: 26%;
+      font-size: 3.6em; }
+    .body.htyi .players .player-background .score {
+      font-size: 4.6em;
+      font-weight: bold;
+      color: #91c92f;
+      text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+    .body.htyi .players .player-background .nameplate {
+      position: relative;
+      background-color: white;
+      padding: 5px;
+      opacity: 0;
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #4343ff;
+      -webkit-box-shadow: 0px 21px 46px #000;
+      -moz-box-shadow: 0px 21px 46px #000;
+      box-shadow: 0px 21px 46px #000;
+      -moz-transform: translate(0px, -32px);
+      -o-transform: translate(0px, -32px);
+      -ms-transform: translate(0px, -32px);
+      -webkit-transform: translate(0px, -32px);
+      transform: translate(0px, -32px);
+      -moz-transition: opacity 0.5s, transform 0.5s;
+      -o-transition: opacity 0.5s, transform 0.5s;
+      -webkit-transition: opacity 0.5s, transform 0.5s;
+      transition: opacity 0.5s, transform 0.5s; }
+      .body.htyi .players .player-background .nameplate.active {
+        opacity: 1;
+        -moz-transform: translate(0px, -32px);
+        -o-transform: translate(0px, -32px);
+        -ms-transform: translate(0px, -32px);
+        -webkit-transform: translate(0px, -32px);
+        transform: translate(0px, -32px); }
+
+.body.htyi #tweet-container {
+  padding: 3%;
+  height: 400px; }
+
+.body.htyi .tweet #tweet-author {
+  display: block;
+  text-align: left; }
+
+.body.htyi #current-tweet {
+  position: absolute;
+  display: flex;
+  background-color: white;
+  color: black;
+  font-size: x-large;
+  padding: 1%;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: left;
+  border: 9px solid #6768FE; }
+  .body.htyi #current-tweet #author {
+    color: #328FB5; }
+  .body.htyi #current-tweet #left {
+    float: left;
+    padding-right: 2%; }
+  .body.htyi #current-tweet #right {
+    float: right; }
+
+.body.htyi #clock-face {
+  margin: auto;
+  background-position: 50% 50%;
+  background-size: cover;
+  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center; }
+
+.body.htyi #clock-hand {
+  left: -0.5%;
+  position: relative; }
+
+.body.htyi #clock-bg {
+  margin: 0 auto;
+  width: 184px;
+  height: 168px;
+  background: white;
+  -webkit-border-radius: 83px;
+  -moz-border-radius: 83px;
+  border-radius: 83px; }
+  .body.htyi #clock-bg.voting {
+    background-color: #6768FE; }
+
+.body.htyi #hashtag-submissions-prompt {
+  display: none;
+  height: 320px;
+  color: white;
+  font-size: x-large;
+  background-color: #6768FE;
+  padding-bottom: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-bottom: 4%; }
+  .body.htyi #hashtag-submissions-prompt #real {
+    color: #C8E646; }
+
+.body.htyi #hashtag-submissions .hashtag {
+  font-size: x-large;
+  background-color: white;
+  padding: 10px;
+  margin: 20px; }
+  .body.htyi #hashtag-submissions .hashtag .octothorp {
+    margin-top: 3%;
+    font-size: x-large; }
+
+.body.htyi #hashtag-results {
+  margin-top: 11%; }
+  .body.htyi #hashtag-results .hashtag {
+    background-color: #FFD255;
+    padding: 20px;
+    color: #FD6D59;
+    font-size: xx-large; }
+    .body.htyi #hashtag-results .hashtag .octothorp {
+      font-size: 1.3em; }
+  .body.htyi #hashtag-results .real {
+    transform: translate(0px, -50px); }
+  .body.htyi #hashtag-results #prompt {
+    color: white;
+    font-size: x-large;
+    background-color: #6768FE;
+    padding: 2%; }
+  .body.htyi #hashtag-results .result {
+    margin-top: 20%; }
+
+.body.htyi #winners-circle .score-box {
+  padding: 20px;
+  background-color: #ff9000;
+  font-size: large; }
+  .body.htyi #winners-circle .score-box img {
+    float: left; }
+  .body.htyi #winners-circle .score-box score {
+    color: #fbd738;
+    font-size: 3em;
+    font-weight: bold; }
+  .body.htyi #winners-circle .score-box name {
+    display: block;
+    font-size: 1.5em;
+    color: #FFF; }
+
+.body.htyi #winners-circle .score-box.winner {
+  background-color: #fbd738; }
+
+.body.htyi .winner {
+  background-color: white; }
+
+.body.htyi #scores .player, .body.htyi #leaderboard .player {
+  background-color: white;
+  padding: 8px;
+  display: flex;
+  margin-top: 2%;
+  clear: both; }
+
+.body.htyi #scores .score, .body.htyi #leaderboard .score {
+  float: left;
+  width: 50%;
+  font-weight: bold;
+  font-size: 4em; }
+
+.body.htyi .results h1 {
+  color: #FFF; }
+
+.body.htyi .results .row {
+  margin-bottom: 3%; }
+
+.body.htyi .results .creator {
+  position: absolute;
+  transform: translate(-105%, -25%) scale(0.8); }
+
+.body.htyi .results .voter {
+  margin: 0;
+  float: left;
+  transform: scale(0.8); }
+
+.body.htyi .results .voter.screen-title {
+  float: none;
+  margin: 0 auto; }
 
 /* 
 	WikiGeeks group view styling.
@@ -827,22 +937,12 @@ body .player-form {
     color: #F83439;
     background-color: none;
     box-shadow: none;
-    -moz-transform: translate(0px, -32px);
-    -o-transform: translate(0px, -32px);
-    -ms-transform: translate(0px, -32px);
-    -webkit-transform: translate(0px, -32px);
-    transform: translate(0px, -32px);
     -moz-transition: opacity 0.5s, transform 0.5s;
     -o-transition: opacity 0.5s, transform 0.5s;
     -webkit-transition: opacity 0.5s, transform 0.5s;
     transition: opacity 0.5s, transform 0.5s; }
     .body.wikigeeks .players .player-background .nameplate.active {
-      opacity: 1;
-      -moz-transform: translate(0px, -32px);
-      -o-transform: translate(0px, -32px);
-      -ms-transform: translate(0px, -32px);
-      -webkit-transform: translate(0px, -32px);
-      transform: translate(0px, -32px); }
+      opacity: 1; }
 
 .body.wikigeeks #results-container {
   width: 80%;

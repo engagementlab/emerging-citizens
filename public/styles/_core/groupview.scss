@@ -39,23 +39,6 @@
 	background-color: white;
 }
 
-.game_code {
-	margin-top: 20%;
-
-	#first {
-		color: $color-red;
-	}
-	#second {
-		color: $color-light-orange;
-	}
-	#third {
-		color: $color-yellow;
-	}
-	#fourth {
-		color: $color-green;
-	}
-
-}
 
 .room-container {
 	bottom: 10%;
@@ -65,309 +48,73 @@
 	margin: 10px auto;
 	background-color: white;
 
-	@include box-shadow(10px, 10px, 50px, #000);
-
 	h1 {
 		font-size: 6em;
 	}
 }
 
 
-
-
-
-.player-badge {
-  
-  margin-top: 4%;
-  position:relative;
-  /*background-color:#333;*/
-  float:left;
-
-  .badge-face {
-	  // position:absolute;
-	  // width:200px;
-	  // height:200px;
-	  // overflow:hidden;
-  }
-
-}
-
-// .player-background {
+.player-background {
 	
-// 	display: block;
-// 	position: relative;
-// 	margin: 20px auto;
-// 	margin-bottom: 40px;
-// 	background: white;
-// 	@include circle ($playerSize, white);
-// 	@include box-shadow(2px, 10px, 46px, #000000);
-	
-// 	.icon {
-// 		margin: 10px auto;
-// 		display: block;
-// 		position:relative;
-// 		height: 118px;
-// 		width: 100%;
-// 		opacity: 0.3;
-
-// 		&.active {
-// 			opacity: 1;
-// 		}
-
-// 		img {
-// 			width: 130px;
-// 			height: 130px;
-// 			float: left;
-// 		}
-// 	}
-
-// 	.points {
-// 		display: none;
-// 		float: left;
-// 		width: 100%;
-//     position: absolute;
-//     padding-top: 26%;
-// 		font-size: 3.6em;
-// 	}
-
-// 	.score {
-// 		font-size: 4.6em;
-// 		font-weight: bold;
-// 		color: #91c92f;
-// 	  text-shadow:
-// 	   -1px -1px 0 #FFF,  
-// 	    1px -1px 0 #FFF,
-// 	    -1px 1px 0 #FFF,
-// 	     1px 1px 0 #FFF;
-
-// 	}
-
-// 	.nameplate {
-
-// 	  position: relative;
-// 	  background-color: white;
-// 	  padding: 2px;
-// 	  opacity: 0;
-// 	  font-weight: bold;
-// 	  font-size: medium;
-// 	  color: $color-blue;
-
-// 		@include box-shadow(0px, 21px, 46px, #000);
-// 		@include translate(0px, -32px);
-
-// 		@include transition(opacity .5s, transform .5s);
-
-// 		&.active {
-// 			opacity: 1;
-// 			@include translate(0px, -32px);
-// 		}
-// 	}
-
-// }
-
-// TWEET template
-#tweet-container {
-	padding: 3%;
-	height: 400px;
-}
-.tweet {
-
-	#tweet-author {
-		display: block;
-    text-align: left;
-	}
-
-}
-#current-tweet {
-  position: absolute;
-	display: flex;
-	background-color: white;
-	color: black;
-	font-size: x-large;
-  padding: 1%;
-  top: 0;
-  right: 0;
-  left: 0;
-	text-align: left;
-	border: 9px solid $color-dark-purple;
-
-	// @include box-shadow(0px, 2px, 10px, #000);
-
-	#author {
-		color: #328FB5;
-	}
-	#left {
-		float: left;
-		padding-right: 2%;
-	}
-	#right {
-		float: right;
-	}
-}
-
-#clock-face{
-	margin: auto;
-	background-position: 50% 50%;
-	background-size: cover;
-  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center;
-}
-#clock-hand{
-  left: -.5%;
-  position: relative;
-}
-#clock-bg {
-	margin: 0 auto;
-  width: 184px;
-	height: 168px;
-	// top: 82px;
+	display: block;
+	position: relative;
+	margin: 20px auto;
+	margin-bottom: 40px;
 	background: white;
 	
-	@include radius (83px);
+	.icon {
+		margin: 10px auto;
+		display: block;
+		position:relative;
+		width: 100%;
+		opacity: 0.3;
 
-	&.voting {
-		background-color: $color-dark-purple;
-	}
-}
-
-// SUBMISSIONS
-#hashtag-submissions-prompt {
-
-	display: none;
-	height: 320px;
-
-	color: white;
-	font-size: x-large;
-	background-color: $color-dark-purple;
-
-  padding-bottom: 2%;
-  padding-left: 3%;
-  padding-right: 3%;
-
-	margin-bottom: 4%;
-
-	#real {
-		color: $color-neon-green;
-	}
-
-}
-#hashtag-submissions {
-	
-	.hashtag {
-		font-size: x-large;
-		background-color: white;
-		padding: 10px;
-		margin: 20px;
-
-		.octothorp {
-			margin-top:3%;
-
-			font-size: x-large;
-		}
-	}
-}
-
-// RESULTS
-#hashtag-results {
-	margin-top: 11%;
-	
-	.hashtag {
-		background-color: $color-bright-yellow;
-		padding: 20px;
-		color: $color-orange;
-		font-size: xx-large;
-
-		.octothorp {
-			font-size: 1.3em;
+		&.active {
+			opacity: 1;
 		}
 	}
 
-	.real {
-		transform: translate(0px, -50px)
+	.points {
+		display: none;
+		float: left;
+		width: 100%;
+    position: absolute;
+    padding-top: 26%;
+		font-size: 3.6em;
 	}
 
-	#prompt {
-		
-		color: white;
-		font-size: x-large;
-		background-color: $color-dark-purple;
-
-	  padding:2%;
-
-	}
-
-	.result {
-		margin-top: 20%;
-	}
-
-}
-#winners-circle {
-
-	.score-box {
-		padding: 20px;
-		background-color: #ff9000;
-		font-size: large;
-
-		img {
-			float: left;
-		}
-		score {
-			color: $color-yellow;
-			font-size: 3em;
-			font-weight: bold;
-		}
-		name {
-			display: block;
-			font-size: 1.5em;
-			color: #FFF;
-		}
-	}
-	.score-box.winner {
-		background-color: $color-yellow;
-	}
-
-}
-#scores, #leaderboard {
-	
-	.player {
-		background-color: white;
-		padding: 8px;
-		display: flex;
-		margin-top: 2%;
-		clear: both;
-	}
 	.score {
-		float: left;
-		width: 50%;
+		font-size: 4.6em;
 		font-weight: bold;
-    font-size: 4em;
-	}
-}
+		color: #91c92f;
+	  text-shadow:
+	   -1px -1px 0 #FFF,  
+	    1px -1px 0 #FFF,
+	    -1px 1px 0 #FFF,
+	     1px 1px 0 #FFF;
 
-.results {
-
-	h1 {
-		color: #FFF;
-	}
-
-	.row {
-	  margin-bottom:3%;
 	}
 
-	.creator {
-		position: absolute;
-    transform: translate(-75%, -38%);
-	}
-	.voter {
-		margin: 0;
-		float: left;
-		transform: scale(0.8);
-	}
-	.voter.screen-title {
-		float: none;
-		margin: 0 auto;
+	.nameplate {
+
+	  position: relative;
+	  background-color: white;
+	  padding: 2px;
+	  opacity: 0;
+	  font-weight: bold;
+	  font-size: medium;
+
+		@include transition(opacity .5s, transform .5s);
+
+		&.active {
+			opacity: 1;
+			@include translate(0px, -32px);
+		}
 	}
 
 }
+
+
 
 // RESULTS LAST SECTION COUNTDOWN
 .last {

@@ -240,13 +240,11 @@
 			  background-color: none;
 				box-shadow: none;
 
-				@include translate(0px, -32px);
 
 				@include transition(opacity .5s, transform .5s);
 
 				&.active {
 					opacity: 1;
-					@include translate(0px, -32px);
 				}
 			}
 
