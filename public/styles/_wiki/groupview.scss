@@ -4,15 +4,20 @@
 
 .body.wikigeeks {
 
-	
-
 	#gameContent.container-fluid {
 		padding-top: 3%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	.room-container {
 		width: 80%;
 		margin: 0 auto;
+	}
+
+	.submission {
+		padding: 0;
+
 	}
 
 	#startGameForm {
@@ -127,6 +132,9 @@
 			display: block;
 			max-height: 100%;
 			max-width: 100%;
+			height: auto;
+			width: auto;
+			
 		}
 	}
 
@@ -148,6 +156,8 @@
 			img {
 				max-height: 100%;
 				max-width: 100%;
+				height: auto;
+				width: auto;
 			}
 		}
 		.article-description {
@@ -162,6 +172,9 @@
 		
 		font-size: 7em;
 		// border: 5px dashed yellow;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/v1468424753/timer_bounding_box_zd0sjo.png);
 		#countdown {
 			width: 100%;
@@ -307,14 +320,8 @@
 
 	.players-grid {
 		.player-background {
-			
-			display: block;
-			position: relative;
-			margin: 20px 10px;
-			margin-bottom: 40px;
-			background: white;
-			@include circle (100px, white);
-			@include box-shadow(2px, 10px, 46px, #000000);
+			margin: 20px auto;
+			margin-bottom: 0px;
 			
 			.icon {
 				margin: 10px auto;
@@ -366,14 +373,8 @@
 			  font-size: medium;
 			  color: $color-blue;
 
-				@include box-shadow(0px, 21px, 46px, #000);
-				@include translate(0px, -32px);
-
-				@include transition(opacity .5s, transform .5s);
-
 				&.active {
 					opacity: 1;
-					@include translate(0px, -32px);
 				}
 			}
 

@@ -756,11 +756,16 @@ body .player-form {
 	WikiGeeks group view styling.
 */
 .body.wikigeeks #gameContent.container-fluid {
-  padding-top: 3%; }
+  padding-top: 3%;
+  padding-left: 0;
+  padding-right: 0; }
 
 .body.wikigeeks .room-container {
   width: 80%;
   margin: 0 auto; }
+
+.body.wikigeeks .submission {
+  padding: 0; }
 
 .body.wikigeeks #startGameForm {
   top: 80%;
@@ -861,7 +866,9 @@ body .player-form {
   .body.wikigeeks .topic-image img {
     display: block;
     max-height: 100%;
-    max-width: 100%; }
+    max-width: 100%;
+    height: auto;
+    width: auto; }
 
 .body.wikigeeks .article-name {
   color: #fe6444;
@@ -877,7 +884,9 @@ body .player-form {
     margin: 0 auto; }
     .body.wikigeeks .article-info .article-image img {
       max-height: 100%;
-      max-width: 100%; }
+      max-width: 100%;
+      height: auto;
+      width: auto; }
   .body.wikigeeks .article-info .article-description {
     display: inline-block;
     float: right;
@@ -885,6 +894,9 @@ body .player-form {
 
 .body.wikigeeks .countdown {
   font-size: 7em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/v1468424753/timer_bounding_box_zd0sjo.png); }
   .body.wikigeeks .countdown #countdown {
     width: 100%;
@@ -982,20 +994,8 @@ body .player-form {
     content: "1st"; }
 
 .body.wikigeeks .players-grid .player-background {
-  display: block;
-  position: relative;
-  margin: 20px 10px;
-  margin-bottom: 40px;
-  background: white;
-  width: 100px;
-  height: 100px;
-  background: white;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  -webkit-box-shadow: 2px 10px 46px #000000;
-  -moz-box-shadow: 2px 10px 46px #000000;
-  box-shadow: 2px 10px 46px #000000; }
+  margin: 20px auto;
+  margin-bottom: 0px; }
   .body.wikigeeks .players-grid .player-background .icon {
     margin: 10px auto;
     display: block;
@@ -1028,26 +1028,9 @@ body .player-form {
     opacity: 0;
     font-weight: bold;
     font-size: medium;
-    color: #4343ff;
-    -webkit-box-shadow: 0px 21px 46px #000;
-    -moz-box-shadow: 0px 21px 46px #000;
-    box-shadow: 0px 21px 46px #000;
-    -moz-transform: translate(0px, -32px);
-    -o-transform: translate(0px, -32px);
-    -ms-transform: translate(0px, -32px);
-    -webkit-transform: translate(0px, -32px);
-    transform: translate(0px, -32px);
-    -moz-transition: opacity 0.5s, transform 0.5s;
-    -o-transition: opacity 0.5s, transform 0.5s;
-    -webkit-transition: opacity 0.5s, transform 0.5s;
-    transition: opacity 0.5s, transform 0.5s; }
+    color: #4343ff; }
     .body.wikigeeks .players-grid .player-background .nameplate.active {
-      opacity: 1;
-      -moz-transform: translate(0px, -32px);
-      -o-transform: translate(0px, -32px);
-      -ms-transform: translate(0px, -32px);
-      -webkit-transform: translate(0px, -32px);
-      transform: translate(0px, -32px); }
+      opacity: 1; }
 
 /* 
 	HTYI player view styling.
@@ -1077,11 +1060,43 @@ body .player-form {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
   color: #36d5d9; }
   .body.wikigeeks.player .submission {
-    margin-right: 10%;
-    margin-left: 10%;
-    width: 80%; }
+    background-color: #ff5e41; }
+    .body.wikigeeks.player .submission .form-prompt {
+      color: white;
+      background-color: none;
+      font-size: x-large;
+      padding: 10px;
+      width: 80%;
+      margin: 0 auto; }
+      .body.wikigeeks.player .submission .form-prompt.white {
+        color: black;
+        background-color: white; }
+    .body.wikigeeks.player .submission ::-webkit-input-placeholder {
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission :-moz-placeholder {
+      /* Firefox 18- */
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission :-ms-input-placeholder {
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission .form {
+      width: 80%;
+      margin: 20px auto;
+      color: blanchedalmond; }
+      .body.wikigeeks.player .submission .form input.prompt {
+        margin: 5px auto;
+        border: 2px solid #ffaf34;
+        background-color: white;
+        color: #ff9971; }
+      .body.wikigeeks.player .submission .form input.submit {
+        background-color: #ff9971;
+        color: #ffe2d7;
+        border: 4px solid #ffe2d7; }
   .body.wikigeeks.player .game-message {
     position: relative;
+    padding: 0;
     margin-bottom: 10%;
     font-size: medium;
     color: white;

@@ -18,7 +18,7 @@
 	button {
 		color: white;
 		background-color: $color-orange;
-	  @include linear_transition(background-color, 0.3s);
+	    @include linear_transition(background-color, 0.3s);
 
 		&.inactive {
 			background-color: $color-gray-orange;
