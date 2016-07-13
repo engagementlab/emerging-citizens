@@ -32,6 +32,7 @@ exports = module.exports = function(app) {
     app.get('/game/:accesscode/:debug?', routes.views.group.monitor);
     
     // Deprecated
+
     app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
     
     app.get('/group', routes.views.group.index);

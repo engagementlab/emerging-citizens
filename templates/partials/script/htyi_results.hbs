@@ -24,7 +24,7 @@ _.each(elements, function(el, index) {
     .staggerFromTo($(el).find('.creator'), 1, {scale:0, opacity:0, autoAlpha:0, delay: 0}, {scale: 1, opacity: 1, autoAlpha:1}, 2, '+=0.5')
     .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none'}, 2, '-=0.5')
     .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
-    .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
+    .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
 
     .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
 
@@ -43,7 +43,7 @@ hashtagsAnim
 
 }}, 2)
 .staggerTo($(realHashtag).find('.voter .portrait'), 1, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 1, '=0')
-.staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
+.staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block' }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
 .add(function () { console.log ("voter animation done")})
 {{!-- .to($(realHashtag), 0.5, { y:0, ease:Elastic.easeOut } ) --}}
 .add(function() { console.log ("did a thing")})

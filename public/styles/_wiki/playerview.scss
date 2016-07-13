@@ -7,13 +7,63 @@
 	color: $color-teal;
 
 	.submission {
-		margin-right: 10%;
-		margin-left:10%;
-		width: 80%;
+		background-color: $color-dark-orange;
+		.form-prompt {
+			color: white;
+			background-color: none;
+			font-size: x-large;
+			padding: 10px;
+			width: 80%;
+			margin: 0 auto;
+
+			&.white {
+				color: black;
+				background-color: white;
+			
+			}
+		}
+		::-webkit-input-placeholder {
+		   color: darken(white,10%);
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		    color: darken(white, 10%);
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		    color: darken(white,10%);
+		}
+
+		:-ms-input-placeholder {  
+		    color: darken(white, 10%);
+		}
+
+		.form {
+			width: 80%;
+			margin: 20px auto;
+			color: lighten($color-light-orange, 30%);
+
+			input {
+
+				&.prompt {
+					margin: 5px auto;
+					border: 2px solid $color-light-orange;
+					background-color: white;
+					color: $color-peach;
+				}
+
+				&.submit {
+					background-color: $color-peach;
+					color: lighten($color-peach, 20%);
+					border: 4px solid lighten($color-peach, 20%);
+				}
+			}
+		}
 	}
 
 	.game-message {
 		position: relative;
+		padding: 0;
 		margin-bottom: 10%;
 		font-size: medium;
 		color: white;
