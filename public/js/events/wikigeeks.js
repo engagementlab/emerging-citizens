@@ -213,14 +213,7 @@ var gameEvents = function(eventId, eventData) {
               var line = $(group).find('.articleLine');
               var text = $(group).find('.articleText');
               var offset = (timing + timingOffset);
-
-              console.log('group ' + index + '------------')
-
-              console.log('dot 1 delay', offset)
-              console.log('line delay', 500+offset)
-              // console.log('dot 2 delay', 4*offset)
-              // console.log('text delay', 5*offset)
-              
+                            
               $(dots[0]).delay(offset).velocity({r: 10}, timing, [50, 10]);
               
               $(line).delay(500+offset).velocity({y2: 50}, timing, [50, 10]);
