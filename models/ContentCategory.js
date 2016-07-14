@@ -26,9 +26,9 @@ var ContentCategory = new keystone.List('ContentCategory', {
 ContentCategory.add({
 
   topicName: { type: String, required: true, initial: true, label: "Category Name" }, 
-  game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true}, 
-  topicDescription: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
-  topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
+  game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI", many: true}
+  // topicDescription: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
+  // topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
 
 });
 
@@ -36,8 +36,25 @@ ContentCategory.add({
  * Relationships
  * =============
  */
-ContentCategory.relationship({ ref: 'WikiLink', refPath: 'wikilinks', path: 'category' });
+ContentCategory.relationship({ ref: 'WikiTopic', path: 'category' });
 
+
+ContentCategory.schema.pre('remove', function(next) {
+
+  // Remove resource from all that referenced it 
+	keystone.list('WikiTopic').model.removeResourceRef(this._id, function(err, removedCount) {
+
+		if(err)
+			console.error(err);
+    
+		if(removedCount > 0)
+			console.log("Removed " +  removedCount + " references to '"+ this._id + "'");
+		
+		next();
+
+	});
+
+});
 /**
  * Registration
  */

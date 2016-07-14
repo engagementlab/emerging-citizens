@@ -26,22 +26,49 @@ var WikiLink = new keystone.List('WikiLink', {
 });
 
 WikiLink.add({
-	// articleUrl: { type: String, label: 'Article Link', required: true, initial: true, index: true },
     articleName: { type: String, label: 'Destination Article Name', initial:true, required:true},
     articleImage: { type: Types.CloudinaryImage, label: "Destination Article Image"},
     articleDescription: { type: Types.Markdown, label: 'Destination Article Description', initial:true, required:true},
 	category: {
         type: Types.Relationship,
-        ref: 'ContentCategory',
-        filters: { game: "WikiGeeks"},
-        label: 'Category', 
+        ref: 'WikiTopic',
+        label: 'Topic', 
         many: true
     }
 });
+
+WikiLink.schema.statics.removeResourceRef = function(resourceId, callback) {
+
+    WikiLink.model.update({
+            $or: [{
+                'category': resourceId
+            }]
+        },
+
+        {
+            $pull: {
+                'category': resourceId
+            }
+        },
+
+        {
+            multi: true
+        },
+
+        function(err, result) {
+
+            callback(err, result);
+
+            if (err)
+                console.error(err);
+        }
+    );
+
+};
 
 /**
  * Registration
  */
 
-WikiLink.defaultColumns = 'name, category, articleUrl';
+WikiLink.defaultColumns = 'name, category';
 WikiLink.register();

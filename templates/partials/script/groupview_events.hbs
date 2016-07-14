@@ -151,8 +151,6 @@ var socketEvents = function(eventId, eventData) {
                     console.log (clockName, "clockname");
                     console.log (secondsLeft, "seconds left");
 
-                        
-
                     clockInterval = setInterval(function() {
 
                         secondsLeft--;
@@ -169,14 +167,16 @@ var socketEvents = function(eventId, eventData) {
                         TweenLite.from(countdownText, .1, { scale: 0 });
 
                         // End countdown
-                        if(secondsLeft == 0 && clockName === 'articleReveal') {
+                        if(secondsLeft == 0 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
                             console.log ("countdown ended now");
+                            $('#overlay #reveal').html(eventData).fadeOut();
                             $('#overlay').html(eventData).fadeOut();
                             clearInterval(clockInterval);
                         }
-                        else if(secondsLeft == 4 && clockName === 'articleReveal') {
+                        else if(secondsLeft == 4 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
                             console.log ("reveal countdown HBS");
                             $('#overlay').html(eventData).fadeIn();
+                            $('#overlay #reveal').html(eventData).fadeIn();
                             {{!-- clearInterval(clockInterval); --}}
                         } 
  

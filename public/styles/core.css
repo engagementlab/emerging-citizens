@@ -777,6 +777,11 @@ body .player-form {
   .body.wikigeeks #startGameForm input {
     border-radius: 20px;
     background-color: #36d5d9; }
+    .body.wikigeeks #startGameForm input:hover, .body.wikigeeks #startGameForm input:active, .body.wikigeeks #startGameForm input:focus {
+      box-shadow: none;
+      border: 0px;
+      border-radius: 20px;
+      background-color: #23b5b9; }
 
 .body.wikigeeks .logo img {
   max-width: 80%;
@@ -848,49 +853,85 @@ body .player-form {
 .body.wikigeeks .room-container {
   border-radius: 20px;
   box-shadow: none; }
-  .body.wikigeeks .room-container p {
-    color: #2bd3ee; }
-  .body.wikigeeks .room-container .topic-title {
-    color: #fe6444; }
 
 .body.wikigeeks #topic-container.room-container {
   width: 80%;
   left: 10%;
   padding: 5%; }
-
-.body.wikigeeks .topic-image {
-  max-height: 400px;
-  max-width: 400px;
-  margin: 0 auto;
-  position: relative; }
-  .body.wikigeeks .topic-image img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-    height: auto;
-    width: auto; }
-
-.body.wikigeeks .article-name {
-  color: #fe6444;
-  display: inline-block; }
-
-.body.wikigeeks .article-info {
-  padding: 2%;
-  border: 2px solid #fe6444; }
-  .body.wikigeeks .article-info .article-image {
-    display: inline-block;
-    max-height: 400px;
-    max-width: 400px;
-    margin: 0 auto; }
-    .body.wikigeeks .article-info .article-image img {
-      max-height: 100%;
+  .body.wikigeeks #topic-container.room-container #current-topic {
+    padding-bottom: 5%; }
+  .body.wikigeeks #topic-container.room-container .arrow {
+    -moz-transform: translate(-250px, 0px);
+    -o-transform: translate(-250px, 0px);
+    -ms-transform: translate(-250px, 0px);
+    -webkit-transform: translate(-250px, 0px);
+    transform: translate(-250px, 0px); }
+  .body.wikigeeks #topic-container.room-container .topic-description p {
+    color: #36d5d9;
+    font-size: 1.5em; }
+  .body.wikigeeks #topic-container.room-container h3 {
+    width: 60%;
+    color: #ffaf34;
+    font-size: 3em;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
+    background-size: 200px auto;
+    background-position: bottom;
+    background-repeat: no-repeat; }
+  .body.wikigeeks #topic-container.room-container .topic-title {
+    font-size: 3.2em;
+    color: #fe6444; }
+  .body.wikigeeks #topic-container.room-container .topic-image {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    position: relative; }
+    .body.wikigeeks #topic-container.room-container .topic-image img {
+      display: block;
       max-width: 100%;
+      max-height: 100%;
       height: auto;
-      width: auto; }
-  .body.wikigeeks .article-info .article-description {
-    display: inline-block;
-    float: right;
-    font-size: 2em; }
+      width: auto;
+      margin: 0 auto; }
+
+.body.wikigeeks #article-container.room-container {
+  width: 80%;
+  left: 10%;
+  padding: 5%; }
+  .body.wikigeeks #article-container.room-container .find h4 {
+    color: #36d5d9; }
+  .body.wikigeeks #article-container.room-container .find h2 {
+    color: #F83439; }
+  .body.wikigeeks #article-container.room-container .article-info {
+    padding: 2%;
+    border: 5px solid #fe6444;
+    max-height: 300px;
+    height: 300px; }
+    .body.wikigeeks #article-container.room-container .article-info .article-image {
+      height: 200px;
+      width: 200px;
+      margin: 0 auto;
+      position: relative; }
+      .body.wikigeeks #article-container.room-container .article-info .article-image img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        margin: 0 auto; }
+    .body.wikigeeks #article-container.room-container .article-info .article-description {
+      padding: 0px;
+      float: right; }
+      .body.wikigeeks #article-container.room-container .article-info .article-description p {
+        padding-left: 5%;
+        display: inline-block;
+        text-align: left;
+        font-size: 1.5em;
+        color: #999999; }
+    .body.wikigeeks #article-container.room-container .article-info .article-name {
+      color: #fe6444;
+      display: inline-block; }
 
 .body.wikigeeks .countdown {
   font-size: 7em;
@@ -920,7 +961,7 @@ body .player-form {
     margin: 10px auto;
     display: block;
     position: relative;
-    height: 160px;
+    height: 150px;
     width: 100%;
     opacity: 0.3; }
     .body.wikigeeks .players .player-background .icon.active {
@@ -945,9 +986,9 @@ body .player-form {
     padding: 2px;
     opacity: 0;
     font-weight: bold;
-    font-size: medium;
+    font-size: 1.5em;
     color: #F83439;
-    background-color: none;
+    background-color: transparent;
     box-shadow: none;
     -moz-transition: opacity 0.5s, transform 0.5s;
     -o-transition: opacity 0.5s, transform 0.5s;
@@ -994,21 +1035,21 @@ body .player-form {
     content: "1st"; }
 
 .body.wikigeeks .players-grid .player-background {
-  margin: 20px auto;
-  margin-bottom: 0px; }
+  margin: 0 auto;
+  height: 120px; }
   .body.wikigeeks .players-grid .player-background .icon {
-    margin: 10px auto;
+    margin: 0 auto;
     display: block;
     position: relative;
-    height: 118px;
+    height: 120px;
     width: 100%;
     opacity: 0.3; }
     .body.wikigeeks .players-grid .player-background .icon.active {
       opacity: 1; }
     .body.wikigeeks .players-grid .player-background .icon img {
-      width: 70px;
-      height: 70px;
-      float: left; }
+      margin: 0 auto;
+      width: 100px;
+      height: 100px; }
   .body.wikigeeks .players-grid .player-background .points {
     display: none;
     float: left;
@@ -1136,6 +1177,7 @@ html, body {
   color: white; }
 
 .body {
+  overflow: hidden;
   font-family: "Avenir";
   background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png), #ff9971; }
   @media (max-width: 480px) {
