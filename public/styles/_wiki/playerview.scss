@@ -99,11 +99,6 @@
 
 		ul {
 			padding: 2px;
-			// -webkit-margin-before: 0.1em;
-		 //    -webkit-margin-after: 0.1em;
-		 //    -webkit-margin-start: 0px;
-		 //    -webkit-margin-end: 0px;
-		 //    -webkit-padding-start: 5px;
 
 		    li {
 		    	padding: 2px;
@@ -123,6 +118,11 @@
 
 	  #articles {
 	  	background-color: #fff;
+
+	  	.articleText {
+	  		@include scale(0);
+		    @include transition(transform 0.5s);
+		  }
 	  }
 
 	}

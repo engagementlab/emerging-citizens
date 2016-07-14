@@ -199,6 +199,43 @@ var gameEvents = function(eventId, eventData) {
         case 'wiki:results':
 
             $('#gameContent').html(eventData);
+            
+            var timing = 500;
+            var timingOffset = 0;
+            var firstText = $('#firstArticle');
+            var groups = $('.articleGroup');
+
+            $(firstText).css({transform: 'scale(1)'});
+
+            $.each(groups, function(index, group) {
+
+              var dots = $(group).find('.articleDot');
+              var line = $(group).find('.articleLine');
+              var text = $(group).find('.articleText');
+              var offset = (timing + timingOffset);
+
+              console.log('group ' + index + '------------')
+
+              console.log('dot 1 delay', offset)
+              console.log('line delay', 500+offset)
+              // console.log('dot 2 delay', 4*offset)
+              // console.log('text delay', 5*offset)
+              
+              $(dots[0]).delay(offset).velocity({r: 10}, timing, [50, 10]);
+              
+              $(line).delay(500+offset).velocity({y2: 50}, timing, [50, 10]);
+
+              $(dots[1]).delay(1000+offset).velocity({r: 10}, timing, [50, 10]);
+
+              setTimeout(function() {
+
+                $(text).css({transform: 'scale(1)'});
+
+              }, 1500+offset);
+
+              timingOffset = 5*timing*index;
+
+            });
 
           break;
 
