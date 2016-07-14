@@ -99,7 +99,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
     
     'login:active': function(package) {
 
-      if(Session.Get(package.gameId) === undefined)
+      if(!Session.Get(package.gameId))
         return;
 
       logger.info('login:active', 'Checking if player "' + package.uid + '" is active.');
@@ -126,10 +126,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
     disconnect: function(package) {
 
       var session = Session.Get(playerGameId);
-      var isGroup = (currentSocket.id === session.groupModerator);
 
       if(!session)
         return;
+
+      var isGroup = (currentSocket.id === session.groupModerator);
 
       if(isGroup)
         logger.info(playerGameId + " group view disconnecting. Bu-bye.");

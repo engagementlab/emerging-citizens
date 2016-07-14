@@ -59,7 +59,7 @@
 }
 #targetPane{
     width: 800px;
-    height: 650px;
+    height: 700px;
     background-color: white;
     margin: 20px auto;
     border: 8px solid #ffc844;
@@ -69,6 +69,7 @@
     font-family: Avenir-Bold;
     color: #2ae9d2;
     font-size: 24pt;
+    visibility: hidden;
 }
 #articleTitle{
     font-family: Avenir-Regular;
@@ -76,6 +77,7 @@
     color:#ff7376;
     text-align: center;
     margin-top: 15px;
+    visibility: hidden;
 }
 #indianSoldiers{
     background-image: url("css/indianSoldiers.jpg");
@@ -84,41 +86,95 @@
     background-size: contain;
     position: relative;
     z-index: 1;
-    top: -80%;
-    right: -80px;
+    top: -73.5%;
+    right: -60px;
+    visibility: hidden;
 }
 #articleInfo{
     font-family: Avenir-Regular;
     color: #575757;
-    margin-left: 395px;
+    margin-left: 350px;
     position: relative;
-    top: -46%;
+    top: -42%;
     font-size: 18pt;
     width: 500px;
     line-height: 1.5em;
     z-index: 2;
+    visibility: hidden;
 }
 #pinkBox{
     background-image: url("css/pinkstroke_box.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 875px;
-    height: 350px;
+    height: 325px;
     position: relative;
     z-index: 0;
     margin: 0 auto;
+    visibility: hidden;
 }
 #playerRow{
     width:75%;
     height: 175px;
     position: relative;
-    top: -70%;
+    top: -62%;
+    visibility: hidden;
 }
 .player{
     width: 75px;
     height: 75px;
     display: inline-block;
     margin: 0 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity:.5;
+}
+.playerName{
+    text-align: center;
+    width: 100px;
+    z-index: 2;
+    position: relative;
+    font-family: Avenir-Regular;
+    font-size: 14pt;
+    display: inline-block;
+    margin-top: 75px;
+    margin-left: -10px;
+}
+#player1{
+    background-image: url("css/avatar0.png")
+}
+#player2{
+    background-image: url("css/avatar1.png")
+}
+#player3{
+    background-image: url("css/avatar2.png")
+}
+#player4{
+    background-image: url("css/avatar3.png")
+}
+#player4Name{
+    margin-left: -15px;
+}
+#player5{
+    background-image: url("css/avatar4.png")
+}
+#player6{
+    background-image: url("css/avatar5.png")
+}
+#player7{
+    background-image: url("css/avatar6.png")
+}
+#player8{
+    background-image: url("css/avatar7.png")
+}
+#player8Name{
+    margin-left: -22px;
+}
+#secondRow{
+    margin-top: 15px;
+}
+#addAPlayer{
+    width: 100%;
 }
 
 	</style>
@@ -139,16 +195,20 @@
         <div id="articleInfo">The Indo-Pakistani War of 1947-1948, sometimes known as the First Kashmir War, was fought between India and Pakistan over the princely state of Kashmir and Jammu. It was the first of four Indo-Pakistan Wars fought between the two newly independent nations.</div>
         <div id="indianSoldiers"></div>
         <div id="playerRow">
-            <div class="player" id="player1"></div>
-            <div class="player" id="player2"></div>
-            <div class="player" id="player3"></div>
-            <div class="player" id="player4"></div>
-            <div class="player" id="player5"></div>
-            <div class="player" id="player6"></div>
-            <div class="player" id="player7"></div>
-            <div class="player" id="player8"></div>
+            <div class="player" id="player1"><div class="playerName" id="player1Name">Player 1</div></div>
+            <div class="player" id="player2"><div class="playerName" id="player2Name">Player 2</div></div>
+            <div class="player" id="player3"><div class="playerName" id="player3Name">Player 3</div></div>
+            <div class="player" id="player4"><div class="playerName" id="player4Name">Player 4</div></div>
+            <div id="secondRow">
+            <div class="player" id="player5"><div class="playerName" id="player5Name">Player 5</div></div>
+            <div class="player" id="player6"><div class="playerName" id="player6Name">Player 6</div></div>
+            <div class="player" id="player7"><div class="playerName" id="player7Name">Player 7</div></div>
+            <div class="player" id="player8"><div class="playerName" id="player8Name">Player 8</div></div>
+            </div>            
         </div>
     </div>
+
+    <button id="addAPlayer" type="button">Add a Player</button></div>
 </div>
 
 <div id="topThree">

@@ -111,5 +111,20 @@
 		    }
 		}
 	}
+
+	#results {
+
+		.row .content {
+			@include circle (100px, white);
+	    padding-top: 1%;
+	    margin-left: auto;
+	    margin-right: auto;
+	  }
+
+	  #articles {
+	  	background-color: #fff;
+	  }
+
+	}
 	
 }

@@ -196,9 +196,9 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
-        case 'article:target':
+        case 'wiki:results':
 
-          console.log('done', eventData)
+            $('#gameContent').html(eventData);
 
           break;
 
