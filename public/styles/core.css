@@ -197,6 +197,9 @@
 body .player-form {
   padding: 3%; }
 
+body {
+  overflow: hidden; }
+
 #wrapper.group {
   width: 1680px !important;
   max-width: none !important;
@@ -1185,6 +1188,16 @@ body .player-form {
     margin-right: auto; }
   .body.wikigeeks.player #results #articles {
     background-color: #fff; }
+    .body.wikigeeks.player #results #articles .articleText {
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -moz-transition: transform 0.5s;
+      -o-transition: transform 0.5s;
+      -webkit-transition: transform 0.5s;
+      transition: transform 0.5s; }
 
 html, body {
   max-height: 100%; }

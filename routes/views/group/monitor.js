@@ -49,7 +49,6 @@ exports = module.exports = function(req, res) {
 
         // Set global game type
         gameType = game.gameType;
-        console.log (game.gameType);
 
         // Set local for this view only
         locals.gameType = gameType;
