@@ -901,33 +901,41 @@ body {
 .body.wikigeeks #article-container.room-container {
   width: 80%;
   left: 10%;
-  padding: 5%; }
+  padding: 2%; }
   .body.wikigeeks #article-container.room-container .find h4 {
-    color: #36d5d9; }
+    color: #36d5d9;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0px; }
   .body.wikigeeks #article-container.room-container .find h2 {
+    font-size: 3em;
     color: #F83439; }
   .body.wikigeeks #article-container.room-container .article-info {
     padding: 2%;
     border: 5px solid #fe6444;
     max-height: 300px;
-    height: 300px; }
-    .body.wikigeeks #article-container.room-container .article-info .article-image {
-      height: 200px;
-      width: 200px;
-      margin: 0 auto;
-      position: relative; }
-      .body.wikigeeks #article-container.room-container .article-info .article-image img {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        height: auto;
-        width: auto;
-        margin: 0 auto; }
+    height: 300px;
+    width: 80%;
+    margin: 0 auto; }
+    .body.wikigeeks #article-container.room-container .article-info .col-sm-4 {
+      height: 100%; }
+      .body.wikigeeks #article-container.room-container .article-info .col-sm-4 .article-image {
+        height: 200px;
+        width: 200px;
+        margin: 25px auto;
+        position: relative; }
+        .body.wikigeeks #article-container.room-container .article-info .col-sm-4 .article-image img {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+          height: 200px;
+          width: auto;
+          margin: 0 auto; }
     .body.wikigeeks #article-container.room-container .article-info .article-description {
       padding: 0px;
       float: right; }
       .body.wikigeeks #article-container.room-container .article-info .article-description p {
-        padding-left: 5%;
+        padding: 0px;
         display: inline-block;
         text-align: left;
         font-size: 1.5em;
