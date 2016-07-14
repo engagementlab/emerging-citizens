@@ -4,9 +4,11 @@
 	"directory": "emerging-citizens",
 	"database": "emerging-citizens", 
 	"admin_nav": { 
-						"Game Config": ["GameConfig", "GameSession", "ContentCategory", "GameUser", "HomePage"],
+						"HomePage": "HomePage",
+						"Game Config": ["GameConfig", "GameSession", "GameUser"],
+						"ContentCategory": "ContentCategory",
 						"HTYI": ["Tweet", "HashtagGame"],
-						"WikiGeeks": ["WikiGame", "WikiLink"]
+						"WikiGeeks": ["WikiTopic", "WikiLink", "WikiGame"]
 						
 					}
 }

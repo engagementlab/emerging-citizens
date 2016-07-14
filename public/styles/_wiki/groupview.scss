@@ -13,6 +13,8 @@
 	.room-container {
 		width: 80%;
 		margin: 0 auto;
+
+
 	}
 
 	.submission {
@@ -27,9 +29,17 @@
 		width: 100px;
 		height: 100px;
 		border-radius: 10px;
+
 		input {
 			border-radius: 20px;
 			background-color: $color-teal;
+
+			&:hover, &:active, &:focus {
+				box-shadow: none;
+				border: 0px;
+				border-radius: 20px;
+				background-color: darken($color-teal, 10%);
+			}
 		}
 
 	}
@@ -105,15 +115,6 @@
 		box-shadow: none;
 
 		
-		p {
-			color: $color-light-blue;
-		}
-
-		.topic-title {
-			color: $color-red;
-		}
-
-
 
 	}
 
@@ -121,50 +122,111 @@
 		width: 80%;
 		left: 10%;
 		padding: 5%;
-	}
 
-	.topic-image {
-		max-height: 400px;
-		max-width: 400px;
-		margin: 0 auto;
-		position: relative;
-		img {
-			display: block;
-			max-height: 100%;
-			max-width: 100%;
-			height: auto;
-			width: auto;
-			
+		#current-topic {
+			padding-bottom: 5%;
 		}
-	}
 
-	.article-name {
-		color: $color-red;
-		display: inline-block;
+		.arrow {
+			@include translate (-250px, 0px);
+		}
 
-	}
-
-	.article-info {
-		padding: 2%;
-		border: 2px solid $color-red;
-		.article-image {
-			display: inline-block;
-			max-height: 400px;
-			max-width: 400px;
-			margin: 0 auto;
-
-			img {
-				max-height: 100%;
-				max-width: 100%;
-				height: auto;
-				width: auto;
+		.topic-description {
+			p {
+				color: $color-teal;
+				font-size: 1.5em;
+				
 			}
 		}
-		.article-description {
-			display: inline-block;
-			float: right;
-			font-size: 2em;
 
+		h3 {
+			width: 60%;
+			color: $color-light-orange;
+			font-size: 3em;
+			margin: 0 auto;
+			padding-bottom: 15px;
+			background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
+			background-size: 200px auto;
+			background-position: bottom;
+			background-repeat: no-repeat;
+		}
+
+		.topic-title {
+			font-size: 3.2em;
+			color: $color-red;
+		}
+
+		.topic-image {
+			height: 300px;
+			width: 300px;
+			margin: 0 auto;
+			position: relative;
+			img {
+				display: block;
+				max-width: 100%;
+				max-height: 100%;
+				height: auto;
+				width: auto;
+				margin: 0 auto;
+				
+			}
+		}
+	}
+
+	
+
+	
+	#article-container.room-container {
+		width: 80%;
+		left: 10%;
+		padding: 5%;
+
+		.find {
+			h4 {
+				color: $color-teal;
+			}
+			h2 {
+				color: $color-bright-red;
+			}
+		}
+
+		.article-info {
+			padding: 2%;
+			border: 5px solid $color-red;
+			max-height: 300px;
+			height: 300px;
+			.article-image {
+				height: 200px;
+				width: 200px;
+				margin: 0 auto;
+				position: relative;
+				img {
+					display: block;
+					max-width: 100%;
+					max-height: 100%;
+					height: auto;
+					width: auto;
+					margin: 0 auto;
+					
+				}
+			}
+			.article-description {
+				padding: 0px;
+				float: right;
+				p {
+					padding-left: 5%;
+					display: inline-block;
+					text-align: left;
+					font-size: 1.5em;
+					color: darken(white, 40%);
+				}
+
+			}
+			.article-name {
+				color: $color-red;
+				display: inline-block;
+
+			}
 		}
 	}
 
@@ -207,7 +269,7 @@
 				margin: 10px auto;
 				display: block;
 				position:relative;
-				height: 160px;
+				height: 150px;
 				width: 100%;
 				opacity: 0.3;
 
@@ -248,9 +310,9 @@
 			  padding: 2px;
 			  opacity: 0;
 			  font-weight: bold;
-			  font-size: medium;
+			  font-size: 1.5em;
 			  color: $color-bright-red;
-			  background-color: none;
+			  background-color: transparent;
 				box-shadow: none;
 
 
@@ -320,14 +382,14 @@
 
 	.players-grid {
 		.player-background {
-			margin: 20px auto;
-			margin-bottom: 0px;
+			margin: 0 auto;
+			height: 120px;
 			
 			.icon {
-				margin: 10px auto;
+				margin: 0 auto;
 				display: block;
 				position:relative;
-				height: 118px;
+				height: 120px;
 				width: 100%;
 				opacity: 0.3;
 
@@ -336,9 +398,9 @@
 				}
 
 				img {
-					width: 70px;
-					height: 70px;
-					float: left;
+					margin: 0 auto;
+					width: 100px;
+					height: 100px;
 				}
 			}
 
@@ -346,8 +408,8 @@
 				display: none;
 				float: left;
 				width: 100%;
-		    position: absolute;
-		    padding-top: 26%;
+			    position: absolute;
+			    padding-top: 26%;
 				font-size: 3.6em;
 			}
 

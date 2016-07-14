@@ -86,6 +86,7 @@
             position: relative;
             bottom: 10px;
             color: #ed5739;
+            visibility: hidden;
         }
         #roundInfo{
             font-family:Avenir-Regular;
@@ -99,6 +100,7 @@
         }
         #clicks{
             display: inline-block;
+            margin-left:15px;
         }
         #clickNo{
             display: inline-block;
@@ -107,10 +109,10 @@
         #points{
             display: inline-block;
             margin: 0 50px 0 50px;
+            visibility: hidden;
         }
         #pointsNo{
             display: inline-block;
-            visibility: hidden;
         }
         #timeSpent{
             display: inline-block;
@@ -459,14 +461,14 @@
     font-size: 14pt;
     color:#fd9069;
 }
-#lastArticleHighlight{
+#finalFlare{
     background-image: url(css/clickmap_finaltitleflare.png);
     width: 200px;
     height: 75px;
     background-size: contain;
     position: relative;
     left: -87px;
-    top: -70px;
+    top: -77px;
     z-index: 3;
     visibility: hidden;
 }
@@ -488,7 +490,8 @@
         <h2 id="winnerName">jordanpail</h2>
         <h3 id="place">1st place!</h3>
         <div id="roundInfo">
-        <div id="clicks"><div id="clickNo">0</div> clicks</div>
+        <div id="clickNo">0</div>
+        <div id="clicks">clicks</div>
         <div id="points"> <div id="pointsNo">0</div> pts</div>
         <div id="timeSpent"> 2:09</div>
         </div>
@@ -561,7 +564,7 @@
                 <div class="pointNames" id="name18">Eighteenth Article</div>
                 <div class="pointNames" id="name17">Seventeenth Article with<br/>an acceptable title</div>
                 <div class="pointNames" id="name16">Sixteenth Article</div>
-                <div id="lastArticleHighlight"></div>
+                <div id="finalFlare"></div>
                 <div class="mapConnector" id="connector13"></div>
             <div class="mapConnector" id="connector14"></div>
             <div class="mapConnector" id="connector15"></div>
