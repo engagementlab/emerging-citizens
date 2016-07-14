@@ -33,7 +33,6 @@ function countdownPane( elementName, minutes, seconds )
     {
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
-            element.innerHTML = "Out of time!";
             timerDone=true;
             if (timerDone==true){
 				setTimeout(timeDone, 500);

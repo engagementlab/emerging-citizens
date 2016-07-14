@@ -6,7 +6,11 @@ var $targetStroke = $("#targetStroke");
 var $targetName = $("#targetName");
 var $winnerContainer = $("#winnerContainer");
 var $winnerName = $("#winnerName");
+var $place = $("#place");
+var $clicks = $("#clicks");
 var $clickNo = $("#clickNo");
+var $points = $("#points");
+var $pointsNo = $("#pointsNo");
 var $timeSpent = $("#timeSpent");
 var $roundInfo = $("#roundInfo");
 var $point1 = $("#point1");
@@ -68,20 +72,31 @@ var $name17 = $("#name17");
 var $name18 = $("#name18");
 var $name19 = $("#name19");
 var $name20 = $("#name20");
-var $finalFlare = $("#lastArticleHighlight");
+var $finalFlare = $("#finalFlare");
 
 var clicks = 0;
 
-function connector(nextPoint, nextName, nextConnector, delayLength){
-nextPoint.css("visibility", "visible");
-TweenMax.fromTo(nextPoint, .5, {scale:0},{scale:1, delay: 4.25 + delayLength, ease: Elastic.easeOut})
-nextName.css("visibility", "visible");
-TweenMax.fromTo(nextName, .5, {scale:0},{scale:1, delay: 4.5 + delayLength, ease: Elastic.easeOut})
-nextConnector.css("visibility", "visible");
-TweenMax.fromTo(nextConnector, .5, {opacity:0}, {opacity:1, delay: 4.5 + delayLength});
-clicks++;
-document.getElementById("clickNo").innerHTML=clicks;
+function connector(nextPoint, nextName, nextConnector, delayLength)
+{
+	nextPoint.css("visibility", "visible");
+	TweenMax.fromTo(nextPoint, .5, {scale:0},{scale:1, delay: 4.25 + delayLength, ease: Elastic.easeOut, onRepeat:onRepeat, repeat:1});
+	nextName.css("visibility", "visible");
+	TweenMax.fromTo(nextName, .5, {scale:0},{scale:1, delay: 4.5 + delayLength, ease: Elastic.easeOut});
+	nextConnector.css("visibility", "visible");
+	TweenMax.fromTo(nextConnector, .5, {opacity:0}, {opacity:1, delay: 4.5 + delayLength});
 }
+
+function onRepeat(){
+	clicks++;
+	document.getElementById("clickNo").innerHTML=clicks;
+	TweenMax.fromTo($clickNo, .5, {scale:1}, {scale:2, ease:Elastic.easeOut});
+	document.getElementById("pointsNo").innerHTML= 100;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+$(function(){
+
 
 //start main reveal code
 TweenMax.from($pathContainer, .5, {width:800, height:600});
@@ -93,13 +108,20 @@ $winnerContainer.css("visibility", "visible");
 TweenMax.fromTo($winnerContainer, .5, {opacity:0}, {opacity:1, delay: 1});
 $targetName.css("visibility", "visible");
 TweenMax.fromTo($targetName, .5, {opacity:0}, {opacity:1, delay: 2});
+$place.css("visibility", "visible");
+TweenMax.fromTo($place, .5, {opacity:0}, {opacity:1, delay: 2.75});
 $winnerName.css("visibility", "visible");
-TweenMax.fromTo($winnerName, .5, {opacity:0}, {opacity:1, delay: 2.75});
+TweenMax.fromTo($winnerName, .5, {opacity:0}, {opacity:1, delay: 2.5});
 $timeSpent.css("visibility", "visible");
 TweenMax.fromTo($timeSpent, .5, {opacity:0}, {opacity:1, delay: 3});
 TweenMax.to($timeSpent, .5, {scale:1.5, delay:3, ease:Elastic.easeIn});
+$points.css("visibility", "visible");
+TweenMax.fromTo($points, .5, {opacity:0}, {opacity:1, delay: 3});
+$clicks.css("visibility", "visible");
+TweenMax.fromTo($clicks, .5, {opacity:0}, {opacity:1, delay: 3});
 
 //clickmap code
+
 //connection 1
 $point1.css("visibility", "visible");
 TweenMax.fromTo($point1, .5, {scale:0},{scale:1, delay: 3.75, ease: Elastic.easeOut})
@@ -148,3 +170,5 @@ connector($point19, $name19, $connector14, 17);
 connector($point20, $name20, $connector13, 18);
 $finalFlare.css("visibility", "visible");
 TweenMax.fromTo($finalFlare, .5, {opacity:0}, {opacity:1, delay: 23.5});
+
+});
