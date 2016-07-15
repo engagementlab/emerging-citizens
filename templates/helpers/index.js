@@ -50,13 +50,25 @@ module.exports = function() {
     //  @amt: Amount to offset
     //
     //  *Usage example:*
-    //  `{{add @index 3}}
+    //  `{{sum @index 3}}
 
-    _helpers.add = function(ind, amt) {
-
-        console.log(ind, amt)
+    _helpers.sum = function(ind, amt) {
  
         return parseInt(ind) + amt;
+
+    };
+
+    //  ### it multiplier helper
+    // Used for multiplying int by factor
+    //
+    //  @factor: Factor to multiply by
+    //
+    //  *Usage example:*
+    //  `{{multiply 3 @index}}
+
+    _helpers.multiply = function(ind, factor) {
+ 
+        return parseInt(ind) * parseInt(factor);
 
     };
 
@@ -100,6 +112,47 @@ module.exports = function() {
         return Math.round(intSeconds / 60) + ':' + displaySeconds; 
 
     };
+
+    _helpers.wikiResultPosition = function(index, xAxis, dest) {
+
+        if(!xAxis) {
+
+            if(dest && index === 4) {
+                return 180;
+            }
+            else {
+                if(index > 4) return 180;
+                else return 10;
+            }
+        }
+        else {
+            // Reverse position for odd-num rows
+            if(index > 4) {
+
+                var offset = index - 5;
+                var baseXVal = (190 * 4);
+
+                if(dest) {
+                    return (baseXVal - (190 * offset) - 190);
+                }
+                else {
+                    return (baseXVal - (190 * offset));
+                }
+
+            }
+
+            else {
+                
+                var pos = (190 * index);
+                if(dest && index !== 4) {
+                    pos += 190;
+                }
+
+                return pos;
+            
+            }
+        }
+    }
 
     return _helpers;
 

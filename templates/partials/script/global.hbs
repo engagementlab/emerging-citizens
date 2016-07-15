@@ -113,6 +113,10 @@
 	  // TODO: Change based on game type
 		var eventIds = [
 
+			{{#ifnoteq environment "production"}}
+			'debug:pause',
+			{{/ifnoteq}}
+
 			'connect',
 			'player:loggedin',
 			'player:reconnected',
@@ -559,7 +563,20 @@
 				templateLoad();
 			
 			});
-			
+			$("#countdowns_pause").click(function(evt) {
+
+				var btn = $(evt.currentTarget);
+				socket.emit('debug:pause', emitData());
+
+				if(!$(btn).data('resume')) {
+					$(btn).text('resume countdowns');
+					$(btn).data('resume', 'true');
+				}
+				else
+					$(btn).text('pause countdowns');
+
+			});
+
 	});
 	{{/ifeq}}	
 

@@ -40,6 +40,14 @@ var Common = function (nsp, socket) {
             Session.Get(package.gameId).
             AdvanceRound(currentSpace);
 
+        },
+
+        /* Pauses all game cooldowns (debugging only) */
+        'debug:pause': function(package) {
+
+            Session.Get(package.gameId).
+            PauseResumeCooldown(currentSpace);
+
         }
     
     };

@@ -12,6 +12,10 @@
 
 var clockInterval;
 
+{{#ifnoteq environment "production"}}
+    var countdownPaused = false;
+{{/ifnoteq}}
+
 var socketEvents = function(eventId, eventData) {
     
     switch (eventId) {
@@ -48,6 +52,7 @@ var socketEvents = function(eventId, eventData) {
 
                     $(staticPlayers[index]).children('.icon').addClass('active');
                     $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+
                 });
 
             break;
@@ -108,9 +113,6 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData.html);
 
-            
-            
-
             break;
             
         case 'game:countdown':
@@ -148,14 +150,16 @@ var socketEvents = function(eventId, eventData) {
 
                     var secondsLeft = eventData.duration;
                     var clockName = eventData.name;
-                    console.log (clockName, "clockname");
-                    console.log (secondsLeft, "seconds left");
 
                     clockInterval = setInterval(function() {
 
+                        {{#ifnoteq environment "production"}}
+                            if(countdownPaused)
+                                return;
+                        {{/ifnoteq}}
+
                         secondsLeft--;
                         console.log (secondsLeft, "seconds left");
-
 
                         let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
 
@@ -187,8 +191,6 @@ var socketEvents = function(eventId, eventData) {
             {{/ifeq}}
 
             break;
-
-        {{!-- break; --}}
 
         case 'game:end':
 
@@ -243,6 +245,11 @@ var socketEvents = function(eventId, eventData) {
                 $('#gameContent').html(eventData);
 
                 function roundCountdown() {
+
+                    {{#ifnoteq environment "production"}}
+                        if(countdownPaused)
+                            return;
+                    {{/ifnoteq}}
                     
                     var countdownText = $('#countdown #text');
                     var secondsLeft = 10;
@@ -281,6 +288,13 @@ var socketEvents = function(eventId, eventData) {
 
                 break;
         {{/ifeq}}
+
+        {{#ifnoteq environment "production"}}
+            case 'debug:pause':
+                countdownPaused = !countdownPaused;
+
+                break;
+        {{/ifnoteq}}
 
         default:
 
