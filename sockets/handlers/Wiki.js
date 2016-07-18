@@ -42,7 +42,7 @@ var Wiki = function (nsp, socket) {
         'article:select': function(package) {
             console.log (package, "package");
             Session.Get(package.gameId).
-            PlayerClick(currentSocket, package.msgData.title, package.msgData.initial);
+            PlayerClick(currentSocket.id, package.msgData.title, package.msgData.initial);
 
         }
     

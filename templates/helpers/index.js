@@ -1,3 +1,5 @@
+'use strict';
+
 var hbs = require('handlebars');
 
 module.exports = function() {
@@ -113,44 +115,56 @@ module.exports = function() {
 
     };
 
-    _helpers.wikiResultPosition = function(index, xAxis, dest) {
+    _helpers.wikiResultPosition = function(index, xAxis, dest, dot) {
+
+        let baseXVal = 220;
 
         if(!xAxis) {
 
-            if(dest && index === 4) {
-                return 180;
-            }
-            else {
-                if(index > 4) return 180;
+            if(dest) {
+                if(index >= 4) return 110;
+                else if(index >= 9) return 220;
                 else return 10;
             }
+            else {
+
+                if(index === 4) {
+                    if(dot) return 10;
+                    else return 100;
+                }
+                else if(index === 9) return 200;
+                else if(index > 4) return 110;
+                else return 10;
+            
+            }
+
         }
         else {
+
             // Reverse position for odd-num rows
-            if(index > 4) {
+            if(index > 4 && index < 9) {
 
-                var offset = index - 5;
-                var baseXVal = (190 * 4);
+                let offset = index - 5;
+                let offsetXVal = (baseXVal * 4);
 
-                if(dest) {
-                    return (baseXVal - (190 * offset) - 190);
-                }
-                else {
-                    return (baseXVal - (190 * offset));
-                }
+                if(dest)
+                    return (offsetXVal - (baseXVal * offset) - baseXVal);
+                else
+                    return (offsetXVal - (baseXVal * offset));
 
             }
 
             else {
                 
-                var pos = (190 * index);
-                if(dest && index !== 4) {
-                    pos += 190;
-                }
+                let pos = (baseXVal * index);
+                
+                if(dest && index !== 4)
+                    pos += baseXVal;
 
                 return pos;
             
             }
+
         }
     }
 
