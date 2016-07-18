@@ -115,25 +115,34 @@ module.exports = function() {
 
     };
 
-    _helpers.wikiResultPosition = function(index, xAxis, dest) {
+    _helpers.wikiResultPosition = function(index, xAxis, dest, dot) {
 
         let baseXVal = 220;
 
         if(!xAxis) {
 
-            if(dest && index === 4) {
-                return 180;
+            if(dest) {
+                if(index >= 4) return 110;
+                else if(index >= 9) return 220;
+                else return 10;
             }
             else {
-                if(index > 4) return 180;
+
+                if(index === 4) {
+                    if(dot) return 10;
+                    else return 100;
+                }
+                else if(index === 9) return 200;
+                else if(index > 4) return 110;
                 else return 10;
+            
             }
 
         }
         else {
 
             // Reverse position for odd-num rows
-            if(index > 4) {
+            if(index > 4 && index < 9) {
 
                 let offset = index - 5;
                 let offsetXVal = (baseXVal * 4);

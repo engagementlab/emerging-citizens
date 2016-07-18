@@ -13,7 +13,7 @@
 
 	          {{#iflt @index 3}}
 
-	          	<section class="player-path hidden-el">
+	          	<section class="player-path{{!--  hidden-el --}}">
 			
 									<div class="row">
 						
@@ -40,71 +40,80 @@
 
 									</div>
 
-									<div id="articles" class="row">
+									{{#if articles}}
 
-										<div id="article-titles" style="position:absolute;z-index: 2;width: 100%;margin-top: 2%;">
-											{{#each articles}}
+										<div id="articles" class="row">
 
-												<div class="title" style="position:absolute; 
-																									left: {{sum (wikiResultPosition @index true false) -85}}px;
-																									top: {{wikiResultPosition @index false false}}px;
-																									width: 170px">{{this}}</div>
-											  {{!-- <div class="title" style="position:absolute;left:60px">Title 2</div>
-												<div class="title" style="position:absolute;left:160px">Title 2</div> --}}
+											<div id="article-titles" style="position:absolute;z-index: 2;width: 100%;margin-top: 2%;">
+												
+												{{#each articles}}
 
-											{{/each}}
+													<div class="title" style="position:absolute; 
+																										{{#if @first}}
+																											left: 20px;
+																										{{else}}
+																											left: {{sum (wikiResultPosition @index true false false) 20}}px;
+																										{{/if}}
+																										top: {{wikiResultPosition @index false false false}}px;
+																										width: 170px">{{this}}</div>
+												  {{!-- <div class="title" style="position:absolute;left:60px">Title 2</div>
+													<div class="title" style="position:absolute;left:160px">Title 2</div> --}}
 
-										</div>
-									
-										<svg height="990" width="1100" style="position:absolute; left:0px;">
+												{{/each}}
+
+											</div>
 										
-											{{#each articles}}
-													{{@index}}
+											<svg height="990" width="1100" style="position:absolute; left:0px;">
+											
+												{{#each articles}}
+														{{@index}}
 
-													{{#if @first}}
-														<line class="articleLine" x1="105" y1="10" x2="190" y2="10" style="stroke:rgb(188,255,252);stroke-width:8"></line>
-													{{else}}
-														<line class="articleLine" 
-														{{!-- 1140 --}}
-																	x1="{{sum (wikiResultPosition @index true false) 105}}" 
-																	y1="{{wikiResultPosition @index false false}}" 
-																	
-																	x2="{{sum (wikiResultPosition @index true true) 105}}" 
-																	y2="{{wikiResultPosition @index false true}}" 
-																	
-																	style="stroke:rgb(188,255,252);stroke-width:8" />
-													{{/if}}
+														{{#if @first}}
+															<line class="articleLine" x1="105" y1="10" x2="325" y2="10" style="stroke:rgb(188,255,252);stroke-width:8"></line>
+														{{else}}
+															<line class="articleLine" 
+															{{!-- 1140 --}}
+																		x1="{{sum (wikiResultPosition @index true false false) 105}}" 
+																		y1="{{wikiResultPosition @index false false false}}" 
+																		
+																		x2="{{sum (wikiResultPosition @index true true false) 105}}" 
+																		y2="{{wikiResultPosition @index false true false}}" 
+																		
+																		style="stroke:rgb(188,255,252);stroke-width:8" />
+														{{/if}}
 
-													{{!-- First article --}}
-													{{!-- {{#if @first}}
-													
-														<h3 id="firstArticle" class="articleText">{{this}}</h3>
-													
-													{{else}}
+														{{!-- First article --}}
+														{{!-- {{#if @first}}
 														
-														{{this}}
+															<h3 id="firstArticle" class="articleText">{{this}}</h3>
+														
+														{{else}}
+															
+															{{this}}
 
-													{{/if}} --}}
+														{{/if}} --}}
 
-											{{/each}}
-										
-											{{#each articles}}
+												{{/each}}
+											
+												{{#each articles}}
 
-													{{@index}}
+														{{@index}}
 
-													<circle class="articleDot"
-																	cx="{{wikiResultPosition @index true false}}" 
-																	cy="{{wikiResultPosition @index false false}}" 
-																	r="8" 
-																	stroke="black" 
-																	stroke-width="0" 
-																	fill="red" />
+														<circle class="articleDot"
+																		cx="{{sum (wikiResultPosition @index true false true) 105}}" 
+																		cy="{{wikiResultPosition @index false false true}}" 
+																		r="8" 
+																		stroke="black" 
+																		stroke-width="0" 
+																		fill="red" />
 
-											{{/each}}
-										
-										</svg>
-										
-									</div>
+												{{/each}}
+											
+											</svg>
+											
+										</div>
+
+									{{/if}}
 
 								</section>
 
