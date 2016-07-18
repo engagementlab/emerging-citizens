@@ -75,14 +75,28 @@
 		background-position: center;
 		background-size: cover;
 
-			span {
-	    	  left: 0;
-	    	  width: 100%;
-	    	  top: 45%;
-		      position: absolute;
-		      height: 100%;
-		      text-align: center;
-		    }
+		div {
+			padding-top: 5%;
+
+
+		}
+		.article-name {
+			font-weight: bolder;
+			font-size: 1.8em;
+			color: $color-teal;
+			word-break: break-word;
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		span {
+    	  left: 0;
+    	  width: 100%;
+    	  top: 45%;
+	      position: absolute;
+	      height: 100%;
+	      text-align: center;
+	    }
 
 	}
 

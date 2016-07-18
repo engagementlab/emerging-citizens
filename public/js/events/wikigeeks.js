@@ -32,9 +32,9 @@ var gameEvents = function(eventId, eventData) {
 
       // Tell server about this article being chosen by player
       var str = String(articleTitle);
-      var articleInput = $('#article_input');
+      var articleChosen = $('.article-name');
 
-      $(articleInput).append(articleTitle).html();
+      articleChosen.text(articleTitle);
 
       // Get article content
       $.getJSON(
