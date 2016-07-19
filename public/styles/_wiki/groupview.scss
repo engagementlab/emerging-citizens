@@ -172,9 +172,6 @@
 			}
 		}
 	}
-
-	
-
 	
 	#article-container.room-container {
 		width: 80%;
@@ -387,6 +384,25 @@
 			.ranking:before {
 				content: "1st";
 		  }	
+		}
+
+	}
+
+	#top-players {
+
+		.article-titles {
+			position: absolute;
+			z-index: 2;
+			width: 100%;
+			margin-top: 2%;
+
+			.title {
+				font-size: 1em;
+
+				.last {
+					color: $color-dark-orange;
+				}
+			}
 		}
 
 	}

@@ -1045,6 +1045,16 @@ body {
   .body.wikigeeks #results-container .row-color-0 .ranking:before {
     content: "1st"; }
 
+.body.wikigeeks #top-players .article-titles {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  margin-top: 2%; }
+  .body.wikigeeks #top-players .article-titles .title {
+    font-size: 1em; }
+    .body.wikigeeks #top-players .article-titles .title .last {
+      color: #ff5e41; }
+
 .body.wikigeeks .players-grid .player-background {
   margin: 0 auto;
   height: 120px; }
