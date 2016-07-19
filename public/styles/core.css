@@ -1045,44 +1045,47 @@ body {
   .body.wikigeeks #results-container .row-color-0 .ranking:before {
     content: "1st"; }
 
-.body.wikigeeks .players-grid .player-background {
-  margin: 0 auto;
-  height: 120px; }
-  .body.wikigeeks .players-grid .player-background .icon {
+.body.wikigeeks .players-grid {
+  padding-left: 10%; }
+  .body.wikigeeks .players-grid .player-background {
     margin: 0 auto;
-    display: block;
-    position: relative;
     height: 120px;
-    width: 100%;
-    opacity: 0.3; }
-    .body.wikigeeks .players-grid .player-background .icon.active {
-      opacity: 1; }
-    .body.wikigeeks .players-grid .player-background .icon img {
+    width: auto; }
+    .body.wikigeeks .players-grid .player-background .icon {
       margin: 0 auto;
-      width: 100px;
-      height: 100px; }
-  .body.wikigeeks .players-grid .player-background .points {
-    display: none;
-    float: left;
-    width: 100%;
-    position: absolute;
-    padding-top: 26%;
-    font-size: 3.6em; }
-  .body.wikigeeks .players-grid .player-background .score {
-    font-size: 4.6em;
-    font-weight: bold;
-    color: #91c92f;
-    text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
-  .body.wikigeeks .players-grid .player-background .nameplate {
-    position: relative;
-    background-color: white;
-    padding: 2px;
-    opacity: 0;
-    font-weight: bold;
-    font-size: medium;
-    color: #4343ff; }
-    .body.wikigeeks .players-grid .player-background .nameplate.active {
-      opacity: 1; }
+      display: block;
+      position: relative;
+      height: 120px;
+      width: 100%;
+      opacity: 0.3; }
+      .body.wikigeeks .players-grid .player-background .icon.active {
+        opacity: 1; }
+      .body.wikigeeks .players-grid .player-background .icon img {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px; }
+    .body.wikigeeks .players-grid .player-background .points {
+      display: none;
+      float: left;
+      width: 100%;
+      position: absolute;
+      padding-top: 26%;
+      font-size: 3.6em; }
+    .body.wikigeeks .players-grid .player-background .score {
+      font-size: 4.6em;
+      font-weight: bold;
+      color: #91c92f;
+      text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+    .body.wikigeeks .players-grid .player-background .nameplate {
+      position: relative;
+      background-color: white;
+      padding: 2px;
+      opacity: 0;
+      font-weight: bold;
+      font-size: medium;
+      color: #4343ff; }
+      .body.wikigeeks .players-grid .player-background .nameplate.active {
+        opacity: 1; }
 
 /* 
 	HTYI player view styling.
@@ -1226,7 +1229,6 @@ html, body {
   color: white; }
 
 .body {
-  overflow: hidden;
   font-family: "Avenir";
   background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png), #ff9971; }
   @media (max-width: 480px) {
@@ -1234,6 +1236,7 @@ html, body {
       background-color: #fdae8f; } }
 
 .body.game-bg {
+  overflow: hidden;
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;
