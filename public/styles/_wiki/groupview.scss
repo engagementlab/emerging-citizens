@@ -196,7 +196,7 @@
 			border: 5px solid $color-red;
 			max-height: 300px;
 			height: 300px;
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			.col-sm-4 {
 				height: 100%;
@@ -408,9 +408,11 @@
 	}
 
 	.players-grid {
+		padding-left: 10%;
 		.player-background {
 			margin: 0 auto;
 			height: 120px;
+			width: auto;
 			
 			.icon {
 				margin: 0 auto;
