@@ -573,8 +573,10 @@
 					$(btn).text('resume countdowns');
 					$(btn).data('resume', 'true');
 				}
-				else
+				else {
 					$(btn).text('pause countdowns');
+					$(btn).data('resume', 'false');
+				}
 
 			});
 

@@ -60,7 +60,7 @@ module.exports = function() {
 
     };
 
-    //  ### it multiplier helper
+    //  ### int multiplier helper
     // Used for multiplying int by factor
     //
     //  @factor: Factor to multiply by
@@ -115,30 +115,40 @@ module.exports = function() {
 
     };
 
+    //  ### WikiGeeks result position helper
+    // Used for placing path SVG elements for wikigeeks result screen (top players)
+    //
+    //  @index: article index
+    //  @xAxis: position on x axis? 
+    //  @dest: is destination point?
+    //
+    //  *Usage example:*
+    //  {{wikiResultPosition @index true false false}}
     _helpers.wikiResultPosition = function(index, xAxis, dest, dot) {
 
         let baseXVal = 220;
 
+        // y position
         if(!xAxis) {
 
             if(dest) {
-                if(index >= 4) return 110;
-                else if(index >= 9) return 220;
+                if(index >= 9) return 200;
+                else if(index >= 4) return 110;
                 else return 10;
             }
             else {
 
                 if(index === 4) {
-                    if(dot) return 10;
-                    else return 100;
+                    return 10
                 }
-                else if(index === 9) return 200;
+                else if(index >= 10) return 200;
                 else if(index > 4) return 110;
                 else return 10;
             
             }
 
         }
+        // x position
         else {
 
             // Reverse position for odd-num rows
@@ -146,26 +156,44 @@ module.exports = function() {
 
                 let offset = index - 5;
                 let offsetXVal = (baseXVal * 4);
+                let xPos = (offsetXVal - (baseXVal * offset));
 
                 if(dest)
-                    return (offsetXVal - (baseXVal * offset) - baseXVal);
-                else
-                    return (offsetXVal - (baseXVal * offset));
+                    xPos = (offsetXVal - (baseXVal * offset) - baseXVal);
+
+                return xPos;
 
             }
 
             else {
-                
-                let pos = (baseXVal * index);
+
+                // TODO: this code is awful. re-think someday.
+                let offset = index;
+                if(index >= 9)
+                    offset -= 9;
+
+                let xPos = (baseXVal * offset);
                 
                 if(dest && index !== 4)
-                    pos += baseXVal;
+                    xPos += baseXVal;
 
-                return pos;
+                if(index >= 10 || (dest && index === 9))
+                    xPos -= baseXVal;
+
+                return xPos;
             
             }
 
         }
+    }
+
+    _helpers.ordinalPosition = function(index) {
+        
+        var affixes = ["th","st","nd","rd"],
+        remainder = (index+1) % 100;
+
+       return (index+1) + (affixes[(remainder - 20) % 10] || affixes[remainder] || affixes[0]);
+    
     }
 
     return _helpers;
