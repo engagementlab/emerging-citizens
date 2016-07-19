@@ -915,7 +915,7 @@ body {
     border: 5px solid #fe6444;
     max-height: 300px;
     height: 300px;
-    width: 80%;
+    width: 90%;
     margin: 0 auto; }
     .body.wikigeeks #article-container.room-container .article-info .col-sm-4 {
       height: 100%; }
@@ -1057,6 +1057,8 @@ body {
     .body.wikigeeks #top-players .article-titles .title .last {
       color: #ff5e41; }
 
+.body.wikigeeks .players-grid {
+  padding-left: 10%; }
   .body.wikigeeks .players-grid .player-background {
     margin: 0 auto;
     height: 120px;

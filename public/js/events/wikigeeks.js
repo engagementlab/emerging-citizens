@@ -26,7 +26,7 @@ var gameEvents = function(eventId, eventData) {
     
     };
 
-    var retrieveArticle = function(articleTitle, initialSearch) {
+    var retrieveArticle = function(articleTitle, initialSearch, displayNow) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
@@ -50,8 +50,9 @@ var gameEvents = function(eventId, eventData) {
 
             displayWikiContent(articleData);
 
-            // Tell server about this article being chosen by player
-            socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
+            // Tell server about this article being chosen by player, unless overriden
+            if(!displayNow)
+              socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
 
             if(initialSearch) {
              
@@ -60,6 +61,18 @@ var gameEvents = function(eventId, eventData) {
                 $('#wiki-article').fadeIn();
               });
             
+            }
+
+            // Used only for auto-submission
+            else if(displayNow) {
+              
+              $('#topic-submission').fadeOut(function() {
+
+                $('section#submitted').hide();
+                $('#wiki-article').fadeIn();
+                $('section#article').show();
+
+              });
             }
 
         });
@@ -235,41 +248,20 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'article:random':
-            console.log ("hi")
-            console.log (eventData);
-           retrieveArticle(eventData, true);
+
+          retrieveArticle(eventData, false, true);
 
           break;
 
         case 'topic:info':
-            // console.log ("doing it");
-            // if ($('section#submitted').css('display','none')) {
 
-            //    $.getJSON(
-            //     API_URL + '&action=query&format=json&list=random&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1',
-                
-            //     function(randomData) {
-                 
-            //         $('#article_input').val(randomData.query.random[0].title);
-            //         retrieveArticle($('#article_input').val(), true);
-            //         $('section#submitted').hide();
-            //         $('#wiki-article').fadeIn();
-            //         $('section#article').show();
+        debugger;
 
-            //     });
-              
-            // } else {
+          $('section#submitted').hide();
+          $('#wiki-article').fadeIn();
+          $('section#article').show();
 
-              $('section#submitted').hide();
-              $('#wiki-article').fadeIn();
-              $('section#article').show();
-
-
-            // }
-
-            
-
-        break;
+          break;
 
     }
 
