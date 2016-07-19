@@ -181,6 +181,8 @@ var gameEvents = function(eventId, eventData) {
          // An article was found
         case 'article:found':
 
+          
+
             let startingUrl = API_URL + '&pageid=' + eventData.articleId;
 
 	          $('#gameContent').html(eventData.html);
@@ -232,11 +234,40 @@ var gameEvents = function(eventId, eventData) {
 
           break;
 
-        case 'topic:info':
+        case 'article:random':
+            console.log ("hi")
+            console.log (eventData);
+           retrieveArticle(eventData, true);
 
-            $('section#submitted').hide();
-            $('#wiki-article').fadeIn();
-            $('section#article').show();
+          break;
+
+        case 'topic:info':
+            // console.log ("doing it");
+            // if ($('section#submitted').css('display','none')) {
+
+            //    $.getJSON(
+            //     API_URL + '&action=query&format=json&list=random&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1',
+                
+            //     function(randomData) {
+                 
+            //         $('#article_input').val(randomData.query.random[0].title);
+            //         retrieveArticle($('#article_input').val(), true);
+            //         $('section#submitted').hide();
+            //         $('#wiki-article').fadeIn();
+            //         $('section#article').show();
+
+            //     });
+              
+            // } else {
+
+              $('section#submitted').hide();
+              $('#wiki-article').fadeIn();
+              $('section#article').show();
+
+
+            // }
+
+            
 
         break;
 
