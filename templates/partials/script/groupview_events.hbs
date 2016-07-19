@@ -297,8 +297,7 @@ var socketEvents = function(eventId, eventData) {
                 _.each(topPlayers, function(player, index) {
 
                     var articleTitles = $(player).find('.title');
-
-                    console.log('animDelay', (articleTitles.length/2)*index);
+                    var articleDots = $(player).find('.articleDot');
 
                     if(index > 0) {
                         topPlayersAnim.from($(player), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
@@ -308,6 +307,8 @@ var socketEvents = function(eventId, eventData) {
                     }
 
                     _.each(articleTitles, function(title, index) {
+                        $(articleDots[index]).delay(500*index).velocity({r: 8}, 500, [50, 10]);
+                        
                         topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: .5});
                     });
 

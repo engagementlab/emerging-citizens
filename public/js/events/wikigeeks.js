@@ -50,8 +50,9 @@ var gameEvents = function(eventId, eventData) {
 
             displayWikiContent(articleData);
 
-            // Tell server about this article being chosen by player
-            socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
+            // Tell server about this article being chosen by player, unless overriden
+            if(!displayNow)
+              socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
 
             if(initialSearch) {
              
@@ -253,6 +254,8 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'topic:info':
+
+        debugger;
 
           $('section#submitted').hide();
           $('#wiki-article').fadeIn();
