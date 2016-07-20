@@ -6,22 +6,19 @@
 
 	overflow:hidden;
 
-	#gameContent.container-fluid {
-		padding-top: 3%;
-		padding-left: 0;
-		padding-right: 0;
-	}
-
 	.room-container {
 		width: 80%;
 		margin: 0 auto;
-
-
 	}
 
 	.submission {
 		padding: 0;
+	}
 
+	#gameContent.container-fluid {
+		padding-top: 3%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	.header {
@@ -135,20 +132,46 @@
 
 	}
 
-
 	.room-container {
-
 		border-radius: 20px;
 		box-shadow: none;
-
-		
-
 	}
 
 	#topic-container.room-container {
 		width: 80%;
 		left: 10%;
 		padding: 2%;
+
+		#reveal {
+			
+			display: none;
+			position: absolute;
+			width: 100%; 
+			height: 100%; 
+			background-color: rgba(255, 255, 255, .7);
+			z-index: 1999;
+			top: 0;
+			left: 0;
+			color: $color-bg;
+
+			#content {
+				display: none;
+				margin-top: 13%;
+				padding: 5%;
+				width: 600px;
+				height: 500px;
+				background-color: white;
+				font-size: 2.2em;
+				border: 5px solid $color-dark-orange;
+
+				#countdown {
+					width: 28%;
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+
+		}
 
 		#current-topic {
 			padding-bottom: 2%;
@@ -417,7 +440,37 @@
 
 	#top-players {
 
+		.player-info {
+
+	    border: 8px solid $color-results-orange;
+	    color: $color-results-peach;
+
+	    h2 {
+	    	color: $color-dark-yellow;
+	    }
+	    h3 {
+	    	color: $color-red;
+	    }
+
+		}
+
+		.target-article {
+
+			h2 {
+				color: $color-bg;
+			}
+			h3 {
+				color: #f99ba8;
+			}
+
+			.border {
+				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_400/v1/emerging-citizens/images/layout/wiki/divider_results.png");
+			}
+
+		}
+
 		.article-titles {
+
 			position: absolute;
 			z-index: 2;
 			width: 100%;
@@ -430,8 +483,30 @@
 					color: $color-dark-orange;
 				}
 			}
+
 		}
 
+		.color-0 {
+			color: $color-results-orange;
+			fill: $color-results-orange;
+		}
+		.color-1 {
+			color: $color-results-peach;
+			fill: $color-results-peach;
+		}
+		.color-2 {
+			color: $color-dark-yellow;
+			fill: $color-dark-yellow;
+		}
+		.color-3 {
+			color: $color-red;
+			fill: $color-red;
+		}
+		.color-4 {
+			color: $color-bg;
+			fill: $color-bg;
+		}
+		
 	}
 
 	.players-grid {

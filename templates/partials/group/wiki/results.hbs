@@ -13,100 +13,111 @@
 
 	          {{#iflt @index 3}}
 
-	          	<section class="player-path hidden-el">
-			
-									<div class="row">
-						
-										<div class="col-xs-6 col-sm-6">
-											<div class="content">
+	          	{{#if finished}}
 
-												<h2>{{username}}</h2>
-												{{ordinalPosition @index}} Place!
-												<span>{{clicks}} clicks</span>
+		          	<section class="player-path hidden-el">
+				
+										<div class="row">
+							
+											<div class="col-xs-6 col-sm-6">
+												<div class="content player-info">
 
-												<span>{{time}}</span>
+													<h2>{{username}}</h2>
+													<h3>{{ordinalPosition @index}} Place!</h3>
 
+													<span>{{clicks}} clicks</span>
+													<span>{{score_sum}} points</span>
+													<span>{{time}}</span>
+
+												</div>
 											</div>
+
+											<div class="col-xs-6 col-sm-6">
+												<div class="content target-article">
+
+													<h2>Target article:</h2>
+													<h3>{{../../title}}</h3>
+
+													<div class="border"></div>
+
+												</div>
+											</div>
+
 										</div>
 
-										<div class="col-xs-6 col-sm-6">
-											<div class="content">
+										{{#if articles}}
 
-												<h2>Target article:</h2>
-												<h3>{{../../title}}</h3>
+											<div class="articles" class="row">
 
-											</div>
-										</div>
-
-									</div>
-
-									{{#if articles}}
-
-										<div class="articles" class="row">
-
-											<div class="article-titles">
-												
-												{{#each articles}}
-
-													<div class="title{{#if @last}} final{{/if}}" style="position:absolute; 
-																										{{#if @first}}
-																											left: 20px;
-																										{{else}}
-																											left: {{sum (wikiResultPosition @index true false false) 20}}px;
-																										{{/if}}
-																										top: {{wikiResultPosition @index false false false}}px;
-																										width: 170px">{{this}}</div>
-
-												{{/each}}
-
-											</div>
-										
-											<svg height="990" width="1100" style="position:absolute; left:0px;">
-											
-												{{#each articles}}
+												<div class="article-titles">
 													
-													{{@index}}
+													{{#each articles}}
 
-													{{#unless @last}}
+														<div class="title{{#if @last}} final{{/if}} {{wikiColor @index}}" style="position:absolute; 
+																											{{#if @first}}
+																												left: 20px;
+																											{{else}}
+																												left: {{sum (wikiResultPosition @index true false false) 20}}px;
+																											{{/if}}
+																											top: {{wikiResultPosition @index false false false}}px;
+																											width: 170px">{{this}}</div>
 
-														{{#if @first}}
-															<line class="articleLine" x1="105" y1="10" x2="325" y2="10" style="stroke:rgb(188,255,252);stroke-width:8"></line>
-														{{else}}
-															<line class="articleLine" 
-																		x1="{{sum (wikiResultPosition @index true false false) 105}}" 
-																		y1="{{wikiResultPosition @index false false false}}" 
-																		
-																		x2="{{sum (wikiResultPosition @index true true false) 105}}" 
-																		y2="{{wikiResultPosition @index false true false}}" 
-																		
-																		style="stroke:rgb(188,255,252);stroke-width:8" />
-														{{/if}}
+													{{/each}}
 
-													{{/unless}}
-
-												{{/each}}
+												</div>
 											
-												{{#each articles}}
-
+												<svg height="990" width="1100" style="position:absolute; left:0px;">
+												
+													{{#each articles}}
+														
 														{{@index}}
 
-														<circle class="articleDot"
-																		cx="{{sum (wikiResultPosition @index true false true) 105}}" 
-																		cy="{{wikiResultPosition @index false false true}}" 
-																		r="0" 
-																		stroke="black" 
-																		stroke-width="0" 
-																		fill="red" />
+														{{#unless @last}}
 
-												{{/each}}
-											
-											</svg>
-											
-										</div>
+															{{#if @first}}
+																<line class="articleLine" 
+																			x1="105" y1="10" x2="105" y2="10" 
+																			data-x2="325" data-y2="10"
+																			
+																			style="stroke:rgb(188,255,252);stroke-width:8" />
+															{{else}}
+																<line class="articleLine" 
+																			x1="{{sum (wikiResultPosition @index true false false) 105}}" 
+																			y1="{{wikiResultPosition @index false false false}}" 
+																			
+																			x2="{{sum (wikiResultPosition @index true false false) 105}}" 
+																			y2="{{wikiResultPosition @index false false false}}" 
 
-									{{/if}}
+																			data-x2="{{sum (wikiResultPosition @index true true false) 105}}" 
+																			data-y2="{{wikiResultPosition @index false true false}}"
+																			
+																			style="stroke:rgb(188,255,252);stroke-width:8" />
+															{{/if}}
+
+														{{/unless}}
+
+													{{/each}}
+												
+													{{#each articles}}
+
+															{{@index}}
+
+															<circle class="articleDot {{wikiColor @index}}"
+																			cx="{{sum (wikiResultPosition @index true false true) 105}}" 
+																			cy="{{wikiResultPosition @index false false true}}" 
+																			r="0" />
+
+													{{/each}}
+												
+												</svg>
+												
+											</div>
+
+										{{/if}}
 
 								</section>
+
+							{{/if}}
 
 	          {{/iflt}}
 

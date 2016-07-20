@@ -38,11 +38,16 @@ module.exports = function() {
         // Only 7 colors total
         var color_cap = 7;
 
-        // If above cap, reset
-        // if(index % 7 > 0)
-
-
         return "color-" + index;
+
+    };
+
+    // assign color class based on index for Wikigeeks color cascade
+    _helpers.wikiColor = function(index) {
+
+        let colorIndex = index % 5;
+
+        return "color-" + colorIndex;
 
     };
 
