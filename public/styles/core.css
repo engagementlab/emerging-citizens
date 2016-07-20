@@ -758,17 +758,17 @@ body {
 /* 
 	WikiGeeks group view styling.
 */
-.body.wikigeeks #gameContent.container-fluid {
-  padding-top: 3%;
-  padding-left: 0;
-  padding-right: 0; }
-
 .body.wikigeeks .room-container {
   width: 80%;
   margin: 0 auto; }
 
 .body.wikigeeks .submission {
   padding: 0; }
+
+.body.wikigeeks #gameContent.container-fluid {
+  padding-top: 3%;
+  padding-left: 0;
+  padding-right: 0; }
 
 .body.wikigeeks #startGameForm {
   top: 80%;
@@ -861,6 +861,29 @@ body {
   width: 80%;
   left: 10%;
   padding: 5%; }
+  .body.wikigeeks #topic-container.room-container #reveal {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1999;
+    top: 0;
+    left: 0;
+    color: #0be8d4; }
+    .body.wikigeeks #topic-container.room-container #reveal #content {
+      display: none;
+      margin-top: 13%;
+      padding: 5%;
+      width: 600px;
+      height: 500px;
+      background-color: white;
+      font-size: 2.2em;
+      border: 5px solid #ff5e41; }
+      .body.wikigeeks #topic-container.room-container #reveal #content #countdown {
+        width: 28%;
+        margin-right: auto;
+        margin-left: auto; }
   .body.wikigeeks #topic-container.room-container #current-topic {
     padding-bottom: 5%; }
   .body.wikigeeks #topic-container.room-container .arrow {
@@ -1045,9 +1068,24 @@ body {
   .body.wikigeeks #results-container .row-color-0 .ranking:before {
     content: "1st"; }
 
-.body.wikigeeks .players-grid {
-  padding-left: 10%; }
-  .body.wikigeeks #top-players .article-titles {
+.body.wikigeeks #top-players .player-info {
+  border: 8px solid #fa9060;
+  color: #ffbb90; }
+  .body.wikigeeks #top-players .player-info h2 {
+    color: #fcc843; }
+  .body.wikigeeks #top-players .player-info h3 {
+    color: #fe6444; }
+
+.body.wikigeeks #top-players .target-article h2 {
+  color: #0be8d4; }
+
+.body.wikigeeks #top-players .target-article h3 {
+  color: #f99ba8; }
+
+.body.wikigeeks #top-players .target-article .border {
+  background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_400/v1/emerging-citizens/images/layout/wiki/divider_results.png"); }
+
+.body.wikigeeks #top-players .article-titles {
   position: absolute;
   z-index: 2;
   width: 100%;
@@ -1056,6 +1094,26 @@ body {
     font-size: 1em; }
     .body.wikigeeks #top-players .article-titles .title .last {
       color: #ff5e41; }
+
+.body.wikigeeks #top-players .color-0 {
+  color: #fa9060;
+  fill: #fa9060; }
+
+.body.wikigeeks #top-players .color-1 {
+  color: #ffbb90;
+  fill: #ffbb90; }
+
+.body.wikigeeks #top-players .color-2 {
+  color: #fcc843;
+  fill: #fcc843; }
+
+.body.wikigeeks #top-players .color-3 {
+  color: #fe6444;
+  fill: #fe6444; }
+
+.body.wikigeeks #top-players .color-4 {
+  color: #0be8d4;
+  fill: #0be8d4; }
 
 .body.wikigeeks .players-grid {
   padding-left: 10%; }

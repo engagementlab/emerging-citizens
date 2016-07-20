@@ -1,7 +1,8 @@
 <div class="page-container">
-    <div class="row">
-        {{!-- Topic Info Container --}}
-        <section class="col-sm-12 room-container" id="article-container">
+	<div class="row">
+
+      {{!-- Topic Info Container --}}
+      <section class="col-sm-12 room-container" id="article-container">
 
 				<div class="row find">
 				    <div class="col-sm-12">
@@ -11,32 +12,32 @@
 				    </div>
 				</div>
 
-			    <div class="row article-info">
+		    <div class="row article-info">
 
-			    	<div class="col-sm-4">
-				    	<div class="article-image">
-					    	<img src="{{{cloudinaryUrl articleImage width=auto height=auto crop='scale' quality=100}}}">
-				    	</div>
-				    </div>
-			        <div class="col-sm-8 article-description">
-			            
-			        	<p>{{{articleDescription}}}</p>
-
-			        </div>
+		    	<div class="col-sm-4">
+			    	<div class="article-image">
+				    	<img src="{{{cloudinaryUrl articleImage width=auto height=auto crop='scale' quality=100}}}">
+			    	</div>
 			    </div>
-			    <div class="row players-countdown">
-			    	<div class="col-sm-8"> 
-				    	{{>group/players_grid players=this.players}}
-				    </div>
+		        <div class="col-sm-8 article-description">
+		            
+		        	<p>{{{articleDescription}}}</p>
 
-				    <div class="col-sm-4 countdown">
-				      <section id="countdown">
-				      	<span id="text"></span>
-				      </section>
-				    </div>
+		        </div>
+		    </div>
+		    <div class="row players-countdown">
+		    	<div class="col-sm-8"> 
+			    	{{>group/players_grid players=this.players}}
 			    </div>
-		</section>
-    
-    </div> 
-    
+
+			    <div class="col-sm-4 countdown">
+			      <section id="countdown">
+			      	<span id="text"></span>
+			      </section>
+			    </div>
+		    </div>
+
+			</section>
+  
+  </div>    
 </div>

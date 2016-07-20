@@ -98,29 +98,29 @@ html, body {
 
   // Tutorial modal
   .tutorial {
-	#countdown, #continue {
-	    position: fixed !important; 
-	    bottom: 10%;
-	    right: 4%;
-	    width: 150px;
-	    cursor: pointer;
-	    .icon {
-				display: inline-block;
-				width: 1em;
-				height: 1em;
-				fill: currentColor;
-				margin-top: 22%;
-			}
-			.icon-arrow-right {
-				width: 0.8212890625em;
-			}
+		#countdown, #continue {
+		    position: fixed !important; 
+		    bottom: 10%;
+		    right: 4%;
+		    width: 150px;
+		    cursor: pointer;
+		    .icon {
+					display: inline-block;
+					width: 1em;
+					height: 1em;
+					fill: currentColor;
+					margin-top: 22%;
+				}
+				.icon-arrow-right {
+					width: 0.8212890625em;
+				}
 
-	    .text {
-	    	font-size: 8em;
-	    	top: 58% !important;
-	    	color: #fff !important;
-	    }
-	}
+		    .text {
+		    	font-size: 8em;
+		    	top: 58% !important;
+		    	color: #fff !important;
+		    }
+		}
   }
 }
 
