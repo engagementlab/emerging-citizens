@@ -1,8 +1,4 @@
 // Disable scrolling on groupview and fix width
-body {
-	overflow: hidden;
-}
-
 #wrapper.group {
 
   width: 1680px !important;
@@ -11,6 +7,7 @@ body {
   margin-left: auto;
 
 }
+
 
 // CONTENT SELECTION
 .submission {

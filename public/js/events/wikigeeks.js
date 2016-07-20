@@ -86,15 +86,42 @@ var gameEvents = function(eventId, eventData) {
 
       // Inject article html into temp workspace
       $(workspace).html(articleMarkup);
-      
+
+      var articleWidth = $('section#article').css("width") * 10;
+        console.log ($('section#article').css("width"));
       // Clean the workspace of any wiki elements we don't want
-      removeDom('table.infobox');
-      removeDom('div#toc')
-      removeDom('div.thumb');
-      removeDom('span.mw-editsection');
-      removeDom('sup');
-      removeDom('table');
-      removeDom('.wikitable');
+      // if ($('table.infobox')) 
+        $('table').css("width", "100%");
+        $('table, table.infobox, .thumbinner').css({"margin":"0 auto", "float":"none"});
+        $('table tr, table td, table th').css({"background-color":"white", "color":"#36d5d9"})
+        $('table:not(:has(table))').css({"margin-top":"5%", "margin-bottom":"5%"});
+        $('table tr:not(:has(tr)), table th:not(:has(th)), table td:not(:has(td))').css({"border":"1px solid #36d5d9", "padding":"2px"});
+        $('table.infobox td, .infobox th, .thumbinner').css("padding","1px");
+        $('.nowraplinks, .nowraplinks tr').css('border','1px solid #36d5d9');
+        $('.nowraplinks th').css('padding','8px');
+        $('table.rquote').css("width","100%");
+        $('table.metadata').css("border","none");
+        $('.thumb').css({"border":"1px solid", 'background-color':'#e6e6e6', "margin":"2%"});
+        $('.thumbinner').css('padding','2%');
+        $('div:has(>.wikitable)').css({"width":"100%", "display":"block"});
+        
+        
+
+      // }
+      removeDom('table.metadata td:has(img)');
+      removeDom('.mbox-image');
+      removeDom('.tocnumber');
+      removeDom('.mw-editsection');
+      removeDom('.plainlinks.hlist.navbar.mini');
+      removeDom('span.flagicon');
+      removeDom('.metadata .image');
+
+      // removeDom('div#toc')
+      // removeDom('div.thumb');
+      // removeDom('span.mw-editsection');
+      // removeDom('sup');
+      // removeDom('table');
+      // removeDom('.wikitable');
 
       //Add necessary inline style changes
       $('li').css("text-align", "left");
@@ -141,6 +168,8 @@ var gameEvents = function(eventId, eventData) {
     switch (eventId) {
 
         case 'game:start':
+
+            
 
             var articleInput = $('#article_input');
 

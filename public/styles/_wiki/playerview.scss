@@ -3,6 +3,8 @@
 */
 .body.wikigeeks.player {
 
+	overflow-x: hidden;
+
 	background-image: $background-wiki;
 	color: $color-teal;
 
@@ -61,8 +63,17 @@
 		}
 	}
 
+	.submission {
+		@media(max-width: 425px) {
+
+			margin-top: 15%;
+		}
+		margin-top:5%;
+	}
+
 	.game-message {
 		position: relative;
+		padding-top: 10%;
 		padding: 0;
 		margin-bottom: 10%;
 		font-size: medium;
@@ -101,14 +112,25 @@
 	}
 
 	#submitted {
+
+		margin-top: 15%;
 		.game-message {
 			margin: 0;
 			min-height: 100px;
 		}
 	}
 
+	#wiki-content {
+		padding-top:5%;
+		padding-bottom:5%;
+		overflow-y:scroll;
+	}
+	#toc {
+		background-color: $color-gray;
+		border: 2px solid;
+	}
 	#wiki-article, #wiki-workspace {
-
+		
 		display: none;
 
 		ul {
@@ -119,16 +141,25 @@
 		    	text-align: left;
 		    }
 		}
+
+		table {
+			td, tr, th {
+				background-color:white;
+				color: $color-teal;
+			}
+		}
 	}
+
+	
 
 	#results {
 
 		.row .content {
 			@include circle (100px, white);
-	    padding-top: 1%;
-	    margin-left: auto;
-	    margin-right: auto;
-	  }
+		    padding-top: 1%;
+		    margin-left: auto;
+		    margin-right: auto;
+		  }
 
 	  #articles {
 	  	background-color: #fff;

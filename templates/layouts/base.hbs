@@ -24,6 +24,9 @@
     </head>
     
     <body class="body {{gameType}}">
+          {{#ifeq section "group/monitor"}}
+                {{> group/header}}
+            {{/ifeq}}
 
         {{#ifeq section "comingsoon"}}
             {{> nav_comingsoon}}
@@ -33,7 +36,10 @@
                 {{> nav}}
                 <div class="container">
             {{/ifeq}}
+            
         {{/ifeq}}
+
+        {{!-- {{jsonPrint section}} --}}
 
         <div id="wrapper">
 

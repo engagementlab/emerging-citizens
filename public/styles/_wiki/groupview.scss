@@ -2,7 +2,9 @@
 	WikiGeeks group view styling.
 */
 
-.body.wikigeeks {
+.body.wikigeeks.group {
+
+	overflow:hidden;
 
 	#gameContent.container-fluid {
 		padding-top: 3%;
@@ -20,6 +22,31 @@
 	.submission {
 		padding: 0;
 
+	}
+
+	.header {
+		background-color:transparent;
+		display:inline-block;
+		width:1680px;
+		height:125px;
+
+		.container {
+			background-color:transparent;
+		}
+		.headerImage {
+			@include circle(200px, white);
+			width: 200px;
+			display:block;
+			left: 740px;
+			margin: 0 auto;
+			@include translate(0px, -50px);
+
+			img {
+				padding-top:40%;
+				width: 80%;
+				margin-left: 10%;
+			}
+		}
 	}
 
 	#startGameForm {
@@ -121,10 +148,10 @@
 	#topic-container.room-container {
 		width: 80%;
 		left: 10%;
-		padding: 5%;
+		padding: 2%;
 
 		#current-topic {
-			padding-bottom: 5%;
+			padding-bottom: 2%;
 		}
 
 		.arrow {
@@ -140,7 +167,7 @@
 		}
 
 		h3 {
-			width: 60%;
+			width: 80%;
 			color: $color-light-orange;
 			font-size: 3em;
 			margin: 0 auto;
@@ -194,23 +221,23 @@
 		.article-info {
 			padding: 2%;
 			border: 5px solid $color-red;
-			max-height: 300px;
-			height: 300px;
+			max-height: 200px;
+			height: 200px;
 			width: 90%;
 			margin: 0 auto;
-			.col-sm-4 {
+			.col-sm-2 {
 				height: 100%;
 
 				.article-image {
-					height: 200px;
-					width: 200px;
-					margin: 25px auto;
+					height: 150px;
+					width: 150px;
+					margin: 0px auto;
 					position: relative;
 					img {
 						display: block;
 						max-width: 100%;
 						max-height: 100%;
-						height: 200px;
+						height: 150px;
 						width: auto;
 						margin: 0 auto;
 						
@@ -260,7 +287,7 @@
 	}
 
 	.players-countdown {
-		margin-top: 5%;
+		margin-top: 2%;
 	}
 
 	.players {

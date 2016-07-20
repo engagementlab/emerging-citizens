@@ -113,6 +113,10 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData.html);
 
+            {{#ifeq gameType "wikigeeks"}}
+                $('.header').fadeIn();
+            {{/ifeq}}
+
             break;
             
         case 'game:countdown':
