@@ -7,6 +7,11 @@
  * Script for GROUP'S WikiGeeks socket events. Loaded to group screen upon load of monitor view.
  * ==========
  */
+
+var clockInterval;
+
+
+
 var gameEvents = function(eventId, eventData) {
 
   /*
@@ -21,6 +26,8 @@ var gameEvents = function(eventId, eventData) {
 
       var secondsLeft = eventData.duration;
       var clockName = eventData.name;
+
+      
 
       clockInterval = setInterval(function() {
 

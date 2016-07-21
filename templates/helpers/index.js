@@ -201,6 +201,13 @@ module.exports = function() {
     
     }
 
+    _helpers.ellipsis = function (limit, currentText) {
+            if (currentText) {
+              console.log (currentText, "current text");
+              return currentText.substr(0, limit) + "...";
+            }
+    }
+
     return _helpers;
 
 

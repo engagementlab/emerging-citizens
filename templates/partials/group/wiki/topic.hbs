@@ -5,29 +5,27 @@
     {{!-- Topic Screen Container --}}
     <section class="col-sm-6 room-container" id="topic-container">
  
-	    <div id="reveal" class="modal col-sm-12 row">
+	    <div id="reveal" class="modal row">
 
-          <div class="col-sm-4"></div>
-          <div id="content" class="col-sm-4 hidden-el">
+            <div id="content" class="col-sm-12 hidden-el">
     			    
-    			    <div class="row">
-			       			Get ready!
-			       			<br />
-			       			The target article will be revealed in...
-							</div>
-    			    
-    			    <div class="row">
-								{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=215}}}
-				      </div>
+			    <div class="row">
+		       			Get ready!
+		       			<br />
+		       			The target article will be revealed in...
+				</div>
+			    
+			    <div class="row">
+						{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=215}}}
+			    </div>
 
-    			    <div class="row">           
-	              <div id="countdown"></div>
-		          </div>
+			    <div class="row">           
+		            <div id="countdown"></div>
+		        </div>
 
-          </div>
-          <div class="col-sm-4"></div>
+            </div>
 
-			</div>
+		</div>
 
 			<div class="row" id="current-topic">
 			    <div class="col-sm-6">
@@ -48,7 +46,7 @@
 			    <div class="col-sm-6">
 				    <div class="topic-description ellipsis">
 				    	
-			            <p >{{{this.topicDescription}}}</p>
+			            <p >{{{ellipsis 200 this.topicDescription}}}</p>
 
 				    </div>
 			    </div>
