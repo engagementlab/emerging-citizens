@@ -163,12 +163,31 @@
 		    padding-top: 1%;
 		    margin-left: auto;
 		    margin-right: auto;
+		    border: 5px solid darken($color-light-teal,20%);
+
+		    &#time {
+		    	h2 {
+		    		color: $color-orange;
+		    	}
+		    }
+		    &#clicks {
+		    	h2 {
+		    		color: $color-bright-red;
+		    	}
+		    }
+
+		    span {
+		    	color: black;
+		    }
 		  }
 
 	  #articles {
+	  	padding: 5%;
 	  	background-color: #fff;
 
 	  	.articleText {
+	  		width: 200px;
+	  		margin: 0 auto;
 	  		@include scale(0);
 		    @include transition(transform 0.5s);
 		  }

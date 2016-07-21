@@ -9,7 +9,7 @@
  */
 
 var clockInterval;
-
+var wikiAnimSlider;
 
 
 var gameEvents = function(eventId, eventData) {
@@ -142,6 +142,10 @@ var gameEvents = function(eventId, eventData) {
             .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
 
+             wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+                width: 600
+            });
+
             scoreAnim.play();
 
         }
@@ -174,6 +178,10 @@ var gameEvents = function(eventId, eventData) {
             topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: (articleTitles.length/2)*(index+1)})
 
         });
+
+      //   wikiAnimSlider = new GSAPTLSlider(topPlayersAnim, "slider-gsap", {
+      //     width: 600
+      // });
 
         topPlayersAnim.play();
 

@@ -1052,18 +1052,22 @@ body .player-form {
       font-size: 4em; }
     .body.wikigeeks.group #results-container h2 {
       font-size: 2em; }
+    .body.wikigeeks.group #results-container .results-header .col-sm-2 {
+      font-size: .6em; }
     .body.wikigeeks.group #results-container #article-title {
       color: #fe6444; }
     .body.wikigeeks.group #results-container .row.user {
       padding: 1%; }
       .body.wikigeeks.group #results-container .row.user .ranking {
         background: white;
-        width: 25px;
-        height: 25px;
+        color: #fe6444;
+        width: 50px;
+        height: 50px;
         background: white;
-        -webkit-border-radius: 12.5px;
-        -moz-border-radius: 12.5px;
-        border-radius: 12.5px; }
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        border: 1px solid #FD6D59; }
     .body.wikigeeks.group #results-container .row-color-0, .body.wikigeeks.group #results-container .row-color-6 {
       background-color: #fe6444;
       color: #FFF; }
@@ -1286,10 +1290,20 @@ body .player-form {
     border-radius: 50px;
     padding-top: 1%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    border: 5px solid #8ef0eb; }
+    .body.wikigeeks.player #results .row .content#time h2 {
+      color: #FD6D59; }
+    .body.wikigeeks.player #results .row .content#clicks h2 {
+      color: #F83439; }
+    .body.wikigeeks.player #results .row .content span {
+      color: black; }
   .body.wikigeeks.player #results #articles {
+    padding: 5%;
     background-color: #fff; }
     .body.wikigeeks.player #results #articles .articleText {
+      width: 200px;
+      margin: 0 auto;
       -moz-transform: scale(0);
       -o-transform: scale(0);
       -ms-transform: scale(0);

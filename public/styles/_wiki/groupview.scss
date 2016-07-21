@@ -396,18 +396,26 @@
 		h2 {
 			font-size: 2em;
 		}
+
+		.results-header {
+			.col-sm-2 {
+				font-size: .6em;
+			}
+		}
 		
 		#article-title {
 			color: $color-red;
 		}
 
 		.row.user {
-	    padding: 1%;
+		    padding: 1%;
 
-	    .ranking {
-	    	background: white;
-				@include circle (25px, white);
-	    }
+		    .ranking {
+		    	background: white;
+		    	color: $color-red;
+				@include circle (50px, white);
+				border: 1px solid $color-orange;
+		    }
 		}
 
 		.row-color-0, .row-color-6 {
