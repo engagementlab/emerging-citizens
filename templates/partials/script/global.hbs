@@ -35,6 +35,26 @@
 
 	var timeline = new TimelineLite();
 
+<<<<<<< HEAD
+=======
+	// $(document).ready(function () {
+	// 	// $('.markdown-span').each (function () {
+	// 			console.log ("unwrapping");
+	// 	// 		$('p').unwrap();
+	// 	// 	});
+	// 	$('.markdown-span p').contents().unwrap();
+	// });
+
+	$('.ellipsis p').text(function(index, currentText) {
+		if (currentText) {
+			console.log (currentText, "current text");
+			// console.log (currentText.substr(0, 10));
+		    return currentText.substr(0, 150) + "...";
+		}
+	});
+	
+
+>>>>>>> 35ad0b364c4d315f5e68a1778970a5bf69803367
 	{{#ifeq section "index"}}
 
 		$(document).ready(function() {
@@ -420,7 +440,7 @@
 
 						{{#ifeq debug true}}
 		        	// Debugging view
-							$('#debugging').appendTo('.header');
+							$('#debugging').appendTo('body');
 		        {{/ifeq}}
 
 						// Load events for group

@@ -72,6 +72,7 @@ var gameEvents = function(eventId, eventData) {
                 $('#wiki-article').fadeIn();
                 $('section#article').show();
 
+
               });
             }
 
@@ -87,11 +88,17 @@ var gameEvents = function(eventId, eventData) {
       // Inject article html into temp workspace
       $(workspace).html(articleMarkup);
 
-      var articleWidth = $('section#article').css("width") * 10;
-        console.log ($('section#article').css("width"));
+      var articleWidth = $(window).width();
+        console.log (articleWidth);
       // Clean the workspace of any wiki elements we don't want
       // if ($('table.infobox')) 
-        $('table').css("width", "100%");
+        $('section#article').width(articleWidth);
+        $('table').css({"max-width":articleWidth, "width":"100%", "font-size":".9em", "word-break":"break-word"});
+        $('ul.gallery').css({"list-style":"none", "padding":"0"});
+        $('.thumbinner').css({"width":"auto", "max-width":"100%"});
+        $('.gallerytext').css("text-align","center");
+        $('table img').css("display","none");
+        $('a.image img').css({"margin":"0 auto"});
         $('table, table.infobox, .thumbinner').css({"margin":"0 auto", "float":"none"});
         $('table tr, table td, table th').css({"background-color":"white", "color":"#36d5d9"})
         $('table:not(:has(table))').css({"margin-top":"5%", "margin-bottom":"5%"});
@@ -116,10 +123,10 @@ var gameEvents = function(eventId, eventData) {
       removeDom('span.flagicon');
       removeDom('.metadata .image');
 
-      // removeDom('div#toc')
+      removeDom('div#toc');
       // removeDom('div.thumb');
       // removeDom('span.mw-editsection');
-      // removeDom('sup');
+      removeDom('sup');
       // removeDom('table');
       // removeDom('.wikitable');
 
@@ -136,6 +143,8 @@ var gameEvents = function(eventId, eventData) {
       $('#wiki-content')
       .html($(workspace).clone().html())
 
+
+
       // Get all links in article
       .find('a')
       .click(function(e){
@@ -145,6 +154,7 @@ var gameEvents = function(eventId, eventData) {
           // Get link's event data (article title) and search for it
           var articleTitle = $(e.currentTarget).data().title;
           retrieveArticle(articleTitle);
+
 
       })
       // Go through each link
@@ -156,6 +166,8 @@ var gameEvents = function(eventId, eventData) {
         });
       
       });
+
+      window.scrollTo(0,0);
 
       // Clear the temp workspace
       $(workspace).empty();
@@ -284,7 +296,6 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
-        debugger;
 
           $('section#submitted').hide();
           $('#wiki-article').fadeIn();
