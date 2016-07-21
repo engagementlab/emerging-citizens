@@ -882,19 +882,14 @@ body .player-form {
     padding: 2%; }
     .body.wikigeeks.group #topic-container.room-container #reveal {
       display: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
       background-color: rgba(255, 255, 255, 0.7);
-      z-index: 1999;
       top: 0;
       left: 0;
       color: #0be8d4; }
       .body.wikigeeks.group #topic-container.room-container #reveal #content {
-        display: none;
-        margin-top: 13%;
+        margin-top: 1%;
         padding: 5%;
-        width: 600px;
+        width: 500px;
         height: 500px;
         background-color: white;
         font-size: 2.2em;
@@ -958,18 +953,18 @@ body .player-form {
       height: 200px;
       width: 90%;
       margin: 0 auto; }
-      .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 {
+      .body.wikigeeks.group #article-container.room-container .article-info .col-sm-2 {
         height: 100%; }
-        .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 .article-image {
-          height: 100%;
-          width: 200px;
+        .body.wikigeeks.group #article-container.room-container .article-info .col-sm-2 .article-image {
+          height: 150px;
+          width: 150px;
           margin: 0px auto;
           position: relative; }
-          .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 .article-image img {
+          .body.wikigeeks.group #article-container.room-container .article-info .col-sm-2 .article-image img {
             display: block;
             max-width: 100%;
             max-height: 100%;
-            height: 200px;
+            height: 150px;
             width: auto;
             margin: 0 auto; }
       .body.wikigeeks.group #article-container.room-container .article-info .article-description {
@@ -1122,7 +1117,8 @@ body .player-form {
     padding-left: 10%; }
     .body.wikigeeks.group .players-grid .player-background {
       margin: 0 auto;
-      height: 120px; }
+      height: 120px;
+      width: auto; }
       .body.wikigeeks.group .players-grid .player-background .icon {
         margin: 0 auto;
         display: block;
@@ -1187,8 +1183,6 @@ body .player-form {
   overflow-x: hidden;
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
   color: #36d5d9; }
-  .body.wikigeeks.player #gameContent {
-    padding: 40px 0px; }
   .body.wikigeeks.player .submission {
     background-color: #ff5e41; }
     .body.wikigeeks.player .submission .form-prompt {
@@ -1225,7 +1219,7 @@ body .player-form {
         color: #ffe2d7;
         border: 4px solid #ffe2d7; }
   .body.wikigeeks.player .submission {
-    margin-top: 0; }
+    margin-top: 5%; }
     @media (max-width: 425px) {
       .body.wikigeeks.player .submission {
         margin-top: 15%; } }
@@ -1359,28 +1353,31 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(254, 120, 70, 0.7);
   z-index: 1999;
   top: 0;
   left: 0; }
-  .modal .tutorial #countdown, .modal .tutorial #continue {
-    position: fixed !important;
-    bottom: 10%;
-    right: 4%;
-    width: 150px;
-    cursor: pointer; }
-    .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
-      margin-top: 22%; }
-    .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
-      width: 0.8212890625em; }
-    .modal .tutorial #countdown .text, .modal .tutorial #continue .text {
-      font-size: 8em;
-      top: 58% !important;
-      color: #fff !important; }
+  .modal .tutorial {
+    background-color: rgba(254, 120, 70, 0.7);
+    width: 100%;
+    height: 100%; }
+    .modal .tutorial #countdown, .modal .tutorial #continue {
+      position: fixed !important;
+      bottom: 10%;
+      right: 4%;
+      width: 150px;
+      cursor: pointer; }
+      .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+        margin-top: 22%; }
+      .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
+        width: 0.8212890625em; }
+      .modal .tutorial #countdown .text, .modal .tutorial #continue .text {
+        font-size: 8em;
+        top: 58% !important;
+        color: #fff !important; }
 
 @media (max-width: 480px) {
   .desktop-only {

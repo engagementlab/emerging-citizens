@@ -1,39 +1,58 @@
 <div class="page-container">
 	<div class="row">
 
-      {{!-- Topic Info Container --}}
-      <section class="col-sm-12 room-container" id="article-container">
+	  {{!-- Topic Info Container --}}
+		<section class="col-sm-12 room-container" id="article-container">
 
-				<div class="row find">
-				    <div class="col-sm-12">
-				        <h4>Find the article!</h4>
-				        <h2 class="article-name light">"{{articleName}}"</h2>
-				        
-				    </div>
-				</div>
+	    <div id="round-over" class="modal col-sm-12 row">
 
-		    <div class="row article-info">
-		    	<div class="col-sm-4">
-			    	<div class="article-image">
-				    	<img src="{{{cloudinaryUrl articleImage width=auto height=auto crop='scale' quality=100}}}">
-			    	</div>
+        <div class="col-sm-4"></div>
+        <div id="content" class="col-sm-4 hidden-el">
+			    
+			    <div class="row">
+						{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=350}}}
+		      </div>
+			    
+			    <div class="row">
+	       			Round {{round}} is over!
+					</div>
+
+        </div>
+        <div class="col-sm-4"></div>
+
+			</div>
+
+			<div class="row find">
+			    <div class="col-sm-12">
+			        <h4>Find the article!</h4>
+			        <h2 class="article-name light">"{{articleName}}"</h2>
+			        
 			    </div>
-		        <div class="col-sm-8 article-description ellipsis">
-		            
-		        	<p>{{{articleDescription}}}</p>
-		        </div>
+			</div>
+
+	    <div class="row article-info">
+	    	<div class="col-sm-2">
+		    	<div class="article-image">
+			    	<img src="{{{cloudinaryUrl articleImage width=auto height=auto crop='scale' quality=100}}}">
+		    	</div>
 		    </div>
-		    <div class="row players-countdown">
-		    	<div class="col-sm-8"> 
-			    	{{>group/players_grid players=this.players}}
-			    </div>
+	        <div class="col-sm-10 article-description">
+	            
+	        	<p>{{{articleDescription}}}</p>
+	        </div>
+	    </div>
 
-			    <div class="col-sm-4 countdown">
-			      <section id="countdown">
-			      	<span id="text"></span>
-			      </section>
-			    </div>
+	    <div class="row players-countdown">
+	    	<div class="col-sm-8"> 
+		    	{{>group/players_grid players=this.players}}
 		    </div>
+
+		    <div class="col-sm-4 countdown">
+		      <section id="countdown">
+		      	<span id="text"></span>
+		      </section>
+		    </div>
+	    </div>
 
 		</section>
   

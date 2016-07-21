@@ -1,5 +1,9 @@
+'use strict'
+
 // Site-wide JS
 module.exports = function(grunt, options) {
+
+  var fs = require('fs');
 
   // Obtain env to generate filename
   var env = grunt.option('env');
@@ -22,6 +26,30 @@ module.exports = function(grunt, options) {
   // Output file is relative to this site
   var fileOut = __dirname + '/../public/release/' + env + '.js';
   var config = { uglify: { files: {} } };
+
+  // Compile all gameplay events files
+  let eventsPath = __dirname + '/../public/release/events/';
+
+  // Loop through all the files in the events dir
+  let eventFiles = fs.readdirSync(__dirname + '/../public/js/events/');
+
+  // TODO: Compile event files
+/*  for(var ind in eventFiles) {
+
+    grunt.log.writeln('Found file %s', eventFiles[ind])
+
+    fs.stat(eventsPath + eventFiles[ind], ( error, stat ) => {
+      if( error ) {
+          grunt.log.writeln( "Error stating file.", error );
+          return;
+      }
+
+      if(stat.isFile())
+          grunt.log.writeln( "'%s' is a file.", fromPath );
+
+    });
+
+  }*/
 
   // Files to uglify
   config.uglify.files[fileOut] = [

@@ -12,10 +12,6 @@
 
 var clockInterval;
 
-{{#ifnoteq environment "production"}}
-    var countdownPaused = false;
-{{/ifnoteq}}
-
 var socketEvents = function(eventId, eventData) {
     
     switch (eventId) {
@@ -29,7 +25,6 @@ var socketEvents = function(eventId, eventData) {
 
                {{#ifeq gameType "wikigeeks"}}
                     $('.body').addClass('wikigeeks');
-
                {{/ifeq}}
                
             break;
@@ -147,212 +142,7 @@ var socketEvents = function(eventId, eventData) {
 
             {{/ifeq}}  
 
-            {{#ifeq gameType "wikigeeks"}}
-
-                    var countdownText =  $('#countdown #text');
-                    var revealCountdownText = $('#reveal #countdown #text');
-
-                    var secondsLeft = eventData.duration;
-                    var clockName = eventData.name;
-
-                    clockInterval = setInterval(function() {
-
-                        {{#ifnoteq environment "production"}}
-                            if(countdownPaused)
-                                return;
-                        {{/ifnoteq}}
-
-                        secondsLeft--;
-                        console.log (secondsLeft, "seconds left");
-
-                        let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
-
-                        TweenLite.to(countdownText, .1, { scale: 0 });
-                        
-                        $(countdownText).text('0:' + displaySeconds);
-                        $(revealCountdownText).text('0:' + displaySeconds);
-                        
-                        TweenLite.from(countdownText, .1, { scale: 0 });
-
-                        // End countdown
-                        if(secondsLeft == 0 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
-                            clearInterval(clockInterval);
-                        }
-                        else if(secondsLeft == 30 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
-
-                            var revealContainer = $('#reveal')
-
-                            revealContainer.fadeIn(500, function() {
-                                $(revealContainer).find('#content').fadeIn(500);    
-                            });
-                            var countdownAnim = new ProgressBar.Circle(
-                                '#reveal #countdown', 
-                                {
-                                    color: '#fff',
-                                    duration: secondsLeft*1000,
-                                    easing: 'easeInOut',
-                                    strokeWidth: 6,
-                                    trailColor: '#f4f4f4',
-                                    trailWidth: 0.8,
-                                    fill: '#00c5c2',
-                                    from: { color: '#00c5c2', width: 1 },
-                                    to: { color: '#fff', width: 4 },
-                                    // Set default step function for all animate calls
-                                    step: function(state, circle) {
-                                        circle.path.setAttribute('stroke', state.color);
-                                        circle.path.setAttribute('stroke-width', state.width);
-                                        circle.setText(secondsLeft);
-                                    }
-                                }
-                            );
-                            countdownAnim.animate(1);
-
-                            {{!-- clearInterval(clockInterval); --}}
-
-                        } 
- 
-                    }, 1000);
-
-
-
-            {{/ifeq}}
-
             break;
-
-        case 'game:end':
-
-        {{#ifeq gameType "htyi"}}
-          
-            case 'hashtag:submitted':
-            case 'hashtags:received':
-
-                $('#gameContent').html(eventData);
-                
-                currentHashtags = _.pluck(eventData, 'hashtag-submissions');
-
-                //instantiate a TimelineLite for hashtags received animation
-                var hashtagsVoteAnim = new TimelineLite({ paused:true });
-                $('#hashtag-submissions-prompt').show();
-
-                hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
-                .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-                .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-                .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-                .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
-
-                hashtagsVoteAnim.play();
-
-                break;
-
-        {{/ifeq}}
-
-        case 'hashtags:results':
-
-            {{> script/htyi_results debug=debug}}
-            
-            break;
-
-        {{#ifeq gameType "wikigeeks"}}
-            case 'topic:info':
-                        
-                $('#gameContent').html(eventData);
-
-                {{#ifeq gameType "wikigeeks"}}
-
-                    $('#reveal').html(eventData.reveal);
-
-                {{/ifeq}}
-
-                $('#overlay').fadeOut().empty();
-
-                break;
-
-            case 'wiki:results':
-                
-                $('#gameContent').html(eventData);
-
-                function roundCountdown() {
-
-                    {{#ifnoteq environment "production"}}
-                        if(countdownPaused)
-                            return;
-                    {{/ifnoteq}}
-                    
-                    var countdownText = $('#countdown #text');
-                    var secondsLeft = 10;
-                    var roundInterval = setInterval(function() {
-                        
-                        secondsLeft--;
-                        $(countdownText).text(secondsLeft);
-
-                        if(secondsLeft == 0)
-                        {
-                            clearInterval(roundInterval);
-                            
-                            // Return home if winners circle showing
-                            if($('#winners-circle')[0])
-                                location.href = '\\';
-                            else 
-                                socket.emit('game:next_round', emitData(null));
-                        }
-                
-                    }, 1000);
-
-                }
-
-                var topPlayersAnim = new TimelineLite({paused: true, onComplete: function() { scoreAnimPlay(); } });
-                var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
-                
-                function scoreAnimPlay() {
-                 
-                    scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 4})
-
-                    .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 4}).add('resultsShow')
-                    .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=5')
-                    
-                    .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=6')
-                    .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=11')
-                    
-                    .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
-                    .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
-
-                    scoreAnim.play();
-
-                }
-
-                var topPlayers = $('#top-players .player-path');
-                _.each(topPlayers, function(player, index) {
-
-                    var articleTitles = $(player).find('.title');
-                    var articleDots = $(player).find('.articleDot');
-                    var articleLines = $(player).find('.articleLine');
-
-                    // Animate in each top player
-                    topPlayersAnim.from($(player), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
-
-                    // Animate titles and path
-                    _.each(articleTitles, function(title, index) {
-
-                        topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: .5, onStart: function() {
-
-                            var line = $(articleLines[index]);
-
-                            // Animate lines and dots at start of title animation
-                            $(articleDots[index]).velocity({r: 8}, 500, [50, 10]);
-                            line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10])
-                         
-                        }});
-                    });
-
-                    // Hide this player
-                    topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: (articleTitles.length/2)*(index+1)})
-
-                });
-
-                topPlayersAnim.play();
-
-                break;
-        {{/ifeq}}
 
         {{#ifnoteq environment "production"}}
             case 'debug:pause':
@@ -370,3 +160,16 @@ var socketEvents = function(eventId, eventData) {
     }
     
 };
+
+// Get events script for the game type logged in to
+$.getScript( '/js/events/group/{{gameType}}.js' )
+    {{#ifnoteq environment "production"}}
+        .done(function( script, textStatus ) {
+            console.log( textStatus );
+        })
+        .fail(function( jqxhr, settings, exception ) {
+            console.error('Unable to load %s (error: "%s")', '{{gameType}}.js', exception);
+        });
+
+    {{else}};
+    {{/ifnoteq}}
