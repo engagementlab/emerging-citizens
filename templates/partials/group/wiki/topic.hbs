@@ -1,19 +1,19 @@
 <div class="page-container">
-
 		<div class="row">
 
     {{!-- Topic Screen Container --}}
     <section class="col-sm-6 room-container" id="topic-container">
- 
-	    <div id="reveal" class="modal row">
 
-            <div id="content" class="col-sm-12 hidden-el">
-    			    
+			{{!-- Article reveal countdown modal --}}
+	    <div id="article-reveal" class="modal row">
+
+	      <div id="content" class="col-sm-12 hidden-el">
+	  			    
 			    <div class="row">
 		       			Get ready!
 		       			<br />
 		       			The target article will be revealed in...
-				</div>
+					</div>
 			    
 			    <div class="row">
 						{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=215}}}
@@ -21,11 +21,11 @@
 
 			    <div class="row">           
 		            <div id="countdown"></div>
-		        </div>
+	        </div>
 
-            </div>
+	      </div>
 
-		</div>
+      </div>
 
 			<div class="row" id="current-topic">
 			    <div class="col-sm-6">

@@ -3,27 +3,28 @@
 
 	  {{!-- Topic Info Container --}}
 		<section class="col-sm-12 room-container" id="article-container">
+ 
+ 			{{!-- Round over modal --}}
+	    <div id="round-over" class="modal row">
 
-	    <div id="round-over" class="modal col-sm-12 row">
-
-        <div class="col-sm-4"></div>
-        <div id="content" class="col-sm-4 hidden-el">
+	      <div id="content" class="col-sm-12 hidden-el">
 			    
 			    <div class="row">
 						{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=350}}}
 		      </div>
 			    
 			    <div class="row">
-	       			Round {{round}} is over!
+	       			<h1>Round {{round}} is over!</h1>
+	       			<h2>Let's see the results!</h2>
 					</div>
+	  			    
+	      </div>
 
-        </div>
-        <div class="col-sm-4"></div>
-
-			</div>
+      </div>
 
 			<div class="row find">
 			    <div class="col-sm-12">
+			        
 			        <h4>Find the article!</h4>
 			        <h2 class="article-name light">"{{articleName}}"</h2>
 			        
@@ -50,6 +51,9 @@
 		    <div class="col-sm-4 countdown">
 		      <section id="countdown">
 		      	<span id="text"></span>
+		      </section>
+		      <section id="out-of-time">
+		      	<span><b>Out of time</b><br />First player to reach article wins!</span>
 		      </section>
 		    </div>
 	    </div>

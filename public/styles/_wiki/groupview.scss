@@ -142,33 +142,6 @@
 		left: 10%;
 		padding: 2%;
 
-		#reveal, #round-over {
-			
-			display: none;
-			background-color: rgba(255, 255, 255, .7);
-			top: 0;
-			left: 0;
-			color: $color-bg;
-
-			#content {
-				margin-top: 3%;
-				padding: 5%;
-				left:25%;
-				width: 50%;
-				height: 500px;
-				background-color: white;
-				font-size: 2.2em;
-				border: 5px solid $color-dark-orange;
-
-				#countdown {
-					width: 28%;
-					margin-right: auto;
-					margin-left: auto;
-				}
-			}
-
-		}
-
 		#current-topic {
 			padding-bottom: 2%;
 		}
@@ -291,17 +264,21 @@
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/v1468424753/timer_bounding_box_zd0sjo.png);
+		border: 5px #ffcc00 dashed;
+		color: $color-red;
+
 		#countdown {
 			width: 100%;
 			height: 100%;
+		}
+		#out-of-time {
+			display: none;
+			font-size: .4em;
 		}
 		span {
 			width: 100%;
 			height: 100%;
 		}
-
-		
 
 	}
 
@@ -566,6 +543,41 @@
 				}
 			}
 
+		}
+
+	}
+
+	#article-reveal, #round-over {
+		
+		display: none;
+		background-color: rgba(255, 255, 255, .7);
+		top: 0;
+		left: 0;
+		color: $color-bg;
+
+		#content {
+			margin-top: 3%;
+			padding: 5%;
+			left:25%;
+			width: 50%;
+			height: 500px;
+			background-color: white;
+			font-size: 2.2em;
+			border: 5px solid $color-dark-orange;
+
+			#countdown {
+				width: 28%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			h1 {
+				font-size: 2.5em;
+			}
+			h2 {
+				font-size: 1.7em;
+				color: $color-dark-orange;
+			}
 		}
 
 	}
