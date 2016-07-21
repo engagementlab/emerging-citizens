@@ -91,36 +91,40 @@ html, body {
 	position: absolute;
 	width: 100%; 
 	height: 100%; 
-	background-color: rgba(254, 120, 70, .7);
   z-index: 1999;
   top: 0;
-  left: 0;
+	left: 0;
 
   // Tutorial modal
   .tutorial {
+		background-color: rgba(254, 120, 70, .7);
+		width: 100%; 
+		height: 100%; 
+		
 		#countdown, #continue {
-		    position: fixed !important; 
-		    bottom: 10%;
-		    right: 4%;
-		    width: 150px;
-		    cursor: pointer;
-		    .icon {
-					display: inline-block;
-					width: 1em;
-					height: 1em;
-					fill: currentColor;
-					margin-top: 22%;
-				}
-				.icon-arrow-right {
-					width: 0.8212890625em;
-				}
+	    position: fixed !important; 
+	    bottom: 10%;
+	    right: 4%;
+	    width: 150px;
+	    cursor: pointer;
+	    .icon {
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				fill: currentColor;
+				margin-top: 22%;
+			}
+			.icon-arrow-right {
+				width: 0.8212890625em;
+			}
 
-		    .text {
-		    	font-size: 8em;
-		    	top: 58% !important;
-		    	color: #fff !important;
-		    }
+	    .text {
+	    	font-size: 8em;
+	    	top: 58% !important;
+	    	color: #fff !important;
+	    }
 		}
+		
   }
 }
 

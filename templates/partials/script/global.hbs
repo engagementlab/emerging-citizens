@@ -28,18 +28,12 @@
 		// For socket debugging
 		sessionStorage.debug = '*';
 
+		// For countdown debugging
+    var countdownPaused = false;
+
 	{{/ifeq}}
 
 	var timeline = new TimelineLite();
-
-	// $(document).ready(function () {
-	// 	// $('.markdown-span').each (function () {
-	// 			console.log ("unwrapping");
-	// 	// 		$('p').unwrap();
-	// 	// 	});
-	// 	$('.markdown-span p').contents().unwrap();
-	// });
-	
 
 	{{#ifeq section "index"}}
 
@@ -201,8 +195,6 @@
 		{{/ifnoteq}}
 
 		$(document).ready(function() {
-
-
 
 			{{#ifeq section 'group'}}
 				
@@ -422,9 +414,9 @@
 
 						}
 						$(window).resize(function() {
-							doResize();
+							 // doResize();
 						});
-						doResize();
+						 // doResize();
 
 						{{#ifeq debug true}}
 		        	// Debugging view
