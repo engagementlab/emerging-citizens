@@ -95,7 +95,9 @@ var gameEvents = function(eventId, eventData) {
         $('section#article').width(articleWidth);
         $('table').css({"max-width":articleWidth, "width":"100%", "font-size":".9em", "word-break":"break-word"});
         $('ul.gallery').css({"list-style":"none", "padding":"0"});
-        $('.thumbinner').css({"width":"auto", "max-width":"100%"});
+        $('.thumbinner').css({"width":"auto", "max-width":articleWidth - 50});
+        $('.thumbinner img').css({"width":"auto", "max-width":articleWidth - 100});
+        $('img').css({"width":"auto", "max-width":articleWidth - 100, "margin":"0 auto"});
         $('.gallerytext').css("text-align","center");
         $('table img').css("display","none");
         $('a.image img').css({"margin":"0 auto"});

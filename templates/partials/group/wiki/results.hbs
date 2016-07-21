@@ -54,13 +54,13 @@
 													{{#each articles}}
 
 														<div class="title{{#if @last}} final{{/if}} {{wikiColor @index}}" style="position:absolute; 
-																											{{#if @first}}
-																												left: 20px;
-																											{{else}}
-																												left: {{sum (wikiResultPosition @index true false false) 20}}px;
-																											{{/if}}
-																											top: {{wikiResultPosition @index false false false}}px;
-																											width: 170px">{{this}}</div>
+														{{#if @first}}
+															left: 20px;
+														{{else}}
+															left: {{sum (wikiResultPosition @index true false false) 20}}px;
+														{{/if}}
+														top: {{wikiResultPosition @index false false false}}px;
+														width: 170px">{{this}}</div>
 
 													{{/each}}
 
@@ -136,7 +136,7 @@
     	{{!-- RESULTS SCREEN --}}
 			<div id="results" class="row hidden-el">
 
-						<div class="header row bold">
+						<div class="results-header row bold">
           
 					    <div class="col-sm-4">
 						    <h2>Player</h2>
@@ -159,14 +159,22 @@
           
 					    <div class="col-sm-2 ranking">
 
-					    </div>
-					    <div class="col-sm-2">
-
-			          {{#iflt @index 3}}
-			          	{{incIndex @index}}.
+					    {{#iflt @index 3}}
+				          	{{incIndex @index}}
+				          	{{#ifeq index 3}}
+				          	rd
+				          	{{/ifeq}}
+				          	{{#ifeq index 2}}
+				          	nd
+				          	{{/ifeq}}
+				          	{{#ifeq index 1}}
+				          	st
+				          	{{/ifeq}}
 			          {{/iflt}}
 
-					    	{{username}}
+					    </div>
+					    <div class="col-sm-2">
+					    {{username}}
 
 					    </div>
 					    <div class="col-sm-2">    
@@ -202,7 +210,7 @@
 			{{!-- SCORING BREAKDOWN --}}
 			<div id="scoring" class="row hidden-el">
 
-				<div class="header row bold">
+				<div class="results-header row bold">
 	    
 			    <div class="col-sm-4">
 				    <h2>Player</h2>
@@ -226,9 +234,17 @@
 				    <div class="col-sm-4">
 
 		          {{#iflt @index 3}}
-		          	{{@index}}.
-		          {{/iflt}}
-
+				          	{{incIndex @index}}
+				          	{{#ifeq index 3}}
+				          	rd
+				          	{{/ifeq}}
+				          	{{#ifeq index 2}}
+				          	nd
+				          	{{/ifeq}}
+				          	{{#ifeq index 1}}
+				          	st
+				          	{{/ifeq}}
+			          {{/iflt}}
 				    	{{username}}
 
 				    </div>    
@@ -293,14 +309,20 @@
 			{{!-- LEADERBOARD --}}
 			<div id="leaderboard" class="row hidden-el">
 
-				<div class="header row bold">
+				<div class="results-header row bold">
 	    
-			    <div class="col-sm-8">
-				    <h2>Player</h2>
-			    </div>
-			    <div class="col-sm-4">
-				    <h2>Score</h2>
-			    </div>
+					    <div class="col-sm-4">
+						    <h2>Player</h2>
+					    </div>    
+					    <div class="col-sm-2">
+						    <h2>Score</h2>
+				        </div>
+					    <div class="col-sm-2">
+						    <h2>Time</h2>
+					    </div>
+					    <div class="col-sm-2">
+						    <h2>Click</h2>
+					    </div>
 
 			  </div>
 
