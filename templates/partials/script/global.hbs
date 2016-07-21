@@ -39,6 +39,14 @@
 	// 	// 	});
 	// 	$('.markdown-span p').contents().unwrap();
 	// });
+
+	$('.ellipsis p').text(function(index, currentText) {
+		if (currentText) {
+			console.log (currentText, "current text");
+			// console.log (currentText.substr(0, 10));
+		    return currentText.substr(0, 150) + "...";
+		}
+	});
 	
 
 	{{#ifeq section "index"}}
@@ -428,7 +436,7 @@
 
 						{{#ifeq debug true}}
 		        	// Debugging view
-							$('#debugging').appendTo('.header');
+							$('#debugging').appendTo('body');
 		        {{/ifeq}}
 
 						// Load events for group
