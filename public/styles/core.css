@@ -876,8 +876,8 @@ body .player-form {
   .body.wikigeeks.group .room-container {
     box-shadow: none; }
   .body.wikigeeks.group #topic-container.room-container {
-    width: 80%;
-    left: 10%;
+    width: 60%;
+    left: 20%;
     padding: 2%; }
     .body.wikigeeks.group #topic-container.room-container #current-topic {
       padding-bottom: 2%; }
@@ -916,9 +916,13 @@ body .player-form {
         width: auto;
         margin: 0 auto; }
   .body.wikigeeks.group #article-container.room-container {
-    width: 80%;
-    left: 10%;
+    width: 60%;
+    left: 20%;
     padding: 2%; }
+    .body.wikigeeks.group #article-container.room-container .players-countdown {
+      margin-top: 2%; }
+      .body.wikigeeks.group #article-container.room-container .players-countdown .col-sm-8 {
+        width: 60%; }
     .body.wikigeeks.group #article-container.room-container .find h4 {
       color: #36d5d9;
       font-size: 3em;
@@ -927,9 +931,11 @@ body .player-form {
     .body.wikigeeks.group #article-container.room-container .find h2 {
       font-size: 3em;
       color: #F83439; }
+    .body.wikigeeks.group #article-container.room-container .countdown {
+      margin: 0 auto; }
     .body.wikigeeks.group #article-container.room-container .article-info {
       padding: 2%;
-      border: 5px solid #fe6444;
+      border: 5px solid #ffaf34;
       max-height: 200px;
       height: 200px;
       width: 90%;
@@ -961,6 +967,10 @@ body .player-form {
         color: #fe6444;
         display: inline-block; }
   .body.wikigeeks.group .countdown {
+    min-height: 175px;
+    width: 30%;
+    padding-top: 2%;
+    margin-left: 10%;
     font-size: 7em;
     background-size: contain;
     background-repeat: no-repeat;
@@ -976,8 +986,6 @@ body .player-form {
     .body.wikigeeks.group .countdown span {
       width: 100%;
       height: 100%; }
-  .body.wikigeeks.group .players-countdown {
-    margin-top: 2%; }
   .body.wikigeeks.group .players .player-background {
     border-radius: 20px;
     box-shadow: none;
@@ -1123,15 +1131,16 @@ body .player-form {
     color: #0be8d4;
     fill: #0be8d4; }
   .body.wikigeeks.group .players-grid {
-    padding-left: 10%; }
+    padding-left: 5%; }
     .body.wikigeeks.group .players-grid .player-background {
       margin: 0 auto;
-      height: 120px; }
+      height: 120px;
+      width: 140px; }
       .body.wikigeeks.group .players-grid .player-background .icon {
         margin: 0 auto;
         display: block;
         position: relative;
-        height: 120px;
+        height: 125px;
         width: 100%;
         opacity: 0.3; }
         .body.wikigeeks.group .players-grid .player-background .icon.active {
@@ -1154,7 +1163,7 @@ body .player-form {
         text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
       .body.wikigeeks.group .players-grid .player-background .nameplate {
         position: relative;
-        background-color: white;
+        background-color: transparent;
         padding: 2px;
         opacity: 0;
         font-weight: bold;
