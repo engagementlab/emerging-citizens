@@ -191,6 +191,10 @@
 				
 			}
 		}
+
+		.countdown {
+			@include translate(0px,-50px);
+		}
 	}
 	
 	#article-container.room-container {
@@ -214,6 +218,7 @@
 			h2 {
 				font-size: 3em;
 				color: $color-bright-red;
+				text-transform:capitalize;
 			}
 		}
 
@@ -264,7 +269,7 @@
 			.article-name {
 				color: $color-red;
 				display: inline-block;
-
+				text-transform:capitalize;
 			}
 
 		}
@@ -404,6 +409,7 @@
 		
 		#article-title {
 			color: $color-red;
+			text-transform:capitalize;
 		}
 
 		.row.user {
