@@ -165,20 +165,20 @@ var gameEvents = function(eventId, eventData) {
         
         function scoreAnimPlay() {
 
-          // $('#results, #results-header').fadeIn();
+          $('#results, #results-header').fadeIn();
          
             scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 0})
 
             .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 0}).add('resultsShow')
             .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=3')
             
-            // .add(function(){$('#scoring').fadeIn();})
+            .add(function(){$('#scoring').fadeIn();})
             .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=4')
             .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=7')
             
-            // .add(function(){$('#leaderboard, #count').fadeIn();})
-            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
-            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
+            .add(function(){$('#leaderboard, #count').fadeIn();})
+            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=9')
+            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=10');
 
              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
                 width: 600

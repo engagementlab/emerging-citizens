@@ -9,6 +9,7 @@
 	.room-container {
 		width: 80%;
 		// left:20%;
+
 		margin: 0 auto;
 	}
 
@@ -373,6 +374,8 @@
 
 	// Results screen
 	#results-container {
+		min-height: 800px;
+		max-height: 800px;
 		width: 80%;
 		left: 10%;
 		padding: 5%;

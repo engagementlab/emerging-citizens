@@ -1034,6 +1034,8 @@ body .player-form {
       .body.wikigeeks.group .players .player-background .nameplate.active {
         opacity: 1; }
   .body.wikigeeks.group #results-container {
+    min-height: 800px;
+    max-height: 800px;
     width: 80%;
     left: 10%;
     padding: 5%;
@@ -1364,8 +1366,7 @@ html, body {
   margin: 0 auto; }
 
 .hidden-el {
-  visibility: hidden;
-  display: none; }
+  visibility: hidden; }
 
 .screen-title {
   font-size: 4em;
