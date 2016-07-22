@@ -165,9 +165,9 @@ var gameEvents = function(eventId, eventData) {
         
         function scoreAnimPlay() {
          
-            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 4})
+            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 2})
 
-            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 4}).add('resultsShow')
+            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 2}).add('resultsShow')
             .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=5')
             
             .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=6')
