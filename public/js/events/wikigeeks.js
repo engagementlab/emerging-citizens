@@ -257,6 +257,7 @@ var gameEvents = function(eventId, eventData) {
         case 'wiki:results':
 
             $('#gameContent').html(eventData);
+            console.log (eventData);
             
             var timing = 500;
             var timingOffset = 0;

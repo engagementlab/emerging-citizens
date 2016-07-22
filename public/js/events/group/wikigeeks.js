@@ -166,15 +166,19 @@ var gameEvents = function(eventId, eventData) {
         var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
         
         function scoreAnimPlay() {
-         
-            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 2})
 
-            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 2}).add('resultsShow')
-            .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=5')
+          // $('#results, #results-header').fadeIn();
+         
+            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 0})
+
+            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 0}).add('resultsShow')
+            .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=3')
             
-            .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=6')
-            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=11')
+            // .add(function(){$('#scoring').fadeIn();})
+            .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=4')
+            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=7')
             
+            // .add(function(){$('#leaderboard, #count').fadeIn();})
             .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
 

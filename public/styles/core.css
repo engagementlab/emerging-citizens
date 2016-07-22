@@ -1364,7 +1364,8 @@ html, body {
   margin: 0 auto; }
 
 .hidden-el {
-  visibility: hidden; }
+  visibility: hidden;
+  display: none; }
 
 .screen-title {
   font-size: 4em;
