@@ -874,7 +874,6 @@ body .player-form {
       transform: translate(-455px, -155px);
       clear: none; }
   .body.wikigeeks.group .room-container {
-    border-radius: 20px;
     box-shadow: none; }
   .body.wikigeeks.group #topic-container.room-container {
     width: 80%;
@@ -1030,29 +1029,39 @@ body .player-form {
     width: 80%;
     left: 10%;
     padding: 5%;
-    color: #2bd3ee;
-    border: 3px solid #ff5e41;
+    padding-top: 1%;
+    color: #0be8d4;
+    border: 8px solid #ffa132;
     font-size: 1.6em; }
     .body.wikigeeks.group #results-container h1 {
       font-size: 4em; }
     .body.wikigeeks.group #results-container h2 {
       font-size: 2em; }
-    .body.wikigeeks.group #results-container .results-header .col-sm-2 {
-      font-size: .6em; }
+    .body.wikigeeks.group #results-container .results-header span {
+      font-size: 2em; }
+      .body.wikigeeks.group #results-container .results-header span.small {
+        font-size: 1.1em; }
     .body.wikigeeks.group #results-container #article-title {
       color: #fe6444; }
     .body.wikigeeks.group #results-container .row.user {
-      padding: 1%; }
+      padding: 1%;
+      font-size: 1.3em; }
       .body.wikigeeks.group #results-container .row.user .ranking {
+        position: absolute;
         background: white;
-        color: #fe6444;
-        width: 50px;
-        height: 50px;
+        font-size: .8em;
+        border: 3px solid #ffa132;
+        padding: 9px;
+        left: -44px;
+        top: -7px;
+        width: 56px;
+        height: 56px;
         background: white;
-        -webkit-border-radius: 25px;
-        -moz-border-radius: 25px;
-        border-radius: 25px;
-        border: 1px solid #FD6D59; }
+        -webkit-border-radius: 28px;
+        -moz-border-radius: 28px;
+        border-radius: 28px; }
+      .body.wikigeeks.group #results-container .row.user .name {
+        text-align: left; }
     .body.wikigeeks.group #results-container .row-color-0, .body.wikigeeks.group #results-container .row-color-6 {
       background-color: #fe6444;
       color: #FFF; }
@@ -1064,8 +1073,18 @@ body .player-form {
       color: #FFF; }
     .body.wikigeeks.group #results-container .row-color-1, .body.wikigeeks.group #results-container .row-color-3, .body.wikigeeks.group #results-container .row-color-5, .body.wikigeeks.group #results-container .row-color-7 {
       background-color: #FFF; }
-    .body.wikigeeks.group #results-container .row-color-0 .ranking:before {
-      content: "1st"; }
+    .body.wikigeeks.group #results-container .row-color-0 .ranking {
+      color: #ffbb90; }
+      .body.wikigeeks.group #results-container .row-color-0 .ranking:before {
+        content: "1st"; }
+    .body.wikigeeks.group #results-container .row-color-1 .ranking {
+      color: #fe6444; }
+      .body.wikigeeks.group #results-container .row-color-1 .ranking:before {
+        content: "2nd"; }
+    .body.wikigeeks.group #results-container .row-color-2 .ranking {
+      color: #ffa132; }
+      .body.wikigeeks.group #results-container .row-color-2 .ranking:before {
+        content: "3rd"; }
   .body.wikigeeks.group #top-players .player-info {
     border: 8px solid #fa9060;
     color: #ffbb90; }

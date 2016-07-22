@@ -128,7 +128,7 @@
     	</div>
 
 	    <div id="results-header" class="row hidden-el">
-	    	<h1>Round {{round}} Results</h1>
+	    	<h1 class="bold">Round {{round}} Results</h1>
 
 	    	<h2 id="article-title">"{{title}}"</h2>
 	    </div>
@@ -139,55 +139,35 @@
 						<div class="results-header row bold">
           
 					    <div class="col-sm-4">
-						    <h2>Player</h2>
+						    <span>Player</span>
 					    </div>    
-					    <div class="col-sm-2">
-						    <h2>Score</h2>
+					    <div class="col-sm-4">
+						    <span>Score</span>
 			        </div>
 					    <div class="col-sm-2">
-						    <h2>Time</h2>
+						    <span>Time</span>
 					    </div>
 					    <div class="col-sm-2">
-						    <h2>Click</h2>
+						    <span>Click</span>
 					    </div>
 
 					  </div>
 
 					{{#each results}}
 
-						<div class="user row row-color-{{@index}}">
+						<div class="user row light row-color-{{@index}}">
+					    <div class="col-sm-4 name">
           
-					    <div class="col-sm-2 ranking">
+			          {{#iflt @index 3}}
+							    <div class="ranking"></div>
+						    {{/iflt}}
 
-					    {{#iflt @index 3}}
-				          	{{incIndex @index}}
-				          	{{#ifeq index 3}}
-				          	rd
-				          	{{/ifeq}}
-				          	{{#ifeq index 2}}
-				          	nd
-				          	{{/ifeq}}
-				          	{{#ifeq index 1}}
-				          	st
-				          	{{/ifeq}}
-			          {{/iflt}}
+						    {{username}}
 
 					    </div>
-					    <div class="col-sm-2">
-					    {{username}}
-
-					    </div>
-					    <div class="col-sm-2">    
+					    <div class="col-sm-4">    
 
                 {{score_sum}}
-			                
-											<div class="row">
-												
-												{{!-- {{#each articles}}
-													{{this}} <br />
-												{{/each}} --}}
-
-					            </div>
 
 			        </div>
 					    <div class="col-sm-2">
@@ -213,16 +193,16 @@
 				<div class="results-header row bold">
 	    
 			    <div class="col-sm-4">
-				    <h2>Player</h2>
+				    <span>Player<span>
 			    </div>    
-			    <div class="col-sm-2">
-				    <h2>Target reached bonus</h2>
+			    <div class="col-sm-4">
+				    <span class="small">Target reached bonus</span>
 	        </div>
 			    <div class="col-sm-2">
-				    <h2>Rank bonus</h2>
+				    <span class="small">Rank bonus</span>
 			    </div>
 			    <div class="col-sm-2">
-				    <h2>Under 10 clicks bonus</h2>
+				    <span class="small">Under 10 clicks bonus</span>
 			    </div>
 
 			  </div>
@@ -231,24 +211,16 @@
 	      
 					<div class="user row row-color-{{@index}}">
 
-				    <div class="col-sm-4">
+				    <div class="col-sm-4 name">
 
 		          {{#iflt @index 3}}
-				          	{{incIndex @index}}
-				          	{{#ifeq index 3}}
-				          	rd
-				          	{{/ifeq}}
-				          	{{#ifeq index 2}}
-				          	nd
-				          	{{/ifeq}}
-				          	{{#ifeq index 1}}
-				          	st
-				          	{{/ifeq}}
-			          {{/iflt}}
+						    <div class="ranking"></div>
+					    {{/iflt}}
+
 				    	{{username}}
 
 				    </div>    
-				    <div class="col-sm-2">    
+				    <div class="col-sm-4">    
 
 					    {{scores.[0]}}
 		                
@@ -314,7 +286,7 @@
 					    <div class="col-sm-4">
 						    <h2>Player</h2>
 					    </div>    
-					    <div class="col-sm-2">
+					    <div class="col-sm-4">
 						    <h2>Score</h2>
 				        </div>
 					    <div class="col-sm-2">

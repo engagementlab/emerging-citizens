@@ -133,7 +133,6 @@
 	}
 
 	.room-container {
-		border-radius: 20px;
 		box-shadow: none;
 	}
 
@@ -362,9 +361,10 @@
 		width: 80%;
 		left: 10%;
 		padding: 5%;
+	  padding-top: 1%;
 
-		color: $color-light-blue;
-		border: 3px solid $color-dark-orange;
+		color: $color-bg;
+		border: 8px solid $color-results-light-orange;
 		font-size: 1.6em;
 		
 		h1 {
@@ -375,8 +375,12 @@
 		}
 
 		.results-header {
-			.col-sm-2 {
-				font-size: .6em;
+			span {
+				font-size: 2em;
+
+				&.small {
+					font-size: 1.1em;
+				}
 			}
 		}
 		
@@ -386,12 +390,20 @@
 
 		.row.user {
 		    padding: 1%;
+		    font-size: 1.3em;
 
 		    .ranking {
+			    position: absolute;
 		    	background: white;
-		    	color: $color-red;
-				@include circle (50px, white);
-				border: 1px solid $color-orange;
+		    	font-size: .8em;
+					border: 3px solid $color-results-light-orange;
+					padding: 9px;
+			    left: -44px;
+			    top: -7px;
+					@include circle (56px, white);
+		    }
+		    .name {
+		    	text-align: left;
 		    }
 		}
 
@@ -412,8 +424,30 @@
 		}
 
 		.row-color-0 {
-			.ranking:before {
-				content: "1st";
+			.ranking {
+				color: $color-results-peach;
+
+				&:before {
+					content: "1st";
+				}
+		  }	
+		}
+		.row-color-1 {
+			.ranking {
+				color: $color-red;
+
+				&:before {
+					content: "2nd";
+				}
+		  }	
+		}
+		.row-color-2 {
+			.ranking {
+				color: $color-results-light-orange;
+
+				&:before {
+					content: "3rd";
+				}
 		  }	
 		}
 

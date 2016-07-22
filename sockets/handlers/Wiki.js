@@ -44,6 +44,14 @@ var Wiki = function (nsp, socket) {
             Session.Get(package.gameId).
             PlayerClick(currentSocket.id, package.msgData.title, package.msgData.initial);
 
+        },
+
+        // Debugging
+        'game:force_results': function(package) {
+
+            Session.Get(package.gameId).
+            ForceResults();
+
         }
     
     };

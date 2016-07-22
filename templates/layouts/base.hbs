@@ -51,14 +51,14 @@
                 </div>
                 
                 {{!-- DEBUGGING --}}
-                <div id="debugging" style="position: fixed;top: 0;">
+                <div id="debugging" class="form" style="position: fixed;top: 0;">
                     
                     <div id="debug-info">
                     </div>
 
                     {{#ifeq section 'group/monitor'}}
                         
-                        <button id="template_reload">reload</button>
+                        <button id="template_reload" class="submit">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
 
@@ -78,7 +78,7 @@
 
                     {{else}}
                         
-                        <button id="template_reload">reload</button>
+                        <button id="template_reload" class="submit">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
 
@@ -89,7 +89,8 @@
                         </select>
 
                     {{/ifeq}}
-                      <br /><button id="countdowns_pause" data-resume="false">pause countdowns</button>
+                      <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
+                      <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
 
                     <div id="slider-gsap">
                     </div>

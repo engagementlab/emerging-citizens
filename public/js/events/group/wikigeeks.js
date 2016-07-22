@@ -22,7 +22,7 @@ var gameEvents = function(eventId, eventData) {
     case 'game:countdown':
 
       var countdownText =  $('#countdown #text');
-      var revealCountdownText = $('#reveal #countdown #text');
+      var revealCountdownText = $('#article-reveal #countdown #text');
 
       var secondsLeft = eventData.duration;
       var clockName = eventData.name;
@@ -52,14 +52,14 @@ var gameEvents = function(eventId, eventData) {
           }
           else if(secondsLeft == 5 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
 
-              var revealContainer = $('#reveal')
+              var revealContainer = $('#article-reveal')
 
               $('.countdown #countdown').fadeOut(300);
               revealContainer.fadeIn(500, function() {
                   TweenLite.from($(revealContainer).find('#content'), .5, {autoAlpha:0, scale: 0.5, ease:Elastic.easeOut});
               });
               var countdownAnim = new ProgressBar.Circle(
-                  '#reveal #countdown', 
+                  '#article-reveal #countdown', 
                   {
                       color: '#fff',
                       duration: secondsLeft*1000,
@@ -93,7 +93,22 @@ var gameEvents = function(eventId, eventData) {
 
         $('#overlay').fadeOut().empty();
 
+        // Debugging
+        $('#goto_results').hide();
+
         break;
+
+    // Time expired, waiting for one player to reach target
+    case 'wiki:waiting':
+
+      $('.countdown #countdown').fadeOut(500, function() {
+          $('.countdown #out-of-time').fadeIn(500);
+      });
+
+      // Debugging
+      $('#goto_results').show();
+
+      break;
 
     case 'wiki:results':
         
