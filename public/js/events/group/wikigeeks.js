@@ -21,13 +21,12 @@ var gameEvents = function(eventId, eventData) {
 
     case 'game:countdown':
 
-      var countdownText =  $('#countdown #text');
-      var revealCountdownText = $('#article-reveal #countdown #text');
+      var countdownContainer = $('.countdown'),
+          countdownText =  $('#countdown #text'),
+          revealCountdownText = $('#article-reveal #countdown #text'),
 
-      var secondsLeft = eventData.duration;
-      var clockName = eventData.name;
-
-      
+          secondsLeft = eventData.duration,
+          clockName = eventData.name;
 
       clockInterval = setInterval(function() {
 
@@ -46,6 +45,9 @@ var gameEvents = function(eventId, eventData) {
           
           TweenLite.from(countdownText, .1, { scale: 0 });
 
+          if(countdownContainer.css('visibility') === 'hidden')
+            TweenLite.from(countdownContainer, .5, {autoAlpha:0, scale: 0.5, ease:Elastic.easeOut});
+
           // End countdown
           if(secondsLeft == 0 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
               clearInterval(clockInterval);
@@ -54,7 +56,7 @@ var gameEvents = function(eventId, eventData) {
 
               var revealContainer = $('#article-reveal')
 
-              $('.countdown #countdown').fadeOut(300);
+              countdownContainer.fadeOut(300);
               revealContainer.fadeIn(500, function() {
                   TweenLite.from($(revealContainer).find('#content'), .5, {autoAlpha:0, scale: 0.5, ease:Elastic.easeOut});
               });
