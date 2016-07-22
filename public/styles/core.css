@@ -1070,6 +1070,8 @@ body .player-form {
         border-radius: 28px; }
       .body.wikigeeks.group #results-container .row.user .name {
         text-align: left; }
+      .body.wikigeeks.group #results-container .row.user .score {
+        text-align: right; }
     .body.wikigeeks.group #results-container .row-color-0, .body.wikigeeks.group #results-container .row-color-6 {
       background-color: #fe6444;
       color: #FFF; }

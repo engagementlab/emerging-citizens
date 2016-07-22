@@ -164,17 +164,28 @@ var gameEvents = function(eventId, eventData) {
         var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
         
         function scoreAnimPlay() {
-         
-            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 4})
 
-            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 4}).add('resultsShow')
+            var header = $('#results-header');
+         
+            scoreAnim.from(header, 1, {autoAlpha:0, delay: 4})
+
+            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 4}).add('resultsShow')
             .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=5')
             
             .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=6')
-            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=11')
+            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, onComplete: function() { 
+              $(header).find('h1').text('Leaderboard');
+              $(header).find('h2').remove(); 
+            }}, 'resultsShow+=11')
             
-            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=12')
-            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=13');
+            /*.to(header, .5, { opacity:0, onComplete: function() { 
+              $(header).find('h1').text('Leaderboard');
+              $(header).find('h2').remove(); 
+            }}, 'resultsShow+=12')
+            .from(header, .5, {opacity:0}, 'resultsShow+=13')*/
+
+            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=13')
+            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=14');
 
              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
                 width: 600
