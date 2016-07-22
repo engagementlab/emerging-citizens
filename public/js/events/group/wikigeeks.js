@@ -28,6 +28,9 @@ var gameEvents = function(eventId, eventData) {
           secondsLeft = eventData.duration,
           clockName = eventData.name;
 
+      if(clockInterval)
+        clearInterval(clockInterval);
+
       clockInterval = setInterval(function() {
 
           if(countdownPaused)
@@ -36,23 +39,31 @@ var gameEvents = function(eventId, eventData) {
           secondsLeft--;
           console.log (secondsLeft, "seconds left");
 
-          let displaySeconds = (secondsLeft < 10) ? '0'+secondsLeft : secondsLeft;
+          let displaySeconds = secondsToHms(secondsLeft);
 
           TweenLite.to(countdownText, .1, { scale: 0 });
           
-          $(countdownText).text('0:' + displaySeconds);
-          $(revealCountdownText).text('0:' + displaySeconds);
+          $(countdownText).html(displaySeconds);
+          $(revealCountdownText).html(displaySeconds);
           
           TweenLite.from(countdownText, .1, { scale: 0 });
 
-          if(countdownContainer.css('visibility') === 'hidden')
+          // Show countdown if hidden
+          if(countdownContainer.css('visibility') === 'hidden') {
             TweenLite.from(countdownContainer, .5, {autoAlpha:0, scale: 0.5, ease:Elastic.easeOut});
 
-          // End countdown
-          if(secondsLeft == 0 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
-              clearInterval(clockInterval);
+            // new TimelineLite()
+            // .from(countdownContainer, .5, {autoAlpha:0, scale: 0.5, ease:Elastic.easeOut})
+            // .from(countdownText.find('#m'), .5, {autoAlpha:0, scale: 0.5, delay: .5, ease:Elastic.easeOut})
+            // .from(countdownText.find('#s'), .5, {autoAlpha:0, scale: 0.5, delay: 1, ease:Elastic.easeOut});
           }
-          else if(secondsLeft == 5 && (clockName === 'articleReveal' || clockName === 'topicCountdown')) {
+
+          // End countdown
+          if(secondsLeft == 0 && clockName === 'topicCountdown')
+              clearInterval(clockInterval);
+          
+          // Article reveal warning modal
+          else if(secondsLeft == 5 && clockName === 'topicCountdown') {
 
               var revealContainer = $('#article-reveal')
 
@@ -228,5 +239,20 @@ var gameEvents = function(eventId, eventData) {
         break;
 
   }
+
+};
+
+var secondsToHms = function(d) {
+
+  d = Number(d);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+
+  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
+  var minsDisplay = '<span id="m">' + m + '</span>';
+  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
+
+  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
 
 };
