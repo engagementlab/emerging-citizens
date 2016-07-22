@@ -915,6 +915,12 @@ body .player-form {
         height: auto;
         width: auto;
         margin: 0 auto; }
+    .body.wikigeeks.group #topic-container.room-container .countdown {
+      -moz-transform: translate(0px, -50px);
+      -o-transform: translate(0px, -50px);
+      -ms-transform: translate(0px, -50px);
+      -webkit-transform: translate(0px, -50px);
+      transform: translate(0px, -50px); }
   .body.wikigeeks.group #article-container.room-container {
     width: 60%;
     left: 20%;
@@ -930,7 +936,8 @@ body .player-form {
       margin: 0px; }
     .body.wikigeeks.group #article-container.room-container .find h2 {
       font-size: 3em;
-      color: #F83439; }
+      color: #F83439;
+      text-transform: capitalize; }
     .body.wikigeeks.group #article-container.room-container .countdown {
       margin: 0 auto; }
     .body.wikigeeks.group #article-container.room-container .article-info {
@@ -965,7 +972,8 @@ body .player-form {
           color: #999999; }
       .body.wikigeeks.group #article-container.room-container .article-info .article-name {
         color: #fe6444;
-        display: inline-block; }
+        display: inline-block;
+        text-transform: capitalize; }
   .body.wikigeeks.group .countdown {
     min-height: 175px;
     width: 30%;
@@ -1034,6 +1042,8 @@ body .player-form {
       .body.wikigeeks.group .players .player-background .nameplate.active {
         opacity: 1; }
   .body.wikigeeks.group #results-container {
+    min-height: 800px;
+    max-height: 800px;
     width: 80%;
     left: 10%;
     padding: 5%;
@@ -1050,7 +1060,8 @@ body .player-form {
       .body.wikigeeks.group #results-container .results-header span.small {
         font-size: 1.1em; }
     .body.wikigeeks.group #results-container #article-title {
-      color: #fe6444; }
+      color: #fe6444;
+      text-transform: capitalize; }
     .body.wikigeeks.group #results-container .row.user {
       padding: 1%;
       font-size: 1.3em; }
@@ -1290,7 +1301,8 @@ body .player-form {
       color: #36d5d9;
       word-break: break-word;
       width: 80%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      text-transform: capitalize; }
     .body.wikigeeks.player .game-message span {
       left: 0;
       width: 100%;

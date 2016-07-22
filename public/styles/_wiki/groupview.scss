@@ -9,6 +9,7 @@
 	.room-container {
 		width: 80%;
 		// left:20%;
+
 		margin: 0 auto;
 	}
 
@@ -190,6 +191,10 @@
 				
 			}
 		}
+
+		.countdown {
+			@include translate(0px,-50px);
+		}
 	}
 	
 	#article-container.room-container {
@@ -213,6 +218,7 @@
 			h2 {
 				font-size: 3em;
 				color: $color-bright-red;
+				text-transform:capitalize;
 			}
 		}
 
@@ -263,7 +269,7 @@
 			.article-name {
 				color: $color-red;
 				display: inline-block;
-
+				text-transform:capitalize;
 			}
 
 		}
@@ -373,6 +379,8 @@
 
 	// Results screen
 	#results-container {
+		min-height: 800px;
+		max-height: 800px;
 		width: 80%;
 		left: 10%;
 		padding: 5%;
@@ -401,6 +409,7 @@
 		
 		#article-title {
 			color: $color-red;
+			text-transform:capitalize;
 		}
 
 		.row.user {
