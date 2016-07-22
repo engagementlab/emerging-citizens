@@ -193,7 +193,7 @@
 				<div class="results-header row bold">
 	    
 			    <div class="col-sm-4">
-				    <span>Player<span>
+				    <span>Player</span>
 			    </div>    
 			    <div class="col-sm-4">
 				    <span class="small">Target reached bonus</span>
@@ -288,30 +288,20 @@
 					    </div>    
 					    <div class="col-sm-4">
 						    <h2>Score</h2>
-				        </div>
-					    <div class="col-sm-2">
-						    <h2>Time</h2>
-					    </div>
-					    <div class="col-sm-2">
-						    <h2>Click</h2>
-					    </div>
+			        </div>
 
 			  </div>
 
 				{{#each players}}
 
 					<div class="user row row-color-{{@index}}">
-	      
-				    <div class="col-sm-2">
-				    </div>
-
-				    <div class="col-sm-6">
+	          <div class="col-sm-6 name">
 
 				    	{{username}}
 
 				    </div>    
 				    
-				    <div class="col-sm-4">
+				    <div class="col-sm-6 score">
 
 					    {{score_total}}
 
