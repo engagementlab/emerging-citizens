@@ -95,6 +95,25 @@ var gameEvents = function(eventId, eventData) {
 
         break;
 
+    case 'player:finished':
+
+        console.log ("a player finished");
+
+        var staticPlayers = $('.player-static');
+        var finishedPlayers = _.pluck(_.where(eventData, {finished:true}), 'username');
+        console.log (finishedPlayers);
+
+        _.each(finishedPlayers, function(name, index) {
+
+            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+            $(staticPlayers[index]).children('.icon').addClass('active');
+            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+
+        });
+
+      break;
+
     case 'wiki:results':
         
         $('#gameContent').html(eventData);

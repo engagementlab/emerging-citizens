@@ -8,6 +8,7 @@
 
 	.room-container {
 		width: 80%;
+		// left:20%;
 		margin: 0 auto;
 	}
 
@@ -138,8 +139,8 @@
 	}
 
 	#topic-container.room-container {
-		width: 80%;
-		left: 10%;
+		width: 60%;
+		left: 20%;
 		padding: 2%;
 
 		#current-topic {
@@ -193,9 +194,15 @@
 	}
 	
 	#article-container.room-container {
-		width: 80%;
-		left: 10%;
+		width: 60%;
+		left: 20%;
 		padding: 2%;
+		.players-countdown {
+			margin-top: 2%;
+			.col-sm-8{
+				width: 60%;
+			}
+		}
 
 		.find {
 			h4 {
@@ -210,9 +217,13 @@
 			}
 		}
 
+		.countdown {
+			margin: 0 auto;
+		}
+
 		.article-info {
 			padding: 2%;
-			border: 5px solid $color-red;
+			border: 5px solid $color-light-orange;
 			max-height: 200px;
 			height: 200px;
 			width: 90%;
@@ -255,11 +266,15 @@
 				display: inline-block;
 
 			}
+
 		}
 	}
 
 	.countdown {
-		
+		min-height:175px;
+		width:30%;
+		padding-top:2%;
+		margin-left:10%;
 		font-size: 7em;
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -283,7 +298,7 @@
 	}
 
 	.players-countdown {
-		margin-top: 2%;
+		
 	}
 
 	.players {
@@ -491,16 +506,17 @@
 	}
 
 	.players-grid {
-		padding-left: 10%;
+		padding-left: 5%;
 		.player-background {
 			margin: 0 auto;
 			height: 120px;
+			width: 140px;
 			
 			.icon {
 				margin: 0 auto;
 				display: block;
 				position:relative;
-				height: 120px;
+				height: 125px;
 				width: 100%;
 				opacity: 0.3;
 
@@ -539,7 +555,7 @@
 			.nameplate {
 
 			  position: relative;
-			  background-color: white;
+			  background-color: transparent;
 			  padding: 2px;
 			  opacity: 0;
 			  font-weight: bold;
