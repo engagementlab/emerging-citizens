@@ -880,25 +880,6 @@ body .player-form {
     width: 80%;
     left: 10%;
     padding: 2%; }
-    .body.wikigeeks.group #topic-container.room-container #reveal, .body.wikigeeks.group #topic-container.room-container #round-over {
-      display: none;
-      background-color: rgba(255, 255, 255, 0.7);
-      top: 0;
-      left: 0;
-      color: #0be8d4; }
-      .body.wikigeeks.group #topic-container.room-container #reveal #content, .body.wikigeeks.group #topic-container.room-container #round-over #content {
-        margin-top: 3%;
-        padding: 5%;
-        left: 25%;
-        width: 50%;
-        height: 500px;
-        background-color: white;
-        font-size: 2.2em;
-        border: 5px solid #ff5e41; }
-        .body.wikigeeks.group #topic-container.room-container #reveal #content #countdown, .body.wikigeeks.group #topic-container.room-container #round-over #content #countdown {
-          width: 28%;
-          margin-right: auto;
-          margin-left: auto; }
     .body.wikigeeks.group #topic-container.room-container #current-topic {
       padding-bottom: 2%; }
     .body.wikigeeks.group #topic-container.room-container .arrow {
@@ -985,10 +966,14 @@ body .player-form {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/v1468424753/timer_bounding_box_zd0sjo.png); }
+    border: 5px #ffcc00 dashed;
+    color: #fe6444; }
     .body.wikigeeks.group .countdown #countdown {
       width: 100%;
       height: 100%; }
+    .body.wikigeeks.group .countdown #out-of-time {
+      display: none;
+      font-size: .4em; }
     .body.wikigeeks.group .countdown span {
       width: 100%;
       height: 100%; }
@@ -1158,6 +1143,30 @@ body .player-form {
         color: #4343ff; }
         .body.wikigeeks.group .players-grid .player-background .nameplate.active {
           opacity: 1; }
+  .body.wikigeeks.group #article-reveal, .body.wikigeeks.group #round-over {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 0;
+    left: 0;
+    color: #0be8d4; }
+    .body.wikigeeks.group #article-reveal #content, .body.wikigeeks.group #round-over #content {
+      margin-top: 3%;
+      padding: 5%;
+      left: 25%;
+      width: 50%;
+      height: 500px;
+      background-color: white;
+      font-size: 2.2em;
+      border: 5px solid #ff5e41; }
+      .body.wikigeeks.group #article-reveal #content #countdown, .body.wikigeeks.group #round-over #content #countdown {
+        width: 28%;
+        margin-right: auto;
+        margin-left: auto; }
+      .body.wikigeeks.group #article-reveal #content h1, .body.wikigeeks.group #round-over #content h1 {
+        font-size: 2.5em; }
+      .body.wikigeeks.group #article-reveal #content h2, .body.wikigeeks.group #round-over #content h2 {
+        font-size: 1.7em;
+        color: #ff5e41; }
 
 /* 
 	HTYI player view styling.
