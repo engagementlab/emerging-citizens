@@ -7,7 +7,7 @@
  * Script for PLAYERS' WikiGeeks socket events. Loaded to client upon successful login.
  * ==========
  */
-var playerWasReconnected = false;
+var playerWasReconnected;
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -30,6 +30,9 @@ var gameEvents = function(eventId, eventData) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
+      sessionStorage.setItem('currentArticle', articleTitle);
+      console.log("Player's current article is ", sessionStorage.currentArticle);
+
       // Tell server about this article being chosen by player
       var str = String(articleTitle);
       var articleChosen = $('.article-name');
@@ -47,7 +50,6 @@ var gameEvents = function(eventId, eventData) {
 
               return;
             }
-
             displayWikiContent(articleData);
 
             // Tell server about this article being chosen by player, unless overriden
@@ -57,6 +59,7 @@ var gameEvents = function(eventId, eventData) {
             if(initialSearch) {
              
               $('#topic-submission').fadeOut(function() {
+                console.log ("debugger1");
                 $('section#submitted').fadeIn();
                 $('#wiki-article').fadeIn();
               });
@@ -176,6 +179,7 @@ var gameEvents = function(eventId, eventData) {
 
     };
 
+
     /*
       Catch socket events
     */
@@ -183,7 +187,16 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            
+            // debugger;
+
+            console.log (playerWasReconnected);
+
+            if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+              console.log ("sending player to current article");
+              retrieveArticle(sessionStorage.currentArticle, false, true);
+                $('section#submitted').fadeIn();
+                $('#wiki-article').fadeIn();
+            }
 
             var articleInput = $('#article_input');
 
@@ -236,8 +249,6 @@ var gameEvents = function(eventId, eventData) {
     
          // An article was found
         case 'article:found':
-
-          
 
             let startingUrl = API_URL + '&pageid=' + eventData.articleId;
 
@@ -299,10 +310,14 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
+              $('section#submitted').hide();
+              $('#wiki-article').fadeIn();
+              $('section#article').show();
+           
+          break;
 
-          $('section#submitted').hide();
-          $('#wiki-article').fadeIn();
-          $('section#article').show();
+        case 'player:reconnected':
+          playerWasReconnected = true;
 
           break;
 
