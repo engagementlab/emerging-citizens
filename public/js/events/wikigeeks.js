@@ -7,7 +7,7 @@
  * Script for PLAYERS' WikiGeeks socket events. Loaded to client upon successful login.
  * ==========
  */
-var playerWasReconnected = false;
+var playerWasReconnected;
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -50,9 +50,7 @@ var gameEvents = function(eventId, eventData) {
 
               return;
             }
-
             displayWikiContent(articleData);
-            
 
             // Tell server about this article being chosen by player, unless overriden
             if(!displayNow)
@@ -61,6 +59,7 @@ var gameEvents = function(eventId, eventData) {
             if(initialSearch) {
              
               $('#topic-submission').fadeOut(function() {
+                console.log ("debugger1");
                 $('section#submitted').fadeIn();
                 $('#wiki-article').fadeIn();
               });
@@ -180,6 +179,7 @@ var gameEvents = function(eventId, eventData) {
 
     };
 
+
     /*
       Catch socket events
     */
@@ -187,9 +187,16 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
+            // debugger;
+
             console.log (playerWasReconnected);
 
-            
+            if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+              console.log ("sending player to current article");
+              retrieveArticle(sessionStorage.currentArticle, false, true);
+                $('section#submitted').fadeIn();
+                $('#wiki-article').fadeIn();
+            }
 
             var articleInput = $('#article_input');
 
@@ -303,20 +310,14 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
-
-
-          $('section#submitted').hide();
-          $('#wiki-article').fadeIn();
-          $('section#article').show();
-
+              $('section#submitted').hide();
+              $('#wiki-article').fadeIn();
+              $('section#article').show();
+           
           break;
 
         case 'player:reconnected':
-
-          if (sessionStorage.currentArticle !== undefined) {
-              console.log ("sending player to current article");
-              retrieveArticle(sessionStorage.currentArticle, false, false);
-            }
+          playerWasReconnected = true;
 
           break;
 

@@ -7,7 +7,7 @@
  * ==========
  */
 
-var playerWasReconnected = false;
+var playerWasReconnected;
 
 //Add game type class to body
 $('.body').addClass('htyi');

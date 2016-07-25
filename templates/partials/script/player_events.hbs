@@ -10,7 +10,18 @@
  */
 --}}
 
-var playerWasReconnected = false;
+var playerWasReconnected;
+
+var getScript = function (gameType) {
+    $.getScript( '/js/events/' + gameType + '.js' )
+        .done(function( script, textStatus ) {
+            console.log( textStatus );
+          })
+          .fail(function( jqxhr, settings, exception ) {
+            console.error('Unable to load %s (error: "%s")', eventData.gameType + '.js', exception);
+        });
+    {{!-- debugger; --}}
+}
 
 var socketEvents = function(eventId, eventData) {
 
@@ -22,6 +33,8 @@ var socketEvents = function(eventId, eventData) {
 
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
+            
+            getScript(sessionStorage.gameType);
 
             break;
 
@@ -29,27 +42,26 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData.html);
 
+            sessionStorage.setItem("gameType", eventData.gameType);
+            
+            playerWasReconnected = false;
+
             $('#debug-info').text('Player id: ' + eventData.id);
             
             console.log (eventData.id + " is the player ID");
 
             playerId = eventData.id;
 
-            // Get events script for the game type logged in to
-            $.getScript( '/js/events/' + eventData.gameType + '.js' )
-              .done(function( script, textStatus ) {
-                console.log( textStatus );
-              })
-              .fail(function( jqxhr, settings, exception ) {
-                console.error('Unable to load %s (error: "%s")', eventData.gameType + '.js', exception);
-            });
+            sessionStorage.
 
             break;
 
         case 'player:reconnected': 
 
             // Set local player state as reconnected
+            getScript(sessionStorage.gameType);
             playerWasReconnected = true;
+            
 
             break;
 
@@ -57,12 +69,17 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
+            // Get events script for the game type logged in to
+            {{!-- getScript(sessionStorage.gameType); --}}
+              {{!-- .done(function( script, textStatus ) {
+                console.log( textStatus );
+              })
+              .fail(function( jqxhr, settings, exception ) {
+                console.error('Unable to load %s (error: "%s")', eventData.gameType + '.js', exception);
+            }); --}}
+
             // Change background
             $('.body').addClass('player');
-
-            if (playerWasReconnected) {
-                
-            }
 
             break;
 
