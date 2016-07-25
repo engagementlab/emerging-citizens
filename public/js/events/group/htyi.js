@@ -15,7 +15,7 @@ var gameEvents = function(eventId, eventData) {
     Catch socket events
   */
   switch (eventId) {
-
+    
     case 'hashtag:submitted':
     case 'hashtags:received':
 

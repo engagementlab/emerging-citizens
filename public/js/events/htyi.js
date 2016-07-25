@@ -15,6 +15,13 @@ $('.body').addClass('htyi');
 var gameEvents = function(eventId, eventData) {
 
     switch (eventId) {
+
+        case 'game:start':
+
+          sessionStorage.setItem('voted', false);
+
+          break;
+
     
         case 'hashtags:received':  
 

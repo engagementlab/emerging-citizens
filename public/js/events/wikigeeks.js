@@ -30,6 +30,9 @@ var gameEvents = function(eventId, eventData) {
 
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
+      sessionStorage.setItem('currentArticle', articleTitle);
+      console.log("Player's current article is ", sessionStorage.currentArticle);
+
       // Tell server about this article being chosen by player
       var str = String(articleTitle);
       var articleChosen = $('.article-name');
@@ -49,6 +52,7 @@ var gameEvents = function(eventId, eventData) {
             }
 
             displayWikiContent(articleData);
+            
 
             // Tell server about this article being chosen by player, unless overriden
             if(!displayNow)
@@ -183,6 +187,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
+            console.log (playerWasReconnected);
+
             
 
             var articleInput = $('#article_input');
@@ -236,8 +242,6 @@ var gameEvents = function(eventId, eventData) {
     
          // An article was found
         case 'article:found':
-
-          
 
             let startingUrl = API_URL + '&pageid=' + eventData.articleId;
 
@@ -300,9 +304,19 @@ var gameEvents = function(eventId, eventData) {
         case 'topic:info':
 
 
+
           $('section#submitted').hide();
           $('#wiki-article').fadeIn();
           $('section#article').show();
+
+          break;
+
+        case 'player:reconnected':
+
+          if (sessionStorage.currentArticle !== undefined) {
+              console.log ("sending player to current article");
+              retrieveArticle(sessionStorage.currentArticle, false, false);
+            }
 
           break;
 
