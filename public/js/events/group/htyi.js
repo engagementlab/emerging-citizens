@@ -21,7 +21,7 @@ var gameEvents = function(eventId, eventData) {
 
       $('#gameContent').html(eventData);
       
-      currentHashtags = _.pluck(eventData, 'hashtag-submissions');
+      // currentHashtags = _.pluck(eventData, 'hashtag-submissions');
 
       //instantiate a TimelineLite for hashtags received animation
       var hashtagsVoteAnim = new TimelineLite({ paused:true });
@@ -37,7 +37,7 @@ var gameEvents = function(eventId, eventData) {
 
       break;
 
-    case 'hashtag:results':
+    case 'hashtags:results':
 
       $('#gameContent').html(eventData);
 
@@ -82,9 +82,11 @@ var gameEvents = function(eventId, eventData) {
       .staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block' }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
       .to($('#hashtags'), 1, {delay: 2, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
 
-      hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
-          width: 600
-      });
+      if($('#slider-gsap').length) {
+        hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
+            width: 600
+        });
+      }
 
       hashtagsAnim.play();
 
@@ -125,10 +127,12 @@ function showScores() {
   .staggerFrom($('#leaderboard .right .player'), 1, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5)
   .to($('#leaderboard'), 1, {autoAlpha: 0, yPercent: 100, display:'none', delay: 5})
 
-  hashtagsAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
-      width: 600
-  });
-
+  if($('#slider-gsap').length) {
+    hashtagsAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+        width: 600
+    });
+  }
+  
   scoreAnim.play();
 
 }

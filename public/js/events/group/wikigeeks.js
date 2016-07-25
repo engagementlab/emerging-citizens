@@ -11,7 +11,6 @@
 var clockInterval;
 var wikiAnimSlider;
 
-
 var gameEvents = function(eventId, eventData) {
 
   /*
@@ -192,11 +191,13 @@ var gameEvents = function(eventId, eventData) {
             .add(function(){$('#leaderboard, #count').fadeIn();})
             .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=9')
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=10');
-
-             wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
-                width: 600
-            });
-
+      
+            if($('#slider-gsap').length) {
+              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+                  width: 600
+              });
+            }
+            
             scoreAnim.play();
 
         }
