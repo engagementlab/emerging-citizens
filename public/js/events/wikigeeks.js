@@ -8,6 +8,7 @@
  * ==========
  */
 var playerWasReconnected;
+var retrievingData;
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -28,6 +29,10 @@ var gameEvents = function(eventId, eventData) {
 
     var retrieveArticle = function(articleTitle, initialSearch, displayNow) {
 
+      if (retrievingData === true) {
+        return;
+      }
+
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
       sessionStorage.setItem('currentArticle', articleTitle);
@@ -39,10 +44,21 @@ var gameEvents = function(eventId, eventData) {
 
       articleChosen.text(articleTitle);
 
+      retrievingData = true;
+
       // Get article content
       $.getJSON(
           retrievalUrl,
           function(articleData) {
+
+            console.log (JSON.stringify(articleData));
+
+            if (articleData.parse.redirects.length !== 0) {
+              console.log (JSON.stringify(articleData.parse.redirects[0].to));
+              articleTitle = articleData.parse.redirects[0].to;
+            } else {
+              console.log("no redirects");
+            }
 
             if(articleData.error) {
               $(articleInput).addClass('invalid');
@@ -53,13 +69,12 @@ var gameEvents = function(eventId, eventData) {
             displayWikiContent(articleData);
 
             // Tell server about this article being chosen by player, unless overriden
-            if(!displayNow)
+            if(displayNow === undefined)
               socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
 
             if(initialSearch) {
              
               $('#topic-submission').fadeOut(function() {
-                console.log ("debugger1");
                 $('section#submitted').fadeIn();
                 $('#wiki-article').fadeIn();
               });
@@ -78,6 +93,8 @@ var gameEvents = function(eventId, eventData) {
 
               });
             }
+
+            retrievingData = false;
 
         });
 
@@ -158,7 +175,9 @@ var gameEvents = function(eventId, eventData) {
           
           // Get link's event data (article title) and search for it
           var articleTitle = $(e.currentTarget).data().title;
-          retrieveArticle(articleTitle);
+          retrieveArticle(articleTitle, undefined, undefined, function () {
+
+          });
 
 
       })
