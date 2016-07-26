@@ -194,8 +194,8 @@ var gameEvents = function(eventId, eventData) {
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
               console.log ("sending player to current article");
               retrieveArticle(sessionStorage.currentArticle, false, true);
-                $('section#submitted').fadeIn();
-                $('#wiki-article').fadeIn();
+                // $('section#submitted').fadeIn();
+                // $('#wiki-article').fadeIn();
             }
 
             var articleInput = $('#article_input');
@@ -317,8 +317,15 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'player:reconnected':
-          playerWasReconnected = true;
+            playerWasReconnected = true;
 
+          break;
+
+        case 'game:countdown_ending':
+
+          if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+              // socket.emit('game:start');
+            }
           break;
 
     }
