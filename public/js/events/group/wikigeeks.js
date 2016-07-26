@@ -1,4 +1,3 @@
-'use strict';
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -38,7 +37,7 @@ var gameEvents = function(eventId, eventData) {
           secondsLeft--;
           console.log (secondsLeft, "seconds left");
 
-          let displaySeconds = secondsToHms(secondsLeft);
+          var displaySeconds = secondsToHms(secondsLeft);
 
           TweenLite.to(countdownText, .1, { scale: 0 });
           

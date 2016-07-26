@@ -1,4 +1,3 @@
-'use strict';
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -36,7 +35,6 @@ var gameEvents = function(eventId, eventData) {
       var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
 
       sessionStorage.setItem('currentArticle', articleTitle);
-      console.log("Player's current article is ", sessionStorage.currentArticle);
 
       // Tell server about this article being chosen by player
       var str = String(articleTitle);
@@ -102,7 +100,7 @@ var gameEvents = function(eventId, eventData) {
 
     var displayWikiContent = function(articleData) {
 
-      let articleMarkup = articleData.parse.text['*'];
+      var articleMarkup = articleData.parse.text['*'];
       workspace = $('#wiki-workspace');
 
       // Inject article html into temp workspace
@@ -223,7 +221,7 @@ var gameEvents = function(eventId, eventData) {
                 
                 function(randomData) {
                  
-                  $('#article_input').val(randomData.query.random[0].title);
+                  articleInput.val(randomData.query.random[0].title);
 
               });
 
@@ -232,12 +230,12 @@ var gameEvents = function(eventId, eventData) {
             // Form click to search for first article
             $('#btn_search').click(function(evt) {
 
-              retrieveArticle($('#article_input').val(), true);
+              retrieveArticle(articleInput.val(), true);
 
             });
 
             // Enable autocomplete to Wikipedia search API
-            $("#article_input").autocomplete({
+            articleInput.autocomplete({
                 source: function(request, response) {
                     $.ajax({
                         url: "https://en.wikipedia.org/w/api.php",
@@ -255,7 +253,7 @@ var gameEvents = function(eventId, eventData) {
             });
 
             // Hide any errors during typing
-            $(articleInput).keypress(function(evt) {
+            articleInput.keypress(function(evt) {
               $(evt.currentTarget).removeClass('invalid');
               $('.error').fadeOut(250);
             });
@@ -265,7 +263,7 @@ var gameEvents = function(eventId, eventData) {
          // An article was found
         case 'article:found':
 
-            let startingUrl = API_URL + '&pageid=' + eventData.articleId;
+            var startingUrl = API_URL + '&pageid=' + eventData.articleId;
 
 	          $('#gameContent').html(eventData.html);
 
