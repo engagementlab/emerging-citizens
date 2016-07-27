@@ -321,15 +321,21 @@ var gameEvents = function(eventId, eventData) {
         case 'article:random':
 
           retrieveArticle(eventData, false, true);
-          
+
 
           break;
 
         case 'topic:info':
 
-              $('section#submitted').fadeOut();
+            console.log("here we have the info topic aka topic:info");
+
+              $('section#submitted').fadeOut(function(){console.log("we just faded this fucker out");});
               $('#wiki-article').fadeIn();
               $('section#article').fadeIn();
+
+              if ($('#wiki-article').css("display") !== "none") {
+                $('section#submitted').fadeOut(function(){console.log("we fading this fucker out again");});
+              }
            
           break;
 
