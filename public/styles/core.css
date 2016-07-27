@@ -760,6 +760,8 @@ body .player-form {
   .body.wikigeeks.group .room-container {
     width: 80%;
     margin: 0 auto; }
+    .body.wikigeeks.group .room-container#game_code {
+      border-radius: 40px; }
   .body.wikigeeks.group .submission {
     padding: 0; }
   .body.wikigeeks.group #gameContent.container-fluid {

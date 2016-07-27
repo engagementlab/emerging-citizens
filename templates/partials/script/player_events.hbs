@@ -23,7 +23,7 @@ var getScript = function (gameType) {
             console.log( textStatus );
           })
           .fail(function( jqxhr, settings, exception ) {
-            console.error('Unable to load %s (error: "%s")', eventData.gameType + '.js', exception);
+            console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
         });
 }
 

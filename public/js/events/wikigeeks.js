@@ -52,7 +52,7 @@ var gameEvents = function(eventId, eventData) {
             console.log (JSON.stringify(articleData));
 
             if (articleData.parse.redirects.length !== 0) {
-              console.log (JSON.stringify(articleData.parse.redirects[0].to));
+              // console.log (JSON.stringify(articleData.parse.redirects[0].to));
               articleTitle = articleData.parse.redirects[0].to;
             } else {
               console.log("no redirects");
@@ -71,6 +71,8 @@ var gameEvents = function(eventId, eventData) {
               socket.emit('article:select', emitData({title: articleTitle, initial: initialSearch}));
 
             if(initialSearch) {
+
+              // if ()
              
               $('#topic-submission').fadeOut(function() {
                 $('section#submitted').fadeIn();
@@ -173,9 +175,7 @@ var gameEvents = function(eventId, eventData) {
           
           // Get link's event data (article title) and search for it
           var articleTitle = $(e.currentTarget).data().title;
-          retrieveArticle(articleTitle, undefined, undefined, function () {
-
-          });
+          retrieveArticle(articleTitle)
 
 
       })
@@ -336,9 +336,9 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-          if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-              // socket.emit('game:start');
-            }
+          // if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+          //     // socket.emit('game:start');
+          //   }
           break;
 
     }
