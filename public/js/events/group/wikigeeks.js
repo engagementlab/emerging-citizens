@@ -209,12 +209,12 @@ var gameEvents = function(eventId, eventData) {
             var articleLines = $(player).find('.articleLine');
 
             // Animate in each top player
-            topPlayersAnim.from($(player), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
+            topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
 
             // Animate titles and path
             _.each(articleTitles, function(title, index) {
 
-                topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: .5, onStart: function() {
+                topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1, onStart: function() {
 
                     var line = $(articleLines[index]);
 
@@ -226,7 +226,7 @@ var gameEvents = function(eventId, eventData) {
             });
 
             // Hide this player
-            topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: (articleTitles.length/2)*(index+1)})
+            topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5})
 
         });
 
