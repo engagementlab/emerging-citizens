@@ -54,7 +54,7 @@ var gameEvents = function(eventId, eventData) {
           retrievalUrl,
           function(articleData) {
 
-            console.log (JSON.stringify(articleData));
+            // console.log (JSON.stringify(articleData));
 
             if (articleData.parse.redirects.length !== 0) {
               // console.log (JSON.stringify(articleData.parse.redirects[0].to));
@@ -77,7 +77,7 @@ var gameEvents = function(eventId, eventData) {
 
             if(initialSearch) {
 
-              // if ()
+              console.log('this is the first search!!!!');
              
               $('#topic-submission').fadeOut(function() {
                 $('section#submitted').fadeIn();
@@ -180,7 +180,7 @@ var gameEvents = function(eventId, eventData) {
           
           // Get link's event data (article title) and search for it
           var articleTitle = $(e.currentTarget).data().title;
-          retrieveArticle(articleTitle)
+          retrieveArticle(articleTitle, false);
 
 
       })
@@ -321,14 +321,15 @@ var gameEvents = function(eventId, eventData) {
         case 'article:random':
 
           retrieveArticle(eventData, false, true);
+          
 
           break;
 
         case 'topic:info':
 
-              $('section#submitted').hide();
+              $('section#submitted').fadeOut();
               $('#wiki-article').fadeIn();
-              $('section#article').show();
+              $('section#article').fadeIn();
            
           break;
 
@@ -340,7 +341,7 @@ var gameEvents = function(eventId, eventData) {
         case 'game:countdown_ending':
 
           if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-            console.log (sessionStorage.gameCode);
+            // console.log (sessionStorage.gameCode);
               socket.emit('game:start', {gameId: sessionStorage.gameCode});
             }
           break;
