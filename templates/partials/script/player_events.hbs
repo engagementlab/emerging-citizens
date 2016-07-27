@@ -12,10 +12,7 @@
 
 var playerWasReconnected;
 
-window.addEventListener("beforeunload", function (e) {
-  (e || window.event).returnValue = null;
-  return null;
-});
+
 
 var getScript = function (gameType) {
     $.getScript( '/js/events/' + gameType + '.js' )
