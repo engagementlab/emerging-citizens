@@ -206,10 +206,8 @@ var gameEvents = function(eventId, eventData) {
 
             // debugger;
 
-            if(sessionStorage.currentArticle !== undefined && playerWasReconnected) {
+            if(sessionStorage.currentArticle !== undefined && playerWasReconnected)
               retrieveArticle(sessionStorage.currentArticle, false, true);
-
-            }
 
             var articleInput = $('#article_input');
 
