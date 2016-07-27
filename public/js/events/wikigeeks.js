@@ -334,9 +334,10 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-          // if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-          //     // socket.emit('game:start');
-          //   }
+          if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+            console.log (sessionStorage.gameCode);
+              socket.emit('game:start', {gameId: sessionStorage.gameCode});
+            }
           break;
 
     }
