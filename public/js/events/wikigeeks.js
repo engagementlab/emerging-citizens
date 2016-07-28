@@ -12,6 +12,7 @@ var retrievingData;
 window.addEventListener("beforeunload", function (e) {
   (e || window.event).returnValue = null;
   return null;
+
 });
 
 //Add 'wikigeeks' class to body
@@ -291,6 +292,7 @@ var gameEvents = function(eventId, eventData) {
             var firstText = $('#firstArticle');
             var groups = $('.articleGroup');
 
+
             $(firstText).css({transform: 'scale(1)'});
 
             $.each(groups, function(index, group) {
@@ -299,12 +301,15 @@ var gameEvents = function(eventId, eventData) {
               var line = $(group).find('.articleLine');
               var text = $(group).find('.articleText');
               var offset = (timing + timingOffset);
+
                             
               $(dots[0]).delay(offset).velocity({r: 10}, timing, [50, 10]);
               
               $(line).delay(500+offset).velocity({y2: 50}, timing, [50, 10]);
 
               $(dots[1]).delay(1000+offset).velocity({r: 10}, timing, [50, 10]);
+
+              
 
               setTimeout(function() {
 
@@ -329,12 +334,12 @@ var gameEvents = function(eventId, eventData) {
 
             console.log("here we have the info topic aka topic:info");
 
-              $('section#submitted').fadeOut(function(){console.log("we just faded this fucker out");});
+              $('section#submitted').fadeOut();
               $('#wiki-article').fadeIn();
               $('section#article').fadeIn();
 
               if ($('#wiki-article').css("display") !== "none") {
-                $('section#submitted').fadeOut(function(){console.log("we fading this fucker out again");});
+                $('section#submitted').fadeOut();
               }
            
           break;

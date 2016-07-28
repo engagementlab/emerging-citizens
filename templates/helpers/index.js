@@ -113,7 +113,9 @@ module.exports = function() {
     _helpers.getMinutes = function (strSeconds) {
 
         var intSeconds = parseInt(strSeconds);
+        console.log(intSeconds);
         var secondsRemainder = (intSeconds % 60);
+        console.log(secondsRemainder);
         var displaySeconds = (secondsRemainder < 10) ? ("0" + secondsRemainder) : secondsRemainder;  
 
         return Math.round(intSeconds / 60) + ':' + displaySeconds; 
@@ -202,9 +204,11 @@ module.exports = function() {
     }
 
     _helpers.ellipsis = function (limit, currentText) {
-            if (currentText) {
+            if (currentText.length > limit) {
               console.log (currentText, "current text");
               return currentText.substr(0, limit) + "...";
+            } else {
+                return currentText;
             }
     }
 

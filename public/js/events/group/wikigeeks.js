@@ -143,6 +143,7 @@ var gameEvents = function(eventId, eventData) {
     case 'wiki:results':
         
         $('#gameContent').html(eventData);
+        clearInterval(clockInterval);
 
         function roundCountdown() {
 
@@ -192,7 +193,7 @@ var gameEvents = function(eventId, eventData) {
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=10');
       
             if($('#slider-gsap').length) {
-              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+              let wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
                   width: 600
               });
             }
@@ -207,10 +208,15 @@ var gameEvents = function(eventId, eventData) {
             var articleTitles = $(player).find('.title');
             var articleDots = $(player).find('.articleDot');
             var articleLines = $(player).find('.articleLine');
+            var last = articleTitles.size();
+            var destination = $(last).find('.destination');
+
+            destination
 
             // Animate in each top player
             topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
 
+            
             // Animate titles and path
             _.each(articleTitles, function(title, index) {
 
@@ -220,19 +226,28 @@ var gameEvents = function(eventId, eventData) {
 
                     // Animate lines and dots at start of title animation
                     $(articleDots[index]).velocity({r: 8}, 500, [50, 10]);
-                    line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10])
-                 
+                    line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);
+
+
+                    $('.destination').velocity({ 'stroke-dashoffset': 400 }, 0)
+            .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 10 });
+                    // if (index === last){
+                      // _.each(destination, function(svg, index){
+                      //       $(svg).velocity({ opacity:0 }, 0).velocity({opacity:1},{duration: 1000, delay: 10}, [50, 10]);
+                      //   });
+                     // }
                 }});
+
+
             });
 
             // Hide this player
             topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5})
 
+             
         });
 
-      //   wikiAnimSlider = new GSAPTLSlider(topPlayersAnim, "slider-gsap", {
-      //     width: 600
-      // });
+      
 
         topPlayersAnim.play();
 
