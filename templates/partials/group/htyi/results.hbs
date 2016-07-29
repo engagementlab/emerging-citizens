@@ -27,7 +27,7 @@
                                     </div>
 
                                 {{else}}
-                                <div class="section"> 
+                                <div class="section creatorWrapper" data-cycle-fx="flipHorz" data-cycle-speed="600" data-cycle-timeout="400" data-cycle-slides=".creator"> 
                                     {{#each submitters}}
                                         {{> group/player_badge user=this avatar_ind=this.index creator=true }}
                                     
@@ -39,10 +39,8 @@
                             
                             <div class="hashtag"><span class="octothorp">#</span>{{@key}}</div>
 
-                            {{#each votes}} 
-
+                            {{#each votes}}
                                 {{> group/player_badge user=user avatar_ind=index points=score }}
-                            
                             {{/each}}
 
                         </div>

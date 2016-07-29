@@ -193,7 +193,7 @@ var gameEvents = function(eventId, eventData) {
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=10');
       
             if($('#slider-gsap').length) {
-              let wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
                   width: 600
               });
             }
@@ -229,8 +229,8 @@ var gameEvents = function(eventId, eventData) {
                     line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);
 
 
-                    $('.destination').velocity({ 'stroke-dashoffset': 400 }, 0)
-            .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 10 });
+            //         $('.destination').velocity({ 'stroke-dashoffset': 400 }, 0)
+            // .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 10 });
                     // if (index === last){
                       // _.each(destination, function(svg, index){
                       //       $(svg).velocity({ opacity:0 }, 0).velocity({opacity:1},{duration: 1000, delay: 10}, [50, 10]);

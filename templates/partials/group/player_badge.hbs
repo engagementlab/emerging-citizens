@@ -1,19 +1,26 @@
 {{!-- Player Badge --}}
-<section class="player-badge">
+<section class="player-badge{{#if creator}} creator{{/if}}{{#if points}} voter{{/if}}">
 	{{!-- <div class="badge"> --}}
 	  <figure class="badge-face front">
 		
-		  <div class="player-background{{#if creator}} creator{{/if}}{{#if points}} voter{{/if}}" {{#if points}}style="margin-top:-5%"{{/if}}>
+		  <div class="player-background" {{#if points}}style="margin-top:-5%"{{/if}}>
 			    <div class="player-static">
-			        <div class="icon active">
-			            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{user.index}}.png" class="portrait" />
+			    {{#if points}}
+			        <div class="icon active voterWrapper" data-cycle-fx="flipHorz" data-cycle-speed="800" data-cycle-timeout="200" data-cycle-slides=".slide">
+
+			        		<div class="slide">
+				            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{user.index}}.png" class="portrait" />
+				          </div>
 							
-									{{#if points}}
-						        <div class="points">
+						        <div class="slide points">
 						        	+{{points}}
 						        </div>
-						      {{/if}}
 			        </div>
+			        {{else}}
+			        <div class="icon active">
+			            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{user.index}}.png" class="portrait" />
+			        </div>
+		        {{/if}}
 
 			        <div class="nameplate active{{#if hide_name}} hidden-el{{/if}}">
 

@@ -57,14 +57,45 @@ var gameEvents = function(eventId, eventData) {
 
               ion.sound.play("button_tiny");
 
-          }}, 2, '+=0.5')
+          }}, 2, '+=0.5');
 
-          .staggerFromTo($(el).find('.creator'), 1, {scale:0, opacity:0, autoAlpha:0, delay: 0}, {scale: 1, opacity: 1, autoAlpha:1}, 2, '+=0.5')
+
+          let creators = $(el).find('.creator');
+          let num = creators.size();
+
+          if (creators.size() > 1) {
+              // debugger;
+              hashtagsAnim
+              .fromTo(creators, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=0.5')
+              .add(function(){
+                $('.creatorWrapper').attr("data-cycle-loop", "1");
+                $('.creatorWrapper').attr("data-cycle-loader", "wait");
+                $('.creatorWrapper').attr("data-cycle-delay", 10);
+                $('.creatorWrapper').cycle();
+              })
+              .staggerTo($(el).find('.voter .nameplate'), 1, { scale: 0, autoAlpha:0, display: 'none'}, 1, '+=0.5')
+              .add(function(){
+                $('.voterWrapper').attr("data-cycle-loop", "1");
+                $('.voterWrapper').attr("data-cycle-loader", num * 100);
+                $('.voterWrapper').attr("data-cycle-delay", num * 100);
+                $('.voterWrapper').cycle();
+              })
+              // .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '+=0.5')
+              // .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
+
+              .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+             
+
+          } else {
+
+          hashtagsAnim
           .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none'}, 2, '-=0.5')
-          .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
-          .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
+          // .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
+          // .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
 
           .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+
+          }
 
       });
 
@@ -87,6 +118,10 @@ var gameEvents = function(eventId, eventData) {
             width: 600
         });
       }
+
+      // TweenLite.set(".cardWrapper", {perspective:400});
+      // TweenLite.set(".back", {rotationX:180});
+      // TweenLite.set([".back", ".front"], {backfaceVisibility:"hidden"});
 
       hashtagsAnim.play();
 
