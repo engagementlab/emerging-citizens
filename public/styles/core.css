@@ -691,7 +691,12 @@ body .player-form {
       font-size: 1.3em; }
   .body.htyi #hashtag-results .real {
     transform: translate(0px, -50px); }
-  .body.htyi #hashtag-results .player-badge .creator {
+  .body.htyi #hashtag-results .creatorWrapper {
+    position: absolute;
+    transform: translate(-200px, -60px); }
+  .body.htyi #hashtag-results .creator {
+    position: absolute; }
+  .body.htyi #hashtag-results .voterWrapper .slide {
     position: absolute; }
   .body.htyi #hashtag-results #prompt {
     color: white;
@@ -740,13 +745,6 @@ body .player-form {
 
 .body.htyi .results .row {
   margin-bottom: 3%; }
-
-.body.htyi .results .creatorWrapper {
-  position: absolute;
-  transform: translate(-105%, -25%); }
-
-.body.htyi .results .creator {
-  transform: scale(0.8); }
 
 .body.htyi .results .voter {
   margin: 0;

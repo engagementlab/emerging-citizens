@@ -51,51 +51,48 @@ var gameEvents = function(eventId, eventData) {
       hashtagsAnim.from($('#hashtags'), 1.5, {top:-250, autoAlpha:0, ease:Bounce.easeOut});
       _.each(elements, function(el, index) {
 
+          let creators = $(el).find('.creator');
+          let creatorWrapper = $(el).find('.creatorWrapper');
+          let num = creators.size();
+
           hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
           
           .staggerFrom($(el).find('.voter'), 2, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
               ion.sound.play("button_tiny");
 
-          }}, 2, '+=0.5');
+          }}, 2, '+=0.5')
+          .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=2.5');
 
-
-          let creators = $(el).find('.creator');
-          let num = creators.size();
-
-          if (creators.size() > 1) {
-              // debugger;
+          if (num > 1) {
               hashtagsAnim
-              .fromTo(creators, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=0.5')
               .add(function(){
-                $('.creatorWrapper').attr("data-cycle-loop", "1");
-                $('.creatorWrapper').attr("data-cycle-loader", "wait");
-                $('.creatorWrapper').attr("data-cycle-delay", 10);
-                $('.creatorWrapper').cycle();
-              })
-              .staggerTo($(el).find('.voter .nameplate'), 1, { scale: 0, autoAlpha:0, display: 'none'}, 1, '+=0.5')
+                $(creatorWrapper).cycle();
+                $(creatorWrapper).cycle('goto', 0);
+                $(creatorWrapper).cycle("pause");                
+              }, 1, "+=0.5")
               .add(function(){
-                $('.voterWrapper').attr("data-cycle-loop", "1");
-                $('.voterWrapper').attr("data-cycle-loader", num * 100);
-                $('.voterWrapper').attr("data-cycle-delay", num * 100);
-                $('.voterWrapper').cycle();
-              })
-              // .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '+=0.5')
-              // .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
-
-              .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+                $(creatorWrapper).cycle("resume");
+              }, "-=0.5");
              
 
           } else {
 
-          hashtagsAnim
-          .staggerTo($(el).find('.voter .nameplate'), 1.5, { scale: 0, autoAlpha:0, display: 'none'}, 2, '-=0.5')
-          // .staggerTo($(el).find('.voter .portrait'), 2, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 2, '-=0.5')
-          // .staggerFromTo($(el).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block', ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut }, 0.5, '-=0.5')
-
-          .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
-
           }
+          hashtagsAnim
+          .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
+              .add(function(){
+
+                // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
+                $(el).find('.voterWrapper').cycle();
+                $(el).find('.voterWrapper').cycle('goto', 0);
+                // $(el).find('.voterWrapper').cycle("pause");
+                // $(el).find('.voterWrapper').cycle("next");
+                // $(el).find('.voterWrapper').cycle("destroy");
+                
+                console.log("cycling");
+              }, "+=1.0")
+              .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
 
       });
 
