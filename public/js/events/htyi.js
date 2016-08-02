@@ -9,17 +9,29 @@
 
 var playerWasReconnected;
 
+
+window.addEventListener("beforeunload", function (e) {
+  (e || window.event).returnValue = null;
+  return null;
+
+});
+
 //Add game type class to body
 $('.body').addClass('htyi');
 
 var gameEvents = function(eventId, eventData) {
 
+    
+
     switch (eventId) {
 
         case 'game:start':
 
-          sessionStorage.setItem('voted', false);
-
+            sessionStorage.setItem('voted', false);
+            console.log(sessionStorage.playerHashtag);
+            if(sessionStorage.playerHashtag !== undefined && playerWasReconnected){
+                socket.emit('hashtag:success', sessionStorage.playerHashtag);
+            }
           break;
 
     
@@ -49,14 +61,29 @@ var gameEvents = function(eventId, eventData) {
 
         // Hashtag successfully submitted
         case 'hashtag:success':
+        console.log("hashtag success");
 
             $('#countdownTimer').empty();
             $('#tweet-submission').hide();
             $('#submitted').show();
 
             sessionStorage.setItem('playerHashtag', eventData);
+            console.log(sessionStorage.playerHashtag);
 
             break;
+
+        case 'player:reconnected':
+            playerWasReconnected = true;
+
+          break;
+
+        case 'game:countdown_ending':
+
+          if (sessionStorage.playerHashtag !== undefined && playerWasReconnected === true) {
+            // console.log (sessionStorage.gameCode);
+              socket.emit('game:start', {gameId: sessionStorage.gameCode});
+            }
+          break;
 
     }
 
