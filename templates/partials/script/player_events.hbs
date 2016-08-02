@@ -35,7 +35,7 @@ var socketEvents = function(eventId, eventData) {
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
             
-            getScript(sessionStorage.gameType);
+            
 
             break;
 
@@ -44,6 +44,8 @@ var socketEvents = function(eventId, eventData) {
             $('#gameContent').html(eventData.html);
 
             sessionStorage.setItem("gameType", eventData.gameType);
+
+            getScript(sessionStorage.gameType);
             
             playerWasReconnected = false;
 

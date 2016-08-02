@@ -2,6 +2,7 @@
 	<div id="vote-submission" class="col-sm-12">
 	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
 	  <div class="form">
+	  {{jsonPrint this}}
 
 		    {{#each this}}
 					<button data-event="hashtag:vote" data-package='{{this}}' data-session-flag="voted:true" data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{limit this 20}}</button>
