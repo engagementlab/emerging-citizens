@@ -1,6 +1,6 @@
 {{!-- Players column --}}
 <div class="col-lg-3 col-sm-3 players {{#if left}}left{{else}}right{{/if}}">
-    
+{{!-- {{jsonPrint this}} --}}
     {{#each players}}
     
         {{#if ../active}}
@@ -8,7 +8,11 @@
             <div class="player-background">
                 <div class="player-static">
                     <div class="icon active">
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{index}}.png" />
+                    {{#if ../../left}}
+                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" /></div>
+                    {{else}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" />
+                    {{/if}}
                     </div>
                     <div class="nameplate active">
 
@@ -23,7 +27,11 @@
             <div class="player-background">
                 <div class="player-static">
                     <div class="icon">
-                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" /></div>
+                    {{#if ../../left}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" /></div>
+                    {{else}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" /></div>
+                    {{/if}}
                     <div class="nameplate"> 
 
                     </div>
