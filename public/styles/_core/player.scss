@@ -28,7 +28,9 @@
 	&:hover {
 		@include filter(brightness, 115%);
 	}
-
+	&.color-0 {
+		background-color: $color-blue;
+	}
 	&.color-1 {
 		background-color: $color-dark-orange;
 	}
@@ -50,9 +52,7 @@
 	&.color-7 {
 		background-color: $color-teal;
 	}
-	&.color-0 {
-		background-color: $color-yellow;
-	}
+	
 
 }
 
