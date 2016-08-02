@@ -44,6 +44,10 @@ exports = module.exports = function(req, res) {
            res.send({error_code: 'username_taken', msg: 'Sorry! This username is taken!'});
            return;
         }
+        else if(Session.Get(accessCode).GameInSession()) {
+           res.send({error_code: 'game_active', msg: 'Sorry! This game has already started!'});
+           return;
+        }
     }
 
     GameSession.model.findOne({ accessCode: accessCode }, function (err, game) {

@@ -376,6 +376,10 @@
 										case 'username_taken':
 											$('.form #player_name').addClass('invalid');
 											break;
+
+										case 'game_active': 
+											$('.form #class_code').addClass('invalid');
+											break;
 									}
 
 									$('.form .error').text(data.msg).fadeIn();
