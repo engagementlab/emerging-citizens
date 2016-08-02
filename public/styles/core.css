@@ -173,6 +173,8 @@
     -ms-filter: brightness(115%);
     -o-filter: brightness(115%);
     filter: brightness(115%); }
+  .voting-button.color-0 {
+    background-color: #4343ff; }
   .voting-button.color-1 {
     background-color: #ff5e41; }
   .voting-button.color-2 {
