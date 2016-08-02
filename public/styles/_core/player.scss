@@ -28,6 +28,7 @@
 	&:hover {
 		@include filter(brightness, 115%);
 	}
+	
 	&.color-0 {
 		background-color: $color-blue;
 	}
