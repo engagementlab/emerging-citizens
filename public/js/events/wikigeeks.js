@@ -319,6 +319,12 @@ var gameEvents = function(eventId, eventData) {
 
               timingOffset = 5*timing*index;
 
+              $('#survey-ready').click(function(){
+                $('.results-container').fadeOut();
+                $('.typeform').fadeIn();
+
+              });
+
             });
 
           break;
@@ -332,16 +338,24 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
+              var checkArticle = function() {
+
+                console.log("checking that article...");
+                if ( $('#wiki-article').css("display") !== "none" ) {
+                  console.log("fading out the article...");
+                  $('section#submitted').hide();
+                  console.log($('section#submitted').css("display"));
+                }
+              }
+
             console.log("here we have the info topic aka topic:info");
 
               $('section#submitted').fadeOut();
               $('#wiki-article').fadeIn();
               $('section#article').fadeIn();
 
-              if ($('#wiki-article').css("display") !== "none") {
-                $('section#submitted').fadeOut();
-              }
-           
+              setTimeout(checkArticle(), 1000);
+
           break;
 
         case 'player:reconnected':
