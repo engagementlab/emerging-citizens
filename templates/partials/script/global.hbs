@@ -93,18 +93,6 @@
 	  	sfxPath = '/sfx/'
 	  {{/ifeq}}
 
-		ion.sound({
-	    sounds: [
-	        {
-	            name: "button_tiny"
-	        }
-	    ],
-	    volume: 0.5,
-	    path: sfxPath,
-	    preload: true,
-	    ready_callback: function(obj) { console.log('sounds ready', obj); }
-		});
-
 	  // All possible socket event IDs
 	  // TODO: Change based on game type
 		var eventIds = [
@@ -241,6 +229,26 @@
 				});
 
 			{{else}}
+
+					var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
+
+					if(!isEmulated) {
+					
+						ion.sound({
+					    sounds: [
+					        {
+					            name: "button_tiny"
+					        }
+					    ],
+					    volume: 0.5,
+					    path: sfxPath,
+					    preload: true,
+					    ready_callback: function(obj) { console.log('sounds ready', obj); }
+						});
+
+					}
+					else
+						$('#debugging').remove();
 
 					/*
 						Logs the player in
@@ -578,6 +586,15 @@
 					$(btn).data('resume', 'false');
 				}
 
+			});				
+			$("#generate_players").click(function() {
+
+				$("#generate_players").text('loading...');
+
+				$('#login').remove();
+				$('#emulate-players').fadeIn();
+				
+				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
 			});
 
 	});
