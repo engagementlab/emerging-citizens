@@ -25,13 +25,13 @@ Tweet.add({
 	tweetText: { type: Types.Markdown, label: 'Tweet Text', required: true, initial: true },
 	hashtag: { type: String, label: 'Hashtag', required: true, initial: true },
 	category: {
-            type: Types.Relationship,
-            ref: 'ContentCategory',
-            required: true,
-            initial: true,
-            label: 'Category',
-            many: true
-        }
+        type: Types.Relationship,
+        ref: 'ContentCategory',
+        label: 'Category',
+        required: true,
+        initial: true,
+        many: true
+    }
 });
 
 /**
