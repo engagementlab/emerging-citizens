@@ -87,6 +87,7 @@
                           {{!-- {{/ifeq}} --}}
 
                         </select>
+                        <br /><button id="generate_players">generate players</button>
 
                     {{/ifeq}}
                       <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
@@ -101,6 +102,19 @@
 
                     <!-- BODY CONTENT START -->
                     {{{body}}}
+
+                    {{#ifeq debug true}}
+                      <div id="emulate-players" style="display:none">
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                      </div>
+                    {{/ifeq}}
 
                   </div>
             </div><!-- /.container -->

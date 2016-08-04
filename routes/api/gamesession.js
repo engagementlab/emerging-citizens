@@ -52,8 +52,10 @@ exports.create = function(req, res) {
             sessionType = new HashtagGame.model();
         
         else if (data.gameType === "wikigeeks")
-            console.log ("starting WikiGeeks");
             sessionType = new WikiGame.model();
+        
+        // else if (data.gameType === "meme")
+            // sessionType = new WikiGame.model();
         
         sessionType.getUpdateHandler(req).process(data, function(err) {
             
