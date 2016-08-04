@@ -23,4 +23,23 @@
       height: 100%;
     }
   }
+
+  #tweet-submission {
+    float: none;
+    max-width: 375px;
+    width: 375px;
+    margin: 0 auto;
+
+  }
+  #vote-submission {
+    float: none;
+    max-width: 375px;
+    width: 375px;
+    margin: 0 auto;
+    
+  }
+
+  #debugging {
+    z-index: 0;
+  }
 }
