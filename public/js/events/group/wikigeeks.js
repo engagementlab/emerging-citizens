@@ -99,13 +99,26 @@ var gameEvents = function(eventId, eventData) {
 
     case 'topic:info':
                 
-        $('#gameContent').html(eventData);
+        $('#gameContent').html(eventData.html);
         $('#reveal').html(eventData.reveal);
 
         $('#overlay').fadeOut().empty();
 
         // Debugging
         $('#goto_results').hide();
+
+        var staticPlayers = $('.player-static');
+        var finishedPlayers = _.pluck(_.where(eventData.players, {finished:true}), 'username');
+        console.log (finishedPlayers);
+
+        _.each(finishedPlayers, function(name, index) {
+
+            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+            $(staticPlayers[index]).children('.icon').addClass('active');
+            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+
+        });
 
         break;
 
