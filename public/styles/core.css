@@ -1214,6 +1214,9 @@ body .player-form {
         color: #ff5e41; }
 
 /* 
+	WWDMM group view styling.
+*/
+/* 
 	HTYI player view styling.
 */
 .body.htyi.player .game-message {
@@ -1384,6 +1387,9 @@ body .player-form {
       -webkit-transition: transform 0.5s;
       transition: transform 0.5s; }
 
+/* 
+	WWDMM player view styling.
+*/
 html, body {
   max-height: 100%; }
 
@@ -1418,6 +1424,8 @@ html, body {
     background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971; }
   .body.game-bg.wikigeeks {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
+  .body.game-bg.wwdmm {
+    background: #21b7f0; }
 
 .body.login {
   -webkit-transition: background 0.5s linear;

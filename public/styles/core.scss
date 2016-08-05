@@ -12,8 +12,10 @@
 // Game-specific styling
 @import "_htyi/groupview";
 @import "_wiki/groupview";
+@import "_wwdmm/groupview";
 @import "_htyi/playerview";
 @import "_wiki/playerview";
+@import "_wwdmm/playerview";
 
 html, body {
 	max-height: 100%;
@@ -56,8 +58,6 @@ html, body {
 
 .body.game-bg {
 	
-	
-
   @include linear_transition(background, 0.5s);
 
   &.htyi {
@@ -65,6 +65,9 @@ html, body {
 	}
 	&.wikigeeks {
 	  background-image: $background-wiki;
+	}
+	&.wwdmm {
+	  background: $color-bg-wwdmm;
 	}
 
 }
@@ -78,7 +81,6 @@ html, body {
 
 .body.player.wikigeeks {
 	  background-image: $background-wiki;
-
 }
 
 .body.monitor {
@@ -267,8 +269,6 @@ footer {
 	}
 }
 
-
-
 // START Main Content
 #debugging {
 	z-index: 1000;
@@ -298,6 +298,7 @@ footer {
 	}
 
 }
+
 #gameContent {
 
 	padding: 40px 15px;
@@ -305,4 +306,5 @@ footer {
   text-align: center;
 
 }
+
 // END Main Content

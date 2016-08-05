@@ -19,6 +19,7 @@ var keystone = require('keystone'),
     
 var HashtagGame = keystone.list('HashtagGame'),
     WikiGame = keystone.list('WikiGame'),
+    MemeGame = keystone.list('MemeGame'),
     Game = require(appRoot + '/lib/GameManager'),
     Session = require(appRoot + '/lib/SessionManager'),
     ContentCategory = keystone.list('ContentCategory');
@@ -54,8 +55,8 @@ exports.create = function(req, res) {
         else if (data.gameType === "wikigeeks")
             sessionType = new WikiGame.model();
         
-        // else if (data.gameType === "meme")
-            // sessionType = new WikiGame.model();
+        else if (data.gameType === "wwdmm")
+            sessionType = new MemeGame.model();
         
         sessionType.getUpdateHandler(req).process(data, function(err) {
             

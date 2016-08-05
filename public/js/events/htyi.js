@@ -21,8 +21,6 @@ $('.body').addClass('htyi');
 
 var gameEvents = function(eventId, eventData) {
 
-    
-
     switch (eventId) {
 
         case 'game:start':

@@ -25,17 +25,21 @@ var MemeTopic = new keystone.List('MemeTopic', {
 });
 
 MemeTopic.add({
+    
     topicName: { type: String, label: 'Topic Name', initial:true, required:true},
-    topicImage: { type: Types.CloudinaryImage, label: "Topic Image"},
-    /*topicDescription: { type: Types.Markdown, label: 'Topic Description', initial:true, required:true},
-	category: {
+    topicImage: { type: Types.CloudinaryImage, label: 'Topic Image'},
+    topicDescriptors: { type: Types.TextArray, label: 'Descriptors' },
+    category: {
         type: Types.Relationship,
         ref: 'ContentCategory',
-        filters: { game: "WikiGeeks"},
-        label: 'Category', 
+        label: 'Category',
+        // filters: { game: "WWDMM"},
+        required: true,
+        initial: true,
         many: true
     }
-*/});
+
+});
 
 /**
  * Registration
