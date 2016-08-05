@@ -12,7 +12,7 @@ var hashtagsAnimSlider;
 var gameEvents = function(eventId, eventData) {
 
   /*
-    Catch socket events
+    Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
   */
   switch (eventId) {
     

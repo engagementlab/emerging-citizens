@@ -13,7 +13,7 @@ var wikiAnimSlider;
 var gameEvents = function(eventId, eventData) {
 
   /*
-    Catch socket events
+    Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
   */
   switch (eventId) {
 
@@ -264,20 +264,5 @@ var gameEvents = function(eventId, eventData) {
         break;
 
   }
-
-};
-
-var secondsToHms = function(d) {
-
-  d = Number(d);
-  var h = Math.floor(d / 3600);
-  var m = Math.floor(d % 3600 / 60);
-  var s = Math.floor(d % 3600 % 60);
-
-  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
-  var minsDisplay = '<span id="m">' + m + '</span>';
-  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
-
-  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
 
 };

@@ -7,30 +7,43 @@
  * ==========
  */
 
-var playerWasReconnected;
+ var playerWasReconnected;
 
-window.addEventListener("beforeunload", function (e) {
-  (e || window.event).returnValue = null;
-  return null;
+ window.addEventListener("beforeunload", function (e) {
+ 	(e || window.event).returnValue = null;
+ 	return null;
 
-});
+ });
 
 // Add game type class to body
 $('.body').addClass('wwdmm');
 
 var gameEvents = function(eventId, eventData) {
 
+    /*
+	    Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
+    */
     switch (eventId) {
 
-        case 'game:start':
+    	case 'game:start':
 
-          break;
+        	break;
 
-        case 'player:reconnected':
+    	case 'player:reconnected':
 
-            playerWasReconnected = true;
+        	playerWasReconnected = true;
 
-          break;
+        	break;
+
+        case 'meme:create':
+
+            $('#gameContent').html(eventData);
+
+            $('#meme-slider').unslider({
+                nav: false
+            });
+
+            break;
 
     }
 

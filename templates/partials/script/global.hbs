@@ -130,26 +130,29 @@
 			'article:random',
 			'topic:info',
 			'wiki:results',
-			'wiki:waiting'
+			'wiki:waiting',
 
+			'meme:topic',
+			'meme:create'
 		
 		];
 
 		/* 
 		 Associate provided data object with current game ID
 		*/
-		function emitData(data) {
+		var emitData = function(data) {
 
 			if(gameCode === undefined && typeof(data.code) !== 'undefined')
 				gameCode = data.code;
 
 			return { gameId: gameCode, msgData: data };
-		}
+		
+		};
 
 		/* 
 		 Obtains the embedded data ('data-key="something"') object from the provided submit button
 		*/
-		function getFormData(submitElement) {
+		var getFormData = function(submitElement) {
 
 			var pkg;
 
@@ -176,7 +179,25 @@
 
 			return pkg;
 
-		}
+		};
+
+		/* 
+			Util to convert seconds to h:mm:ss
+		*/
+		var secondsToHms = function(d) {
+
+		  d = Number(d);
+		  var h = Math.floor(d / 3600);
+		  var m = Math.floor(d % 3600 / 60);
+		  var s = Math.floor(d % 3600 % 60);
+
+		  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
+		  var minsDisplay = '<span id="m">' + m + '</span>';
+		  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
+
+		  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
+
+		};
 
 		{{#ifnoteq section 'group/monitor'}}
 
