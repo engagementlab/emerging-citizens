@@ -187,20 +187,28 @@ var gameEvents = function(eventId, eventData) {
         
         function scoreAnimPlay() {
 
-          $('#results, #results-header').fadeIn();
+          $('#results, #results-header').show();
+          // let playerResults = $('#results').find('.user');
+          // debugger;
          
-            scoreAnim.from($('#results-header'), 1, {autoAlpha:0, delay: 0})
-
-            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut0, delay: 0}).add('resultsShow')
-            .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=3')
-            
-            .add(function(){$('#scoring').fadeIn();})
-            .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=4')
-            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=7')
-            
-            .add(function(){$('#leaderboard, #count').fadeIn();})
-            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'resultsShow+=9')
-            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'resultsShow+=10');
+            scoreAnim.fromTo($('#results-header'), 1, {autoAlpha:0, delay: 0}, {autoAlpha:1})
+            .add('resultsShow')
+            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 0}, 'resultsShow+=1')
+            .staggerFromTo($('#results .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'resultsShow+=3')
+            .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=9')
+            .add('scoringShow')
+            .add(function(){$('#scoring').show();})
+            .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringShow+=1')
+            .staggerFromTo($('#scoring .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'scoringShow+=3')
+            .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scoringShow+=7')
+            .add('leadersShow')
+            .add(function(){$('#leaderboard, #count').show();})
+            .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'leadersShow+=1')
+            .staggerFromTo($('#leaderboard .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
+            .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leadersShow+=7');
+            // .add(function(){
+            //   socket.emit('game:countdown', { 10);
+            // });
       
             if($('#slider-gsap').length) {
               wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
@@ -221,7 +229,7 @@ var gameEvents = function(eventId, eventData) {
             var last = articleTitles.size();
             var destination = $(last).find('.destination');
 
-            destination
+            // destination
 
             // Animate in each top player
             topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});

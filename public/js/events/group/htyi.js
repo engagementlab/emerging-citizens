@@ -38,6 +38,38 @@ var gameEvents = function(eventId, eventData) {
 
       break;
 
+    case 'hashtag:success':
+
+      var staticPlayers = $('.player-static');
+        var finishedPlayers = _.pluck(_.where(eventData, {submitted:true}), 'username');
+
+        _.each(finishedPlayers, function(name, index) {
+
+            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+            $(staticPlayers[index]).children('.icon').addClass('active');
+            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+
+        });
+
+      break;
+
+    case 'hashtag:voted':
+
+      var staticPlayers = $('.player-static');
+        var finishedPlayers = _.pluck(_.where(eventData, {voted:true}), 'username');
+
+        _.each(finishedPlayers, function(name, index) {
+
+            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+            $(staticPlayers[index]).children('.icon').addClass('active');
+            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+
+        });
+
+      break;
+
     case 'hashtags:results':
 
       $('#gameContent').html(eventData);

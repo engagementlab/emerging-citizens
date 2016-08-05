@@ -231,6 +231,14 @@ var gameEvents = function(eventId, eventData) {
 
             }
 
+            $("#article_input").keydown(function(event){
+                console.log("keyup");
+                if(event.keyCode == 13){
+                    console.log("pressed enter");
+                    $('#btn_search').click();
+                }
+            });
+
             // Form click to search for first article
             $('#btn_search').click(function(evt) {
 
@@ -354,7 +362,11 @@ var gameEvents = function(eventId, eventData) {
               $('#wiki-article').fadeIn();
               $('section#article').fadeIn();
 
-              setTimeout(checkArticle(), 1000);
+              if ($('section#submitted').css("display") !== "none") {
+                setTimeout(checkArticle(), 10000);
+              }
+
+              
 
           break;
 
