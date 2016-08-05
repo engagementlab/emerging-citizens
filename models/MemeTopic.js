@@ -27,8 +27,9 @@ var MemeTopic = new keystone.List('MemeTopic', {
 MemeTopic.add({
     
     topicName: { type: String, label: 'Topic Name', initial:true, required:true},
-    topicImage: { type: Types.CloudinaryImage, label: 'Topic Image'},
     topicDescriptors: { type: Types.TextArray, label: 'Descriptors' },
+    topicImage: { type: Types.CloudinaryImage, label: 'Topic Image', folder: 'emerging-citizens/wwdmm/topic-images', autoCleanup: true },
+    memeImages: { type: Types.CloudinaryImages, label: 'Meme Images', folder: 'emerging-citizens/wwdmm/meme-images', autoCleanup: true },
     category: {
         type: Types.Relationship,
         ref: 'ContentCategory',

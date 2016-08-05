@@ -21,6 +21,9 @@ $('.body').addClass('htyi');
 
 var gameEvents = function(eventId, eventData) {
 
+    /*
+        Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
+    */
     switch (eventId) {
 
         case 'game:start':
@@ -67,7 +70,6 @@ var gameEvents = function(eventId, eventData) {
 
         // Hashtag successfully submitted
         case 'hashtag:success':
-        console.log("hashtag success");
 
             $('#countdownTimer').empty();
             $('#tweet-submission').hide();

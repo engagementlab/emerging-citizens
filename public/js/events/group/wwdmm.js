@@ -8,20 +8,46 @@
  * ==========
  */
 
+var clockInterval;
 var resultsAnimSlider;
+
 var gameEvents = function(eventId, eventData) {
+debugger;
 
-  /*
-    Catch socket events
-  */
-  switch (eventId) {
+	/*
+	  Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
+	*/
+	switch (eventId) {
+	  
+	  case 'game:countdown':
 
-    case 'meme:topic':
+	      if(clockInterval)
+	          clearInterval(clockInterval);
 
-      $('#gameContent').html(eventData);
+          var secondsLeft = eventData.duration,
+		      countdownText = $('.countdown #countdown');
+         
+          clockInterval = setInterval(function() {
 
-      break;
+			secondsLeft--;
 
-  }
+			var displaySeconds = secondsToHms(secondsLeft);
+
+			$(countdownText).html(displaySeconds);
+
+			if(secondsLeft === 0)
+				clearInterval(clockInterval);
+
+          }, 1000);
+
+	      break;
+
+	  case 'meme:topic':
+
+	      $('#gameContent').html(eventData);
+
+	      break;
+
+	}
 
 };

@@ -52,6 +52,11 @@ GameConfig.add({
 		scorePlacementWiki: { type: Number, label: "Base score - Rank placement", required: true, initial: true },
 		scoreUnderClicksWiki: { type: Number, label: "Under Clicks Bonus", required: true, initial: true }
 
+	}, 
+	"Wait Wait Don't Meme Me", {
+
+	  timeLimitMeme: { type: Number, label: "Time Limit", required: true, initial: true }
+
 	}
 
 );
