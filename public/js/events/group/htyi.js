@@ -144,6 +144,9 @@ function showScores() {
   .to($('#scores'), 1, {autoAlpha:0, display:'none', delay: 3});
 
   // Winner Circle, if rendered
+  let winner = $('.score-box')[0];
+  console.log(winner);
+  $(winner).addClass('winner');
   if($('#winners-circle')[0] !== undefined) {
 
       scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})

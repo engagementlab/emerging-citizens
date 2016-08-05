@@ -34,9 +34,9 @@
 	margin: 0 auto;
 }
 
-.winner {
-	background-color: white;
-}
+// .winner {
+// 	background-color: white;
+// }
 
 
 .room-container {
@@ -60,6 +60,7 @@
 	margin: 20px auto;
 	margin-bottom: 40px;
 	background: white;
+	height: 175px;
 	
 	.icon {
 		margin: 10px auto;
@@ -78,7 +79,7 @@
 		float: left;
 		width: 100%;
     position: absolute;
-    padding-top: 26%;
+    padding-top: 30%;
 		font-size: 3.6em;
 	}
 
