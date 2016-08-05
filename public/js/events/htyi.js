@@ -33,6 +33,14 @@ var gameEvents = function(eventId, eventData) {
             if(sessionStorage.playerHashtag !== undefined && playerWasReconnected){
                 socket.emit('hashtag:success', sessionStorage.playerHashtag);
             }
+
+             $("#tweet_input").keydown(function(event){
+                console.log("keyup");
+                if(event.keyCode == 13){
+                    console.log("pressed enter");
+                    $('#btn_submit').click();
+                }
+            });
           break;
 
     

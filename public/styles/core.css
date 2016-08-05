@@ -225,9 +225,6 @@ body .player-form {
   background-color: white;
   margin: 0 auto; }
 
-.winner {
-  background-color: white; }
-
 .room-container {
   bottom: 10%;
   padding-left: 10%;
@@ -243,7 +240,8 @@ body .player-form {
   position: relative;
   margin: 20px auto;
   margin-bottom: 40px;
-  background: white; }
+  background: white;
+  height: 175px; }
   .player-background .icon {
     margin: 10px auto;
     display: block;
@@ -257,7 +255,7 @@ body .player-form {
     float: left;
     width: 100%;
     position: absolute;
-    padding-top: 26%;
+    padding-top: 30%;
     font-size: 3.6em; }
   .player-background .score {
     font-size: 4.6em;
@@ -500,7 +498,8 @@ body .player-form {
 .body.htyi {
   overflow: hidden; }
   .body.htyi #game_code {
-    margin-top: 5%; }
+    margin-top: 5%;
+    padding-top: 5%; }
     .body.htyi #game_code #first {
       color: #fe6444; }
     .body.htyi #game_code #second {
@@ -700,24 +699,38 @@ body .player-form {
       padding: 2%; }
     .body.htyi #hashtag-results .result {
       margin-top: 20%; }
+  .body.htyi #winners-circle .row {
+    height: 180px; }
+    .body.htyi #winners-circle .row .winner-0 {
+      width: 700px;
+      margin-left: 10%; }
+    .body.htyi #winners-circle .row .winner-1 {
+      width: 700px;
+      margin-left: 25%; }
+    .body.htyi #winners-circle .row .winner-2 {
+      width: 700px;
+      margin-left: 45%; }
   .body.htyi #winners-circle .score-box {
     padding: 20px;
+    height: 180px;
     background-color: #ff9000;
     font-size: large; }
+    .body.htyi #winners-circle .score-box .player-badge {
+      float: left;
+      transform: translate(-110px, -170px); }
     .body.htyi #winners-circle .score-box img {
       float: left; }
     .body.htyi #winners-circle .score-box score {
       color: #fbd738;
       font-size: 3em;
+      display: block;
       font-weight: bold; }
     .body.htyi #winners-circle .score-box name {
       display: block;
-      font-size: 1.5em;
+      font-size: 2.5em;
       color: #FFF; }
   .body.htyi #winners-circle .score-box.winner {
-    background-color: #fbd738; }
-  .body.htyi .winner {
-    background-color: white; }
+    background-color: #fe6444; }
   .body.htyi #scores .player, .body.htyi #leaderboard .player {
     background-color: white;
     padding: 8px;
@@ -1212,7 +1225,7 @@ body .player-form {
   margin-bottom: 10%;
   font-size: medium;
   color: #4343ff;
-  min-height: 265px;
+  min-height: 270px;
   min-width: 345px;
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
   background-repeat: no-repeat;

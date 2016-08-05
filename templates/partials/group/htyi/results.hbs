@@ -161,15 +161,13 @@
                 {{#iflt @index 3}}
                     <div class="row">
                     
-                        <div class="col-sm-{{sum (sum @index 2) @index}}"></div>
+                        {{!-- <div class="col-sm-{{sum (sum @index 2) @index}}"></div> --}}
 
-                        <div class="col-sm-4">
+                        <div class="winner-{{@index}}">
                             <div class="score-box hidden-el">
                                 <name>
                                     {{username}}
                                 </name>
-                                {{> group/player_badge user=this avatar_ind=user.index creator=true hide_name=true }}
-
                                 <score>
                                     {{#if score_total}}
                                         {{score_total}}
@@ -177,6 +175,9 @@
                                         0
                                     {{/if}}
                                 </score>
+                                {{> group/player_badge user=this avatar_ind=user.index creator=true hide_name=true }}
+
+                                
                             </div>
                         </div>
                     
@@ -192,7 +193,7 @@
 
     
     {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
-    {{jsonPrint thisr}}
+    {{!-- {{jsonPrint thisr}} --}}
     {{#if last_round}}
         <div id="game-ended" class="row hidden-el results last">
             <div class="col-sm-3"></div>

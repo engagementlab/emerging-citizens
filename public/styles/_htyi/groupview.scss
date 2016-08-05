@@ -8,6 +8,7 @@
 	
 	#game_code {
 		margin-top: 5%;
+		padding-top: 5%;
 
 		#first {
 			color: $color-red;
@@ -301,10 +302,32 @@
 	}
 	#winners-circle {
 
+		.row {
+			height:180px;
+			.winner-0 {
+				width: 700px;
+				margin-left: 10%;
+			}
+			.winner-1 {
+				width: 700px;
+				margin-left:25%;
+			}
+			.winner-2 {
+				width: 700px;
+				margin-left:45%;
+			}
+		}
+
 		.score-box {
 			padding: 20px;
+			height: 180px;
 			background-color: #ff9000;
 			font-size: large;
+
+			.player-badge {
+				float: left;
+				transform: translate(-110px, -170px);
+			}
 
 			img {
 				float: left;
@@ -312,23 +335,24 @@
 			score {
 				color: $color-yellow;
 				font-size: 3em;
+				display:block;
 				font-weight: bold;
 			}
 			name {
 				display: block;
-				font-size: 1.5em;
+				font-size: 2.5em;
 				color: #FFF;
 			}
 		}
 		.score-box.winner {
-			background-color: $color-yellow;
+			background-color: $color-red;
 		}
 
 	}
 
-	.winner {
-		background-color: white;
-	}
+	// .winner {
+	// 	background-color: white;
+	// }
 
 	#scores, #leaderboard {
 		
