@@ -56,6 +56,8 @@ var gameEvents = function(eventId, eventData) {
             // .from(countdownText.find('#s'), .5, {autoAlpha:0, scale: 0.5, delay: 1, ease:Elastic.easeOut});
           }
 
+          
+
           // End countdown
           if(secondsLeft == 0 && clockName === 'topicCountdown')
               clearInterval(clockInterval);

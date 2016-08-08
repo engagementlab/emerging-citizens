@@ -24,6 +24,14 @@ var getScript = function (gameType) {
         });
 }
 
+$("#player_name").keydown(function(event){
+    console.log("keyup");
+    if(event.keyCode == 13){
+        console.log("pressed enter");
+        $('#btn_submit_code').click();
+    }
+});
+
 var socketEvents = function(eventId, eventData) {
 
     switch (eventId) {

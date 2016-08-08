@@ -399,26 +399,19 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
-            var checkArticle = function() {
-
-                console.log("checking that article...");
-                if ($('#wiki-article').css("display") !== "none") {
-                    console.log("fading out the article...");
+            var CheckArticle = function() {
+                if ($('section#submitted').css("display") !== "none") {
                     $('section#submitted').hide();
-                    console.log($('section#submitted').css("display"));
+                } else {
+                    clearInterval(checkSearching);
                 }
             }
 
-            console.log("here we have the info topic aka topic:info");
+            $('#wiki-article').show();
+            $('section#article').show();
+            $('section#submitted').hide();
 
-            $('section#submitted').fadeOut();
-            $('#wiki-article').fadeIn();
-            $('section#article').fadeIn();
-
-              if ($('section#submitted').css("display") !== "none") {
-                setTimeout(checkArticle(), 10000);
-              }
-
+            var checkSearching = setInterval( () => { CheckArticle() }, 1000);
 
             break;
 
@@ -430,7 +423,6 @@ var gameEvents = function(eventId, eventData) {
         case 'game:countdown_ending':
 
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-                // console.log (sessionStorage.gameCode);
                 socket.emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });
