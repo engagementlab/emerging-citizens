@@ -13,7 +13,7 @@ if(jQuery.browser.mobile){
     $("document").on("pagebeforehide",function(e){
         // (e || window.event).returnValue = null;
         return "what the heckityheck";
-    })
+    });
 } else {
     // $(window).bind('beforeunload', function(e){
     //     (e || window.event).returnValue = null;
