@@ -1,25 +1,29 @@
 <div class="page-container">
     <div class="row">
 
-        <section class="col-sm-6">
+        <section class="form col-sm-6">
             
             <div id="meme-create" style="height: 400px;" class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="height: 100%">
                     <input type="text" id="text-upper" placeholder="select to edit" tabindex="1"> <br />
                     <input type="text" id="text-lower" placeholder="select to edit" tabindex="2" style="bottom:0px"> <br />
+                    <input type="text" id="image-index" value="0" style="display:none">
 
                     <div id="meme-slider">
                         <ul>
                         {{#each memeImages}}
                             <li>
-                                <img src="{{{cloudinaryUrl this width=400 quality=80}}}" />
+                                <img src="{{{cloudinaryUrl this height=400 quality=80}}}" />
                             </li>
                         {{/each}}
                         </ul>
                     </div>
                 </div>
             </div>
+            
             <div class="row">
+
+                <input id="btn_submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="post">
 
             </div>
 

@@ -2,5 +2,25 @@
 	WWDMM group view styling.
 */
 .body.wwdmm {
+	
+	#voting-container {
+	
+		.text-upper, .text-lower {
+	    color: white;
+	    font-size: 3em;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    text-align: center;
+
+	    @include stroke(6, #000);
+		}
+
+		.text-lower {
+	    position: absolute;
+	    bottom: 0px;
+	    left: 50%;
+		}
+
+	}
 
 }

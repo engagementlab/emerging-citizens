@@ -1,0 +1,44 @@
+<div class="page-container">
+    <div class="row">
+
+        {{!-- Players left-hand column --}}
+        {{> group/players_column players=players.left offset=0 left=true active=true }}
+        
+        {{!-- Room Code Container --}}
+        <section class="col-sm-12 room-container" id="voting-container">
+            
+            <div style="margin-top:16%" class="row">
+                <h1 style="font-size: 3em;color: #ffa76d" class="game-header">
+                    which meme about <span style="font-weight:bold;">{{topic.topicName}}</span> is {{descriptor}}
+                </h1>
+
+                {{#each submissions}}
+
+                    <div class="col-sm-3">
+                        <div class="meme">
+
+                            <div class="text-upper">{{upper}}</div>
+                            <div class="text-lower">{{lower}}</div>
+
+                            <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
+                            <div>{{username}}</div>
+
+                        </div>
+                    </div>
+                
+                {{/each}}
+            </div>
+           {{!--  <div class="row countdown">
+
+                <div id="countdown"></div>
+
+                <h2>remaining</h2>
+            </div> --}}
+
+        </section>
+        
+        {{!-- Players right-hand column --}}
+        {{> group/players_column players=players.right offset=4 left=false active=true }}
+
+    </div> {{!-- end page row --}}
+</div>
