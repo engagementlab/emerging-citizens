@@ -59,8 +59,11 @@ var gameEvents = function(eventId, eventData) {
 
 
           // End countdown
-          if(secondsLeft == 0 && clockName === 'topicCountdown')
+          if(secondsLeft == 0 && clockName === 'topicCountdown'){
+            $('.row #countdown').hide();
+            $('.timesUp').show();
               clearInterval(clockInterval);
+            }
           
           // Article reveal warning modal
           else if(secondsLeft == 5 && clockName === 'topicCountdown') {
@@ -268,6 +271,19 @@ var gameEvents = function(eventId, eventData) {
       
 
         topPlayersAnim.play();
+
+        break;
+
+
+    case 'game:countdown_end':
+
+
+
+        // $('input').disabled = true;
+
+        // $('.timesUp').show();
+
+        // setTimeout(function(){$('.timesUp').hide();}, 10000);
 
         break;
 

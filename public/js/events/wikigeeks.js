@@ -399,6 +399,9 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
+            $('.timesUp').hide();
+            $('input').disabled = false;
+
             var CheckArticle = function() {
                 if ($('section#submitted').css("display") !== "none") {
                     $('section#submitted').hide();
@@ -427,6 +430,16 @@ var gameEvents = function(eventId, eventData) {
                     gameId: sessionStorage.gameCode
                 });
             }
+            break;
+
+        case 'game:countdown_end':
+
+            $('input').disabled = true;
+
+            $('.timesUp').show();
+
+            setTimeout(function(){$('.timesUp').hide();}, 10000);
+
             break;
 
     }
