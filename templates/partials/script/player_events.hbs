@@ -21,6 +21,7 @@ var getScript = function (gameType) {
           })
           .fail(function( jqxhr, settings, exception ) {
             console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
+            console.log(exception);
         });
 }
 
@@ -47,7 +48,7 @@ var socketEvents = function(eventId, eventData) {
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
             
-           
+
 
             break;
 

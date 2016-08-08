@@ -425,7 +425,7 @@ var gameEvents = function(eventId, eventData) {
             $('section#article').show();
             $('section#submitted').hide();
 
-            var checkSearching = setInterval( () => { CheckArticle() }, 1000);
+            var checkSearching = setInterval( function(){ CheckArticle() }, 1000);
 
             break;
 
