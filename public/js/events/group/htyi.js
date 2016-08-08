@@ -79,14 +79,17 @@ var gameEvents = function(eventId, eventData) {
 
       var elements = $('#hashtag-results .result.fake');
       var realHashtag = $('#hashtag-results .result.real');
+      var creators;
+      var creatorWrapper;
+      var num;
 
       // 1) Show hashtags
       hashtagsAnim.from($('#hashtags'), 1.5, {top:-250, autoAlpha:0, ease:Bounce.easeOut});
       _.each(elements, function(el, index) {
 
-          let creators = $(el).find('.creator');
-          let creatorWrapper = $(el).find('.creatorWrapper');
-          let num = creators.size();
+          creators = $(el).find('.creator');
+          creatorWrapper = $(el).find('.creatorWrapper');
+          num = creators.size();
 
           hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
           
@@ -177,7 +180,7 @@ function showScores() {
   .to($('#scores'), 1, {autoAlpha:0, display:'none', delay: 3});
 
   // Winner Circle, if rendered
-  let winner = $('.score-box')[0];
+  var winner = $('.score-box')[0];
   console.log(winner);
   $(winner).addClass('winner');
   if($('#winners-circle')[0] !== undefined) {

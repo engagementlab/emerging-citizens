@@ -9,11 +9,22 @@
 var playerWasReconnected;
 var retrievingData;
 
-window.addEventListener("beforeunload", function(e) {
-    (e || window.event).returnValue = null;
-    return null;
+if(jQuery.browser.mobile){
+    $("document").on("pagebeforehide",function(e){
+        // (e || window.event).returnValue = null;
+        return "what the heckityheck";
+    });
+} else {
+    // $(window).bind('beforeunload', function(e){
+    //     (e || window.event).returnValue = null;
+    //     return null;
+    // });
+    window.addEventListener("beforeunload", function(e) {
+        (e || window.event).returnValue = null;
+        return null;
 
-});
+    });
+}
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -399,26 +410,22 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
-            var checkArticle = function() {
+            $('.timesUp').hide();
+            $('input').disabled = false;
 
-                console.log("checking that article...");
-                if ($('#wiki-article').css("display") !== "none") {
-                    console.log("fading out the article...");
+            var CheckArticle = function() {
+                if ($('section#submitted').css("display") !== "none") {
                     $('section#submitted').hide();
-                    console.log($('section#submitted').css("display"));
+                } else {
+                    clearInterval(checkSearching);
                 }
             }
 
-            console.log("here we have the info topic aka topic:info");
+            $('#wiki-article').show();
+            $('section#article').show();
+            $('section#submitted').hide();
 
-            $('section#submitted').fadeOut();
-            $('#wiki-article').fadeIn();
-            $('section#article').fadeIn();
-
-              if ($('section#submitted').css("display") !== "none") {
-                setTimeout(checkArticle(), 10000);
-              }
-
+            var checkSearching = setInterval( function(){ CheckArticle() }, 1000);
 
             break;
 
@@ -430,11 +437,20 @@ var gameEvents = function(eventId, eventData) {
         case 'game:countdown_ending':
 
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-                // console.log (sessionStorage.gameCode);
                 socket.emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });
             }
+            break;
+
+        case 'game:countdown_end':
+
+            $('input').disabled = true;
+
+            $('.timesUp').show();
+
+            setTimeout(function(){$('.timesUp').hide();}, 10000);
+
             break;
 
     }

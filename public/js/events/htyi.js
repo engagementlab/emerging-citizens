@@ -10,7 +10,7 @@
 var playerWasReconnected;
 
 
-window.addEventListener("beforeunload", function (e) {
+window.addEventListener("onbeforeunload", function (e) {
   (e || window.event).returnValue = null;
   return null;
 
