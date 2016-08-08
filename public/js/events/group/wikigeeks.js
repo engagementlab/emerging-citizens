@@ -60,8 +60,7 @@ var gameEvents = function(eventId, eventData) {
 
           // End countdown
           if(secondsLeft == 0 && clockName === 'topicCountdown'){
-            $('.row #countdown').hide();
-            $('.timesUp').show();
+
               clearInterval(clockInterval);
             }
           
@@ -276,7 +275,8 @@ var gameEvents = function(eventId, eventData) {
 
 
     case 'game:countdown_end':
-
+       $('.row #countdown').hide();
+        $('.timesUp').show();
 
 
         // $('input').disabled = true;

@@ -9,11 +9,19 @@
 var playerWasReconnected;
 var retrievingData;
 
-window.addEventListener("beforeunload", function(e) {
-    (e || window.event).returnValue = null;
-    return null;
+if(jQuery.browser.mobile){
+    $(window).bind('beforeunload', function(e){
+        (e || window.event).returnValue = null;
+        return null;
+    });
+} else {
 
-});
+    window.addEventListener("beforeunload", function(e) {
+        (e || window.event).returnValue = null;
+        return null;
+
+    });
+}
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
