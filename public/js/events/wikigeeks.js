@@ -15,12 +15,15 @@ if(jQuery.browser.mobile){
         return null;
     });
 } else {
-
-    window.addEventListener("beforeunload", function(e) {
+    $(window).bind('beforeunload', function(e){
         (e || window.event).returnValue = null;
         return null;
-
     });
+    // window.addEventListener("beforeunload", function(e) {
+    //     (e || window.event).returnValue = null;
+    //     return null;
+
+    // });
 }
 
 //Add 'wikigeeks' class to body
