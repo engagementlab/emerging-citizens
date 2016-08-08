@@ -10,20 +10,20 @@ var playerWasReconnected;
 var retrievingData;
 
 if(jQuery.browser.mobile){
-    $(window).bind('beforeunload', function(e){
-        (e || window.event).returnValue = null;
-        return null;
-    });
+    $("document").on("pagebeforehide",function(e){
+        // (e || window.event).returnValue = null;
+        return "what the heckityheck";
+    })
 } else {
-    $(window).bind('beforeunload', function(e){
-        (e || window.event).returnValue = null;
-        return null;
-    });
-    // window.addEventListener("beforeunload", function(e) {
+    // $(window).bind('beforeunload', function(e){
     //     (e || window.event).returnValue = null;
     //     return null;
-
     // });
+    window.addEventListener("beforeunload", function(e) {
+        (e || window.event).returnValue = null;
+        return null;
+
+    });
 }
 
 //Add 'wikigeeks' class to body
