@@ -42,6 +42,18 @@ var Meme = function (nsp, socket) {
                      );
 
 
+        },
+
+        'meme:like': function(package) {
+            
+            Session.Get(package.gameId).
+            MemeLike(
+                        currentSocket.id,
+                        package.msgData,
+                        currentSocket
+                     );
+
+
         }
     
     };

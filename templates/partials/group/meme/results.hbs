@@ -4,48 +4,93 @@
         <section class="col-sm-12 room-container" id="results-container">
             
             <div class="row">
-                <h1 style="font-size: 3em;color: #ffa76d" class="game-header">
+                <h1 class="game-header">
                     round results
                 </h1>
+                <h1 class="game-header hidden-el">
+                    leaderboard
+                </h1>
 
-                {{#each submissions}}
-    
-                    <div class="row">
+                <section id="submissions">
+               
+                    {{#each submissions}}
+        
+                        <div class="row">
 
-                        <div class="col-sm-4">
-                            <h2>voted it</h2>
+                            <div class="col-sm-4">
+                                <h2>voted it</h2>
 
-                            {{#if votes}}
-                                
-                                {{#each votes}}
+                                {{#if votes}}
+                                    
+                                    {{#each votes}}
 
-                                    <p>{{username}} (+{{score}})</p>
+                                        <p>{{username}} (+{{score}})</p>
 
-                                {{/each}}
+                                    {{/each}}
 
-                            {{/if}}
-                     
-                        </div>
-                        
-                        <div class="col-sm-4">
-                            <div class="meme">
-
-                                <div class="text-upper">{{upper}}</div>
-                                <div class="text-lower">{{lower}}</div>
-
-                                <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
-                                <div class="hidden-el">{{username}}</div>
-
+                                {{/if}}
+                         
                             </div>
-                        </div>
+                            
+                            <div class="col-sm-4">
+                                <div class="meme">
 
-                        <div class="col-sm-4">
-                            <h2>liked it</h2>
+                                    <div class="text-upper">{{upper}}</div>
+                                    <div class="text-lower">{{lower}}</div>
+
+                                    <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
+                                    <div class="hidden-el">{{username}}</div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <h2>liked it</h2>
+
+                                {{#if likes}}
+                                    
+                                    {{#each likes}}
+
+                                        <p>{{this}}</p>
+
+                                    {{/each}}
+
+                                {{/if}}
+                            </div>
+                        
                         </div>
                     
-                    </div>
-                
-                {{/each}}
+                    {{/each}}
+
+                </section>
+
+                <section class="row" id="scores">
+                    
+                    <div class="col-sm-3"></div>
+
+                    {{#each players}}
+                        <div class="col-sm-3">{{username}}</div>
+                        <div class="col-sm-3">{{score}}</div>
+                    {{/each}}
+                    
+                    <div class="col-sm-3"></div>
+                    
+                </section>
+
+                <section class="row" id="leaderboard">    
+                    
+                    <div class="col-sm-3"></div>
+
+                    {{#each players}}
+                        <div class="col-sm-3">{{username}}</div>
+                        <div class="col-sm-3">{{total_score}}</div>
+                    {{/each}}
+                    
+                    <div class="col-sm-3"></div>          
+                    
+
+                </section>
+
             </div>
 
         </section>

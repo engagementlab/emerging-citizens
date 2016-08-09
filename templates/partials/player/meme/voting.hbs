@@ -10,7 +10,8 @@
                         <ul>
                         {{#each submissions}}
                             <li>
-                                <img src="{{{cloudinaryUrl image height=400 quality=80}}}" />
+                                <img src="{{{cloudinaryUrl image width=400 quality=80}}}" />
+                                <input class="btn-like" type="submit" name="submit" value="like">
                             </li>
                         {{/each}}
                         </ul>
