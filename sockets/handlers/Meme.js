@@ -30,6 +30,18 @@ var Meme = function (nsp, socket) {
                          );
 
 
+        },
+
+        'meme:vote': function(package) {
+            
+            Session.Get(package.gameId).
+            MemeVote(
+                        currentSocket.id,
+                        package.msgData,
+                        currentSocket
+                     );
+
+
         }
     
     };

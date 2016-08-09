@@ -1,0 +1,54 @@
+<div class="page-container">
+    <div class="row">
+
+        <section class="col-sm-12 room-container" id="results-container">
+            
+            <div class="row">
+                <h1 style="font-size: 3em;color: #ffa76d" class="game-header">
+                    round results
+                </h1>
+
+                {{#each submissions}}
+    
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <h2>voted it</h2>
+
+                            {{#if votes}}
+                                
+                                {{#each votes}}
+
+                                    <p>{{username}} (+{{score}})</p>
+
+                                {{/each}}
+
+                            {{/if}}
+                     
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <div class="meme">
+
+                                <div class="text-upper">{{upper}}</div>
+                                <div class="text-lower">{{lower}}</div>
+
+                                <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
+                                <div class="hidden-el">{{username}}</div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <h2>liked it</h2>
+                        </div>
+                    
+                    </div>
+                
+                {{/each}}
+            </div>
+
+        </section>
+
+    </div>
+</div>

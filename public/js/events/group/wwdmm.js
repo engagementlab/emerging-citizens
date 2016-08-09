@@ -44,6 +44,7 @@ debugger;
 
 	  case 'meme:topic':
 	  case 'meme:voting':
+	  case 'meme:results':
 
 	      $('#gameContent').html(eventData);
 

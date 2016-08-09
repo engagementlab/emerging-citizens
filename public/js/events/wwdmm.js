@@ -51,27 +51,20 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:voting':
 
             $('#gameContent').html(eventData);
-
-            var slideIndex = 0;            
-            var slider = $('#meme-slider').unslider({
-                
-            });
-            slider.on('unslider.change', function(event, index, slide) {
-                slideIndex = index;
-
-                var voted = ($(slide[0]).data('voted') == 'true')
-                
-                $('#btn-vote').css('display', (voted ? 'none' : 'block'));
-                $('#voted').css('display', (voted ? 'block' : 'none'));
-            });
-
+        
+            var slider = $('#meme-slider').unslider();
+            
+            // When 'vote' is clicked, send event and set slide as voted on
             $('#btn-vote').click(function() {
 
-                socket.emit('meme:vote', emitData({
-                    imageIndex: slideIndex 
-                }));
+                var slideIndex = $('#meme-slider ul li').index($('.unslider-active'));
+                
+                socket.emit('meme:vote', emitData(slideIndex));
 
-                $($('#meme-slider ul li')[slideIndex]).data('voted', 'true');
+                // $(slides[slideIndex]).data({'voted': true});
+
+                $('#btn-vote').css('display', 'none');
+                $('#voted').css('display', 'block');
 
             });
 
