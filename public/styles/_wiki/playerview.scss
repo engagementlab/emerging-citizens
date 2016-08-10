@@ -12,6 +12,8 @@
 		padding: 40px 0px;
 	}
 
+	
+
 	.submission {
 		background-color: $color-dark-orange;
 		.form-prompt {
@@ -75,6 +77,18 @@
 		margin-top:0;
 	}
 
+	#article {
+
+		.article-name{
+			background-color: $color-bright-red;
+			color: $color-light-teal;
+			padding: 20px;
+			// position: fixed;
+		}
+	}
+
+	
+
 	.game-message {
 		position: relative;
 		padding-top: 10%;
@@ -90,8 +104,23 @@
 		background-position: center;
 		background-size: cover;
 
+		&.wiki-modal {
+			// display:none;
+			width: 100%;
+			height:100%;
+			background-color:transparentize($color-light-orange, 0.5);
+			position: fixed;
+			top: 0;
+
+			span {
+				color: $color-bright-red;
+				font-size:2em;
+				font-weight: bold;
+			}
+		}
+
 		div {
-			padding-top: 5%;
+			padding-top: 3%;
 
 
 		}
@@ -118,7 +147,7 @@
 
 	#submitted {
 
-		margin-top: 15%;
+		margin-top: 5%;
 		.game-message {
 			margin: 0;
 			min-height: 100px;

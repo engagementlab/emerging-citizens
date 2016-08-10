@@ -136,7 +136,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:end':
         case 'game:round_over':
-        case 'game:countdown_end':
+        {{!-- case 'game:countdown_end': --}}
         case 'players:update':
 
             $('#gameContent').html(eventData);
