@@ -55,7 +55,8 @@ GameConfig.add({
 	}, 
 	"Wait Wait Don't Meme Me", {
 
-	  timeLimitMeme: { type: Number, label: "Time Limit", required: true, initial: true }
+	  timeLimitMeme: { type: Number, label: "Time Limit", required: true, initial: true },
+	  scoreVoteMeme: { type: Number, label: "Vote Score", required: true, initial: true }
 
 	}
 

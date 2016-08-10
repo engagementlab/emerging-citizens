@@ -39,8 +39,44 @@ var gameEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
-            $('#meme-slider').unslider({
+            var slider = $('#meme-slider').unslider({
                 nav: false
+            });
+            slider.on('unslider.change', function(event, index, slide) {
+                $('#image-index').val(index);
+            });
+
+            break;
+
+        case 'meme:voting':
+
+            $('#gameContent').html(eventData);
+        
+            var slider = $('#meme-slider').unslider();
+            
+            // When 'vote' is clicked, send event
+            $('#btn-vote').click(function() {
+
+                var slideIndex = $('#meme-slider ul li').index($('.unslider-active'));
+                
+                socket.emit('meme:vote', emitData(slideIndex));
+
+                $('#btn-vote').css('display', 'none');
+                $('#voted').css('display', 'block');
+
+            });
+
+            // When 'like' is clicked, send event and set slide as liked
+            $('.btn-like').click(function(evt) {
+
+                debugger;
+
+                var slideIndex = $('#meme-slider ul li').index($('.unslider-active'));
+                
+                socket.emit('meme:like', emitData(slideIndex));
+                
+                $(evt.currentTarget).remove();
+
             });
 
             break;

@@ -6,6 +6,7 @@ module.exports = function(app) {
   var CommonHandler = require('./handlers/Common');
   var HashtagHandler = require('./handlers/Hashtag');
   var WikiHandler = require('./handlers/Wiki');
+  var MemeHandler = require('./handlers/Meme');
   var PlayerLogin = require('./handlers/PlayerLogin');
 
   io.on('connection', function (socket) {
@@ -17,6 +18,7 @@ module.exports = function(app) {
         common: new CommonHandler(io, socket),
         hashtag: new HashtagHandler(io, socket),
         wiki: new WikiHandler(io, socket),
+        meme: new MemeHandler(io, socket),
         login: new PlayerLogin(io, socket)
     };
 

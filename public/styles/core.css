@@ -10,6 +10,10 @@
   font-family: "AvenirBold";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.ttf") format("truetype"); }
 
+@font-face {
+  font-family: "HalisGR-Book";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.ttf") format("truetype"); }
+
 .light {
   font-family: "AvenirLight"; }
 
@@ -1216,6 +1220,19 @@ body .player-form {
 /* 
 	WWDMM group view styling.
 */
+.body.wwdmm #voting-container .text-upper, .body.wwdmm #voting-container .text-lower {
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: -6px -6px 0 #000, -6px -5px 0 #000, -6px -4px 0 #000, -6px -3px 0 #000, -6px -2px 0 #000, -6px -1px 0 #000, -6px 0px 0 #000, -6px 1px 0 #000, -6px 2px 0 #000, -6px 3px 0 #000, -6px 4px 0 #000, -6px 5px 0 #000, -6px 6px 0 #000, -5px -6px 0 #000, -5px -5px 0 #000, -5px -4px 0 #000, -5px -3px 0 #000, -5px -2px 0 #000, -5px -1px 0 #000, -5px 0px 0 #000, -5px 1px 0 #000, -5px 2px 0 #000, -5px 3px 0 #000, -5px 4px 0 #000, -5px 5px 0 #000, -5px 6px 0 #000, -4px -6px 0 #000, -4px -5px 0 #000, -4px -4px 0 #000, -4px -3px 0 #000, -4px -2px 0 #000, -4px -1px 0 #000, -4px 0px 0 #000, -4px 1px 0 #000, -4px 2px 0 #000, -4px 3px 0 #000, -4px 4px 0 #000, -4px 5px 0 #000, -4px 6px 0 #000, -3px -6px 0 #000, -3px -5px 0 #000, -3px -4px 0 #000, -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -3px 4px 0 #000, -3px 5px 0 #000, -3px 6px 0 #000, -2px -6px 0 #000, -2px -5px 0 #000, -2px -4px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -2px 4px 0 #000, -2px 5px 0 #000, -2px 6px 0 #000, -1px -6px 0 #000, -1px -5px 0 #000, -1px -4px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, -1px 4px 0 #000, -1px 5px 0 #000, -1px 6px 0 #000, 0px -6px 0 #000, 0px -5px 0 #000, 0px -4px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 0px 4px 0 #000, 0px 5px 0 #000, 0px 6px 0 #000, 1px -6px 0 #000, 1px -5px 0 #000, 1px -4px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 1px 4px 0 #000, 1px 5px 0 #000, 1px 6px 0 #000, 2px -6px 0 #000, 2px -5px 0 #000, 2px -4px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 2px 4px 0 #000, 2px 5px 0 #000, 2px 6px 0 #000, 3px -6px 0 #000, 3px -5px 0 #000, 3px -4px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000, 3px 4px 0 #000, 3px 5px 0 #000, 3px 6px 0 #000, 4px -6px 0 #000, 4px -5px 0 #000, 4px -4px 0 #000, 4px -3px 0 #000, 4px -2px 0 #000, 4px -1px 0 #000, 4px 0px 0 #000, 4px 1px 0 #000, 4px 2px 0 #000, 4px 3px 0 #000, 4px 4px 0 #000, 4px 5px 0 #000, 4px 6px 0 #000, 5px -6px 0 #000, 5px -5px 0 #000, 5px -4px 0 #000, 5px -3px 0 #000, 5px -2px 0 #000, 5px -1px 0 #000, 5px 0px 0 #000, 5px 1px 0 #000, 5px 2px 0 #000, 5px 3px 0 #000, 5px 4px 0 #000, 5px 5px 0 #000, 5px 6px 0 #000, 6px -6px 0 #000, 6px -5px 0 #000, 6px -4px 0 #000, 6px -3px 0 #000, 6px -2px 0 #000, 6px -1px 0 #000, 6px 0px 0 #000, 6px 1px 0 #000, 6px 2px 0 #000, 6px 3px 0 #000, 6px 4px 0 #000, 6px 5px 0 #000, 6px 6px 0 #000; }
+
+.body.wwdmm #voting-container .text-lower {
+  position: absolute;
+  bottom: 0px;
+  left: 50%; }
+
 /* 
 	HTYI player view styling.
 */
@@ -1442,6 +1459,11 @@ body .player-form {
   color: white;
   font-weight: bold;
   text-shadow: -6px -6px 0 #000, -6px -5px 0 #000, -6px -4px 0 #000, -6px -3px 0 #000, -6px -2px 0 #000, -6px -1px 0 #000, -6px 0px 0 #000, -6px 1px 0 #000, -6px 2px 0 #000, -6px 3px 0 #000, -6px 4px 0 #000, -6px 5px 0 #000, -6px 6px 0 #000, -5px -6px 0 #000, -5px -5px 0 #000, -5px -4px 0 #000, -5px -3px 0 #000, -5px -2px 0 #000, -5px -1px 0 #000, -5px 0px 0 #000, -5px 1px 0 #000, -5px 2px 0 #000, -5px 3px 0 #000, -5px 4px 0 #000, -5px 5px 0 #000, -5px 6px 0 #000, -4px -6px 0 #000, -4px -5px 0 #000, -4px -4px 0 #000, -4px -3px 0 #000, -4px -2px 0 #000, -4px -1px 0 #000, -4px 0px 0 #000, -4px 1px 0 #000, -4px 2px 0 #000, -4px 3px 0 #000, -4px 4px 0 #000, -4px 5px 0 #000, -4px 6px 0 #000, -3px -6px 0 #000, -3px -5px 0 #000, -3px -4px 0 #000, -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -3px 4px 0 #000, -3px 5px 0 #000, -3px 6px 0 #000, -2px -6px 0 #000, -2px -5px 0 #000, -2px -4px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -2px 4px 0 #000, -2px 5px 0 #000, -2px 6px 0 #000, -1px -6px 0 #000, -1px -5px 0 #000, -1px -4px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, -1px 4px 0 #000, -1px 5px 0 #000, -1px 6px 0 #000, 0px -6px 0 #000, 0px -5px 0 #000, 0px -4px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 0px 4px 0 #000, 0px 5px 0 #000, 0px 6px 0 #000, 1px -6px 0 #000, 1px -5px 0 #000, 1px -4px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 1px 4px 0 #000, 1px 5px 0 #000, 1px 6px 0 #000, 2px -6px 0 #000, 2px -5px 0 #000, 2px -4px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 2px 4px 0 #000, 2px 5px 0 #000, 2px 6px 0 #000, 3px -6px 0 #000, 3px -5px 0 #000, 3px -4px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000, 3px 4px 0 #000, 3px 5px 0 #000, 3px 6px 0 #000, 4px -6px 0 #000, 4px -5px 0 #000, 4px -4px 0 #000, 4px -3px 0 #000, 4px -2px 0 #000, 4px -1px 0 #000, 4px 0px 0 #000, 4px 1px 0 #000, 4px 2px 0 #000, 4px 3px 0 #000, 4px 4px 0 #000, 4px 5px 0 #000, 4px 6px 0 #000, 5px -6px 0 #000, 5px -5px 0 #000, 5px -4px 0 #000, 5px -3px 0 #000, 5px -2px 0 #000, 5px -1px 0 #000, 5px 0px 0 #000, 5px 1px 0 #000, 5px 2px 0 #000, 5px 3px 0 #000, 5px 4px 0 #000, 5px 5px 0 #000, 5px 6px 0 #000, 6px -6px 0 #000, 6px -5px 0 #000, 6px -4px 0 #000, 6px -3px 0 #000, 6px -2px 0 #000, 6px -1px 0 #000, 6px 0px 0 #000, 6px 1px 0 #000, 6px 2px 0 #000, 6px 3px 0 #000, 6px 4px 0 #000, 6px 5px 0 #000, 6px 6px 0 #000; }
+
+#meme-voting .btn-vote {
+  position: absolute;
+  margin-top: 50%;
+  right: 50%; }
 
 html, body {
   max-height: 100%; }
