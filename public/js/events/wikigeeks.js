@@ -8,6 +8,7 @@
  */
 var playerWasReconnected;
 var retrievingData;
+var random;
 
 if(jQuery.browser.mobile){
     $("document").on("pagebeforehide",function(e){
@@ -58,6 +59,13 @@ var gameEvents = function(eventId, eventData) {
         var articleChosen = $('.article-name');
 
         articleChosen.text(articleTitle);
+
+        console.log(random);
+
+        if (!random)
+            $('#article .article-name').html(articleTitle);
+        else 
+            $('#article .article-name').html("Our random article generator sent you to <br> " + articleTitle)
 
         retrievingData = true;
 
@@ -115,7 +123,7 @@ var gameEvents = function(eventId, eventData) {
                 }
 
                 retrievingData = false;
-
+                random = false;
             });
 
     }
@@ -403,12 +411,16 @@ var gameEvents = function(eventId, eventData) {
 
         case 'article:random':
 
+
+            random = true;
             retrieveArticle(eventData, false, true);
+
 
 
             break;
 
         case 'topic:info':
+
 
             $('.timesUp').hide();
             $('input').disabled = false;
@@ -436,20 +448,41 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
+            // console.log(eventData);
+
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
                 socket.emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });
             }
+
+            if ($('#topic-submission').css('display') !== 'none') {
+                $('.form .error').text(eventData + "If you haven't found a starting article soon, we will choose one for you..");
+
+            }
             break;
 
         case 'game:countdown_end':
+            console.log("time is up!");
+             $('input').disabled = false;
 
-            $('input').disabled = true;
+            if ($('#topic-submission').css('display') !== 'none') {
+                $('input').disabled = true;
+                $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
+                $('.timesUp').show();
+                $('#topic-submission').hide();
+            
+            }
 
-            $('.timesUp').show();
+            if ($('section#submitted').css('display') !== 'none') {
+                $('input').disabled = true;
+                $('.timesUp').html("<span>Time is up! Sending you to your starting article...</span>");
+                $('.timesUp').show();
+                $('section#submitted').hide();
+            
+            }
 
-            setTimeout(function(){$('.timesUp').hide();}, 10000);
+            
 
             break;
 

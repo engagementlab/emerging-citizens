@@ -19,6 +19,8 @@ var gameEvents = function(eventId, eventData) {
 
     case 'game:countdown':
 
+    console.log(eventData);
+
       var countdownContainer = $('.countdown'),
           countdownText =  $('#countdown #text'),
           revealCountdownText = $('#article-reveal #countdown #text'),
@@ -60,7 +62,9 @@ var gameEvents = function(eventId, eventData) {
 
           // End countdown
           if(secondsLeft == 0 && clockName === 'topicCountdown'){
-
+              clearInterval(clockInterval);
+            }
+            if(secondsLeft == 0 && clockName === 'articleReveal'){
               clearInterval(clockInterval);
             }
           
@@ -275,16 +279,7 @@ var gameEvents = function(eventId, eventData) {
 
 
     case 'game:countdown_end':
-       $('.row #countdown').hide();
-        $('.timesUp').show();
-
-
-        // $('input').disabled = true;
-
-        // $('.timesUp').show();
-
-        // setTimeout(function(){$('.timesUp').hide();}, 10000);
-
+       
         break;
 
   }
