@@ -1,44 +1,77 @@
 /* 
 	WWDMM player view styling.
 */
-#meme-create {
-	.unslider {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	
-	input {
-		position: absolute;
-    left: 0;
-    width: 100%;
-    z-index: 10;
+.body.wwdmm.player {
 
-    background: none;
-    border: none;
-    color: white;
-    font-size: 3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
+	#meme-create {
+			
+		.meme-text {
+			position: absolute;
+	    left: 0;
+	    width: 100%;
+	    z-index: 10;
 
-    @include stroke(6, #000);
+	    background: none;
+	    border: none;
+	    color: white;
+	    font-size: 3em;
+	    font-weight: bold;
+	    text-transform: uppercase;
+	    text-align: center;
+
+	    @include stroke(6, #000);
+		}
+		@include placeholder {
+			color: white;
+	    font-weight: bold;
+			
+			@include stroke(6, #000);
+		}
+
+		#text-upper {
+			position: absolute;
+			margin-top: 7%;
+			left: 0;
+		}
+		#text-lower {
+			position: absolute;
+	    margin-top: 65%;
+	    left: 0;
+		}
+
+		a.unslider-arrow {
+	    top: 50%;
+	    font-size: 2em;
+	    color: white;
+			text-shadow: 2px 0px 8px rgba(0, 0, 0, 1);	    
+		}
+
 	}
-	@include placeholder {
-		color: white;
-    font-weight: bold;
+
+	#meme-voting {
 		
-		@include stroke(6, #000);
-	}
+			.text-upper, .text-lower {
+		    color: white;
+		    font-size: 3em;
+		    font-weight: bold;
+		    text-transform: uppercase;
+		    text-align: center;
 
-}
+		    @include stroke(6, #000);
+			}
 
-#meme-voting {
-	
-	.btn-like {
-    position: absolute;
-    margin-top: 50%;
-    right: 50%;
+			.text-lower {
+		    position: absolute;
+		    bottom: 0px;
+		    left: 50%;
+			}
+		
+		.btn-like {
+	    position: absolute;
+	    margin-top: 50%;
+	    right: 50%;
+		}
+
 	}
 
 }
