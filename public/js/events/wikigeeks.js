@@ -27,6 +27,11 @@ if(jQuery.browser.mobile){
     });
 }
 
+if ($('.article-error').css('display') !== 'none'){
+    console.log("theres an error but we are hiding it in 5...");
+    setTimeout($('.article-error').hide(), 5000);
+}
+
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
 
@@ -50,7 +55,11 @@ var gameEvents = function(eventId, eventData) {
             return;
         }
 
+        console.log(articleTitle);
+
         var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
+
+        console.log(retrievalUrl);
 
         sessionStorage.setItem('currentArticle', articleTitle);
 
@@ -60,13 +69,6 @@ var gameEvents = function(eventId, eventData) {
 
         articleChosen.text(articleTitle);
 
-        console.log(random);
-
-        if (!random)
-            $('#article .article-name').html(articleTitle);
-        else 
-            $('#article .article-name').html("Our random article generator sent you to <br> " + articleTitle)
-
         retrievingData = true;
 
         // Get article content
@@ -74,7 +76,15 @@ var gameEvents = function(eventId, eventData) {
             retrievalUrl,
             function(articleData) {
 
-                // console.log (JSON.stringify(articleData));
+                console.log (JSON.stringify(articleData));
+
+                if(articleData.error){
+                    console.log("theres an error");
+                    retrievingData = false;
+                    $('.article-error').html("Looks like there's something up with that link... <br> Try a different one!");
+                    $('.article-error').show();
+                    return;
+                }
 
                 if (articleData.parse.redirects.length !== 0) {
                     // console.log (JSON.stringify(articleData.parse.redirects[0].to));
@@ -83,12 +93,12 @@ var gameEvents = function(eventId, eventData) {
                     console.log("no redirects");
                 }
 
-                if (articleData.error) {
-                    $(articleInput).addClass('invalid');
-                    $('.error').text(articleData.error.info).fadeIn();
+                // if (articleData.error) {
+                //     $(articleInput).addClass('invalid');
+                //     $('.error').text(articleData.error.info).fadeIn();
 
-                    return;
-                }
+                //     return;
+                // }
                 displayWikiContent(articleData);
 
                 // Tell server about this article being chosen by player, unless overriden
@@ -121,6 +131,11 @@ var gameEvents = function(eventId, eventData) {
 
                     });
                 }
+
+                if (!random)
+                    $('#article .article-name').html(articleTitle);
+                else 
+                    $('#article .article-name').html("Our random article generator sent you to <br> " + articleTitle);
 
                 retrievingData = false;
                 random = false;
@@ -213,7 +228,7 @@ var gameEvents = function(eventId, eventData) {
         removeDom('.metadata .image');
 
         removeDom('div#toc');
-        // removeDom('div.thumb');
+        removeDom('.references');
         // removeDom('span.mw-editsection');
         removeDom('sup');
         // removeDom('table');
@@ -254,7 +269,17 @@ var gameEvents = function(eventId, eventData) {
                     title: $(link).attr('href').replace('/wiki/', '')
                 });
 
+                if ($(link).hasClass('new')){
+                    $(link).attr('href', 'javascript:void(0)')
+                           .attr("disabled", "disabled");
+                }
+
             });
+
+            // $("a.new").each(function(link) {
+                
+            //         link.attr("disabled", "disabled");
+            // });
 
         window.scrollTo(0, 0);
 

@@ -136,7 +136,6 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       if(isGroup) {
         logger.info(playerGameId + " group view disconnecting. Bu-bye.");
-
       } else {
 
         var player = session.GetPlayerById(currentSocket.id);

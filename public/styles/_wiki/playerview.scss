@@ -12,6 +12,19 @@
 		padding: 40px 0px;
 	}
 
+	a.new {
+		color: red;
+		pointer-events: none !important;
+	}
+
+	.article-error {
+		background-color: $color-bright-red;
+		position: fixed;
+		bottom: 0;
+		width:100%;
+		margin: 0;
+		padding: 10px;
+	}
 	
 
 	.submission {
