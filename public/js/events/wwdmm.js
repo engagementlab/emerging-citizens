@@ -42,8 +42,8 @@ var gameEvents = function(eventId, eventData) {
             var slider = $('#meme-slider').unslider({
                 nav: false,
                 arrows: {
-                    prev: '<a class="unslider-arrow prev"><<</a>',
-                    next: '<a class="unslider-arrow next">>></a>'
+                    prev: '<a class="unslider-arrow prev desktop-only"><<</a>',
+                    next: '<a class="unslider-arrow next desktop-only">>></a>'
                 }
             });
             slider.on('unslider.change', function(event, index, slide) {
