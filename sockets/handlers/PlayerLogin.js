@@ -134,10 +134,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       var isGroup = (currentSocket.id === session.groupModerator);
 
-      if(isGroup)
+      if(isGroup) {
         logger.info(playerGameId + " group view disconnecting. Bu-bye.");
 
-      else {
+      } else {
 
         var player = session.GetPlayerById(currentSocket.id);
 
@@ -150,7 +150,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
         if(currentSocket.id === session.groupModerator) {
           logger.debug('is group moderator');
-          session.End(currentSpace, true);
+          session.Delete(currentSpace, true);
         }
 
       }
