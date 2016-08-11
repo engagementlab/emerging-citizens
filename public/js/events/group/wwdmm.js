@@ -12,8 +12,7 @@ var clockInterval;
 var resultsAnimSlider;
 
 var gameEvents = function(eventId, eventData) {
-debugger;
-
+	
 	/*
 	  Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
 	*/

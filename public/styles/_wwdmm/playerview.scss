@@ -4,6 +4,15 @@
 .body.wwdmm.player {
 
 	#meme-create {
+
+		.glide__wrapper {
+			min-height: 400px;
+			// height: 985px;
+		}
+
+		#meme-slider {
+			// height: 100%;
+		}
 			
 		.meme-text {
 			position: absolute;
@@ -18,14 +27,16 @@
 	    font-weight: bold;
 	    text-transform: uppercase;
 	    text-align: center;
+		  
+		  resize: none;
 
-	    @include stroke(6, #000);
+	    @include stroke(3, #000);
 		}
 		@include placeholder {
 			color: white;
 	    font-weight: bold;
 			
-			@include stroke(6, #000);
+			@include stroke(3, #000);
 		}
 
 		#text-upper {

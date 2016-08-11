@@ -9,6 +9,28 @@
 
  var playerWasReconnected;
 
+ var shrinkToFill = function(input) {
+    var $input = $(input),
+        txt = $input.val(),
+        maxWidth = 70, // add some padding
+        font;
+
+    debugger;
+
+    if (txt.length > maxWidth) {
+        // if it's too big, calculate a new font size
+        // the extra .9 here makes up for some over-measures
+        fontSize = fontSize * maxWidth / txt.length * .9;
+        font = 'bold ' + fontSize + 'px Avenir';
+        // and set the style on the input
+        $input.css({font:font});
+    } else {
+        // in case the font size has been set small and 
+        // the text was then deleted
+        $input.css({font:font});
+    }
+}
+
  window.addEventListener("beforeunload", function (e) {
  	(e || window.event).returnValue = null;
  	return null;
@@ -39,7 +61,7 @@ var gameEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData);
 
-            var slider = $('#meme-slider').unslider({
+            /*var slider = $('#meme-slider').unslider({
                 nav: false,
                 arrows: {
                     prev: '<a class="unslider-arrow prev desktop-only"><<</a>',
@@ -49,7 +71,17 @@ var gameEvents = function(eventId, eventData) {
             slider.on('unslider.change', function(event, index, slide) {
                 $('#image-index').val(index);
             });
+*/
+            $("#meme-slider").glide({
+                type: "carousel",
+                autoplay: false,
+                autoheight: true
+            });
 
+            $('#text-upper').keyup(function() {
+                shrinkToFill(this);
+            });
+            
             break;
 
         case 'meme:received': 

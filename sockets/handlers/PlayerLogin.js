@@ -150,7 +150,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
         if(currentSocket.id === session.groupModerator) {
           logger.debug('is group moderator');
-          session.Delete(currentSpace, true);
+          session.End(currentSpace, true);
         }
 
       }

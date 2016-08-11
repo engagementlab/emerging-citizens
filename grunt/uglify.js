@@ -63,6 +63,7 @@ module.exports = function(grunt, options) {
     '!' + __dirname + '/../public/bower_components/nosleep/*.js', // Ignore nosleep
     __dirname + '/../public/bower_components/progressbar.js/dist/progressbar.min.js',
     __dirname + '/../public/bower_components/ion-sound/js/ion.sound.min.js',
+    __dirname + '/../public/bower_components/glidejs/src/Glide.js',
     __dirname + '/../public/gsap-timeline-slider.js',
   
   ];
