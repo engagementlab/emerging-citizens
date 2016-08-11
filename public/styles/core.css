@@ -1278,6 +1278,16 @@ body .player-form {
   color: #36d5d9; }
   .body.wikigeeks.player #gameContent {
     padding: 40px 0px; }
+  .body.wikigeeks.player a.new {
+    color: red;
+    pointer-events: none !important; }
+  .body.wikigeeks.player .article-error {
+    background-color: #F83439;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px; }
   .body.wikigeeks.player .submission {
     background-color: #ff5e41; }
     .body.wikigeeks.player .submission .form-prompt {
