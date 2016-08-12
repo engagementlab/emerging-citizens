@@ -1287,8 +1287,10 @@ body .player-form {
     bottom: 0;
     width: 100%;
     margin: 0;
-    padding: 10px; }
+    padding: 10px;
+    display: none; }
   .body.wikigeeks.player .submission {
+    min-height: 370px;
     background-color: #ff5e41; }
     .body.wikigeeks.player .submission .form-prompt {
       color: white;
@@ -1314,6 +1316,31 @@ body .player-form {
       width: 80%;
       margin: 20px auto;
       color: blanchedalmond; }
+      .body.wikigeeks.player .submission .form.moveUp {
+        -moz-transform: translate(0px, -30px);
+        -o-transform: translate(0px, -30px);
+        -ms-transform: translate(0px, -30px);
+        -webkit-transform: translate(0px, -30px);
+        transform: translate(0px, -30px); }
+      .body.wikigeeks.player .submission .form button#clear {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        padding: 0px;
+        float: right;
+        border-radius: 15px;
+        background-color: #ff9971;
+        -moz-transform: translate(40px, 60px);
+        -o-transform: translate(40px, 60px);
+        -ms-transform: translate(40px, 60px);
+        -webkit-transform: translate(40px, 60px);
+        transform: translate(40px, 60px);
+        cursor: pointer;
+        -webkit-appearance: button;
+        color: #ffe2d7;
+        border: 4px solid #ffe2d7; }
+        .body.wikigeeks.player .submission .form button#clear:hover, .body.wikigeeks.player .submission .form button#clear:focus {
+          outline: none; }
       .body.wikigeeks.player .submission .form input.prompt {
         margin: 5px auto;
         border: 2px solid #ffaf34;

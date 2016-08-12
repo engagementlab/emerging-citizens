@@ -1,18 +1,24 @@
 <div id="topic-submission">
 
 	<div class="submission col-xs-12 col-lg-12">
-	  <div class="form-prompt">Which article do you want to start linking from?</div>
+	  <div class="form-prompt">Choose a starting article from our drop-down list!</div>
 	  <div class="form">
+	  <button id="clear" class="post-button hidden" name="clear">x</button>
 
 				<div class="input-container">
+					{{!-- <span id="clear">x</span> --}}
+
 					<input id="article_input" name="element_1" class="prompt" type="text" autofocus="autofocus" placeholder="start typing article name here...">
+					
 					
 				</div>
 				<br />
 				{{!-- Game error --}}
         
-				<input id="btn_search" class="post-button submit" type="submit" name="submit" value="enter">
+				<input id="btn_search" class="post-button submit" type="submit" name="submit" value="go to article">
 				<div class="error">Error!</div>
+
+				{{!-- <div class="article-error row"></div> --}}
 		
 		</div>
 		<div id="countdownTimer"></div>

@@ -80,10 +80,19 @@ var gameEvents = function(eventId, eventData) {
 
                 if(articleData.error){
                     console.log("theres an error");
-                    retrievingData = false;
-                    $('.article-error').html("Looks like there's something up with that link... <br> Try a different one!");
-                    $('.article-error').show();
-                    return;
+
+                    if (!initialSearch) {
+                    
+                        $('.article-error').html("Looks like there's something up with that link... <br> Try a different one!");
+                        $('.article-error').show();
+                        retrievingData = false;
+                        return;
+                    } else {
+                        $('.error').html("Looks like there's something up with that link... <br> Try a different one!");
+                        $('.error').show();
+                        retrievingData = false;
+                        return;
+                    }
                 }
 
                 if (articleData.parse.redirects.length !== 0) {
@@ -318,12 +327,10 @@ var gameEvents = function(eventId, eventData) {
 
             }
 
-            $("#article_input").keydown(function(event){
-                console.log("keyup");
-                if(event.keyCode == 13){
-                    console.log("pressed enter");
-                    $('#btn_search').click();
-                }
+            $('button#clear').click(function(){
+                articleInput.val('');
+                $(this).addClass("hidden");
+                $('.submission .form').removeClass("moveUp");
             });
 
             // Form click to search for first article
@@ -348,6 +355,11 @@ var gameEvents = function(eventId, eventData) {
                             response(data[1]);
                         }
                     });
+                },
+                select: function(event, ui) {
+                    $('button#clear').removeClass("hidden");
+                    $('.submission .form').addClass("moveUp");
+                    
                 }
             });
 
