@@ -1437,6 +1437,7 @@ body .player-form {
 .body.wwdmm.player #meme-create .meme-text {
   position: absolute;
   left: 0;
+  height: 125px;
   width: 100%;
   z-index: 10;
   background: none;
@@ -1485,6 +1486,11 @@ body .player-form {
   color: white;
   text-shadow: 2px 0px 8px black; }
 
+.body.wwdmm.player #meme-create .glide__arrow {
+  font-size: 1em;
+  color: black;
+  border: 2px solid black; }
+
 .body.wwdmm.player #meme-voting .text-upper, .body.wwdmm.player #meme-voting .text-lower {
   color: white;
   font-size: 3em;
@@ -1496,12 +1502,11 @@ body .player-form {
 .body.wwdmm.player #meme-voting .text-lower {
   position: absolute;
   bottom: 0px;
-  left: 50%; }
+  margin-left: 7%; }
 
 .body.wwdmm.player #meme-voting .btn-like {
   position: absolute;
-  margin-top: 50%;
-  right: 50%; }
+  bottom: 0px; }
 
 html, body {
   max-height: 100%; }

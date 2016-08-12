@@ -11,7 +11,7 @@
                     leaderboard
                 </h1>
 
-                <section id="submissions">
+                <section class="row hidden-el" id="submissions">
                
                     {{#each submissions}}
         
@@ -70,7 +70,7 @@
 
                     {{#each players}}
                         <div class="col-sm-3">{{username}}</div>
-                        <div class="col-sm-3">{{score}}</div>
+                        <div class="col-sm-3">{{#if total}} {{total}} {{else}} 0 {{/if}}</div>
                     {{/each}}
                     
                     <div class="col-sm-3"></div>
@@ -83,13 +83,25 @@
 
                     {{#each players}}
                         <div class="col-sm-3">{{username}}</div>
-                        <div class="col-sm-3">{{total_score}}</div>
+                        <div class="col-sm-3">{{#if score_total}} {{score_total}} {{else}} 0 {{/if}}</div>
                     {{/each}}
                     
                     <div class="col-sm-3"></div>          
                     
 
                 </section>
+
+                <div id="countdown" class="row hidden-el">
+                    <h2>
+                        {{#if last_round}}
+                            Returning to Main Menu
+                        {{else}}
+                            Round {{incIndex round}} will begin
+                        {{/if}}
+                         in <span id="text">10</span> seconds
+                    </h2>
+                </div>
+
 
             </div>
 

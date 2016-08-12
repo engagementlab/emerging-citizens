@@ -9,26 +9,26 @@
 
  var playerWasReconnected;
 
- var shrinkToFill = function(input) {
-    var $input = $(input),
-        txt = $input.val(),
-        maxWidth = 70, // add some padding
-        font;
 
-    debugger;
+var shrinkToFill = function(input) {
+    
+    var txtInput = $(input),
+        txt = txtInput.val(),
+        maxWidth = 30,
+        defaultFontSize = 3;
 
     if (txt.length > maxWidth) {
-        // if it's too big, calculate a new font size
-        // the extra .9 here makes up for some over-measures
-        fontSize = fontSize * maxWidth / txt.length * .9;
-        font = 'bold ' + fontSize + 'px Avenir';
-        // and set the style on the input
-        $input.css({font:font});
-    } else {
-        // in case the font size has been set small and 
-        // the text was then deleted
-        $input.css({font:font});
+
+        // Calculate a new font size
+        var fontSize = defaultFontSize * maxWidth / txt.length * 1.1;
+        
+        // Set the style on the input
+        txtInput.css('fontSize', fontSize + 'em');
+
     }
+    else
+        txtInput.css('fontSize', defaultFontSize + 'em');
+
 }
 
  window.addEventListener("beforeunload", function (e) {
@@ -59,23 +59,18 @@ var gameEvents = function(eventId, eventData) {
 
         case 'meme:create':
 
+            var slideIndex = 0;
             $('#gameContent').html(eventData);
 
-            /*var slider = $('#meme-slider').unslider({
-                nav: false,
-                arrows: {
-                    prev: '<a class="unslider-arrow prev desktop-only"><<</a>',
-                    next: '<a class="unslider-arrow next desktop-only">>></a>'
-                }
-            });
-            slider.on('unslider.change', function(event, index, slide) {
-                $('#image-index').val(index);
-            });
-*/
             $("#meme-slider").glide({
                 type: "carousel",
                 autoplay: false,
-                autoheight: true
+                autoheight: true,
+                centered: true,
+                afterTransition: function(evt) {
+                    slideIndex = evt.index - 1;
+                    $('#image-index').val(slideIndex);
+                }
             });
 
             $('#text-upper').keyup(function() {
@@ -94,14 +89,21 @@ var gameEvents = function(eventId, eventData) {
 
         case 'meme:voting':
 
+            var slideIndex = 0;
             $('#gameContent').html(eventData);
         
-            var slider = $('#meme-slider').unslider();
+            $("#meme-slider").glide({
+                type: "carousel",
+                autoplay: false,
+                autoheight: true,
+                afterTransition: function(evt) {
+                    slideIndex = evt.index - 1;
+                    console.log(evt)
+                }
+            });
             
             // When 'vote' is clicked, send event
             $('#btn-vote').click(function() {
-
-                var slideIndex = $('#meme-slider ul li').index($('.unslider-active'));
                 
                 socket.emit('meme:vote', emitData(slideIndex));
 
@@ -112,7 +114,7 @@ var gameEvents = function(eventId, eventData) {
             // When 'like' is clicked, send event and set slide as liked
             $('.btn-like').click(function(evt) {
 
-                var slideIndex = $('#meme-slider ul li').index($('.unslider-active'));
+                // var slideIndex = $('#meme-slider ul li').index($('.glide__slide.active'));
                 
                 socket.emit('meme:like', emitData(slideIndex));
                 
