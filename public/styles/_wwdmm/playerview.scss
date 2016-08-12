@@ -4,10 +4,20 @@
 .body.wwdmm.player {
 
 	#meme-create {
+
+		.glide__wrapper {
+			min-height: 400px;
+			// height: 985px;
+		}
+
+		#meme-slider {
+			// height: 100%;
+		}
 			
 		.meme-text {
 			position: absolute;
 	    left: 0;
+	    height: 125px;
 	    width: 100%;
 	    z-index: 10;
 
@@ -18,14 +28,16 @@
 	    font-weight: bold;
 	    text-transform: uppercase;
 	    text-align: center;
+		  
+		  resize: none;
 
-	    @include stroke(6, #000);
+	    @include stroke(3, #000);
 		}
 		@include placeholder {
 			color: white;
 	    font-weight: bold;
 			
-			@include stroke(6, #000);
+			@include stroke(3, #000);
 		}
 
 		#text-upper {
@@ -46,6 +58,12 @@
 			text-shadow: 2px 0px 8px rgba(0, 0, 0, 1);	    
 		}
 
+		.glide__arrow {
+			font-size: 1em;
+			color: black;
+			border: 2px solid black;
+		}
+
 	}
 
 	#meme-voting {
@@ -63,13 +81,13 @@
 			.text-lower {
 		    position: absolute;
 		    bottom: 0px;
-		    left: 50%;
+		    margin-left: 7%;
 			}
 		
 		.btn-like {
 	    position: absolute;
-	    margin-top: 50%;
-	    right: 50%;
+	    bottom: 0px;
+	    // right: 50%;
 		}
 
 	}

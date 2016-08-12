@@ -1,45 +1,50 @@
-<div class="page-container">
-    <div class="row">
+<section class="form row">
+    
+    {{!-- <div class="col-lg-5"></div> --}}
+    
+    <div id="meme-voting" class="row col-lg-3 col-centered">
 
-        <section class="form col-sm-6 col-lg-12">
-            
-            <div class="col-lg-5"></div>
-            
-            <div id="meme-voting" class="row col-lg-2">
-                <div style="height: 100%">
+        <div id="meme-slider" class="glide">
 
-                    <div id="meme-slider">
-                        <ul>
-                        {{#each submissions}}
-                            <li>
-                                <div class="meme">
+            <div class="glide__arrows">
+                <button class="glide__arrow prev desktop-only" data-glide-dir="<"><<</button>
+                <button class="glide__arrow next desktop-only" data-glide-dir=">">>></button>
+            </div>
 
-                                    <div style="background: url({{{cloudinaryUrl image width=300 quality=80}}}) round;">
+            <div class="glide__wrapper">
+                <ul class="glide__track">
 
-                                        <div class="text-upper">{{upper}}</div>
-                                        <div class="text-lower">{{lower}}</div>
+                    {{#each submissions}}
+                        <li class="glide__slide">
+                            <div class="meme">
 
-                                    </div>
 
-                                    <input class="btn-like" type="submit" name="submit" value="like">
+                                <div class="text-upper">{{upper}}</div>
+                                <div class="text-lower">{{lower}}</div>
+                                <input class="btn-like" type="submit" name="submit" value="like">
+                                
+                                <img src="{{{cloudinaryUrl image width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
 
-                                </div>
-                            </li>
-                        {{/each}}
-                        </ul>
-                    </div>
-                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                
+                </ul>
+            </div>
+
+            <div class="glide__bullets"></div>
             
                 <div class="row">
 
                     <input id="btn-vote" class="post-button" type="submit" name="submit" value="vote">
 
                 </div>
-            </div>
+            </div>                    
 
-            <div class="col-lg-5"></div>
-
-        </section>
+        </div>
 
     </div>
-</div>
+
+    {{!-- <div class="col-lg-5"></div> --}}
+
+</section>

@@ -1,48 +1,52 @@
-<div class="page-container">
-    <div class="row">
+<section class="form row {{!-- col-lg-12 --}}">
 
-        <section class="form row {{!-- col-lg-12 --}}">
+    {{!-- <div class="col-lg-3"></div> --}}
+    
+    <div id="meme-create" class="row col-lg-3 col-centered">
+        <div id="meme-slider" class="glide">
 
-            {{!-- <div class="col-lg-3"></div> --}}
+            <textarea id="text-upper" class="meme-text" placeholder="select to edit upper text" tabindex="1" rows="2" maxlength="140" /> <br />
+            <textarea id="text-lower" class="meme-text" placeholder="select to edit lower text" tabindex="2" rows="2" maxlength="140" /> <br />
+
+            <input type="text" id="image-index" value="0" style="display:none">
             
-            <div id="meme-create" class="row col-lg-3">
-                <div style="height: 100%">
-
-                    <input type="text" id="text-upper" class="meme-text" placeholder="select to edit" tabindex="1"> <br />
-                    <input type="text" id="text-lower" class="meme-text" placeholder="select to edit" tabindex="2"> <br />
-                    <input type="text" id="image-index" value="0" style="display:none">
-
-                    <div id="meme-slider">
-
-                        <ul>
-                            {{#each memeImages}}
-                                <li>
-                                    <div class="meme">
-
-                                        <div style="background: url({{{cloudinaryUrl this width=400 quality=80}}}) round;min-width:400px;min-height:400px;"></div>
-
-                                    </div>
-                                </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-
-                </div>
-           
-                <div class="row">
-
-                    <input id="btn_submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="post">
-
-                </div>
+            <div class="glide__arrows">
+                <button class="glide__arrow prev desktop-only" data-glide-dir="<"><<</button>
+                <button class="glide__arrow next desktop-only" data-glide-dir=">">>></button>
             </div>
-           
-            {{!-- <div class="col-lg-3"></div> --}}
 
-        </section>
+            <div class="glide__wrapper">
+                <ul class="glide__track">
 
-        <section id="meme-created" class="form col-sm-6" style="display:none;">
-            <h1>meme submitted!</h1>waiting for other players...
-        </section>
+                    {{#each memeImages}}
+                        <li class="glide__slide">
+                            {{!-- <div class="meme"> --}}
+
+                                <img src="{{{cloudinaryUrl this width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
+
+                            {{!-- </div> --}}
+                        </li>
+                    {{/each}}
+                
+                </ul>
+            </div>
+
+            <div class="glide__bullets"></div>
+
+        </div>
+   
+        <div class="row">
+
+            <input id="btn_submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="post">
+
+        </div>
 
     </div>
-</div>
+   
+    {{!-- <div class="col-lg-3"></div> --}}
+
+</section>
+
+<section id="meme-created" class="form col-sm-6" style="display:none;">
+    <h1>meme submitted!</h1>waiting for other players...
+</section>
