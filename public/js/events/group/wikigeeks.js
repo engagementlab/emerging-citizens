@@ -158,6 +158,15 @@ var gameEvents = function(eventId, eventData) {
 
       break;
 
+    case 'wiki:click':
+
+      var clickAnim = new TimelineLite({paused: true});
+
+      var clickedPlayer = eventData;
+
+
+      break;
+
     case 'wiki:results':
         
         $('#gameContent').html(eventData);
