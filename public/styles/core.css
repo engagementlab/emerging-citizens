@@ -1220,7 +1220,7 @@ body .player-form {
 /* 
 	WWDMM group view styling.
 */
-.body.wwdmm #voting-container .text-upper, .body.wwdmm #voting-container .text-lower {
+.body.wwdmm.group #voting-container .text-upper, .body.wwdmm.group #voting-container .text-lower {
   color: white;
   font-size: 3em;
   font-weight: bold;
@@ -1238,9 +1238,77 @@ body .player-form {
   /* Opera 7 */
   word-wrap: break-word; }
 
-.body.wwdmm #voting-container .text-lower {
+.body.wwdmm.group #voting-container .text-lower {
   position: absolute;
   bottom: 0; }
+
+.body.wwdmm.group #game_code {
+  padding: 40px 20px;
+  height: 750px;
+  border-radius: 20px;
+  border: 8px solid #b7d63a; }
+  .body.wwdmm.group #game_code h1 {
+    font-size: 5em;
+    color: #19f7ad; }
+    .body.wwdmm.group #game_code h1.game-header {
+      color: #ff8d5b; }
+  .body.wwdmm.group #game_code .wait-players {
+    color: #ff8d5b;
+    font-size: 3em; }
+
+.body.wwdmm.group .players-grid.row .player-background {
+  width: 250px;
+  height: 350px;
+  background-color: white;
+  border-radius: 0px;
+  margin: 20px auto;
+  float: none;
+  display: inline-block; }
+  .body.wwdmm.group .players-grid.row .player-background .player-static {
+    margin: 10px;
+    height: 80%; }
+    .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
+      height: 240px;
+      border: 1px solid black;
+      margin: 20px 0px 40px 0px; }
+      .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
+        height: 90%;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 5%; }
+
+.body.wwdmm.group .players-grid.row .player-0 {
+  color: #FF421C; }
+
+.body.wwdmm.group .players-grid.row .player-1 {
+  color: #FFA800; }
+
+.body.wwdmm.group .players-grid.row .player-2 {
+  color: #93B700; }
+
+.body.wwdmm.group .players-grid.row .player-3 {
+  color: #EA4200; }
+
+.body.wwdmm.group .players-grid.row .player-4 {
+  color: #F56800; }
+
+.body.wwdmm.group .players-grid.row .player-5 {
+  color: #14B1E5; }
+
+.body.wwdmm.group .players-grid.row .player-6 {
+  color: #006CB8; }
+
+.body.wwdmm.group .players-grid.row .player-7 {
+  color: #8851CD; }
+
+.body.wwdmm.group .players-grid.row .meme-topic {
+  -moz-transform: translate(0px, -50px);
+  -o-transform: translate(0px, -50px);
+  -ms-transform: translate(0px, -50px);
+  -webkit-transform: translate(0px, -50px);
+  transform: translate(0px, -50px);
+  font-size: 3em;
+  color: white; }
 
 /* 
 	HTYI player view styling.

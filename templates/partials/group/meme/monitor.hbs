@@ -1,46 +1,51 @@
 <div class="page-container">
     <div class="row">
         
-        {{> group/players_column players=players.left offset=0 left=true }}
+        <div class="col-lg-4 col-sm-4"> 
+        {{> group/meme/players_grid players=players.left offset=0 left=true }}
+        </div>
 
         {{!-- Room Code Container --}}
-        <section class="col-lg-6 col-sm-6">
+        <section class="col-lg-4 col-sm-4">
             <div id="game_code" class="row room-container">
                 <div class="col-lg-12 col-sm-12">
-                    <h1 class="light" style="letter-spacing: -7px">Room Code:
-                    </h1>
+                    <h1>Room Code:</h1>
                     <h1 class="game-header bold">
                         <span id="first">{{accessCodeSplit.[0]}}</span>
                         <span id="second">{{accessCodeSplit.[1]}}</span>
                         <span id="third">{{accessCodeSplit.[2]}}</span>
                         <span id="fourth">{{accessCodeSplit.[3]}}</span>
                     </h1>
-
+                    {{!-- <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1466622714/emerging-citizens/images/home/logo_wwdmm.png" style="width:60%;"/> --}}
+                    <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1471278762/Screen_Shot_2016-08-15_at_12.25.08_PM_xckzwp.png" style="width:100%;"/>
+                    
                     <div class="row">
                         <div class="col-lg-12 col-sm-12" style="margin: 3% auto;">
-                            <h3 class="wait-players game-header green-font">
+                            <h3 class="wait-players game-header">
                             visit <em>
                             {{#ifeq environment "production"}}
                             ecplay.org
                             {{else}}
                             qa.ecplay.org
                             {{/ifeq}}
-                            </em><br />on your smartphone or tablet<br />to join the game.</h3>
+                            </em>on your smartphone or tablet to join the game.</h3>
                             {{!-- <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Submit"> --}}
                         </div>
                     </div>
 
                     <div class="form" id="startGameForm">
 
-                        <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start" style="visibility:hidden">
+                        <input id="btn-start-game" data-event="game:start" class="post-button submit" type="submit" name="submit" value="start" style="visibility:hidden; background-color: #60D1E8;">
                     
                     </div>
 
                 </div>
             </div>
         </section>
-        
-        {{> group/players_column players=players.right offset=4 left=false }}
+
+        <div class="col-lg-4 col-sm-4"> 
+        {{> group/meme/players_grid players=players.right offset=4 left=false }}
+        </div>
         
     </div>
 </div>

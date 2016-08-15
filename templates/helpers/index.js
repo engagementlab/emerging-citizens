@@ -212,6 +212,16 @@ module.exports = function() {
             }
     }
 
+    _helpers.upperCase = function(text) {
+        if (!text){
+            return;
+        }
+        else {
+            text = text.toUpperCase();
+            return text;
+        }
+    }
+
     return _helpers;
 
 
