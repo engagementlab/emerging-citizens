@@ -84,13 +84,20 @@ var gameEvents = function(eventId, eventData) {
         var submissionsAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
 
         submissionsAnim
-        .from($('#submissions'), 1, {autoAlpha:0})
-        .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', delay: 3, ease:Bounce.easeOut})
-        .from($('#scores'), 1, {autoAlpha:0})
-        .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', delay: 6, ease:Bounce.easeOut})
-        .from($('#leaderboard'), 1, {autoAlpha:0})
-        .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0, display: 'none', delay: 9, ease:Bounce.easeOut})
-        .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut});
+        .from($('#submissions'), 1, {autoAlpha:0}).add('submissions')
+        .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=3')
+        
+        .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=4').add('scores')
+        .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=3')
+        
+        .from($('#leaderboard-header'), 1, {autoAlpha:0}, 'scores+=3').add('leaderboard')
+        .to($('#results-header'), 1, {autoAlpha:0}, 'scores+=3')
+        
+        .from($('#leaderboard'), 1, {autoAlpha:0}, 'scores+=3')
+        
+        .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'leaderboard+=3')
+        
+        .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leaderboard+=4');
   
         if($('#slider-gsap').length) {
           resultsAnimSlider = new GSAPTLSlider(submissionsAnim, "slider-gsap", {
