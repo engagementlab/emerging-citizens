@@ -12,12 +12,15 @@
 	    text-transform: uppercase;
 	    text-align: center;
 
+	    width: 100%;
+
 	    @include stroke(6, #000);
+	    @include word-wrap();
 		}
 
 		.text-lower {
       position: absolute;
-      margin-left: 42%;
+      // margin-left: 42%;
 	    bottom: 0;
 		}
 

@@ -4,55 +4,6 @@ $mq-tablet-portrait		: 768px !default;
 $mq-tablet-landscape	: 1024px !default;
 $mq-desktop				: 1382px !default;
 
-// @mixin marching-ants-init($ant-size,$ant-width,$speed,$id){
-//     padding: 5px + $ant-width;
-//     margin: 20px;
-//     background-size: 
-//       $ant-size $ant-width, 
-//       $ant-size $ant-width, 
-//       $ant-width $ant-size, 
-//       $ant-width $ant-size;
-//     background-position: 
-//       0 0, 
-//       0 100%, 
-//       0 0, 
-//       100% 0;
-//     background-repeat: 
-//       repeat-x, 
-//       repeat-x, 
-//       repeat-y, 
-//       repeat-y;
-//     animation: marching-ants-#{$id} $speed;
-//     animation-timing-function: linear;
-//     animation-iteration-count: infinite;
-//     animation-play-state: paused;
-//   &:hover, &.marching {
-//     animation-play-state: running;
-//   }
-//   &.reverse {
-//     animation-direction: reverse;
-//   }  
-// };
-
-// @mixin marching-ants-animation($ant-size, $id){
-//   @keyframes marching-ants-#{$id} {
-//     0% {
-//       background-position: 
-//         0 0, 
-//         0 100%, 
-//         0 0, 
-//         100% 0;
-//     } 
-//     100% {
-//       background-position: 
-//         2*$ant-size 0, 
-//         -2*$ant-size 100%, 
-//         0 -2*$ant-size, 
-//         100% 2*$ant-size;
-//     }
-//   }
-// };
-
 // Both portrait and landscape
 @mixin mobile-only {
 	@media (max-width : $mq-mobile-landscape) {
@@ -184,12 +135,14 @@ $mq-desktop				: 1382px !default;
 /// --- END media queries
 
 @mixin circle($width, $color) {
+  
   width: $width;
   height: $width;
   background: $color;
   -webkit-border-radius: $width/2;
      -moz-border-radius: $width/2;
           border-radius: $width/2;
+
 }
 
 @mixin radius($radius) {
@@ -339,6 +292,8 @@ $mq-desktop				: 1382px !default;
 
 }
 
+// TEXT FIELDS
+
 // Text field placeholder styling
 @mixin placeholder {
   ::-webkit-input-placeholder {@content}
@@ -368,4 +323,13 @@ $mq-desktop				: 1382px !default;
 // @return {Style}           - text-shadow
 @mixin stroke($stroke, $color) {
   text-shadow: stroke($stroke, $color);
+}
+
+// Word wrap for text boxes
+@mixin word-wrap {
+  white-space: pre-wrap;      /* CSS3 */   
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera 7 */    
+  word-wrap: break-word;
 }

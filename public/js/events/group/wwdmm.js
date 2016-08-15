@@ -42,9 +42,20 @@ var gameEvents = function(eventId, eventData) {
 	      break;
 
 	  case 'meme:topic':
+
+		$('#gameContent').html(eventData);
+
+		break;
+
 	  case 'meme:voting':
 
 		$('#gameContent').html(eventData);
+        
+        $.each($('.meme-text'), function(index, text) {
+            
+            shrinkToFill(text, 30, 3);
+
+        });
 
 		break;
 

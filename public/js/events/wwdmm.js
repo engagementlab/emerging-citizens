@@ -7,35 +7,13 @@
  * ==========
  */
 
- var playerWasReconnected;
+var playerWasReconnected;
 
+window.addEventListener("beforeunload", function (e) {
+	(e || window.event).returnValue = null;
+	return null;
 
-var shrinkToFill = function(input) {
-    
-    var txtInput = $(input),
-        txt = txtInput.val(),
-        maxWidth = 30,
-        defaultFontSize = 3;
-
-    if (txt.length > maxWidth) {
-
-        // Calculate a new font size
-        var fontSize = defaultFontSize * maxWidth / txt.length * 1.1;
-        
-        // Set the style on the input
-        txtInput.css('fontSize', fontSize + 'em');
-
-    }
-    else
-        txtInput.css('fontSize', defaultFontSize + 'em');
-
-}
-
- window.addEventListener("beforeunload", function (e) {
- 	(e || window.event).returnValue = null;
- 	return null;
-
- });
+});
 
 // Add game type class to body
 $('.body').addClass('wwdmm');
@@ -73,8 +51,15 @@ var gameEvents = function(eventId, eventData) {
                 }
             });
 
-            $('#text-upper').keyup(function() {
-                shrinkToFill(this);
+            // Shrink text as length increases
+            $('.meme-text').keyup(function() {
+                shrinkToFill(this, 30, 3);
+            });
+
+            // Disable enter key
+            $('.meme-text').keypress(function(evt) {
+                if (evt.keyCode == 13)
+                    evt.preventDefault();
             });
             
             break;

@@ -35,8 +35,6 @@
 
 	var timeline = new TimelineLite();
 	
-	
-
 	{{#ifeq section "index"}}
 
 		$(document).ready(function() {
@@ -205,6 +203,30 @@
 		  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
 
 		};
+
+		/* 
+			Util to shrink font size of element if text contents exceed given length threshold
+		*/
+		var shrinkToFill = function(input, threshold, startingSize) {
+		    
+		    var txtInput = $(input),
+		        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
+		        maxWidth = threshold,
+		        defaultFontSize = startingSize;
+
+		    if (txt.length > maxWidth) {
+
+		        // Calculate a new font size (capped at 1.35em)
+		        var fontSize = Math.min(Math.max( (defaultFontSize * maxWidth / txt.length * 1.5), 1.35 ), 3);
+		        
+		        // Set the style on the input
+		        txtInput.css('fontSize', fontSize + 'em');
+
+		    }
+		    else
+		        txtInput.css('fontSize', defaultFontSize + 'em');
+
+		}
 
 		{{#ifnoteq section 'group/monitor'}}
 
