@@ -1,0 +1,59 @@
+{{!-- Players grid --}}
+<div class="row players-grid">
+    {{!-- {{{jsonPrint players}}} --}}
+    {{#each players}}
+    
+        {{#if ../active}}
+
+            <div class="col-sm-6 player-background">
+                <div class="player-static">
+                    <div class="icon active">
+                        {{#if ../../left}}
+                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1471291975/player{{sum @index 4}}.png" />
+                    </div>
+                    <div class="nameplate active player-{{sum @index 4}}">
+
+                        {{username}}
+
+                    </div>
+                        {{else}}
+
+                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1471291975/player{{@index}}.png" />
+                    </div>
+                    <div class="nameplate active player-{{@index}}">
+
+                        {{username}}
+
+                    </div>
+                        {{/if}}
+                    
+                </div>
+            </div>
+        
+        {{else}}
+
+            <div class="col-sm-6 player-background">
+                <div class="player-static">
+                    <div class="icon">
+                        {{#if ../../left}}
+                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1471291975/player{{sum @index 4}}.png" />
+                        </div>
+                    <div class="nameplate player-{{sum @index 4}}"> 
+                    Player Name
+                    </div>
+                        {{else}}
+                        <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/v1471291975/player{{@index}}.png" />
+                        </div>
+                    <div class="nameplate player-{{@index}}"> 
+                    Player Name
+                    </div>
+                        {{/if}}
+                    
+                </div>
+            </div>
+
+        {{/if}}
+
+    {{/each}}
+
+</div>
