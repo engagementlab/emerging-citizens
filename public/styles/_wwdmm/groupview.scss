@@ -3,6 +3,62 @@
 */
 .body.wwdmm.group {
 	
+	.meme-text {
+
+    z-index: 10;
+
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+	  font-family: Impact;
+
+    @include stroke(2, #000);
+	
+	}
+
+	.room-container {
+
+		border: 8px solid $color-sick-green;
+		border-radius: 20px;
+
+	}
+
+	#voting-header {
+
+    color: white;
+		font-family: 'Patrick Hand', cursive;
+		font-size: 3em;
+		text-transform: uppercase;
+
+		background-color: $color-warm-pink;
+		padding: 3%;
+
+		h1 {
+			font-size: 1.5em;
+		}
+
+		.text {
+			float: left;
+		}
+		.img {
+			float: left;
+	    position: absolute;
+	    margin-top: 2%;
+		}
+
+		#topic {
+			color: $color-bright-sea-green;
+		}
+
+		#descriptor {
+			color: $color-pale-yellow;
+		}
+	}
+
 	#voting-container {
 	
 		.text-upper, .text-lower {
@@ -27,10 +83,22 @@
 	}
 
 	#game_code {
+
 		padding: 40px 20px;
 		height: 750px;
-		border-radius: 20px;
-		border: 8px solid $color-sick-green;
+
+		#first {
+			color: $color-perrywinkle;
+		}
+		#second {
+			color: $color-bright-orange;
+		}
+		#third {
+			color: $color-cerulean;
+		}
+		#fourth {
+			color: $color-sick-green;
+		}
 
 		h1 {
 			font-size: 5em;
@@ -41,15 +109,41 @@
 			}
 		}
 
+		h3.game-header {
+			font-size: 3em;
+			color: $color-bright-sea-green;
+		}
+
 		.wait-players {
 			color: $color-pastel-orange;
 			font-size: 3em;
 		}
+
 	}
 
+	#make-meme {
+
+		color: $color-azure;
+    font-size: 1em;
+
+		// .game-header 
+
+		#meme-topic {
+
+	    font-size: 3em;
+			position: relative;
+	    top: -70px;
+
+		}
+
+		#countdown {
+			
+			color: $color-light-orange;
+
+		}
+	}
 
 	.players-grid.row {
-
 
 		.player-background {
 			width: 250px;
@@ -71,8 +165,7 @@
 					margin: 20px 0px 40px 0px;
 
 					img {
-						height: 90%;
-						width: 90%;
+						width: 87px;
 						margin-left: 5%;
 						margin-top: 5%;
 					}
@@ -106,13 +199,6 @@
 		.player-7 {
 			color: #8851CD;
 		}
-
-		.meme-topic {
-			@include translate(0px, -50px);
-			font-size: 3em;
-			color: white;
-		}
-
 
 	}
 

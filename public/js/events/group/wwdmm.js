@@ -96,9 +96,9 @@ var gameEvents = function(eventId, eventData) {
 
         submissionsAnim
         .from($('#submissions'), 1, {autoAlpha:0}).add('submissions')
-        .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=3')
+        .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=10')
         
-        .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=4').add('scores')
+        .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=11').add('scores')
         .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=3')
         
         .from($('#leaderboard-header'), 1, {autoAlpha:0}, 'scores+=3').add('leaderboard')

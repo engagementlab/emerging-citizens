@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Patrick+Hand");
 @font-face {
   font-family: "Avenir";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.ttf") format("truetype"); }
@@ -182,7 +183,7 @@
   .voting-button.color-1 {
     background-color: #ff5e41; }
   .voting-button.color-2 {
-    background-color: #ffaf34; }
+    background-color: #ffab48; }
   .voting-button.color-3 {
     background-color: #2bd3ee; }
   .voting-button.color-4 {
@@ -507,7 +508,7 @@ body .player-form {
     .body.htyi #game_code #first {
       color: #fe6444; }
     .body.htyi #game_code #second {
-      color: #ffaf34; }
+      color: #ffab48; }
     .body.htyi #game_code #third {
       color: #fbd738; }
     .body.htyi #game_code #fourth {
@@ -900,7 +901,7 @@ body .player-form {
       font-size: 1.5em; }
     .body.wikigeeks.group #topic-container.room-container h3 {
       width: 80%;
-      color: #ffaf34;
+      color: #ffab48;
       font-size: 3em;
       margin: 0 auto;
       padding-bottom: 15px;
@@ -950,7 +951,7 @@ body .player-form {
       margin: 0 auto; }
     .body.wikigeeks.group #article-container.room-container .article-info {
       padding: 2%;
-      border: 5px solid #ffaf34;
+      border: 5px solid #ffab48;
       max-height: 200px;
       height: 200px;
       width: 90%;
@@ -1220,6 +1221,33 @@ body .player-form {
 /* 
 	WWDMM group view styling.
 */
+.body.wwdmm.group .meme-text {
+  z-index: 10;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Impact;
+  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+
+.body.wwdmm.group .room-container {
+  border: 8px solid #b7d63a;
+  border-radius: 20px; }
+
+.body.wwdmm.group #voting-header {
+  color: white;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 3em;
+  text-transform: uppercase;
+  background-color: #ff5b77;
+  padding: 3%; }
+  .body.wwdmm.group #voting-header #topic {
+    color: #19f7ad; }
+  .body.wwdmm.group #voting-header #descriptor {
+    color: #fff5a3; }
+
 .body.wwdmm.group #voting-container .text-upper, .body.wwdmm.group #voting-container .text-lower {
   color: white;
   font-size: 3em;
@@ -1244,17 +1272,36 @@ body .player-form {
 
 .body.wwdmm.group #game_code {
   padding: 40px 20px;
-  height: 750px;
-  border-radius: 20px;
-  border: 8px solid #b7d63a; }
+  height: 750px; }
+  .body.wwdmm.group #game_code #first {
+    color: #ac7ce8 l; }
+  .body.wwdmm.group #game_code #second {
+    color: #ff6000; }
+  .body.wwdmm.group #game_code #third {
+    color: #007dd5; }
+  .body.wwdmm.group #game_code #fourth {
+    color: #b7d63a; }
   .body.wwdmm.group #game_code h1 {
     font-size: 5em;
     color: #19f7ad; }
     .body.wwdmm.group #game_code h1.game-header {
       color: #ff8d5b; }
+  .body.wwdmm.group #game_code h3.game-header {
+    font-size: 3em;
+    color: #19f7ad; }
   .body.wwdmm.group #game_code .wait-players {
     color: #ff8d5b;
     font-size: 3em; }
+
+.body.wwdmm.group #make-meme {
+  color: #21b7f0;
+  font-size: 1em; }
+  .body.wwdmm.group #make-meme #meme-topic {
+    font-size: 3em;
+    position: relative;
+    top: -70px; }
+  .body.wwdmm.group #make-meme #countdown {
+    color: #ffab48; }
 
 .body.wwdmm.group .players-grid.row .player-background {
   width: 250px;
@@ -1272,8 +1319,7 @@ body .player-form {
       border: 1px solid black;
       margin: 20px 0px 40px 0px; }
       .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
-        height: 90%;
-        width: 90%;
+        width: 87px;
         margin-left: 5%;
         margin-top: 5%; }
 
@@ -1300,15 +1346,6 @@ body .player-form {
 
 .body.wwdmm.group .players-grid.row .player-7 {
   color: #8851CD; }
-
-.body.wwdmm.group .players-grid.row .meme-topic {
-  -moz-transform: translate(0px, -50px);
-  -o-transform: translate(0px, -50px);
-  -ms-transform: translate(0px, -50px);
-  -webkit-transform: translate(0px, -50px);
-  transform: translate(0px, -50px);
-  font-size: 3em;
-  color: white; }
 
 /* 
 	HTYI player view styling.
@@ -1392,7 +1429,7 @@ body .player-form {
     .body.wikigeeks.player .submission .form {
       width: 80%;
       margin: 20px auto;
-      color: blanchedalmond; }
+      color: #fff1e1; }
       .body.wikigeeks.player .submission .form.moveUp {
         -moz-transform: translate(0px, -30px);
         -o-transform: translate(0px, -30px);
@@ -1420,7 +1457,7 @@ body .player-form {
           outline: none; }
       .body.wikigeeks.player .submission .form input.prompt {
         margin: 5px auto;
-        border: 2px solid #ffaf34;
+        border: 2px solid #ffab48;
         background-color: white;
         color: #ff9971; }
       .body.wikigeeks.player .submission .form input.submit {
@@ -1453,7 +1490,7 @@ body .player-form {
     .body.wikigeeks.player .game-message.wiki-modal {
       width: 100%;
       height: 100%;
-      background-color: rgba(255, 175, 52, 0.5);
+      background-color: rgba(255, 171, 72, 0.5);
       position: fixed;
       top: 0; }
       .body.wikigeeks.player .game-message.wiki-modal span {
@@ -1663,7 +1700,7 @@ html, body {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
 
 .body.monitor {
-  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffaf34;
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffab48;
   background-size: 35%; }
 
 .modal {

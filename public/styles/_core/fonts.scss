@@ -30,8 +30,9 @@
 @include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
 
 @include font-face(HalisGR-Book, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0', null, null, woff2 woff eot ttf);
-// @include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
-// @include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
+
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 
 .light {
 	font-family: "AvenirLight";

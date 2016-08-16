@@ -44,7 +44,7 @@ var gameEvents = function(eventId, eventData) {
                 type: "carousel",
                 autoplay: false,
                 autoheight: true,
-                centered: true,
+                padding: '5%',
                 afterTransition: function(evt) {
                     slideIndex = evt.index - 1;
                     $('#image-index').val(slideIndex);
