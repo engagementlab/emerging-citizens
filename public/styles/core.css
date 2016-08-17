@@ -1221,6 +1221,10 @@ body .player-form {
 /* 
 	WWDMM group view styling.
 */
+.body.wwdmm.group #gameContent {
+  padding: 0;
+  padding-top: 0; }
+
 .body.wwdmm.group .meme-text {
   z-index: 10;
   background: none;
@@ -1233,8 +1237,8 @@ body .player-form {
   text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
 
 .body.wwdmm.group .room-container {
-  border: 8px solid #b7d63a;
-  border-radius: 20px; }
+  border: 15px solid #b7d63a;
+  border-radius: 10px; }
 
 .body.wwdmm.group #voting-header {
   color: white;
@@ -1326,11 +1330,19 @@ body .player-form {
 .body.wwdmm.group #make-meme {
   color: #21b7f0;
   font-size: 1em; }
+  .body.wwdmm.group #make-meme h3 {
+    font-size: 3em;
+    font-weight: normal; }
   .body.wwdmm.group #make-meme #meme-topic {
     font-size: 3em;
     position: relative;
     top: -70px; }
+  .body.wwdmm.group #make-meme .countdown {
+    font-size: 3em;
+    font-family: 'Patrick Hand', cursive;
+    line-height: 1; }
   .body.wwdmm.group #make-meme #countdown {
+    font-size: 250%;
     color: #ffab48; }
 
 .body.wwdmm.group .players-grid.row .player-background {

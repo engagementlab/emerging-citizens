@@ -49,8 +49,6 @@ var Wiki = function (nsp, socket) {
         // Debugging
         'game:force_results': function(package) {
 
-            console.log("forcing results");
-
             Session.Get(package.gameId).
             ForceResults();
 

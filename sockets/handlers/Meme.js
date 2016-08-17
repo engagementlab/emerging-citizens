@@ -54,6 +54,14 @@ var Meme = function (nsp, socket) {
                      );
 
 
+        },
+
+        // Debugging
+        'game:force_results': function(package) {
+
+            Session.Get(package.gameId).
+            DisplayResults();
+
         }
     
     };

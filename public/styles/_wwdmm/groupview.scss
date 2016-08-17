@@ -2,6 +2,14 @@
 	WWDMM group view styling.
 */
 .body.wwdmm.group {
+
+
+	#gameContent {
+
+		padding: 0;
+		padding-top: 0;
+
+	}
 	
 	.meme-text {
 
@@ -22,8 +30,8 @@
 
 	.room-container {
 
-		border: 8px solid $color-sick-green;
-		border-radius: 20px;
+		border: 15px solid $color-sick-green;
+		border-radius: 10px;
 
 	}
 
@@ -35,18 +43,13 @@
 		text-transform: uppercase;
 
 		background-color: $color-warm-pink;
-		padding: 3%;
+		padding: 1%;
 
 		h1 {
 			font-size: 1.5em;
 		}
 
-		.text {
-			// float: left;
-		}
 		.img {
-			// float: left;
-	    // position: absolute;
 	    margin-top: 2%;
       margin-left: -19%;
 		}
@@ -59,7 +62,6 @@
 	    background-position-y: 107%;
 	    background-position-x: center;
 	    background-clip: padding-box;
-	    // background-origin: middle;
 		
 			color: $color-bright-sea-green;
 		}
@@ -164,7 +166,10 @@
 		color: $color-azure;
     font-size: 1em;
 
-		// .game-header 
+    h3 {
+    	font-size: 3em;
+    	font-weight: normal;
+    }
 
 		#meme-topic {
 
@@ -174,10 +179,14 @@
 
 		}
 
-		#countdown {
-			
+		.countdown {
+	    font-size: 3em;
+			font-family: 'Patrick Hand', cursive;
+			line-height: 1;
+		}
+		#countdown {			
+	    font-size: 250%;
 			color: $color-light-orange;
-
 		}
 	}
 
