@@ -4,28 +4,30 @@
             <h1>
                 
                 which meme about 
-                <span id="topic"><div class="text">{{topic.topicName}}</div> <div class="img">{{{cloudinaryImg "emerging-citizens/images/layout/wwdmm/squiggle-yellow.png" width=273}}}</div></span>
+                <span id="topic">
+                    <span class="text">{{topic.topicName}}</span>
+                </span>
                 is 
-                <span id="descriptor"><div class="text">{{descriptor}}</div> <div class="img">{{{cloudinaryImg "emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png" width=385}}}</div></span>
+                <span id="descriptor">
+                    <span class="text">{{descriptor}}</span>
+                </span>
                 
             </h1>
         </div>
         
         {{!-- Room Code Container --}}
-        <section class="col-sm-12 room-container" id="voting-container">
+        <section class="col-sm-12" id="voting-container">
             
-            <div style="margin-top:16%" class="row">
+            <div class="row">
 
                 {{#each submissions}}
 
                     <div class="col-sm-3">
-                        <div class="meme">
+                        <div class="meme" style="background-image: url({{cloudinaryUrl image width=300 quality=80}})">
 
                             <div class="text-upper meme-text">{{upper}}</div>
                             <div class="text-lower meme-text">{{lower}}</div>
-
-                            <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
-                            <div>{{username}}</div>
+                            {{!-- <div>{{username}}</div> --}}
 
                         </div>
                     </div>

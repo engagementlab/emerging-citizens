@@ -1243,10 +1243,36 @@ body .player-form {
   text-transform: uppercase;
   background-color: #ff5b77;
   padding: 3%; }
+  .body.wwdmm.group #voting-header h1 {
+    font-size: 1.5em; }
+  .body.wwdmm.group #voting-header .img {
+    margin-top: 2%;
+    margin-left: -19%; }
   .body.wwdmm.group #voting-header #topic {
+    display: inline;
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+    background-repeat: no-repeat;
+    background-position-y: 107%;
+    background-position-x: center;
+    background-clip: padding-box;
     color: #19f7ad; }
   .body.wwdmm.group #voting-header #descriptor {
+    display: inline;
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
+    background-repeat: no-repeat;
+    background-position-y: 107%;
+    background-position-x: center;
+    background-clip: padding-box;
     color: #fff5a3; }
+
+.body.wwdmm.group #voting-container .meme {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 6%;
+  box-sizing: content-box;
+  height: 248px;
+  border: 25px white solid; }
 
 .body.wwdmm.group #voting-container .text-upper, .body.wwdmm.group #voting-container .text-lower {
   color: white;
@@ -1254,8 +1280,8 @@ body .player-form {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  width: 100%;
-  text-shadow: -6px -6px 0 #000, -6px -5px 0 #000, -6px -4px 0 #000, -6px -3px 0 #000, -6px -2px 0 #000, -6px -1px 0 #000, -6px 0px 0 #000, -6px 1px 0 #000, -6px 2px 0 #000, -6px 3px 0 #000, -6px 4px 0 #000, -6px 5px 0 #000, -6px 6px 0 #000, -5px -6px 0 #000, -5px -5px 0 #000, -5px -4px 0 #000, -5px -3px 0 #000, -5px -2px 0 #000, -5px -1px 0 #000, -5px 0px 0 #000, -5px 1px 0 #000, -5px 2px 0 #000, -5px 3px 0 #000, -5px 4px 0 #000, -5px 5px 0 #000, -5px 6px 0 #000, -4px -6px 0 #000, -4px -5px 0 #000, -4px -4px 0 #000, -4px -3px 0 #000, -4px -2px 0 #000, -4px -1px 0 #000, -4px 0px 0 #000, -4px 1px 0 #000, -4px 2px 0 #000, -4px 3px 0 #000, -4px 4px 0 #000, -4px 5px 0 #000, -4px 6px 0 #000, -3px -6px 0 #000, -3px -5px 0 #000, -3px -4px 0 #000, -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -3px 4px 0 #000, -3px 5px 0 #000, -3px 6px 0 #000, -2px -6px 0 #000, -2px -5px 0 #000, -2px -4px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -2px 4px 0 #000, -2px 5px 0 #000, -2px 6px 0 #000, -1px -6px 0 #000, -1px -5px 0 #000, -1px -4px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, -1px 4px 0 #000, -1px 5px 0 #000, -1px 6px 0 #000, 0px -6px 0 #000, 0px -5px 0 #000, 0px -4px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 0px 4px 0 #000, 0px 5px 0 #000, 0px 6px 0 #000, 1px -6px 0 #000, 1px -5px 0 #000, 1px -4px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 1px 4px 0 #000, 1px 5px 0 #000, 1px 6px 0 #000, 2px -6px 0 #000, 2px -5px 0 #000, 2px -4px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 2px 4px 0 #000, 2px 5px 0 #000, 2px 6px 0 #000, 3px -6px 0 #000, 3px -5px 0 #000, 3px -4px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000, 3px 4px 0 #000, 3px 5px 0 #000, 3px 6px 0 #000, 4px -6px 0 #000, 4px -5px 0 #000, 4px -4px 0 #000, 4px -3px 0 #000, 4px -2px 0 #000, 4px -1px 0 #000, 4px 0px 0 #000, 4px 1px 0 #000, 4px 2px 0 #000, 4px 3px 0 #000, 4px 4px 0 #000, 4px 5px 0 #000, 4px 6px 0 #000, 5px -6px 0 #000, 5px -5px 0 #000, 5px -4px 0 #000, 5px -3px 0 #000, 5px -2px 0 #000, 5px -1px 0 #000, 5px 0px 0 #000, 5px 1px 0 #000, 5px 2px 0 #000, 5px 3px 0 #000, 5px 4px 0 #000, 5px 5px 0 #000, 5px 6px 0 #000, 6px -6px 0 #000, 6px -5px 0 #000, 6px -4px 0 #000, 6px -3px 0 #000, 6px -2px 0 #000, 6px -1px 0 #000, 6px 0px 0 #000, 6px 1px 0 #000, 6px 2px 0 #000, 6px 3px 0 #000, 6px 4px 0 #000, 6px 5px 0 #000, 6px 6px 0 #000;
+  width: 80%;
+  left: 10%;
   white-space: pre-wrap;
   /* CSS3 */
   white-space: -moz-pre-wrap;
@@ -1265,6 +1291,10 @@ body .player-form {
   white-space: -o-pre-wrap;
   /* Opera 7 */
   word-wrap: break-word; }
+
+.body.wwdmm.group #voting-container .text-upper {
+  position: absolute;
+  top: 0; }
 
 .body.wwdmm.group #voting-container .text-lower {
   position: absolute;

@@ -42,41 +42,79 @@
 		}
 
 		.text {
-			float: left;
+			// float: left;
 		}
 		.img {
-			float: left;
-	    position: absolute;
+			// float: left;
+	    // position: absolute;
 	    margin-top: 2%;
+      margin-left: -19%;
 		}
 
 		#topic {
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+	    background-repeat: no-repeat;
+	    background-position-y: 107%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+	    // background-origin: middle;
+		
 			color: $color-bright-sea-green;
 		}
 
 		#descriptor {
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
+	    background-repeat: no-repeat;
+	    background-position-y: 107%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+
 			color: $color-pale-yellow;
 		}
 	}
 
 	#voting-container {
-	
+		
+		.meme {
+		
+			background-color: white;
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+
+	    padding: 6%;
+	    box-sizing: content-box;
+	    
+	    height: 248px;
+	    border: 25px white solid;
+		
+		}
+
 		.text-upper, .text-lower {
+	  
 	    color: white;
 	    font-size: 3em;
 	    font-weight: bold;
 	    text-transform: uppercase;
 	    text-align: center;
 
-	    width: 100%;
+	    width: 80%;
+	    left: 10%;
 
-	    @include stroke(6, #000);
 	    @include word-wrap();
+		
+		}
+
+		.text-upper {
+	    position: absolute;
+	    top: 0;
 		}
 
 		.text-lower {
       position: absolute;
-      // margin-left: 42%;
 	    bottom: 0;
 		}
 
@@ -175,6 +213,7 @@
 
 		}
 
+		// PLAYER COLORS
 		.player-0 {
 			color: #FF421C;
 		}
