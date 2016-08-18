@@ -147,10 +147,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       if(playerGameId && session) {
 
-        if(currentSocket.id === session.groupModerator) {
-          logger.debug('is group moderator');
+        // End game is moderator left
+        if(currentSocket.id === session.groupModerator)
           session.End(currentSpace, true);
-        }
+        else
+          session.PlayerLost(currentSocket.id, currentSocket);
 
       }
     }

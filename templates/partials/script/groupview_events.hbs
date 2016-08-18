@@ -11,6 +11,7 @@
 --}}		
 
 var clockInterval;
+var startAnim = new TimelineLite({paused: true});
 
 var socketEvents = function(eventId, eventData) {
     
@@ -33,20 +34,31 @@ var socketEvents = function(eventId, eventData) {
 
                 var staticPlayers = $('.player-static');
                 var currentPlayers = _.pluck(eventData, 'username');
+                // var startBtn = $('#btn-start-game');
 
                 // Allow to start?
-                if(currentPlayers.length === 2)
-                {
-                    var startAnim = new TimelineLite();
-                    startAnim.from($('#btn-start-game'), 1, {scale:0, autoAlpha: 0, ease:Elastic.easeOut})
-                }
+                if(currentPlayers.length >= 2)
+                    startAnim.play();
+                else
+                    startAnim.reverse();
 
-                _.each(currentPlayers, function(name, index) {
+                _.each(staticPlayers, function(player, index) {
 
-                    var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+                    if(currentPlayers[index]) {
 
-                    $(staticPlayers[index]).children('.icon').addClass('active');
-                    $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+                        var name = currentPlayers[index];
+                        var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+
+                        $(player).children('.icon').addClass('active');
+                        $(player).children('.nameplate').addClass('active').text(nameFormatted);
+
+                    }
+                    else {
+
+                        $(player).children('.icon').removeClass('active');
+                        $(player).children('.nameplate').removeClass('active');
+
+                    }
 
                 });
 
@@ -165,7 +177,9 @@ var socketEvents = function(eventId, eventData) {
 $.getScript( '/js/events/group/{{gameType}}.js' )
     {{#ifnoteq environment "production"}}
         .done(function( script, textStatus ) {
-            console.log( textStatus );
+            // console.log( textStatus );
+            var startBtn = $('#btn-start-game');
+            startAnim.from(startBtn, 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
         })
         .fail(function( jqxhr, settings, exception ) {
             console.error('Unable to load %s (error: "%s")', '{{gameType}}.js', exception);
