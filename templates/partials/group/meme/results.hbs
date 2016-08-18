@@ -1,61 +1,94 @@
 <div class="page-container">
     <div class="row">
 
+        <div id="voting-header" class="row col-sm-12">
+            <h1>
+                round results
+            </h1>
+        </div>
+
         <section class="col-sm-12 room-container" id="results-container">
             
             <div class="row">
-                <h1 id="results-header" class="game-header">
+                {{!-- <h1 id="results-header" class="game-header">
                     round results
                 </h1>
                 <h1 id="leaderboard-header" class="game-header hidden-el">
                     leaderboard
-                </h1>
+                </h1> --}}
 
-                <section class="row hidden-el" id="submissions">
+                <section class="row" id="submissions">
                
                     {{#each submissions}}
         
-                        <div class="row">
+                        <div class="row hidden-el">
 
-                            <div class="col-sm-4">
-                                <h2>voted it</h2>
+                            <div class="col-sm-6">
+                                <div class="meme" style="background-image: url({{cloudinaryUrl image width=400 quality=100}})">
 
-                                {{#if votes}}
-                                    
-                                    {{#each votes}}
+                                    <div class="text-upper meme-text">{{upper}}</div>
+                                    <div class="text-lower meme-text">{{lower}}</div>
 
-                                        <p>{{username}} (+{{score}})</p>
-
-                                    {{/each}}
-
-                                {{/if}}
-                         
-                            </div>
-                            
-                            <div class="col-sm-4">
-                                <div class="meme">
-
-                                    <div class="text-upper">{{upper}}</div>
-                                    <div class="text-lower">{{lower}}</div>
-
-                                    <img src="{{{cloudinaryUrl image width=300 quality=80}}}" />
-                                    <div class="hidden-el">{{username}}</div>
+                                    <div>{{username}} <span class="score">+</span></div>
 
                                 </div>
                             </div>
+                            
+                            <div class="col-sm-6">
 
-                            <div class="col-sm-4">
-                                <h2>liked it</h2>
+                                {{!-- VOTES --}}
+                                <div class="row">
 
-                                {{#if likes}}
-                                    
-                                    {{#each likes}}
+                                    <h2>votes</h2>
+                                    <div class="row">
+                                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ffea00,e_colorize:100,w_273/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
+                                    </div>
 
-                                        <p>{{this}}</p>
+                                    <div class="votes">
+                                        <ul>
+                                            {{#if votes}}
+                                                
+                                                {{#each votes}}
 
-                                    {{/each}}
+                                                    <li style="float:left">
+                                                        <p>{{username}}</p>
+                                                        <span class="score">+{{score}}</span>
+                                                    </li>
 
-                                {{/if}}
+                                                {{/each}}
+
+                                            {{else}}
+                                                <li>None!</li>
+                                            {{/if}}
+                                        </ul>
+                                    </div>
+                             
+                                </div>
+
+                                {{!-- LIKES --}}
+                                <div class="row">
+
+                                    <h2>likes</h2>
+                                    <div class="row">
+                                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff838c,e_colorize:100,w_273/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
+                                    </div>
+                                    {{#if likes}}
+                                        
+                                        {{#each likes}}
+
+                                            <div style="float:left">
+                                                <p>{{username}}</p>
+                                                <span>{{{cloudinaryImg "emerging-citizens/images/layout/wwdmm/like-button.png" width=45}}}</span>
+                                            </div>
+
+                                        {{/each}}
+
+                                    {{else}}
+                                        None!
+                                    {{/if}}
+
+                                </div>
+
                             </div>
                         
                         </div>
@@ -88,7 +121,6 @@
                     
                     <div class="col-sm-3"></div>          
                     
-
                 </section>
 
                 <div id="countdown" class="row hidden-el">
@@ -101,7 +133,6 @@
                          in <span id="text">10</span> seconds
                     </h2>
                 </div>
-
 
             </div>
 

@@ -1225,6 +1225,29 @@ body .player-form {
   padding: 0;
   padding-top: 0; }
 
+.body.wwdmm.group .meme {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 6%;
+  box-sizing: content-box;
+  height: 248px;
+  border: 25px white solid; }
+  .body.wwdmm.group .meme .text-upper, .body.wwdmm.group .meme .text-lower {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    width: 80%;
+    left: 10%; }
+  .body.wwdmm.group .meme .text-upper {
+    position: absolute;
+    top: 0; }
+  .body.wwdmm.group .meme .text-lower {
+    position: absolute;
+    bottom: 0; }
+
 .body.wwdmm.group .meme-text {
   z-index: 10;
   background: none;
@@ -1269,40 +1292,31 @@ body .player-form {
     background-clip: padding-box;
     color: #fff5a3; }
 
-.body.wwdmm.group #voting-container .meme {
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding: 6%;
-  box-sizing: content-box;
-  height: 248px;
-  border: 25px white solid; }
+.body.wwdmm.group #results-container .score {
+  font-family: 'Patrick Hand', cursive;
+  color: #31b9ff;
+  text-shadow: -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff; }
 
-.body.wwdmm.group #voting-container .text-upper, .body.wwdmm.group #voting-container .text-lower {
-  color: white;
-  font-size: 3em;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  width: 80%;
-  left: 10%;
-  white-space: pre-wrap;
-  /* CSS3 */
-  white-space: -moz-pre-wrap;
-  /* Firefox */
-  white-space: -pre-wrap;
-  /* Opera <7 */
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
-  word-wrap: break-word; }
+.body.wwdmm.group #results-container .votes {
+  position: relative;
+  float: right;
+  left: -50%;
+  font-size: 2em; }
+  .body.wwdmm.group #results-container .votes ul {
+    position: relative;
+    left: 50%; }
+  .body.wwdmm.group #results-container .votes li {
+    list-style-type: none; }
+  .body.wwdmm.group #results-container .votes .score {
+    position: relative;
+    top: -70px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em; }
 
-.body.wwdmm.group #voting-container .text-upper {
-  position: absolute;
-  top: 0; }
-
-.body.wwdmm.group #voting-container .text-lower {
-  position: absolute;
-  bottom: 0; }
+.body.wwdmm.group #results-container .meme {
+  width: 500px;
+  height: 500px; }
 
 .body.wwdmm.group #game_code {
   padding: 40px 20px;
@@ -1695,6 +1709,9 @@ body .player-form {
 
 html, body {
   max-height: 100%; }
+
+.form {
+  min-height: 10%; }
 
 .text.centered {
   text-align: center; }

@@ -10,6 +10,46 @@
 		padding-top: 0;
 
 	}
+
+	// GLOBAL styling for memes
+	.meme {
+
+		background-color: white;
+	  background-repeat: no-repeat;
+	  background-size: 100% 100%;
+
+	  padding: 6%;
+	  box-sizing: content-box;
+	  
+	  height: 248px;
+	  border: 25px white solid;
+
+		.text-upper, .text-lower {
+
+		  color: white;
+		  font-size: 3em;
+		  font-weight: bold;
+		  text-transform: uppercase;
+		  text-align: center;
+
+		  width: 80%;
+		  left: 10%;
+
+		  // @include word-wrap();
+
+		}
+
+		.text-upper {
+	    position: absolute;
+	    top: 0;
+		}
+
+		.text-lower {
+      position: absolute;
+	    bottom: 0;
+		}
+
+	}
 	
 	.meme-text {
 
@@ -80,44 +120,45 @@
 	}
 
 	#voting-container {
-		
+
+	}
+
+	#results-container {
+
+    .score {
+			font-family: 'Patrick Hand', cursive;
+			color: $color-dodger-blue;
+	    @include stroke(2, #fff);
+    }
+
+		.votes {
+	    position: relative;
+      float: right;
+	    left: -50%;
+
+	    font-size: 2em;
+
+	    ul {
+	    	position: relative;
+	    	left: 50%;
+	    }
+	    li {
+	    	list-style-type: none;
+	    }
+
+	    .score {
+  	    position: relative;
+		    top: -70px;
+		    margin-left: auto;
+		    margin-right: auto;
+	    	
+	    	font-size: 2em;
+	    }
+		}
+
 		.meme {
-		
-			background-color: white;
-	    background-repeat: no-repeat;
-	    background-size: 100% 100%;
-
-	    padding: 6%;
-	    box-sizing: content-box;
-	    
-	    height: 248px;
-	    border: 25px white solid;
-		
-		}
-
-		.text-upper, .text-lower {
-	  
-	    color: white;
-	    font-size: 3em;
-	    font-weight: bold;
-	    text-transform: uppercase;
-	    text-align: center;
-
-	    width: 80%;
-	    left: 10%;
-
-	    @include word-wrap();
-		
-		}
-
-		.text-upper {
-	    position: absolute;
-	    top: 0;
-		}
-
-		.text-lower {
-      position: absolute;
-	    bottom: 0;
+			width: 500px;
+			height: 500px;
 		}
 
 	}
