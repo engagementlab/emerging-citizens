@@ -93,7 +93,7 @@ var gameEvents = function(eventId, eventData) {
 
           hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
           
-          .staggerFrom($(el).find('.voter'), 2, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
+          .staggerFrom($(el).find('.voter'), 2, {scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
               ion.sound.play("button_tiny");
 
@@ -112,9 +112,8 @@ var gameEvents = function(eventId, eventData) {
               }, "-=0.5");
              
 
-          } else {
-
           }
+          
           hashtagsAnim
           .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
               .add(function(){

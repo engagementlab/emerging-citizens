@@ -60,7 +60,7 @@ var Meme = function (nsp, socket) {
         'game:force_results': function(package) {
 
             Session.Get(package.gameId).
-            DisplayResults();
+            DisplayResults(true);
 
         }
     

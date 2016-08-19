@@ -96,20 +96,90 @@ var gameEvents = function(eventId, eventData) {
 
         submissionsAnim
         .from($('#submissions'), 1, {autoAlpha:0}).add('submissions')
-        .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=10')
+        // .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=10');
+
+        var elements = $('#submissions .submission');
+
+        // submissionsAnim.staggerFrom(elements, 1, {y:0, autoAlpha:0, ease:Elastic.easeOut}, 4);
+        // submissionsAnim.staggerTo(elements, 1, {y:0, autoAlpha:0, ease:Elastic.easeOut}, 4);
+
+      // 1) Show submissions
+      _.each(elements, function(el, index) {
+
+          // creators = $(el).find('.creator');
+          // creatorWrapper = $(el).find('.creatorWrapper');
+          // num = creators.size();
+
+          submissionsAnim
+          .from(el, 1, {y:0, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=1.5')
+          
+          .from($(el).find('.meme'), 1, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=2')
+          
+          .from($(el).find('.votes-box'), .5, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=2.5')
+          .staggerFrom($(el).find('.votes-box .vote'), .3, {scale: 0, autoAlpha:0, ease:Bounce.easeOut}, .3, '+=3')
+          .staggerFrom($(el).find('.votes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:360, ease:Elastic.easeOut}, 1, '+=5')
+
+          .from($(el).find('.name.submitter'), 1, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=6.5')
+
+          .from($(el).find('.likes-box'), .5, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=7.5')
+          .staggerFrom($(el).find('.likes-box .vote'), .3, {scale: 0, autoAlpha:0, ease:Bounce.easeOut}, .3, '+=8')
+          .staggerFrom($(el).find('.likes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:-180, ease:Elastic.easeOut}, 1, '+=8.5')
+
+          .to(el, 1, {y:0, scale: 0, autoAlpha:0, display:'none', ease:Ease.easeIn}, '+=10.5');
+          // submissionsAnim.from($(el).find('.likes-box'), 1, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=3')
+
+/*          .staggerFrom($(el).find('.voter'), 2, {scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
+
+              ion.sound.play("button_tiny");
+
+          }}, 2, '+=0.5')
+          .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=2.5');
+
+          if (num > 1) {
+              hashtagsAnim
+              .add(function(){
+                $(creatorWrapper).cycle();
+                $(creatorWrapper).cycle('goto', 0);
+                $(creatorWrapper).cycle("pause");                
+              }, 1, "+=0.5")
+              .add(function(){
+                $(creatorWrapper).cycle("resume");
+              }, "-=0.5");
+             
+
+          } else {
+
+          }
+          hashtagsAnim
+          .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
+              .add(function(){
+
+                // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
+                $(el).find('.voterWrapper').cycle();
+                $(el).find('.voterWrapper').cycle('goto', 0);
+                // $(el).find('.voterWrapper').cycle("pause");
+                // $(el).find('.voterWrapper').cycle("next");
+                // $(el).find('.voterWrapper').cycle("destroy");
+                
+                console.log("cycling");
+              }, "+=1.0")
+              .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});*/
+
+      });
         
-        .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=11').add('scores')
-        .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=3')
+        // .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=11').add('scores')
+        // .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=3')
         
-        .from($('#leaderboard-header'), 1, {autoAlpha:0}, 'scores+=3').add('leaderboard')
-        .to($('#results-header'), 1, {autoAlpha:0}, 'scores+=3')
+        // .from($('#leaderboard-header'), 1, {autoAlpha:0}, 'scores+=3').add('leaderboard')
+        // .to($('#results-header'), 1, {autoAlpha:0}, 'scores+=3')
         
-        .from($('#leaderboard'), 1, {autoAlpha:0}, 'scores+=3')
+        // .from($('#leaderboard'), 1, {autoAlpha:0}, 'scores+=3')
         
-        .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'leaderboard+=3')
+        // .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'leaderboard+=3')
         
-        .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leaderboard+=4');
+        // .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leaderboard+=4');
   
+        // Debugging
         if($('#slider-gsap').length) {
           resultsAnimSlider = new GSAPTLSlider(submissionsAnim, "slider-gsap", {
               width: 600

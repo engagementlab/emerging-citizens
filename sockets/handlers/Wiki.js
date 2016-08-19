@@ -50,7 +50,7 @@ var Wiki = function (nsp, socket) {
         'game:force_results': function(package) {
 
             Session.Get(package.gameId).
-            ForceResults();
+            DisplayResults(true);
 
         }
     
