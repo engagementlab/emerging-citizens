@@ -98,28 +98,28 @@
                 </div>
             {{/ifeq}}
 
-                  <div class="container-fluid" id="gameContent">
+              <div class="container-fluid" id="gameContent">
 
-                    <!-- BODY CONTENT START -->
-                    {{{body}}}
+                <!-- BODY CONTENT START -->
+                {{{body}}}
 
-                    {{#ifeq debug true}}
-                      <div id="emulate-players" style="display:none">
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                        <iframe src="" data-emulated='true' width="400" height="400"></iframe>
-                      </div>
-                    {{/ifeq}}
-
+                {{#ifeq debug true}}
+                  <div id="emulate-players" style="display:none">
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                    <iframe src="" data-emulated='true' width="400" height="400"></iframe>
                   </div>
-            </div><!-- /.container -->
+                {{/ifeq}}
 
-            <!-- page-wrapper end -->
+              </div>
+              
+            </div>
+
             {{#ifeq env "development"}}
                 {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
             {{else}}

@@ -1,5 +1,14 @@
 <div class="page-container">
     <div class="row">
+        {{!-- STATE TEXT --}}
+        <div id="top-header" class="top-bar">
+            <h1>
+                make a meme about:
+                <span id="topic">
+                    <span class="text">{{topicName}}</span>
+                </span>
+            </h1>
+        </div>
         
         <div class="col-lg-4 col-sm-4"> 
         {{> group/meme/players_grid players=players.left offset=0 left=true active=true}}
@@ -11,14 +20,12 @@
                 <div class="col-lg-12 col-sm-12">
 
                     {{!-- MAKE MEME --}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                        <h3 class="game-header">
-                            make a meme about:
-                        </h1>
+                    <div class="col-lg-12">
+                        <h3>
+                            use your device to make a meme about:
+                        </h3>
                         <img src="{{{cloudinaryUrl topicImage width=400 height=400 quality=80}}}" />
                         <div id="meme-topic" class="meme-text">{{topicName}}</div>
-                        </div>
                     </div>
 
                     {{!-- COUNTDOWN --}}

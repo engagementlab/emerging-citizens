@@ -75,7 +75,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
 
             // Change background
             $('.body').addClass('player');
@@ -94,7 +94,7 @@ var socketEvents = function(eventId, eventData) {
             // Remove saved game code since game is over
             sessionStorage.removeItem('gameCode');
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
 
             break;
 
@@ -122,7 +122,7 @@ var socketEvents = function(eventId, eventData) {
         {{!-- case 'game:countdown_end': --}}
         case 'players:update':
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
 
             var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
             nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});

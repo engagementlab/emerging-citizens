@@ -177,7 +177,6 @@ var socketEvents = function(eventId, eventData) {
 $.getScript( '/js/events/group/{{gameType}}.js' )
     {{#ifnoteq environment "production"}}
         .done(function( script, textStatus ) {
-            // console.log( textStatus );
             var startBtn = $('#btn-start-game');
             startAnim.from(startBtn, 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
         })

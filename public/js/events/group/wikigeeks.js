@@ -19,8 +19,6 @@ var gameEvents = function(eventId, eventData) {
 
     case 'game:countdown':
 
-    console.log(eventData);
-
       var countdownContainer = $('.countdown'),
           countdownText =  $('#countdown #text'),
           revealCountdownText = $('#article-reveal #countdown #text'),
@@ -57,8 +55,6 @@ var gameEvents = function(eventId, eventData) {
             // .from(countdownText.find('#m'), .5, {autoAlpha:0, scale: 0.5, delay: .5, ease:Elastic.easeOut})
             // .from(countdownText.find('#s'), .5, {autoAlpha:0, scale: 0.5, delay: 1, ease:Elastic.easeOut});
           }
-
-
 
           // End countdown
           if(secondsLeft == 0 && clockName === 'topicCountdown'){
@@ -169,7 +165,7 @@ var gameEvents = function(eventId, eventData) {
 
     case 'wiki:results':
         
-        $('#gameContent').html(eventData);
+        updateGameContent(eventData);
         clearInterval(clockInterval);
 
         function roundCountdown() {

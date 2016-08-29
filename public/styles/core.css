@@ -1221,205 +1221,221 @@ body .player-form {
 /* 
 	WWDMM group view styling.
 */
-.body.wwdmm.group #gameContent {
-  padding: 0;
-  padding-top: 0; }
-
-.body.wwdmm.group .meme {
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding: 6%;
-  box-sizing: content-box;
-  height: 248px;
-  border: 25px white solid; }
-  .body.wwdmm.group .meme .text-upper, .body.wwdmm.group .meme .text-lower {
+.body.wwdmm.group {
+  overflow: hidden; }
+  .body.wwdmm.group #gameContent {
+    padding: 0;
+    padding-top: 0; }
+  .body.wwdmm.group .meme {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 6%;
+    box-sizing: content-box;
+    height: 248px;
+    border: 25px white solid; }
+    .body.wwdmm.group .meme .text-upper, .body.wwdmm.group .meme .text-lower {
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      width: 80%;
+      left: 10%; }
+    .body.wwdmm.group .meme .text-upper {
+      position: absolute;
+      top: 0; }
+    .body.wwdmm.group .meme .text-lower {
+      position: absolute;
+      bottom: 0; }
+  .body.wwdmm.group .meme-text {
+    z-index: 10;
+    background: none;
+    border: none;
     color: white;
-    font-size: 3em;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    width: 80%;
-    left: 10%; }
-  .body.wwdmm.group .meme .text-upper {
-    position: absolute;
-    top: 0; }
-  .body.wwdmm.group .meme .text-lower {
-    position: absolute;
-    bottom: 0; }
-
-.body.wwdmm.group .meme-text {
-  z-index: 10;
-  background: none;
-  border: none;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: Impact;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
-
-.body.wwdmm.group .room-container {
-  border: 15px solid #b7d63a;
-  border-radius: 10px; }
-
-.body.wwdmm.group #voting-header {
-  color: white;
-  font-family: 'Patrick Hand', cursive;
-  font-size: 3em;
-  text-transform: uppercase;
-  background-color: #ff5b77;
-  padding: 1%; }
-  .body.wwdmm.group #voting-header h1 {
-    font-size: 1.5em; }
-  .body.wwdmm.group #voting-header .img {
+    font-family: Impact;
+    text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  .body.wwdmm.group .room-container {
+    border: 15px solid #b7d63a;
+    border-radius: 10px; }
+  .body.wwdmm.group .top-bar {
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #ff5b77;
+    padding: 1%; }
+    .body.wwdmm.group .top-bar h1 {
+      font-size: 1.5em; }
+  .body.wwdmm.group #top-header .img {
     margin-top: 2%;
     margin-left: -19%; }
-  .body.wwdmm.group #voting-header #topic {
+  .body.wwdmm.group #top-header #topic {
     display: inline;
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
-    background-repeat: no-repeat;
-    background-position-y: 107%;
+    background-repeat: repeat-x;
+    background-position-y: 100%;
     background-position-x: center;
     background-clip: padding-box;
     color: #19f7ad; }
-  .body.wwdmm.group #voting-header #descriptor {
+  .body.wwdmm.group #top-header #descriptor {
     display: inline;
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
-    background-repeat: no-repeat;
-    background-position-y: 107%;
+    background-repeat: repeat-x;
+    background-position-y: 100%;
     background-position-x: center;
     background-clip: padding-box;
     color: #fff5a3; }
-
-.body.wwdmm.group #results-container .score {
-  font-family: 'Patrick Hand', cursive;
-  color: #31b9ff;
-  text-shadow: -4px -4px 0 #fff, -4px -3px 0 #fff, -4px -2px 0 #fff, -4px -1px 0 #fff, -4px 0px 0 #fff, -4px 1px 0 #fff, -4px 2px 0 #fff, -4px 3px 0 #fff, -4px 4px 0 #fff, -3px -4px 0 #fff, -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -3px 4px 0 #fff, -2px -4px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -2px 4px 0 #fff, -1px -4px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, -1px 4px 0 #fff, 0px -4px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 0px 4px 0 #fff, 1px -4px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 1px 4px 0 #fff, 2px -4px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 2px 4px 0 #fff, 3px -4px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff, 3px 4px 0 #fff, 4px -4px 0 #fff, 4px -3px 0 #fff, 4px -2px 0 #fff, 4px -1px 0 #fff, 4px 0px 0 #fff, 4px 1px 0 #fff, 4px 2px 0 #fff, 4px 3px 0 #fff, 4px 4px 0 #fff; }
-
-.body.wwdmm.group #results-container .name {
-  font-size: 1.1em; }
-  .body.wwdmm.group #results-container .name.submitter {
+  .body.wwdmm.group #results-container h1 {
     font-size: 4em; }
-  .body.wwdmm.group #results-container .name .icon {
-    display: inline-block;
-    position: relative;
-    top: 10px;
-    left: -11px;
-    font-size: 2.7em;
-    -moz-transform: rotate(20deg);
-    -o-transform: rotate(20deg);
-    -ms-transform: rotate(20deg);
-    -webkit-transform: rotate(20deg);
-    transform: rotate(20deg); }
-
-.body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
-  position: relative;
-  float: right;
-  left: -50%;
-  font-size: 2em; }
-  .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
-    position: relative;
-    left: 50%; }
-  .body.wwdmm.group #results-container .votes li, .body.wwdmm.group #results-container .likes li {
-    list-style-type: none; }
-  .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .likes .score {
-    position: relative;
-    top: -112px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 10%;
-    padding-left: 10%;
-    font-size: 3em; }
-
-.body.wwdmm.group #results-container .meme {
-  width: 500px;
-  height: 500px; }
-
-.body.wwdmm.group #game_code {
-  padding: 40px 20px;
-  height: 750px; }
-  .body.wwdmm.group #game_code #first {
-    color: #ac7ce8 l; }
-  .body.wwdmm.group #game_code #second {
-    color: #ff6000; }
-  .body.wwdmm.group #game_code #third {
-    color: #007dd5; }
-  .body.wwdmm.group #game_code #fourth {
-    color: #b7d63a; }
-  .body.wwdmm.group #game_code h1 {
-    font-size: 5em;
-    color: #19f7ad; }
-    .body.wwdmm.group #game_code h1.game-header {
-      color: #ff8d5b; }
-  .body.wwdmm.group #game_code h3.game-header {
-    font-size: 3em;
-    color: #19f7ad; }
-  .body.wwdmm.group #game_code .wait-players {
-    color: #ff8d5b;
-    font-size: 3em; }
-
-.body.wwdmm.group #make-meme {
-  color: #21b7f0;
-  font-size: 1em; }
-  .body.wwdmm.group #make-meme h3 {
-    font-size: 3em;
-    font-weight: normal; }
-  .body.wwdmm.group #make-meme #meme-topic {
-    font-size: 3em;
-    position: relative;
-    top: -70px; }
-  .body.wwdmm.group #make-meme .countdown {
-    font-size: 3em;
+  .body.wwdmm.group #results-container .score {
     font-family: 'Patrick Hand', cursive;
-    line-height: 1; }
-  .body.wwdmm.group #make-meme #countdown {
-    font-size: 250%;
-    color: #ffab48; }
-
-.body.wwdmm.group .players-grid.row .player-background {
-  width: 250px;
-  height: 350px;
-  background-color: white;
-  border-radius: 0px;
-  margin: 20px auto;
-  float: none;
-  display: inline-block; }
-  .body.wwdmm.group .players-grid.row .player-background .player-static {
-    margin: 10px;
-    height: 80%; }
-    .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
-      height: 240px;
-      border: 1px solid black;
-      margin: 20px 0px 40px 0px; }
-      .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
-        width: 87px;
-        margin-left: 5%;
-        margin-top: 5%; }
-
-.body.wwdmm.group .player-0 {
-  color: #FF421C; }
-
-.body.wwdmm.group .player-1 {
-  color: #FFA800; }
-
-.body.wwdmm.group .player-2 {
-  color: #93B700; }
-
-.body.wwdmm.group .player-3 {
-  color: #EA4200; }
-
-.body.wwdmm.group .player-4 {
-  color: #F56800; }
-
-.body.wwdmm.group .player-5 {
-  color: #14B1E5; }
-
-.body.wwdmm.group .player-6 {
-  color: #006CB8; }
-
-.body.wwdmm.group .player-7 {
-  color: #8851CD; }
+    color: #11cfe0;
+    text-shadow: -8px -8px 0 #fff, -8px -7px 0 #fff, -8px -6px 0 #fff, -8px -5px 0 #fff, -8px -4px 0 #fff, -8px -3px 0 #fff, -8px -2px 0 #fff, -8px -1px 0 #fff, -8px 0px 0 #fff, -8px 1px 0 #fff, -8px 2px 0 #fff, -8px 3px 0 #fff, -8px 4px 0 #fff, -8px 5px 0 #fff, -8px 6px 0 #fff, -8px 7px 0 #fff, -8px 8px 0 #fff, -7px -8px 0 #fff, -7px -7px 0 #fff, -7px -6px 0 #fff, -7px -5px 0 #fff, -7px -4px 0 #fff, -7px -3px 0 #fff, -7px -2px 0 #fff, -7px -1px 0 #fff, -7px 0px 0 #fff, -7px 1px 0 #fff, -7px 2px 0 #fff, -7px 3px 0 #fff, -7px 4px 0 #fff, -7px 5px 0 #fff, -7px 6px 0 #fff, -7px 7px 0 #fff, -7px 8px 0 #fff, -6px -8px 0 #fff, -6px -7px 0 #fff, -6px -6px 0 #fff, -6px -5px 0 #fff, -6px -4px 0 #fff, -6px -3px 0 #fff, -6px -2px 0 #fff, -6px -1px 0 #fff, -6px 0px 0 #fff, -6px 1px 0 #fff, -6px 2px 0 #fff, -6px 3px 0 #fff, -6px 4px 0 #fff, -6px 5px 0 #fff, -6px 6px 0 #fff, -6px 7px 0 #fff, -6px 8px 0 #fff, -5px -8px 0 #fff, -5px -7px 0 #fff, -5px -6px 0 #fff, -5px -5px 0 #fff, -5px -4px 0 #fff, -5px -3px 0 #fff, -5px -2px 0 #fff, -5px -1px 0 #fff, -5px 0px 0 #fff, -5px 1px 0 #fff, -5px 2px 0 #fff, -5px 3px 0 #fff, -5px 4px 0 #fff, -5px 5px 0 #fff, -5px 6px 0 #fff, -5px 7px 0 #fff, -5px 8px 0 #fff, -4px -8px 0 #fff, -4px -7px 0 #fff, -4px -6px 0 #fff, -4px -5px 0 #fff, -4px -4px 0 #fff, -4px -3px 0 #fff, -4px -2px 0 #fff, -4px -1px 0 #fff, -4px 0px 0 #fff, -4px 1px 0 #fff, -4px 2px 0 #fff, -4px 3px 0 #fff, -4px 4px 0 #fff, -4px 5px 0 #fff, -4px 6px 0 #fff, -4px 7px 0 #fff, -4px 8px 0 #fff, -3px -8px 0 #fff, -3px -7px 0 #fff, -3px -6px 0 #fff, -3px -5px 0 #fff, -3px -4px 0 #fff, -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -3px 4px 0 #fff, -3px 5px 0 #fff, -3px 6px 0 #fff, -3px 7px 0 #fff, -3px 8px 0 #fff, -2px -8px 0 #fff, -2px -7px 0 #fff, -2px -6px 0 #fff, -2px -5px 0 #fff, -2px -4px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -2px 4px 0 #fff, -2px 5px 0 #fff, -2px 6px 0 #fff, -2px 7px 0 #fff, -2px 8px 0 #fff, -1px -8px 0 #fff, -1px -7px 0 #fff, -1px -6px 0 #fff, -1px -5px 0 #fff, -1px -4px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, -1px 4px 0 #fff, -1px 5px 0 #fff, -1px 6px 0 #fff, -1px 7px 0 #fff, -1px 8px 0 #fff, 0px -8px 0 #fff, 0px -7px 0 #fff, 0px -6px 0 #fff, 0px -5px 0 #fff, 0px -4px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 0px 4px 0 #fff, 0px 5px 0 #fff, 0px 6px 0 #fff, 0px 7px 0 #fff, 0px 8px 0 #fff, 1px -8px 0 #fff, 1px -7px 0 #fff, 1px -6px 0 #fff, 1px -5px 0 #fff, 1px -4px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 1px 4px 0 #fff, 1px 5px 0 #fff, 1px 6px 0 #fff, 1px 7px 0 #fff, 1px 8px 0 #fff, 2px -8px 0 #fff, 2px -7px 0 #fff, 2px -6px 0 #fff, 2px -5px 0 #fff, 2px -4px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 2px 4px 0 #fff, 2px 5px 0 #fff, 2px 6px 0 #fff, 2px 7px 0 #fff, 2px 8px 0 #fff, 3px -8px 0 #fff, 3px -7px 0 #fff, 3px -6px 0 #fff, 3px -5px 0 #fff, 3px -4px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff, 3px 4px 0 #fff, 3px 5px 0 #fff, 3px 6px 0 #fff, 3px 7px 0 #fff, 3px 8px 0 #fff, 4px -8px 0 #fff, 4px -7px 0 #fff, 4px -6px 0 #fff, 4px -5px 0 #fff, 4px -4px 0 #fff, 4px -3px 0 #fff, 4px -2px 0 #fff, 4px -1px 0 #fff, 4px 0px 0 #fff, 4px 1px 0 #fff, 4px 2px 0 #fff, 4px 3px 0 #fff, 4px 4px 0 #fff, 4px 5px 0 #fff, 4px 6px 0 #fff, 4px 7px 0 #fff, 4px 8px 0 #fff, 5px -8px 0 #fff, 5px -7px 0 #fff, 5px -6px 0 #fff, 5px -5px 0 #fff, 5px -4px 0 #fff, 5px -3px 0 #fff, 5px -2px 0 #fff, 5px -1px 0 #fff, 5px 0px 0 #fff, 5px 1px 0 #fff, 5px 2px 0 #fff, 5px 3px 0 #fff, 5px 4px 0 #fff, 5px 5px 0 #fff, 5px 6px 0 #fff, 5px 7px 0 #fff, 5px 8px 0 #fff, 6px -8px 0 #fff, 6px -7px 0 #fff, 6px -6px 0 #fff, 6px -5px 0 #fff, 6px -4px 0 #fff, 6px -3px 0 #fff, 6px -2px 0 #fff, 6px -1px 0 #fff, 6px 0px 0 #fff, 6px 1px 0 #fff, 6px 2px 0 #fff, 6px 3px 0 #fff, 6px 4px 0 #fff, 6px 5px 0 #fff, 6px 6px 0 #fff, 6px 7px 0 #fff, 6px 8px 0 #fff, 7px -8px 0 #fff, 7px -7px 0 #fff, 7px -6px 0 #fff, 7px -5px 0 #fff, 7px -4px 0 #fff, 7px -3px 0 #fff, 7px -2px 0 #fff, 7px -1px 0 #fff, 7px 0px 0 #fff, 7px 1px 0 #fff, 7px 2px 0 #fff, 7px 3px 0 #fff, 7px 4px 0 #fff, 7px 5px 0 #fff, 7px 6px 0 #fff, 7px 7px 0 #fff, 7px 8px 0 #fff, 8px -8px 0 #fff, 8px -7px 0 #fff, 8px -6px 0 #fff, 8px -5px 0 #fff, 8px -4px 0 #fff, 8px -3px 0 #fff, 8px -2px 0 #fff, 8px -1px 0 #fff, 8px 0px 0 #fff, 8px 1px 0 #fff, 8px 2px 0 #fff, 8px 3px 0 #fff, 8px 4px 0 #fff, 8px 5px 0 #fff, 8px 6px 0 #fff, 8px 7px 0 #fff, 8px 8px 0 #fff; }
+  .body.wwdmm.group #results-container .score-shadow {
+    text-shadow: 5px 1px rgba(0, 0, 0, 0.5); }
+  .body.wwdmm.group #results-container .name {
+    font-size: .8em; }
+    .body.wwdmm.group #results-container .name.submitter {
+      font-size: 4em; }
+    .body.wwdmm.group #results-container .name .icon {
+      display: inline-block;
+      position: relative;
+      top: 10px;
+      left: -11px;
+      font-size: 2.7em;
+      -moz-transform: rotate(20deg);
+      -o-transform: rotate(20deg);
+      -ms-transform: rotate(20deg);
+      -webkit-transform: rotate(20deg);
+      transform: rotate(20deg); }
+  .body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
+    position: relative;
+    float: right;
+    left: -50%;
+    font-size: 2em; }
+    .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
+      position: relative;
+      left: 50%; }
+    .body.wwdmm.group #results-container .votes li, .body.wwdmm.group #results-container .likes li {
+      list-style-type: none;
+      height: 70px; }
+    .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score, .body.wwdmm.group #results-container .likes .score-shadow {
+      position: relative;
+      top: -69px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 10%;
+      padding-left: 10%;
+      font-size: 1.5em; }
+    .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
+      margin-top: -6px; }
+  .body.wwdmm.group #results-container .meme {
+    width: 450px;
+    height: 450px;
+    border: solid 10px #11cfe0; }
+  .body.wwdmm.group #results-container #scores, .body.wwdmm.group #results-container #leaderboard {
+    font-size: 2em; }
+    .body.wwdmm.group #results-container #scores .points, .body.wwdmm.group #results-container #leaderboard .points {
+      display: table-cell;
+      vertical-align: middle; }
+    .body.wwdmm.group #results-container #scores .player-rule, .body.wwdmm.group #results-container #leaderboard .player-rule {
+      border-top: 5px solid;
+      margin-top: 5%; }
+    .body.wwdmm.group #results-container #scores .large, .body.wwdmm.group #results-container #leaderboard .large {
+      font-size: 2.5em; }
+  .body.wwdmm.group #game_code {
+    padding: 0px 20px;
+    height: 715px; }
+    .body.wwdmm.group #game_code #btn-start-game {
+      font-family: 'Patrick Hand', cursive;
+      visibility: hidden;
+      background-color: #19f7ad;
+      color: #ff775c;
+      line-height: 1;
+      text-transform: uppercase;
+      padding: 3%;
+      font-size: 7em; }
+    .body.wwdmm.group #game_code #first {
+      color: #ac7ce8 l; }
+    .body.wwdmm.group #game_code #second {
+      color: #ff6000; }
+    .body.wwdmm.group #game_code #third {
+      color: #007dd5; }
+    .body.wwdmm.group #game_code #fourth {
+      color: #b7d63a; }
+    .body.wwdmm.group #game_code h1 {
+      font-size: 5em;
+      color: #19f7ad; }
+      .body.wwdmm.group #game_code h1.game-header {
+        color: #ff8d5b; }
+    .body.wwdmm.group #game_code #blurb h3 {
+      font-size: 3em;
+      color: #19f7ad; }
+  .body.wwdmm.group #make-meme {
+    color: #21b7f0;
+    font-size: 1em; }
+    .body.wwdmm.group #make-meme h3 {
+      font-size: 1em;
+      font-weight: normal; }
+    .body.wwdmm.group #make-meme #meme-topic {
+      font-size: 3em;
+      position: relative;
+      top: -70px; }
+    .body.wwdmm.group #make-meme .countdown {
+      font-size: 3em;
+      font-family: 'Patrick Hand', cursive;
+      line-height: 1; }
+    .body.wwdmm.group #make-meme #countdown {
+      font-size: 250%;
+      color: #ffab48; }
+  .body.wwdmm.group .players-grid.row .player-background {
+    width: 250px;
+    height: 350px;
+    background-color: white;
+    border-radius: 0px;
+    margin: 20px auto;
+    float: none;
+    display: inline-block; }
+    .body.wwdmm.group .players-grid.row .player-background .player-static {
+      margin: 10px;
+      height: 80%; }
+      .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
+        height: 240px;
+        border: 1px solid black;
+        margin: 20px 0px 40px 0px; }
+        .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
+          width: 87px;
+          margin-left: 5%;
+          margin-top: 5%; }
+  .body.wwdmm.group .player-0 {
+    color: #FF421C;
+    border-top-color: #FF421C; }
+  .body.wwdmm.group .player-1 {
+    color: #ffa800;
+    border-top-color: #ffa800; }
+  .body.wwdmm.group .player-2 {
+    color: #93B700;
+    border-top-color: #93B700; }
+  .body.wwdmm.group .player-3 {
+    color: #EA4200;
+    border-top-color: #EA4200; }
+  .body.wwdmm.group .player-4 {
+    color: #F56800;
+    border-top-color: #F56800; }
+  .body.wwdmm.group .player-5 {
+    color: #14B1E5;
+    border-top-color: #14B1E5; }
+  .body.wwdmm.group .player-6 {
+    color: #006CB8;
+    border-top-color: #006CB8; }
+  .body.wwdmm.group .player-7 {
+    color: #8851CD;
+    border-top-color: #8851CD; }
 
 /* 
 	HTYI player view styling.

@@ -3,6 +3,7 @@
 */
 .body.wwdmm.group {
 
+	overflow: hidden;
 
 	#gameContent {
 
@@ -75,12 +76,14 @@
 
 	}
 
-	#voting-header {
+	.top-bar {
 
     color: white;
 		font-family: 'Patrick Hand', cursive;
 		font-size: 3em;
+
 		text-transform: uppercase;
+		text-align: center;
 
 		background-color: $color-warm-pink;
 		padding: 1%;
@@ -89,34 +92,42 @@
 			font-size: 1.5em;
 		}
 
+	}
+
+	#top-header {
+
 		.img {
 	    margin-top: 2%;
       margin-left: -19%;
 		}
 
 		#topic {
+
 			display: inline;
 
 	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
-	    background-repeat: no-repeat;
-	    background-position-y: 107%;
+	    background-repeat: repeat-x;
+	    background-position-y: 100%;
 	    background-position-x: center;
 	    background-clip: padding-box;
 		
 			color: $color-bright-sea-green;
+
 		}
 
 		#descriptor {
+
 			display: inline;
 
 	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
-	    background-repeat: no-repeat;
-	    background-position-y: 107%;
+	    background-repeat: repeat-x;
+	    background-position-y: 100%;
 	    background-position-x: center;
 	    background-clip: padding-box;
 
 			color: $color-pale-yellow;
 		}
+
 	}
 
 	#voting-container {
@@ -125,14 +136,21 @@
 
 	#results-container {
 
+		h1 {
+			font-size: 4em;
+		}
+
     .score {
 			font-family: 'Patrick Hand', cursive;
-			color: $color-dodger-blue;
-	    @include stroke(4, #fff);
+			color: $color-aqua;
+	    @include stroke(8, #fff);
+    }
+    .score-shadow {
+	    text-shadow: 5px 1px rgba(0, 0, 0, 0.5);
     }
 
     .name {
-    	font-size: 1.1em;
+    	font-size: .8em;
 
     	&.submitter {
     		font-size: 4em;
@@ -162,30 +180,69 @@
 	    }
 	    li {
 	    	list-style-type: none;
+		    height: 70px;
 	    }
 
-	    .score {
+	    .score, .score-shadow {
   	    position: relative;
-		    top: -112px;
+		    top: -69px;
 		    margin-left: auto;
 		    margin-right: auto;
 		    padding-right: 10%;
 		    padding-left: 10%;
-	    	font-size: 3em;
+	    	font-size: 1.5em;
+	    }
+	    .score-shadow {
+		    margin-top: -6px;
 	    }
 		}
 
 		.meme {
-			width: 500px;
-			height: 500px;
+			width: 450px;
+			height: 450px;
+	    border: solid 10px $color-aqua;
 		}
 
+		// ROUND SCORES
+		#scores, #leaderboard {
+		
+			font-size: 2em;
+
+			.points {
+		    display: table-cell;
+		    vertical-align: middle;
+			}
+
+			.player-rule {
+				border-top: 5px solid;
+		    margin-top: 5%;			
+			}
+
+			.large {
+				font-size: 2.5em;
+			}
+		
+		}
 	}
 
 	#game_code {
 
-		padding: 40px 20px;
-		height: 750px;
+		padding: 0px 20px;
+		height: 715px;
+	  
+	  #btn-start-game {
+			font-family: 'Patrick Hand', cursive;
+	  	visibility: hidden;
+	  	
+	  	background-color: $color-bright-sea-green;
+	  	color: $color-melon;
+
+	    line-height: 1;
+	    text-transform: uppercase;
+	    padding: 3%;
+
+	    font-size: 7em;
+	  }
 
 		#first {
 			color: $color-perrywinkle;
@@ -201,7 +258,7 @@
 		}
 
 		h1 {
-			font-size: 5em;
+	    font-size: 5em;
 			color: $color-bright-sea-green;
 
 			&.game-header {
@@ -209,14 +266,9 @@
 			}
 		}
 
-		h3.game-header {
+		#blurb h3 {
 			font-size: 3em;
 			color: $color-bright-sea-green;
-		}
-
-		.wait-players {
-			color: $color-pastel-orange;
-			font-size: 3em;
 		}
 
 	}
@@ -227,7 +279,7 @@
     font-size: 1em;
 
     h3 {
-    	font-size: 3em;
+    	font-size: 1em;
     	font-weight: normal;
     }
 
@@ -284,30 +336,38 @@
 
 	}
 
-		// PLAYER COLORS
+	// PLAYER COLORS
 	.player-0 {
 		color: #FF421C;
+		border-top-color: #FF421C;
 	}
 	.player-1{
-		color: #FFA800;
+		color: $color-orange-yellow;
+		border-top-color: $color-orange-yellow;
 	}
 	.player-2{
 		color: #93B700;
+		border-top-color: #93B700;
 	}
 	.player-3{
 		color: #EA4200;
+		border-top-color: #EA4200;
 	}
 	.player-4{
 		color: #F56800;
+		border-top-color: #F56800;
 	}
 	.player-5{
 		color: #14B1E5;
+		border-top-color: #14B1E5;
 	}
 	.player-6 {
 		color: #006CB8;
+		border-top-color: #006CB8;
 	}
 	.player-7 {
 		color: #8851CD;
+		border-top-color: #8851CD;
 	}
 
 }

@@ -38,7 +38,7 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:create':
 
             var slideIndex = 0;
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
 
             $("#meme-slider").glide({
                 type: "carousel",
@@ -75,7 +75,7 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:voting':
 
             var slideIndex = 0;
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
         
             $("#meme-slider").glide({
                 type: "carousel",

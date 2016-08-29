@@ -1,7 +1,7 @@
 <div class="page-container">
     <div class="row">
 
-        <div id="voting-header" class="row col-sm-12">
+        <div id="top-header" class="top-bar">
             <h1>
                 round results
             </h1>
@@ -23,9 +23,15 @@
         
                         <div class="submission row hidden-el">
 
-                            <div class="col-sm-6">
+                            <div class="name submitter player-{{player.index}} hidden-el">
+                                {{player.username}} 
+                                
+                                {{#if score}}
+                                    <span class="score">+{{score}}</span>
+                                {{/if}}
+                            </div>
 
-                                <div class="name submitter player-{{player.index}} hidden-el">{{player.username}} <span class="score">+{{score}}</span></div>
+                            <div class="col-sm-6">
 
                                 <div class="meme hidden-el" style="background-image: url({{cloudinaryUrl image width=400 quality=100}})">
 
@@ -40,7 +46,7 @@
                                 {{!-- VOTES --}}
                                 <div class="votes-box row hidden-el">
 
-                                    <h1>votes</h1>
+                                    <h1>Votes</h1>
                                     <div class="row">
                                         <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ffea00,e_colorize:100,w_273/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
                                     </div>
@@ -71,7 +77,7 @@
                                 {{!-- LIKES --}}
                                 <div class="likes-box row hidden-el">
 
-                                    <h1>likes</h1>
+                                    <h1>Likes {{{cloudinaryImg "emerging-citizens/images/layout/wwdmm/like-button.png" width=45}}}</h1>
                                     <div class="row">
                                         <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff838c,e_colorize:100,w_273/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
                                     </div>
@@ -82,7 +88,7 @@
                                             {{#each likes}}
 
                                                 <li class="vote hidden-el" style="float:left">
-                                                    <div class="name player-{{@index}}">
+                                                    <div class="name player-{{index}}">
                                                         {{this}}
                                                         <div class="icon">!</div>
                                                     </div>
@@ -106,29 +112,55 @@
 
                 </section>
 
-                <section class="row hidden-el" id="scores">
-                    
-                    <div class="col-sm-3"></div>
+                <section id="scores" class="row hidden-el">
+
+                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
 
                     {{#each players}}
-                        <div class="col-sm-3">{{username}}</div>
-                        <div class="col-sm-3">{{#if total}} {{total}} {{else}} 0 {{/if}}</div>
-                    {{/each}}
+
+                        <div class="col-sm-12 name player-{{index}}">
+                            <div class="col-sm-2">
+                                <div class="icon">!</div>
+                                {{username}}
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <hr class="player-rule" />
+                            </div>
+                            
+                            <div class="col-sm-2 points">
+                                <span class="large bold">{{#if total}} {{total}} {{else}} 0 {{/if}}</span> 
+                                points
+                            </div>
+                        </div>
                     
-                    <div class="col-sm-3"></div>
+                    {{/each}}
                     
                 </section>
 
-                <section class="row hidden-el" id="leaderboard">    
-                    
-                    <div class="col-sm-3"></div>
+                <section id="leaderboard" class="row hidden-el"> 
+
+                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
 
                     {{#each players}}
-                        <div class="col-sm-3">{{username}}</div>
-                        <div class="col-sm-3">{{#if score_total}} {{score_total}} {{else}} 0 {{/if}}</div>
-                    {{/each}}
+
+                        <div class="col-sm-12 name player-{{index}}">
+                            <div class="col-sm-2">
+                                <div class="icon">!</div>
+                                {{username}}
+                            </div>
+                            
+                            <div class="col-sm-8">
+                                <hr class="player-rule" />
+                            </div>
+                            
+                            <div class="col-sm-2 points">
+                                <span class="large bold">{{#if score_total}} {{score_total}} {{else}} 0 {{/if}}</span> 
+                                points
+                            </div>
+                        </div>
                     
-                    <div class="col-sm-3"></div>          
+                    {{/each}}         
                     
                 </section>
 

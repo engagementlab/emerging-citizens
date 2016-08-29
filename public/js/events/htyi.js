@@ -46,8 +46,7 @@ var gameEvents = function(eventId, eventData) {
     
         case 'hashtags:received':  
 
-            // TODO: Server-side?    
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
 
             // Remove current player's submission from selections
             $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerHashtag') + '"]').remove();

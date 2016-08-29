@@ -33,6 +33,7 @@
 
 	{{/ifeq}}
 
+	var gameContainer;
 	var timeline = new TimelineLite();
 	
 	{{#ifeq section "index"}}
@@ -51,8 +52,6 @@
 						$(evt.currentTarget).removeClass('invalid');
 					}, 1000);
 			});
-
-
  
 		}); 
 			
@@ -204,6 +203,18 @@
 
 		};
 
+		var updateGameContent = function(content) {
+
+			$('#top-header').remove();
+
+			gameContainer.html(content);
+
+			if($('#top-header').length > 0) {
+				var topBar = $('#top-header').detach();
+				topBar.prependTo('body');
+			}
+		}
+
 		/* 
 			Util to shrink font size of element if text contents exceed given length threshold
 		*/
@@ -237,6 +248,10 @@
 
 		$(document).ready(function() {
 
+			// Get reference to main content div
+			gameContainer = $('#gameContent');
+
+			// GROUP VIEW
 			{{#ifeq section 'group'}}
 				
 	      $('.body').addClass('login');
@@ -277,316 +292,10 @@
 					);
 				});
 
+			 // PLAYER VIEW
 			{{else}}
 
-					var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
-
-					if(!isEmulated) {
-					
-						ion.sound({
-					    sounds: [
-					        {
-					            name: "button_tiny"
-					        }
-					    ],
-					    volume: 0.5,
-					    path: sfxPath,
-					    preload: true,
-					    ready_callback: function(obj) { console.log('sounds ready', obj); }
-						});
-
-					}
-					else
-						$('#debugging').remove();
-
-					/*
-						Logs the player in
-					*/
-					function playerLogin(data) {
-
-						gameCode = data.code;
-
-						// Save current game code to local storage
-						sessionStorage.setItem('gameCode', gameCode);
-
-						$('.navbar').slideUp();
-						
-						// Open socket connection
-						if(socket === undefined) {
-					    socket = io('//{{host}}');
-					    registerEvents();
-					  }
-
-						playerName = $('#player_name').val();
-						sessionStorage.setItem('username', playerName);
-
-						socket.on('disconnect', function(){
-						   // alert('disconnected!')
-						});
-
-						console.log('Connecting to game "' + gameCode + '".');
-
-		        // Log player in
-						socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
-
-					}
-
-					/*
-						Checks if this client is logged in as a player already
-					*/
-					function checkIfLoggedIn() {
-						
-						// Check if game code saved to session (player is already logged in)
-						if(!sessionStorage.getItem('gameCode'))
-							return;
-
-						gameCode = sessionStorage.getItem('gameCode');
-
-						console.log('Trying to re-connect to game "' + gameCode + '".');
-						
-						// Open socket connection
-						if(socket === undefined) {
-					    socket = io('//{{host}}');
-					    registerEvents();
-					  }
-            
-            // Check if player is active in game
-            socket.emit('login:active', {
-						  gameId: sessionStorage.getItem('gameCode'), 
-						  username: sessionStorage.getItem('username'),
-						  uid: sessionStorage.getItem('uUID')
-						});
-
-					}
-
-					/**
-					 * Listen for forms that dispatch socket events.
-					 *
-					 * ### Examples:
-					 *
-					 * @class global
-					 */
-					$(document).on('click', '.form .submit', function() {
-						
-						var event = $(this).data().event;
-						var localEvent = $(this).data().local_event;
-						var sessionFlag = $(this).data().sessionFlag;
-						var pkg = getFormData($(this));
-
-						// If this is a local event, call immediately (don't emit)
-						if(localEvent !== undefined) {
-							socketEvents(localEvent);
-							return;
-						}
-
-						// If there is a session flag ('flag:value'), set it
-						if(sessionFlag !== undefined)
-							sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
-
-						socket.emit(event, emitData(pkg));
-
-						if($(this).data().autohide) {
-							$('#' + $('#submitted').data('hide')).remove();
-							$('#submitted').show();
-						}
-
-					});
-
-					/* 
-					 Disallows input from octothorp (#) character for hashtag submission
-					*/
-					$(document).on('keypress', '#tweet_input', function(key) {
-						
-						if(key.charCode === 35)
-							return false;
-
-					});
-					
-					/* 
-					 Logs player into game with room code and name
-					*/
-					$(document).on('click', '.btn.game_login', function() {
-
-						var data = getFormData($(this));
-
-						var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
-            sessionStorage.setItem('uUID', playerUID);
-
-					  $.post( 
-					  	"/game",
-					  	data,
-							function( data ) {
-
-								$('.form input').removeClass('invalid');
-
-								if(data.error_code !== undefined) {
-
-									switch(data.error_code) {
-										case 'wrong_code': 
-											$('.form #class_code').addClass('invalid');
-											break;
-
-										case 'no_username':
-											$('.form #player_name').addClass('invalid');
-											break;
-
-										case 'username_taken':
-											$('.form #player_name').addClass('invalid');
-											break;
-
-										case 'game_active': 
-											$('.form #class_code').addClass('invalid');
-											break;
-									}
-
-									$('.form .error').text(data.msg).fadeIn();
-									return;
-	
-								}
-
-		            data.uid = playerUID;
-								playerLogin(data);							
-
-							}
-						);
-
-					});
-
-					// Check if this client is logged in on server
-					checkIfLoggedIn();
-				
-					{{!-- INDEX Template Script --}}
-					{{#ifeq section 'group/monitor'}}
-					
-						// Open socket connection
-				    socket = io();
-				    registerEvents();
-					
-						gameCode = '{{game.accessCode}}-group'; 
-
-						var nav = $('nav.header');
-
-						// Thanks GOTA
-						function doResize() {
-						  
-						  var scale = Math.min(
-						    $(window).outerWidth() / 1680, 1.0
-						  );
-						  
-						  $('body').css({
-						    zoom: scale	
-						  });
-
-						}
-						$(window).resize(function() {
-							 doResize();
-						});
-						 doResize();
-
-						{{#ifeq debug true}}
-		        	// Debugging view
-							$('#debugging').appendTo('body');
-		        {{/ifeq}}
-
-						// Load events for group
-						{{> script/groupview_events gameType=gameType}}
-						
-						$('.body').addClass('game-bg group');
-						$('#wrapper').addClass('group');
-						$('.navbar.main').attr ('style', 'display:none;');
-
-            var openAnim = new TimelineLite();
-
-            // Show players
-            openAnim
-            .from($('.room-container'), 1, {scale:0, delay: 1, ease:Elastic.easeOut})
-            .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-            .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-
-            openAnim.play();
-
-					{{else}}
-
-						// Prevent device sleep
-						var noSleep = new NoSleep();
-						noSleep.enable(5000);
-
-						// Load events for players
-						{{> script/player_events gameType=gameType}}
-
-            {{#ifeq debug true}}
-            	// Debugging view
-	            {{#ifeq section 'play'}}
-	                $('#access_code').val('TEST');
-	                $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-	            {{/ifeq}}
-            {{/ifeq}}
-					
-					{{/ifeq}}
-
-					function registerEvents() {
-
-						$.each(eventIds, function(index, id) {
-						  
-						  socket.on(id, function(eventData) {
-
-								{{#ifnoteq environment "production"}}
-
-									console.log("EVENT ID: ", id);
-									console.log("EVENT DATA: (" + eventData + ")");
-
-								{{/ifnoteq}}
-								
-								socketEvents(id, eventData);
-
-							 	if(typeof(gameEvents) == "function")
-									gameEvents(id, eventData);
-
-							});
-
-						});
-
-					}
-
-				{{#ifeq section 'index'}}
-
-					playerEntry();
-
-					$(document).on('click', '.btn.game_entry', function() {
-						
-						var type = $(this).data().game;
-
-					  $.get( 
-					  	"/game/get/" + type,
-							function( data ) {
-
-		            $('#gameContent').html(data);
-
-		            $('.form input[type=submit]')
-		            .hover(function(evt) {
-		            
-		            	timeline.to(evt.currentTarget, .5, { ease: Elastic.easeOut, scale:1.2 });
-		            
-		            })
-		            .mouseleave(function(evt) {
-
-		            	timeline.from(evt.currentTarget, .5, { scale:1.2 });
-		            
-		            });
-
-							}
-						);
-
-					});
-
-				{{/ifeq}}
-
-				{{#ifeq section 'play'}}
-
-	          $('.body').addClass('game-bg');
-	          $('.body').addClass('player');
-
-	      {{/ifeq}}
+				{{> script/player_logic section=section}}
 
 			{{/ifeq}}
 

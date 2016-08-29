@@ -3,9 +3,8 @@
 */
 .body.htyi {
 
-	overflow:hidden;
+	overflow: hidden;
 
-	
 	#game_code {
 		margin-top: 5%;
 		padding-top: 5%;
@@ -25,14 +24,10 @@
 
 	}
 
-
-
-
 	.room-container {
 		@include box-shadow(10px, 10px, 50px, #000);
 
 	}
-
 
 	.players {
 		margin-top: 40px;

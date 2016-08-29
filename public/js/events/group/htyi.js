@@ -20,7 +20,7 @@ var gameEvents = function(eventId, eventData) {
     case 'hashtag:submitted':
     case 'hashtags:received':
 
-      $('#gameContent').html(eventData);
+      updateGameContent(eventData);
       
       // currentHashtags = _.pluck(eventData, 'hashtag-submissions');
 
@@ -72,7 +72,7 @@ var gameEvents = function(eventId, eventData) {
 
     case 'hashtags:results':
 
-      $('#gameContent').html(eventData);
+      updateGameContent(eventData);
 
       //instantiate a TimelineLite for hashtags animation
       var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});

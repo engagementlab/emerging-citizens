@@ -391,7 +391,7 @@ var gameEvents = function(eventId, eventData) {
 
         case 'wiki:results':
 
-            $('#gameContent').html(eventData);
+            updateGameContent(eventData);
             console.log(eventData);
 
             var timing = 500;

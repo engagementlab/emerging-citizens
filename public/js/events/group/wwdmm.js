@@ -11,6 +11,9 @@
 var clockInterval;
 var resultsAnimSlider;
 
+var topBar = $('#top-header').detach();
+topBar.prependTo('body');
+
 var gameEvents = function(eventId, eventData) {
 
 	/*
@@ -20,85 +23,107 @@ var gameEvents = function(eventId, eventData) {
 	  
 	  case 'game:countdown':
 
-	      if(clockInterval)
-	          clearInterval(clockInterval);
+      if(clockInterval)
+        clearInterval(clockInterval);
 
-          var secondsLeft = eventData.duration,
-		      countdownText = $('.countdown #countdown');
-         
-          clockInterval = setInterval(function() {
+        var secondsLeft = eventData.duration,
+        countdownText = $('.countdown #countdown');
+       
+        clockInterval = setInterval(function() {
 
-			secondsLeft--;
+    			secondsLeft--;
 
-			var displaySeconds = secondsToHms(secondsLeft);
+    			var displaySeconds = secondsToHms(secondsLeft);
 
-			$(countdownText).html(displaySeconds);
+    			$(countdownText).html(displaySeconds);
 
-			if(secondsLeft === 0)
-				clearInterval(clockInterval);
+    			if(secondsLeft === 0)
+    				clearInterval(clockInterval);
 
-          }, 1000);
+        }, 1000);
 
-	      break;
+      break;
 
 	  case 'meme:topic':
 
-		$('#gameContent').html(eventData);
+  		updateGameContent(eventData);
 
-		break;
+  		break;
 
 	  case 'meme:voting':
 
-		$('#gameContent').html(eventData);
-        
-        $.each($('.meme-text'), function(index, text) {
-            
-            shrinkToFill(text, 30, 3);
+  		updateGameContent(eventData);
+      
+      $.each($('.meme-text'), function(index, text) {
+          
+          shrinkToFill(text, 30, 3);
 
-        });
+      });
 
-		break;
+  		break;
 
 	  case 'meme:results':
 
-		$('#gameContent').html(eventData);
+  		updateGameContent(eventData);
 
-        function roundCountdown() {
+      function roundCountdown() {
 
-        	debugger;
+      	debugger;
 
-            if(countdownPaused)
-                return;
-            
-            var countdownText = $('#countdown #text');
-            var secondsLeft = 10;
-            var roundInterval = setInterval(function() {
-                
-                secondsLeft--;
-                $(countdownText).text(secondsLeft);
+          if(countdownPaused)
+              return;
+          
+          var countdownText = $('#countdown #text');
+          var secondsLeft = 10;
+          var roundInterval = setInterval(function() {
+              
+              secondsLeft--;
+              $(countdownText).text(secondsLeft);
 
-                if(secondsLeft == 0)
-                {
-                    clearInterval(roundInterval);
-                    
-                    // Return home if winners circle showing
-                    if($('#winners-circle')[0])
-                        location.href = '\\';
-                    else 
-                        socket.emit('game:next_round', emitData(null));
-                }
+              if(secondsLeft == 0)
+              {
+                  clearInterval(roundInterval);
+                  
+                  // Return home if winners circle showing
+                  if($('#winners-circle')[0])
+                      location.href = '\\';
+                  else 
+                      socket.emit('game:next_round', emitData(null));
+              }
+      
+          }, 1000);
+
+      }
+
+      function showScores() {
+
+        $('#submissions').remove();
         
-            }, 1000);
+        var scoresAnim = new TimelineLite({onComplete: function() { showLeaderboard(); } });
+        
+        scoresAnim.from($('#scores'), 1, {autoAlpha:0}).add('scores')
+        .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=5');
 
-        }
+      }
 
-        var submissionsAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
+      function showLeaderboard() {
 
-        submissionsAnim
-        .from($('#submissions'), 1, {autoAlpha:0}).add('submissions')
-        // .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=10');
+        $('#scores').remove();
+        
+        var leaderboardAnim = new TimelineLite({onComplete: function() { roundCountdown(); } });
+        
+        leaderboardAnim.from($('#leaderboard'), 1, {autoAlpha:0}).add('leaderboard')
+        .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'leaderboard+=5');
 
-        var elements = $('#submissions .submission');
+      }
+
+      var submissionsAnim = new TimelineLite({paused: true, onComplete: function() { showScores(); }});
+
+      submissionsAnim
+      .from($('#submissions'), 1, {autoAlpha:0}).add('submissions')
+      // .to($('#submissions'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'submissions+=10');
+
+      var elements = $('#submissions .submission');
 
         // submissionsAnim.staggerFrom(elements, 1, {y:0, autoAlpha:0, ease:Elastic.easeOut}, 4);
         // submissionsAnim.staggerTo(elements, 1, {y:0, autoAlpha:0, ease:Elastic.easeOut}, 4);
@@ -166,9 +191,6 @@ var gameEvents = function(eventId, eventData) {
               .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});*/
 
       });
-        
-        // .from($('#scores'), 1, {autoAlpha:0}, 'submissions+=11').add('scores')
-        // .to($('#scores'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scores+=3')
         
         // .from($('#leaderboard-header'), 1, {autoAlpha:0}, 'scores+=3').add('leaderboard')
         // .to($('#results-header'), 1, {autoAlpha:0}, 'scores+=3')

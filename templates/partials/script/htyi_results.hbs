@@ -1,4 +1,4 @@
-$('#gameContent').html(eventData);
+updateGameContent(eventData);
 
 //instantiate a TimelineLite for hashtags animation
 var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
