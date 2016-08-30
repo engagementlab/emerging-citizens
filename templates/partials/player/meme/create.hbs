@@ -3,10 +3,13 @@
     {{!-- <div class="col-lg-3"></div> --}}
     
     <div id="meme-create" class="row col-lg-3 col-centered">
-        <div id="meme-slider" class="glide">
+        <div id="meme-slider" class="glide" style="min-width: 400px;">
 
-            <textarea id="text-upper" class="meme-text" placeholder="select to edit upper text" tabindex="1" rows="2" maxlength="140" /> <br />
-            <textarea id="text-lower" class="meme-text" placeholder="select to edit lower text" tabindex="2" rows="2" maxlength="140" /> <br />
+            <textarea id="text-upper" class="meme-text" placeholder="select to edit" tabindex="1" rows="1" maxlength="140" wrap="soft" /> <br />
+            <textarea id="text-lower" class="meme-text" placeholder="select to edit" tabindex="2" rows="1" maxlength="140" /> <br />
+
+            <span id="text-upper-hidden" class="meme-text-hidden"></span>
+            <span id="text-lower-hidden" class="meme-text-hidden"></span>
             
             {{!-- <div class="text-upper meme-text" contenteditable="true">select to edit upper text</div>
             <div class="text-lower meme-text" contenteditable="true">select to edit lower text</div> --}}
@@ -19,7 +22,7 @@
             </div>
 
             <div class="glide__wrapper">
-                <ul class="glide__track">
+                <ul class="glide__track" style="padding-left:0">
 
                     {{#each memeImages}}
                         <li class="glide__slide">

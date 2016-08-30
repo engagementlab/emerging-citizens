@@ -9,6 +9,29 @@
 
 var playerWasReconnected;
 
+/**
+ * Waits for the first child image in the provided element to load and then dispatches provided callback.
+ * @module utils
+ * @param {jQuery selector} parentElem - The parent element containing image.
+ * @param {function} callback - The callback function.
+ */
+var imageLoaded = function(parentElem, callback) {
+
+  parentElem.find('img').first().on('load', function() {
+
+    // Image loaded, callback fires
+    callback();
+
+  })
+  .each(function() {
+
+    // Force image to dispatch 'load' (cache workaround)
+    if(this.complete) $(this).load();
+
+  });
+
+};
+
 window.addEventListener("beforeunload", function (e) {
 	(e || window.event).returnValue = null;
 	return null;
@@ -38,22 +61,29 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:create':
 
             var slideIndex = 0;
-            updateGameContent(eventData);
 
-            $("#meme-slider").glide({
-                type: "carousel",
-                autoplay: false,
-                autoheight: true,
-                padding: '5%',
-                afterTransition: function(evt) {
-                    slideIndex = evt.index - 1;
-                    $('#image-index').val(slideIndex);
-                }
+            updateGameContent(eventData, function() {
+
+                imageLoaded($("#meme-slider"), function() {
+
+                  $("#meme-slider").glide({
+                        type: "carousel",
+                        autoplay: false,
+                        autoheight: true,
+                        afterTransition: function(evt) {
+                            slideIndex = evt.index - 1;
+                            $('#image-index').val(slideIndex);
+                        }
+                    });
+                    
+
+                });
+
             });
 
             // Shrink text as length increases
             $('.meme-text').keyup(function() {
-                shrinkToFill(this, 30, 3);
+                shrinkToFill(this, 15, 50);
             });
 
             // Disable enter key
@@ -75,16 +105,22 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:voting':
 
             var slideIndex = 0;
-            updateGameContent(eventData);
-        
-            $("#meme-slider").glide({
-                type: "carousel",
-                autoplay: false,
-                autoheight: true,
-                afterTransition: function(evt) {
-                    slideIndex = evt.index - 1;
-                    console.log(evt)
-                }
+
+            updateGameContent(eventData, function() {
+                
+                imageLoaded($("#meme-slider"), function() {
+            
+                    $("#meme-slider").glide({
+                        type: "carousel",
+                        autoplay: false,
+                        // autoheight: true,
+                        afterTransition: function(evt) {
+                            slideIndex = evt.index - 1;
+                        }
+                    });
+
+                });
+
             });
             
             // When 'vote' is clicked, send event

@@ -203,11 +203,18 @@
 
 		};
 
-		var updateGameContent = function(content) {
+		var updateGameContent = function(content, callback) {
 
 			$('#top-header').remove();
 
-			gameContainer.html(content);
+			gameContainer.html(content)
+									 .promise()
+									 .done(function(){
+									 		
+									 		if(callback)
+										 		callback();
+
+									 });
 
 			if($('#top-header').length > 0) {
 				var topBar = $('#top-header').detach();
@@ -219,23 +226,36 @@
 			Util to shrink font size of element if text contents exceed given length threshold
 		*/
 		var shrinkToFill = function(input, threshold, startingSize) {
-		    
+
 		    var txtInput = $(input),
 		        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
 		        maxWidth = threshold,
-		        defaultFontSize = startingSize;
+		        defaultFontSize = startingSize,
+		        hiddenId = txtInput.attr('id') + '-hidden';
 
-		    if (txt.length > maxWidth) {
-
-		        // Calculate a new font size (capped at 1.35em)
-		        var fontSize = Math.min(Math.max( (defaultFontSize * maxWidth / txt.length * 1.5), 1.35 ), 3);
-		        
+		    $('#'+hiddenId).text(txt);
+		    
+        for (; startingSize >= 0; startingSize -=1) {
+			        
 		        // Set the style on the input
-		        txtInput.css('fontSize', fontSize + 'em');
+		        $('#'+hiddenId).css('fontSize', startingSize + 'pt');
+		        txtInput.css('fontSize', startingSize + 'pt');
 
-		    }
-		    else
-		        txtInput.css('fontSize', defaultFontSize + 'em');
+    		    if ($('#'+hiddenId).outerWidth() <= 340)
+			        break;
+        
+        }
+		    // if (txt.length > maxWidth) {
+
+		    //     // Calculate a new font size (capped at 1.35em)
+		    //     var fontSize = Math.min(Math.max( (defaultFontSize * maxWidth / txt.length * 1.5), 1.35 ), 3);
+		        
+		    //     // Set the style on the input
+		    //     txtInput.css('fontSize', fontSize + 'em');
+
+		    // }
+		    // else
+		    //     txtInput.css('fontSize', defaultFontSize + 'em');
 
 		}
 
