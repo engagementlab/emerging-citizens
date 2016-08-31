@@ -32,12 +32,6 @@ var imageLoaded = function(parentElem, callback) {
 
 };
 
-window.addEventListener("beforeunload", function (e) {
-	(e || window.event).returnValue = null;
-	return null;
-
-});
-
 // Add game type class to body
 $('.body').addClass('wwdmm');
 
@@ -83,7 +77,7 @@ var gameEvents = function(eventId, eventData) {
 
             // Shrink text as length increases
             $('.meme-text').keyup(function() {
-                shrinkToFill(this, 15, 50);
+                shrinkToFill(this, 340, 46);
             });
 
             // Disable enter key
@@ -108,27 +102,30 @@ var gameEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
                 
-                imageLoaded($("#meme-slider"), function() {
+                // imageLoaded($("#meme-slider"), function() {
             
                     $("#meme-slider").glide({
                         type: "carousel",
                         autoplay: false,
-                        // autoheight: true,
                         afterTransition: function(evt) {
                             slideIndex = evt.index - 1;
                         }
                     });
 
-                });
+                    $.each($('.meme-text'), function(ind, txt) {
+                        shrinkToFill(txt, 340, 46);
+                    });
+
+                // });
 
             });
             
             // When 'vote' is clicked, send event
-            $('#btn-vote').click(function() {
+            $('#btn-vote').click(function(evt) {
                 
                 socket.emit('meme:vote', emitData(slideIndex));
 
-                $('#btn-vote').val('voted!').attr('disabled', true).css('opacity', '0.8');
+                $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
 
             });
 
@@ -139,7 +136,8 @@ var gameEvents = function(eventId, eventData) {
                 
                 socket.emit('meme:like', emitData(slideIndex));
                 
-                $(evt.currentTarget).attr('disabled', true).css('opacity', '0.8');
+                $(evt.currentTarget).attr('disabled', true).css('opacity', '0.3');
+                TweenLite.to($(evt.currentTarget), 0.5, {scale: 0.7, ease: Bounce.easeOut});
 
             });
 

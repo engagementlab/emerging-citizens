@@ -223,39 +223,30 @@
 		}
 
 		/* 
-			Util to shrink font size of element if text contents exceed given length threshold
+			Util to shrink font size of element if text contents exceed given pixel length threshold
 		*/
 		var shrinkToFill = function(input, threshold, startingSize) {
 
 		    var txtInput = $(input),
 		        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
-		        maxWidth = threshold,
-		        defaultFontSize = startingSize,
-		        hiddenId = txtInput.attr('id') + '-hidden';
+		        hiddenId = txtInput.attr('id') + '-hidden',
+		        measureField = (txtInput.is('div')) ? $(input) : $('#'+hiddenId);
 
-		    $('#'+hiddenId).text(txt);
+		    // Input text into hidden div used to measure text length in pixels 
+		    if(!txtInput.is('div'))
+		    	measureField.text(txt);
 		    
         for (; startingSize >= 0; startingSize -=1) {
 			        
 		        // Set the style on the input
-		        $('#'+hiddenId).css('fontSize', startingSize + 'pt');
+		        measureField.css('fontSize', startingSize + 'pt');
 		        txtInput.css('fontSize', startingSize + 'pt');
 
-    		    if ($('#'+hiddenId).outerWidth() <= 340)
+		        // If text size below threshold, stop reducing size
+    		    if (measureField.outerWidth() <= threshold)
 			        break;
         
         }
-		    // if (txt.length > maxWidth) {
-
-		    //     // Calculate a new font size (capped at 1.35em)
-		    //     var fontSize = Math.min(Math.max( (defaultFontSize * maxWidth / txt.length * 1.5), 1.35 ), 3);
-		        
-		    //     // Set the style on the input
-		    //     txtInput.css('fontSize', fontSize + 'em');
-
-		    // }
-		    // else
-		    //     txtInput.css('fontSize', defaultFontSize + 'em');
 
 		}
 

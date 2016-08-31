@@ -10,7 +10,7 @@ var playerWasReconnected;
 var retrievingData;
 var random;
 
-if(jQuery.browser.mobile){
+/*if(jQuery.browser.mobile){
     $("document").on("pagebeforehide",function(e){
         // (e || window.event).returnValue = null;
         return "what the heckityheck";
@@ -25,12 +25,10 @@ if(jQuery.browser.mobile){
         return null;
 
     });
-}
+}*/
 
-if ($('.article-error').css('display') !== 'none'){
-    console.log("theres an error but we are hiding it in 5...");
+if ($('.article-error').css('display') !== 'none')
     setTimeout($('.article-error').hide(), 5000);
-}
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -51,15 +49,10 @@ var gameEvents = function(eventId, eventData) {
 
     var retrieveArticle = function(articleTitle, initialSearch, displayNow) {
 
-        if (retrievingData === true) {
+        if (retrievingData === true)
             return;
-        }
-
-        console.log(articleTitle);
 
         var retrievalUrl = API_URL + '&action=parse&format=json&redirects&page=' + articleTitle;
-
-        console.log(retrievalUrl);
 
         sessionStorage.setItem('currentArticle', articleTitle);
 
@@ -76,32 +69,27 @@ var gameEvents = function(eventId, eventData) {
             retrievalUrl,
             function(articleData) {
 
-                console.log (JSON.stringify(articleData));
+                if(articleData.error) {
 
-                if(articleData.error){
-                    console.log("theres an error");
-
-                    if (!initialSearch) {
+                    if (!initialSearch) {                    
                     
-                        $('.article-error').html("Looks like there's something up with that link... <br> Try a different one!");
+                        $('.article-error').html("Looks like there's something up with that link...<br />Try a different one!");
                         $('.article-error').show();
+
                         retrievingData = false;
                         return;
+                    
                     } else {
-                        $('.error').html("Looks like there's something up with that link... <br> Try a different one!");
+                        $('.error').html("Looks like there's something up with that link...<br />Try a different one!");
                         $('.error').show();
                         retrievingData = false;
                         return;
                     }
                 }
 
-                if (articleData.parse.redirects.length !== 0) {
-                    // console.log (JSON.stringify(articleData.parse.redirects[0].to));
+                if (articleData.parse.redirects.length !== 0)
                     articleTitle = articleData.parse.redirects[0].to;
-                } else {
-                    console.log("no redirects");
-                }
-
+                
                 // if (articleData.error) {
                 //     $(articleInput).addClass('invalid');
                 //     $('.error').text(articleData.error.info).fadeIn();
@@ -113,13 +101,12 @@ var gameEvents = function(eventId, eventData) {
                 // Tell server about this article being chosen by player, unless overriden
                 if (displayNow === undefined)
                     socket.emit('article:select', emitData({
-                        title: articleTitle,
-                        initial: initialSearch
-                    }));
+                            title: articleTitle,
+                            initial: initialSearch
+                        })
+                    );
 
                 if (initialSearch) {
-
-                    console.log('this is the first search!!!!');
 
                     $('#topic-submission').fadeOut(function() {
                         $('section#submitted').fadeIn();
@@ -137,14 +124,13 @@ var gameEvents = function(eventId, eventData) {
                         $('#wiki-article').fadeIn();
                         $('section#article').show();
 
-
                     });
                 }
 
                 if (!random)
                     $('#article .article-name').html(articleTitle);
                 else 
-                    $('#article .article-name').html("Our random article generator sent you to <br> " + articleTitle);
+                    $('#article .article-name').html("Our random article generator sent you to<br />" + articleTitle);
 
                 retrievingData = false;
                 random = false;
@@ -161,7 +147,7 @@ var gameEvents = function(eventId, eventData) {
         $(workspace).html(articleMarkup);
 
         var articleWidth = $(window).width();
-        console.log(articleWidth);
+
         // Clean the workspace of any wiki elements we don't want
         // if ($('table.infobox')) 
         $('section#article').width(articleWidth);
@@ -225,9 +211,6 @@ var gameEvents = function(eventId, eventData) {
             "display": "block"
         });
 
-
-
-        // }
         removeDom('table.metadata td:has(img)');
         removeDom('.mbox-image');
         removeDom('.tocnumber');
@@ -255,8 +238,6 @@ var gameEvents = function(eventId, eventData) {
         // Show article
         $('#wiki-content')
             .html($(workspace).clone().html())
-
-
 
         // Get all links in article
         .find('a')
@@ -371,7 +352,7 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
-            // An article was found
+        // An article was found
         case 'article:found':
 
             var startingUrl = API_URL + '&pageid=' + eventData.articleId;
@@ -411,7 +392,6 @@ var gameEvents = function(eventId, eventData) {
                 var text = $(group).find('.articleText');
                 var offset = (timing + timingOffset);
 
-
                 $(dots[0]).delay(offset).velocity({
                     r: 10
                 }, timing, [50, 10]);
@@ -423,8 +403,6 @@ var gameEvents = function(eventId, eventData) {
                 $(dots[1]).delay(1000 + offset).velocity({
                     r: 10
                 }, timing, [50, 10]);
-
-
 
                 setTimeout(function() {
 
@@ -448,16 +426,12 @@ var gameEvents = function(eventId, eventData) {
 
         case 'article:random':
 
-
             random = true;
             retrieveArticle(eventData, false, true);
-
-
 
             break;
 
         case 'topic:info':
-
 
             $('.timesUp').hide();
             $('input').disabled = false;
@@ -479,48 +453,42 @@ var gameEvents = function(eventId, eventData) {
             break;
 
         case 'player:reconnected':
+
             playerWasReconnected = true;
 
             break;
 
         case 'game:countdown_ending':
-
-            // console.log(eventData);
-
+        
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
                 socket.emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });
             }
 
-            if ($('#topic-submission').css('display') !== 'none') {
+            if ($('#topic-submission').css('display') !== 'none')
                 $('.form .error').text(eventData + "If you haven't found a starting article soon, we will choose one for you..");
 
-            }
             break;
 
         case 'game:countdown_end':
-            console.log("time is up!");
-             $('input').disabled = false;
+
+            $('input').disabled = false;
 
             if ($('#topic-submission').css('display') !== 'none') {
                 $('input').disabled = true;
                 $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
                 $('.timesUp').show();
                 $('#topic-submission').hide();
-            
             }
 
             if ($('section#submitted').css('display') !== 'none') {
                 $('input').disabled = true;
                 $('.timesUp').html("<span>Time is up! Sending you to your starting article...</span>");
                 $('.timesUp').show();
-                $('section#submitted').hide();
-            
+                $('section#submitted').hide();            
             }
-
             
-
             break;
 
     }

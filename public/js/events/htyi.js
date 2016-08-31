@@ -9,13 +9,6 @@
 
 var playerWasReconnected;
 
-
-window.addEventListener("onbeforeunload", function (e) {
-  (e || window.event).returnValue = null;
-  return null;
-
-});
-
 //Add game type class to body
 $('.body').addClass('htyi');
 

@@ -1662,8 +1662,32 @@ body .player-form {
 /* 
 	WWDMM player view styling.
 */
-.body.wwdmm.player #meme-create .glide__wrapper {
+.body.wwdmm.player .glide__wrapper {
   min-height: 400px; }
+
+.body.wwdmm.player .glide__bullets {
+  position: static;
+  bottom: -5%; }
+  .body.wwdmm.player .glide__bullets .glide__bullet {
+    margin-left: 3%;
+    margin-right: 3%; }
+
+.body.wwdmm.player .glide__track {
+  padding-left: 0; }
+
+.body.wwdmm.player .glide__arrow {
+  font-size: 1em;
+  color: black;
+  border: 2px solid black; }
+
+.body.wwdmm.player .post-button {
+  margin-top: 40px;
+  width: 400px;
+  background-color: #19f7ad; }
+
+.body.wwdmm.player #meme-slider {
+  min-width: 400px;
+  max-width: 400px; }
 
 .body.wwdmm.player #meme-create .meme-text {
   position: absolute;
@@ -1674,7 +1698,7 @@ body .player-form {
   background: none;
   border: none;
   color: white;
-  font-size: 50pt;
+  font-size: 46pt;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -1718,36 +1742,48 @@ body .player-form {
 
 .body.wwdmm.player #meme-create #text-lower {
   position: absolute;
-  margin-top: 65%;
+  margin-top: 80%;
   left: 0; }
 
-.body.wwdmm.player #meme-create a.unslider-arrow {
-  top: 50%;
-  font-size: 2em;
-  color: white;
-  text-shadow: 2px 0px 8px black; }
+.body.wwdmm.player #meme-voting .glide__arrows {
+  top: 35%; }
 
-.body.wwdmm.player #meme-create .glide__arrow {
-  font-size: 1em;
-  color: black;
-  border: 2px solid black; }
+.body.wwdmm.player #meme-voting .glide__bullets {
+  position: static; }
 
-.body.wwdmm.player #meme-voting .text-upper, .body.wwdmm.player #meme-voting .text-lower {
-  color: white;
-  font-size: 3em;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  text-shadow: -6px -6px 0 #000, -6px -5px 0 #000, -6px -4px 0 #000, -6px -3px 0 #000, -6px -2px 0 #000, -6px -1px 0 #000, -6px 0px 0 #000, -6px 1px 0 #000, -6px 2px 0 #000, -6px 3px 0 #000, -6px 4px 0 #000, -6px 5px 0 #000, -6px 6px 0 #000, -5px -6px 0 #000, -5px -5px 0 #000, -5px -4px 0 #000, -5px -3px 0 #000, -5px -2px 0 #000, -5px -1px 0 #000, -5px 0px 0 #000, -5px 1px 0 #000, -5px 2px 0 #000, -5px 3px 0 #000, -5px 4px 0 #000, -5px 5px 0 #000, -5px 6px 0 #000, -4px -6px 0 #000, -4px -5px 0 #000, -4px -4px 0 #000, -4px -3px 0 #000, -4px -2px 0 #000, -4px -1px 0 #000, -4px 0px 0 #000, -4px 1px 0 #000, -4px 2px 0 #000, -4px 3px 0 #000, -4px 4px 0 #000, -4px 5px 0 #000, -4px 6px 0 #000, -3px -6px 0 #000, -3px -5px 0 #000, -3px -4px 0 #000, -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -3px 4px 0 #000, -3px 5px 0 #000, -3px 6px 0 #000, -2px -6px 0 #000, -2px -5px 0 #000, -2px -4px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -2px 4px 0 #000, -2px 5px 0 #000, -2px 6px 0 #000, -1px -6px 0 #000, -1px -5px 0 #000, -1px -4px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, -1px 4px 0 #000, -1px 5px 0 #000, -1px 6px 0 #000, 0px -6px 0 #000, 0px -5px 0 #000, 0px -4px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 0px 4px 0 #000, 0px 5px 0 #000, 0px 6px 0 #000, 1px -6px 0 #000, 1px -5px 0 #000, 1px -4px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 1px 4px 0 #000, 1px 5px 0 #000, 1px 6px 0 #000, 2px -6px 0 #000, 2px -5px 0 #000, 2px -4px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 2px 4px 0 #000, 2px 5px 0 #000, 2px 6px 0 #000, 3px -6px 0 #000, 3px -5px 0 #000, 3px -4px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000, 3px 4px 0 #000, 3px 5px 0 #000, 3px 6px 0 #000, 4px -6px 0 #000, 4px -5px 0 #000, 4px -4px 0 #000, 4px -3px 0 #000, 4px -2px 0 #000, 4px -1px 0 #000, 4px 0px 0 #000, 4px 1px 0 #000, 4px 2px 0 #000, 4px 3px 0 #000, 4px 4px 0 #000, 4px 5px 0 #000, 4px 6px 0 #000, 5px -6px 0 #000, 5px -5px 0 #000, 5px -4px 0 #000, 5px -3px 0 #000, 5px -2px 0 #000, 5px -1px 0 #000, 5px 0px 0 #000, 5px 1px 0 #000, 5px 2px 0 #000, 5px 3px 0 #000, 5px 4px 0 #000, 5px 5px 0 #000, 5px 6px 0 #000, 6px -6px 0 #000, 6px -5px 0 #000, 6px -4px 0 #000, 6px -3px 0 #000, 6px -2px 0 #000, 6px -1px 0 #000, 6px 0px 0 #000, 6px 1px 0 #000, 6px 2px 0 #000, 6px 3px 0 #000, 6px 4px 0 #000, 6px 5px 0 #000, 6px 6px 0 #000; }
-
-.body.wwdmm.player #meme-voting .text-lower {
-  position: absolute;
-  bottom: 0px;
-  margin-left: 7%; }
+.body.wwdmm.player #meme-voting .meme {
+  position: relative;
+  width: 400px;
+  min-height: 400px; }
 
 .body.wwdmm.player #meme-voting .btn-like {
   position: absolute;
-  bottom: 0px; }
+  left: 80%;
+  bottom: 0;
+  border: none;
+  box-shadow: none; }
+
+.body.wwdmm.player #meme-voting .meme-text {
+  display: inline-block;
+  color: white;
+  font-size: 16pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+
+.body.wwdmm.player #meme-voting .text-upper {
+  top: 4%; }
+
+.body.wwdmm.player #meme-voting .text-lower {
+  position: relative;
+  left: -50%; }
+
+.body.wwdmm.player #meme-voting #text-lower-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: 100%; }
 
 html, body {
   max-height: 100%; }

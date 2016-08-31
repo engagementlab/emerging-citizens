@@ -1,18 +1,14 @@
-<section class="form row {{!-- col-lg-12 --}}">
-
-    {{!-- <div class="col-lg-3"></div> --}}
+<section class="form row">
     
-    <div id="meme-create" class="row col-lg-3 col-centered">
-        <div id="meme-slider" class="glide" style="min-width: 400px;">
+    <div id="meme-create" class="row col-lg-3 col-centered" style="margin-top: -5%;">
 
-            <textarea id="text-upper" class="meme-text" placeholder="select to edit" tabindex="1" rows="1" maxlength="140" wrap="soft" /> <br />
-            <textarea id="text-lower" class="meme-text" placeholder="select to edit" tabindex="2" rows="1" maxlength="140" /> <br />
+        <div id="meme-slider" class="glide">
+
+            <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
+            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" /> <br />
 
             <span id="text-upper-hidden" class="meme-text-hidden"></span>
             <span id="text-lower-hidden" class="meme-text-hidden"></span>
-            
-            {{!-- <div class="text-upper meme-text" contenteditable="true">select to edit upper text</div>
-            <div class="text-lower meme-text" contenteditable="true">select to edit lower text</div> --}}
 
             <input type="text" id="image-index" value="0" style="display:none">
             
@@ -22,15 +18,11 @@
             </div>
 
             <div class="glide__wrapper">
-                <ul class="glide__track" style="padding-left:0">
+                <ul class="glide__track">
 
                     {{#each memeImages}}
                         <li class="glide__slide">
-                            {{!-- <div class="meme"> --}}
-
-                                <img src="{{{cloudinaryUrl this width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
-
-                            {{!-- </div> --}}
+                            <img src="{{{cloudinaryUrl this width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
                         </li>
                     {{/each}}
                 
@@ -48,8 +40,6 @@
         </div>
 
     </div>
-   
-    {{!-- <div class="col-lg-3"></div> --}}
 
 </section>
 

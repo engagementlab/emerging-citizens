@@ -1,10 +1,8 @@
 <section class="form row">
-    
-    {{!-- <div class="col-lg-5"></div> --}}
-    
+        
     <div id="meme-voting" class="row col-lg-3 col-centered">
 
-        <div id="meme-slider" class="glide" style="min-width: 400px;">
+        <div id="meme-slider" class="glide">
 
             <div class="glide__arrows">
                 <button class="glide__arrow prev desktop-only" data-glide-dir="<"><<</button>
@@ -16,14 +14,14 @@
 
                     {{#each submissions}}
                         <li class="glide__slide">
-                            <div class="meme">
+                            <div class="meme" style="background-image: url({{cloudinaryUrl image width=400 height=400 quality=80}})">
 
+                                <div class="meme-text text-upper">{{upper}}</div>
+                                <div id="text-lower-wrapper">
+                                    <div class="meme-text text-lower">{{lower}}</div>
+                                </div>
 
-                                <div class="text-upper">{{upper}}</div>
-                                <div class="text-lower">{{lower}}</div>
-                                <input class="btn-like" type="submit" name="submit" value="like">
-                                
-                                <img src="{{{cloudinaryUrl image width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
+                                <input class="btn-like" type="image" name="submit" value="like" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_65/v1/emerging-citizens/images/layout/wwdmm/like-button.png">
 
                             </div>
                         </li>
@@ -33,18 +31,15 @@
             </div>
 
             <div class="glide__bullets"></div>
-            
-                <div class="row">
+        
+            <div class="row">
 
-                    <input id="btn-vote" class="post-button" type="submit" name="submit" value="vote">
+                <input id="btn-vote" class="post-button" type="submit" name="submit" value="vote">
 
-                </div>
-            </div>                    
+            </div>                  
 
         </div>
 
     </div>
-
-    {{!-- <div class="col-lg-5"></div> --}}
 
 </section>

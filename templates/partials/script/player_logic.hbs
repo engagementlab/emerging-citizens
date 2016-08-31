@@ -11,6 +11,16 @@
 --}}
 var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
 
+{{#ifnoteq environment "development"}}
+// Warn about reloading
+window.addEventListener("onbeforeunload", function (e) {
+
+  (e || window.event).returnValue = null;
+  return null;
+
+});
+{{/ifnoteq}}
+
 if(!isEmulated) {
 
     ion.sound({

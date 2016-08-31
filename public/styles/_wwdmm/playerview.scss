@@ -3,16 +3,41 @@
 */
 .body.wwdmm.player {
 
+	.glide__wrapper {
+		min-height: 400px;
+	}
+	.glide__bullets {
+		position: static;
+    bottom: -5%;
+  
+    .glide__bullet {
+    	margin-left: 3%;
+	    margin-right: 3%;
+    }
+  }
+  .glide__track {
+  	padding-left: 0;
+  }
+	.glide__arrow {
+		font-size: 1em;
+		color: black;
+		border: 2px solid black;
+	}
+
+  .post-button {
+  	margin-top: 40px;
+  	width: 400px;
+  	background-color: $color-bright-sea-green;
+  }
+
+  #meme-slider {
+  	
+  	min-width: 400px;
+  	max-width: 400px;
+
+  }
+
 	#meme-create {
-
-		.glide__wrapper {
-			min-height: 400px;
-			// height: 985px;
-		}
-
-		#meme-slider {
-			// height: 100%;
-		}
 			
 		.meme-text {
 			position: absolute;
@@ -24,7 +49,7 @@
 	    background: none;
 	    border: none;
 	    color: white;
-	    font-size: 50pt;
+	    font-size: 46pt;
 	    font-weight: bold;
 	    text-transform: uppercase;
 	    text-align: center;
@@ -57,55 +82,75 @@
 
 		#text-upper {
 			position: absolute;
-			// margin-top: 7%;
 			top: 8%;
 			left: 0;
 		}
 		#text-lower {
 			position: absolute;
-	    margin-top: 65%;
+	    margin-top: 80%;
 	    left: 0;
-		}
-
-		a.unslider-arrow {
-	    top: 50%;
-	    font-size: 2em;
-	    color: white;
-			text-shadow: 2px 0px 8px rgba(0, 0, 0, 1);	    
-		}
-
-		.glide__arrow {
-			font-size: 1em;
-			color: black;
-			border: 2px solid black;
 		}
 
 	}
 
 	#meme-voting {
 		
-			.text-upper, .text-lower {
-		    color: white;
-		    font-size: 3em;
-		    font-weight: bold;
-		    text-transform: uppercase;
-		    text-align: center;
+		.glide__arrows {
+	    top: 35%;
+	  }
+		.glide__bullets {
+			position: static;
+	  }
 
-		    @include stroke(6, #000);
-			}
-
-			.text-lower {
-		    position: absolute;
-		    bottom: 0px;
-		    margin-left: 7%;
-			}
-		
-		.btn-like {
-	    position: absolute;
-	    bottom: 0px;
-	    // right: 50%;
+		.meme {
+			position: relative;
+			width: 400px;
+			min-height: 400px;
 		}
 
+		.btn-like {
+	    position: absolute;
+	    left: 80%;
+	    bottom: 0;
+	    border: none;
+	    box-shadow: none;
+  
+		  // @include linear_transition(transform, 0.5s);
+		}
+		
+		.meme-text {
+
+			display: inline-block;
+
+	    color: white;
+	    
+	    font-size: 16pt;
+	    font-weight: bold;
+	    
+	    text-transform: uppercase;
+	    text-align: center;
+
+	    // width: 100%;
+
+	    @include stroke(2, #000);
+		}
+
+		.text-upper {
+			top: 4%;
+		}
+
+		.text-lower {
+	    position: relative;
+	    left: -50%;
+		}
+
+		#text-lower-wrapper {
+			position: absolute;
+			left: 50%;
+			bottom: 4%;
+			width: 100%;
+		}
+		
 	}
 
 }
