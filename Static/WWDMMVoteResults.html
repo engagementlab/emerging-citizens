@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Wait, Wait, Don't Meme Me! Voting Results - Emerging Citizens</title>
+
+     <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+<style>
+@font-face{
+    font-family:AvenirBook;
+    src: url("css/AvenirLTStd-Book.otf");
+}
+@font-face{
+    font-family: BebasNeue;
+    src: url("css/BebasNeue Regular.otf");
+}
+@font-face{
+    font-family:HalisGR;
+    src: url("css/Ahmet Altun - HalisGR-Regular.otf");
+}
+@font-face{
+    font-family: PatrickHand;
+    src: url("css/PatrickHandSC-Regular.ttf");
+}
+body{
+    background-image: url("css/wwdmmBackground.png");
+    background-size: cover;
+    padding:0;
+}
+.topBar{
+    width: 100%;
+    height: 142px;
+    background-color: #ff5b77;
+}
+.roundResults{
+    color: #ffffff;
+    font-family: PatrickHand;
+    font-size: 120px;
+    position: relative;
+    text-align: center;
+    top: -50px;
+}
+.resultsPane{
+  width: 1367px;
+  height: 700.5px;
+  margin: 0 auto;
+  object-fit: contain;
+  position: relative;
+  top: 27px;
+  background-color: #ffffff;
+  border: solid 5px #00dded;
+  border-radius: 5px;
+}
+.paneHeader{
+  position: relative;
+  text-align: center;
+}
+.memeMaker{
+  color:#ff5975;
+  display: inline;
+  font-family: AvenirBook;
+  font-size: 62.6px;
+  font-weight: 500;
+  line-height: 0.66;
+  letter-spacing: -1.3px;
+  text-align:center;
+}
+.totalPoints{
+  font-family: PatrickHand;
+  display: inline;
+  font-size: 88.7px;
+  line-height: 0.33;
+  letter-spacing: -5.3px;
+  text-align: center;
+  padding:41px;
+  color: #11cfe0;
+}
+.totalLikes{
+  color: #037fae;
+  display: inline;
+  font-family: BebasNeue;
+  font-size: 89.5px;
+  line-height: 0.63;
+  letter-spacing: -1.8px;
+}
+.likeSymbol{
+    background-image: url(css/likebuttoncopy-4.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 78.5px;
+    position: relative;
+    top:15px;
+    width: 76.5px;
+}
+.memeImage{
+    background-image: url(css/player3MemeLarge.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 15.5px solid #00ecdf;
+    height:534.5px;
+    left: 57px;
+    position: relative;
+    top: 35px;
+    width:544px;
+}
+.votes{
+    height: 255.5px;
+    left: 672px;
+    position: relative;
+    top: -485px;
+    width: 635px;
+}
+.votesHeader{
+    color: #313131;
+    font-family: AvenirBook;
+    font-size: 44.4px;
+    font-weight: bold;
+    letter-spacing: -0.9px;
+    line-height: 0.38;
+    text-align: center;
+}
+.yellowUnderline{
+    background-image: url(css/underscore-topic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 22.5px;
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+    width: 279.5px;
+}
+.player{
+    display: inline-block;
+    font-family: HalisGR;
+    font-size: 36.4px;
+    font-weight: 500;
+    height: 28.5px;
+    letter-spacing: -2.2px;
+    line-height: 0.29;
+    width: 123px;
+}
+.points{
+  background-image: url(css/25pts.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 67px;
+}
+.voter1{
+    color: #b7d63a;
+    position: absolute;
+    top: 100px;
+}
+.voter1Mark{
+    background-image: url(css/player1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 120px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.voter1Points{
+    /*visibility: hidden; */
+    left: 16px;
+    position: absolute;
+    top: 75px;
+}
+.voter2{
+    color: #ffc000;
+    left: 160px;
+    position: absolute;
+    top: 100px;
+}
+.voter2Mark{
+    background-image: url(css/player2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 285px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.voter2Points{
+    /*visibility: hidden; */
+    left: 183px;
+    position: absolute;
+    top: 75px;
+}
+.voter3{
+    color:#ff6000;
+    position: absolute;
+    right: 193px;
+    top: 100px;
+}
+.voter3Mark{
+    background-image: url(css/player3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 442px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.voter3Points{
+/*    visibility: hidden; */
+    left: 340px;
+    position: absolute;
+    top: 75px;
+}
+.voter4{
+    color:#ff8a00;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+.voter4Mark{
+    background-image: url(css/player4.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    right: 0px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.voter4Points{
+    /*visibility: hidden;*/
+    left: 505px;
+    position: absolute;
+    top: 75px;
+}
+.voter5{
+    bottom: 35px;
+    color:#21b7f0;
+    left: 85px;
+    position: absolute;
+}
+.voter5Mark{
+    background-image: url(css/player5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    left: 208px;
+    position: absolute;
+    width: 30px;
+}
+.voter5Points{
+    /*visibility: hidden;*/
+    left: 98px;
+    position: absolute;
+    top: 165px;
+}
+.voter6{
+    bottom: 35px;
+    color: #007dd5;
+    left: 251px;
+    position: absolute;
+}
+.voter6Mark{
+    background-image: url(css/player6.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    right: 231px;
+    position: absolute;
+    width: 30px;
+}
+.voter6Points{
+    /*visibility: hidden;*/ 
+    left: 265px;
+    position: absolute;
+    top: 165px;
+}
+.voter7{
+    bottom: 35px;
+    color: #ac7ce8;
+    position: absolute;
+    right: 104px;
+}
+.voter7Mark{
+    background-image: url(css/player7.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    right: 78px;
+    position: absolute;
+    width: 30px;
+}
+.voter7Points{
+    /*visibility: hidden;*/
+    left: 425px;
+    position: absolute;
+    top: 165px;
+}
+.likes{
+    height: 255.5px;
+    left: 672px;
+    position: relative;
+    top: -460px;
+    width: 635px;
+}
+.likesHeader{
+    color: #313131;
+    font-family: AvenirBook;
+    font-size: 44.4px;
+    font-weight: bold;
+    letter-spacing: -0.9px;
+    line-height: 0.38;
+    text-align: center;
+}
+.pinkUnderline{
+    background-image: url(css/pinkUnderscore.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 22.5px;
+    margin: 0 auto;
+    position: relative;
+    top:15px;
+    width: 279.5px;
+}
+.like1{
+    color: #b7d63a;
+    position: absolute;
+    top: 100px;
+}
+.like1Thumb{
+    background-image: url(css/player1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 120px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.like2{
+    color: #ffc000;
+    left: 160px;
+    position: absolute;
+    top: 100px;
+}
+.like2Thumb{
+    background-image: url(css/player2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 285px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.like3{
+    color:#ff6000;
+    position: absolute;
+    right: 193px;
+    top: 100px;
+}
+.like3Thumb{
+    background-image: url(css/player3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    left: 442px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.like4{
+    color:#ff8a00;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+.like4Thumb{
+    background-image: url(css/player4.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    right: 0px;
+    position: absolute;
+    top: 61px;
+    width: 30px;
+}
+.like5{
+    bottom: 35px;
+    color:#21b7f0;
+    left: 85px;
+    position: absolute;
+}
+.like5Thumb{
+    background-image: url(css/player5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    left: 208px;
+    position: absolute;
+    width: 30px;
+}
+.like6{
+    bottom: 35px;
+    color: #007dd5;
+    left: 251px;
+    position: absolute;
+}
+.like6Thumb{
+    background-image: url(css/player6.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    right: 231px;
+    position: absolute;
+    width: 30px;
+}
+.like7{
+    bottom: 35px;
+    color: #ac7ce8;
+    position: absolute;
+    right: 104px;
+}
+.like7Thumb{
+    background-image: url(css/player7.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 25px;
+    height: 75px;
+    right: 78px;
+    position: absolute;
+    width: 30px;
+}
+</style>
+</head>
+<body>
+<div class="voteResults">
+    <div class="topBar">
+     <a id="lobbyLink" href="WWDMMVoteResults.html"><button type="button" class="startGame">Next Screen</button></a>
+     <div class="roundResults">round results</div>
+    </div>
+    <div class="resultsPane">
+        <div class="paneHeader">
+            <div class="memeMaker">jordanpail</div>
+            <div class="totalPoints">+300</div>
+            <div class="totalLikes">3</div>
+            <div class="likeSymbol"></div>
+        </div>
+        <div class="memeImage"></div>
+        <div class="votes">
+        <div class="votesHeader">Votes</div>
+        <div class="yellowUnderline"></div>
+            <div class="voter1 player">player 1</div>
+            <div class="voter1Points points"></div>
+            <div class="voter1Mark exclamationMark"></div>
+            <div class="voter2 player">player 2</div>
+            <div class="voter2Points points"></div>
+            <div class="voter2Mark exclamationMark"></div>
+            <div class="voter3 player">player 3</div>
+            <div class="voter3Points points"></div>
+            <div class="voter3Mark exclamationMark"></div>
+            <div class="voter4 player">player 4</div>
+            <div class="voter4Points points"></div>
+            <div class="voter4Mark exclamationMark"></div>
+            <div class="voter5 player">player 5</div>
+            <div class="voter5Points points"></div>
+            <div class="voter5Mark exclamationMark"></div>
+            <div class="voter6 player">player 6</div>
+            <div class="voter6Points points"></div>
+            <div class="voter6Mark exclamationMark"></div>
+            <div class="voter7 player">player 7</div>
+            <div class="voter7Points points"></div>
+            <div class="voter7Mark exclamationMark"></div>
+        </div>
+        <div class="likes">
+        <div class="likesHeader">Likes</div>
+        <div class="headerThumb"></div>
+        <div class="pinkUnderline"></div>
+            <div class="like1 player">player 1</div>
+            <div class="like1Thumb"></div>
+            <div class="like1Mark exclamationMark"></div>
+            <div class="like2 player">player 2</div>
+            <div class="like2Thumb"></div>
+            <div class="like2Mark exclamationMark"></div>
+            <div class="like3 player">player 3</div>
+            <div class="like3Thumb"></div>
+            <div class="like3Mark exclamationMark"></div>
+            <div class="like4 player">player 4</div>
+            <div class="like4Thumb"></div>
+            <div class="like4Mark exclamationMark"></div>
+            <div class="like5 player">player 5</div>
+            <div class="like5Thumb"></div>
+            <div class="like5Mark exclamationMark"></div>
+            <div class="like6 player">player 6</div>
+            <div class="like6Thumb"></div>
+            <div class="like6Mark exclamationMark"></div>
+            <div class="like7 player">player 7</div>
+            <div class="like7Thumb"></div>
+            <div class="like7Mark exclamationMark"></div>
+        </div>
+    </div>
+</div>
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+
+</body>
+</html>

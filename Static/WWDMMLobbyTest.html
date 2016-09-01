@@ -34,44 +34,50 @@
 	font-family:OdinRoundedRegular;
 	src: url("css/OdinRoundedRegular.otf");
 }
+@font-face{
+	font-family:PatrickHand;
+	src: url("css/PatrickHandSC-Regular.ttf");
+}
 body{
 	background-image: url("css/wwdmmBackground.png");
 	background-size: cover;
 	overflow:hidden;
 	padding:0;
 }
-.addPlayer{
-	margin: 0 auto;
-	position: relative;
-	width: 100%;
-}
-.losePlayer{
-	margin: 0 auto;
-	position: relative;
-	width: 100%;
-}
-.startGame{
-	margin: 0 auto;
-	position: relative;
-	width: 100%;
-}
 .lobby{
 	position: relative;
 }
+.topBar{
+	width: 100%;
+	height: 225px;
+	background-color: #ff5b77;
+}
+.waitingPlayers{
+font-family: PatrickHand;
+  font-size: 100px;
+  line-height: 0.49;
+  text-align: center;
+  position: relative;
+  top: 100px;
+  color: #ffffff;
+}
+.buttons{
+	position: relative;
+	top: 100px;
+}
 .playersA{
 	height: 615px;
-	margin: 0 25px;
+	margin: 0 80px;
 	position: absolute;
-	top: 166px;
 	width: 471px;
 	z-index: 1;
 }
 .playersB{
 	height: 615px;
-	margin: 0 15px;
+	margin: 0 80px;
 	position: absolute;
 	right: 5px;
-	top: 166px;
+	top: 1px;
 	width: 471px;
 	z-index: 0;
 }
@@ -86,7 +92,7 @@ body{
 	height: 200px;
 	margin: 0 auto;
 	position: relative;
-	top: 15px;
+	top: 25px;
 	width: 100px;
 	opacity: .4;
 }
@@ -94,7 +100,7 @@ body{
 	font-family: HalisGR;
 	font-size: 31.3px;
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 35px;
 	opacity: .4;
 }
 .player1Img{
@@ -172,7 +178,6 @@ body{
 	height: 615px;
 	margin: 0 auto;
 	position: relative;
-	top: 116px;
 	width: 358px;
 	z-index: 3;
 }
@@ -238,11 +243,16 @@ body{
 </head>
 <body>
 <header>
-</header>
-<div class="lobby">
-<button class="addPlayer">Add a Player</button>
+	<div class="topBar">
+	<div class="buttons">
+	<button class="addPlayer">Add a Player</button>
 <button class="losePlayer">Lose a Player</button>
 <a id="lobbyLink" href="WWDMMMakeAMeme.html"><button type="button" class="startGame">Start Game</button></a>
+</div>
+	<div class="waitingPlayers">Waiting for players to join...</div>
+	</div>
+</header>
+<div class="lobby">
 	<div class="playersA">
 		<div class="player player1">
 		<div class= "playerImg player1Img"></div>
