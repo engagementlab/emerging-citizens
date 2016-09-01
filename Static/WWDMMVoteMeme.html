@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Wait, Wait, Don't Meme Me! Vote on a Meme - Emerging Citizens</title>
+
+     <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+<style>
+@font-face{
+    font-family:AvenirBook;
+    src: url("css/AvenirLTStd-Book.otf");
+}
+@font-face{
+    font-family:HalisGR;
+    src: url("css/Ahmet Altun - HalisGR-Regular.otf");
+}
+@font-face{
+    font-family:HalisGRBook;
+    src: url("css/Ahmet Altun - HalisGR-Book.otf");
+}
+@font-face{
+    font-family: HalisGRLight;
+    src: url("css/Ahmet Altun - HalisGR-Light.otf");
+}
+@font-face{
+    font-family:OdinRoundedRegular;
+    src: url("css/OdinRoundedRegular.otf");
+}
+@font-face{
+    font-family: PatrickHand;
+    src: url("css/PatrickHandSC-Regular.ttf");
+}
+body{
+    background-image: url("css/wwdmmBackground.png");
+    background-size: cover;
+    padding:0;
+}
+.voteMeme{
+	position: relative;
+}
+.topBar{
+    width: 100%;
+    height: 142px;
+    background-color: #ff5b77;
+}
+.voteInstructions{
+    font-family: PatrickHand;
+    font-size: 58.4px;
+    line-height: 1.23;
+    text-align: center;
+    color: #ffffff;
+}
+.gunControl{
+    color:#00ffbc;
+    opacity: 0.0;
+}
+.voteCategory{
+    color:#fff5a3;
+    opacity: 0.0;
+}
+.yellowUnderscore{
+    background-image: url(css/underscore-topic.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 27px;
+    left: -90px;
+    margin: 0 auto;
+    position: relative;
+    width: 273px;
+}
+.greenUnderscore{
+    background-image: url(css/underscore-descriptor.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+    right: -390px;
+    top: -30px;
+    width: 385.5px;
+    height: 27px;
+}
+.memes{
+    position: relative;
+    top: 40.3px;
+    margin: 0 auto;
+    width: 1424px;
+}
+.meme1{
+background-image: url(css/Player1meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+position: relative;
+width: 318px;
+}
+.meme2{
+background-image: url(css/Player2meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme3{
+background-image: url(css/Player3meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme4{
+background-image: url(css/Player4meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme5{
+background-image: url(css/Player5meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme6{
+background-image: url(css/Player6meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme7{
+background-image: url(css/Player7meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+.meme8{
+background-image: url(css/Player8meme.png);
+background-repeat: no-repeat;
+background-size: contain;
+height: 312px;
+margin: 19px;
+width: 318px;
+}
+</style>
+</head>
+<body>
+<div class="voteMeme">
+	<div class="topBar">
+     <a id="lobbyLink" href="WWDMMVoteResults.html"><button type="button" class="startGame">Next Screen</button></a>
+     <div class="voteInstructions">Which meme about <span class="gunControl"> gun control </span> is the <span class="voteCategory"> most conservative?</span></div>
+     <div class="yellowUnderscore"></div>
+     <div class="greenUnderscore"></div>
+    </div>
+    <div class ="memes">
+        <div class="meme1 col-md-3"></div>
+        <div class="meme2 col-md-3"></div>
+        <div class="meme3 col-md-3"></div>
+        <div class="meme4 col-md-3"></div>
+        <div class="meme5 col-md-3"></div>
+        <div class="meme6 col-md-3"></div>
+        <div class="meme7 col-md-3"></div>
+        <div class="meme8 col-md-3"></div>        
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="WWDMMVoteMeme.js"></script>
+</body>
+</html>
