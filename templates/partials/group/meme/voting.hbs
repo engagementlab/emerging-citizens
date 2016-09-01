@@ -26,7 +26,9 @@
                         <div class="meme" style="background-image: url({{cloudinaryUrl image width=300 quality=80}})">
 
                             <div class="text-upper meme-text">{{upper}}</div>
-                            <div class="text-lower meme-text">{{lower}}</div>
+                            <div id="text-lower-wrapper">
+                                <div class="meme-text text-lower">{{lower}}</div>
+                            </div>
                             {{!-- <div>{{username}}</div> --}}
 
                         </div>

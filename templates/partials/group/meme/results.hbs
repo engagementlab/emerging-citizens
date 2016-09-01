@@ -3,9 +3,10 @@
 
         <div id="top-header" class="top-bar">
             <h1>
-                <span id="round">round results</span>
-                <span id="leaderboard" style="display:none">leaderboard</span>
-                <span id="next" style="display:none">get ready for the next round</span>
+                <span id="round-header">round results</span>
+                <span id="leaderboard-header" style="display:none" class="hidden-el">leaderboard</span>
+                <span id="next-round-header" style="display:none" class="hidden-el">get ready for the next round</span>
+                <span id="winners-header" style="display:none" class="hidden-el">winners</span>
             </h1>
         </div>
 
@@ -29,10 +30,13 @@
 
                             <div class="col-sm-6">
 
+                                {{!-- Meme image and text --}}
                                 <div class="meme hidden-el" style="background-image: url({{cloudinaryUrl image width=400 quality=100}})">
 
                                     <div class="text-upper meme-text">{{upper}}</div>
-                                    <div class="text-lower meme-text">{{lower}}</div>
+                                    <div id="text-lower-wrapper">
+                                        <div class="meme-text text-lower">{{lower}}</div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -125,7 +129,7 @@
                             </div>
                             
                             <div class="col-sm-2 points">
-                                <span class="large bold">{{#if total}} {{total}} {{else}} 0 {{/if}}</span> 
+                                <span class="large bold">{{#if score}} {{score}} {{else}} 0 {{/if}}</span> 
                                 points
                             </div>
                         </div>
@@ -160,27 +164,48 @@
                     
                 </section>
 
+                {{!-- Show FINAL scores only at last round --}}
+                {{#if last_round}}
+
+                    <div id="winners-circle" class="results hidden-el">
+
+                        {{#each players}}
+                    
+                            {{#iflt @index 3}}
+                                <div class="row">
+                                
+                                    <div class="winner winner-{{@index}}">
+                                        
+                                        <div class="ranking"></div>
+                                        <div class="name">
+                                            <div class="icon">!</div>
+                                            {{username}}
+                                        </div>                                        
+                                    
+                                    </div>
+                                
+                                </div>
+                            {{/iflt}}
+                    
+                        {{/each}}
+
+                    </div>
+
+                {{/if}}
 
                 {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
                 {{#if last_round}}
-{{!--                     <div id="game-ended" class="row hidden-el results last">
-                        <div class="col-sm-3"></div>
-                        <section class="col-sm-6 ended-container">
-                                                
-                                <div style="margin-top:10%" class="row">
-                                    <h1 style="font-size: 3em;color: #ffa76d" class="game-header">Game Ended{{!-- <br>Thank you for playing Hashtag You're It! --}}
-                                        </h1>
-{{!--                                     <h1 style="font-size: 2.4em;color: #85e4cc" class="game-header">Please fill out the survey on your device.
-                                        </h1> --}}
+                    <div id="game-ended" class="row hidden-el results last">
+                        
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <div id="countdown"></div>
+                        </div>
+                        <div class="col-sm-4"></div>
 
-                                    </div>
-                                </div>
-                                
-                        </section>
-                        <div class="col-sm-3"></div>
                     </div>
-                {{else}} --}}
-                    <div id="next-round" class="col-sm-12 hidden-el results last">
+                {{else}}
+                    <div id="next-round" class="col-sm-12 hidden-el results">
                         
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">

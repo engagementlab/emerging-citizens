@@ -1230,24 +1230,25 @@ body .player-form {
     background-color: white;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    padding: 6%;
     box-sizing: content-box;
-    height: 248px;
+    height: 300px;
     border: 25px white solid; }
     .body.wwdmm.group .meme .text-upper, .body.wwdmm.group .meme .text-lower {
-      color: white;
+      display: inline-block;
       font-size: 32pt;
       font-weight: bold;
-      text-transform: uppercase;
-      text-align: center;
-      width: 80%;
-      left: 10%; }
+      margin-left: auto;
+      margin-right: auto; }
     .body.wwdmm.group .meme .text-upper {
-      position: absolute;
-      top: 0; }
+      top: 4%; }
     .body.wwdmm.group .meme .text-lower {
+      position: relative;
+      left: -50%; }
+    .body.wwdmm.group .meme #text-lower-wrapper {
       position: absolute;
-      bottom: 0; }
+      left: 50%;
+      bottom: 4%;
+      width: 100%; }
   .body.wwdmm.group .meme-text {
     z-index: 10;
     background: none;
@@ -1271,25 +1272,27 @@ body .player-form {
     padding: 1%; }
     .body.wwdmm.group .top-bar h1 {
       font-size: 1.5em; }
-  .body.wwdmm.group #top-header .img {
-    margin-top: 2%;
-    margin-left: -19%; }
-  .body.wwdmm.group #top-header #topic {
-    display: inline;
-    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
-    background-repeat: repeat-x;
-    background-position-y: 100%;
-    background-position-x: center;
-    background-clip: padding-box;
-    color: #19f7ad; }
-  .body.wwdmm.group #top-header #descriptor {
-    display: inline;
-    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
-    background-repeat: repeat-x;
-    background-position-y: 100%;
-    background-position-x: center;
-    background-clip: padding-box;
-    color: #fff5a3; }
+  .body.wwdmm.group #top-header {
+    min-height: 138px; }
+    .body.wwdmm.group #top-header .img {
+      margin-top: 2%;
+      margin-left: -19%; }
+    .body.wwdmm.group #top-header #topic {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+      background-repeat: repeat-x;
+      background-position-y: 100%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #19f7ad; }
+    .body.wwdmm.group #top-header #descriptor {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
+      background-repeat: repeat-x;
+      background-position-y: 100%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #fff5a3; }
   .body.wwdmm.group #results-container h1 {
     font-size: 4em; }
   .body.wwdmm.group #results-container .score {
@@ -1348,6 +1351,67 @@ body .player-form {
       margin-top: 5%; }
     .body.wwdmm.group #results-container #scores .large, .body.wwdmm.group #results-container #leaderboard .large {
       font-size: 2.5em; }
+  .body.wwdmm.group #results-container #winners-circle .row .ranking {
+    font-family: 'Patrick Hand', cursive;
+    color: #fff;
+    padding: 2%;
+    border: 5px solid #ffa800;
+    float: left;
+    text-shadow: -5px -5px 0 #ffa800, -5px -4px 0 #ffa800, -5px -3px 0 #ffa800, -5px -2px 0 #ffa800, -5px -1px 0 #ffa800, -5px 0px 0 #ffa800, -5px 1px 0 #ffa800, -5px 2px 0 #ffa800, -5px 3px 0 #ffa800, -5px 4px 0 #ffa800, -5px 5px 0 #ffa800, -4px -5px 0 #ffa800, -4px -4px 0 #ffa800, -4px -3px 0 #ffa800, -4px -2px 0 #ffa800, -4px -1px 0 #ffa800, -4px 0px 0 #ffa800, -4px 1px 0 #ffa800, -4px 2px 0 #ffa800, -4px 3px 0 #ffa800, -4px 4px 0 #ffa800, -4px 5px 0 #ffa800, -3px -5px 0 #ffa800, -3px -4px 0 #ffa800, -3px -3px 0 #ffa800, -3px -2px 0 #ffa800, -3px -1px 0 #ffa800, -3px 0px 0 #ffa800, -3px 1px 0 #ffa800, -3px 2px 0 #ffa800, -3px 3px 0 #ffa800, -3px 4px 0 #ffa800, -3px 5px 0 #ffa800, -2px -5px 0 #ffa800, -2px -4px 0 #ffa800, -2px -3px 0 #ffa800, -2px -2px 0 #ffa800, -2px -1px 0 #ffa800, -2px 0px 0 #ffa800, -2px 1px 0 #ffa800, -2px 2px 0 #ffa800, -2px 3px 0 #ffa800, -2px 4px 0 #ffa800, -2px 5px 0 #ffa800, -1px -5px 0 #ffa800, -1px -4px 0 #ffa800, -1px -3px 0 #ffa800, -1px -2px 0 #ffa800, -1px -1px 0 #ffa800, -1px 0px 0 #ffa800, -1px 1px 0 #ffa800, -1px 2px 0 #ffa800, -1px 3px 0 #ffa800, -1px 4px 0 #ffa800, -1px 5px 0 #ffa800, 0px -5px 0 #ffa800, 0px -4px 0 #ffa800, 0px -3px 0 #ffa800, 0px -2px 0 #ffa800, 0px -1px 0 #ffa800, 0px 0px 0 #ffa800, 0px 1px 0 #ffa800, 0px 2px 0 #ffa800, 0px 3px 0 #ffa800, 0px 4px 0 #ffa800, 0px 5px 0 #ffa800, 1px -5px 0 #ffa800, 1px -4px 0 #ffa800, 1px -3px 0 #ffa800, 1px -2px 0 #ffa800, 1px -1px 0 #ffa800, 1px 0px 0 #ffa800, 1px 1px 0 #ffa800, 1px 2px 0 #ffa800, 1px 3px 0 #ffa800, 1px 4px 0 #ffa800, 1px 5px 0 #ffa800, 2px -5px 0 #ffa800, 2px -4px 0 #ffa800, 2px -3px 0 #ffa800, 2px -2px 0 #ffa800, 2px -1px 0 #ffa800, 2px 0px 0 #ffa800, 2px 1px 0 #ffa800, 2px 2px 0 #ffa800, 2px 3px 0 #ffa800, 2px 4px 0 #ffa800, 2px 5px 0 #ffa800, 3px -5px 0 #ffa800, 3px -4px 0 #ffa800, 3px -3px 0 #ffa800, 3px -2px 0 #ffa800, 3px -1px 0 #ffa800, 3px 0px 0 #ffa800, 3px 1px 0 #ffa800, 3px 2px 0 #ffa800, 3px 3px 0 #ffa800, 3px 4px 0 #ffa800, 3px 5px 0 #ffa800, 4px -5px 0 #ffa800, 4px -4px 0 #ffa800, 4px -3px 0 #ffa800, 4px -2px 0 #ffa800, 4px -1px 0 #ffa800, 4px 0px 0 #ffa800, 4px 1px 0 #ffa800, 4px 2px 0 #ffa800, 4px 3px 0 #ffa800, 4px 4px 0 #ffa800, 4px 5px 0 #ffa800, 5px -5px 0 #ffa800, 5px -4px 0 #ffa800, 5px -3px 0 #ffa800, 5px -2px 0 #ffa800, 5px -1px 0 #ffa800, 5px 0px 0 #ffa800, 5px 1px 0 #ffa800, 5px 2px 0 #ffa800, 5px 3px 0 #ffa800, 5px 4px 0 #ffa800, 5px 5px 0 #ffa800; }
+  .body.wwdmm.group #results-container #winners-circle .row .winner {
+    width: 800px;
+    font-size: 8em;
+    height: 200px; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner .name {
+      font-size: .4em;
+      float: left;
+      height: 100%;
+      padding-left: 22%;
+      padding-right: 10%;
+      margin-left: -16%;
+      -webkit-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3); }
+  .body.wwdmm.group #results-container #winners-circle .row .winner-0 {
+    margin-left: 10%;
+    color: #b7d63a; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking {
+      width: 200px;
+      height: 200px;
+      background: #ff5b77;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking:before {
+        content: "1st"; }
+  .body.wwdmm.group #results-container #winners-circle .row .winner-1 {
+    margin-left: 25%;
+    color: #ffc000; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking {
+      width: 200px;
+      height: 200px;
+      background: #31b9ff;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking:before {
+        content: "2nd"; }
+  .body.wwdmm.group #results-container #winners-circle .row .winner-2 {
+    margin-left: 45%;
+    color: #31b9ff; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking {
+      width: 200px;
+      height: 200px;
+      background: #b7d63a;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking:before {
+        content: "3rd"; }
+  .body.wwdmm.group #results-container #countdown .text {
+    font-size: 8em;
+    top: 58% !important;
+    color: #21b7f0 !important; }
   .body.wwdmm.group #game_code {
     padding: 0px 20px;
     height: 715px; }
@@ -1766,6 +1830,7 @@ body .player-form {
 .body.wwdmm.player #meme-voting .meme-text {
   display: inline-block;
   color: white;
+  font-family: Impact;
   font-size: 16pt;
   font-weight: bold;
   text-transform: uppercase;

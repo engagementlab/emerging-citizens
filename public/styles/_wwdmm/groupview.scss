@@ -19,35 +19,39 @@
 	  background-repeat: no-repeat;
 	  background-size: 100% 100%;
 
-	  padding: 6%;
+	  // padding: 6%;
 	  box-sizing: content-box;
 	  
-	  height: 248px;
+	  height: 300px;
 	  border: 25px white solid;
 
 		.text-upper, .text-lower {
 
-		  color: white;
+			display: inline-block;
+
 		  font-size: 32pt;
 		  font-weight: bold;
-		  text-transform: uppercase;
-		  text-align: center;
 
-		  width: 80%;
-		  left: 10%;
+      margin-left: auto;
+	    margin-right: auto;
 
 		}
 
 		.text-upper {
-	    position: absolute;
-	    top: 0;
+			top: 4%;
 		}
 
 		.text-lower {
-      position: absolute;
-	    bottom: 0;
+	    position: relative;
+	    left: -50%;
 		}
 
+		#text-lower-wrapper {
+			position: absolute;
+			left: 50%;
+			bottom: 4%;
+			width: 100%;
+		}
 	}
 	
 	.meme-text {
@@ -93,6 +97,8 @@
 	}
 
 	#top-header {
+
+		min-height: 138px;
 
 		.img {
 	    margin-top: 2%;
@@ -220,6 +226,85 @@
 				font-size: 2.5em;
 			}
 		
+		}
+
+		// WINNER CIRCLE	
+		#winners-circle {
+
+			.row {
+
+				.ranking {
+					font-family: 'Patrick Hand', cursive;
+
+					color: #fff;
+					padding: 2%;
+					border: 5px solid $color-orange-yellow;
+					float: left; 
+
+			    @include stroke(5, $color-orange-yellow);
+				}
+			
+				.winner {
+					width: 800px;
+					font-size: 8em;
+					height: 200px;
+					.name {    
+						font-size: .4em;
+						float: left;
+				    height: 100%; 
+
+				    padding-left: 22%;
+				    padding-right: 10%;
+
+				    margin-left: -16%;
+					
+						@include box-shadow(8px, 7px, 10px, rgba(0, 0, 0, 0.3));
+					}
+				}
+				.winner-0 {
+					margin-left: 10%;
+					color: $color-sick-green;
+
+					.ranking {
+						@include circle(200px, $color-warm-pink);
+
+						&:before {
+							content: "1st";
+						}
+				  }	
+				}
+				.winner-1 {
+					margin-left:25%;
+					color: $color-marigold;
+
+					.ranking {
+						@include circle(200px, $color-dodger-blue);
+
+						&:before {
+							content: "2nd";
+						}
+				  }	
+				}
+				.winner-2 {
+					margin-left:45%;
+					color: $color-dodger-blue;
+
+					.ranking {
+						@include circle(200px, $color-sick-green);
+
+						&:before {
+							content: "3rd";
+						}
+				  }	
+				}
+			}
+
+		}
+
+		#countdown .text {
+    	font-size: 8em;
+    	top: 58% !important;
+    	color: $color-azure !important;
 		}
 	}
 

@@ -124,13 +124,12 @@
 
 	    color: white;
 	    
+	    font-family: Impact;
 	    font-size: 16pt;
 	    font-weight: bold;
 	    
 	    text-transform: uppercase;
 	    text-align: center;
-
-	    // width: 100%;
 
 	    @include stroke(2, #000);
 		}
