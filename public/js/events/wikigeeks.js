@@ -71,20 +71,12 @@ var gameEvents = function(eventId, eventData) {
 
                 if(articleData.error) {
 
-                    if (!initialSearch) {                    
-                    
-                        $('.article-error').html("Looks like there's something up with that link...<br />Try a different one!");
-                        $('.article-error').show();
+                    var msg = "Looks like there's something up with that link/article...<br />Try a different one!";
 
-                        retrievingData = false;
-                        return;
+                    $('.error').html(msg).fadeIn();
                     
-                    } else {
-                        $('.error').html("Looks like there's something up with that link...<br />Try a different one!");
-                        $('.error').show();
-                        retrievingData = false;
-                        return;
-                    }
+                    retrievingData = false;
+                    return;                
                 }
 
                 if (articleData.parse.redirects.length !== 0)
@@ -105,15 +97,6 @@ var gameEvents = function(eventId, eventData) {
                             initial: initialSearch
                         })
                     );
-
-                if (initialSearch) {
-
-                    $('#topic-submission').fadeOut(function() {
-                        $('section#submitted').fadeIn();
-                        $('#wiki-article').fadeIn();
-                    });
-
-                }
 
                 // Used only for auto-submission
                 else if (displayNow) {
@@ -279,7 +262,6 @@ var gameEvents = function(eventId, eventData) {
     };
 
 
-
     /*
       Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
       */
@@ -352,21 +334,31 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
-        // An article was found
-        case 'article:found':
+        // Player guess the target article for start
+        case 'article:tryagain':
 
-            var startingUrl = API_URL + '&pageid=' + eventData.articleId;
+            $('.error').text(eventData).fadeIn();
 
-            $('#gameContent').html(eventData.html);
+            break;
 
-            $.getJSON(
-                startingUrl,
-                function(articleData) {
+        // An article submission is valid
+        case 'article:valid':
 
-                    displayWikiContent(articleData);
+            if(eventData.initial) {
 
+                $('#topic-submission').fadeOut(function() {
+                    $('section#submitted').fadeIn();
+                    $('#wiki-article').fadeIn();
                 });
 
+            }
+
+            break;
+
+        case 'article:random':
+
+            random = true;
+            retrieveArticle(eventData, false, true);
 
             break;
 
@@ -421,13 +413,6 @@ var gameEvents = function(eventId, eventData) {
                 });
 
             });
-
-            break;
-
-        case 'article:random':
-
-            random = true;
-            retrieveArticle(eventData, false, true);
 
             break;
 

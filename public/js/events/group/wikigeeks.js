@@ -35,16 +35,15 @@ var gameEvents = function(eventId, eventData) {
               return;
 
           secondsLeft--;
-          console.log (secondsLeft, "seconds left");
 
           var displaySeconds = secondsToHms(secondsLeft);
 
-          TweenLite.to(countdownText, .1, { scale: 0 });
+          // TweenLite.to(countdownText, .1, { scale: 0 });
           
           $(countdownText).html(displaySeconds);
           $(revealCountdownText).html(displaySeconds);
           
-          TweenLite.from(countdownText, .1, { scale: 0 });
+          // TweenLite.from(countdownText, .1, { scale: 0 });
 
           // Show countdown if hidden
           if(countdownContainer.css('visibility') === 'hidden') {

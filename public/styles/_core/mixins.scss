@@ -49,7 +49,7 @@ $mq-desktop				: 1382px !default;
 
 // Everything above and including the mobile landscape width
 @mixin mobile-landscape-and-up {
-	@media only screen and (min-width : $mq-mobile-portrait + 1) {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) {
 		@content;
 	}
 }

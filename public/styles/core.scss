@@ -137,13 +137,19 @@ html, body {
 
 .desktop-only {
 	// Hide for mobile
-	@include mobile-only {
+	@include mobile-landscape-and-below {
 		display: none;
 	}
+	// @include mobile-portrait-and-below {
+	// 	display: none;
+	// }
 }
 .mobile-only {
 	// Hide for desktop
-	@include desktop-and-up {
+	// @include mobile-portrait-and-up {
+	// 	display: none;
+	// }
+	@include mobile-landscape-and-up {
 		display: none;
 	}
 }
