@@ -63,7 +63,9 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'player:reconnected': 
+        case 'player:reconnected':
+
+            debugger;
             
             // Get events script for the game type logged in to
             getScript(sessionStorage.gameType);
@@ -119,7 +121,6 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:end':
         case 'game:round_over':
-        {{!-- case 'game:countdown_end': --}}
         case 'players:update':
 
             updateGameContent(eventData);

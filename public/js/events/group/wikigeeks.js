@@ -112,7 +112,6 @@ var gameEvents = function(eventId, eventData) {
 
         var staticPlayers = $('.player-static');
         var finishedPlayers = _.pluck(_.where(eventData.players, {finished:true}), 'username');
-        console.log (finishedPlayers);
 
         _.each(finishedPlayers, function(name, index) {
 

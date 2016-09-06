@@ -12,7 +12,182 @@
 
 <script type="text/javascript">
 
+	var socket;
+  var gameCode;
+  var playerId;
+
+	var gameContainer;
+	var timeline = new TimelineLite();
+  
+  var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
+  {{#ifeq env "development"}}
+  	sfxPath = '/sfx/'
+  {{/ifeq}}
+
+  // All possible socket event IDs
+  // TODO: Change based on game type
+	var eventIds = [
+
+		{{#ifnoteq environment "production"}}
+		'debug:pause',
+		{{/ifnoteq}}
+
+		'connect',
+		'player:loggedin',
+		'player:reconnected',
+		'players:update',
+		'player:finished',
+
+		'game:tutorial',
+		'game:start',
+		'game:ending',
+		'game:ended',
+		'game:end',
+		'game:resumed',
+		'game:notfound',
+		'game:countdown',
+		'game:countdown_ending',
+		'game:countdown_end',
+		'game:round_over',
+		
+		'hashtag:tryagain',
+		'hashtag:success',
+		'hashtag:voted',
+
+		'hashtags:received',
+		'hashtags:results',
+		'hashtags:reveal',
+	
+		'article:valid',
+		'article:random',
+		'article:tryagain',
+		'topic:info',
+		'wiki:click',
+		'wiki:results',
+		'wiki:waiting',
+
+		'meme:topic',
+		'meme:create',
+		'meme:received',
+		'meme:voting',
+		'meme:results',
+		'meme:voted',
+		'meme:liked'
+	
+	];
+
+	/* 
+	 Associate provided data object with current game ID
+	*/
+	var emitData = function(data) {
+
+		if(gameCode === undefined && typeof(data.code) !== 'undefined')
+			gameCode = data.code;
+
+		return { gameId: gameCode, msgData: data };
+	
+	};
+
+	/* 
+	 Obtains the embedded data ('data-key="something"') object from the provided submit button
+	*/
+	var getFormData = function(submitElement) {
+
+		var pkg;
+
+		if(submitElement[0].dataset === undefined)
+			return undefined;
+		
+		try {
+			pkg = JSON.parse(submitElement[0].dataset.package);
+		}
+		catch(e) {
+			pkg = submitElement[0].dataset.package;
+		}
+
+		if($.isPlainObject(pkg)) {
+			$.each(Object.keys(pkg), function( key, value ) {
+
+				if(pkg[value] !== undefined)
+				  pkg[value] = $(pkg[value].toString()).val();
+
+			});
+		}
+		else if(!submitElement.is('button'))
+			pkg = $(pkg).val();
+
+		return pkg;
+
+	};
+
+	/* 
+		Util to convert seconds to h:mm:ss
+	*/
+	var secondsToHms = function(d) {
+
+	  d = Number(d);
+	  var h = Math.floor(d / 3600);
+	  var m = Math.floor(d % 3600 / 60);
+	  var s = Math.floor(d % 3600 % 60);
+
+	  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
+	  var minsDisplay = '<span id="m">' + m + '</span>';
+	  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
+
+	  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
+
+	};
+
+	var updateGameContent = function(content, callback) {
+
+		$('#top-header').remove();
+
+		gameContainer.html(content)
+								 .promise()
+								 .done(function(){
+								 		
+								 		if(callback)
+									 		callback();
+
+								 });
+
+		if($('#top-header').length > 0) {
+			var topBar = $('#top-header').detach();
+			topBar.prependTo('body');
+		}
+	}
+
+	/* 
+		Util to shrink font size of element if text contents exceed given pixel length threshold
+	*/
+	var shrinkToFill = function(input, threshold, startingSize) {
+
+	    var txtInput = $(input),
+	        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
+	        hiddenId = txtInput.attr('id') + '-hidden',
+	        measureField = (txtInput.is('div')) ? $(input) : $('#'+hiddenId);
+
+	    // Input text into hidden div used to measure text length in pixels 
+	    if(!txtInput.is('div'))
+	    	measureField.text(txt);
+	    
+      for (; startingSize >= 0; startingSize -=1) {
+		        
+	        // Set the style on the input
+	        measureField.css('fontSize', startingSize + 'pt');
+	        txtInput.css('fontSize', startingSize + 'pt');
+
+	        // If text size below threshold, stop reducing size
+  		    if (measureField.outerWidth() <= threshold)
+		        break;
+      
+      }
+
+	}
+
+// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 detectPrivateMode(function(is_private) {
+	
 	if(is_private) {
 
 		$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
@@ -50,9 +225,6 @@ detectPrivateMode(function(is_private) {
     var countdownPaused = false;
 
 	{{/ifeq}}
-
-	var gameContainer;
-	var timeline = new TimelineLite();
 	
 	{{#ifeq section "index"}}
 
@@ -98,176 +270,6 @@ detectPrivateMode(function(is_private) {
 		});
 
   {{else}}
-
-		var socket;
-	  var gameCode;
-	  var playerId;
-	  
-	  var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
-	  {{#ifeq env "development"}}
-	  	sfxPath = '/sfx/'
-	  {{/ifeq}}
-
-	  // All possible socket event IDs
-	  // TODO: Change based on game type
-		var eventIds = [
-
-			{{#ifnoteq environment "production"}}
-			'debug:pause',
-			{{/ifnoteq}}
-
-			'connect',
-			'player:loggedin',
-			'player:reconnected',
-			'players:update',
-			'player:finished',
-
-			'game:tutorial',
-			'game:start',
-			'game:ending',
-			'game:ended',
-			'game:end',
-			'game:resumed',
-			'game:notfound',
-			'game:countdown',
-			'game:countdown_ending',
-			'game:countdown_end',
-			'game:round_over',
-			
-			'hashtag:tryagain',
-			'hashtag:success',
-			'hashtag:voted',
-
-			'hashtags:received',
-			'hashtags:results',
-			'hashtags:reveal',
-		
-			'article:valid',
-			'article:random',
-			'article:tryagain',
-			'topic:info',
-			'wiki:click',
-			'wiki:results',
-			'wiki:waiting',
-
-			'meme:topic',
-			'meme:create',
-			'meme:received',
-			'meme:voting',
-			'meme:results',
-			'meme:voted',
-			'meme:liked'
-		
-		];
-
-		/* 
-		 Associate provided data object with current game ID
-		*/
-		var emitData = function(data) {
-
-			if(gameCode === undefined && typeof(data.code) !== 'undefined')
-				gameCode = data.code;
-
-			return { gameId: gameCode, msgData: data };
-		
-		};
-
-		/* 
-		 Obtains the embedded data ('data-key="something"') object from the provided submit button
-		*/
-		var getFormData = function(submitElement) {
-
-			var pkg;
-
-			if(submitElement[0].dataset === undefined)
-				return undefined;
-			
-			try {
-				pkg = JSON.parse(submitElement[0].dataset.package);
-			}
-			catch(e) {
-				pkg = submitElement[0].dataset.package;
-			}
-
-			if($.isPlainObject(pkg)) {
-				$.each(Object.keys(pkg), function( key, value ) {
-
-					if(pkg[value] !== undefined)
-					  pkg[value] = $(pkg[value].toString()).val();
-
-				});
-			}
-			else if(!submitElement.is('button'))
-				pkg = $(pkg).val();
-
-			return pkg;
-
-		};
-
-		/* 
-			Util to convert seconds to h:mm:ss
-		*/
-		var secondsToHms = function(d) {
-
-		  d = Number(d);
-		  var h = Math.floor(d / 3600);
-		  var m = Math.floor(d % 3600 / 60);
-		  var s = Math.floor(d % 3600 % 60);
-
-		  var hourDisplay = '<span id="h">' + (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + '</span>';
-		  var minsDisplay = '<span id="m">' + m + '</span>';
-		  var secondsDisplay = '<span id="s">' + (s < 10 ? "0" : "") + s + '</span>';
-
-		  return (hourDisplay + minsDisplay + ":" + secondsDisplay); 
-
-		};
-
-		var updateGameContent = function(content, callback) {
-
-			$('#top-header').remove();
-
-			gameContainer.html(content)
-									 .promise()
-									 .done(function(){
-									 		
-									 		if(callback)
-										 		callback();
-
-									 });
-
-			if($('#top-header').length > 0) {
-				var topBar = $('#top-header').detach();
-				topBar.prependTo('body');
-			}
-		}
-
-		/* 
-			Util to shrink font size of element if text contents exceed given pixel length threshold
-		*/
-		var shrinkToFill = function(input, threshold, startingSize) {
-
-		    var txtInput = $(input),
-		        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
-		        hiddenId = txtInput.attr('id') + '-hidden',
-		        measureField = (txtInput.is('div')) ? $(input) : $('#'+hiddenId);
-
-		    // Input text into hidden div used to measure text length in pixels 
-		    if(!txtInput.is('div'))
-		    	measureField.text(txt);
-		    
-        for (; startingSize >= 0; startingSize -=1) {
-			        
-		        // Set the style on the input
-		        measureField.css('fontSize', startingSize + 'pt');
-		        txtInput.css('fontSize', startingSize + 'pt');
-
-		        // If text size below threshold, stop reducing size
-    		    if (measureField.outerWidth() <= threshold)
-			        break;
-        
-        }
-
-		}
 
 		{{#ifnoteq section 'group/monitor'}}
 
