@@ -12,6 +12,24 @@
 
 <script type="text/javascript">
 
+detectPrivateMode(function(is_private) {
+	if(is_private) {
+
+		$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
+
+		$(document).ready(function() {
+	    var errorAnim = new TimelineLite();
+	    errorAnim
+	    .to($('#access_code'), 1.5, {xPercent:-200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .1)
+	    .to($('#player_name'), 1.5, {xPercent:200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .2)
+	    .to($('#btn_submit_code'), 1, {yPercent:120, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .3)
+	    .fromTo($('.form .error'), 1, { scale: 2.5, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Bounce.easeOut});
+		});
+		
+		return;
+	
+	}	
+
 	{{#ifeq environment "production"}}
 		
 		// GA include
@@ -371,5 +389,6 @@
 	{{/ifeq}}	
 
 
+});
 
 </script>
