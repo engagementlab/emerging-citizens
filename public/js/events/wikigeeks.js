@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -9,23 +11,6 @@
 var playerWasReconnected;
 var retrievingData;
 var random;
-
-/*if(jQuery.browser.mobile){
-    $("document").on("pagebeforehide",function(e){
-        // (e || window.event).returnValue = null;
-        return "what the heckityheck";
-    });
-} else {
-    // $(window).bind('beforeunload', function(e){
-    //     (e || window.event).returnValue = null;
-    //     return null;
-    // });
-    window.addEventListener("beforeunload", function(e) {
-        (e || window.event).returnValue = null;
-        return null;
-
-    });
-}*/
 
 if ($('.article-error').css('display') !== 'none')
     setTimeout($('.article-error').hide(), 5000);
@@ -91,7 +76,7 @@ var gameEvents = function(eventId, eventData) {
                 displayWikiContent(articleData);
 
                 // Tell server about this article being chosen by player, unless overriden
-                if (displayNow === undefined)
+                if (!displayNow)
                     socket.emit('article:select', emitData({
                             title: articleTitle,
                             initial: initialSearch
@@ -100,7 +85,6 @@ var gameEvents = function(eventId, eventData) {
 
                 // Used only for auto-submission
                 else if (displayNow) {
-
                     $('#topic-submission').fadeOut(function() {
 
                         $('section#submitted').hide();
@@ -113,13 +97,13 @@ var gameEvents = function(eventId, eventData) {
                 if (!random)
                     $('#article .article-name').html(articleTitle);
                 else 
-                    $('#article .article-name').html("Our random article generator sent you to<br />" + articleTitle);
+                    $('#article .article-name').html('Our random article generator sent you to<br />' + articleTitle);
 
                 retrievingData = false;
                 random = false;
             });
 
-    }
+    };
 
     var displayWikiContent = function(articleData) {
 
@@ -204,11 +188,9 @@ var gameEvents = function(eventId, eventData) {
 
         removeDom('div#toc');
         removeDom('.references');
-        // removeDom('span.mw-editsection');
-        removeDom('sup');
-        // removeDom('table');
-        // removeDom('.wikitable');
 
+        removeDom('sup');
+        
         //Add necessary inline style changes
         $('li').css("text-align", "left");
         $('li.gallerybox').css("width", "100%");
@@ -220,39 +202,33 @@ var gameEvents = function(eventId, eventData) {
 
         // Show article
         $('#wiki-content')
-            .html($(workspace).clone().html())
-
+        .html($(workspace).clone().html())
         // Get all links in article
         .find('a')
-            .click(function(e) {
+        .click(function(e) {
 
-                e.preventDefault();
+            e.preventDefault();
 
-                // Get link's event data (article title) and search for it
-                var articleTitle = $(e.currentTarget).data().title;
-                retrieveArticle(articleTitle, false);
+            // Get link's event data (article title) and search for it
+            var articleTitle = $(e.currentTarget).data().title;
+            retrieveArticle(articleTitle, false);
 
 
-            })
-            // Go through each link
-            .each(function(index, link) {
+        })
+        // Go through each link
+        .each(function(index, link) {
 
-                // Set the data object for this link with the article it would be linking to
-                $(link).data({
-                    title: $(link).attr('href').replace('/wiki/', '')
-                });
-
-                if ($(link).hasClass('new')){
-                    $(link).attr('href', 'javascript:void(0)')
-                           .attr("disabled", "disabled");
-                }
-
+            // Set the data object for this link with the article it would be linking to
+            $(link).data({
+                title: $(link).attr('href').replace('/wiki/', '')
             });
 
-            // $("a.new").each(function(link) {
-                
-            //         link.attr("disabled", "disabled");
-            // });
+            if ($(link).hasClass('new')){
+                $(link).attr('href', 'javascript:void(0)')
+                       .attr("disabled", "disabled");
+            }
+
+        });
 
         window.scrollTo(0, 0);
 
@@ -269,9 +245,7 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            // debugger;
-
-            if (sessionStorage.currentArticle !== undefined && playerWasReconnected)
+            if (sessionStorage.currentArticle && playerWasReconnected)
                 retrieveArticle(sessionStorage.currentArticle, false, true);
 
             var articleInput = $('#article_input');
@@ -286,18 +260,29 @@ var gameEvents = function(eventId, eventData) {
 
                         articleInput.val(randomData.query.random[0].title);
 
-                    });
+                    }
+                );
 
             }
 
-            $('button#clear').click(function(){
+            $('button#clear').click(function() {
+
                 articleInput.val('');
                 $(this).addClass("hidden");
                 $('.submission .form').removeClass("moveUp");
+
             });
 
             // Form click to search for first article
             $('#btn_search').click(function(evt) {
+
+                var btn = $(evt.currentTarget);
+                
+                btn.find('span').fadeOut(150, function() {
+                    btn.find('img').fadeIn(150);                    
+                });    
+
+                btn.attr('disabled', 'true');
 
                 retrieveArticle(articleInput.val(), true);
 
@@ -306,6 +291,7 @@ var gameEvents = function(eventId, eventData) {
             // Enable autocomplete to Wikipedia search API
             articleInput.autocomplete({
                 source: function(request, response) {
+
                     $.ajax({
                         url: "https://en.wikipedia.org/w/api.php",
                         dataType: "jsonp",
@@ -318,8 +304,10 @@ var gameEvents = function(eventId, eventData) {
                             response(data[1]);
                         }
                     });
+
                 },
                 select: function(event, ui) {
+
                     $('button#clear').removeClass("hidden");
                     $('.submission .form').addClass("moveUp");
                     
@@ -365,18 +353,17 @@ var gameEvents = function(eventId, eventData) {
         case 'wiki:results':
 
             updateGameContent(eventData);
-            console.log(eventData);
 
             var timing = 500;
             var timingOffset = 0;
             var firstText = $('#firstArticle');
             var groups = $('.articleGroup');
 
-
             $(firstText).css({
                 transform: 'scale(1)'
             });
 
+            // Animations for each article path
             $.each(groups, function(index, group) {
 
                 var dots = $(group).find('.articleDot');
@@ -460,18 +447,21 @@ var gameEvents = function(eventId, eventData) {
 
             $('input').disabled = false;
 
-            if ($('#topic-submission').css('display') !== 'none') {
+            if ($('#submitted').css('display') === 'none') {
+                // Topic was not submitted
                 $('input').disabled = true;
+                
                 $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
                 $('.timesUp').show();
                 $('#topic-submission').hide();
             }
-
-            if ($('section#submitted').css('display') !== 'none') {
+            else if ($('section#submitted').css('display') !== 'none') {
+                // Topic was submitted
                 $('input').disabled = true;
+
                 $('.timesUp').html("<span>Time is up! Sending you to your starting article...</span>");
                 $('.timesUp').show();
-                $('section#submitted').hide();            
+                $('section#submitted').hide();
             }
             
             break;

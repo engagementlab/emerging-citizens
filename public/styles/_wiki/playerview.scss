@@ -87,19 +87,22 @@
 					}
 				}
 
+			button {
+		    padding: 20px;
+		    font-size: 2em;
+
+				background-color: $color-peach;
+				color: lighten($color-peach, 20%);
+				border: 4px solid lighten($color-peach, 20%);
+				
+			}
+
 			input {
 				&.prompt {
 					margin: 5px auto;
 					border: 2px solid $color-light-orange;
 					background-color: white;
 					color: $color-peach;
-				}
-
-				&.submit {
-					background-color: $color-peach;
-					color: lighten($color-peach, 20%);
-					border: 4px solid lighten($color-peach, 20%);
-					
 				}
 			}
 		}

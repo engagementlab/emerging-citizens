@@ -22,6 +22,9 @@
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
+
+		// For countdown debugging
+    var countdownPaused = false;
   {{/ifeq}}
 
   // All possible socket event IDs
@@ -220,9 +223,6 @@ detectPrivateMode(function(is_private) {
 
 		// For socket debugging
 		sessionStorage.debug = '*';
-
-		// For countdown debugging
-    var countdownPaused = false;
 
 	{{/ifeq}}
 	
