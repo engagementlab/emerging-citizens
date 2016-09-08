@@ -59,6 +59,14 @@ var gameEvents = function(eventId, eventData) {
                     var msg = "Looks like there's something up with that link/article...<br />Try a different one!";
 
                     $('.error').html(msg).fadeIn();
+
+                    var btn = $('#btn_search');
+                    
+                    btn.find('img').fadeOut(150, function() {
+                        btn.find('span').fadeIn(150);                    
+                    });    
+
+                    btn.removeAttr('disabled');
                     
                     retrievingData = false;
                     return;                
@@ -150,10 +158,10 @@ var gameEvents = function(eventId, eventData) {
             "margin": "0 auto",
             "float": "none"
         });
-        $('table tr, table td, table th').css({
-            "background-color": "white",
-            "color": "#36d5d9"
-        })
+        // $('table tr, table td, table th').css({
+        //     "background-color": "white",
+        //     "color": "#36d5d9"
+        // });
         $('table:not(:has(table))').css({
             "margin-top": "5%",
             "margin-bottom": "5%"
@@ -279,12 +287,15 @@ var gameEvents = function(eventId, eventData) {
                 var btn = $(evt.currentTarget);
                 
                 btn.find('span').fadeOut(150, function() {
-                    btn.find('img').fadeIn(150);                    
+                    btn.find('img').fadeIn(150, function() {
+
+                        retrieveArticle(articleInput.val(), true);
+                    
+                    });                    
                 });    
 
-                btn.attr('disabled', 'true');
+                btn.attr('disabled', 'disabled');
 
-                retrieveArticle(articleInput.val(), true);
 
             });
 
