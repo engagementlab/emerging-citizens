@@ -1,3 +1,10 @@
+// Login form
+#login {
+	input[type=text] {
+		width: 100%;
+		max-width: 290px;
+	}
+}
 .form-prompt {
 	color: white;
 	background-color: $color-dark-orange;

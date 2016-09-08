@@ -145,6 +145,10 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
+#login input[type=text] {
+  width: 100%;
+  max-width: 290px; }
+
 .form-prompt {
   color: white;
   background-color: #ff5e41;
