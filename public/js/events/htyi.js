@@ -22,7 +22,7 @@ var gameEvents = function(eventId, eventData) {
         case 'game:start':
 
             sessionStorage.setItem('voted', false);
-            console.log(sessionStorage.playerHashtag);
+           
             if(sessionStorage.playerHashtag !== undefined && playerWasReconnected){
                 socket.emit('hashtag:success', sessionStorage.playerHashtag);
             }

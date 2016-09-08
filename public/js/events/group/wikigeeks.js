@@ -30,9 +30,9 @@ var gameEvents = function(eventId, eventData) {
         clearInterval(clockInterval);
 
       clockInterval = setInterval(function() {
-
-          if(countdownPaused)
-              return;
+      
+          // if(countdownPaused)
+          //     return;
 
           secondsLeft--;
 
@@ -168,8 +168,8 @@ var gameEvents = function(eventId, eventData) {
 
         function roundCountdown() {
 
-            if(countdownPaused)
-                return;
+            // if(countdownPaused)
+            //     return;
             
             var countdownText = $('#countdown #text');
             var secondsLeft = 10;
