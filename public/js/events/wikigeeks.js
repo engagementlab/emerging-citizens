@@ -20,7 +20,7 @@ $('.body').addClass('wikigeeks');
 
 var gameEvents = function(eventId, eventData) {
 
-    const API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
+    var API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
     var workspace;
 
     /* 
