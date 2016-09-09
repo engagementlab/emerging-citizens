@@ -54,10 +54,7 @@ module.exports = function(grunt, options) {
   // Files to uglify
   config.uglify.files[fileOut] = [
 
-    __dirname + '/../public/js/*.js', // js for the site
-    __dirname + '/../public/js/jquery/*.js', // jquery
     __dirname + '/../public/plugins/*.js',  // Plugins
-    __dirname + '/../public/plugins/**/*.js',
     '!' + __dirname + '/../public/plugins/jquery.cycle2.js',
     '!' + __dirname + '/../public/plugins/jquery.cycle2.flip.js',
     '!' + __dirname + '/../public/bower_components/nosleep/*.js', // Ignore nosleep
@@ -67,6 +64,8 @@ module.exports = function(grunt, options) {
     __dirname + '/../public/gsap-timeline-slider.js',
   
   ];
+
+  grunt.log.writeln(config.uglify.files[fileOut])
 
   return config;
   
