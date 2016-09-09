@@ -1,7 +1,7 @@
 <div class="col-sm-4 col-centered">
 
   <div class="form" id="login">
-    <input type="text" id="access_code" placeholder="room code" tabindex="1"> <br />
+    <input type="text" id="access_code" placeholder="room code" maxlength="4" tabindex="1"> <br />
     <input type="text" id="player_name" placeholder="name" tabindex="2"> <br />
     <div class="error">Error!</div>
     <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default desktop-only game_login" type="submit" name="submit" value="play">

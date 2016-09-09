@@ -23,7 +23,7 @@ exports = module.exports = function(req, res) {
 
     var locals = res.locals;
     var template;
-    var accessCode = data.code.toUpperCase();
+    var accessCode = data.code.toUpperCase().replace(/ /g,'');
 
     locals.game_not_found = false;
 

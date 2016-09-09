@@ -62,7 +62,7 @@ function playerLogin(data) {
     
     // Open socket connection
     if(!socket) {
-        socket = io('//{{host}}'{{!-- , {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity} --}});
+        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
 
@@ -70,7 +70,8 @@ function playerLogin(data) {
     sessionStorage.setItem('username', playerName);
 
     socket.on('disconnect', function(){
-       // alert('disconnected!')
+       console.warn('Client was disconnected!');
+       debugger;
     });
 
     console.log('Connecting to game "' + gameCode + '".');
@@ -95,7 +96,7 @@ function checkIfLoggedIn() {
     
     // Open socket connection
     if(!socket) {
-        socket = io('//{{host}}');
+        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
         registerEvents();
     }
 
@@ -229,7 +230,7 @@ checkIfLoggedIn();
     $(window).resize(function() {
          doResize();
     });
-     doResize();
+    doResize();
 
     {{#ifeq debug true}}
         // Debugging view

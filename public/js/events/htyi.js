@@ -27,12 +27,9 @@ var gameEvents = function(eventId, eventData) {
                 socket.emit('hashtag:success', sessionStorage.playerHashtag);
             }
 
-             $("#tweet_input").keydown(function(event){
-                console.log("keyup");
-                if(event.keyCode == 13){
-                    console.log("pressed enter");
+            $("#tweet_input").keydown(function(event) {
+                if(event.keyCode == 13)
                     $('#btn_submit').click();
-                }
             });
           break;
 
