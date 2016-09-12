@@ -1,6 +1,6 @@
 /**
  * Emerging Citizens
- * Developed by Engagement Lab, 2015
+ * Developed by Engagement Lab, 2016
  * ==============
  * Game entry view controller.
  *

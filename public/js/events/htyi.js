@@ -36,6 +36,8 @@ var gameEvents = function(eventId, eventData) {
     
         case 'hashtags:received':  
 
+            debugger;
+
             updateGameContent(eventData);
 
             // Remove current player's submission from selections
@@ -75,11 +77,11 @@ var gameEvents = function(eventId, eventData) {
           break;
 
         case 'game:countdown_ending':
+            debugger;
 
-          if (sessionStorage.playerHashtag !== undefined && playerWasReconnected === true) {
-            // console.log (sessionStorage.gameCode);
+          if (sessionStorage.playerHashtag !== undefined && playerWasReconnected === true)
               socket.emit('game:start', {gameId: sessionStorage.gameCode});
-            }
+          
           break;
 
     }

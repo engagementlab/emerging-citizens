@@ -69,13 +69,6 @@ function playerLogin(data) {
     playerName = $('#player_name').val();
     sessionStorage.setItem('username', playerName);
 
-    socket.on('disconnect', function(){
-       console.warn('Client was disconnected!');
-       debugger;
-    });
-
-    console.log('Connecting to game "' + gameCode + '".');
-
     // Log player in
     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
 
@@ -257,8 +250,8 @@ checkIfLoggedIn();
 {{else}}
 
     // Prevent device sleep
-    var noSleep = new NoSleep();
-    noSleep.enable(5000);
+   {{!--  var noSleep = new NoSleep();
+    noSleep.enable(5000); --}}
 
     // Load events for players
     {{> script/player_events gameType=gameType}}
@@ -275,11 +268,40 @@ checkIfLoggedIn();
 
 function registerEvents() {
 
+    {{#ifeq environment "development"}}
+        
+        socket.on('connect_timeout', function() {
+           console.warn('Client timed out when connecting.');
+           debugger;
+        });
+        socket.on('disconnect', function() {
+           console.warn('Client was disconnected!');
+           debugger;
+        });
+        socket.on('reconnecting', function() {
+           console.log('Reconnecting.');
+           debugger;
+        });
+        socket.on('reconnect_attempt', function() {
+           console.log('Trying to reconnect!');
+           debugger;
+        });
+        socket.on('reconnect_error', function(err) {
+           console.error('Reconnect error: %s', err);
+           debugger;
+        });
+
+        console.log('Connecting to game "' + gameCode + '".');
+
+    {{/ifeq}}
+
     $.each(eventIds, function(index, id) {
       
       socket.on(id, function(eventData) {
 
             {{#ifnoteq environment "production"}}
+
+                $('#last-event').text('last event: ' + id);
 
                 console.log("EVENT ID: ", id);
                 console.log("EVENT DATA: (" + eventData + ")");

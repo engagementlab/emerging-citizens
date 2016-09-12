@@ -197,7 +197,7 @@ var socketEvents = function(eventId, eventData) {
 };
 
 // Get events script for the game type logged in to
-$.getScript( '/js/events/group/{{gameType}}.js' )
+$.getScript( '/{{#ifnoteq environment "development"}}release{{else}}js{{/ifnoteq}}/events/group/{{gameType}}.js' )
     {{#ifnoteq environment "production"}}
         .done(function( script, textStatus ) {
             var startBtn = $('#btn-start-game');

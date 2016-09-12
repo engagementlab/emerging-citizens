@@ -9,11 +9,19 @@
         <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
         
-
         {{#ifeq section 'play'}}
-            {{!-- Mobile Meta --}}
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="theme-color" content="#FFAB43">
+          {{!-- Mobile Meta --}}
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="theme-color" content="#FFAB43">
+          
+          {{#ifeq environment "development"}}
+            <link rel="shortcut icon" href="/images/favicons/dev_icon-player.ico" type="image/x-icon" />
+          {{/ifeq}}
+
+        {{else}}
+          {{#ifeq environment "development"}}
+            <link rel="shortcut icon" href="/images/favicons/dev_icon-groupview.ico" type="image/x-icon" />
+          {{/ifeq}}
         {{/ifeq}}
 
         {{!-- Open Graph --}}
@@ -51,7 +59,7 @@
                 </div>
                 
                 {{!-- DEBUGGING --}}
-                <div id="debugging" class="form" style="position: fixed;top: 0;min-height: 30%;">
+                <div id="debugging" class="form" style="position: fixed;top: 0;min-height: 30%;background-color: rgba(0, 255, 250, 0.7);">
                     
                     <div id="debug-info">
                     </div>
@@ -92,6 +100,8 @@
                     {{/ifeq}}
                       <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
                       <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
+
+                      <div id="last-event">last event: none</div>
 
                     <div id="slider-gsap">
                     </div>
