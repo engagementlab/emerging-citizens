@@ -66,6 +66,8 @@ var gameEvents = function(eventId, eventData) {
 
             $('#tweet_input').val('').addClass('invalid');
             $('#tweet-submission .error').text(eventData).fadeIn();
+            
+            $('#btn_submit').removeAttr('disabled');
 
             break;
 
