@@ -8,9 +8,10 @@
  * Script for PLAYERS' WikiGeeks socket events. Loaded to client upon successful login.
  * ==========
  */
-var playerWasReconnected;
 var retrievingData;
 var random;
+
+var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
 if ($('.article-error').css('display') !== 'none')
     setTimeout($('.article-error').hide(), 5000);
@@ -435,15 +436,9 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
-        case 'player:reconnected':
-
-            playerWasReconnected = true;
-
-            break;
-
         case 'game:countdown_ending':
         
-            if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+            if (sessionStorage.currentArticle !== undefined && playerWasReconnected) {
                 socket.emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });

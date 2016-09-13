@@ -7,10 +7,21 @@
  * ==========
  */
 
-var playerWasReconnected;
-
-//Add game type class to body
+// Add game type class to body
 $('.body').addClass('htyi');
+
+// Get if player is in reconnected state
+var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
+
+/* 
+ Disallows input from octothorp (#) character for hashtag submission
+*/
+$(document).on('keypress', '#tweet_input', function(key) {
+    
+    if(key.charCode === 35)
+        return false;
+
+});
 
 var gameEvents = function(eventId, eventData) {
 
@@ -22,29 +33,28 @@ var gameEvents = function(eventId, eventData) {
         case 'game:start':
 
             sessionStorage.setItem('voted', false);
-           
-            if(sessionStorage.playerHashtag !== undefined && playerWasReconnected){
-                socket.emit('hashtag:success', sessionStorage.playerHashtag);
+
+            if(sessionStorage.playerSubmission && playerWasReconnected) {
+                gameEvents('hashtag:success', sessionStorage.playerSubmission);
+                return;
             }
 
             $("#tweet_input").keydown(function(event) {
                 if(event.keyCode == 13)
                     $('#btn_submit').click();
             });
+
           break;
-
     
-        case 'hashtags:received':  
-
-            debugger;
+        case 'hashtags:received':
 
             updateGameContent(eventData);
 
             // Remove current player's submission from selections
-            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerHashtag') + '"]').remove();
+            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
 
             // Hide voting (if player was reconnected and already voted)?
-            if(this.playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
+            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
             {
                 $('#' + $('#submitted').data('hide')).remove();
                 $('#submitted').show();
@@ -66,22 +76,15 @@ var gameEvents = function(eventId, eventData) {
             $('#tweet-submission').hide();
             $('#submitted').show();
 
-            sessionStorage.setItem('playerHashtag', eventData);
-            console.log(sessionStorage.playerHashtag);
+            sessionStorage.setItem('playerSubmission', eventData);
 
             break;
 
-        case 'player:reconnected':
-            playerWasReconnected = true;
-
-          break;
-
         case 'game:countdown_ending':
-            debugger;
 
-          if (sessionStorage.playerHashtag !== undefined && playerWasReconnected === true)
+          if (sessionStorage.playerSubmission !== undefined && playerWasReconnected === true)
               socket.emit('game:start', {gameId: sessionStorage.gameCode});
-          
+
           break;
 
     }

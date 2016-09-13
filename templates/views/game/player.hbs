@@ -1,6 +1,6 @@
 <div class="col-sm-4 col-centered">
 
-  <div class="form" id="login">
+  <div id="login" class="form" style="display:none">
     <input type="text" id="access_code" placeholder="room code" maxlength="4" tabindex="1"> <br />
     <input type="text" id="player_name" placeholder="name" tabindex="2"> <br />
     <div class="error">Error!</div>
@@ -8,6 +8,12 @@
   </div>
 
 </div>
+
+<section id="resuming" class="col-sm-4 col-centered generic-game-message" style="display:none">
+  <div>
+    resuming your session...
+  </div>
+</section>
 
 <footer id="footer">
 
@@ -18,7 +24,7 @@
         <div class="row">
           <div class="footer-content text-center padding-ver-clear">
 
-			      <div class="player-form form col-xl-2 col-xs-12">
+			      <div class="player-form form col-xl-2 col-xs-12" style="display:none">
 			        <div class="col-xs-6">
 								<button id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn default mobile-login game_login">play</button>
 							</div>

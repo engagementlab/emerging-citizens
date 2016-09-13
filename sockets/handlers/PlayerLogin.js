@@ -99,12 +99,13 @@ var PlayerLogin = function (nsp, socket, emitter) {
     
     'login:active': function(package) {
 
-      if(!Session.Get(package.gameId))
+      // STOP and tell player game not found?
+      if(!Session.Get(package.gameId)) {
+        currentSocket.emit('game:notfound', 'Game "' + package.gameId + '" has ended, please try again.');
         return;
+      }
 
       logger.info('login:active', 'Checking if player "' + package.uid + '" is active.');
-
-      // console.log(Session.Get(package.gameId));
 
       // See if this player is still marked as active inside game session
       if(Session.Get(package.gameId).PlayerIsActive(package.uid)) {
@@ -118,9 +119,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
         Session.Get(package.gameId).PlayerReady(player, currentSocket);
 
       }
-      else {
+      else
         logger.info('login:active', 'Player "' + package.uid + '" not active.');
-      }
       
     },
 

@@ -80,12 +80,14 @@ function playerLogin(data) {
 function checkIfLoggedIn() {
     
     // Check if game code saved to session (player is already logged in)
-    if(!sessionStorage.getItem('gameCode'))
+    if(!sessionStorage.getItem('gameCode')) {
+        $('.form').show();
         return;
+    }
+
+    $('#resuming').show();
 
     gameCode = sessionStorage.getItem('gameCode');
-
-    console.log('Trying to re-connect to game "' + gameCode + '".');
     
     // Open socket connection
     if(!socket) {
@@ -136,61 +138,57 @@ $(document).on('click', '.form .submit', function() {
 });
 
 /* 
- Disallows input from octothorp (#) character for hashtag submission
-*/
-$(document).on('keypress', '#tweet_input', function(key) {
-    
-    if(key.charCode === 35)
-        return false;
-
-});
-
-/* 
  Logs player into game with room code and name
 */
 $(document).on('click', '.btn.game_login', function() {
 
     var data = getFormData($(this));
 
+    // Create uid for player
     var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
     sessionStorage.setItem('uUID', playerUID);
 
-  $.post( 
-    "/game",
-    data,
-    function( data ) {
+    $.post(
+        "/game",
+        data,
+        function( data ) {
 
-        $('.form input').removeClass('invalid');
+            $('.form input').removeClass('invalid');
 
-        if(data.error_code !== undefined) {
+            if(data.error_code !== undefined) {
 
-            switch(data.error_code) {
-                case 'wrong_code': 
-                    $('.form #class_code').addClass('invalid');
-                    break;
+                switch(data.error_code) {
+                    case 'game_not_found': 
+                        $('.form #class_code').addClass('invalid');
+                        
+                        // Session does not exist, make sure to clear data from storage
+                        sessionStorage.removeItem('gameCode');
+                        sessionStorage.removeItem('playerSubmission');
+                        break;
 
-                case 'no_username':
-                    $('.form #player_name').addClass('invalid');
-                    break;
+                    case 'no_username':
+                        $('.form #player_name').addClass('invalid');
+                        break;
 
-                case 'username_taken':
-                    $('.form #player_name').addClass('invalid');
-                    break;
+                    case 'username_taken':
+                        $('.form #player_name').addClass('invalid');
+                        break;
 
-                case 'game_active': 
-                    $('.form #class_code').addClass('invalid');
-                    break;
+                    case 'game_active': 
+                        $('.form #class_code').addClass('invalid');
+                        break;
+                }
+
+                $('.form .error').text(data.msg).fadeIn();
+                return;
+
             }
 
-            $('.form .error').text(data.msg).fadeIn();
-            return;
+            data.uid = playerUID;
+            playerLogin(data);                          
 
         }
-
-        data.uid = playerUID;
-        playerLogin(data);                          
-
-    });
+    );
 
 });
 
@@ -272,23 +270,23 @@ function registerEvents() {
         
         socket.on('connect_timeout', function() {
            console.warn('Client timed out when connecting.');
-           debugger;
+           {{!-- debugger; --}}
         });
         socket.on('disconnect', function() {
            console.warn('Client was disconnected!');
-           debugger;
+           {{!-- debugger; --}}
         });
         socket.on('reconnecting', function() {
            console.log('Reconnecting.');
-           debugger;
+           {{!-- debugger; --}}
         });
         socket.on('reconnect_attempt', function() {
            console.log('Trying to reconnect!');
-           debugger;
+           {{!-- debugger; --}}
         });
         socket.on('reconnect_error', function(err) {
            console.error('Reconnect error: %s', err);
-           debugger;
+           {{!-- debugger; --}}
         });
 
         console.log('Connecting to game "' + gameCode + '".');

@@ -201,6 +201,15 @@
   .voting-button.color-8 {
     background-color: #F83439; }
 
+.generic-game-message {
+  font-size: 2em;
+  color: #ff9971;
+  background-color: white;
+  padding: 3%;
+  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
+  -moz-box-shadow: 6px 7px 10px #C7C6C6;
+  box-shadow: 6px 7px 10px #C7C6C6; }
+
 .entry-footer {
   position: fixed;
   bottom: 0;

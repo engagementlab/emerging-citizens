@@ -7,7 +7,7 @@
  * ==========
  */
 
-var playerWasReconnected;
+var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
 /**
  * Waits for the first child image in the provided element to load and then dispatches provided callback.
@@ -41,16 +41,6 @@ var gameEvents = function(eventId, eventData) {
 	    Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
     */
     switch (eventId) {
-
-    	case 'game:start':
-
-        	break;
-
-    	case 'player:reconnected':
-
-        	playerWasReconnected = true;
-
-        	break;
 
         case 'meme:create':
 

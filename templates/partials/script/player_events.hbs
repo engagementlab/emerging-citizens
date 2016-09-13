@@ -10,30 +10,41 @@
  */
 --}}
 
-var playerWasReconnected;
 var cachedEventId;
 var cachedEventData;
 
-var getScript = function (gameType) {
+var resetSession = function() {
+
+    // Remove saved game code, submission, and set to not reconnectedd
+    sessionStorage.removeItem('gameCode');
+    sessionStorage.removeItem('playerSubmission');
+    sessionStorage.setItem('reconnected', false);
+
+}
+
+var getScript = function(gameType) {
     $.getScript( '/{{#ifnoteq environment "development"}}release{{else}}js{{/ifnoteq}}/events/' + gameType + '.js' )
         .done(function( script, textStatus ) {
             console.log( textStatus );
 
             // If any event is waiting to be called, do it now
-            if(cachedEventId)
+            if(cachedEventId) {
+                console.log('cachedEventId: %s', cachedEventId);
+                
                 socketEvents(cachedEventId, cachedEventData);
+                gameEvents(cachedEventId, cachedEventData);
+            }
           })
           .fail(function( jqxhr, settings, exception ) {
             console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
-            console.log(exception);
         });
 }
 
 $("#player_name").keydown(function(event) {
-    if(event.keyCode == 13){
-        console.log("pressed enter");
+    
+    if(event.keyCode == 13)
         $('#btn_submit_code').click();
-    }
+
 });
 
 //Checks if the site is being loaded on a mobile device
@@ -45,7 +56,7 @@ var socketEvents = function(eventId, eventData) {
     if(eventData && eventData.waitForLoad)
     {
         cachedEventId = eventId;
-        cachedEventData = eventData;
+        cachedEventData = eventData.html;
 
         return;
     }
@@ -66,10 +77,9 @@ var socketEvents = function(eventId, eventData) {
             $('#gameContent').html(eventData.html);
 
             sessionStorage.setItem("gameType", eventData.gameType);
+            sessionStorage.setItem('reconnected', false);
 
-            getScript(sessionStorage.gameType);
-            
-            playerWasReconnected = false;
+            getScript(sessionStorage.gameType);            
 
             $('#debug-info').text('Player id: ' + eventData.id);
 
@@ -78,14 +88,12 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'player:reconnected':
-
-            {{!-- debugger; --}}
             
             // Get events script for the game type logged in to
             getScript(sessionStorage.gameType);
 
             // Set local player state as reconnected
-            playerWasReconnected = true;
+            sessionStorage.setItem('reconnected', true);
             
             break;
 
@@ -107,8 +115,8 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:ended':
 
-            // Remove saved game code since game is over
-            sessionStorage.removeItem('gameCode');
+            // Remove saved sesh
+            resetSession();
 
             updateGameContent(eventData);
 
@@ -124,6 +132,15 @@ var socketEvents = function(eventId, eventData) {
 
             $('#error-box').text('game not found!');
             $('#error-box').show();
+
+            // Game not found, make sure form is visible
+            $('#resuming').hide();
+            $('.form').show();
+
+            // Reset saved sesh
+            resetSession();
+
+            $('.form .error').text(eventData).fadeIn();
 
             break;
 

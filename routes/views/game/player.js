@@ -31,12 +31,12 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'player';
 
-    if(Session.Get(accessCode) !== undefined) {
+    if(Session.Get(accessCode)) {
         if(Session.Get(accessCode).IsFull()) {
            res.send({error_code: 'session_full', msg: 'Sorry! This game is full!'});
            return;
         }
-        else if(data.name === undefined || data.name.length === 0) {
+        else if(!data.name || data.name.length === 0) {
            res.send({error_code: 'no_username', msg: 'You need to enter a username!'});
            return;
         }
@@ -52,9 +52,9 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({ accessCode: accessCode }, function (err, game) {
 
-        if(game === null || game === undefined || Session.Get(accessCode) === undefined) {
+        if(!game || !Session.Get(accessCode)) {
             locals.game_not_found = true;
-            res.send({error_code: 'wrong_code', msg: 'Game for room code "' + accessCode + '" not found.'});
+            res.send({error_code: 'game_not_found', msg: 'Game for room code "' + accessCode + '" not found.'});
 
             return;
         }

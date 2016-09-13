@@ -67,6 +67,17 @@
 
 }
 
+.generic-game-message {
+	
+  font-size: 2em;
+	color: $color-peach;
+	background-color: white;
+	padding: 3%;
+
+  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+
+}
+
 // Footer on entry page
 .entry-footer {
 	position: fixed;
