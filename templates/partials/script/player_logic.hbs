@@ -55,9 +55,6 @@ function playerLogin(data) {
 
     gameCode = data.code;
 
-    // Save current game code to local storage
-    sessionStorage.setItem('gameCode', gameCode);
-
     $('.navbar').slideUp();
     
     // Open socket connection
