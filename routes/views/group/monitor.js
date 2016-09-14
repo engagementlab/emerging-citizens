@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
   // item in the header navigation.
   locals.section = 'group/monitor';
 
-  // Enable debugging on staging only
+  // Enable debugging on staging/dev only
   if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
     locals.debug = true;
 
@@ -36,13 +36,13 @@ exports = module.exports = function(req, res) {
 
     GameSession.model.findOne({accessCode: req.params.accesscode.toUpperCase()}, function (err, game) {
 
-        if(game === null) {
+        if(!game) {
           console.log("Game with ID '" + req.params.accesscode.toUpperCase() + "' not found!");
           return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist!');  
         }
 
     		// TODO: Dev only?
-    		if(Session.Get(game.accessCode) === undefined)
+    		if(!Session.Get(game.accessCode))
     			Session.Create(game.accessCode, new GameManager(game));
 
         locals.accessCodeSplit = game.accessCode.split('');

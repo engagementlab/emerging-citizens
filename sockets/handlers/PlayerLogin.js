@@ -49,7 +49,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
         playerGameId = package.gameId;
   
         if(!Session.Get(playerGameId)) {
-          currentSocket.emit('game:notfound');
+          
+          Templates.Load('partials/player/gamenotfound', undefined, function(html) {
+            currentSocket.emit('game:notfound', html);
+          });
+          
           return;
         }
       }
@@ -101,7 +105,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       // STOP and tell player game not found?
       if(!Session.Get(package.gameId)) {
-        currentSocket.emit('game:notfound', 'Game "' + package.gameId + '" has ended, please try again.');
+        Templates.Load('partials/player/gamenotfound', undefined, function(html) {
+          currentSocket.emit('game:notfound', html);
+        });
+
         return;
       }
 

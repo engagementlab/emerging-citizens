@@ -76,7 +76,7 @@ var socketEvents = function(eventId, eventData) {
 
             $('#gameContent').html(eventData.html);
 
-            sessionStorage.setItem("gameType", eventData.gameType);
+            sessionStorage.setItem('gameType', eventData.gameType);
             sessionStorage.setItem('reconnected', false);
 
             getScript(sessionStorage.gameType);            
@@ -119,6 +119,11 @@ var socketEvents = function(eventId, eventData) {
             resetSession();
 
             updateGameContent(eventData);
+                
+            // Send player back to login after 5s
+            setTimeout(function() {
+                window.location = '/play';
+            }, 5000);
 
             break;
 
@@ -130,17 +135,30 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:notfound':
 
-            $('#error-box').text('game not found!');
-            $('#error-box').show();
+            // $('#error-box').text('game not found!');
+            // $('#error-box').show();
 
             // Game not found, make sure form is visible
             $('#resuming').hide();
             $('.form').show();
 
+            // If player was in a game (has code), tell them they were disconnected/game ended
+            // Otherwise player is at login, tell them game ended
+            if(sessionStorage.getItem('gameCode')) {
+                updateGameContent(eventData);
+                
+                // Send player back to login after 5s
+                setTimeout(function() {
+                    window.location = '/play';
+                }, 5000);
+            }
+            else
+                $('.form .error').text('Game has ended, please try again.').fadeIn();
+
+                
             // Reset saved sesh
             resetSession();
 
-            $('.form .error').text(eventData).fadeIn();
 
             break;
 
