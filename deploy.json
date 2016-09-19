@@ -1,0 +1,61 @@
+{
+  "apps" : [{
+    "name": "Emerging Citizens",
+    "script": "server.js",
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_staging": {
+      "NODE_ENV": "staging"
+    }
+  }],
+  "deploy" : {
+
+    "web-staging" : {
+      "user": "node",
+      "host": "159.203.174.12",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/framework",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
+      "post-deploy" : "npm i ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+
+    "staging" : {
+      "user": "node",
+      "host": "159.203.174.12",
+      "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
+      "ref": "origin/master",
+      "path": "/srv/emerging-citizens",
+      "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.'; git pull git@github.com:engagementgamelab/EL-Website.git master;",
+      "post-deploy" : "npm i ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging"
+    },
+
+    "web-production" : {
+      "user": "node",
+      "host": "104.236.109.221",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/framework",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens --env production ; pm2 restart 0 -- emerging-citizens --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+
+    "production" : {
+      "user": "node",
+      "host": "104.236.109.221",
+      "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
+      "ref": "origin/production",
+      "path": "/srv/emerging-citizens",
+      "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
+      "post-deploy" : "npm i ; cd /srv/framework/current/ ; grunt compile --sites=emerging-citizens --env production ; NODE_ENV=production pm2 restart server.js -- emerging-citizens --env production"
+    }
+
+  }
+}
