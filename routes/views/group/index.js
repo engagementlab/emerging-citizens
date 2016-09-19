@@ -39,14 +39,33 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'group';
 
+    function checkCode() {
+        var code;
+
+        var badCode = {'ANUS', 'ARSE', 'CLIT', 'COCK', 'COON', 'CUNT', 'DAGO', 'DAMN', 'DICK', 'DIKE', 'DYKE', 'FUCK', 
+        'GOOK', 'HEEB', 'HECK', 'HELL', 'HOMO', 'JIZZ', 'KIKE', 'KUNT', 'KYKE', 'LICK', 'MICK', 'MUFF', 'PAKI', 'PISS', 'POON', 'PUTO', 'SHIT', 'SHIZ', 'SLUT', 'SMEG', 'SPIC', 'TARD', 'TITS', 'TWAT', 'WANK'};
+
+    }
+
     function generateCode() {
 
-        return randomstring.generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
+        
+        var code = randomstring.generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
+
+        if (_.contains (badCode, code)) {
+            console.log ("finding new, clean code");
+            code = randomstring.generate({ length: 4, charset: 'alphabetic' }).toUpperCase();
+        } else {
+            return code;
+        }
+
+        
     
     }
 
     view.on('init', function(next) {
 
+        
         gameCode = generateCode();
 
         // Check if there's already a game with the generated access code
