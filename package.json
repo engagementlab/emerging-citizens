@@ -1,6 +1,6 @@
 {
   "name": "emerging-citizens",
-  "version": "0.0.4",
+  "version": "0.1.4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/engagementgamelab/emerging-citizens.git"
@@ -22,7 +22,7 @@
     "randomize": "0.0.4",
     "randomstring": "^1.1.4",
     "sentencer": "^0.1.5",
-    "socket.io": "^1.4.5",
-    "socket.io-client": "^1.4.5"
+    "socket.io": "1.4.8",
+    "socket.io-client": "1.4.8"
   }
 }
