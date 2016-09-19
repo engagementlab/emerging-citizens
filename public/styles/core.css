@@ -1569,6 +1569,17 @@ body .player-form {
     margin: 0;
     padding: 10px;
     display: none; }
+  .body.wikigeeks.player #article-loading {
+    background-color: rgba(255, 94, 65, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: inline; }
+    .body.wikigeeks.player #article-loading .indicator {
+      margin-top: 25%; }
   .body.wikigeeks.player .submission {
     min-height: 370px;
     background-color: #ff5e41; }
@@ -1604,17 +1615,18 @@ body .player-form {
         transform: translate(0px, -30px); }
       .body.wikigeeks.player .submission .form button#clear {
         display: inline-block;
-        height: 30px;
-        width: 30px;
+        height: 50px;
+        width: 50px;
         padding: 0px;
+        margin-left: 10px;
         float: right;
-        border-radius: 15px;
+        border-radius: 25px;
         background-color: #ff9971;
-        -moz-transform: translate(40px, 60px);
-        -o-transform: translate(40px, 60px);
-        -ms-transform: translate(40px, 60px);
-        -webkit-transform: translate(40px, 60px);
-        transform: translate(40px, 60px);
+        -moz-transform: translate(60px, 65px);
+        -o-transform: translate(60px, 65px);
+        -ms-transform: translate(60px, 65px);
+        -webkit-transform: translate(60px, 65px);
+        transform: translate(60px, 65px);
         cursor: pointer;
         -webkit-appearance: button;
         color: #ffe2d7;

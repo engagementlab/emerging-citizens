@@ -10,6 +10,7 @@
  */
 var retrievingData;
 var random;
+var playerSubmitted;
 
 var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
@@ -23,6 +24,8 @@ var gameEvents = function(eventId, eventData) {
 
     var API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
     var workspace;
+
+    // playerSubmitted = false;
 
     /* 
         Client methods for game
@@ -48,7 +51,13 @@ var gameEvents = function(eventId, eventData) {
 
         articleChosen.text(articleTitle);
 
+
+
         retrievingData = true;
+
+        if (initialSearch === false) {
+            $('#article-loading').show();
+        }
 
         // Get article content
         $.getJSON(
@@ -69,6 +78,7 @@ var gameEvents = function(eventId, eventData) {
 
                     btn.removeAttr('disabled');
                     
+                    // playerSubmitted = false;
                     retrievingData = false;
                     return;                
                 }
@@ -103,13 +113,23 @@ var gameEvents = function(eventId, eventData) {
                     });
                 }
 
-                if (!random)
+                if (!random) {
                     $('#article .article-name').html(articleTitle);
-                else 
+                    // playerSubmitted = true;
+                }
+                else {
+                    // playerSubmitted = false;
                     $('#article .article-name').html('Our random article generator sent you to<br />' + articleTitle);
-
+                }
+                
                 retrievingData = false;
                 random = false;
+                if (initialSearch === false) {
+                  $('#article-loading').hide();  
+                } else {
+                    playerSubmitted = true;
+                }
+                
             });
 
     };
@@ -217,10 +237,18 @@ var gameEvents = function(eventId, eventData) {
         .click(function(e) {
 
             e.preventDefault();
+            
 
             // Get link's event data (article title) and search for it
             var articleTitle = $(e.currentTarget).data().title;
             retrieveArticle(articleTitle, false);
+            // if (retrievingData === true) {
+            //     $('#article-loading').show();
+            // }
+
+            // if (retrievingData === false) {
+            //     $('#article-loading').hide();
+            // }
 
 
         })
@@ -353,6 +381,8 @@ var gameEvents = function(eventId, eventData) {
 
             }
 
+            playerSubmitted = true;
+
             break;
 
         case 'article:random':
@@ -444,7 +474,7 @@ var gameEvents = function(eventId, eventData) {
                 });
             }
 
-            if ($('#topic-submission').css('display') !== 'none')
+            if (playerSubmitted === false)
                 $('.form .error').text(eventData + "If you haven't found a starting article soon, we will choose one for you..");
 
             break;
@@ -452,16 +482,16 @@ var gameEvents = function(eventId, eventData) {
         case 'game:countdown_end':
 
             $('input').disabled = false;
+            $('.form .error').hide();
 
-            if ($('#submitted').css('display') === 'none') {
+            if (playerSubmitted === false) {
                 // Topic was not submitted
                 $('input').disabled = true;
                 
                 $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
                 $('.timesUp').show();
                 $('#topic-submission').hide();
-            }
-            else if ($('section#submitted').css('display') !== 'none') {
+            } else {
                 // Topic was submitted
                 $('input').disabled = true;
 
