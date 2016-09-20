@@ -1792,15 +1792,14 @@ body .player-form {
   z-index: 10;
   background: none;
   border: none;
-  color: white;
+  color: transparent;
   font-size: 46pt;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   overflow: hidden;
   resize: none;
-  font-family: Impact;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  font-family: Impact; }
 
 .body.wwdmm.player #meme-create .meme-text-hidden {
   font-size: 27pt;

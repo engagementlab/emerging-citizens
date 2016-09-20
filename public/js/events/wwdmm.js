@@ -58,16 +58,148 @@ var gameEvents = function(eventId, eventData) {
                             slideIndex = evt.index - 1;
                             $('#image-index').val(slideIndex);
                         }
-                    });
-                    
+                    }); 
 
                 });
 
             });
 
+            var reader = new FileReader(),
+            image = new Image(),
+            ctxt = null, // For canvas' 2d context
+            
+            // Get elements (by id):
+            box1 = $("#box1"),
+            ifile = $("#ifile"),
+            box2 = $("#box2"),
+            topline = $("#text-upper"),
+            bottomline = $("#text-lower"),
+            canvas = document.getElementById("meme-canvas"), // canvas;
+            // Get canvas context:
+            ctxt = canvas.getContext("2d");
+            
+            function wrapText(text, x, y) {
+
+              }
+
+            var writeText = function (text, x, y, lineHeight) {
+                var textClean = text.toUpperCase();
+                var f = 46; // Font size (in pt)
+                            
+                var words = textClean.split(' ');
+                var line = '';
+
+                  var totalWidth = ctxt.measureText(textClean).width;
+
+                if(words.length > 1) {
+
+                    if(totalWidth > (canvas.width*2)) {
+                        
+                        for (; f >= 0; f -=1) {
+
+                            // ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
+
+                            if (ctxt.measureText(textClean).width < canvas.width - 10) {
+
+                                // ctxt.fillText(textClean, x, y);
+                                // ctxt.strokeText(textClean, x, y);
+                                
+                                break;
+                            }
+                        }
+
+                    }
+
+                    var testWidth;
+                    // var totalWidth = 0;
+
+                    for(var n = 0; n < words.length; n++) {
+
+                      var testLine = line + words[n] + ' ';
+                      console.log('testLine', testLine)
+
+                      var metrics = ctxt.measureText(testLine);
+                      
+                      testWidth = metrics.width;
+                      
+                      if(n === words.length-1)
+                          totalWidth = testWidth;
+                          
+                          ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
+                        
+                        if (testWidth > canvas.width && n > 0) {
+                            ctxt.fillText(line, x, y);
+                            ctxt.strokeText(line, x, y);
+
+                            line = words[n] + ' ';
+                            
+                            if(y < lineHeight * 2)
+                                y += lineHeight;
+                        }
+                        else {
+                            line = testLine;
+                        }
+
+                    }
+
+                    console.log('totalWidth', totalWidth)
+
+                    ctxt.fillText(line, x, y);
+                    ctxt.strokeText(line, x, y);
+
+                }
+                else {
+                    
+                    for (; f >= 0; f -=1) {
+                        ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
+
+                        if (ctxt.measureText(textClean).width < canvas.width - 10) {
+
+                            ctxt.fillText(textClean, x, y);
+                            ctxt.strokeText(textClean, x, y);
+                            
+                            break;
+                        }
+                    }
+
+                }
+            };
+
+            var renderMeme = function () {
+                
+                canvas.width = image.width;
+                canvas.height = image.height;
+
+                ctxt.clearRect(0, 0, canvas.width, canvas.height);
+                ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                ctxt.textAlign = "center";
+                ctxt.fillStyle = "white";
+                ctxt.strokeStyle = "black";
+                ctxt.lineWidth = 2;
+
+                writeText($(topline).val(), canvas.width / 2, 50, 50);
+                // writeText($(bottomline).val(), canvas.width / 2, canvas.height - 20);
+
+            };
+
+            $('#btn_next input').click(function(evt) {
+
+                image.onload = function() {
+                    renderMeme();
+                };
+
+                image.src = $('.glide__slide.active img').attr('src');
+                
+                $(evt.currentTarget).hide();
+                $('#meme-slider').hide();
+                $('#meme-text').show();
+
+            });
+
             // Shrink text as length increases
             $('.meme-text').keyup(function() {
-                shrinkToFill(this, 340, 46);
+                renderMeme();
             });
 
             // Disable enter key

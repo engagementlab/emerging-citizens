@@ -4,8 +4,8 @@
 
         <div id="meme-slider" class="glide">
 
-            <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
-            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" /> <br />
+            {{!-- <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
+            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" /> <br /> --}}
 
             <span id="text-upper-hidden" class="meme-text-hidden"></span>
             <span id="text-lower-hidden" class="meme-text-hidden"></span>
@@ -32,10 +32,24 @@
             <div class="glide__bullets"></div>
 
         </div>
-   
-        <div class="row">
 
-            <input id="btn_submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="post">
+        <div id="meme-text" class="row" style="display:none;">
+
+            <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
+            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" />
+            <canvas id="meme-canvas" width="0" height="0"></canvas>
+        </div>
+   
+        <div id="btn_next" class="row">
+
+            <input {{!-- data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' --}} data-autohide="false" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="next">
+
+        </div>
+   
+        <div id="btn_submit" class="row" style="display:none;">
+
+            <input type="submit" name="submit" value="back">
+            <input data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="submit">
 
         </div>
 

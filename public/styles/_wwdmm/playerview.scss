@@ -48,18 +48,18 @@
 
 	    background: none;
 	    border: none;
-	    color: white;
+	    color: rgba(0, 0, 0, 0);
 	    font-size: 46pt;
 	    font-weight: bold;
 	    text-transform: uppercase;
 	    text-align: center;
 
-	    overflow: hidden;		  
+	    overflow: hidden;  
 		  resize: none;
 
 		  font-family: Impact;
 
-	    @include stroke(2, #000);
+	    // @include stroke(2, #000);
 		}
 		.meme-text-hidden {
 
