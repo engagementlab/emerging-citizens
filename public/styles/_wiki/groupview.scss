@@ -529,6 +529,10 @@
 
 				.last {
 					color: $color-dark-orange;
+
+					.destination {
+						@include translate(20px, 0px);
+					}
 				}
 			}
 

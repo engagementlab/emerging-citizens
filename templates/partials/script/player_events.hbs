@@ -79,7 +79,9 @@ var socketEvents = function(eventId, eventData) {
             sessionStorage.setItem('gameType', eventData.gameType);
             sessionStorage.setItem('reconnected', false);
 
-            getScript(sessionStorage.gameType);            
+            getScript(sessionStorage.gameType);
+
+            $('#waiting .game-message span').text('waiting for game to begin...');
 
             $('#debug-info').text('Player id: ' + eventData.id);
 

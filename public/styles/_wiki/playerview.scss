@@ -27,6 +27,22 @@
 		display:none;
 	}
 
+	#time-up {
+		background-color: rgba( $color-dark-orange, .6 );
+		height: 100%;
+		width: 100%;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		position: fixed;
+		display: inline;
+
+		.indicator {
+			margin-top: 25%;
+
+		}
+	}
+
 	#article-loading {
 		background-color: rgba( $color-dark-orange, .6 );
 		height: 100%;
@@ -85,19 +101,20 @@
 				@include translate(0px, -30px);
 			}
 			button#clear {
+				font-size: 1.6em;
 				display:inline-block;
-				height: 50px;
-				width: 50px;
+				height: 40px;
+				width: 40px;
 				padding: 0px;
 				margin-left: 10px;
 				float: right;
-				border-radius: 25px;
+				border-radius: 20px;
 				background-color: $color-peach;
-				@include translate(60px, 65px);
+				@include translate(45px, 65px);
 				cursor: pointer;
 				-webkit-appearance: button;
 				color: lighten($color-peach, 20%);
-				border: 4px solid lighten($color-peach, 20%);
+				border: 2px solid lighten($color-peach, 20%);
 
 				&:hover, &:focus {
 					outline: none;
