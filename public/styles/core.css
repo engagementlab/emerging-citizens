@@ -1581,7 +1581,7 @@ body .player-form {
     padding: 10px;
     display: none; }
   .body.wikigeeks.player #time-up {
-    background-color: rgba(255, 94, 65, 0.6);
+    background-color: rgba(255, 94, 65, 0.7);
     height: 100%;
     width: 100%;
     z-index: 1000;
@@ -1590,7 +1590,14 @@ body .player-form {
     position: fixed;
     display: inline; }
     .body.wikigeeks.player #time-up .indicator {
-      margin-top: 25%; }
+      height: 200px;
+      padding: 40px;
+      background-color: #36d5d9;
+      color: #FD6D59;
+      margin-top: 30%; }
+    .body.wikigeeks.player #time-up button {
+      color: white;
+      background-color: #FD6D59; }
   .body.wikigeeks.player #article-loading {
     background-color: rgba(255, 94, 65, 0.6);
     height: 100%;
@@ -1645,11 +1652,11 @@ body .player-form {
         float: right;
         border-radius: 20px;
         background-color: #ff9971;
-        -moz-transform: translate(50px, 65px);
-        -o-transform: translate(50px, 65px);
-        -ms-transform: translate(50px, 65px);
-        -webkit-transform: translate(50px, 65px);
-        transform: translate(50px, 65px);
+        -moz-transform: translate(45px, 65px);
+        -o-transform: translate(45px, 65px);
+        -ms-transform: translate(45px, 65px);
+        -webkit-transform: translate(45px, 65px);
+        transform: translate(45px, 65px);
         cursor: pointer;
         -webkit-appearance: button;
         color: #ffe2d7;

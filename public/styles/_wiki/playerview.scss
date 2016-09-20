@@ -28,7 +28,7 @@
 	}
 
 	#time-up {
-		background-color: rgba( $color-dark-orange, .6 );
+		background-color: rgba( $color-dark-orange, .7 );
 		height: 100%;
 		width: 100%;
 		z-index: 1000;
@@ -38,8 +38,17 @@
 		display: inline;
 
 		.indicator {
-			margin-top: 25%;
+			height: 200px;
+			padding: 40px;
+			background-color: $color-teal;
+			color: white;
+			margin-top: 30%;
 
+		}
+
+		button {
+			color: white;
+			background-color: $color-orange;
 		}
 	}
 
