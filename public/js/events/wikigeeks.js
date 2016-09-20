@@ -10,7 +10,7 @@
  */
 var retrievingData;
 var random;
-var playerSubmitted;
+var playerSubmitted = false;
 
 var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
@@ -274,6 +274,10 @@ var gameEvents = function(eventId, eventData) {
 
     };
 
+    $('#btn_ok').on('click', function() {
+        $('#time-up').hide();
+    });
+
 
     /*
       Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
@@ -365,7 +369,15 @@ var gameEvents = function(eventId, eventData) {
         // Player guess the target article for start
         case 'article:tryagain':
 
-            $('.error').text(eventData).fadeIn();
+            console.log ("try again");
+
+                $('#btn_search img').hide();
+                $('#btn_search span').show();
+                $('.error').text(eventData).fadeIn();
+                $('input').disabled = false;
+                $('#btn_search').attr('disabled', false);
+
+                playerSubmitted = false;
 
             break;
 
@@ -379,9 +391,11 @@ var gameEvents = function(eventId, eventData) {
                     $('#wiki-article').fadeIn();
                 });
 
+                playerSubmitted = true;
+
             }
 
-            playerSubmitted = true;
+            
 
             break;
 
@@ -389,6 +403,7 @@ var gameEvents = function(eventId, eventData) {
 
             random = true;
             retrieveArticle(eventData, false, true);
+            playerSubmitted = false;
 
             break;
 
@@ -443,6 +458,18 @@ var gameEvents = function(eventId, eventData) {
 
             });
 
+            var last = [];
+            last = $('g.last .destination');
+
+            console.log(last, "last");
+
+            $.each(last, function (index, line) {
+                console.log("animating path");
+                $(line).find('.path')
+                  .velocity({ 'stroke-dashoffset': 400 }, 0)
+                  .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 5 });
+            });
+
             break;
 
         case 'topic:info':
@@ -481,24 +508,38 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_end':
 
+        console.log(playerSubmitted, " has submitted");
+
             $('input').disabled = false;
             $('.form .error').hide();
 
-            if (playerSubmitted === false) {
-                // Topic was not submitted
-                $('input').disabled = true;
-                
-                $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
-                $('.timesUp').show();
-                $('#topic-submission').hide();
-            } else {
-                // Topic was submitted
-                $('input').disabled = true;
-
-                $('.timesUp').html("<span>Time is up! Sending you to your starting article...</span>");
-                $('.timesUp').show();
-                $('section#submitted').hide();
+            if (eventData === "results") {
+                $('#time-up').show();
             }
+
+            if (eventData === "topicCountdown") {
+
+                if (playerSubmitted === false) {
+                    // Topic was not submitted
+                    $('input').disabled = true;
+                    $('#topic-submission').hide(function(){console.log("")});
+
+                    
+                    $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
+                    $('.timesUp').show();
+                    
+                } else {
+                    // Topic was submitted
+                    $('input').disabled = true;
+                    $('section#submitted').hide();
+
+                    $('.timesUp').html("<span>Time is up! Sending you to your starting article...</span>");
+                    $('.timesUp').show();
+                    
+                }
+            }
+
+
             
             break;
 
