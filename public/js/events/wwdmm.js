@@ -84,68 +84,121 @@ var gameEvents = function(eventId, eventData) {
 
             var writeText = function (text, x, y, lineHeight) {
                 var textClean = text.toUpperCase();
-                var f = 46; // Font size (in pt)
+                var defaultFontSize = 46; // Font size (in pt)
+                var f = defaultFontSize; // Font size (in pt)
                             
                 var words = textClean.split(' ');
-                var line = '';
-
-                  var totalWidth = ctxt.measureText(textClean).width;
+                var line = '',
+                  lineTest = '',
+                  lines = [],
+                  currentY = 0,
+                  sizeFactor = 0;
+                  sizeDividend = 0;
 
                 if(words.length > 1) {
 
-                    if(totalWidth > (canvas.width*2)) {
-                        
-                        for (; f >= 0; f -=1) {
+                    console.log('width', ctxt.measureText(textClean).width)
+                    ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
 
-                            // ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
+/*                    if(ctxt.measureText(textClean).width > 500) {
+                      for (; f >= 0; f -=1) {
 
-                            if (ctxt.measureText(textClean).width < canvas.width - 10) {
-
-                                // ctxt.fillText(textClean, x, y);
-                                // ctxt.strokeText(textClean, x, y);
-                                
-                                break;
-                            }
-                        }
-
-                    }
-
-                    var testWidth;
-                    // var totalWidth = 0;
-
-                    for(var n = 0; n < words.length; n++) {
-
-                      var testLine = line + words[n] + ' ';
-                      console.log('testLine', testLine)
-
-                      var metrics = ctxt.measureText(testLine);
-                      
-                      testWidth = metrics.width;
-                      
-                      if(n === words.length-1)
-                          totalWidth = testWidth;
-                          
                           ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
-                        
-                        if (testWidth > canvas.width && n > 0) {
-                            ctxt.fillText(line, x, y);
-                            ctxt.strokeText(line, x, y);
 
-                            line = words[n] + ' ';
+                          console.log('new width', ctxt.measureText(textClean).width)
+                          if (ctxt.measureText(textClean).width < 500) {
                             
-                            if(y < lineHeight * 2)
-                                y += lineHeight;
-                        }
-                        else {
-                            line = testLine;
-                        }
+                            console.log('size', f)
+                            sizeFactor = f/defaultFontSize;
+                            sizeDividend = defaultFontSize/f;
+                              // ctxt.fillText(textClean, x, y);
+                              // ctxt.strokeText(textClean, x, y);
 
+                            break;
+                          }
+
+                      }
                     }
 
-                    console.log('totalWidth', totalWidth)
+                    for (var i = 0, len = words.length; i < len; i++) {
+                        lineTest = line + words[i] + ' ';
 
-                    ctxt.fillText(line, x, y);
-                    ctxt.strokeText(line, x, y);
+                        console.log(ctxt.measureText(lineTest).width)
+                        // Check total width of line or last word
+                        if (ctxt.measureText(lineTest).width > (canvas.width*sizeFactor) && i > 0) {
+                          // Calculate the new height
+                            if(currentY < lineHeight * 2)
+                                currentY += lineHeight;
+                            // else
+                            //     debugger;
+
+                          // Record and reset the current line
+                          lines.push({ text: line, height: currentY });
+                          line = words[i] + ' ';
+                        }
+                        else
+                          line = lineTest;
+                    }
+
+                    // Catch last line in-case something is left over
+                    if (line.length > 0) {
+                        currentY = lines.length * f + f;
+                        lines.push({ text: line.trim(), height: currentY });
+                    }
+*/
+        if (TopCaptionText.length < 1) {
+            TopCaptionSize = 1;
+        }
+        if (TopCaptionText.length == 1) {
+            TopCaptionSize = 70;
+        }
+        if (TopCaptionText.length == 2) {
+            TopCaptionSize = 68;
+        }
+        if (TopCaptionText.length == 3) {
+            TopCaptionSize = 66;
+        }
+        if (TopCaptionText.length == 4) {
+            TopCaptionSize = 64;
+        }
+        if (TopCaptionText.length == 5) {
+            TopCaptionSize = 62;
+        }
+        if (TopCaptionText.length == 6) {
+            TopCaptionSize = 61;
+        }
+        if (TopCaptionText.length == 7) {
+            TopCaptionSize = 60;
+        }
+        if (TopCaptionText.length == 8) {
+            TopCaptionSize = 55;
+        }
+        if (TopCaptionText.length == 9) {
+            TopCaptionSize = 50;
+        }
+        if (TopCaptionText.length == 10) {
+            TopCaptionSize = 45;
+        }
+        if (TopCaptionText.length > 10) {
+            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow(TopCaptionText.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
+        }
+        if (TopCaptionText.length > 20) {
+            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow(TopCaptionText.length, 0.125))) * 40 + 13), 14));
+        }
+        if (TopCaptionText.length > 90) {
+            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow((TopCaptionText.length - 80), 0.125))) * 40 + 5), 14));
+        }
+        if (TopCaptionText.length > 206) {
+            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow((TopCaptionText.length - 160), 0.125))) * 40 + 2), 14));
+        }
+                    // Visually output text
+                    // ctxt.clearRect(0, 0, canvas.width, canvas.height);
+                    // ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                    // for (var i = 0, len = lines.length; i < len; i++) {
+                    //     ctxt.fillText(lines[i].text, x, lines[i].height);
+                    //     ctxt.strokeText(lines[i].text, x, lines[i].height);
+                    // }
 
                 }
                 else {
@@ -154,6 +207,9 @@ var gameEvents = function(eventId, eventData) {
                         ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
 
                         if (ctxt.measureText(textClean).width < canvas.width - 10) {
+
+                            ctxt.clearRect(0, 0, canvas.width, canvas.height);
+                            ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
 
                             ctxt.fillText(textClean, x, y);
                             ctxt.strokeText(textClean, x, y);
@@ -169,9 +225,6 @@ var gameEvents = function(eventId, eventData) {
                 
                 canvas.width = image.width;
                 canvas.height = image.height;
-
-                ctxt.clearRect(0, 0, canvas.width, canvas.height);
-                ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
 
                 ctxt.textAlign = "center";
                 ctxt.fillStyle = "white";
