@@ -45,6 +45,7 @@ var gameEvents = function(eventId, eventData) {
         case 'meme:create':
 
             var slideIndex = 0;
+            var topFontSize = 46;
 
             updateGameContent(eventData, function() {
 
@@ -64,186 +65,107 @@ var gameEvents = function(eventId, eventData) {
 
             });
 
-            var reader = new FileReader(),
-            image = new Image(),
-            ctxt = null, // For canvas' 2d context
-            
-            // Get elements (by id):
-            box1 = $("#box1"),
-            ifile = $("#ifile"),
-            box2 = $("#box2"),
-            topline = $("#text-upper"),
-            bottomline = $("#text-lower"),
-            canvas = document.getElementById("meme-canvas"), // canvas;
-            // Get canvas context:
-            ctxt = canvas.getContext("2d");
-            
-            function wrapText(text, x, y) {
+            var canvas = new Kinetic.Stage({
+                            container: 'meme-canvas',
+                            width: 500,
+                            height: 500
+                         });
 
-              }
+            var layer = new Kinetic.Layer();
+            canvas.add(layer);
 
-            var writeText = function (text, x, y, lineHeight) {
-                var textClean = text.toUpperCase();
-                var defaultFontSize = 46; // Font size (in pt)
-                var f = defaultFontSize; // Font size (in pt)
-                            
-                var words = textClean.split(' ');
-                var line = '',
-                  lineTest = '',
-                  lines = [],
-                  currentY = 0,
-                  sizeFactor = 0;
-                  sizeDividend = 0;
+            var caption = new Kinetic.Text({
+                name: 'stroke',
+                x: 0,
+                y: 40,
+                text: '',
+                fontSize: topFontSize,
+                fontFamily: 'Impact',
+                fill: '#fff',
+                stroke: '#000',
+                strokeWidth: 2,
+                lineJoin: 'round',
+                width: 450,
+                align: 'center'
+            });
 
-                if(words.length > 1) {
+            function getFontSize(txt) {
 
-                    console.log('width', ctxt.measureText(textClean).width)
-                    ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
-
-/*                    if(ctxt.measureText(textClean).width > 500) {
-                      for (; f >= 0; f -=1) {
-
-                          ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
-
-                          console.log('new width', ctxt.measureText(textClean).width)
-                          if (ctxt.measureText(textClean).width < 500) {
-                            
-                            console.log('size', f)
-                            sizeFactor = f/defaultFontSize;
-                            sizeDividend = defaultFontSize/f;
-                              // ctxt.fillText(textClean, x, y);
-                              // ctxt.strokeText(textClean, x, y);
-
-                            break;
-                          }
-
-                      }
-                    }
-
-                    for (var i = 0, len = words.length; i < len; i++) {
-                        lineTest = line + words[i] + ' ';
-
-                        console.log(ctxt.measureText(lineTest).width)
-                        // Check total width of line or last word
-                        if (ctxt.measureText(lineTest).width > (canvas.width*sizeFactor) && i > 0) {
-                          // Calculate the new height
-                            if(currentY < lineHeight * 2)
-                                currentY += lineHeight;
-                            // else
-                            //     debugger;
-
-                          // Record and reset the current line
-                          lines.push({ text: line, height: currentY });
-                          line = words[i] + ' ';
-                        }
-                        else
-                          line = lineTest;
-                    }
-
-                    // Catch last line in-case something is left over
-                    if (line.length > 0) {
-                        currentY = lines.length * f + f;
-                        lines.push({ text: line.trim(), height: currentY });
-                    }
-*/
-        if (TopCaptionText.length < 1) {
-            TopCaptionSize = 1;
-        }
-        if (TopCaptionText.length == 1) {
-            TopCaptionSize = 70;
-        }
-        if (TopCaptionText.length == 2) {
-            TopCaptionSize = 68;
-        }
-        if (TopCaptionText.length == 3) {
-            TopCaptionSize = 66;
-        }
-        if (TopCaptionText.length == 4) {
-            TopCaptionSize = 64;
-        }
-        if (TopCaptionText.length == 5) {
-            TopCaptionSize = 62;
-        }
-        if (TopCaptionText.length == 6) {
-            TopCaptionSize = 61;
-        }
-        if (TopCaptionText.length == 7) {
-            TopCaptionSize = 60;
-        }
-        if (TopCaptionText.length == 8) {
-            TopCaptionSize = 55;
-        }
-        if (TopCaptionText.length == 9) {
-            TopCaptionSize = 50;
-        }
-        if (TopCaptionText.length == 10) {
-            TopCaptionSize = 45;
-        }
-        if (TopCaptionText.length > 10) {
-            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow(TopCaptionText.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
-        }
-        if (TopCaptionText.length > 20) {
-            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow(TopCaptionText.length, 0.125))) * 40 + 13), 14));
-        }
-        if (TopCaptionText.length > 90) {
-            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow((TopCaptionText.length - 80), 0.125))) * 40 + 5), 14));
-        }
-        if (TopCaptionText.length > 206) {
-            TopCaptionSize = Math.round(Math.max(((1 / (Math.pow((TopCaptionText.length - 160), 0.125))) * 40 + 2), 14));
-        }
-                    // Visually output text
-                    // ctxt.clearRect(0, 0, canvas.width, canvas.height);
-                    // ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                    // for (var i = 0, len = lines.length; i < len; i++) {
-                    //     ctxt.fillText(lines[i].text, x, lines[i].height);
-                    //     ctxt.strokeText(lines[i].text, x, lines[i].height);
-                    // }
-
+                if (txt.length < 1) {
+                    topFontSize = 1;
                 }
-                else {
-                    
-                    for (; f >= 0; f -=1) {
-                        ctxt.font = "bold " + f + "pt Impact, Charcoal, sans-serif";
-
-                        if (ctxt.measureText(textClean).width < canvas.width - 10) {
-
-                            ctxt.clearRect(0, 0, canvas.width, canvas.height);
-                            ctxt.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-                            ctxt.fillText(textClean, x, y);
-                            ctxt.strokeText(textClean, x, y);
-                            
-                            break;
-                        }
-                    }
-
+                if (txt.length == 1) {
+                    topFontSize = 70;
                 }
-            };
+                if (txt.length == 2) {
+                    topFontSize = 68;
+                }
+                if (txt.length == 3) {
+                    topFontSize = 66;
+                }
+                if (txt.length == 4) {
+                    topFontSize = 64;
+                }
+                if (txt.length == 5) {
+                    topFontSize = 62;
+                }
+                if (txt.length == 6) {
+                    topFontSize = 61;
+                }
+                if (txt.length == 7) {
+                    topFontSize = 60;
+                }
+                if (txt.length == 8) {
+                    topFontSize = 55;
+                }
+                if (txt.length == 9) {
+                    topFontSize = 50;
+                }
+                if (txt.length == 10) {
+                    topFontSize = 45;
+                }
+                if (txt.length > 10) {
+                    topFontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
+                }
+                if (txt.length > 20) {
+                    topFontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.125))) * 40 + 13), 14));
+                }
+                if (txt.length > 90) {
+                    topFontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 80), 0.125))) * 40 + 5), 14));
+                }
+                if (txt.length > 206) {
+                    topFontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 160), 0.125))) * 40 + 2), 14));
+                }
 
-            var renderMeme = function () {
-                
-                canvas.width = image.width;
-                canvas.height = image.height;
+                return topFontSize;
 
-                ctxt.textAlign = "center";
-                ctxt.fillStyle = "white";
-                ctxt.strokeStyle = "black";
-                ctxt.lineWidth = 2;
+            }
 
-                writeText($(topline).val(), canvas.width / 2, 50, 50);
+            var writeText = function(txt) {
+
+              caption.setText(txt);
+              caption.fontSize(getFontSize(txt))
+
+              layer.draw();
+            
+            }
+            var renderMeme = function() {
+
+                writeText($('#text-upper').val());
                 // writeText($(bottomline).val(), canvas.width / 2, canvas.height - 20);
 
             };
 
             $('#btn_next input').click(function(evt) {
 
-                image.onload = function() {
-                    renderMeme();
-                };
-
-                image.src = $('.glide__slide.active img').attr('src');
+                var imgElement = $('.glide__slide.active img')[0];
+                var imgInstance = new Kinetic.Image({ x: 0, y: 0, width: 500, height: 500, image: imgElement });
                 
+                layer.add(imgInstance);
+                layer.add(caption);
+                
+                layer.draw();
+
                 $(evt.currentTarget).hide();
                 $('#meme-slider').hide();
                 $('#meme-text').show();
