@@ -175,6 +175,8 @@ var gameEvents = function(eventId, eventData) {
                 $('#meme-created').fadeIn();
             });
 
+            sessionStorage.setItem('playerSubmission', eventData);
+
             break;
 
         case 'meme:voting':
@@ -182,6 +184,8 @@ var gameEvents = function(eventId, eventData) {
             var slideIndex = 0;
 
             updateGameContent(eventData, function() {
+
+                $('#meme-slider').find('li.glide__slide[data-id="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
             
                 $("#meme-slider").glide({
                     type: "carousel",
