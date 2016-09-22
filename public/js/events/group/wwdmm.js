@@ -178,42 +178,12 @@ var gameEvents = function(eventId, eventData) {
           nextRoundAnim
           .to($('#leaderboard-header'), .5, {autoAlpha:0, y:'50%', display:'none'}).add('header')
           .fromTo($('#next-round-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=.6')
-
-          var secondsLeft = 10;
-          var countdownAnim = new ProgressBar.Circle('#next-round #countdown', {
-              color: '#fff',
-              duration: secondsLeft*1000,
-              easing: 'easeInOut',
-              strokeWidth: 6,
-              trailColor: '#ffc000',
-              trailWidth: 4.8,
-              fill: '#fff',
-              text: {
-                  value: secondsLeft + '',
-                  className: 'text',
-              }
-          });
-          var countdownText = $('#next-round #countdown .text');
-
-          var roundCountdown = setInterval(function() {
-              secondsLeft--;
-
-              TweenLite.to($(countdownText), .1, { scale: 0 });
-              $(countdownText).text(secondsLeft);
-              TweenLite.from($(countdownText), .1, { scale: 0 });
-
-              // End countdown
-              if(secondsLeft == 0) {
-                socket.emit('game:next_round', emitData(null));
-                clearInterval(roundCountdown);
-              }
-          }, 1000);
-
-          countdownAnim.animate(1);
             
           TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
+
         }
         else {
+
           var secondsLeft = 10;
 
           nextRoundAnim
@@ -228,6 +198,7 @@ var gameEvents = function(eventId, eventData) {
               if(secondsLeft == 0)
                 location.href = '\\';
           }, 1000);
+          
         }
 
       }
