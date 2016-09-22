@@ -14,6 +14,85 @@ var resultsAnimSlider;
 var topBar = $('#top-header').detach();
 topBar.prependTo('body');
 
+var loadMemes = function() {
+  
+  $.each($('.meme-canvas'), function(index, meme) {
+
+      var upperText = $(meme).data().upper,
+          lowerText = $(meme).data().lower,
+          sizing = $(meme).data().dimension;
+
+      // Create meme canvas, render layer, captions, and image
+      var canvas = new Kinetic.Stage({
+          container: $(meme)[0],
+          width: sizing,
+          height: sizing
+      }),
+      layer = new Kinetic.Layer(),
+      upperCaption = new Kinetic.Text({
+          name: 'upper',
+          x: 0,
+          y: 20,
+          text: upperText,
+          fontSize: 46,
+          fontFamily: 'Impact',
+          fill: '#fff',
+          stroke: '#000',
+          strokeWidth: 2,
+          lineJoin: 'round',
+          width: sizing,
+          align: 'center'
+      }),
+      lowerCaption = new Kinetic.Text({
+          name: 'lower',
+          x: 0,
+          y: 150,
+          text: lowerText,
+          fontSize: 46,
+          fontFamily: 'Impact',
+          fill: '#fff',
+          stroke: '#000',
+          strokeWidth: 2,
+          lineJoin: 'round',
+          width: sizing,
+          align: 'center'
+      });
+  
+      // Add all elements to render layer
+      var memeImg = new Image();
+      memeImg.onload = function() {
+
+        var imgInstance = new Kinetic.Image({
+            x: 0,
+            y: 0,
+            width: canvas.getWidth(),
+            height: canvas.getHeight(),
+            image: memeImg
+        });
+        
+        layer.add(imgInstance);
+        layer.add(upperCaption);
+        layer.add(lowerCaption);
+
+        // Set caption font sizing and lower caption position
+        upperCaption.fontSize(getFontSize(upperText) * 0.8);
+        lowerCaption.fontSize(getFontSize(lowerText) * 0.8);
+
+        lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 20);
+
+        // Add layer to canvas
+        canvas.add(layer);
+
+        // Draw layer
+        layer.draw();
+
+      }
+      memeImg.src = $(meme).data().img;
+
+  });
+
+}
+
 var gameEvents = function(eventId, eventData) {
 
 	/*
@@ -52,19 +131,17 @@ var gameEvents = function(eventId, eventData) {
 
 	  case 'meme:voting':
 
-  		updateGameContent(eventData);
-      
-      $.each($('.meme-text'), function(index, text) {
-          
-          shrinkToFill(text, 340, 46);
-
+  		updateGameContent(eventData, function() {
+        loadMemes();
       });
 
   		break;
 
 	  case 'meme:results':
 
-  		updateGameContent(eventData);
+      updateGameContent(eventData, function() {
+        loadMemes();
+      });
 
       function showScores() {
 

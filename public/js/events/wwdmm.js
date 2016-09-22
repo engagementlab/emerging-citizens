@@ -44,7 +44,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'meme:create':
 
-            var slideIndex = 0;
+            var slideIndex = 0,
+                imgInstance;
 
             updateGameContent(eventData, function() {
 
@@ -58,22 +59,105 @@ var gameEvents = function(eventId, eventData) {
                             slideIndex = evt.index - 1;
                             $('#image-index').val(slideIndex);
                         }
-                    });
-                    
+                    }); 
 
                 });
 
             });
 
-            // Shrink text as length increases
-            $('.meme-text').keyup(function() {
-                shrinkToFill(this, 340, 46);
+            var canvas = new Kinetic.Stage({
+                container: 'meme-canvas',
+                width: 400,
+                height: 400
+            }),
+            layer = new Kinetic.Layer();
+            canvas.add(layer);
+
+            var upperCaption = new Kinetic.Text({
+                name: 'upper',
+                x: 0,
+                y: 40,
+                text: '',
+                fontSize: 46,
+                fontFamily: 'Impact',
+                fill: '#fff',
+                stroke: '#000',
+                strokeWidth: 2,
+                lineJoin: 'round',
+                width: 400,
+                align: 'center'
+            }),
+            lowerCaption = new Kinetic.Text({
+                name: 'lower',
+                x: 0,
+                y: 400,
+                text: '',
+                fontSize: 46,
+                fontFamily: 'Impact',
+                fill: '#fff',
+                stroke: '#000',
+                strokeWidth: 2,
+                lineJoin: 'round',
+                width: 400,
+                align: 'center'
             });
 
-            // Disable enter key
-            $('.meme-text').keypress(function(evt) {
-                if (evt.keyCode == 13)
-                    evt.preventDefault();
+            var writeText = function(txtElement) {
+
+                var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
+
+                caption.setText(txtElement.val().toUpperCase());
+                caption.fontSize(getFontSize(txtElement.val()));
+
+                lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
+
+                layer.draw();
+            
+            }
+
+            $('#btn-next input').click(function(evt) {
+
+                var imgElement = $('.glide__slide.active img')[0];
+                
+                if(!imgInstance) {
+                    imgInstance = new Kinetic.Image({
+                                    x: 0,
+                                    y: 0,
+                                    width: canvas.getWidth(),
+                                    height: canvas.getHeight(),
+                                    image: imgElement
+                                  });
+                    
+                    layer.add(imgInstance);
+                    layer.add(upperCaption);
+                    layer.add(lowerCaption);
+                }
+                else
+                    imgInstance.setImage(imgElement);
+                
+                layer.draw();
+
+                $('#btn-next').hide();
+                $('#meme-slider').hide();
+                $('#meme-text').show();
+
+                $('#btn-submit').show();
+
+            });
+
+            $('#btn-back').click(function(evt) {
+            
+                $('#meme-slider').show();
+                $('#meme-text').hide();
+
+                $('#btn-next').show();
+                $('#btn-submit').hide();
+
+            });
+
+            // Shrink text as length increases
+            $('.meme-text').keyup(function(evt) {
+                writeText($(evt.currentTarget));
             });
             
             break;
@@ -91,22 +175,87 @@ var gameEvents = function(eventId, eventData) {
             var slideIndex = 0;
 
             updateGameContent(eventData, function() {
-                
-                // imageLoaded($("#meme-slider"), function() {
             
-                    $("#meme-slider").glide({
-                        type: "carousel",
-                        autoplay: false,
-                        afterTransition: function(evt) {
-                            slideIndex = evt.index - 1;
-                        }
-                    });
+                $("#meme-slider").glide({
+                    type: "carousel",
+                    autoplay: false,
+                    afterTransition: function(evt) {
+                        slideIndex = evt.index - 1;
+                    }
+                });
 
-                    $.each($('.meme-text'), function(ind, txt) {
-                        shrinkToFill(txt, 340, 46);
-                    });
+                $.each($('.meme-canvas'), function(index, meme) {
 
-                // });
+                  var upperText = $(meme).data().upper.toUpperCase(),
+                      lowerText = $(meme).data().lower.toUpperCase();
+
+                  // Create meme canvas, render layer, captions, and image
+                  var canvas = new Kinetic.Stage({
+                      container: $(meme)[0],
+                      width: 400,
+                      height: 400
+                  }),
+                  layer = new Kinetic.Layer(),
+                  upperCaption = new Kinetic.Text({
+                      name: 'upper',
+                      x: 0,
+                      y: 20,
+                      text: upperText,
+                      fontSize: 46,
+                      fontFamily: 'Impact',
+                      fill: '#fff',
+                      stroke: '#000',
+                      strokeWidth: 2,
+                      lineJoin: 'round',
+                      width: 400,
+                      align: 'center'
+                  }),
+                  lowerCaption = new Kinetic.Text({
+                      name: 'lower',
+                      x: 0,
+                      y: 150,
+                      text: lowerText,
+                      fontSize: 46,
+                      fontFamily: 'Impact',
+                      fill: '#fff',
+                      stroke: '#000',
+                      strokeWidth: 2,
+                      lineJoin: 'round',
+                      width: 400,
+                      align: 'center'
+                  });
+
+                  // Add all elements to render layer
+                  var memeImg = new Image();
+                  memeImg.onload = function() {
+
+                    var imgInstance = new Kinetic.Image({
+                        x: 0,
+                        y: 0,
+                        width: canvas.getWidth(),
+                        height: canvas.getHeight(),
+                        image: memeImg
+                    });
+                    layer.add(imgInstance);
+                    layer.add(upperCaption);
+                    layer.add(lowerCaption);
+
+                    // Set caption font sizing and lower caption position
+                    upperCaption.fontSize(getFontSize(upperText));
+                    lowerCaption.fontSize(getFontSize(lowerText));
+
+                    lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
+
+                    // Add layer to canvas
+                    canvas.add(layer);
+
+                    // Draw layer
+                    layer.draw();
+
+                  }
+                  memeImg.src = $(meme).data().img;
+
+                });
 
             });
             

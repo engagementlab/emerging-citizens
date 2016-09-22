@@ -161,32 +161,60 @@
 	}
 
 	/* 
-		Util to shrink font size of element if text contents exceed given pixel length threshold
+		Util to find font size of given length of text contents (WWDMM)
 	*/
-	var shrinkToFill = function(input, threshold, startingSize) {
+  var getFontSize = function(txt) {
 
-	    var txtInput = $(input),
-	        txt = (txtInput.is('div')) ? txtInput.text() : txtInput.val(),
-	        hiddenId = txtInput.attr('id') + '-hidden',
-	        measureField = (txtInput.is('div')) ? $(input) : $('#'+hiddenId);
+    var fontSize = 0;
 
-	    // Input text into hidden div used to measure text length in pixels 
-	    if(!txtInput.is('div'))
-	    	measureField.text(txt);
-	    
-      for (; startingSize >= 0; startingSize -=1) {
-		        
-	        // Set the style on the input
-	        measureField.css('fontSize', startingSize + 'pt');
-	        txtInput.css('fontSize', startingSize + 'pt');
+    if (txt.length < 1) 
+        fontSize = 1;
+    
+    if (txt.length == 1) 
+        fontSize = 70;
+    
+    if (txt.length == 2) 
+        fontSize = 68;
+    
+    if (txt.length == 3) 
+        fontSize = 66;
+    
+    if (txt.length == 4) 
+        fontSize = 64;
+    
+    if (txt.length == 5) 
+        fontSize = 62;
+    
+    if (txt.length == 6) 
+        fontSize = 61;
+    
+    if (txt.length == 7) 
+        fontSize = 60;
+    
+    if (txt.length == 8) 
+        fontSize = 55;
+    
+    if (txt.length == 9) 
+        fontSize = 50;
+    
+    if (txt.length == 10)
+        fontSize = 45;
+   
+    if (txt.length > 10)
+        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
+   
+    if (txt.length > 20)
+        fontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.125))) * 40 + 13), 14));
+   
+    if (txt.length > 90)
+        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 80), 0.125))) * 40 + 5), 14));
+   
+    if (txt.length > 206)
+        fontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 160), 0.125))) * 40 + 2), 14));
 
-	        // If text size below threshold, stop reducing size
-  		    if (measureField.outerWidth() <= threshold)
-		        break;
-      
-      }
+    return fontSize;
 
-	}
+  }
 
 // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 detectPrivateMode(function(is_private) {
