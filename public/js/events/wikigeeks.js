@@ -458,17 +458,8 @@ var gameEvents = function(eventId, eventData) {
 
             });
 
-            var last = [];
-            last = $('g.last .destination');
-
-            console.log(last, "last");
-
-            $.each(last, function (index, line) {
-                console.log("animating path");
-                $(line).find('.path')
-                  .velocity({ 'stroke-dashoffset': 400 }, 0)
-                  .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 5 });
-            });
+            // var last = [];
+            
 
             break;
 
@@ -494,6 +485,10 @@ var gameEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_ending':
+
+            function bounce() {
+                $('.form .error').velocity({scale:1.2}, {duration:300, loop: 1, complete: bounce}, 'easeOutElastic', 5);
+            }
         
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected) {
                 socket.emit('game:start', {
@@ -501,8 +496,14 @@ var gameEvents = function(eventId, eventData) {
                 });
             }
 
-            if (playerSubmitted === false)
+            if (playerSubmitted === false){
                 $('.form .error').text(eventData + "If you haven't found a starting article soon, we will choose one for you..");
+                bounce();
+            }
+            
+
+            
+            
 
             break;
 

@@ -127,16 +127,13 @@ var gameEvents = function(eventId, eventData) {
     case 'player:finished':
 
         var staticPlayers = $('.player-static');
-        var finishedPlayers = _.pluck(_.where(eventData, {finished:true}), 'username');
+        var finishedPlayer = staticPlayers[eventData.index];
 
-        _.each(finishedPlayers, function(name, index) {
+        var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
 
-            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+        $(finishedPlayer).children('.icon').addClass('active');
+        $(finishedPlayer).children('.nameplate').addClass('active').text(nameFormatted);
 
-            $(staticPlayers[index]).children('.icon').addClass('active');
-            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
-
-        });
 
       break;
 
@@ -156,8 +153,11 @@ var gameEvents = function(eventId, eventData) {
 
       var clickAnim = new TimelineLite({paused: true});
 
-      var clickedPlayer = eventData;
+      var staticPlayers = $('.player-static');
 
+      var clickedPlayer = staticPlayers[eventData.index];
+
+      $(clickedPlayer).velocity({scale: 1.25}, {duration: 300}, 'easeInElastic', 5).velocity({scale:1}, {duration: 300}, 5)
 
       break;
 
@@ -236,12 +236,14 @@ var gameEvents = function(eventId, eventData) {
             var articleDots = $(player).find('.articleDot');
             var articleLines = $(player).find('.articleLine');
             var last = articleTitles.size();
-            var destination = $(last).find('.destination');
+            // var destination = $(articleTitles[last]).find('.destination');
 
             // destination
 
             // Animate in each top player
             topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
+
+            $('g.last').velocity({ opacity: 0 }, 0);
 
             
             // Animate titles and path
@@ -256,14 +258,39 @@ var gameEvents = function(eventId, eventData) {
                     line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);
 
 
-            //         $('.destination').velocity({ 'stroke-dashoffset': 400 }, 0)
-            // .velocity({ 'stroke-dashoffset': 0 }, { duration: 650, delay: 10 });
-                    // if (index === last){
-                      // _.each(destination, function(svg, index){
-                      //       $(svg).velocity({ opacity:0 }, 0).velocity({opacity:1},{duration: 1000, delay: 10}, [50, 10]);
-                      //   });
-                     // }
+                    
+                    
+                    console.log(last + " is the final number and here we have the " + index);
+                    
+
+                    if (index === (last - 2)){
+
+                      var destination = $('g.last').find('.destination');
+
+                      $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 15});
+                      console.log ("last one so we do it now");
+
+                      $.each(destination, function (index, path) {
+                        console.log("animating path");
+                        $(path)
+                          .velocity({ 'stroke-dashoffset': 400 }, 0)
+                          .velocity({ 'stroke-dashoffset': 0 }, { duration: 500, delay: 5 });
+                      });
+
+                    }
+                    
+
+                    
+
+
+                    
                 }});
+
+                // 
+
+                //     console.log(destination, "last");
+
+                // 
 
 
             });

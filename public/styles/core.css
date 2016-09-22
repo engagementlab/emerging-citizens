@@ -782,6 +782,8 @@ body .player-form {
 */
 .body.wikigeeks.group {
   overflow: hidden; }
+  .body.wikigeeks.group svg .last .destination {
+    stroke-dasharray: 400; }
   .body.wikigeeks.group .room-container {
     width: 80%;
     margin: 0 auto; }
@@ -1011,6 +1013,7 @@ body .player-form {
     background-repeat: no-repeat;
     background-position: center;
     border: 5px #ffcc00 dashed;
+    animation: 1s animateBorder infinite;
     color: #fe6444; }
     .body.wikigeeks.group .countdown #countdown {
       width: 100%;
@@ -1156,11 +1159,11 @@ body .player-form {
       .body.wikigeeks.group #top-players .article-titles .title .last {
         color: #ff5e41; }
         .body.wikigeeks.group #top-players .article-titles .title .last .destination {
-          -moz-transform: translate(20px, 0px);
-          -o-transform: translate(20px, 0px);
-          -ms-transform: translate(20px, 0px);
-          -webkit-transform: translate(20px, 0px);
-          transform: translate(20px, 0px); }
+          -moz-transform: translate(20px, -40px);
+          -o-transform: translate(20px, -40px);
+          -ms-transform: translate(20px, -40px);
+          -webkit-transform: translate(20px, -40px);
+          transform: translate(20px, -40px); }
   .body.wikigeeks.group #top-players .color-0 {
     color: #fa9060;
     fill: #fa9060; }
@@ -1593,7 +1596,7 @@ body .player-form {
       height: 200px;
       padding: 40px;
       background-color: #36d5d9;
-      color: #FD6D59;
+      color: white;
       margin-top: 30%; }
     .body.wikigeeks.player #time-up button {
       color: white;
