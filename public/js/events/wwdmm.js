@@ -106,7 +106,7 @@ var gameEvents = function(eventId, eventData) {
 
                 var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
 
-                caption.setText(txtElement.val());
+                caption.setText(txtElement.val().toUpperCase());
                 caption.fontSize(getFontSize(txtElement.val()));
 
                 lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
@@ -186,8 +186,8 @@ var gameEvents = function(eventId, eventData) {
 
                 $.each($('.meme-canvas'), function(index, meme) {
 
-                  var upperText = $(meme).data().upper,
-                      lowerText = $(meme).data().lower;
+                  var upperText = $(meme).data().upper.toUpperCase(),
+                      lowerText = $(meme).data().lower.toUpperCase();
 
                   // Create meme canvas, render layer, captions, and image
                   var canvas = new Kinetic.Stage({
