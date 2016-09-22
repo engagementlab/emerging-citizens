@@ -141,7 +141,7 @@ var gameEvents = function(eventId, eventData) {
                 $('#meme-slider').hide();
                 $('#meme-text').show();
 
-                $('#btn-submit').show();
+                $('#btns-submit').show();
 
             });
 
@@ -151,7 +151,7 @@ var gameEvents = function(eventId, eventData) {
                 $('#meme-text').hide();
 
                 $('#btn-next').show();
-                $('#btn-submit').hide();
+                $('#btns-submit').hide();
 
             });
 
@@ -161,6 +161,13 @@ var gameEvents = function(eventId, eventData) {
             });
             
             break;
+
+        case 'meme:tryagain': 
+
+            $('.error').text(eventData).fadeIn();
+            $('#btn-submit').removeAttr('disabled');
+          
+          break;
 
         case 'meme:received': 
 
@@ -186,8 +193,8 @@ var gameEvents = function(eventId, eventData) {
 
                 $.each($('.meme-canvas'), function(index, meme) {
 
-                  var upperText = $(meme).data().upper.toUpperCase(),
-                      lowerText = $(meme).data().lower.toUpperCase();
+                  var upperText = $(meme).data().upper ? $(meme).data().upper.toUpperCase() : '',
+                      lowerText = $(meme).data().lower ? $(meme).data().lower.toUpperCase() : '';
 
                   // Create meme canvas, render layer, captions, and image
                   var canvas = new Kinetic.Stage({

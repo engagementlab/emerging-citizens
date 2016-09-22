@@ -14,7 +14,7 @@
 
                     {{#each submissions}}
                         <li class="glide__slide">
-                            <div class="meme-canvas" data-upper="{{upper}}" data-lower="{{lower}}" data-img="{{cloudinaryUrl image width=300 quality=80}}">
+                            <div class="meme-canvas"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=300 quality=80}}">
                         </li>
                     {{/each}}
                 

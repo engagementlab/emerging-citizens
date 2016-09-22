@@ -31,7 +31,7 @@
                             <div class="col-sm-6">
 
                                 {{!-- Meme image and text --}}
-                                <div class="meme-canvas" data-dimension="450" data-upper="{{upper}}" data-lower="{{lower}}" data-img="{{cloudinaryUrl image width=450 quality=80}}">
+                                <div class="meme-canvas" data-dimension="450"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=450 quality=80}}">
                                 </div>
 
                             </div>
