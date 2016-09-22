@@ -2,10 +2,8 @@
     
     <div id="meme-create" class="row col-lg-3 col-centered" style="margin-top: -5%;">
 
+    {{!-- IMAGE SELECTION --}}
         <div id="meme-slider" class="glide">
-
-            {{!-- <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
-            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" /> <br /> --}}
 
             <span id="text-upper-hidden" class="meme-text-hidden"></span>
             <span id="text-lower-hidden" class="meme-text-hidden"></span>
@@ -33,23 +31,25 @@
 
         </div>
 
+        {{!-- TEXT INPUT AND SUBMISSION --}}
         <div id="meme-text" class="row" style="display:none;">
 
-            <input id="text-upper" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="1"  /> <br />
-            <input id="text-lower" class="meme-text" placeholder="select to edit" maxlength="140" tabindex="2" />
+            <input id="text-upper" class="meme-text" placeholder="top text" maxlength="140" tabindex="1"  /> <br />
+            <input id="text-lower" class="meme-text" placeholder="bottom text" maxlength="140" tabindex="2" />
             <div id="meme-canvas"></div>
-        </div>
-   
-        <div id="btn_next" class="row">
-
-            <input {{!-- data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' --}} data-autohide="false" class="{{!-- post-button  --}}submit" type="submit" name="submit" value="next">
 
         </div>
    
-        <div id="btn_submit" class="row" style="display:none;">
+        <div id="btn-next" class="row">
 
-            <input type="submit" name="submit" value="back">
-            <input data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit" type="submit" name="submit" value="submit">
+            <input data-keep_enabled="true" class="post-button submit" type="submit" name="submit" value="next">
+
+        </div>
+   
+        <div id="btn-submit" class="row" style="display:none;">
+
+            <input id="btn-back" class="post-button back small" type="submit" name="submit" value="back">
+            <input data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit small" type="submit" name="submit" value="submit">
 
         </div>
 

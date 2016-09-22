@@ -1361,7 +1361,7 @@ body .player-form {
       font-size: 1.5em; }
     .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
       margin-top: -6px; }
-  .body.wwdmm.group #results-container .meme {
+  .body.wwdmm.group #results-container .meme-canvas {
     width: 450px;
     height: 450px;
     border: solid 10px #11cfe0; }
@@ -1804,65 +1804,30 @@ body .player-form {
   margin-top: 40px;
   width: 400px;
   background-color: #19f7ad; }
+  .body.wwdmm.player .post-button.back {
+    background-color: #ff8d5b; }
+  .body.wwdmm.player .post-button.small {
+    width: 35%; }
 
 .body.wwdmm.player #meme-slider {
   min-width: 400px;
   max-width: 400px; }
 
-.body.wwdmm.player #meme-create .meme-text {
-  position: absolute;
-  left: 0;
-  height: 85px;
-  width: 100%;
-  z-index: 10;
-  background: none;
-  border: none;
-  color: transparent;
-  font-size: 46pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  overflow: hidden;
-  resize: none;
-  font-family: Impact; }
-
-.body.wwdmm.player #meme-create .meme-text-hidden {
-  font-size: 27pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: Impact;
-  display: none;
-  height: 0px; }
-
 .body.wwdmm.player #meme-create ::-webkit-input-placeholder {
-  color: white;
-  font-weight: bold;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  color: black;
+  font-weight: bold; }
 
 .body.wwdmm.player #meme-create :-moz-placeholder {
-  color: white;
-  font-weight: bold;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  color: black;
+  font-weight: bold; }
 
 .body.wwdmm.player #meme-create ::-moz-placeholder {
-  color: white;
-  font-weight: bold;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  color: black;
+  font-weight: bold; }
 
 .body.wwdmm.player #meme-create :-ms-input-placeholder {
-  color: white;
-  font-weight: bold;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
-
-.body.wwdmm.player #meme-create #text-upper {
-  position: absolute;
-  top: 8%;
-  left: 0; }
-
-.body.wwdmm.player #meme-create #text-lower {
-  position: absolute;
-  margin-top: 80%;
-  left: 0; }
+  color: black;
+  font-weight: bold; }
 
 .body.wwdmm.player #meme-voting .glide__arrows {
   top: 35%; }

@@ -28,6 +28,13 @@
   	margin-top: 40px;
   	width: 400px;
   	background-color: $color-bright-sea-green;
+
+  	&.back {
+  		background-color: $color-pastel-orange;
+  	}
+  	&.small {
+  		width: 35%;
+  	}
   }
 
   #meme-slider {
@@ -40,55 +47,12 @@
 	#meme-create {
 			
 		.meme-text {
-			position: absolute;
-	    left: 0;
-	    height: 85px;
-	    width: 100%;
-	    z-index: 10;
-
-	    background: none;
-	    border: none;
-	    color: rgba(0, 0, 0, 0);
-	    font-size: 46pt;
-	    font-weight: bold;
-	    text-transform: uppercase;
-	    text-align: center;
-
-	    overflow: hidden;  
-		  resize: none;
-
-		  font-family: Impact;
-
-	    // @include stroke(2, #000);
-		}
-		.meme-text-hidden {
-
-	    font-size: 27pt;
-	    font-weight: bold;
-	    text-transform: uppercase;
-		  font-family: Impact;
-		  
-		  display: none;
-		  height: 0px;
 
 		}
 
 		@include placeholder {
-			color: white;
+			color: black;
 	    font-weight: bold;
-			
-			@include stroke(2, #000);
-		}
-
-		#text-upper {
-			position: absolute;
-			top: 8%;
-			left: 0;
-		}
-		#text-lower {
-			position: absolute;
-	    margin-top: 80%;
-	    left: 0;
 		}
 
 	}

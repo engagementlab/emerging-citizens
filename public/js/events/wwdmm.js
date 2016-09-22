@@ -44,8 +44,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'meme:create':
 
-            var slideIndex = 0;
-            var topFontSize = 46;
+            var slideIndex = 0,
+                imgInstance;
 
             updateGameContent(eventData, function() {
 
@@ -66,121 +66,98 @@ var gameEvents = function(eventId, eventData) {
             });
 
             var canvas = new Kinetic.Stage({
-                            container: 'meme-canvas',
-                            width: 500,
-                            height: 500
-                         });
-
-            var layer = new Kinetic.Layer();
+                container: 'meme-canvas',
+                width: 400,
+                height: 400
+            }),
+            layer = new Kinetic.Layer();
             canvas.add(layer);
 
-            var caption = new Kinetic.Text({
-                name: 'stroke',
+            var upperCaption = new Kinetic.Text({
+                name: 'upper',
                 x: 0,
                 y: 40,
                 text: '',
-                fontSize: topFontSize,
+                fontSize: 46,
                 fontFamily: 'Impact',
                 fill: '#fff',
                 stroke: '#000',
                 strokeWidth: 2,
                 lineJoin: 'round',
-                width: 450,
+                width: 400,
+                align: 'center'
+            }),
+            lowerCaption = new Kinetic.Text({
+                name: 'lower',
+                x: 0,
+                y: 400,
+                text: '',
+                fontSize: 46,
+                fontFamily: 'Impact',
+                fill: '#fff',
+                stroke: '#000',
+                strokeWidth: 2,
+                lineJoin: 'round',
+                width: 400,
                 align: 'center'
             });
 
-            function getFontSize(txt) {
+            var writeText = function(txtElement) {
 
-                if (txt.length < 1) {
-                    topFontSize = 1;
-                }
-                if (txt.length == 1) {
-                    topFontSize = 70;
-                }
-                if (txt.length == 2) {
-                    topFontSize = 68;
-                }
-                if (txt.length == 3) {
-                    topFontSize = 66;
-                }
-                if (txt.length == 4) {
-                    topFontSize = 64;
-                }
-                if (txt.length == 5) {
-                    topFontSize = 62;
-                }
-                if (txt.length == 6) {
-                    topFontSize = 61;
-                }
-                if (txt.length == 7) {
-                    topFontSize = 60;
-                }
-                if (txt.length == 8) {
-                    topFontSize = 55;
-                }
-                if (txt.length == 9) {
-                    topFontSize = 50;
-                }
-                if (txt.length == 10) {
-                    topFontSize = 45;
-                }
-                if (txt.length > 10) {
-                    topFontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.14285714285714285714285714285714))) * 50 + 10), 14));
-                }
-                if (txt.length > 20) {
-                    topFontSize = Math.round(Math.max(((1 / (Math.pow(txt.length, 0.125))) * 40 + 13), 14));
-                }
-                if (txt.length > 90) {
-                    topFontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 80), 0.125))) * 40 + 5), 14));
-                }
-                if (txt.length > 206) {
-                    topFontSize = Math.round(Math.max(((1 / (Math.pow((txt.length - 160), 0.125))) * 40 + 2), 14));
-                }
+                var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
 
-                return topFontSize;
+                caption.setText(txtElement.val());
+                caption.fontSize(getFontSize(txtElement.val()));
 
-            }
+                lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
 
-            var writeText = function(txt) {
-
-              caption.setText(txt);
-              caption.fontSize(getFontSize(txt))
-
-              layer.draw();
+                layer.draw();
             
             }
-            var renderMeme = function() {
 
-                writeText($('#text-upper').val());
-                // writeText($(bottomline).val(), canvas.width / 2, canvas.height - 20);
-
-            };
-
-            $('#btn_next input').click(function(evt) {
+            $('#btn-next input').click(function(evt) {
 
                 var imgElement = $('.glide__slide.active img')[0];
-                var imgInstance = new Kinetic.Image({ x: 0, y: 0, width: 500, height: 500, image: imgElement });
                 
-                layer.add(imgInstance);
-                layer.add(caption);
+                if(!imgInstance) {
+                    imgInstance = new Kinetic.Image({
+                                    x: 0,
+                                    y: 0,
+                                    width: canvas.getWidth(),
+                                    height: canvas.getHeight(),
+                                    image: imgElement
+                                  });
+                    
+                    layer.add(imgInstance);
+                    layer.add(upperCaption);
+                    layer.add(lowerCaption);
+                }
+                else
+                    imgInstance.setImage(imgElement);
                 
                 layer.draw();
 
-                $(evt.currentTarget).hide();
+                $('#btn-next').hide();
                 $('#meme-slider').hide();
                 $('#meme-text').show();
+
+                $('#btn-submit').show();
+
+            });
+
+            $('#btn-back').click(function(evt) {
+            
+                $('#meme-slider').show();
+                $('#meme-text').hide();
+
+                $('#btn-next').show();
+                $('#btn-submit').hide();
 
             });
 
             // Shrink text as length increases
-            $('.meme-text').keyup(function() {
-                renderMeme();
-            });
-
-            // Disable enter key
-            $('.meme-text').keypress(function(evt) {
-                if (evt.keyCode == 13)
-                    evt.preventDefault();
+            $('.meme-text').keyup(function(evt) {
+                writeText($(evt.currentTarget));
             });
             
             break;
@@ -198,22 +175,87 @@ var gameEvents = function(eventId, eventData) {
             var slideIndex = 0;
 
             updateGameContent(eventData, function() {
-                
-                // imageLoaded($("#meme-slider"), function() {
             
-                    $("#meme-slider").glide({
-                        type: "carousel",
-                        autoplay: false,
-                        afterTransition: function(evt) {
-                            slideIndex = evt.index - 1;
-                        }
-                    });
+                $("#meme-slider").glide({
+                    type: "carousel",
+                    autoplay: false,
+                    afterTransition: function(evt) {
+                        slideIndex = evt.index - 1;
+                    }
+                });
 
-                    $.each($('.meme-text'), function(ind, txt) {
-                        shrinkToFill(txt, 340, 46);
-                    });
+                $.each($('.meme-canvas'), function(index, meme) {
 
-                // });
+                  var upperText = $(meme).data().upper,
+                      lowerText = $(meme).data().lower;
+
+                  // Create meme canvas, render layer, captions, and image
+                  var canvas = new Kinetic.Stage({
+                      container: $(meme)[0],
+                      width: 400,
+                      height: 400
+                  }),
+                  layer = new Kinetic.Layer(),
+                  upperCaption = new Kinetic.Text({
+                      name: 'upper',
+                      x: 0,
+                      y: 20,
+                      text: upperText,
+                      fontSize: 46,
+                      fontFamily: 'Impact',
+                      fill: '#fff',
+                      stroke: '#000',
+                      strokeWidth: 2,
+                      lineJoin: 'round',
+                      width: 400,
+                      align: 'center'
+                  }),
+                  lowerCaption = new Kinetic.Text({
+                      name: 'lower',
+                      x: 0,
+                      y: 150,
+                      text: lowerText,
+                      fontSize: 46,
+                      fontFamily: 'Impact',
+                      fill: '#fff',
+                      stroke: '#000',
+                      strokeWidth: 2,
+                      lineJoin: 'round',
+                      width: 400,
+                      align: 'center'
+                  });
+
+                  // Add all elements to render layer
+                  var memeImg = new Image();
+                  memeImg.onload = function() {
+
+                    var imgInstance = new Kinetic.Image({
+                        x: 0,
+                        y: 0,
+                        width: canvas.getWidth(),
+                        height: canvas.getHeight(),
+                        image: memeImg
+                    });
+                    layer.add(imgInstance);
+                    layer.add(upperCaption);
+                    layer.add(lowerCaption);
+
+                    // Set caption font sizing and lower caption position
+                    upperCaption.fontSize(getFontSize(upperText));
+                    lowerCaption.fontSize(getFontSize(lowerText));
+
+                    lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
+
+                    // Add layer to canvas
+                    canvas.add(layer);
+
+                    // Draw layer
+                    layer.draw();
+
+                  }
+                  memeImg.src = $(meme).data().img;
+
+                });
 
             });
             

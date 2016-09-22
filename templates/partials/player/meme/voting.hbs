@@ -14,16 +14,7 @@
 
                     {{#each submissions}}
                         <li class="glide__slide">
-                            <div class="meme" style="background-image: url({{cloudinaryUrl image width=400 height=400 quality=80}})">
-
-                                <div class="meme-text text-upper">{{upper}}</div>
-                                <div id="text-lower-wrapper">
-                                    <div class="meme-text text-lower">{{lower}}</div>
-                                </div>
-
-                                <input class="btn-like" type="image" name="submit" value="like" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_65/v1/emerging-citizens/images/layout/wwdmm/like-button.png">
-
-                            </div>
+                            <div class="meme-canvas" data-upper="{{upper}}" data-lower="{{lower}}" data-img="{{cloudinaryUrl image width=300 quality=80}}">
                         </li>
                     {{/each}}
                 

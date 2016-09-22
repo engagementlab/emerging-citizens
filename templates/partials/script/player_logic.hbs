@@ -132,7 +132,8 @@ $(document).on('click', '.form .submit', function(evt) {
         $('#submitted').show();
     }
 
-    $(evt.currentTarget).attr('disabled', 'disabled');
+    if(!$(this).data().keep_enabled)
+        $(evt.currentTarget).attr('disabled', 'disabled');
 
 });
 
