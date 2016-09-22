@@ -6,6 +6,18 @@
 
 	overflow: hidden;
 
+	svg {
+		.last {
+			// display: none;
+			// @include translate(40px, 0px);
+
+			.destination {
+					stroke-dasharray: 400;
+					// animation: dash 5s linear;
+			}
+		}
+	}
+
 	.room-container {
 		width: 80%;
 		margin: 0 auto;
@@ -287,6 +299,7 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		border: 5px #ffcc00 dashed;
+		animation: 1s animateBorder infinite;
 		color: $color-red;
 
 		#countdown {
@@ -418,6 +431,8 @@
 			text-transform:capitalize;
 		}
 
+
+
 		.row.user {
 		    padding: 1%;
 		    font-size: 1.3em;
@@ -530,13 +545,17 @@
 				.last {
 					color: $color-dark-orange;
 
+
 					.destination {
-						@include translate(20px, 0px);
+						@include translate(20px, -40px);
+						
+						
 					}
 				}
 			}
 
 		}
+
 
 		.color-0 {
 			color: $color-results-orange;
@@ -662,4 +681,7 @@
 
 	}
 
+
+
 }
+
