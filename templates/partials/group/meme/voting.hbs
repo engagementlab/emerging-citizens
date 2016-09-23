@@ -23,7 +23,7 @@
                 {{#each submissions}}
 
                     <div class="col-sm-3">
-                        <div class="meme-canvas" data-dimension="300" data-upper="{{upper}}" data-lower="{{lower}}" data-img="{{cloudinaryUrl image width=300 quality=80}}">
+                        <div class="meme-canvas" data-dimension="300"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=300 quality=80}}">
                         </div>
                     </div>
                 

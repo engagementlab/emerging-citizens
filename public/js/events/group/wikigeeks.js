@@ -163,35 +163,8 @@ var gameEvents = function(eventId, eventData) {
         updateGameContent(eventData);
         clearInterval(clockInterval);
 
-        function roundCountdown() {
-
-            // if(countdownPaused)
-            //     return;
-            
-            var countdownText = $('#countdown #text');
-            var secondsLeft = 10;
-            var roundInterval = setInterval(function() {
-                
-                secondsLeft--;
-                $(countdownText).text(secondsLeft);
-
-                if(secondsLeft == 0)
-                {
-                    clearInterval(roundInterval);
-                    
-                    // Return home if winners circle showing
-                    if($('#winners-circle')[0])
-                        location.href = '\\';
-                    else 
-                        socket.emit('game:next_round', emitData(null));
-                }
-        
-            }, 1000);
-
-        }
-
         var topPlayersAnim = new TimelineLite({paused: true, onComplete: function() { scoreAnimPlay(); } });
-        var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
+        var scoreAnim = new TimelineLite({paused: true});
         
         function scoreAnimPlay() {
 
@@ -212,9 +185,6 @@ var gameEvents = function(eventId, eventData) {
             .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'leadersShow+=1')
             .staggerFromTo($('#leaderboard .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
             .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leadersShow+=7');
-            // .add(function(){
-            //   socket.emit('game:countdown', { 10);
-            // });
       
             if($('#slider-gsap').length) {
               wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
@@ -233,16 +203,12 @@ var gameEvents = function(eventId, eventData) {
             var articleDots = $(player).find('.articleDot');
             var articleLines = $(player).find('.articleLine');
             var last = articleTitles.size();
-            // var destination = $(articleTitles[last]).find('.destination');
-
-            // destination
 
             // Animate in each top player
             topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
 
             $('g.last').velocity({ opacity: 0 }, 0);
 
-            
             // Animate titles and path
             _.each(articleTitles, function(title, index) {
 
@@ -252,13 +218,7 @@ var gameEvents = function(eventId, eventData) {
 
                     // Animate lines and dots at start of title animation
                     $(articleDots[index]).velocity({r: 8}, 500, [50, 10]);
-                    line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);
-
-
-                    
-                    
-                    console.log(last + " is the final number and here we have the " + index);
-                    
+                    line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);                    
 
                     if (index === (last - 2)){
 
@@ -275,35 +235,18 @@ var gameEvents = function(eventId, eventData) {
                       });
 
                     }
-                    
-
-                    
-
-
-                    
+                                        
                 }});
-
-                // 
-
-                //     console.log(destination, "last");
-
-                // 
-
-
             });
 
             // Hide this player
             topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5})
 
-             
         });
-
-      
 
         topPlayersAnim.play();
 
         break;
-
 
     case 'game:countdown_end':
        

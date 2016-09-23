@@ -12,7 +12,7 @@
 
         <section class="col-sm-12 room-container" id="results-container">
             
-            <div class="row">
+            <div class="row" style="min-height: 200px">
 
                 <section class="row" id="submissions">
                
@@ -31,7 +31,7 @@
                             <div class="col-sm-6">
 
                                 {{!-- Meme image and text --}}
-                                <div class="meme-canvas" data-dimension="450" data-upper="{{upper}}" data-lower="{{lower}}" data-img="{{cloudinaryUrl image width=450 quality=80}}">
+                                <div class="meme-canvas" data-dimension="450"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=450 quality=80}}">
                                 </div>
 
                             </div>
@@ -164,20 +164,18 @@
                         
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">
-                            <div id="countdown"></div>
+                            game ended
                         </div>
                         <div class="col-sm-4"></div>
 
                     </div>
                 {{else}}
-                    <div id="next-round" class="col-sm-12 hidden-el results">
+                    <div id="next-round" class="col-sm-12 hidden-el results form">
                         
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <div id="countdown"></div>
+                        <div class="col-sm-7 col-centered">
+                            <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
                         </div>
-                        <div class="col-sm-4"></div>
-
+                        
                     </div>
                 {{/if}}
 

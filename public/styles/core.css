@@ -1442,15 +1442,6 @@ body .player-form {
   .body.wwdmm.group #game_code {
     padding: 0px 20px;
     height: 715px; }
-    .body.wwdmm.group #game_code #btn-start-game {
-      font-family: 'Patrick Hand', cursive;
-      visibility: hidden;
-      background-color: #19f7ad;
-      color: #ff775c;
-      line-height: 1;
-      text-transform: uppercase;
-      padding: 3%;
-      font-size: 7em; }
     .body.wwdmm.group #game_code #first {
       color: #ac7ce8 l; }
     .body.wwdmm.group #game_code #second {
@@ -1484,6 +1475,14 @@ body .player-form {
     .body.wwdmm.group #make-meme #countdown {
       font-size: 250%;
       color: #ffab48; }
+  .body.wwdmm.group #btn-start-game {
+    font-family: 'Patrick Hand', cursive;
+    background-color: #19f7ad;
+    color: #ff775c;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 3%;
+    font-size: 7em; }
   .body.wwdmm.group .players-grid.row .player-background {
     width: 250px;
     height: 350px;

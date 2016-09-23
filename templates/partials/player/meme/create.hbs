@@ -46,10 +46,13 @@
 
         </div>
    
-        <div id="btn-submit" class="row" style="display:none;">
+        <div id="btns-submit" class="row" style="display:none;">
+            
+            {{!-- Game error --}}
+            <div class="error">Error!</div>
 
             <input id="btn-back" class="post-button back small" type="submit" name="submit" value="back">
-            <input data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit small" type="submit" name="submit" value="submit">
+            <input id="btn-submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit small" type="submit" name="submit" value="submit">
 
         </div>
 

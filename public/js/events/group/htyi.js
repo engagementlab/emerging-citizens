@@ -210,48 +210,6 @@ function nextRound() {
 
   $('#scores, #winners-circle, #leaderboard').remove();
 
-  // Show countdown
-  // TEMP: Only for next round for now, not final one
-  if($('#next-round')[0] !== undefined) {
-
-      var secondsLeft = 10;
-      var countdownAnim = new ProgressBar.Circle('.last #countdown', {
-          color: '#fff',
-          duration: secondsLeft*1000,
-          easing: 'easeInOut',
-          strokeWidth: 6,
-          trailColor: '#f4f4f4',
-          trailWidth: 0.8,
-          fill: '#00c5c2',
-          text: {
-              value: secondsLeft + '',
-              className: 'text',
-          }
-      });
-      var countdownText =  $('.last #countdown .text');
-
-      var roundCountdown = setInterval(function() {
-          secondsLeft--;
-
-          TweenLite.to($(countdownText), .1, { scale: 0 });
-          $(countdownText).text(secondsLeft);
-          TweenLite.from($(countdownText), .1, { scale: 0 });
-
-          // End countdown
-          if(secondsLeft == 0) {
-              if($('#next-round')[0]) {
-                  socket.emit('game:next_round', emitData(null));
-                  clearInterval(roundCountdown);
-              }
-              else
-                  location.href = '\\';
-          }
-      }, 1000);
-      
-  }
-
   TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
-
-  countdownAnim.animate(1);
-
+  
 }

@@ -210,14 +210,11 @@
             <div class="col-sm-3"></div>
         </div>
     {{else}}
-        <div id="next-round" class="col-sm-12 hidden-el results last">
+        <div id="next-round" class="col-sm-12 hidden-el results last form">
             
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <h1 id="text">Next round in</h1>
-                <div id="countdown"></div>
+            <div class="col-sm-7 col-centered">
+                <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
             </div>
-            <div class="col-sm-4"></div>
 
         </div>
     {{/if}}
