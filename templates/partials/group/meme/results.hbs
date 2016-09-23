@@ -12,7 +12,7 @@
 
         <section class="col-sm-12 room-container" id="results-container">
             
-            <div class="row">
+            <div class="row" style="min-height: 200px">
 
                 <section class="row" id="submissions">
                
@@ -170,14 +170,12 @@
 
                     </div>
                 {{else}}
-                    <div id="next-round" class="col-sm-12 hidden-el results">
+                    <div id="next-round" class="col-sm-12 hidden-el results form">
                         
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <input id="btn-start-game" data-event="game:next" class="post-button submit" type="submit" name="submit" value="start">
+                        <div class="col-sm-7 col-centered">
+                            <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
                         </div>
-                        <div class="col-sm-4"></div>
-
+                        
                     </div>
                 {{/if}}
 

@@ -312,20 +312,6 @@
 
 		padding: 0px 20px;
 		height: 715px;
-	  
-	  #btn-start-game {
-			font-family: 'Patrick Hand', cursive;
-	  	visibility: hidden;
-	  	
-	  	background-color: $color-bright-sea-green;
-	  	color: $color-melon;
-
-	    line-height: 1;
-	    text-transform: uppercase;
-	    padding: 3%;
-
-	    font-size: 7em;
-	  }
 
 		#first {
 			color: $color-perrywinkle;
@@ -384,6 +370,20 @@
 			color: $color-light-orange;
 		}
 	}
+  
+  #btn-start-game {
+		font-family: 'Patrick Hand', cursive;
+  	// visibility: hidden;
+  	
+  	background-color: $color-bright-sea-green;
+  	color: $color-melon;
+
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 3%;
+
+    font-size: 7em;
+  }
 
 	.players-grid.row {
 

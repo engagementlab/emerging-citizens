@@ -344,14 +344,15 @@
 
     {{/if}}
 
-			<div id="countdown" class="row hidden-el">
+			<div id="countdown" class="row hidden-el form">
 		    <h2>
 			    {{#if last_round}}
 						Returning to Main Menu
 					{{else}}
-						Round {{incIndex round}} will begin
+            <div class="col-sm-7 col-centered">
+                <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
+            </div>
 					{{/if}}
-					 in <span id="text">10</span> seconds
 				</h2>
 			</div>
 

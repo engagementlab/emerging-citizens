@@ -166,35 +166,8 @@ var gameEvents = function(eventId, eventData) {
         updateGameContent(eventData);
         clearInterval(clockInterval);
 
-        function roundCountdown() {
-
-            // if(countdownPaused)
-            //     return;
-            
-            var countdownText = $('#countdown #text');
-            var secondsLeft = 10;
-            var roundInterval = setInterval(function() {
-                
-                secondsLeft--;
-                $(countdownText).text(secondsLeft);
-
-                if(secondsLeft == 0)
-                {
-                    clearInterval(roundInterval);
-                    
-                    // Return home if winners circle showing
-                    if($('#winners-circle')[0])
-                        location.href = '\\';
-                    else 
-                        socket.emit('game:next_round', emitData(null));
-                }
-        
-            }, 1000);
-
-        }
-
         var topPlayersAnim = new TimelineLite({paused: true, onComplete: function() { scoreAnimPlay(); } });
-        var scoreAnim = new TimelineLite({paused: true, onComplete: function() { roundCountdown(); } });
+        var scoreAnim = new TimelineLite({paused: true});
         
         function scoreAnimPlay() {
 
