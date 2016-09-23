@@ -177,21 +177,20 @@ var socketEvents = function(eventId, eventData) {
         case 'game:round_over':
         case 'players:update':
 
-            updateGameContent(eventData);
+
+            updateGameContent(eventData.html);
 
             var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
             nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
             nextRoundAnim.play();
-            break;
 
-        case 'hashtag:results':
-        case 'wiki:results':
-        case 'meme:results':
+            if (eventData.data.last_round === true){
 
-            console.log("we are resetting the session straight up RN");
+                console.log("we are resetting the session straight up RN");
 
-            resetSession();
+                resetSession();
 
+            }
 
             break;
 
