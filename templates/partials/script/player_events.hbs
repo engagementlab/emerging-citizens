@@ -184,6 +184,17 @@ var socketEvents = function(eventId, eventData) {
             nextRoundAnim.play();
             break;
 
+        case 'hashtag:results':
+        case 'wiki:results':
+        case 'meme:results':
+
+            console.log("we are resetting the session straight up RN");
+
+            resetSession();
+
+
+            break;
+
         default:
 
             console.warn('No handler found for event "' + eventId + '" in socketEvents.');

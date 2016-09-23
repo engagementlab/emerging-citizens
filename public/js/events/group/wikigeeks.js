@@ -111,17 +111,14 @@ var gameEvents = function(eventId, eventData) {
         $('#goto_results').hide();
 
         var staticPlayers = $('.player-static');
-        var finishedPlayers = _.pluck(_.where(eventData.players, {finished:true}), 'username');
+        var finishedPlayer = staticPlayers[eventData.index];
 
-        _.each(finishedPlayers, function(name, index) {
+        var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
 
-            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+        $(finishedPlayer).children('.icon').addClass('active');
+        $(finishedPlayer).children('.nameplate').addClass('active').text(nameFormatted);
 
-            $(staticPlayers[index]).children('.icon').addClass('active');
-            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
-
-        });
-
+        
         break;
 
     case 'player:finished':

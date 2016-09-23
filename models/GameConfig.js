@@ -37,7 +37,9 @@ GameConfig.add({
 	  timeLimitHashtag: { type: Number, label: "Time Limit", required: true, initial: true },
 		roundNumberHashtag: { type: Number, label: "Number of Rounds", required: true, initial: true },
 		voteScoreGuess: { type: Number, label: "Score per Vote for guess", required: true, initial: true },
-		voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }
+		voteScoreReal: { type: Number, label: "Score per Vote for real", required: true, initial: true }, 
+		surveyHashtag: { type: Boolean, label: "Typeform Survey At End?", note: "Survey only appears if typeform is enabled." }, 
+		surveyUrlHashtag: { type: String, label: "Typeform Survey URL Link", dependsOn: {surveyHashtag: true}}
 
 	}, 
 	"Wiki Geeks", {
@@ -50,13 +52,17 @@ GameConfig.add({
 
 		scoreTargetReachedWiki: { type: Number, label: "Target Reached Bonus", required: true, initial: true },
 		scorePlacementWiki: { type: Number, label: "Base score - Rank placement", required: true, initial: true },
-		scoreUnderClicksWiki: { type: Number, label: "Under Clicks Bonus", required: true, initial: true }
+		scoreUnderClicksWiki: { type: Number, label: "Under Clicks Bonus", required: true, initial: true }, 
+		surveyWiki: { type: Boolean, label: "Typeform Survey At End?", note: "Survey only appears if typeform is enabled." }, 
+		surveyUrlWiki: { type: String, label: "Typeform Survey URL Link", dependsOn: {surveyWiki: true}}
 
 	}, 
 	"Wait Wait Don't Meme Me", {
 
 	  timeLimitMeme: { type: Number, label: "Time Limit", required: true, initial: true },
-	  scoreVoteMeme: { type: Number, label: "Vote Score", required: true, initial: true }
+	  scoreVoteMeme: { type: Number, label: "Vote Score", required: true, initial: true }, 
+		surveyMeme: { type: Boolean, label: "Typeform Survey At End?", note: "Survey only appears if typeform is enabled." }, 
+		surveyUrlMeme: { type: String, label: "Typeform Survey URL Link", dependsOn: {surveyMeme: true}}
 
 	}
 
