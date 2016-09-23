@@ -12,6 +12,7 @@
 
 var cachedEventId;
 var cachedEventData;
+var gameEnded = false;
 
 var resetSession = function() {
 
@@ -72,6 +73,20 @@ var socketEvents = function(eventId, eventData) {
             
             break;
 
+        case 'disconnect':
+
+            if(gameEnded)
+                return;
+
+            // Remove saved sesh
+            resetSession();
+
+            $('#error-disconnected').fadeIn(function() {
+                $('#error-disconnected #text').css('top', '0');
+            });
+
+            break;
+
         case 'player:loggedin':
 
             $('#gameContent').html(eventData.html);
@@ -119,6 +134,8 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:ended':
+
+            gameEnded = true;
 
             // Remove saved sesh
             resetSession();

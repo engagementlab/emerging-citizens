@@ -318,4 +318,31 @@ footer {
 
 }
 
+.error-modal {
+	width: 100%; 
+	height: 100%;
+	text-align: center;
+
+	#text {
+		top: -100%;
+		@include transition(top, 0.5s, ease-out);
+	}
+
+	@include mobile-only {
+		h1 {
+			font-size: 4em;
+		}
+		h2 {
+			font-size: 2em;
+		}
+	}
+	@include tablet-landscape-and-up {
+		h1 {
+			font-size: 7em;
+		}
+		h2 {
+			font-size: 4em;
+		}
+	}
+}
 // END Main Content

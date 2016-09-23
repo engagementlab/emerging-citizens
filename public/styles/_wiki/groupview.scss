@@ -381,7 +381,6 @@
 			  background-color: transparent;
 				box-shadow: none;
 
-
 				@include transition(opacity .5s, transform .5s);
 
 				&.active {
@@ -680,8 +679,11 @@
 		}
 
 	}
-
-
+	
+	.error-modal {
+		background-color: rgba(9, 234, 210, .9);
+		color: white;
+	}
 
 }
 

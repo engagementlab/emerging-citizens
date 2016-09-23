@@ -776,6 +776,9 @@ body .player-form {
   .body.htyi .results .voter.screen-title {
     float: none;
     margin: 0 auto; }
+  .body.htyi .error-modal {
+    background-color: rgba(254, 120, 70, 0.9);
+    color: white; }
 
 /* 
 	WikiGeeks group view styling.
@@ -1244,6 +1247,9 @@ body .player-form {
       .body.wikigeeks.group #article-reveal #content h2, .body.wikigeeks.group #round-over #content h2 {
         font-size: 1.7em;
         color: #ff5e41; }
+  .body.wikigeeks.group .error-modal {
+    background-color: rgba(9, 234, 210, 0.9);
+    color: white; }
 
 /* 
 	WWDMM group view styling.
@@ -1526,6 +1532,9 @@ body .player-form {
   .body.wwdmm.group .player-7 {
     color: #8851CD;
     border-top-color: #8851CD; }
+  .body.wwdmm.group .error-modal {
+    background-color: rgba(255, 91, 119, 0.9);
+    color: white; }
 
 /* 
 	HTYI player view styling.
@@ -1561,6 +1570,10 @@ body .player-form {
 
 .body.htyi.player #debugging {
   z-index: 0; }
+
+.body.htyi.player .error-modal {
+  background-color: rgba(254, 120, 70, 0.9);
+  color: white; }
 
 /* 
 	WikiGeeks player view styling.
@@ -1600,6 +1613,9 @@ body .player-form {
     .body.wikigeeks.player #time-up button {
       color: white;
       background-color: #FD6D59; }
+    .body.wikigeeks.player #time-up .error-modal {
+      background-color: rgba(9, 234, 210, 0.9);
+      color: white; }
   .body.wikigeeks.player #article-loading {
     background-color: rgba(255, 94, 65, 0.6);
     height: 100%;
@@ -1872,6 +1888,10 @@ body .player-form {
   bottom: 4%;
   width: 100%; }
 
+.body.wwdmm.player .error-modal {
+  background-color: rgba(255, 91, 119, 0.9);
+  color: white; }
+
 html, body {
   max-height: 100%; }
 
@@ -2081,3 +2101,24 @@ footer {
   padding: 40px 15px;
   padding-top: 3%;
   text-align: center; }
+
+.error-modal {
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+  .error-modal #text {
+    top: -100%;
+    -moz-transition: top, 0.5s, ease-out;
+    -o-transition: top, 0.5s, ease-out;
+    -webkit-transition: top, 0.5s, ease-out;
+    transition: top, 0.5s, ease-out; }
+  @media (max-width: 480px) {
+    .error-modal h1 {
+      font-size: 4em; }
+    .error-modal h2 {
+      font-size: 2em; } }
+  @media only screen and (min-width: 769px) {
+    .error-modal h1 {
+      font-size: 7em; }
+    .error-modal h2 {
+      font-size: 4em; } }
