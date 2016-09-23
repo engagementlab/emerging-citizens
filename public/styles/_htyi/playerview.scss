@@ -7,10 +7,12 @@
   	position: relative;
   	min-height: 100%;
   	margin-bottom: 10%;
+    margin: 0 auto;
   	font-size: medium;
   	color: $color-blue;
     min-height: 270px;
     min-width: 345px;
+    max-width: 40%;
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
     background-repeat: no-repeat;
     background-position: center;
