@@ -16,7 +16,7 @@ var gameEnded = false;
 
 var resetSession = function() {
 
-    // Remove saved game code, submission, and set to not reconnectedd
+    // Remove saved game code, submission, and set to not reconnected
     sessionStorage.removeItem('gameCode');
     sessionStorage.removeItem('playerSubmission');
     sessionStorage.setItem('reconnected', false);
@@ -190,18 +190,28 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
-        case 'game:end':
         case 'game:round_over':
-        case 'players:update':
 
-            updateGameContent(eventData.html);
+            if(eventData.html)
+                updateGameContent(eventData.html);
+            else
+                updateGameContent(eventData);
 
             var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
             nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut }, { scale: 1, opacity: 1, display: 'block'});
             nextRoundAnim.play();
 
-            if (eventData.data.last_round)
+            if (eventData.data && eventData.data.last_round)
                 resetSession();
+            else
+                sessionStorage.removeItem('playerSubmission');
+
+            break;
+
+        case 'game:end':
+        case 'players:update':
+
+            updateGameContent(eventData.html);
 
             break;
 

@@ -90,7 +90,7 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-            if (sessionStorage.playerSubmission !== undefined && playerWasReconnected === true)
+            if (sessionStorage.playerSubmission && playerWasReconnected === true)
                 socket.emit('game:start', {gameId: sessionStorage.gameCode});
 
             break;
