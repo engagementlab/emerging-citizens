@@ -155,6 +155,9 @@
 								 		if(callback)
 									 		callback();
 
+								    // Hide loading
+								    $('#loading-modal').fadeOut(250);
+
 								 });
 
 		if($('#top-header').length > 0) {
@@ -306,7 +309,7 @@ detectPrivateMode(function(isPrivate) {
 
 			// Load animations
 			{{> script/player_animation}}
-			
+
 		{{/ifnoteq}}
 
 		$(document).ready(function() {

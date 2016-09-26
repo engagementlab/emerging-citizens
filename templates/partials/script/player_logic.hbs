@@ -132,8 +132,10 @@ $(document).on('click', '.form .submit', function(evt) {
         $('#submitted').show();
     }
 
-    if(!$(this).data().keep_enabled)
+    if(!$(this).data().keep_enabled) {
         $(evt.currentTarget).attr('disabled', 'disabled');
+        $('#loading-modal').fadeIn(250);
+    }
 
 });
 
@@ -148,7 +150,9 @@ $(document).on('click', '.btn.game_login', function(evt) {
     var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
     sessionStorage.setItem('uUID', playerUID);
 
+    // Disable button and show loading modal
     $(evt.currentTarget).attr('disabled', 'disabled');
+    $('#loading-modal').fadeIn(250);
 
     $.post(
         "/game",

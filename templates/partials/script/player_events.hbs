@@ -62,6 +62,9 @@ var socketEvents = function(eventId, eventData) {
         return;
     }
 
+    // Hide loading
+    $('#loading-modal').fadeOut(250);
+
     switch (eventId) {
 
         case 'connect':
