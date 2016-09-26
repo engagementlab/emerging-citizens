@@ -46,67 +46,67 @@ function isIE10OrLater(user_agent) {
 }
 
 function detectPrivateMode(callback) {
-    var is_private;
+    var isPrivate;
 
     if (window.webkitRequestFileSystem) {
         window.webkitRequestFileSystem(
             window.TEMPORARY, 1,
             function() {
-                is_private = false;
+                isPrivate = false;
             },
             function(e) {
                 console.log(e);
-                is_private = true;
+                isPrivate = true;
             }
-        );
+        ); 
     } else if (window.indexedDB && /Firefox/.test(window.navigator.userAgent)) {
         var db;
         try {
             db = window.indexedDB.open('test');
         } catch(e) {
-            is_private = true;
+            isPrivate = true;
         }
 
-        if (typeof is_private === 'undefined') {
+        if (typeof isPrivate === 'undefined') {
             retry(
                 function isDone() {
                     return db.readyState === 'done' ? true : false;
                 },
                 function next(is_timeout) {
                     if (!is_timeout) {
-                        is_private = db.result ? false : true;
+                        isPrivate = db.result ? false : true;
                     }
                 }
             );
         }
     } else if (isIE10OrLater(window.navigator.userAgent)) {
-        is_private = false;
+        isPrivate = false;
         try {
             if (!window.indexedDB) {
-                is_private = true;
+                isPrivate = true;
             }                 
         } catch (e) {
-            is_private = true;
+            isPrivate = true;
         }
     } else if (window.localStorage && /Safari/.test(window.navigator.userAgent)) {
         try {
             window.localStorage.setItem('test', 1);
         } catch(e) {
-            is_private = true;
+            isPrivate = true;
         }
 
-        if (typeof is_private === 'undefined') {
-            is_private = false;
+        if (typeof isPrivate === 'undefined') {
+            isPrivate = false;
             window.localStorage.removeItem('test');
         }
     }
 
     retry(
         function isDone() {
-            return typeof is_private !== 'undefined' ? true : false;
+            return typeof isPrivate !== 'undefined' ? true : false;
         },
         function next(is_timeout) {
-            callback(is_private);
+            callback(isPrivate);
         }
     );
 }

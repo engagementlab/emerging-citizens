@@ -32,6 +32,9 @@ var socketEvents = function(eventId, eventData) {
 
         case 'disconnect':
 
+            if(gameEnded)
+                return;
+
             $('#error-disconnected').fadeIn(function() {
                 $('#error-disconnected #text').css('top', '0');
             });
@@ -152,6 +155,8 @@ var socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:ended':
+
+            gameEnded = true;
 
             updateGameContent(eventData);
 

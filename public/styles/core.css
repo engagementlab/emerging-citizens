@@ -15,6 +15,10 @@
   font-family: "HalisGR-Book";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.ttf") format("truetype"); }
 
+@font-face {
+  font-family: "Impact-External";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/fonts/impact.ttf") format("truetype"); }
+
 .light {
   font-family: "AvenirLight"; }
 
@@ -1290,8 +1294,7 @@ body .player-form {
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    font-family: Impact;
-    text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+    font-family: Impact; }
   .body.wwdmm.group .room-container {
     border: 15px solid #b7d63a;
     border-radius: 10px; }
@@ -1330,8 +1333,7 @@ body .player-form {
     font-size: 4em; }
   .body.wwdmm.group #results-container .score {
     font-family: 'Patrick Hand', cursive;
-    color: #11cfe0;
-    text-shadow: -8px -8px 0 #fff, -8px -7px 0 #fff, -8px -6px 0 #fff, -8px -5px 0 #fff, -8px -4px 0 #fff, -8px -3px 0 #fff, -8px -2px 0 #fff, -8px -1px 0 #fff, -8px 0px 0 #fff, -8px 1px 0 #fff, -8px 2px 0 #fff, -8px 3px 0 #fff, -8px 4px 0 #fff, -8px 5px 0 #fff, -8px 6px 0 #fff, -8px 7px 0 #fff, -8px 8px 0 #fff, -7px -8px 0 #fff, -7px -7px 0 #fff, -7px -6px 0 #fff, -7px -5px 0 #fff, -7px -4px 0 #fff, -7px -3px 0 #fff, -7px -2px 0 #fff, -7px -1px 0 #fff, -7px 0px 0 #fff, -7px 1px 0 #fff, -7px 2px 0 #fff, -7px 3px 0 #fff, -7px 4px 0 #fff, -7px 5px 0 #fff, -7px 6px 0 #fff, -7px 7px 0 #fff, -7px 8px 0 #fff, -6px -8px 0 #fff, -6px -7px 0 #fff, -6px -6px 0 #fff, -6px -5px 0 #fff, -6px -4px 0 #fff, -6px -3px 0 #fff, -6px -2px 0 #fff, -6px -1px 0 #fff, -6px 0px 0 #fff, -6px 1px 0 #fff, -6px 2px 0 #fff, -6px 3px 0 #fff, -6px 4px 0 #fff, -6px 5px 0 #fff, -6px 6px 0 #fff, -6px 7px 0 #fff, -6px 8px 0 #fff, -5px -8px 0 #fff, -5px -7px 0 #fff, -5px -6px 0 #fff, -5px -5px 0 #fff, -5px -4px 0 #fff, -5px -3px 0 #fff, -5px -2px 0 #fff, -5px -1px 0 #fff, -5px 0px 0 #fff, -5px 1px 0 #fff, -5px 2px 0 #fff, -5px 3px 0 #fff, -5px 4px 0 #fff, -5px 5px 0 #fff, -5px 6px 0 #fff, -5px 7px 0 #fff, -5px 8px 0 #fff, -4px -8px 0 #fff, -4px -7px 0 #fff, -4px -6px 0 #fff, -4px -5px 0 #fff, -4px -4px 0 #fff, -4px -3px 0 #fff, -4px -2px 0 #fff, -4px -1px 0 #fff, -4px 0px 0 #fff, -4px 1px 0 #fff, -4px 2px 0 #fff, -4px 3px 0 #fff, -4px 4px 0 #fff, -4px 5px 0 #fff, -4px 6px 0 #fff, -4px 7px 0 #fff, -4px 8px 0 #fff, -3px -8px 0 #fff, -3px -7px 0 #fff, -3px -6px 0 #fff, -3px -5px 0 #fff, -3px -4px 0 #fff, -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -3px 4px 0 #fff, -3px 5px 0 #fff, -3px 6px 0 #fff, -3px 7px 0 #fff, -3px 8px 0 #fff, -2px -8px 0 #fff, -2px -7px 0 #fff, -2px -6px 0 #fff, -2px -5px 0 #fff, -2px -4px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -2px 4px 0 #fff, -2px 5px 0 #fff, -2px 6px 0 #fff, -2px 7px 0 #fff, -2px 8px 0 #fff, -1px -8px 0 #fff, -1px -7px 0 #fff, -1px -6px 0 #fff, -1px -5px 0 #fff, -1px -4px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, -1px 4px 0 #fff, -1px 5px 0 #fff, -1px 6px 0 #fff, -1px 7px 0 #fff, -1px 8px 0 #fff, 0px -8px 0 #fff, 0px -7px 0 #fff, 0px -6px 0 #fff, 0px -5px 0 #fff, 0px -4px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 0px 4px 0 #fff, 0px 5px 0 #fff, 0px 6px 0 #fff, 0px 7px 0 #fff, 0px 8px 0 #fff, 1px -8px 0 #fff, 1px -7px 0 #fff, 1px -6px 0 #fff, 1px -5px 0 #fff, 1px -4px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 1px 4px 0 #fff, 1px 5px 0 #fff, 1px 6px 0 #fff, 1px 7px 0 #fff, 1px 8px 0 #fff, 2px -8px 0 #fff, 2px -7px 0 #fff, 2px -6px 0 #fff, 2px -5px 0 #fff, 2px -4px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 2px 4px 0 #fff, 2px 5px 0 #fff, 2px 6px 0 #fff, 2px 7px 0 #fff, 2px 8px 0 #fff, 3px -8px 0 #fff, 3px -7px 0 #fff, 3px -6px 0 #fff, 3px -5px 0 #fff, 3px -4px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff, 3px 4px 0 #fff, 3px 5px 0 #fff, 3px 6px 0 #fff, 3px 7px 0 #fff, 3px 8px 0 #fff, 4px -8px 0 #fff, 4px -7px 0 #fff, 4px -6px 0 #fff, 4px -5px 0 #fff, 4px -4px 0 #fff, 4px -3px 0 #fff, 4px -2px 0 #fff, 4px -1px 0 #fff, 4px 0px 0 #fff, 4px 1px 0 #fff, 4px 2px 0 #fff, 4px 3px 0 #fff, 4px 4px 0 #fff, 4px 5px 0 #fff, 4px 6px 0 #fff, 4px 7px 0 #fff, 4px 8px 0 #fff, 5px -8px 0 #fff, 5px -7px 0 #fff, 5px -6px 0 #fff, 5px -5px 0 #fff, 5px -4px 0 #fff, 5px -3px 0 #fff, 5px -2px 0 #fff, 5px -1px 0 #fff, 5px 0px 0 #fff, 5px 1px 0 #fff, 5px 2px 0 #fff, 5px 3px 0 #fff, 5px 4px 0 #fff, 5px 5px 0 #fff, 5px 6px 0 #fff, 5px 7px 0 #fff, 5px 8px 0 #fff, 6px -8px 0 #fff, 6px -7px 0 #fff, 6px -6px 0 #fff, 6px -5px 0 #fff, 6px -4px 0 #fff, 6px -3px 0 #fff, 6px -2px 0 #fff, 6px -1px 0 #fff, 6px 0px 0 #fff, 6px 1px 0 #fff, 6px 2px 0 #fff, 6px 3px 0 #fff, 6px 4px 0 #fff, 6px 5px 0 #fff, 6px 6px 0 #fff, 6px 7px 0 #fff, 6px 8px 0 #fff, 7px -8px 0 #fff, 7px -7px 0 #fff, 7px -6px 0 #fff, 7px -5px 0 #fff, 7px -4px 0 #fff, 7px -3px 0 #fff, 7px -2px 0 #fff, 7px -1px 0 #fff, 7px 0px 0 #fff, 7px 1px 0 #fff, 7px 2px 0 #fff, 7px 3px 0 #fff, 7px 4px 0 #fff, 7px 5px 0 #fff, 7px 6px 0 #fff, 7px 7px 0 #fff, 7px 8px 0 #fff, 8px -8px 0 #fff, 8px -7px 0 #fff, 8px -6px 0 #fff, 8px -5px 0 #fff, 8px -4px 0 #fff, 8px -3px 0 #fff, 8px -2px 0 #fff, 8px -1px 0 #fff, 8px 0px 0 #fff, 8px 1px 0 #fff, 8px 2px 0 #fff, 8px 3px 0 #fff, 8px 4px 0 #fff, 8px 5px 0 #fff, 8px 6px 0 #fff, 8px 7px 0 #fff, 8px 8px 0 #fff; }
+    color: #11cfe0; }
   .body.wwdmm.group #results-container .score-shadow {
     text-shadow: 5px 1px rgba(0, 0, 0, 0.5); }
   .body.wwdmm.group #results-container .name {
@@ -1389,8 +1391,7 @@ body .player-form {
     color: #fff;
     padding: 2%;
     border: 5px solid #ffa800;
-    float: left;
-    text-shadow: -5px -5px 0 #ffa800, -5px -4px 0 #ffa800, -5px -3px 0 #ffa800, -5px -2px 0 #ffa800, -5px -1px 0 #ffa800, -5px 0px 0 #ffa800, -5px 1px 0 #ffa800, -5px 2px 0 #ffa800, -5px 3px 0 #ffa800, -5px 4px 0 #ffa800, -5px 5px 0 #ffa800, -4px -5px 0 #ffa800, -4px -4px 0 #ffa800, -4px -3px 0 #ffa800, -4px -2px 0 #ffa800, -4px -1px 0 #ffa800, -4px 0px 0 #ffa800, -4px 1px 0 #ffa800, -4px 2px 0 #ffa800, -4px 3px 0 #ffa800, -4px 4px 0 #ffa800, -4px 5px 0 #ffa800, -3px -5px 0 #ffa800, -3px -4px 0 #ffa800, -3px -3px 0 #ffa800, -3px -2px 0 #ffa800, -3px -1px 0 #ffa800, -3px 0px 0 #ffa800, -3px 1px 0 #ffa800, -3px 2px 0 #ffa800, -3px 3px 0 #ffa800, -3px 4px 0 #ffa800, -3px 5px 0 #ffa800, -2px -5px 0 #ffa800, -2px -4px 0 #ffa800, -2px -3px 0 #ffa800, -2px -2px 0 #ffa800, -2px -1px 0 #ffa800, -2px 0px 0 #ffa800, -2px 1px 0 #ffa800, -2px 2px 0 #ffa800, -2px 3px 0 #ffa800, -2px 4px 0 #ffa800, -2px 5px 0 #ffa800, -1px -5px 0 #ffa800, -1px -4px 0 #ffa800, -1px -3px 0 #ffa800, -1px -2px 0 #ffa800, -1px -1px 0 #ffa800, -1px 0px 0 #ffa800, -1px 1px 0 #ffa800, -1px 2px 0 #ffa800, -1px 3px 0 #ffa800, -1px 4px 0 #ffa800, -1px 5px 0 #ffa800, 0px -5px 0 #ffa800, 0px -4px 0 #ffa800, 0px -3px 0 #ffa800, 0px -2px 0 #ffa800, 0px -1px 0 #ffa800, 0px 0px 0 #ffa800, 0px 1px 0 #ffa800, 0px 2px 0 #ffa800, 0px 3px 0 #ffa800, 0px 4px 0 #ffa800, 0px 5px 0 #ffa800, 1px -5px 0 #ffa800, 1px -4px 0 #ffa800, 1px -3px 0 #ffa800, 1px -2px 0 #ffa800, 1px -1px 0 #ffa800, 1px 0px 0 #ffa800, 1px 1px 0 #ffa800, 1px 2px 0 #ffa800, 1px 3px 0 #ffa800, 1px 4px 0 #ffa800, 1px 5px 0 #ffa800, 2px -5px 0 #ffa800, 2px -4px 0 #ffa800, 2px -3px 0 #ffa800, 2px -2px 0 #ffa800, 2px -1px 0 #ffa800, 2px 0px 0 #ffa800, 2px 1px 0 #ffa800, 2px 2px 0 #ffa800, 2px 3px 0 #ffa800, 2px 4px 0 #ffa800, 2px 5px 0 #ffa800, 3px -5px 0 #ffa800, 3px -4px 0 #ffa800, 3px -3px 0 #ffa800, 3px -2px 0 #ffa800, 3px -1px 0 #ffa800, 3px 0px 0 #ffa800, 3px 1px 0 #ffa800, 3px 2px 0 #ffa800, 3px 3px 0 #ffa800, 3px 4px 0 #ffa800, 3px 5px 0 #ffa800, 4px -5px 0 #ffa800, 4px -4px 0 #ffa800, 4px -3px 0 #ffa800, 4px -2px 0 #ffa800, 4px -1px 0 #ffa800, 4px 0px 0 #ffa800, 4px 1px 0 #ffa800, 4px 2px 0 #ffa800, 4px 3px 0 #ffa800, 4px 4px 0 #ffa800, 4px 5px 0 #ffa800, 5px -5px 0 #ffa800, 5px -4px 0 #ffa800, 5px -3px 0 #ffa800, 5px -2px 0 #ffa800, 5px -1px 0 #ffa800, 5px 0px 0 #ffa800, 5px 1px 0 #ffa800, 5px 2px 0 #ffa800, 5px 3px 0 #ffa800, 5px 4px 0 #ffa800, 5px 5px 0 #ffa800; }
+    float: left; }
   .body.wwdmm.group #results-container #winners-circle .row .winner {
     width: 800px;
     font-size: 8em;
@@ -1833,22 +1834,6 @@ body .player-form {
   min-width: 400px;
   max-width: 400px; }
 
-.body.wwdmm.player #meme-create ::-webkit-input-placeholder {
-  color: black;
-  font-weight: bold; }
-
-.body.wwdmm.player #meme-create :-moz-placeholder {
-  color: black;
-  font-weight: bold; }
-
-.body.wwdmm.player #meme-create ::-moz-placeholder {
-  color: black;
-  font-weight: bold; }
-
-.body.wwdmm.player #meme-create :-ms-input-placeholder {
-  color: black;
-  font-weight: bold; }
-
 .body.wwdmm.player #meme-voting .glide__arrows {
   top: 35%; }
 
@@ -1870,12 +1855,11 @@ body .player-form {
 .body.wwdmm.player #meme-voting .meme-text {
   display: inline-block;
   color: white;
-  font-family: Impact;
+  font-family: Impact, 'Impact-External';
   font-size: 16pt;
   font-weight: bold;
   text-transform: uppercase;
-  text-align: center;
-  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000; }
+  text-align: center; }
 
 .body.wwdmm.player #meme-voting .text-upper {
   top: 4%; }

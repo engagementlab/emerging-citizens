@@ -220,9 +220,9 @@
   }
 
 // Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
-detectPrivateMode(function(is_private) {
+detectPrivateMode(function(isPrivate) {
 	
-	if(is_private) {
+	if(isPrivate) {
 
 		$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
 
@@ -306,9 +306,7 @@ detectPrivateMode(function(is_private) {
 
 			// Load animations
 			{{> script/player_animation}}
-
 			
-
 		{{/ifnoteq}}
 
 		$(document).ready(function() {

@@ -2,7 +2,6 @@
 	WWDMM player view styling.
 */
 .body.wwdmm.player {
-
 	.glide__wrapper {
 		min-height: 400px;
 	}
@@ -44,19 +43,6 @@
 
   }
 
-	#meme-create {
-			
-		.meme-text {
-
-		}
-
-		@include placeholder {
-			color: black;
-	    font-weight: bold;
-		}
-
-	}
-
 	#meme-voting {
 		
 		.glide__arrows {
@@ -78,8 +64,7 @@
 	    bottom: 0;
 	    border: none;
 	    box-shadow: none;
-  
-		  // @include linear_transition(transform, 0.5s);
+ 
 		}
 		
 		.meme-text {
@@ -88,14 +73,13 @@
 
 	    color: white;
 	    
-	    font-family: Impact;
+	    font-family: Impact, 'Impact-External';
 	    font-size: 16pt;
 	    font-weight: bold;
 	    
 	    text-transform: uppercase;
 	    text-align: center;
 
-	    @include stroke(2, #000);
 		}
 
 		.text-upper {

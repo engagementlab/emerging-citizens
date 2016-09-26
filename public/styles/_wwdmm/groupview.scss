@@ -66,8 +66,6 @@
     text-align: center;
 
 	  font-family: Impact;
-
-    @include stroke(2, #000);
 	
 	}
 
@@ -147,7 +145,6 @@
     .score {
 			font-family: 'Patrick Hand', cursive;
 			color: $color-aqua;
-	    @include stroke(8, #fff);
     }
     .score-shadow {
 	    text-shadow: 5px 1px rgba(0, 0, 0, 0.5);
@@ -240,8 +237,6 @@
 					padding: 2%;
 					border: 5px solid $color-orange-yellow;
 					float: left; 
-
-			    @include stroke(5, $color-orange-yellow);
 				}
 			
 				.winner {
