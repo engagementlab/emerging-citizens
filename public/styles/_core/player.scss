@@ -16,13 +16,35 @@
 		background-color: white;
 	}
 }
+
+#surveyOptions {
+	h2 {
+		color: white;
+		font-size: 2em;
+	}
+	
+
+}
 .post-button {
-	color: white;
-	background-color: $logo-color;
-	font-size: large;
+	color: white !important;
+	background-color: $logo-color !important;
+	font-size: large !important;
 	width: 100%;
 	border: 0;
+
+	&.survey {
+		width: 20%;
+		margin: 5px auto !important;
+		background-image: none !important;
+		text-align: center !important;
+		float: none !important;
+		border: none !important;
+		height: 50px;
+		line-height: 45px !important;
+	}
+
 }
+
 .voting-button {
 	color: white;
 	font-size: medium;

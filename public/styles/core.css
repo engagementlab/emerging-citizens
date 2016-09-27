@@ -162,12 +162,25 @@
     color: black;
     background-color: white; }
 
-.post-button {
+#surveyOptions h2 {
   color: white;
-  background-color: #00c5c2;
-  font-size: large;
+  font-size: 2em; }
+
+.post-button {
+  color: white !important;
+  background-color: #00c5c2 !important;
+  font-size: large !important;
   width: 100%;
   border: 0; }
+  .post-button.survey {
+    width: 20%;
+    margin: 5px auto !important;
+    background-image: none !important;
+    text-align: center !important;
+    float: none !important;
+    border: none !important;
+    height: 50px;
+    line-height: 45px !important; }
 
 .voting-button {
   color: white;
@@ -679,6 +692,40 @@ body .player-form {
     border-radius: 83px; }
     .body.htyi #clock-bg.voting {
       background-color: #6768FE; }
+  .body.htyi #voting .left div.player-background {
+    clear: both;
+    float: left;
+    margin-bottom: 0;
+    -moz-transform: translate(105px, -70px);
+    -o-transform: translate(105px, -70px);
+    -ms-transform: translate(105px, -70px);
+    -webkit-transform: translate(105px, -70px);
+    transform: translate(105px, -70px); }
+  .body.htyi #voting .left div.player-background:nth-child(4) {
+    -moz-transform: translate(225px, -70px);
+    -o-transform: translate(225px, -70px);
+    -ms-transform: translate(225px, -70px);
+    -webkit-transform: translate(225px, -70px);
+    transform: translate(225px, -70px);
+    margin-bottom: 0;
+    clear: none; }
+  .body.htyi #voting .right div.player-background {
+    clear: both;
+    float: right;
+    margin-bottom: 0;
+    -moz-transform: translate(-105px, -70px);
+    -o-transform: translate(-105px, -70px);
+    -ms-transform: translate(-105px, -70px);
+    -webkit-transform: translate(-105px, -70px);
+    transform: translate(-105px, -70px); }
+  .body.htyi #voting .right div.player-background:nth-child(4) {
+    margin-bottom: 0;
+    -moz-transform: translate(-225px, -70px);
+    -o-transform: translate(-225px, -70px);
+    -ms-transform: translate(-225px, -70px);
+    -webkit-transform: translate(-225px, -70px);
+    transform: translate(-225px, -70px);
+    clear: none; }
   .body.htyi #hashtag-submissions-prompt {
     display: none;
     height: 320px;
@@ -695,7 +742,7 @@ body .player-form {
     font-size: x-large;
     background-color: white;
     padding: 10px;
-    margin: 20px; }
+    margin: 0px 20px 20px 20px; }
     .body.htyi #hashtag-submissions .hashtag .octothorp {
       margin-top: 3%;
       font-size: x-large; }
