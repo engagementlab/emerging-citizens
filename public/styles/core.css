@@ -1348,7 +1348,7 @@ body .player-form {
   .body.wwdmm.group .top-bar {
     color: white;
     font-family: 'Patrick Hand', cursive;
-    font-size: 3em;
+    font-size: 4em;
     text-transform: uppercase;
     text-align: center;
     background-color: #ff5b77;
@@ -1356,7 +1356,7 @@ body .player-form {
     .body.wwdmm.group .top-bar h1 {
       font-size: 1.5em; }
   .body.wwdmm.group #top-header {
-    min-height: 138px; }
+    min-height: 180px; }
     .body.wwdmm.group #top-header .img {
       margin-top: 2%;
       margin-left: -19%; }
@@ -1961,11 +1961,7 @@ html, body {
       background-color: #fdae8f; } }
 
 .body.game-bg {
-  -webkit-transition: background 0.5s linear;
-  -moz-transition: background 0.5s linear;
-  -ms-transition: background 0.5s linear;
-  -o-transition: background 0.5s linear;
-  transition: background 0.5s linear; }
+  overflow-x: hidden; }
   .body.game-bg.htyi {
     background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971; }
   .body.game-bg.wikigeeks {

@@ -9,6 +9,15 @@
  */
 
 var hashtagsAnimSlider;
+
+var openAnim = new TimelineLite();
+
+// Show players
+openAnim
+.from($('.room-container'), 1, {scale:0, autoAlpha:0, delay:1, ease:Elastic.easeOut})
+.staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+.staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+
 var gameEvents = function(eventId, eventData) {
 
   /*
@@ -19,21 +28,21 @@ var gameEvents = function(eventId, eventData) {
     case 'hashtag:submitted':
     case 'hashtags:received':
 
-      updateGameContent(eventData);
-      
-      // currentHashtags = _.pluck(eventData, 'hashtag-submissions');
+      updateGameContent(eventData, function() {
+     
+        //instantiate a TimelineLite for hashtags received animation
+        var hashtagsVoteAnim = new TimelineLite({ paused:true });
+        $('#hashtag-submissions-prompt').show();
 
-      //instantiate a TimelineLite for hashtags received animation
-      var hashtagsVoteAnim = new TimelineLite({ paused:true });
-      $('#hashtag-submissions-prompt').show();
+        hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
+        .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+        .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+        .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
+        .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
 
-      hashtagsVoteAnim.from($('#hashtag-submissions-prompt'), 1, { y: -200, autoAlpha: 0, ease:Elastic.easeOut })
-      .staggerFrom($('#hashtag-submissions .leftmost .hashtag'), 1, {xPercent:-100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-      .staggerFrom($('#hashtag-submissions .left .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-      .staggerFrom($('#hashtag-submissions .right .hashtag'), 1, {yPercent:100, autoAlpha:0, ease:Elastic.easeOut}, .5)
-      .staggerFrom($('#hashtag-submissions .rightmost .hashtag'), 1, {xPercent:100, autoAlpha:0, ease:Elastic.easeOut, delay: .3}, .5);
-
-      hashtagsVoteAnim.play();
+        hashtagsVoteAnim.play();
+     
+      });
 
       break;
 
@@ -71,90 +80,87 @@ var gameEvents = function(eventId, eventData) {
 
     case 'hashtags:results':
 
-      updateGameContent(eventData);
+      updateGameContent(eventData, function() {
 
-      //instantiate a TimelineLite for hashtags animation
-      var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
+        //instantiate a TimelineLite for hashtags animation
+        var hashtagsAnim = new TimelineLite({ paused:true , onComplete:function() { showScores(); }});
 
-      var elements = $('#hashtag-results .result.fake');
-      var realHashtag = $('#hashtag-results .result.real');
-      var creators;
-      var creatorWrapper;
-      var num;
+        var elements = $('#hashtag-results .result.fake');
+        var realHashtag = $('#hashtag-results .result.real');
+        var creators;
+        var creatorWrapper;
+        var num;
 
-      // 1) Show hashtags
-      hashtagsAnim.from($('#hashtags'), 1.5, {top:-250, autoAlpha:0, ease:Bounce.easeOut});
-      _.each(elements, function(el, index) {
+        // 1) Show hashtags
+        hashtagsAnim.from($('#hashtags'), 1.5, {top:-250, autoAlpha:0, ease:Bounce.easeOut});
+        _.each(elements, function(el, index) {
 
-          creators = $(el).find('.creator');
-          creatorWrapper = $(el).find('.creatorWrapper');
-          num = creators.size();
+            creators = $(el).find('.creator');
+            creatorWrapper = $(el).find('.creatorWrapper');
+            num = creators.size();
 
-          hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
-          
-          .staggerFrom($(el).find('.voter'), 2, {scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
+            hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
+            
+            .staggerFrom($(el).find('.voter'), 2, {scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
-              ion.sound.play("button_tiny");
+                ion.sound.play("button_tiny");
 
-          }}, 2, '+=0.5')
-          .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=2.5');
+            }}, 2, '+=0.5')
+            .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=2.5');
 
-          if (num > 1) {
-              hashtagsAnim
-              .add(function(){
-                $(creatorWrapper).cycle();
-                $(creatorWrapper).cycle('goto', 0);
-                $(creatorWrapper).cycle("pause");                
-              }, 1, "+=0.5")
-              .add(function(){
-                $(creatorWrapper).cycle("resume");
-              }, "-=0.5");
-             
+            if (num > 1) {
+                hashtagsAnim
+                .add(function(){
+                  $(creatorWrapper).cycle();
+                  $(creatorWrapper).cycle('goto', 0);
+                  $(creatorWrapper).cycle("pause");                
+                }, 1, "+=0.5")
+                .add(function(){
+                  $(creatorWrapper).cycle("resume");
+                }, "-=0.5");
+               
 
-          }
-          
-          hashtagsAnim
-          .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
-              .add(function(){
+            }
+            
+            hashtagsAnim
+            .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
+                .add(function(){
 
-                // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
-                $(el).find('.voterWrapper').cycle();
-                $(el).find('.voterWrapper').cycle('goto', 0);
-                // $(el).find('.voterWrapper').cycle("pause");
-                // $(el).find('.voterWrapper').cycle("next");
-                // $(el).find('.voterWrapper').cycle("destroy");
-                
-                console.log("cycling");
-              }, "+=1.0")
-              .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+                  // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
+                  $(el).find('.voterWrapper').cycle();
+                  $(el).find('.voterWrapper').cycle('goto', 0);
+                  // $(el).find('.voterWrapper').cycle("pause");
+                  // $(el).find('.voterWrapper').cycle("next");
+                  // $(el).find('.voterWrapper').cycle("destroy");
+                  
+                  console.log("cycling");
+                }, "+=1.0")
+                .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+
+        });
+
+        // 2) Real hashtag
+        hashtagsAnim
+        .fromTo($(realHashtag), 1, {delay: 0.5, y:-250, autoAlpha:0, ease:Bounce.easeOut}, { y:0, autoAlpha:1}, 'real')
+        .fromTo($('#hashtag-results #prompt'), 0.5, {delay: 0, y:0, autoAlpha:1, opacity: 1, ease:Elastic.easeOut}, {y: 0, autoAlpha: 1, opacity: 1}, 2,  'real +=0.5')
+        .from($(realHashtag).find('.hashtag'), 1, { delay: 0.5, y: 100, autoAlpha: 0}, 'real +=1.0')
+        .staggerFrom($(realHashtag).find('.voter'), 3, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
+
+            ion.sound.play("button_tiny");
+
+        }}, 2)
+        .staggerTo($(realHashtag).find('.voter .portrait'), 1, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 1, '=0')
+        .staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block' }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
+        .to($('#hashtags'), 1, {delay: 2, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
+
+        if($('#slider-gsap').length) {
+          hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
+              width: 600
+          });
+        }
+        hashtagsAnim.play();
 
       });
-
-      // 2) Real hashtag
-      hashtagsAnim
-      .fromTo($(realHashtag), 1, {delay: 0.5, y:-250, autoAlpha:0, ease:Bounce.easeOut}, { y:0, autoAlpha:1}, 'real')
-      .fromTo($('#hashtag-results #prompt'), 0.5, {delay: 0, y:0, autoAlpha:1, opacity: 1, ease:Elastic.easeOut}, {y: 0, autoAlpha: 1, opacity: 1}, 2,  'real +=0.5')
-      .from($(realHashtag).find('.hashtag'), 1, { delay: 0.5, y: 100, autoAlpha: 0}, 'real +=1.0')
-      .staggerFrom($(realHashtag).find('.voter'), 3, {delay: 0, scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
-
-          ion.sound.play("button_tiny");
-
-      }}, 2)
-      .staggerTo($(realHashtag).find('.voter .portrait'), 1, { scale: 0, autoAlpha:0, display: 'none', ease:Elastic.easeOut }, 1, '=0')
-      .staggerFromTo($(realHashtag).find('.voter .points'), 0.5, { scale: 0, opacity:0, display: 'block' }, { scale: 1, opacity: 1, display: 'block'}, 0.5, '-=0.5')
-      .to($('#hashtags'), 1, {delay: 2, y:-200, autoAlpha: 0, display:'none', ease:Elastic.easeIn});
-
-      if($('#slider-gsap').length) {
-        hashtagsAnimSlider = new GSAPTLSlider(hashtagsAnim, "slider-gsap", {
-            width: 600
-        });
-      }
-
-      // TweenLite.set(".cardWrapper", {perspective:400});
-      // TweenLite.set(".back", {rotationX:180});
-      // TweenLite.set([".back", ".front"], {backfaceVisibility:"hidden"});
-
-      hashtagsAnim.play();
 
       break;
 

@@ -10,6 +10,13 @@
 var clockInterval;
 var wikiAnimSlider;
 
+var openAnim = new TimelineLite();
+// Show players
+openAnim
+.from($('.room-container'), 1, {scale:0, autoAlpha:0, delay:1, ease:Elastic.easeOut})
+.staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+.staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+
 var gameEvents = function(eventId, eventData) {
 
   /*

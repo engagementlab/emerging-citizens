@@ -14,11 +14,20 @@
 
 	var socket;
   var gameCode;
-  var playerId;
-
+  var gameEnded = false;
 	var gameContainer;
+
+  var playerId;
 	var timeline = new TimelineLite();
-  
+
+	
+	{{!-- Group view cleanup --}}
+	{{#ifeq section 'group/monitor'}}
+	    $('.body').addClass('game-bg group');
+	    $('#wrapper').addClass('group');
+	    $('.navbar.main').attr ('style', 'display:none;');
+	{{/ifeq}}
+
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
@@ -151,18 +160,25 @@
 
 		$('#top-header').remove();
 
-		// Inject markup content and fire callback when done
-		gameContainer.html(content)
-								 .promise()
-								 .done(function(){
-								 		
-								 		if(callback)
-									 		callback();
+		var lobbyAnim = new TimelineLite();
+		lobbyAnim.to(gameContainer, .5, {x:'-100%', ease:Expo.easeInOut, onComplete:function() {
 
-								    // Hide loading
-								    $('#loading-modal').fadeOut(250);
+			// Inject markup content and fire callback when done
+			gameContainer.html(content)
+									 .promise()
+									 .done(function(){
+									 		
+									 		if(callback)
+										 		callback();
+				
+											lobbyAnim.fromTo(gameContainer, .5, {x:'100%'}, {x:'0%', ease:Expo.easeInOut})
 
-								 });
+									    // Hide loading
+									    $('#loading-modal').fadeOut(250);
+
+									 });
+
+		}})
 
 		if($('#top-header').length > 0) {
 			var topBar = $('#top-header').detach();
@@ -242,209 +258,209 @@
 
   }
 
-// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
-detectPrivateMode(function(isPrivate) {
-	
-	if(isPrivate) {
-
-		$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
-
-		$(document).ready(function() {
-	    var errorAnim = new TimelineLite();
-	    errorAnim
-	    .to($('#access_code'), 1.5, {xPercent:-200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .1)
-	    .to($('#player_name'), 1.5, {xPercent:200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .2)
-	    .to($('#btn_submit_code'), 1, {yPercent:120, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .3)
-	    .fromTo($('.form .error'), 1, { scale: 2.5, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Bounce.easeOut});
-		});
+	// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
+	detectPrivateMode(function(isPrivate) {
 		
-		return;
-	
-	}	
+		if(isPrivate) {
 
-	{{#ifeq environment "production"}}
+			$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
+
+			$(document).ready(function() {
+		    var errorAnim = new TimelineLite();
+		    errorAnim
+		    .to($('#access_code'), 1.5, {xPercent:-200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .1)
+		    .to($('#player_name'), 1.5, {xPercent:200, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .2)
+		    .to($('#btn_submit_code'), 1, {yPercent:120, display:'none', autoAlpha:0, ease:Elastic.easeOut}, .3)
+		    .fromTo($('.form .error'), 1, { scale: 2.5, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Bounce.easeOut});
+			});
+			
+			return;
 		
-		// GA include
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		}	
 
-	  ga('create', 'UA-64617433-4', 'auto');
-	  ga('send', 'pageview');
-
-	{{else}}
-
-		// For socket debugging
-		sessionStorage.debug = '*';
-
-	{{/ifeq}}
-	
-	{{#ifeq section "index"}}
-
-		$(document).ready(function() {
-
-			if (jQuery.browser.mobile)
-				return;
-
-			$('.home-page-info.coming-soon').click(function(evt) {
-				evt.preventDefault();
-				$(evt.currentTarget).addClass('invalid');
-
-				setTimeout(
-					function() {
-						$(evt.currentTarget).removeClass('invalid');
-					}, 1000);
-			});
- 
-		}); 
+		{{#ifeq environment "production"}}
 			
-	{{/ifeq}}
+			// GA include
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  {{#ifeq section "comingsoon"}}
+		  ga('create', 'UA-64617433-4', 'auto');
+		  ga('send', 'pageview');
 
-		$(document).ready(function() {
+		{{else}}
 
-			$('.home-page-info.coming-soon').click(function(evt) {
-				evt.preventDefault();
-			});
+			// For socket debugging
+			sessionStorage.debug = '*';
 
-			if (jQuery.browser.mobile)
-				return;
+		{{/ifeq}}
+		
+		{{#ifeq section "index"}}
 
-			$('.coming-soon-info').css('visibility', 'hidden');
-			
-			timeline
-			.from($('.navbar'), 1, {marginTop: "-20%", delay: 1.4, ease:Ease.easeOut})
-			.fromTo($('#coming-soon-banner'), 1, {marginTop: "-40%"}, {marginTop: "8%", ease:Ease.easeOut})
-			.staggerFrom($('.coming-soon-info'), 2, {yPercent:5, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5);
+			$(document).ready(function() {
 
-			timeline.play();
+				if (jQuery.browser.mobile)
+					return;
 
-		});
+				$('.home-page-info.coming-soon').click(function(evt) {
+					evt.preventDefault();
+					$(evt.currentTarget).addClass('invalid');
 
-  {{else}}
-
-		{{#ifnoteq section 'group/monitor'}}
-
-			// Load animations
-			{{> script/player_animation}}
-
-		{{/ifnoteq}}
-
-		$(document).ready(function() {
-
-			// Get reference to main content div
-			gameContainer = $('#gameContent');
-
-			// GROUP VIEW
-			{{#ifeq section 'group'}}
+					setTimeout(
+						function() {
+							$(evt.currentTarget).removeClass('invalid');
+						}, 1000);
+				});
+	 
+			}); 
 				
-	      $('.body').addClass('login');
-				$('.navbar.main').hide();
+		{{/ifeq}}
 
-				$('.voting-button').click(function(e) {
+	  {{#ifeq section "comingsoon"}}
 
-					$(e.currentTarget).toggleClass('inactive');
-					$(e.currentTarget).toggleClass('active');
+			$(document).ready(function() {
 
+				$('.home-page-info.coming-soon').click(function(evt) {
+					evt.preventDefault();
 				});
 
-				// Form click to begin game
-				$('#btn_submit').click(function(evt) {
-					var data = {};
-					/*data.contentCategories = $(".form :input.active").map(function(){
-																	    return $(this).val();
-																	 }).get();*/
-					data.accessCode = $('#access-code').text();
+				if (jQuery.browser.mobile)
+					return;
+
+				$('.coming-soon-info').css('visibility', 'hidden');
+				
+				timeline
+				.from($('.navbar'), 1, {marginTop: "-20%", delay: 1.4, ease:Ease.easeOut})
+				.fromTo($('#coming-soon-banner'), 1, {marginTop: "-40%"}, {marginTop: "8%", ease:Ease.easeOut})
+				.staggerFrom($('.coming-soon-info'), 2, {yPercent:5, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .5);
+
+				timeline.play();
+
+			});
+
+	  {{else}}
+
+			{{#ifnoteq section 'group/monitor'}}
+
+				// Load animations
+				{{> script/player_animation}}
+
+			{{/ifnoteq}}
+
+			$(document).ready(function() {
+
+				// Get reference to main content div
+				gameContainer = $('#gameContent');
+
+				// GROUP VIEW
+				{{#ifeq section 'group'}}
+					
+		      $('.body').addClass('login');
+					$('.navbar.main').hide();
+
+					$('.voting-button').click(function(e) {
+
+						$(e.currentTarget).toggleClass('inactive');
+						$(e.currentTarget).toggleClass('active');
+
+					});
+
+					// Form click to begin game
+					$('#btn_submit').click(function(evt) {
+						var data = {};
+						/*data.contentCategories = $(".form :input.active").map(function(){
+																		    return $(this).val();
+																		 }).get();*/
+						data.accessCode = $('#access-code').text();
+
+					  $.post( 
+					  	"/api/create/" + $(evt.currentTarget).data().type,
+							data,
+							function( data ) {
+
+								if(data.error_code !== undefined) {
+
+									if(data.error_code === 'need_content')
+										$('#session-create #categories').addClass('invalid');
+									
+									$('#session-create .error').text(data.msg).fadeIn();
+									
+									return;
+								}
+
+							  window.location = data;
+							}
+						);
+					});
+
+				 // PLAYER VIEW
+				{{else}}
+
+					{{> script/player_logic section=section}}
+
+				{{/ifeq}}
+
+				function templateLoad() {
+
+					var selected = $('#template_selector').find('option:selected');
+					var template = selected.val();
+					var templateData = selected.data('key');
+					var eventId = selected.data('event_id'); 
 
 				  $.post( 
-				  	"/api/create/" + $(evt.currentTarget).data().type,
-						data,
+				  	"/api/load/",
+				  	{ template_path: template, debug_key: templateData, event_id: eventId },
 						function( data ) {
 
-							if(data.error_code !== undefined) {
+						 	socketEvents(data.id, data.eventData);
 
-								if(data.error_code === 'need_content')
-									$('#session-create #categories').addClass('invalid');
-								
-								$('#session-create .error').text(data.msg).fadeIn();
-								
-								return;
-							}
+						 	if(typeof(gameEvents) == "function")
+								gameEvents(data.id, data.eventData);
 
-						  window.location = data;
 						}
 					);
+
+				}
+				$("#template_reload").click(function() {
+
+					templateLoad();
+
+				});
+				$("#template_selector").change(function() {
+
+					templateLoad();
+				
+				});
+				$("#countdowns_pause").click(function(evt) {
+
+					var btn = $(evt.currentTarget);
+					socket.emit('debug:pause', emitData());
+
+					if(!$(btn).data('resume')) {
+						$(btn).text('resume countdowns');
+						$(btn).data('resume', 'true');
+					}
+					else {
+						$(btn).text('pause countdowns');
+						$(btn).data('resume', 'false');
+					}
+
+				});				
+				$("#generate_players").click(function() {
+
+					$("#generate_players").text('loading...');
+
+					$('#login').remove();
+					$('#emulate-players').fadeIn();
+					
+					$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
 				});
 
-			 // PLAYER VIEW
-			{{else}}
+		});
+		{{/ifeq}}	
 
-				{{> script/player_logic section=section}}
-
-			{{/ifeq}}
-
-			function templateLoad() {
-
-				var selected = $('#template_selector').find('option:selected');
-				var template = selected.val();
-				var templateData = selected.data('key');
-				var eventId = selected.data('event_id'); 
-
-			  $.post( 
-			  	"/api/load/",
-			  	{ template_path: template, debug_key: templateData, event_id: eventId },
-					function( data ) {
-
-					 	socketEvents(data.id, data.eventData);
-
-					 	if(typeof(gameEvents) == "function")
-							gameEvents(data.id, data.eventData);
-
-					}
-				);
-
-			}
-			$("#template_reload").click(function() {
-
-				templateLoad();
-
-			});
-			$("#template_selector").change(function() {
-
-				templateLoad();
-			
-			});
-			$("#countdowns_pause").click(function(evt) {
-
-				var btn = $(evt.currentTarget);
-				socket.emit('debug:pause', emitData());
-
-				if(!$(btn).data('resume')) {
-					$(btn).text('resume countdowns');
-					$(btn).data('resume', 'true');
-				}
-				else {
-					$(btn).text('pause countdowns');
-					$(btn).data('resume', 'false');
-				}
-
-			});				
-			$("#generate_players").click(function() {
-
-				$("#generate_players").text('loading...');
-
-				$('#login').remove();
-				$('#emulate-players').fadeIn();
-				
-				$('#emulate-players iframe').attr('src', 'http://localhost:3000/play/debug');
-			});
 
 	});
-	{{/ifeq}}	
-
-
-});
 
 </script>

@@ -11,9 +11,21 @@
 var clockInterval;
 var resultsAnimSlider;
 
-var topBar = $('#top-header').detach();
+var header = $('#top-header');
+var topBar = header.detach();
 topBar.prependTo('body');
 
+var lobbyAnim = new TimelineLite();
+lobbyAnim
+.fromTo(header, 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease: Elastic.easeOut, delay: 0.5}).add('header')
+.from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease: Elastic.easeOut}, 'header+=.5')
+.from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1')
+.from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1');
+
+
+/* 
+ Renders each meme on screen to canvases
+*/
 var loadMemes = function() {
   
   $.each($('.meme-canvas'), function(index, meme) {
@@ -58,7 +70,7 @@ var loadMemes = function() {
           align: 'center'
       });
   
-      // Add all elements to render layer
+      // Add all elements to render layer on image load
       var memeImg = new Image();
       memeImg.onload = function() {
 
@@ -87,6 +99,7 @@ var loadMemes = function() {
         layer.draw();
 
       }
+      // Set image source so it loads
       memeImg.src = $(meme).data().img;
 
   });

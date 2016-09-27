@@ -2,19 +2,19 @@
     <div class="row">
         
         {{!-- STATE TEXT --}}
-        <div id="top-header" class="top-bar">
+        <div id="top-header" class="top-bar hidden-el">
             <h1>
                 waiting for players to join...
             </h1>
         </div>
 
-        <div class="col-lg-4 col-sm-4"> 
+        <div class="col-lg-4 col-sm-4 players-left hidden-el"> 
         {{> group/meme/players_grid players=players.left offset=0 left=true }}
         </div>
 
         {{!-- Room Code Container --}}
         <section class="col-lg-4 col-sm-4">
-            <div id="game_code" class="row room-container">
+            <div id="game_code" class="row room-container hidden-el">
                 <div class="col-lg-12 col-sm-12">
                     
                     {{!-- ROOM CODE --}}
@@ -52,7 +52,7 @@
             </div>
         </section>
 
-        <div class="col-lg-4 col-sm-4"> 
+        <div class="col-lg-4 col-sm-4 players-right hidden-el"> 
         {{> group/meme/players_grid players=players.right offset=4 left=false }}
         </div>
         

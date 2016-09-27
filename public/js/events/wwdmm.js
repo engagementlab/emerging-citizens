@@ -62,102 +62,102 @@ var gameEvents = function(eventId, eventData) {
                     }); 
 
                 });
-
-            });
-
-            var canvas = new Kinetic.Stage({
-                container: 'meme-canvas',
-                width: 400,
-                height: 400
-            }),
-            layer = new Kinetic.Layer();
-            canvas.add(layer);
-
-            var upperCaption = new Kinetic.Text({
-                name: 'upper',
-                x: 0,
-                y: 40,
-                text: '',
-                fontSize: 46,
-                fontFamily: 'Impact, "Impact-External"',
-                fill: '#fff',
-                stroke: '#000',
-                strokeWidth: 2,
-                lineJoin: 'round',
-                width: 400,
-                align: 'center'
-            }),
-            lowerCaption = new Kinetic.Text({
-                name: 'lower',
-                x: 0,
-                y: 400,
-                text: '',
-                fontSize: 46,
-                fontFamily: 'Impact, "Impact-External"',
-                fill: '#fff',
-                stroke: '#000',
-                strokeWidth: 2,
-                lineJoin: 'round',
-                width: 400,
-                align: 'center'
-            });
-
-            var writeText = function(txtElement) {
-
-                var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
-
-                caption.setText(txtElement.val().toUpperCase());
-                caption.fontSize(getFontSize(txtElement.val()));
-
-                lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
-
-                layer.draw();
             
-            }
+                var canvas = new Kinetic.Stage({
+                    container: 'meme-canvas',
+                    width: 400,
+                    height: 400
+                }),
+                layer = new Kinetic.Layer();
+                canvas.add(layer);
 
-            $('#btn-next input').click(function(evt) {
+                var upperCaption = new Kinetic.Text({
+                    name: 'upper',
+                    x: 0,
+                    y: 40,
+                    text: '',
+                    fontSize: 46,
+                    fontFamily: 'Impact, "Impact-External"',
+                    fill: '#fff',
+                    stroke: '#000',
+                    strokeWidth: 2,
+                    lineJoin: 'round',
+                    width: 400,
+                    align: 'center'
+                }),
+                lowerCaption = new Kinetic.Text({
+                    name: 'lower',
+                    x: 0,
+                    y: 400,
+                    text: '',
+                    fontSize: 46,
+                    fontFamily: 'Impact, "Impact-External"',
+                    fill: '#fff',
+                    stroke: '#000',
+                    strokeWidth: 2,
+                    lineJoin: 'round',
+                    width: 400,
+                    align: 'center'
+                });
 
-                var imgElement = $('.glide__slide.active img')[0];
+                var writeText = function(txtElement) {
+
+                    var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
+
+                    caption.setText(txtElement.val().toUpperCase());
+                    caption.fontSize(getFontSize(txtElement.val()));
+
+                    lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
+
+                    layer.draw();
                 
-                if(!imgInstance) {
-                    imgInstance = new Kinetic.Image({
-                                    x: 0,
-                                    y: 0,
-                                    width: canvas.getWidth(),
-                                    height: canvas.getHeight(),
-                                    image: imgElement
-                                  });
-                    
-                    layer.add(imgInstance);
-                    layer.add(upperCaption);
-                    layer.add(lowerCaption);
                 }
-                else
-                    imgInstance.setImage(imgElement);
+
+                $('#btn-next input').click(function(evt) {
+
+                    var imgElement = $('.glide__slide.active img')[0];
+                    
+                    if(!imgInstance) {
+                        imgInstance = new Kinetic.Image({
+                                        x: 0,
+                                        y: 0,
+                                        width: canvas.getWidth(),
+                                        height: canvas.getHeight(),
+                                        image: imgElement
+                                      });
+                        
+                        layer.add(imgInstance);
+                        layer.add(upperCaption);
+                        layer.add(lowerCaption);
+                    }
+                    else
+                        imgInstance.setImage(imgElement);
+                    
+                    layer.draw();
+
+                    $('#btn-next').hide();
+                    $('#meme-slider').hide();
+                    $('#meme-text').show();
+
+                    $('#btns-submit').show();
+
+                });
+
+                $('#btn-back').click(function(evt) {
                 
-                layer.draw();
+                    $('#meme-slider').show();
+                    $('#meme-text').hide();
 
-                $('#btn-next').hide();
-                $('#meme-slider').hide();
-                $('#meme-text').show();
+                    $('#btn-next').show();
+                    $('#btns-submit').hide();
 
-                $('#btns-submit').show();
+                });
 
-            });
+                // Write text to canvas as player types
+                $('.meme-text').keydown(function(evt) {
+                    writeText($(evt.currentTarget));
+                });
 
-            $('#btn-back').click(function(evt) {
-            
-                $('#meme-slider').show();
-                $('#meme-text').hide();
-
-                $('#btn-next').show();
-                $('#btns-submit').hide();
-
-            });
-
-            // Write text to canvas as player types
-            $('.meme-text').keydown(function(evt) {
-                writeText($(evt.currentTarget));
             });
             
             break;

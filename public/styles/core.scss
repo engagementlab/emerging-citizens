@@ -62,7 +62,9 @@ html, body {
 
 .body.game-bg {
 	
-  @include linear_transition(background, 0.5s);
+  // @include linear_transition(background, 0.5s);
+  
+  overflow-x: hidden;
 
   &.htyi {
 	  background: $background-groupview, $color-peach;
