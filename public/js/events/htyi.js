@@ -45,23 +45,6 @@ var gameEvents = function(eventId, eventData) {
             });
 
           break;
-    
-        case 'hashtags:received':
-
-            updateGameContent(eventData);
-
-            // Remove current player's submission from selections
-            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
-
-            // Hide voting (if player was reconnected and already voted)?
-            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
-            {
-                $('#' + $('#submitted').data('hide')).remove();
-                $('#submitted').show();
-            }
-
-            break;
-
         case 'hashtag:tryagain':
 
             $('#tweet_input').val('').addClass('invalid');
@@ -85,6 +68,23 @@ var gameEvents = function(eventId, eventData) {
             loadToggle(false);
 
             break;
+    
+        case 'hashtags:received':
+
+            updateGameContent(eventData);
+
+            // Remove current player's submission from selections
+            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
+
+            // Hide voting (if player was reconnected and already voted)?
+            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
+            {
+                $('#' + $('#submitted').data('hide')).remove();
+                $('#submitted').show();
+            }
+
+            break;
+
 
         case 'hashtag:results':
 

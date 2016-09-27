@@ -16,6 +16,12 @@
 		background-color: rgba(9, 234, 210, .9);
 		color: white;
 	}
+	
+	#loading-modal {
+		.indicator {
+			background: rgba(9, 234, 210, .5) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
+		}
+	}
 
 	a.new {
 		color: red;

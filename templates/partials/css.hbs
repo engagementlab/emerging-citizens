@@ -34,7 +34,13 @@
 	{{#ifeq section 'group/monitor'}}
 		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
 	{{else}}
-    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
+		{{#ifeq section 'index'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+	    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/home-bootstrap.min.css" crossorigin="anonymous">			
+		{{else}}
+			{{!-- Our custom, barebones bootstrap for players --}}
+	    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
+		{{/ifeq}}
 	{{/ifeq}}
 
 	{{!-- Core layout --}}
