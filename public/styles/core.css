@@ -1587,6 +1587,13 @@ body .player-form {
 /* 
 	HTYI player view styling.
 */
+.body.htyi.player .error-modal {
+  background-color: rgba(254, 120, 70, 0.9);
+  color: white; }
+
+.body.htyi.player #loading-modal .indicator {
+  background: rgba(254, 120, 70, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg"); }
+
 .body.htyi.player .game-message {
   position: relative;
   min-height: 100%;
@@ -1621,10 +1628,6 @@ body .player-form {
 .body.htyi.player #debugging {
   z-index: 0; }
 
-.body.htyi.player .error-modal {
-  background-color: rgba(254, 120, 70, 0.9);
-  color: white; }
-
 /* 
 	WikiGeeks player view styling.
 */
@@ -1637,6 +1640,8 @@ body .player-form {
   .body.wikigeeks.player .error-modal {
     background-color: rgba(9, 234, 210, 0.9);
     color: white; }
+  .body.wikigeeks.player #loading-modal .indicator {
+    background: rgba(9, 234, 210, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
   .body.wikigeeks.player a.new {
     color: red;
     pointer-events: none !important; }
@@ -1850,6 +1855,13 @@ body .player-form {
 /* 
 	WWDMM player view styling.
 */
+.body.wwdmm.player .error-modal {
+  background-color: rgba(255, 91, 119, 0.9);
+  color: white; }
+
+.body.wwdmm.player #loading-modal .indicator {
+  background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
+
 .body.wwdmm.player .glide__wrapper {
   min-height: 400px; }
 
@@ -1920,10 +1932,6 @@ body .player-form {
   left: 50%;
   bottom: 4%;
   width: 100%; }
-
-.body.wwdmm.player .error-modal {
-  background-color: rgba(255, 91, 119, 0.9);
-  color: white; }
 
 html, body {
   max-height: 100%; }
@@ -2136,12 +2144,12 @@ footer {
   text-align: center; }
 
 #loading-modal .indicator {
-  background: rgba(254, 120, 70, 0.5) url("/images/layout/loading-spinner.svg");
+  background: rgba(254, 120, 70, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/loading-spinner.svg");
   position: fixed;
   width: 100%;
   height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat; }
+  background-position: center center !important;
+  background-repeat: no-repeat !important; }
 
 .error-modal {
   position: fixed;
