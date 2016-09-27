@@ -62,9 +62,6 @@ var socketEvents = function(eventId, eventData) {
         return;
     }
 
-    // Hide loading
-    $('#loading-modal').fadeOut(250);
-
     switch (eventId) {
 
         case 'connect':
@@ -92,7 +89,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'player:loggedin':
 
-            $('#gameContent').html(eventData.html);
+            updateGameContent(eventData.html);
 
             sessionStorage.setItem('gameType', eventData.gameType);
             sessionStorage.setItem('reconnected', false);

@@ -34,7 +34,7 @@
 	{{#ifeq section 'group/monitor'}}
 		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
 	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
 	{{/ifeq}}
 
 	{{!-- Core layout --}}
@@ -50,12 +50,14 @@
 
 	{{!-- PRODUCTION/STAGING --}}
 
-	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq section 'group/monitor'}}
+		{{!-- Bootstrap non-responsive for group view --}}
 		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
 	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		{{!-- Our custom, barebones bootstrap --}}
+    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
 	{{/ifeq}}
+	{{!-- Game styling --}}
 	<link href="{{cdnAsset site='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
 
 {{/ifeq}}

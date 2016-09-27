@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -25,8 +23,6 @@ var gameEvents = function(eventId, eventData) {
     var API_URL = 'https://en.wikipedia.org/w/api.php?callback=?';
     var workspace;
 
-    // playerSubmitted = false;
-
     /* 
         Client methods for game
     */
@@ -51,13 +47,10 @@ var gameEvents = function(eventId, eventData) {
 
         articleChosen.text(articleTitle);
 
-
-
         retrievingData = true;
 
-        if (initialSearch === false) {
-            $('#article-loading').show();
-        }
+        // if (initialSearch === false)
+        //     $('#article-loading').show();
 
         // Get article content
         $.getJSON(
@@ -80,18 +73,15 @@ var gameEvents = function(eventId, eventData) {
                     
                     // playerSubmitted = false;
                     retrievingData = false;
+
+                    loadToggle(false, true);
+
                     return;                
                 }
 
                 if (articleData.parse.redirects.length !== 0)
                     articleTitle = articleData.parse.redirects[0].to;
-                
-                // if (articleData.error) {
-                //     $(articleInput).addClass('invalid');
-                //     $('.error').text(articleData.error.info).fadeIn();
 
-                //     return;
-                // }
                 displayWikiContent(articleData);
 
                 // Tell server about this article being chosen by player, unless overriden
@@ -124,12 +114,12 @@ var gameEvents = function(eventId, eventData) {
                 
                 retrievingData = false;
                 random = false;
-                if (initialSearch === false) {
+
+                if (initialSearch === false)
                   $('#article-loading').hide();  
-                } else {
+                else
                     playerSubmitted = true;
-                }
-                
+                                
             });
 
     };
@@ -219,6 +209,8 @@ var gameEvents = function(eventId, eventData) {
         removeDom('.references');
 
         removeDom('sup');
+
+        removeDom('.ambox-Refimprove');
         
         //Add necessary inline style changes
         $('li').css("text-align", "left");
@@ -238,18 +230,11 @@ var gameEvents = function(eventId, eventData) {
 
             e.preventDefault();
             
-
             // Get link's event data (article title) and search for it
             var articleTitle = $(e.currentTarget).data().title;
             retrieveArticle(articleTitle, false);
-            // if (retrievingData === true) {
-            //     $('#article-loading').show();
-            // }
 
-            // if (retrievingData === false) {
-            //     $('#article-loading').hide();
-            // }
-
+            loadToggle(true, true);
 
         })
         // Go through each link
@@ -271,6 +256,8 @@ var gameEvents = function(eventId, eventData) {
 
         // Clear the temp workspace
         $(workspace).empty();
+        
+        loadToggle(false, true);
 
     };
 
@@ -278,10 +265,9 @@ var gameEvents = function(eventId, eventData) {
         $('#time-up').hide();
     });
 
-
     /*
       Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
-      */
+    */
     switch (eventId) {
 
         case 'game:start':
@@ -369,8 +355,6 @@ var gameEvents = function(eventId, eventData) {
         // Player guess the target article for start
         case 'article:tryagain':
 
-            console.log ("try again");
-
                 $('#btn_search img').hide();
                 $('#btn_search span').show();
                 $('.error').text(eventData).fadeIn();
@@ -378,6 +362,8 @@ var gameEvents = function(eventId, eventData) {
                 $('#btn_search').attr('disabled', false);
 
                 playerSubmitted = false;
+
+                loadToggle(false);
 
             break;
 
@@ -394,8 +380,6 @@ var gameEvents = function(eventId, eventData) {
                 playerSubmitted = true;
 
             }
-
-            
 
             break;
 
@@ -456,10 +440,7 @@ var gameEvents = function(eventId, eventData) {
 
                 });
 
-            });
-
-            // var last = [];
-            
+            });            
 
             break;
 
@@ -501,29 +482,22 @@ var gameEvents = function(eventId, eventData) {
                 bounce();
             }
             
-
-            
-            
-
             break;
 
         case 'game:countdown_end':
 
-        console.log(playerSubmitted, " has submitted");
-
             $('input').disabled = false;
             $('.form .error').hide();
 
-            if (eventData === "results") {
+            if (eventData === "results")
                 $('#time-up').show();
-            }
 
             if (eventData === "topicCountdown") {
 
                 if (playerSubmitted === false) {
                     // Topic was not submitted
                     $('input').disabled = true;
-                    $('#topic-submission').hide(function(){console.log("")});
+                    $('#topic-submission').hide();
 
                     
                     $('.timesUp').html("<span>Time is up! Sending you to a random article...</span>");
@@ -539,8 +513,6 @@ var gameEvents = function(eventId, eventData) {
                     
                 }
             }
-
-
             
             break;
 

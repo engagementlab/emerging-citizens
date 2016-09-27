@@ -155,8 +155,8 @@ var gameEvents = function(eventId, eventData) {
 
             });
 
-            // Shrink text as length increases
-            $('.meme-text').keyup(function(evt) {
+            // Write text to canvas as player types
+            $('.meme-text').keydown(function(evt) {
                 writeText($(evt.currentTarget));
             });
             
@@ -166,6 +166,9 @@ var gameEvents = function(eventId, eventData) {
 
             $('.error').text(eventData).fadeIn();
             $('#btn-submit').removeAttr('disabled');
+            
+            loadToggle(false, true);
+
           
           break;
 
@@ -176,6 +179,8 @@ var gameEvents = function(eventId, eventData) {
             });
 
             sessionStorage.setItem('playerSubmission', eventData);
+            
+            loadToggle(false);
 
             break;
 

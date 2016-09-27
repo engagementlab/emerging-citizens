@@ -28,7 +28,7 @@
   {{/ifeq}}
 
   // All possible socket event IDs
-  // TODO: Change based on game type
+  // TODO: Change based on game type?
 	var eventIds = [
 
 		{{#ifnoteq environment "production"}}
@@ -144,10 +144,14 @@
 
 	};
 
+	/* 
+		Util to inject markup into game content container and run any callbacks
+	*/
 	var updateGameContent = function(content, callback) {
 
 		$('#top-header').remove();
 
+		// Inject markup content and fire callback when done
 		gameContainer.html(content)
 								 .promise()
 								 .done(function(){
@@ -164,6 +168,22 @@
 			var topBar = $('#top-header').detach();
 			topBar.prependTo('body');
 		}
+	}
+
+	/*
+	    Hide/show loading modal
+	*/
+	var loadToggle = function(show, fast) {
+	 
+	    if(fast) {
+	        // Hide/show loading w/o anim
+	        $('#loading-modal').toggle(show);
+	    }
+	    else {
+	        // Hide/show loading
+	        $('#loading-modal').fadeTo(250, (show ? 1 : 0), 'easeInOutQuart');
+	    }
+
 	}
 
 	/* 

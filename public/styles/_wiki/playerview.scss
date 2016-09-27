@@ -11,6 +11,11 @@
 	#gameContent {
 		padding: 40px 0px;
 	}
+	
+	.error-modal {
+		background-color: rgba(9, 234, 210, .9);
+		color: white;
+	}
 
 	a.new {
 		color: red;
@@ -49,11 +54,6 @@
 		button {
 			color: white;
 			background-color: $color-orange;
-		}
-	
-		.error-modal {
-			background-color: rgba(9, 234, 210, .9);
-			color: white;
 		}
 	}
 

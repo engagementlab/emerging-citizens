@@ -68,6 +68,8 @@ var gameEvents = function(eventId, eventData) {
             $('#tweet-submission .error').text(eventData).fadeIn();
             
             $('#btn_submit').removeAttr('disabled');
+            
+            loadToggle(false, true);
 
             break;
 
@@ -79,6 +81,8 @@ var gameEvents = function(eventId, eventData) {
             $('#submitted').show();
 
             sessionStorage.setItem('playerSubmission', eventData);
+            
+            loadToggle(false);
 
             break;
 

@@ -13,23 +13,24 @@
 var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
 
 {{#ifnoteq environment "development"}}
-{{!-- Smartlook integration --}}
-window.smartlook||(function(d) {
-    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-    c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
-    })(document);
-    smartlook('init', 'f70bc72265f75e886b23785202aafc01c9b5c2e1');
+    {{!-- Smartlook integration --}}
+    window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', 'f70bc72265f75e886b23785202aafc01c9b5c2e1');
 
-// Warn about reloading
-window.addEventListener("onbeforeunload", function (e) {
+    // Warn about reloading
+    window.addEventListener("onbeforeunload", function (e) {
 
-  (e || window.event).returnValue = null;
-  return null;
+      (e || window.event).returnValue = null;
+      return null;
 
-});
+    });
 {{/ifnoteq}}
 
+// Do not enable sound for emulated (debug) player
 if(!isEmulated) {
 
     ion.sound({
@@ -51,7 +52,7 @@ else
 /*
     Logs the player in
 */
-function playerLogin(data) {
+var playerLogin = function(data) {
 
     gameCode = data.code;
 
@@ -74,7 +75,7 @@ function playerLogin(data) {
 /*
     Checks if this client is logged in as a player already
 */
-function checkIfLoggedIn() {
+var checkIfLoggedIn = function() {
     
     // Check if game code saved to session (player is already logged in)
     if(!sessionStorage.getItem('gameCode')) {
@@ -111,30 +112,27 @@ function checkIfLoggedIn() {
 $(document).on('click', '.form .submit', function(evt) {
     
     var event = $(this).data().event;
-    var localEvent = $(this).data().local_event;
-    var sessionFlag = $(this).data().sessionFlag;
     var pkg = getFormData($(this));
 
-    // If this is a local event, call immediately (don't emit)
-    if(localEvent) {
-        socketEvents(localEvent);
-        return;
-    }
-
     // If there is a session flag ('flag:value'), set it
-    if(sessionFlag)
-        sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
+    // TODO: Why?
+    // var sessionFlag = $(this).data().sessionFlagsessionFlag;
+    // if(sessionFlag)
+    //     sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
 
+    // Emit event to socket
     socket.emit(event, emitData(pkg));
 
+    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
     if($(this).data().autohide) {
         $('#' + $('#submitted').data('hide')).remove();
         $('#submitted').show();
     }
 
+    // Disable form button unless explicitly prevented, and show loading...
     if(!$(this).data().keep_enabled) {
         $(evt.currentTarget).attr('disabled', 'disabled');
-        $('#loading-modal').fadeIn(250);
+        loadToggle(true);
     }
 
 });
@@ -186,6 +184,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
     
                 $('.btn.game_login').removeAttr('disabled');
                 $('.form .error').text(data.msg).fadeIn();
+                loadToggle(false, true);
 
                 return;
 
@@ -254,10 +253,6 @@ checkIfLoggedIn();
 
 {{else}}
 
-    // Prevent device sleep
-   {{!--  var noSleep = new NoSleep();
-    noSleep.enable(5000); --}}
-
     // Load events for players
     {{> script/player_events gameType=gameType}}
 
@@ -324,6 +319,7 @@ function registerEvents() {
 
 }
 
+
 {{#ifeq section 'index'}}
 
     playerEntry();
@@ -356,6 +352,7 @@ function registerEvents() {
 
 {{/ifeq}}
 
+// /play URL
 {{#ifeq section 'play'}}
 
   $('.body').addClass('game-bg');
