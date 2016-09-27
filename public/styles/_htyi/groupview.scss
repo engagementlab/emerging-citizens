@@ -202,6 +202,39 @@
 		}
 	}
 
+	#voting {
+		.left {
+			// @include translate(50%, 0px);
+
+			div.player-background {
+				clear: both;
+				float: left;
+				margin-bottom:0;
+				@include translate(105px, -70px);
+			}
+			div.player-background:nth-child(4) {
+				@include translate(225px, -70px);
+				margin-bottom:0;
+				clear: none;
+			}
+		}
+		.right {
+			// @include translate(-50%, 0px);
+
+			div.player-background {
+				clear: both;
+				float: right;
+				margin-bottom:0;
+				@include translate(-105px, -70px);
+			}
+			div.player-background:nth-child(4) {
+				margin-bottom:0;
+				@include translate(-225px, -70px);
+				clear: none;
+			}
+		}
+	}
+
 	// SUBMISSIONS
 	#hashtag-submissions-prompt {
 
@@ -229,7 +262,7 @@
 			font-size: x-large;
 			background-color: white;
 			padding: 10px;
-			margin: 20px;
+			margin: 0px 20px 20px 20px;
 
 			.octothorp {
 				margin-top:3%;
