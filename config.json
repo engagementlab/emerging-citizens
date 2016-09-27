@@ -5,6 +5,7 @@
 	"admin_nav": { 
 						"HomePage": "HomePage",
 						"Game Config": ["GameConfig", "GameSession", "GameUser"],
+						"LessonPlan": "LessonPlan",
 						"ContentCategory": "ContentCategory",
 						"HTYI": ["Tweet", "HashtagGame"],
 						"WikiGeeks": ["WikiTopic", "WikiLink", "WikiGame"]

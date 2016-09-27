@@ -1668,8 +1668,12 @@ body .player-form {
       background-color: #36d5d9;
       color: white;
       margin-top: 30%; }
+      @media (min-width: 1024px) {
+        .body.wikigeeks.player #time-up .indicator {
+          margin-top: 15%; } }
     .body.wikigeeks.player #time-up button {
       color: white;
+      height: 80px;
       background-color: #FD6D59; }
   .body.wikigeeks.player #article-loading {
     background-color: rgba(255, 94, 65, 0.6);

@@ -1,0 +1,37 @@
+{{#ifeq gameType "wwdmm"}}
+ <a onclick="window.location = '/new/wwdmm'">
+    <div id="meme-info" class="col-sm-3 home-page-info current">
+
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">
+        {{!-- {{{content.wwdmm_blurb.html}}} --}}
+    
+    </div>
+  </a>
+
+{{/ifeq}}
+
+{{#ifeq gameType "wikigeeks"}}
+<a onclick="window.location =' /new/wikigeeks'">
+  <div id="geeks-info" class="col-sm-3 home-page-info current">
+    
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
+      {{!-- {{{content.wiki_blurb.html}}} --}}
+
+  </div>
+</a>
+
+     
+{{/ifeq}}
+
+{{#ifeq gameType "htyi"}}
+<a onclick="window.location='/new/htyi';">
+  <div id="hashtag-info" class="col-sm-3 home-page-info current">
+
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
+      {{!-- {{{content.htyi_blurb.html}}} --}}
+
+  </div>
+</a>
+{{/ifeq}}
+{{jsonPrint this}}
+
