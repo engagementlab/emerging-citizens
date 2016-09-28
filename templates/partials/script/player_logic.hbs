@@ -204,26 +204,72 @@ checkIfLoggedIn();
 {{!-- INDEX Template Script --}}
 {{#ifeq section 'group/monitor'}}
 
+    // Show or hide error about screen size limits
+    var errorScreenSize = function(show, isMobile) {
+
+        var showing = !$('#gameContent').is(':visible');
+
+        // Exit?
+        if( show && showing ||
+            !show && !showing )
+            return;
+
+        // Fade game content in or out
+        $('#gameContent').fadeTo("fast", (show ? 0 : 1), function() {
+
+            // Hide/show game content
+            $(this).css('display', (show ? 'none' : 'block'));
+
+            if(show) {
+                // Reset zoom
+                $('body').css('zoom', 1);
+            }
+
+            $('#error-screen-size').fadeTo("fast", (show ? 1 : 0), function() {
+                
+                $('#error-screen-size #text h2').hide();
+
+                // Show correct msg
+                $('#error-screen-size #text #' + (isMobile ? 'mobile' : 'size')).show();
+                $('#error-screen-size #text').css('top', (show ? 0 : '-100%'));
+                
+                // Hide/show error    
+                $(this).css('display', (show ? 'block' : 'none'));
+
+            });
+
+        });
+
+    };
+
     // Open socket connection
     socket = io();
     registerEvents();
 
     gameCode = '{{game.accessCode}}-group'; 
 
-    var nav = $('nav.header');
-
     // Thanks GOTA
     function doResize() {
+        
+        if (jQuery.browser.mobile)
+            return;
       
-      var scale = Math.min(
-        $(window).outerWidth() / 1680, 1.0
-      );
-      
-      $('body').css({
-        zoom: scale 
-      });
+        var scale = Math.min(
+            $(window).outerWidth() / 1680, 1.0
+        );
+
+        // If screen too small, show error saying so
+        if($(window).outerWidth() < 1024)
+            errorScreenSize(true);
+        else {
+            errorScreenSize(false);
+            // Apply zoom
+            $('body').css('zoom', scale);
+        }
+
 
     }
+    // Scale screen as window is resized
     $(window).resize(function() {
          doResize();
     });

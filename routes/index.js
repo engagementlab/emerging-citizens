@@ -29,7 +29,7 @@ exports = module.exports = function(app) {
     app.post('/game', routes.views.game.player);
 
     // Group screen
-    app.get('/game/:accesscode/:debug?', routes.views.group.monitor);
+    app.get('/game/:accesscode/:debug?', routes.views.group.lobby);
     
     // Deprecated
 

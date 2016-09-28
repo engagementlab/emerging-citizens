@@ -8,7 +8,12 @@
  * Script includes partial for MODERATOR socket.io events
  * ==========
  */
---}}		
+--}}
+
+if (jQuery.browser.mobile) {
+    errorScreenSize(true, true);    
+    return;
+}
 
 var clockInterval;
 var startAnim = new TimelineLite({paused: true});

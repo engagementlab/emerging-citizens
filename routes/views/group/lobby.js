@@ -64,6 +64,6 @@ exports = module.exports = function(req, res) {
 
   // Render the view
   // console.log (gameType);
-  view.render('group/monitor');
+  view.render('group/lobby');
 
 };

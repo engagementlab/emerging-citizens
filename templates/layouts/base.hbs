@@ -65,6 +65,15 @@
             <section id="loading-modal" class="modal">
               <div class="indicator"></div>
             </section>
+          {{else}}
+
+            <section id="error-screen-size" class="modal error-modal">
+                <div id="text" class="col-sm-12 col-centered">
+                  <h1>Hmmm...</h1>
+                  <h2 id="size">Looks like you are trying to start a new game, but your screen isn’t big enough! Try visiting this website on a larger screen or expanding your browser window. If you are looking to join a game, please visit ecplay.org on your personal device.</h2>
+                  <h2 id="mobile">Looks like you are trying to start a new game, but you are on a mobile device or tablet! Try visiting this website on a desktop browser.</h2>
+                </div>
+            </section>
           {{/ifnoteq}}
 
           {{#ifeq debug true}}
