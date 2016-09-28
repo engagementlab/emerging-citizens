@@ -123,6 +123,9 @@ var gameEvents = function(eventId, eventData) {
        
         clockInterval = setInterval(function() {
 
+          if(countdownText.length === 0)
+            countdownText = $('.countdown #countdown');
+          
     			secondsLeft--;
 
     			var displaySeconds = secondsToHms(secondsLeft);

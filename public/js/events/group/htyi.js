@@ -24,6 +24,32 @@ var gameEvents = function(eventId, eventData) {
     Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
   */
   switch (eventId) {
+
+    case 'game:countdown':
+
+      var secondsLeft = eventData.duration;
+      var timeFactor = 360 / secondsLeft;
+      var clockHand = $('#clock-hand');
+          
+      clockInterval = setInterval(function() {
+
+          if(clockHand.length === 0)
+            clockHand = $('#clock-hand');
+
+          function clockTick() {
+              clockHand.css({
+                  transform:'rotateZ('+ -(timeFactor*secondsLeft) + 'deg)'
+              });
+              secondsLeft--;
+          }
+
+          clockTick();
+
+          if(secondsLeft === 0)
+              clearInterval(clockInterval);
+      }, 1000);
+
+      break;
     
     case 'hashtag:submitted':
     case 'hashtags:received':
