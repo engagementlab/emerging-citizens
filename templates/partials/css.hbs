@@ -32,21 +32,19 @@
 	
 	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq section 'group/monitor'}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+		<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
 	{{else}}
 		{{#ifeq section 'index'}}
 			{{!-- Our custom, barebones bootstrap for home --}}
-	    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/home-bootstrap.min.css" crossorigin="anonymous">			
+	    <link rel="stylesheet" href="/styles/home-bootstrap.min.css" crossorigin="anonymous">			
 		{{else}}
 			{{!-- Our custom, barebones bootstrap for players --}}
-	    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
+	    <link rel="stylesheet" href="/styles/bootstrap.min.css" crossorigin="anonymous">
 		{{/ifeq}}
 	{{/ifeq}}
 
 	{{!-- Core layout --}}
 	<link href="/styles/core.css" rel="stylesheet"/>
-
-	{{!-- Bower plugins --}}
 
 	{{!-- Other plugins --}}
 	<link rel="stylesheet" href="/styles/plugins/glide.core.min.css">
@@ -56,14 +54,20 @@
 
 	{{!-- PRODUCTION/STAGING --}}
 
+	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq section 'group/monitor'}}
-		{{!-- Bootstrap non-responsive for group view --}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+		<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
 	{{else}}
-		{{!-- Our custom, barebones bootstrap --}}
-    <link rel="stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/styles/bootstrap.min.css" crossorigin="anonymous">
+		{{#ifeq section 'index'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/home-bootstrap.min' type='css' }}" rel="stylesheet">		
+		{{else}}
+			{{!-- Our custom, barebones bootstrap for players --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/bootstrap.min' type='css' }}" rel="stylesheet">
+		{{/ifeq}}
 	{{/ifeq}}
+
 	{{!-- Game styling --}}
-	<link href="{{cdnAsset site='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
+	<link href="{{cdnAsset product='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
 
 {{/ifeq}}
