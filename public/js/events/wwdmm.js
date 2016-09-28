@@ -42,6 +42,13 @@ var gameEvents = function(eventId, eventData) {
     */
     switch (eventId) {
 
+        case 'game:start':
+
+            updateGameContent(eventData.html);
+            $('.header').fadeIn();
+
+            break;
+
         case 'meme:create':
 
             var slideIndex = 0,

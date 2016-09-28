@@ -151,11 +151,7 @@ var socketEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            $('#gameContent').html(eventData.html);
-
-           {{!--  {{#ifeq gameType "wikigeeks"}}
-                $('.header').fadeIn();
-            {{/ifeq}} --}}
+            updateGameContent(eventData.html);
 
             break;
 

@@ -9,11 +9,13 @@
 var retrievingData;
 var random;
 var playerSubmitted = false;
-
 var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
-if ($('.article-error').css('display') !== 'none')
-    setTimeout($('.article-error').hide(), 5000);
+if ($('.article-error').css('display') !== 'none') {
+    setTimeout(function() {
+        $('.article-error').hide()
+    }, 5000);
+}
 
 //Add 'wikigeeks' class to body
 $('.body').addClass('wikigeeks');
@@ -272,83 +274,87 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            if (sessionStorage.currentArticle && playerWasReconnected)
-                retrieveArticle(sessionStorage.currentArticle, false, true);
+            updateGameContent(eventData, function() {
 
-            var articleInput = $('#article_input');
+                if (sessionStorage.currentArticle && playerWasReconnected)
+                    retrieveArticle(sessionStorage.currentArticle, false, true);
 
-            if (location.href.indexOf('debug') !== -1) {
+                var articleInput = $('#article_input');
 
-                // Get a random article while debugging, for tickles!
-                $.getJSON(
-                    API_URL + '&action=query&format=json&list=random&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1',
+                if (location.href.indexOf('debug') !== -1) {
 
-                    function(randomData) {
+                    // Get a random article while debugging, for tickles!
+                    $.getJSON(
+                        API_URL + '&action=query&format=json&list=random&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1',
 
-                        articleInput.val(randomData.query.random[0].title);
+                        function(randomData) {
 
-                    }
-                );
+                            articleInput.val(randomData.query.random[0].title);
 
-            }
-
-            $('button#clear').click(function() {
-
-                articleInput.val('');
-                $(this).addClass("hidden");
-                $('.submission .form').removeClass("moveUp");
-
-            });
-
-            // Form click to search for first article
-            $('#btn_search').click(function(evt) {
-
-                var btn = $(evt.currentTarget);
-                
-                btn.find('span').fadeOut(150, function() {
-                    btn.find('img').fadeIn(150, function() {
-
-                        retrieveArticle(articleInput.val(), true);
-                    
-                    });                    
-                });    
-
-                btn.attr('disabled', 'disabled');
-
-
-            });
-
-            // Enable autocomplete to Wikipedia search API
-            articleInput.autocomplete({
-                source: function(request, response) {
-
-                    $.ajax({
-                        url: "https://en.wikipedia.org/w/api.php",
-                        dataType: "jsonp",
-                        data: {
-                            'action': "opensearch",
-                            'format': "json",
-                            'search': request.term
-                        },
-                        success: function(data) {
-                            response(data[1]);
                         }
-                    });
+                    );
 
-                },
-                select: function(event, ui) {
-
-                    $('button#clear').removeClass("hidden");
-                    $('.submission .form').addClass("moveUp");
-                    
                 }
-            });
 
-            // Hide any errors during typing
-            articleInput.keypress(function(evt) {
-                $(evt.currentTarget).removeClass('invalid');
-                $('.error').fadeOut(250);
+                $('button#clear').click(function() {
+
+                    articleInput.val('');
+                    $(this).addClass("hidden");
+                    $('.submission .form').removeClass("moveUp");
+
+                });
+
+                // Form click to search for first article
+                $('#btn_search').click(function(evt) {
+
+                    var btn = $(evt.currentTarget);
+                    
+                    btn.find('span').fadeOut(150, function() {
+                        btn.find('img').fadeIn(150, function() {
+
+                            retrieveArticle(articleInput.val(), true);
+                        
+                        });                    
+                    });    
+
+                    btn.attr('disabled', 'disabled');
+
+                });
+
+                // Enable autocomplete to Wikipedia search API
+                articleInput.autocomplete({
+                    source: function(request, response) {
+
+                        $.ajax({
+                            url: "https://en.wikipedia.org/w/api.php",
+                            dataType: "jsonp",
+                            data: {
+                                'action': "opensearch",
+                                'format': "json",
+                                'search': request.term
+                            },
+                            success: function(data) {
+                                response(data[1]);
+                            }
+                        });
+
+                    },
+                    select: function(event, ui) {
+
+                        $('button#clear').removeClass("hidden");
+                        $('.submission .form').addClass("moveUp");
+                        
+                    }
+                });
+
+                // Hide any errors during typing
+                articleInput.keypress(function(evt) {
+                    $(evt.currentTarget).removeClass('invalid');
+                    $('.error').fadeOut(250);
+                });
+
             });
+            
 
             break;
 

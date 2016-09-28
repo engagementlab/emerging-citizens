@@ -24,14 +24,11 @@ var resetSession = function() {
 }
 
 var getScript = function(gameType) {
+
     $.getScript( '/{{#ifnoteq environment "development"}}release{{else}}js{{/ifnoteq}}/events/' + gameType + '.js' )
         .done(function( script, textStatus ) {
-            console.log( textStatus );
-
             // If any event is waiting to be called, do it now
-            if(cachedEventId) {
-                console.log('cachedEventId: %s', cachedEventId);
-                
+            if(cachedEventId) {                
                 socketEvents(cachedEventId, cachedEventData);
                 gameEvents(cachedEventId, cachedEventData);
             }
