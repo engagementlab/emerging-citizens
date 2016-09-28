@@ -272,27 +272,27 @@ var gameEvents = function(eventId, eventData) {
                   memeImg.src = $(meme).data().img;
 
                 });
-
-            });
             
-            // When 'vote' is clicked, send event
-            $('#btn-vote').click(function(evt) {
-                
-                socket.emit('meme:vote', emitData(slideIndex));
+              // When 'vote' is clicked, send event
+              $('#btn-vote').click(function(evt) {
+                  
+                  socket.emit('meme:vote', emitData(slideIndex));
 
-                $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
+                  $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
 
-            });
+              });
 
-            // When 'like' is clicked, send event and set slide as liked
-            $('.btn-like').click(function(evt) {
+              // When 'like' is clicked, send event and set slide as liked
+              $('.btn-like').click(function(evt) {
 
-                // var slideIndex = $('#meme-slider ul li').index($('.glide__slide.active'));
-                
-                socket.emit('meme:like', emitData(slideIndex));
-                
-                $(evt.currentTarget).attr('disabled', true).css('opacity', '0.3');
-                TweenLite.to($(evt.currentTarget), 0.5, {scale: 0.7, ease: Bounce.easeOut});
+                  // var slideIndex = $('#meme-slider ul li').index($('.glide__slide.active'));
+                  
+                  socket.emit('meme:like', emitData(slideIndex));
+                  
+                  $(evt.currentTarget).attr('disabled', true).css('opacity', '0.3');
+                  TweenLite.to($(evt.currentTarget), 0.5, {scale: 0.7, ease: Bounce.easeOut});
+
+              });
 
             });
 
