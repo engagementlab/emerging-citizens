@@ -161,7 +161,7 @@ var gameEvents = function(eventId, eventData) {
                 });
 
                 // Write text to canvas as player types
-                $('.meme-text').keydown(function(evt) {
+                $('.meme-text').keyup(function(evt) {
                     writeText($(evt.currentTarget));
                 });
 

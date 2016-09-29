@@ -204,8 +204,8 @@ checkIfLoggedIn();
 {{!-- INDEX Template Script --}}
 {{#ifeq section 'group/monitor'}}
 
-    // Show or hide error about screen size limits
-    var errorScreenSize = function(show, isMobile) {
+    // Show or hide error about various game error states
+    var showErrorModal = function(show, textType) {
 
         var showing = !$('#gameContent').is(':visible');
 
@@ -225,13 +225,13 @@ checkIfLoggedIn();
                 $('body').css('zoom', 1);
             }
 
-            $('#error-screen-size').fadeTo("fast", (show ? 1 : 0), function() {
+            $('#error-modal').fadeTo("fast", (show ? 1 : 0), function() {
                 
-                $('#error-screen-size #text h2').hide();
+                $('#error-modal #text h2').hide();
 
                 // Show correct msg
-                $('#error-screen-size #text #' + (isMobile ? 'mobile' : 'size')).show();
-                $('#error-screen-size #text').css('top', (show ? 0 : '-100%'));
+                $('#error-modal #text #' + textType).show();
+                $('#error-modal #text').css('top', (show ? 0 : '-100%'));
                 
                 // Hide/show error    
                 $(this).css('display', (show ? 'block' : 'none'));
@@ -260,9 +260,9 @@ checkIfLoggedIn();
 
         // If screen too small, show error saying so
         if($(window).outerWidth() < 1024)
-            errorScreenSize(true);
+            showErrorModal(true, 'size');
         else {
-            errorScreenSize(false);
+            showErrorModal(false, 'size');
             // Apply zoom
             $('body').css('zoom', scale);
         }

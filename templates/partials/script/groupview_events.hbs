@@ -11,7 +11,7 @@
 --}}
 
 if (jQuery.browser.mobile) {
-    errorScreenSize(true, true);    
+    showErrorModal(true, 'mobile');    
     return;
 }
 
@@ -161,7 +161,7 @@ var socketEvents = function(eventId, eventData) {
 
             gameEnded = true;
 
-            updateGameContent(eventData);
+            showErrorModal(true, 'ended');
 
             break;
             
