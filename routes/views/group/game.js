@@ -16,7 +16,7 @@
 var keystone = require('keystone'),
     randomstring = require('randomstring'),
     LessonPlan = keystone.list('LessonPlan'),
-    GameSession = keystone.list('GameSession'),
+    GameConfig = keystone.list('GameConfig'),
     ContentCategory = keystone.list('ContentCategory');
 
 exports = module.exports = function(req, res) {
@@ -43,25 +43,36 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
+        locals.categories = [];
+
+        var queryContent = ContentCategory.model
+                                    .find({
+                                        game: gameType
+                                    });
+                                    // .populate('game');
+
+        queryContent.exec(function (err, category) {
+
+            locals.categories = category;
+
+            
+
+        });
 
 
-        LessonPlan.model.find({  }, 'name', function (err, plans) {
+
+        LessonPlan.model.find({ game: gameType }, 'name', function (err, plans) {
 
             locals.gameType = gameType;
 
             locals.lessonPlans = plans;
-            locals.categories = plans.contentCategories;
 
-            next(err);
+            // GameConfig.model.findOne({ gameType: gameType}, function (err, game) {
 
-            // ContentCategory.model.find({ ''}, 'topicName', function (err, categories) {
+            //     locals.game = game;
 
-            //     locals.gameType = gameType;
-
-            //     locals.categories = categories;
-
-            //     next(err);
-
+                next(err);
+                
             // });
 
         });

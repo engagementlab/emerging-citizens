@@ -242,6 +242,44 @@ body .player-form {
   margin-right: auto;
   margin-left: auto; }
 
+.allPlans {
+  width: 90%;
+  margin: 0 auto; }
+
+.plans-item {
+  min-height: 300px; }
+  .plans-item .plan-card {
+    padding: 40px;
+    margin: 20px;
+    background-color: white; }
+
+.plan-modals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+  .plan-modals .plan {
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); }
+    .plan-modals .plan .plan-inner {
+      padding: 60px;
+      background-color: white;
+      height: 80%;
+      width: 80%;
+      margin: 0 auto; }
+
+.launch {
+  height: 60px; }
+  .launch a {
+    width: 100px;
+    background-color: white;
+    color: black; }
+    .launch a:hover {
+      background-color: #e6e6e6; }
+
 .submission button {
   color: white;
   background-color: #FD6D59;
@@ -2061,7 +2099,7 @@ footer {
   position: absolute;
   width: 100%;
   left: 0;
-  bottom: 1; }
+  bottom: 0; }
 
 .footer {
   color: #FFF;

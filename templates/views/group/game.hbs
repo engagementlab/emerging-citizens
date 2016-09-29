@@ -1,37 +1,46 @@
-{{#ifeq gameType "wwdmm"}}
- <a onclick="window.location = '/new/wwdmm'">
+{{!-- {{#ifeq gameType "wwdmm"}}
+ <a onclick="window.location = '/new/wwdmm'">Launch Game
     <div id="meme-info" class="col-sm-3 home-page-info current">
 
       <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">
-        {{!-- {{{content.wwdmm_blurb.html}}} --}}
+        {{!-- {{{content.wwdmm_blurb.html}}} 
     
     </div>
   </a>
 
-{{/ifeq}}
+{{/ifeq}} --}}
 
-{{#ifeq gameType "wikigeeks"}}
-<a onclick="window.location =' /new/wikigeeks'">
-  <div id="geeks-info" class="col-sm-3 home-page-info current">
-    
-    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
-      {{!-- {{{content.wiki_blurb.html}}} --}}
+{{!-- {{#ifeq gameType "wikigeeks"}} --}}
+	<div class="launch"><a class="button" href="/new/{{gameType}}">Launch Game</a></div>
+
+	<div class="blurb">
+{{{game.lessonGuide.html}}}
+
+	</div>
+
+  <div class="content">
+{{#each categories}}
+
+  Category
+  {{this.topicName}}
+
+{{/each}}
 
   </div>
-</a>
-
      
-{{/ifeq}}
-
+{{!-- {{/ifeq}} --}}
+{{!-- 
 {{#ifeq gameType "htyi"}}
-<a onclick="window.location='/new/htyi';">
+<a onclick="window.location='/new/htyi';">Launch Game
   <div id="hashtag-info" class="col-sm-3 home-page-info current">
 
     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-      {{!-- {{{content.htyi_blurb.html}}} --}}
+      {{!-- {{{content.htyi_blurb.html}}} 
 
   </div>
 </a>
-{{/ifeq}}
+{{/ifeq}} --}}
+
+
 {{jsonPrint this}}
 

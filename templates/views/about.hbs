@@ -1,47 +1,47 @@
-<div class="row gameLanding" id="homepage">
-    
-    <div class="row" id="home-page-banner">
-      <a href='/about'>About Page</a>
-      <a href='/lessonPlans'>Lesson Plans</a>
-        <div id="intro">{{{content.intro.html}}}</div>
-    </div>
+<div class="row aboutPage" id="about">
+{{!-- {{jsonPrint this.person}} --}}
 
-    <div class="row">
-    
-      <div class="col-sm-1"></div>
+<div class="aboutText">
+{{{this.about.text.html}}}
 
-      <a href="group/htyi">
-        <div id="hashtag-info" class="col-sm-3 home-page-info current">
+  </div>
 
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-            {{{content.htyi_blurb.html}}}
+  <div class="aboutResearch">
+{{{this.about.research.html}}}
 
-        </div>
-      </a>
-      
-      <a href="group/wikigeeks">
-        <div id="geeks-info" class="col-sm-3 home-page-info current">
-          
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
-            {{{content.wiki_blurb.html}}}
+  </div>
 
-        </div>
-      </a>
+  <div class="aboutPartners">
 
-      <a href="group/wwdmm">
-        <div id="meme-info" class="col-sm-3 home-page-info current">
+  {{#each this.person}}
+  Person
 
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">
-            {{{content.wwdmm_blurb.html}}}
-        
-        </div>
-      </a>
+  {{!-- {{jsonPrint this}} --}}
 
-    </div>
+    {{#ifeq this.type "teacher"}}
 
-    <div class="col-sm-4"></div>
-    <div id="mailing-list" class="row col-sm-5 col-md-4 col-lg-4">
-      {{!-- <span><a href="{{content.mailing_link}}">join our mailing list!</a></span> --}}
+    Teacher
+
+    {{/ifeq}}
+
+    {{#ifeq this.type "partner"}}
+
+    partner
+
+    {{/ifeq}}
+
+  {{/each}}
+
+  </div>
+  
+
+</div>
+
+
+
+
+
+    {{!-- <div id="mailing-list" class="">
 
       <div id="mc_embed_signup" class="form">
       <form action="//communityplanit.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=5166b8e185" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -55,10 +55,8 @@
           </div>
       </form>
       </div>
-    </div>
-    <div class="col-sm-3"></div>
+    </div> --}} 
 
-</div>
 
 <footer id="footer">
 

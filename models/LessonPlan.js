@@ -22,6 +22,7 @@ var LessonPlan = new keystone.List('LessonPlan', {
     
     label: 'Lesson Plans',
     singular: 'Lesson Plan',
+    autokey: { path: 'plan_key', from: 'name', unique: true },
     nodelete: false, 
     nocreate: false
 
@@ -30,16 +31,23 @@ var LessonPlan = new keystone.List('LessonPlan', {
 LessonPlan.add({
     
     name: { type: String, default: 'Lesson Plan', required:true, initial: true },
+    keyName: { type: String, hidden: true },
     text: { type: Types.Markdown, label: 'Text', required: true, initial: true }, 
     contentCategories: { type: Types.Relationship, label: "Content Categories", ref: 'ContentCategory', many: true },
-  }, 
-    "Game", {
-            "HTYI": {type: Types.Boolean},
-            "WikiGeeks": {type: Types.Boolean},
-            "WWDMM": {type: Types.Boolean}
-          }
+    game: { type: Types.Relationship, label: "Associated Game(s)", ref: 'GameConfig', many: true }, 
+    enabled: { type: Types.Boolean, label: "Enabled?"}
+});
 
-);
+// LessonPlan.schema.pre('save', function(next) {
+
+// 		this.keyName = this.name.replace(/' '/g,'-');
+
+// 		console.log (this.keyName, "keyname");
+    
+
+//     next();
+
+// });
 
 /**
  * Registration

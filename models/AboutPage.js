@@ -29,11 +29,8 @@ var AboutPage = new keystone.List('AboutPage', {
 AboutPage.add({
     
     name: { type: String, default: 'About Page', hidden: true },
-    text: { type: Types.Markdown, label: 'Text', required: true, initial: true }
-  //   htyi_blurb: { type: Types.Markdown, label: 'HTYI Blurb', required: true, initial: true },
-  //   wwdmm_blurb: { type: Types.Markdown, label: 'WWDMM Blurb', required: true, initial: true },
-		// wiki_blurb: { type: Types.Markdown, label: 'Wiki Blurb', required: true, initial: true }
-
+    text: { type: Types.Markdown, label: 'About Text', required: true, initial: true }, 
+    research: { type: Types.Markdown, label: 'Research Rational', required: true, initial: true }
 });
 
 /**

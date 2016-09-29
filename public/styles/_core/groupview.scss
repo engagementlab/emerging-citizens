@@ -10,7 +10,66 @@
 
 }
 
+// LESSON PLANS
+
+.allPlans {
+	width: 90%;
+	margin: 0 auto;
+}
+.plans-item {
+	
+	min-height: 300px;
+	
+
+	.plan-card {
+		padding: 40px;
+		margin: 20px;
+		background-color: white;
+	}
+}
+
+.plan-modals {
+	position: fixed;
+
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	.plan {
+		padding: 40px;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(black, 0.6);
+
+		.plan-inner {
+			padding: 60px;
+			background-color: white;
+			height: 80%;
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+}
+
+
+
+
 // CONTENT SELECTION
+
+.launch {
+	height: 60px; 
+		
+	a {
+		width: 100px;
+		background-color: white;
+		color: black;
+
+		&:hover {
+			background-color: darken(white, 10%);
+		}
+	}
+}
 .submission {
 	
 	button {

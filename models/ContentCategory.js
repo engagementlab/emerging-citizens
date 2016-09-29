@@ -12,6 +12,7 @@
  */
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var GameConfig = keystone.List('GameConfig');
 
 /**
  * ContentCategory Model
@@ -25,8 +26,8 @@ var ContentCategory = new keystone.List('ContentCategory', {
 
 ContentCategory.add({
 
-  topicName: { type: String, required: true, initial: true, label: "Category Name" }, 
-  game: { type: Types.Select, label: "Which game(s) is this content for?", options: "WikiGeeks, HTYI, WWDMM", many: true} 
+  topicName: { type: String, required: true, initial: true, label: "Category Name" } 
+  // game: { type: Types.Relationship, label: "Which game(s) is this content for?", ref: 'GameConfig', many: true} 
   // topicDescription: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
   // topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
 
@@ -36,7 +37,8 @@ ContentCategory.add({
  * Relationships
  * =============
  */
-ContentCategory.relationship({ ref: 'WikiTopic', path: 'category' });
+ContentCategory.relationship({ ref: 'WikiTopic', path: 'category' })
+.relationship({ ref: 'LessonPlan', path: 'contentCategories' });
 
 
 ContentCategory.schema.pre('remove', function(next) {
@@ -59,5 +61,5 @@ ContentCategory.schema.pre('remove', function(next) {
  * Registration
  */
 
-ContentCategory.defaultColumns = 'name, game, topicDescription';
+ContentCategory.defaultColumns = 'name, game';
 ContentCategory.register();

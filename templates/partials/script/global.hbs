@@ -279,7 +279,43 @@
 			
 			return;
 		
-		}	
+		}
+
+		// Lesson Plans
+
+		$('.filters-button-group').on('click', 'button', function() {
+
+		    var filterValue = $(this).attr('data-filter');
+		    $('#lesson-plans').isotope({
+		        filter: filterValue
+		    });
+
+		    console.log ("filtered");
+
+		});
+
+			$('#lesson-plans').isotope({
+		    itemSelector: '.plans-item', 
+		    isFitHeight: true, 
+		    layoutMode: 'fitRows'
+		  });
+
+		  $('.more-button').on('click', function() {
+		  	var id = '#' + $(this).attr('data-id');
+		  	console.log(id);
+		  	$('.plan-modals').show();
+		  	$(id).show();
+		  });
+
+		  $('.back-button').on('click', function() {
+		  	// var id = $(this).attr('data-id');
+
+		  	$(this).closest('.plan').hide();
+
+		  	// $(id).hide();
+		  	$('.plan-modals').hide();
+		  });
+
 
 		{{#ifeq environment "production"}}
 			
@@ -318,6 +354,12 @@
 	 
 			}); 
 				
+		{{/ifeq}}
+
+		{{#ifeq section 'lessonPlans'}}
+
+			
+
 		{{/ifeq}}
 
 	  {{#ifeq section "comingsoon"}}

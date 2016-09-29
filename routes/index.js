@@ -35,8 +35,10 @@ exports = module.exports = function(app) {
 
     // app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
     
-    // app.get('/group', routes.views.group.index);
+    
     app.get('/group/:game_type', routes.views.group.game);
+    app.get('/about', routes.views.group.about);
+    app.get('/lessonPlans', routes.views.group.lessonPlans);
     app.get('/new/:game_type', routes.views.group.index);
     
     app.post('/api/create/:game_type', keystone.middleware.api, routes.api.gamesession.create);
