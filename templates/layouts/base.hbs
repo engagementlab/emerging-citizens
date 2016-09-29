@@ -62,9 +62,19 @@
           </section>
 
           {{#ifnoteq section 'group/monitor'}}
+
             <section id="loading-modal" class="modal">
               <div class="indicator"></div>
             </section>
+
+            {{!-- WIKIGEEKS 'time up' PLAYER MODAL --}}
+            <section id="time-up" class="modal error-modal">
+              <div class="indicator">
+                <h3>Time is up! First player to reach the destination article wins!</h3>
+                <button id="btn_ok" class="post-button submit hidden-el" type="button">okay, back to the game!</button>
+              </div>
+            </section>
+
           {{else}}
 
             <section id="error-screen-size" class="modal error-modal">

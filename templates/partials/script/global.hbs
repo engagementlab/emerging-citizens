@@ -164,17 +164,19 @@
 		$('#top-header').remove();
 
 		var lobbyAnim = new TimelineLite();
-		lobbyAnim.to(gameContainer, .5, {x:'-100%', ease:Expo.easeInOut, onComplete:function() {
+		lobbyAnim.to(gameContainer, .5, {xPercent:-100, ease:Expo.easeInOut, onComplete:function() {
 
 			// Inject markup content and fire callback when done
 			gameContainer.html(content)
 									 .promise()
 									 .done(function(){
-									 		
-									 		if(callback)
-										 		callback();
 				
-											lobbyAnim.fromTo(gameContainer, .5, {x:'100%'}, {x:'0%', ease:Expo.easeInOut})
+											lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut, onComplete:function() {
+									 		
+										 		if(callback)
+											 		callback();
+
+											}})
 
 									    // Hide loading
 									    $('#loading-modal').fadeOut(250);

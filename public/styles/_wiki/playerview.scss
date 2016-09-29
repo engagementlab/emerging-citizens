@@ -40,14 +40,10 @@
 
 	#time-up {
 		background-color: rgba( $color-dark-orange, .7 );
-		height: 100%;
-		width: 100%;
-		z-index: 1000;
-		top: 0;
-		left: 0;
-		position: fixed;
-		display: inline;
-
+		// top: 0;
+		// left: 0;
+		text-align: center;
+		
 		.indicator {
 			height: 200px;
 			padding: 40px;
