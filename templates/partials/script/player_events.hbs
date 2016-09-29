@@ -60,14 +60,14 @@ var socketEvents = function(eventId, eventData) {
 
         case 'connect':
 
-            console.log('--- Connected to server ---');
-
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
             
             break;
 
         case 'disconnect':
+
+            console.log('--- Server disconnect: %s ---', eventData);
 
             if(gameEnded)
                 return;

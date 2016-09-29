@@ -1693,13 +1693,7 @@ body .player-form {
     display: none; }
   .body.wikigeeks.player #time-up {
     background-color: rgba(255, 94, 65, 0.7);
-    height: 100%;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    position: fixed;
-    display: inline; }
+    text-align: center; }
     .body.wikigeeks.player #time-up .indicator {
       height: 200px;
       padding: 40px;

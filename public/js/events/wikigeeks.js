@@ -264,7 +264,7 @@ var gameEvents = function(eventId, eventData) {
     };
 
     $('#btn_ok').on('click', function() {
-        $('#time-up').hide();
+        $('#time-up').fadeOut();
     });
 
     /*
@@ -399,54 +399,56 @@ var gameEvents = function(eventId, eventData) {
 
         case 'wiki:results':
 
-            updateGameContent(eventData);
+            updateGameContent(eventData, function() {
 
-            var timing = 500;
-            var timingOffset = 0;
-            var firstText = $('#firstArticle');
-            var groups = $('.articleGroup');
+                var timing = 500;
+                var timingOffset = 0;
+                var firstText = $('#firstArticle');
+                var groups = $('.articleGroup');
 
-            $(firstText).css({
-                transform: 'scale(1)'
-            });
+                $(firstText).css({
+                    transform: 'scale(1)'
+                });
 
-            // Animations for each article path
-            $.each(groups, function(index, group) {
+                // Animations for each article path
+                $.each(groups, function(index, group) {
 
-                var dots = $(group).find('.articleDot');
-                var line = $(group).find('.articleLine');
-                var text = $(group).find('.articleText');
-                var offset = (timing + timingOffset);
+                    var dots = $(group).find('.articleDot');
+                    var line = $(group).find('.articleLine');
+                    var text = $(group).find('.articleText');
+                    var offset = (timing + timingOffset);
 
-                $(dots[0]).delay(offset).velocity({
-                    r: 10
-                }, timing, [50, 10]);
+                    $(dots[0]).delay(offset).velocity({
+                        r: 10
+                    }, timing, [50, 10]);
 
-                $(line).delay(500 + offset).velocity({
-                    y2: 50
-                }, timing, [50, 10]);
+                    $(line).delay(500 + offset).velocity({
+                        y2: 50
+                    }, timing, [50, 10]);
 
-                $(dots[1]).delay(1000 + offset).velocity({
-                    r: 10
-                }, timing, [50, 10]);
+                    $(dots[1]).delay(1000 + offset).velocity({
+                        r: 10
+                    }, timing, [50, 10]);
 
-                setTimeout(function() {
+                    setTimeout(function() {
 
-                    $(text).css({
-                        transform: 'scale(1)'
+                        $(text).css({
+                            transform: 'scale(1)'
+                        });
+
+                    }, 1500 + offset);
+
+                    timingOffset = 5 * timing * index;
+
+                    $('#survey-ready').click(function() {
+                        $('.results-container').fadeOut();
+                        $('.typeform').fadeIn();
+
                     });
-
-                }, 1500 + offset);
-
-                timingOffset = 5 * timing * index;
-
-                $('#survey-ready').click(function() {
-                    $('.results-container').fadeOut();
-                    $('.typeform').fadeIn();
 
                 });
 
-            });            
+            });        
 
             break;
 
@@ -496,7 +498,9 @@ var gameEvents = function(eventId, eventData) {
             $('.form .error').hide();
 
             if (eventData === "results")
-                $('#time-up').show();
+                $('#time-up').fadeIn(function() {
+                    TweenLite.from($('#btn_ok'), 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
+                });
 
             if (eventData === "topicCountdown") {
 

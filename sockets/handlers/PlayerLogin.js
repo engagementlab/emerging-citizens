@@ -131,7 +131,6 @@ var PlayerLogin = function (nsp, socket, emitter) {
       
     },
 
-
     disconnect: function(package) {
 
       var session = Session.Get(playerGameId);
