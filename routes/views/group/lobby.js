@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -12,7 +13,7 @@
  *
  * ==========
  */
-var keystone = require('keystone')
+var keystone = require('keystone'),
   appRoot = require('app-root-path'),
   GameSession = keystone.list('GameSession');
 
@@ -41,17 +42,17 @@ exports = module.exports = function(req, res) {
           return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist!');  
         }
 
-    		// TODO: Dev only?
-    		if(!Session.Get(game.accessCode))
+        // If session does not exist, create it; otherwise, flag current one as restarting
+    		let sesh = Session.Get(game.accessCode);
+        if(!sesh)
     			Session.Create(game.accessCode, new GameManager(game));
+        else
+          sesh.SetToRestarting();
 
         locals.accessCodeSplit = game.accessCode.split('');
 
-        // Set global game type
-        gameType = game.gameType;
-
         // Set local for this view only
-        locals.gameType = gameType;
+        locals.gameType = game.gameType;
         locals.game = game;
 
         locals.players = {left: [1, 2, 3, 4], right: [5, 6, 7, 8]};
@@ -63,7 +64,6 @@ exports = module.exports = function(req, res) {
   });
 
   // Render the view
-  // console.log (gameType);
   view.render('group/lobby');
 
 };
