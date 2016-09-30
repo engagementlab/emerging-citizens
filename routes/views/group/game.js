@@ -44,12 +44,9 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
 
         locals.categories = [];
+        locals.lessonPlans = [];
 
-        var queryContent = ContentCategory.model
-                                    .find({
-                                        game: gameType
-                                    });
-                                    // .populate('game');
+        var queryContent = ContentCategory.model.find({});
 
         queryContent.exec(function (err, category) {
 
@@ -61,19 +58,19 @@ exports = module.exports = function(req, res) {
 
 
 
-        LessonPlan.model.find({ game: gameType }, 'name', function (err, plans) {
+        LessonPlan.model.find({ relatedGame: gameType }, {}, function (err, plans) {
 
             locals.gameType = gameType;
 
             locals.lessonPlans = plans;
 
-            // GameConfig.model.findOne({ gameType: gameType}, function (err, game) {
+            GameConfig.model.findOne({ gameType: gameType }, function (err, game) {
 
-            //     locals.game = game;
+                locals.game = game;
 
                 next(err);
                 
-            // });
+            });
 
         });
 

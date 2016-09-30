@@ -283,12 +283,25 @@
 		
 		}
 
-		// Lesson Plans
+		// MENU
+
+		$("#nav-dropdown").on('click', function() {
+			console.log("opening");
+			$('#logo_ec').hide();
+			$('.nav-dropdown').show();
+		});
+		$('#nav-close').on('click', function() {
+			console.log("closing");
+			$('.nav-dropdown').hide();
+			$('#logo_ec').show();
+		});
+
+		// LESSON PLANS
 
 		$('.filters-button-group').on('click', 'button', function() {
 
 		    var filterValue = $(this).attr('data-filter');
-		    $('#lesson-plans').isotope({
+		    $('#plans').isotope({
 		        filter: filterValue
 		    });
 
@@ -296,27 +309,30 @@
 
 		});
 
-			$('#lesson-plans').isotope({
+			$('#plans').isotope({
 		    itemSelector: '.plans-item', 
 		    isFitHeight: true, 
 		    layoutMode: 'fitRows'
 		  });
 
-		  $('.more-button').on('click', function() {
+		  $('.open-plan').on('click', function() {
 		  	var id = '#' + $(this).attr('data-id');
 		  	console.log(id);
 		  	$('.plan-modals').show();
 		  	$(id).show();
 		  });
 
-		  $('.back-button').on('click', function() {
+		  $('.close-plan').on('click', function() {
 		  	// var id = $(this).attr('data-id');
 
-		  	$(this).closest('.plan').hide();
+		  	$(this).closest('.plan-outer').hide();
 
 		  	// $(id).hide();
 		  	$('.plan-modals').hide();
 		  });
+
+		  // HELP PAGE
+
 
 
 		{{#ifeq environment "production"}}

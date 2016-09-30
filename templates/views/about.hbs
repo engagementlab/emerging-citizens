@@ -1,5 +1,5 @@
 <div class="row aboutPage" id="about">
-{{!-- {{jsonPrint this.person}} --}}
+{{!-- {{jsonPrint this}}  --}}
 
 <div class="aboutText">
 {{{this.about.text.html}}}
@@ -11,27 +11,55 @@
 
   </div>
 
-  <div class="aboutPartners">
+  <div class="aboutPeople">
+    <h2>People</h2>
+    <div class="teachers row">
+    <h4>Teachers</h4>
+    {{#each this.person}}
+      {{#ifeq this.type "teacher"}}
 
-  {{#each this.person}}
-  Person
+        <div class="col-sm-6 col-md-3 team-member">
+          <div class="image-box style-2 mb-20 text-center">
+              
+            {{!-- <a href="/people/{{person.key}}"> --}}
+              <img class="person-image" src="{{{cloudinaryUrl this.image}}}" alt="{{this.name.first}} {{this.name.last}}" class="photo">
+              
+              <div class="person-info">
+                <h3 class="margin-clear theme-primary">{{this.name.first}} {{this.name.last}}</h3>
+                <p>{{this.type}}</p>
+              </div>
+            {{!-- </a> --}}
 
-  {{!-- {{jsonPrint this}} --}}
+          </div>
+        </div>
+      {{/ifeq}}
+    {{/each}}
+    </div>
 
-    {{#ifeq this.type "teacher"}}
+    <div class="partners row">
+    <h4>Partners</h4>
+    {{#each this.person}}
 
-    Teacher
+      {{#ifeq this.type "partner"}}
 
-    {{/ifeq}}
+      <div class="col-sm-6 col-md-3 team-member">
+          <div class="image-box style-2 mb-20 text-center">
+              
+            {{!-- <a href="/people/{{person.key}}"> --}}
+              <img class="person-image" src="{{{cloudinaryUrl this.image}}}" alt="{{this.name.first}} {{this.name.last}}" class="photo">
+              
+              <div class="person-info">
+                <h3 class="margin-clear theme-primary">{{this.name.first}} {{this.name.last}}</h3>
+                <p>{{this.type}}</p>
+              </div>
+            {{!-- </a> --}}
 
-    {{#ifeq this.type "partner"}}
+          </div>
+        </div>
+      {{/ifeq}}
+    {{/each}}
 
-    partner
-
-    {{/ifeq}}
-
-  {{/each}}
-
+    </div>
   </div>
   
 

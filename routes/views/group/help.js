@@ -15,8 +15,7 @@
 
 var keystone = require('keystone'),
     randomstring = require('randomstring'),
-    About = keystone.list('AboutPage'),
-    Person = keystone.list('Person');
+    FAQ = keystone.list('FAQ');
 
 exports = module.exports = function(req, res) {
 
@@ -29,21 +28,27 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        locals.person = [];
+        var queryFAQ = FAQ.model
+                            .find({
+                                enabled: true
+                            })
+                            .sort (
+                                '-category'
+                            )
+                            .populate('category');
 
-        About.model.findOne({}, {}, function (err, about) {
+        queryFAQ.exec(function (err, faq) {
 
-            locals.about = about;
+            locals.faq = faq;
+            // locals.
 
-            // next(err);
+            // FAQCategory.model.find({ enabled: true}, {}, function (err, category) {
 
-            Person.model.find({ enabled: true }, {}, function (err, person) {
-
-                locals.person = person;
+            //     locals.category = category;
 
                 next(err);
 
-            });
+            // });
 
         });
 
@@ -52,6 +57,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('about');
+    view.render('help');
 
 };

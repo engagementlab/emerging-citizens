@@ -1,27 +1,37 @@
 <div class="lessonPlans">
-{{!-- {{jsonPrint this.plan}} --}}
+
 
   <div class="row">
     <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
-        <button value="*" data-filter="" class="button">All</button>
-        <button class="button" value="#" data-filter=".htyi">Hashtag, You're It!</button>
-        <button class="button" value="#" data-filter=".wikigeeks">WikiGeeks</button>
-        <button class="button" value="#" data-filter=".wwdmm">Wait, Wait, Don't Meme Me</button>
-      </div>
+      <button value="*" data-filter="" class="button">All</button>
+      <button class="button" value="#" data-filter=".htyi">Hashtag, You're It!</button>
+      <button class="button" value="#" data-filter=".wikigeeks">WikiGeeks</button>
+      <button class="button" value="#" data-filter=".wwdmm">Wait, Wait, Don't Meme Me</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+      <button value="*" data-filter="" class="button">All</button>
+      {{#each this.categories}}
+      <button class="button" value="#" data-filter=".{{cat_key}}">{{topicName}}</button>
+
+      {{/each}}
+    </div>
   </div>
 
 
-  <div class="row allPlans" id="lesson-plans">
+  <div class="row allPlans" id="plans">
 
     {{#each this.plans}}
+    
 
-    <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{#each game}} {{gameType}} {{/each}}">
-      <div class="plan-card" data-category="{{#each game}} {{gameType}} {{/each}}">
+    <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
+      <div class="plan-card" data-category="">
         <h3>{{name}}</h3>
-        <h5>Content: </h5>{{#each contentCategories}} <p>{{topicName}}</p> {{/each}}
-        <h5>Associated Games: </h5>{{#each game}} <p>{{gameType}}</p> {{/each}}
+        <h4>Content: </h4> {{#each category}}<p>{{topicName}}</p> {{/each}}
+        <h4>Associated Games: </h4> {{#each relatedGame}}<p>{{gameType}}</p>{{/each}}
 
-        <button class="button more-button" data-id="{{plan_key}}" value="#">More</button>
+        <button class="button open-plan" id="" data-id="{{plan_key}}" value="#">More</button>
       </div>
     </div>
      
@@ -39,13 +49,15 @@
 
 {{#each this.plans}}
 
-    <div class="plan" style="display:none" id="{{plan_key}}">
+    <div class="plan-outer" style="display:none" id="{{plan_key}}">
       <div class="plan-inner">
         <h3>{{name}}</h3>
-        <h5>Content: </h5>{{#each contentCategories}} <p>{{topicName}}</p> {{/each}}
-        <h5>Associated Games: </h5>{{#each game}} <p>{{gameType}}</p> {{/each}}
+        <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+        <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}}
 
-        <button class="button back-button" value="#">Back</button>
+        <p>{{{text.html}}}</p>
+
+        <button class="button close-plan" id="" value="#">Back</button>
       </div>
     </div>
      
