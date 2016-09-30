@@ -112,7 +112,7 @@ var gameEvents = function(eventId, eventData) {
 	  Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
 	*/
 	switch (eventId) {
-	  
+
 	  case 'game:countdown':
 
       if(clockInterval)
@@ -141,7 +141,16 @@ var gameEvents = function(eventId, eventData) {
 
 	  case 'meme:topic':
 
-  		updateGameContent(eventData);
+  		updateGameContent(eventData, function() {
+        
+        var topicAnim = new TimelineLite();
+        topicAnim
+        .fromTo(header, 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease: Elastic.easeOut, delay: 0.5}).add('header')
+        .from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease: Elastic.easeOut}, 'header+=.5')
+        .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1')
+        .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1');
+      
+      });
 
   		break;
 

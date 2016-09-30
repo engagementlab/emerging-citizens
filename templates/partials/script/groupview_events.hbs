@@ -59,43 +59,42 @@ var socketEvents = function(eventId, eventData) {
             else
                 startAnim.reverse();
 
-            _.each(staticPlayers, function(player, index) {
+                _.each(staticPlayers, function(player, index) {
 
-                // TODO: Handle visual of players leaving mid-game
-                // if(eventData.state === 'lost_player') {
+                    // TODO: Handle visual of players leaving mid-game
+                    // if(eventData.state === 'lost_player') {
 
-                //     if(!currentPlayers[index]) {
-                //         $(player).children('.icon').removeClass('active');
-                //         $(player).children('.nameplate').removeClass('active');
-                //     }
+                    //     if(!currentPlayers[index]) {
+                    //         $(player).children('.icon').removeClass('active');
+                    //         $(player).children('.nameplate').removeClass('active');
+                    //     }
 
-                // }
-                // else {
-                    
-                    if(currentPlayers[index]) {
+                    // }
+                    // else {
+                        
+                        if(currentPlayers[index]) {
 
-                        var name = currentPlayers[index];
-                        var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+                            var name = currentPlayers[index];
+                            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
 
-                        // $(player).children('.icon').addClass('active');
-                        $(player).children('.nameplate').text(nameFormatted);
+                            $(player).children('.nameplate').text(nameFormatted);
 
-                        if(eventData.state !== 'lost_player') {
-                            $(player).children('.icon').addClass('active');
-                            $(player).children('.nameplate').text(nameFormatted).addClass('active');
+                            if(eventData.state !== 'lost_player') {
+                                $(player).children('.icon').addClass('active');
+                                $(player).children('.nameplate').text(nameFormatted).addClass('active');
+                            }
+
+                        }
+                        else {
+
+                            $(player).children('.icon').removeClass('active');
+                            $(player).children('.nameplate').removeClass('active');
+
                         }
 
-                    }
-                    else {
+                    // }
 
-                        $(player).children('.icon').removeClass('active');
-                        $(player).children('.nameplate').removeClass('active');
-
-                    }
-
-                // }
-
-            });
+                });
 
             break;
 

@@ -1588,12 +1588,48 @@ body .player-form {
       height: 80%; }
       .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
         height: 240px;
-        border: 1px solid black;
-        margin: 20px 0px 40px 0px; }
+        margin: 20px 0px 40px 0px;
+        opacity: 0.4;
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -moz-transition: transform, 0.5s, ease-out-elastic;
+        -o-transition: transform, 0.5s, ease-out-elastic;
+        -webkit-transition: transform, 0.5s, ease-out-elastic;
+        transition: transform, 0.5s, ease-out-elastic;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .body.wwdmm.group .players-grid.row .player-background .player-static .icon.active {
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
         .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
           width: 87px;
           margin-left: 5%;
           margin-top: 5%; }
+      .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate {
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-transition: transform 0.5s linear;
+        -moz-transition: transform 0.5s linear;
+        -ms-transition: transform 0.5s linear;
+        -o-transition: transform 0.5s linear;
+        transition: transform 0.5s linear;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate.active {
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
   .body.wwdmm.group .player-0 {
     color: #FF421C;
     border-top-color: #FF421C; }

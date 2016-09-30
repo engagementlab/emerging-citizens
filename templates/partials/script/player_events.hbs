@@ -36,6 +36,7 @@ var getScript = function(gameType) {
           .fail(function( jqxhr, settings, exception ) {
             console.error('Unable to load %s (error: "%s")', gameType + '.js', exception);
         });
+
 }
 
 $("#player_name").keydown(function(event) {
@@ -79,6 +80,8 @@ var socketEvents = function(eventId, eventData) {
                 $('#error-disconnected #text').css('top', '0');
             });
 
+            document.title = 'Emerging Citizens';
+
             break;
 
         case 'player:loggedin':
@@ -95,6 +98,8 @@ var socketEvents = function(eventId, eventData) {
             $('#debug-info').text('Player id: ' + eventData.id);
 
             playerId = eventData.id;
+
+            document.title = 'EC: ' + playerName;
 
             break;
 
@@ -138,8 +143,10 @@ var socketEvents = function(eventId, eventData) {
                 
             // Send player back to login after 5s
             setTimeout(function() {
-                window.location = '/play';
+                window.location = window.location;
             }, 5000);
+
+            document.title = 'Game ended!';
 
             break;
 

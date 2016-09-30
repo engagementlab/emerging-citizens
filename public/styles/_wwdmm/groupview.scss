@@ -398,13 +398,34 @@
 
 				.icon {
 					height: 240px;
-					border: 1px solid black;
 					margin: 20px 0px 40px 0px;
+					opacity: 0.4;
+
+					@include scale(.9);
+				  @include transition(transform, .5s, ease-out-elastic);
+				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+
+					&.active {
+						opacity: 1;
+						@include scale(1.1);
+					}
 
 					img {
 						width: 87px;
 						margin-left: 5%;
 						margin-top: 5%;
+					}
+				}
+
+				.nameplate {
+
+					@include scale(.9);
+				  @include linear-transition(transform, .5s);
+				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+
+					&.active {
+						opacity: 1;
+						@include scale(1.1);
 					}
 				}
 				

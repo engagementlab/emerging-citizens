@@ -499,7 +499,7 @@ var gameEvents = function(eventId, eventData) {
 
             if (eventData === "results")
                 $('#time-up').fadeIn(function() {
-                    TweenLite.from($('#btn_ok'), 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
+                    TweenLite.fromTo($('#btn_ok'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, ease:Elastic.easeOut});
                 });
 
             if (eventData === "topicCountdown") {
