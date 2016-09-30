@@ -33,8 +33,8 @@ LessonPlan.add({
     name: { type: String, default: 'Lesson Plan', required:true, initial: true },
     keyName: { type: String, hidden: true },
     text: { type: Types.Markdown, label: 'Text', required: true, initial: true }, 
-    contentCategories: { type: Types.Relationship, label: "Content Categories", ref: 'ContentCategory', many: true },
-    game: { type: Types.Relationship, label: "Associated Game(s)", ref: 'GameConfig', many: true }, 
+    category: { type: Types.Relationship, label: "Content Categories", ref: 'ContentCategory' },
+    relatedGame: { type: Types.Relationship, label: "Associated Game(s)", ref: 'GameConfig' }, 
     enabled: { type: Types.Boolean, label: "Enabled?"}
 });
 

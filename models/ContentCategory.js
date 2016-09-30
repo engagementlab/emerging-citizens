@@ -21,12 +21,14 @@ var GameConfig = keystone.List('GameConfig');
 
 var ContentCategory = new keystone.List('ContentCategory', {
     track: true,
-    map: { name: 'topicName' }
+    map: { name: 'topicName' }, 
+    autokey: { path: 'cat_key', from: 'topicName', unique: true}
 });
 
 ContentCategory.add({
 
-  topicName: { type: String, required: true, initial: true, label: "Category Name" } 
+  topicName: { type: String, required: true, initial: true, label: "Category Name" }, 
+  enabled: { type: Types.Boolean, label: "Enabled?" }
   // game: { type: Types.Relationship, label: "Which game(s) is this content for?", ref: 'GameConfig', many: true} 
   // topicDescription: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
   // topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
@@ -38,7 +40,7 @@ ContentCategory.add({
  * =============
  */
 ContentCategory.relationship({ ref: 'WikiTopic', path: 'category' })
-.relationship({ ref: 'LessonPlan', path: 'contentCategories' });
+.relationship({ ref: 'LessonPlan', path: 'category' });
 
 
 ContentCategory.schema.pre('remove', function(next) {
@@ -61,5 +63,5 @@ ContentCategory.schema.pre('remove', function(next) {
  * Registration
  */
 
-ContentCategory.defaultColumns = 'name, game';
+ContentCategory.defaultColumns = 'name';
 ContentCategory.register();

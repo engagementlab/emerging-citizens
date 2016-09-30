@@ -16,7 +16,7 @@
 var keystone = require('keystone'),
     randomstring = require('randomstring'),
     LessonPlan = keystone.list('LessonPlan'),
-    Person = keystone.list('Person');
+    Category = keystone.list('ContentCategory');
 
 exports = module.exports = function(req, res) {
 
@@ -25,11 +25,12 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'lessonPlans';
+    locals.section = 'index';
 
     view.on('init', function(next) {
 
         locals.plans = [];
+        locals.categories = [];
 
         var queryPlans = LessonPlan.model
                                     .find({
@@ -38,19 +39,21 @@ exports = module.exports = function(req, res) {
                                     .sort([
                                         ['sortOrder', 'ascending']
                                     ])
-                                    .populate('contentCategories')
-                                    .populate('game');
+                                    .populate('category')
+                                    .populate('relatedGame');
 
         queryPlans.exec(function (err, plan) {
 
             locals.plans = plan;
 
-            next(err);
+            Category.model.find({ enabled: true }, {}, function (err, category){
 
+                locals.categories = category;
+
+                next(err);
+
+            });
         });
-
-        
-
     });
 
     // Render the view

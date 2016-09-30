@@ -38,6 +38,7 @@ exports = module.exports = function(app) {
     
     app.get('/group/:game_type', routes.views.group.game);
     app.get('/about', routes.views.group.about);
+    app.get('/help', routes.views.group.help);
     app.get('/lessonPlans', routes.views.group.lessonPlans);
     app.get('/new/:game_type', routes.views.group.index);
     

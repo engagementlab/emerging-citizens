@@ -3,12 +3,13 @@
 	"directory": "emerging-citizens",
 	"database": "emerging-citizens", 
 	"admin_nav": { 
-						"HomePage": "HomePage",
+						"HomePage": ["HomePage", "FAQ", "ComingSoon"], 
+						"LessonPlan": ["LessonPlan", "ContentCategory"], 
+						"AboutPage": ["AboutPage", "Person"],
 						"Game Config": ["GameConfig", "GameSession", "GameUser"],
-						"LessonPlan": "LessonPlan",
-						"ContentCategory": "ContentCategory",
 						"HTYI": ["Tweet", "HashtagGame"],
-						"WikiGeeks": ["WikiTopic", "WikiLink", "WikiGame"]
+						"WikiGeeks": ["WikiTopic", "WikiLink", "WikiGame"], 
+						"WWDMM": ["MemeGame", "MemeTopic"]
 						
 					}
 }
