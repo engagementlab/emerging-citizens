@@ -5,7 +5,7 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Emerging Citizens</title>
+        <title>Emerging Citizens{{#ifeq env "staging"}} *QA*{{/ifeq}}</title>
         <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
         
@@ -164,9 +164,9 @@
         </div>
 
         {{#ifeq env "development"}}
-            {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
+            {{> includes/development host=socketHost environment=env section=section subSection=sub_section}}
         {{else}}
-            {{> script/production host=socketHost environment=env section=section}}
+            {{> includes/production host=socketHost environment=env section=section}}
         {{/ifeq}}
 
         </div>

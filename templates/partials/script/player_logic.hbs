@@ -204,6 +204,8 @@ checkIfLoggedIn();
 {{!-- INDEX Template Script --}}
 {{#ifeq section 'group/monitor'}}
 
+    console.log('section',section)
+
     // Show or hide error about various game error states
     var showErrorModal = function(show, textType) {
 
@@ -281,12 +283,12 @@ checkIfLoggedIn();
     {{/ifeq}}
 
     // Load events for group
-    {{> script/groupview_events gameType=gameType}}
+    {{> groupview_events gameType=gameType}}
 
 {{else}}
 
     // Load events for players
-    {{> script/player_events gameType=gameType}}
+    {{> player_events gameType=gameType}}
 
     {{#ifeq debug true}}
         // Debugging view

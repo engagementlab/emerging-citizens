@@ -29,9 +29,6 @@
 <script type="text/javascript" src="/bower_components/progressbar.js/dist/progressbar.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
 
-{{!-- Isotope --}}
-<script type="text/javascript" src="/plugins/isotope/isotope.pkgd.js"></script>
-
 {{!-- Socket.io --}}
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 
@@ -54,4 +51,17 @@
 {{!-- Kinetic --}}
 <script type="text/javascript" src="/plugins/kinetic-7f853.min.js"></script>
 
-{{> script/global host=host environment=environment section=section key=key }}
+<script type="text/javascript" src="/bower_components/handlebars/handlebars.runtime.js"></script>
+
+<script type="text/javascript" src="/js/helpers.release.js"></script>
+<script type="text/javascript" src="/release/template.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		Handlebars.partials = Handlebars.templates;
+		// Handlebars.templates.global();
+
+		// detectPrivateMode();
+	});
+</script>
+{{!-- {{> global host=host environment=environment section=section key=key }} --}}

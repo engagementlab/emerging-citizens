@@ -15,6 +15,15 @@ serverStart = function() {
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 
+	app.use(function(){
+	  var hbsPrecompiler = require('handlebars-precompiler');
+	  hbsPrecompiler.watchDir(
+	    __dirname + "/templates/partials/script",
+	    __dirname + "/public/release/templates.js",
+	    ['hbs']
+	  );
+	});
+
 	// Enable view template compilation caching
 	app.enable('view cache');
 
