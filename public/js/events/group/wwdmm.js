@@ -17,10 +17,10 @@ topBar.prependTo('body');
 
 var lobbyAnim = new TimelineLite();
 lobbyAnim
-.fromTo(header, 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease: Elastic.easeOut, delay: 0.5}).add('header')
-.from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease: Elastic.easeOut}, 'header+=.5')
-.from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1')
-.from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1');
+.fromTo(header, 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease:Elastic.easeOut, delay: 0.5}).add('header')
+.from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease:Elastic.easeOut}, 'header+=.5')
+.from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1')
+.from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1');
 
 
 /* 
@@ -145,10 +145,10 @@ var gameEvents = function(eventId, eventData) {
         
         var topicAnim = new TimelineLite();
         topicAnim
-        .fromTo(header, 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease: Elastic.easeOut, delay: 0.5}).add('header')
-        .from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease: Elastic.easeOut}, 'header+=.5')
-        .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1')
-        .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease: Elastic.easeOut}, 'header+=1');
+        .fromTo($('#top-header'), 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease:Elastic.easeOut}).add('header')
+        .from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease:Elastic.easeOut}, 'header+=.5')
+        .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1')
+        .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1');
       
       });
 
@@ -158,6 +158,13 @@ var gameEvents = function(eventId, eventData) {
 
   		updateGameContent(eventData, function() {
         loadMemes();
+        
+        var topicAnim = new TimelineLite();
+        topicAnim
+        .fromTo($('#top-header'), 1, {y:'-100%'}, {y:'-10%', autoAlpha:1, ease:Elastic.easeOut}).add('header')
+        .from($('#top-header #topic'), 1, {autoAlpha:0}).add('header+=.3')
+        .from($('#top-header #descriptor'), 1, {autoAlpha:0}).add('header+=.6')
+        .staggerFrom($('.meme-canvas'), .75, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .3, 'header+=1.5');
       });
 
   		break;

@@ -156,10 +156,16 @@
 
 	};
 
-	/* 
-		Util to inject markup into game content container and run any callbacks
-	*/
-	var updateGameContent = function(content, callback) {
+  /**
+  * Util to inject markup into game content container and run any callbacks
+  *
+  * @param {String} content HTML to use
+  * @param {Function} callback Function to call after HTML updated
+  * @param {Boolean} pauseAnimate Don't animate screen back in; instead pass animate function to callback to use later
+  * @class global
+  * @name updateGameContent
+  */
+	var updateGameContent = function(content, callback, pauseAnimate) {
 
 		$('#top-header').remove();
 
@@ -169,14 +175,25 @@
 			// Inject markup content and fire callback when done
 			gameContainer.html(content)
 									 .promise()
-									 .done(function(){
+									 .done(function() {
 				
-											lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut, onComplete:function() {
-									 		
-										 		if(callback)
-											 		callback();
+											if(!pauseAnimate) {
+												// Animate screen back in now and then run callback
+												lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut, onComplete:function() {
+										 		
+											 		if(callback)
+												 		callback();
 
-											}})
+												}})
+											}
+											else {
+													// Animate screen back in later using function passed to callback													
+											 		if(callback)
+												 		callback(function() {
+												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut});
+												 		});
+
+											}
 
 									    // Hide loading
 									    $('#loading-modal').fadeOut(250);
