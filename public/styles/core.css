@@ -282,6 +282,10 @@ body .player-form {
   margin-left: -30px;
   margin-right: -30px; }
 
+.how-to-play img {
+  width: 200px;
+  height: 200px; }
+
 .allPlans {
   width: 90%;
   margin: 0 auto; }

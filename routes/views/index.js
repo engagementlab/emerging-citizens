@@ -15,7 +15,8 @@
 var keystone = require('keystone'),
     GameConfig = keystone.list('GameConfig'),
     HomePage = keystone.list('HomePage'),
-    ComingSoon = keystone.list('ComingSoon');
+    ComingSoon = keystone.list('ComingSoon'),
+    WhatIs = keystone.list('WhatIs');
 
 exports = module.exports = function(req, res) {
 
@@ -46,13 +47,20 @@ exports = module.exports = function(req, res) {
     	if(resultConfig.enabled) {
 
 		  	// If game is enabled, get home page content
-		    queryHomePage.exec(function(err, resultHomePage) {
+		    queryHomePage.exec(function (err, resultHomePage) {
 		    
 		    	locals.content = resultHomePage;
 			    locals.section = 'index';
+
+          WhatIs.model.findOne({}, {}, function (err, what) {
+            locals.what = what;
+
+            // Render the view
+            view.render('index');
+          });
 				  
-				  // Render the view
-			    view.render('index');
+				  
+			    
 
 			  });
 			  
@@ -60,7 +68,7 @@ exports = module.exports = function(req, res) {
 		  else {
 
 		  	// If game is not enabled, get coming soon content
-		    queryComingSoon.exec(function(err, resultComingSoon) {
+		    queryComingSoon.exec(function (err, resultComingSoon) {
 
 		    	locals.content = resultComingSoon;
 			    locals.section = 'comingsoon';

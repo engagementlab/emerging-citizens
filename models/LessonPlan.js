@@ -31,10 +31,12 @@ var LessonPlan = new keystone.List('LessonPlan', {
 LessonPlan.add({
     
     name: { type: String, default: 'Lesson Plan', required:true, initial: true },
-    keyName: { type: String, hidden: true },
-    text: { type: Types.Markdown, label: 'Text', required: true, initial: true }, 
+    text: { type: Types.Markdown, label: 'Byline', required: true, initial: true }, 
+    learningObj: { type: Types.Markdown, label: 'Learning Objectives' }, 
+    getStarted: { type: Types.Markdown, label: "How To Get Started"},
     category: { type: Types.Relationship, label: "Content Categories", ref: 'ContentCategory' },
     relatedGame: { type: Types.Relationship, label: "Associated Game(s)", ref: 'GameConfig' }, 
+    eta: { type: String, label: "Estimated Time To Play" },
     enabled: { type: Types.Boolean, label: "Enabled?"}
 });
 

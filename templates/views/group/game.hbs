@@ -12,7 +12,7 @@
 
 {{!-- {{#ifeq gameType "wikigeeks"}} --}}
 	<div class="launch"><a class="button" href="/new/{{gameType}}">Launch Game</a></div>
-
+{{jsonPrint this}}
 	<div class="blurb">
 {{{game.lessonGuide.html}}}
 
@@ -26,10 +26,9 @@
 
 {{/each}}
 
-{{!-- {{jsonPrint this}} --}}
 {{#each lessonPlans}}
 
-{{jsonPrint this}}
+
 
   <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
       <div class="plan-card" data-category="">

@@ -52,27 +52,35 @@ exports = module.exports = function(req, res) {
 
             locals.categories = category;
 
-            
-
+        
         });
 
+        queryPlan = LessonPlan.model.find({ relatedGame: gameType });
 
-
-        LessonPlan.model.find({ relatedGame: gameType }, {}, function (err, plans) {
-
-            locals.gameType = gameType;
-
+        queryPlan.exec(function (err, plans){
             locals.lessonPlans = plans;
-
-            GameConfig.model.findOne({ gameType: gameType }, function (err, game) {
-
-                locals.game = game;
-
-                next(err);
-                
-            });
-
+            console.log(plans);
         });
+
+
+
+        // LessonPlan.model.find({ relatedGame: gameType }, {}, function (err, plans) {
+
+        //     locals.gameType = gameType;
+
+        //     locals.lessonPlans = plans;
+
+        //     console.log(plans);
+
+        //     GameConfig.model.findOne({ gameType: gameType }, function (err, game) {
+
+        //         locals.game = game;
+
+        //         next(err);
+                
+        //     });
+
+        // });
 
         
 

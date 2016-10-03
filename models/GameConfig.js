@@ -52,8 +52,7 @@ GameConfig.add({
 
 });
 
-GameConfig.relationship({ ref: 'CategoryContent', path: 'game' })
-.relationship({ ref: 'LessonPlan', path: 'game' });
+GameConfig.relationship({ ref: 'LessonPlan', path: 'relatedGame' });
 
 /**
  * Registration
