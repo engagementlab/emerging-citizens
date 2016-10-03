@@ -1,11 +1,21 @@
 <div class="row helpPage" id="help">
 
+  <div class="q-links row">
+    <ul>
+      {{#each faq}}
+          <li><a href="#{{this.name}}">
+          {{this.question.md}}
+        </a></li>
+      {{/each}}
+    </ul>
+  </div>
+
 
   <div class="faq">
   {{#each faq}}
-      <div id="{{this.category.name}}">
-      {{this.question.md}}
-      {{this.answer.md}}
+      <div class="qa row" id="{{this.name}}">
+        <h3>{{this.question.md}}</h3>
+        <p>{{this.answer.md}}</p>
       </div>
   {{/each}}
   </div>

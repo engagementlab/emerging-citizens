@@ -80,7 +80,7 @@ exports = module.exports = function(req, res) {
                 if(session !== null)
                     gameCode = generateCode();
 
-                next();
+                next(err);
 
             });
 

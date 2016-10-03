@@ -24,7 +24,7 @@ var FAQ = new keystone.List('FAQ', {
     singular: 'FAQ',
     nodelete: false, 
     sortable: true
-    // autoKey: { path: 'faq_key', from: 'category', unique: false}
+    // autoKey: { path: 'faq_key', from: 'name', unique: true}
 
 });
 
@@ -32,8 +32,17 @@ FAQ.add({
     name: { type: String, default: 'FAQ', hidden: true },
     question: { type: Types.Markdown, label: 'Question', required: true, initial: true }, 
     answer: { type: Types.Markdown, label: 'Answer', required: true, initial: true }, 
-    // category: { type: Types.Relationship, label: 'Category', ref: 'FAQCategory' },
     enabled: { type: Types.Boolean, label: 'Enabled?', default: true }
+});
+
+FAQ.schema.pre('save', function(next) {
+
+     this.name = this.question.md.replace(/ /g, '-').replace(/\./g, '').replace(/\?/g, '').replace(/\,/g, '');
+
+     console.log (this.name, "name");
+
+    next();
+
 });
 
 /**
