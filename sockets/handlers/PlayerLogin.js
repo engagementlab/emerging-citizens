@@ -15,10 +15,9 @@
 var appRoot = require('app-root-path'),
     logger = require('winston'),
     colors = require('colors'),
-
-    TemplateLoader = require(appRoot + '/lib/TemplateLoader'),
-    Session = require(appRoot + '/lib/SessionManager');
-    Common = require(appRoot + '/lib/games/Common');
+    Core = require('learning-games-core'),
+    Session = Core.SessionManager,
+    TemplateLoader = Core.TemplateLoader;
 
 var PlayerLogin = function (nsp, socket, emitter) {
 
@@ -36,7 +35,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
   this.handler = {
 
     room: function(package) {
-      console.log (package, "package");
+
       if(package.gameId === null) {
         console.warn('gameId missing for socket ID "' + currentSocket.id + '"!');
         return;
@@ -64,6 +63,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
           throw err;
       });
 
+      // Is moderator starting game?
       if(package.msgData == 'moderator' && Session.Get(playerGameId)) {
 
         Session.GroupView(package.gameId, currentSocket.id);
@@ -157,7 +157,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
         if(currentSocket.id === session.groupModerator)
           session.End(currentSpace, true);
         else
-          session.PlayerLost(currentSocket.id, currentSocket);
+          session.PlayerLost(currentSocket.id);
 
       }
     }

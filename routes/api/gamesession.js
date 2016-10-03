@@ -21,7 +21,7 @@ var HashtagGame = keystone.list('HashtagGame'),
     WikiGame = keystone.list('WikiGame'),
     MemeGame = keystone.list('MemeGame'),
     Game = require(appRoot + '/lib/GameManager'),
-    Session = require(appRoot + '/lib/SessionManager'),
+    Session = require('learning-games-core').SessionManager,
     ContentCategory = keystone.list('ContentCategory');
 
 /**

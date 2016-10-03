@@ -15,7 +15,7 @@
 var keystone = require('keystone'),
     appRoot = require('app-root-path'),
     GameSession = keystone.list('GameSession'),
-    Session = require(appRoot + '/lib/SessionManager');
+    Session = require('learning-games-core').SessionManager;
 
 exports = module.exports = function(req, res) {
 

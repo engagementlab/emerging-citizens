@@ -44,12 +44,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            updateGameContent(eventData.html);
+            // updateGameContent(eventData.html);
             $('.header').fadeIn();
-
-            break;
-
-        case 'meme:create':
 
             var slideIndex = 0,
                 imgInstance;
@@ -166,7 +162,7 @@ var gameEvents = function(eventId, eventData) {
                 });
 
             });
-            
+
             break;
 
         case 'meme:tryagain': 
