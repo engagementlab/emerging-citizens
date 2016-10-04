@@ -23,7 +23,10 @@
   var playerId;
 	var timeline = new TimelineLite();
 
-	
+	// For countdown debugging
+  var countdownPaused = false;
+
+
 	{{!-- Group view cleanup --}}
 	{{#ifeq section 'group/monitor'}}
 	    $('.body').addClass('game-bg group');
@@ -34,9 +37,6 @@
   var sfxPath = 'https://res.cloudinary.com/engagement-lab-home/video/upload/v1/emerging-citizens/sfx/';
   {{#ifeq env "development"}}
   	sfxPath = '/sfx/'
-
-		// For countdown debugging
-    var countdownPaused = false;
   {{/ifeq}}
 
   // All possible socket event IDs
