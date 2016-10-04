@@ -33,9 +33,11 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'group';
+    
 
     view.on('init', function(next) {
+
+        locals.section = 'group-' + configGameType.toUpperCase();
 
         locals.categories = [];
         locals.lessonPlans = [];
@@ -52,7 +54,8 @@ exports = module.exports = function(req, res) {
         queryPlan = LessonPlan.model.find({
                                     'enabled':true
                                     })
-                                    .populate('relatedGame');
+                                    .populate('relatedGame')
+                                    .populate('category');
 
         queryPlan.exec(function (err, plans) {
 
