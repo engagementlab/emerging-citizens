@@ -31,11 +31,14 @@ var gameEvents = function(eventId, eventData) {
       var secondsLeft = eventData.duration;
       var timeFactor = 360 / secondsLeft;
       var clockHand = $('#clock-hand');
+
+      if(clockInterval)
+        clearInterval(clockInterval);
           
       clockInterval = setInterval(function() {
 
-          if(clockHand.length === 0)
-            clockHand = $('#clock-hand');
+          // if(clockHand.length === 0)
+          clockHand = $('#clock-hand');
 
           function clockTick() {
               clockHand.css({

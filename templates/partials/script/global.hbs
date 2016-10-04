@@ -179,7 +179,7 @@
 				
 											if(!pauseAnimate) {
 												// Animate screen back in now and then run callback
-												lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut, onComplete:function() {
+												lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut, onComplete:function() {
 										 		
 											 		if(callback)
 												 		callback();
@@ -190,7 +190,7 @@
 													// Animate screen back in later using function passed to callback													
 											 		if(callback)
 												 		callback(function() {
-												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {xPercent:0, ease:Expo.easeInOut});
+												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut});
 												 		});
 
 											}

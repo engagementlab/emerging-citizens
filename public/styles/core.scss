@@ -49,13 +49,9 @@ html, body {
 
 // Body
 .body {
-
   font-family: "Avenir";
-
-  // &.htyi {
-	  background: $background-main, $color-peach;
-	// }
-
+  background: $background-main, $color-peach;
+	
 	@include mobile-only {
 	  background-color: #fdae8f;
 	}

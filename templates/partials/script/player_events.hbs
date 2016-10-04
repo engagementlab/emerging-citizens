@@ -118,7 +118,9 @@ var socketEvents = function(eventId, eventData) {
             // Save current game code to local storage
             sessionStorage.setItem('gameCode', gameCode);
 
-            updateGameContent(eventData);
+            {{!-- updateGameContent(eventData); --}}
+
+            gameContainer.html(eventData);
 
             // Change background
             $('.body').addClass('player');
