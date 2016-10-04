@@ -33,7 +33,9 @@
             
                 {{#each this.[hashtags]}}
                 
-                    <div class="hashtag"><span class="octothorp">#</span>{{{limit this 20}}}</div>
+                    <div class="hashtag hidden-el">
+                        <span class="octothorp">#</span>{{{limit this 20}}}
+                    </div>
 
                    {{#ifeq @index 2}}</div><div class="col-sm-3 left">{{/ifeq}}
                    {{#ifeq @index 5}}</div><div class="col-sm-3 right">{{/ifeq}}
