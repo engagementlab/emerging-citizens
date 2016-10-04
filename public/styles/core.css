@@ -149,6 +149,9 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
+#gameContent {
+  padding-top: 3%; }
+
 #login input[type=text] {
   width: 100%;
   max-width: 290px; }

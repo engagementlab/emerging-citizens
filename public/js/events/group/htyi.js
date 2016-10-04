@@ -8,6 +8,7 @@
  * ==========
  */
 
+var clockInterval;
 var hashtagsAnimSlider;
 
 var openAnim = new TimelineLite();

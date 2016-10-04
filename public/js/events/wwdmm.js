@@ -44,17 +44,13 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            updateGameContent(eventData.html);
+            // updateGameContent(eventData.html);
             $('.header').fadeIn();
-
-            break;
-
-        case 'meme:create':
 
             var slideIndex = 0,
                 imgInstance;
 
-            updateGameContent(eventData, function() {
+            updateGameContent(eventData, function(animateIn) {
 
                 imageLoaded($("#meme-slider"), function() {
 
@@ -67,6 +63,8 @@ var gameEvents = function(eventId, eventData) {
                             $('#image-index').val(slideIndex);
                         }
                     }); 
+
+                  animateIn();
 
                 });
             
@@ -165,8 +163,8 @@ var gameEvents = function(eventId, eventData) {
                     writeText($(evt.currentTarget));
                 });
 
-            });
-            
+            }, true);
+
             break;
 
         case 'meme:tryagain': 

@@ -1,7 +1,7 @@
 <div class="page-container">
     <div class="row">
         {{!-- STATE TEXT --}}
-        <div id="top-header" class="top-bar">
+        <div id="top-header" class="top-bar hidden-el">
             <h1>
                 make a meme about:
                 <span id="topic">
@@ -10,13 +10,13 @@
             </h1>
         </div>
         
-        <div class="col-lg-4 col-sm-4"> 
+        <div class="col-lg-4 col-sm-4 players-left hidden-el"> 
         {{> group/meme/players_grid players=players.left offset=0 left=true active=true}}
         </div>
 
         {{!-- Meme Create Container --}}
         <section class="col-lg-4 col-sm-4">
-            <div id="make-meme" class="row room-container">
+            <div id="make-meme" class="row room-container hidden-el">
                 <div class="col-lg-12 col-sm-12">
 
                     {{!-- MAKE MEME --}}
@@ -40,7 +40,7 @@
             </div>
         </section>
 
-        <div class="col-lg-4 col-sm-4"> 
+        <div class="col-lg-4 col-sm-4 players-right hidden-el"> 
         {{> group/meme/players_grid players=players.right offset=4 left=false active=true}}
         </div>
         
