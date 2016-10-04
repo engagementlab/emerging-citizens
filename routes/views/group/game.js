@@ -31,12 +31,6 @@ exports = module.exports = function(req, res) {
     var configGameType = req.params.game_type;
     var gameCode;
 
-    var GameType = {
-        'htyi' : "Hash Tag You're It",
-        'wikigeeks' : "WikiGeeks"
-        // 1 : "Wait, Wait, Don't Tell MEME",
-    }
-
     // locals.section is used to set the currently selected
     // item in the header navigation.
     locals.section = 'group';
@@ -45,14 +39,13 @@ exports = module.exports = function(req, res) {
 
         locals.categories = [];
         locals.lessonPlans = [];
-        locals.whichGame = configGameType;
+        locals.whichGame = configGameType.toUpperCase();
 
         var queryContent = ContentCategory.model.find({});
 
         queryContent.exec(function (err, category) {
 
             locals.categories = category;
-
         
         });
 
@@ -61,12 +54,10 @@ exports = module.exports = function(req, res) {
                                     })
                                     .populate('relatedGame');
 
-        queryPlan.exec(function (err, plans){
+        queryPlan.exec(function (err, plans) {
 
             // if (plans.relatedGame === gameType) {
                 locals.lessonPlans = plans;
-
-                console.log(plans);
             // }
 
             GameConfig.model.findOne({ }, function (err, game) {
