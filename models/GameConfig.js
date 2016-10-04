@@ -46,9 +46,21 @@ GameConfig.add({
 		scoreVote: { type: Number, label: "Vote Score", dependsOn: {gameType: "WWDMM"}},
 
 		survey: { type: Boolean, label: "Typeform Survey At End?", note: "Survey only appears if typeform is enabled." }, 
-		surveyUrl: { type: String, label: "Typeform Survey URL Link", dependsOn: {survey: true}}, 
+		surveyUrl: { type: String, label: "Typeform Survey URL Link", dependsOn: {survey: true}}
+	}, 
 
-		lessonGuide: { type: Types.Markdown, label: "Lesson Guide for this game" }
+	'Lesson Guide': {
+			image: { type: Types.CloudinaryImage, label: 'Game logo'},
+	    text: { type: Types.Markdown, label: 'Byline' }, 
+			lessonGuide: { type: Types.Markdown, label: "Lesson Guide/Learning Goals for this game" },
+			what: { type: Types.Markdown, label: "What is..?"},
+	    why: { type: Types.Markdown, label: "Why think about..?"},
+	    tips: { type: Types.Markdown, label: "Tips to keep in mind"},
+	    questions: { type: Types.Markdown, label: "Key questions to ask"},
+	    howToPlay: { type: Types.Markdown, label: "How To Play Steps"}
+	}
+
+		
 
 });
 
