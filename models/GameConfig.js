@@ -49,7 +49,7 @@ GameConfig.add({
 		surveyUrl: { type: String, label: "Typeform Survey URL Link", dependsOn: {survey: true}}
 	}, 
 
-	'Lesson Guide': {
+	'Lesson Guide', {
 			image: { type: Types.CloudinaryImage, label: 'Game logo'},
 	    text: { type: Types.Markdown, label: 'Byline' }, 
 			lessonGuide: { type: Types.Markdown, label: "Lesson Guide/Learning Goals for this game" },
@@ -59,10 +59,7 @@ GameConfig.add({
 	    questions: { type: Types.Markdown, label: "Key questions to ask"},
 	    howToPlay: { type: Types.Markdown, label: "How To Play Steps"}
 	}
-
-		
-
-});
+);
 
 GameConfig.relationship({ ref: 'LessonPlan', path: 'relatedGame' });
 

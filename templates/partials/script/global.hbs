@@ -300,6 +300,20 @@
 		
 		}
 
+		console.log('{{section}}');
+		{{#ifeq section 'group-WIKIGEEKS'}}
+			$('body').addClass('wikigeeks');
+			$('body').addClass('game-bg');
+		{{/ifeq}}
+		{{#ifeq section 'group-HTYI'}}
+			$('body').addClass('htyi');
+			$('body').addClass('game-bg');
+		{{/ifeq}}
+		{{#ifeq section 'group-WWDMM'}}
+			$('body').addClass('wwdmm');
+			$('body').addClass('game-bg');
+		{{/ifeq}}
+
 		// MENU
 
 		$("#nav-dropdown").on('click', function() {

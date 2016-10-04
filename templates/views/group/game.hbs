@@ -1,36 +1,69 @@
 <div class="launch"><a class="button" href="/new/{{whichGame}}">Launch Game</a></div>
 
-	<div class="blurb">
+	<div class="blurb row">
     {{{game.lessonGuide.html}}}
 	</div>
 
-  <div class="content">
+<div class="content">
 
-    {{#each categories}}
+  <div class="row">
+    <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+      <button value="*" data-filter="" class="button">All</button>
+      {{#each categories}}
+      <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
 
-      Category
-      {{this.topicName}}
+      {{/each}}
+    </div>
+  </div>
 
-    {{/each}}
 
+<div id="plans">
     {{#each lessonPlans}}
+
       {{#each relatedGame}}
-      
+
         {{#ifeq gameType ../../whichGame}}
 
-          <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
-            <div class="plan-card" data-category="">
-              <h3>{{name}}</h3>
-              <h4>Content: </h4> {{#each category}}<p>{{topicName}}</p> {{/each}}
-              <h4>Associated Games: </h4> {{#each relatedGame}}<p>{{gameType}}</p>{{/each}}
 
-              <button class="button open-plan" id="" data-id="{{plan_key}}" value="#">More</button>
+
+          <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{gameType}} {{../../category.cat_key}}">
+            <div class="plan-card" data-category="">
+              <h3>{{../../name}}</h3>
+              <h4>Content: </h4> {{#each ../../category}}<p>{{topicName}}</p> {{/each}}
+              {{!-- <h4>Associated Games: </h4> <p>{{gameType}}</p> --}}
+
+              <button class="button open-plan" id="" data-id="{{../../plan_key}}" value="#">More</button>
             </div>
           </div>
 
           {{/ifeq}}
 
       {{/each}}
+
     {{/each}}
 
+  </div>
+
 </div>
+
+  <div class="plan-modals" style="display:none">
+
+  {{#each lessonPlans}}
+
+      <div class="plan-outer" style="display:none" id="{{plan_key}}">
+        <div class="plan-inner">
+          <h3>{{name}}</h3>
+          <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+          {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
+
+          <p>{{{text.html}}}</p>
+
+          <button class="button close-plan" id="" value="#">Back</button>
+        </div>
+      </div>
+       
+      {{!-- {{jsonPrint this}} --}}
+
+  {{/each}}
+
+  </div>
