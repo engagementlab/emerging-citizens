@@ -47,6 +47,7 @@ module.exports = function(grunt, options) {
   config.uglify.files[fileOut] = [
 
     __dirname + '/../public/plugins/*.js',  // Plugins
+    __dirname + '/../public/plugins/isotope/isotope.min.js',  // Isotope
     '!' + __dirname + '/../public/plugins/jquery.cycle2.js',
     '!' + __dirname + '/../public/plugins/jquery.cycle2.flip.js',
     '!' + __dirname + '/../public/bower_components/nosleep/*.js', // Ignore nosleep
