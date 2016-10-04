@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    var gameType = req.params.game_type;
+    var configGameType = req.params.game_type;
     var gameCode;
 
     var GameType = {
@@ -45,6 +45,7 @@ exports = module.exports = function(req, res) {
 
         locals.categories = [];
         locals.lessonPlans = [];
+        locals.whichGame = configGameType;
 
         var queryContent = ContentCategory.model.find({});
 
@@ -55,11 +56,28 @@ exports = module.exports = function(req, res) {
         
         });
 
-        queryPlan = LessonPlan.model.find({ relatedGame: gameType });
+        queryPlan = LessonPlan.model.find({
+                                    'enabled':true
+                                    })
+                                    .populate('relatedGame');
 
         queryPlan.exec(function (err, plans){
-            locals.lessonPlans = plans;
-            console.log(plans);
+
+            // if (plans.relatedGame === gameType) {
+                locals.lessonPlans = plans;
+
+                console.log(plans);
+            // }
+
+            GameConfig.model.findOne({ }, function (err, game) {
+
+                locals.game = game;
+
+                next(err);
+                
+            });
+
+            
         });
 
 
@@ -72,14 +90,7 @@ exports = module.exports = function(req, res) {
 
         //     console.log(plans);
 
-        //     GameConfig.model.findOne({ gameType: gameType }, function (err, game) {
-
-        //         locals.game = game;
-
-        //         next(err);
-                
-        //     });
-
+        //     
         // });
 
         
