@@ -1,43 +1,36 @@
+<div class="launch"><a class="button" href="/new/{{whichGame}}">Launch Game</a></div>
 
-	<div class="launch"><a class="button" href="/new/{{whichGame}}">Launch Game</a></div>
-{{!-- {{jsonPrint this}} --}}
 	<div class="blurb">
-{{{game.lessonGuide.html}}}
-
+    {{{game.lessonGuide.html}}}
 	</div>
 
   <div class="content">
-{{#each categories}}
 
-  Category
-  {{this.topicName}}
+    {{#each categories}}
 
-{{/each}}
+      Category
+      {{this.topicName}}
 
-{{jsonPrint this}}
+    {{/each}}
 
-{{#each lessonPlans}}
+    {{#each lessonPlans}}
+      {{#each relatedGame}}
+      
+        {{#ifeq gameType ../../whichGame}}
 
+          <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
+            <div class="plan-card" data-category="">
+              <h3>{{name}}</h3>
+              <h4>Content: </h4> {{#each category}}<p>{{topicName}}</p> {{/each}}
+              <h4>Associated Games: </h4> {{#each relatedGame}}<p>{{gameType}}</p>{{/each}}
 
+              <button class="button open-plan" id="" data-id="{{plan_key}}" value="#">More</button>
+            </div>
+          </div>
 
-{{#each relatedGame}}
-  {{#ifeq gameType ../../configGameType}}
+          {{/ifeq}}
 
-  <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
-      <div class="plan-card" data-category="">
-        <h3>{{name}}</h3>
-        <h4>Content: </h4> {{#each category}}<p>{{topicName}}</p> {{/each}}
-        <h4>Associated Games: </h4> {{#each relatedGame}}<p>{{gameType}}</p>{{/each}}
+      {{/each}}
+    {{/each}}
 
-        <button class="button open-plan" id="" data-id="{{plan_key}}" value="#">More</button>
-      </div>
-    </div>
-
-    {{/ifeq}}
-
-  {{/each}}
-
-{{/each}}
-
-  </div>
-
+</div>
