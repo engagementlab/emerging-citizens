@@ -173,7 +173,7 @@ var gameEvents = function(eventId, eventData) {
 
       var clickedPlayer = staticPlayers[eventData.index];
 
-      $(clickedPlayer).velocity({scale: 1.25}, {duration: 300}, 'easeInElastic', 5).velocity({scale:1}, {duration: 300}, 5)
+      $(clickedPlayer).velocity({scale: 1.25}, {duration: 300}, 'easeInElastic', 5).velocity({scale:1}, {duration: 300}, 5);
 
       break;
 

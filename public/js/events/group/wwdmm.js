@@ -149,10 +149,24 @@ var gameEvents = function(eventId, eventData) {
         .from($('.room-container'), 1, {y:'-200%', autoAlpha:0, ease:Elastic.easeOut}, 'header+=.5')
         .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1')
         .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1');
+
+        $('.nameplate').css('opacity', '0.4');
       
       });
 
   		break;
+
+    case 'meme:received':
+
+      var staticPlayers = $('.player-static');
+      var submitter = staticPlayers[eventData.index];
+
+      // Set player who submitted to 'active' state in player grid
+      $(submitter).addClass('active');
+      $(submitter).find('.nameplate').css('opacity', '1').addClass('active');
+      $(submitter).find('.icon').addClass('active');
+
+      break;
 
 	  case 'meme:voting':
 
