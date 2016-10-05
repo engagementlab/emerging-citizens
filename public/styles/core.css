@@ -1663,10 +1663,6 @@ body .player-form {
           -ms-transform: scale(1.1);
           -webkit-transform: scale(1.1);
           transform: scale(1.1); }
-        .body.wwdmm.group .players-grid.row .player-background .player-static .icon img {
-          width: 87px;
-          margin-left: 5%;
-          margin-top: 5%; }
       .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate {
         -moz-transform: scale(0.9);
         -o-transform: scale(0.9);

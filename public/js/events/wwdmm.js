@@ -164,6 +164,17 @@ var gameEvents = function(eventId, eventData) {
 
               });
 
+              // Submit meme on enter key
+              $(".meme-text").keydown(function(evt) {
+                if(evt.keyCode == 13)
+                  $('#btn-submit').click();
+              });
+
+              // Mobile keyboard workaround
+              $('#btn-submit').on('touchend', function(evt) {
+                $('#btn-submit').submit()
+              });
+
               // Write text to canvas as player types
               $('.meme-text').keyup(function(evt) {
                   writeText($(evt.currentTarget));
