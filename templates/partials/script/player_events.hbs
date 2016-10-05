@@ -19,6 +19,7 @@ var resetSession = function() {
     // Remove saved game code, submission, and set to not reconnected
     sessionStorage.removeItem('gameCode');
     sessionStorage.removeItem('playerSubmission');
+    sessionStorage.removeItem('playerVote');
     sessionStorage.setItem('reconnected', false);
 
 }

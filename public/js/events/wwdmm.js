@@ -47,6 +47,7 @@ var gameEvents = function(eventId, eventData) {
             $('.header').fadeIn();
 
             var slideIndex = 0,
+                memeImgsLoaded = false,
                 imgInstance;
 
             updateGameContent(eventData, function(animateIn) {
@@ -55,6 +56,8 @@ var gameEvents = function(eventId, eventData) {
               // Do not allow player to submit more than once
               if(sessionStorage.getItem('playerSubmission')) {
                 gameEvents('meme:received');
+                animateIn();
+
                 return;
               }
 
@@ -68,9 +71,12 @@ var gameEvents = function(eventId, eventData) {
                           slideIndex = evt.index - 1;
                           $('#image-index').val(slideIndex);
                       }
-                  }); 
+                  });
 
-                animateIn();
+                if(!memeImgsLoaded) {
+                  animateIn();
+                  memeImgsLoaded = true;
+                }
 
               });
           
@@ -303,7 +309,12 @@ var gameEvents = function(eventId, eventData) {
 
                   $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
 
+                  sessionStorage.setItem('playerVote', slideIndex);
+
               });
+
+              if(sessionStorage.getItem('playerVote'))
+                $('#btn-vote').val('voted!').attr('disabled', true).css({'opacity': '0.3'});
 
             });
 
