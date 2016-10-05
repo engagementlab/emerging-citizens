@@ -66,6 +66,8 @@
     text-align: center;
 
 	  font-family: Impact;
+
+  	@include stroke(3, #000);
 	
 	}
 
@@ -192,6 +194,8 @@
 		    padding-right: 10%;
 		    padding-left: 10%;
 	    	font-size: 1.5em;
+
+	    	@include stroke(3, #fff);
 	    }
 	    .score-shadow {
 		    margin-top: -6px;
@@ -343,7 +347,7 @@
     font-size: 1em;
 
     h3 {
-    	font-size: 1em;
+    	font-size: 2em;
     	font-weight: normal;
     }
 

@@ -1433,7 +1433,8 @@ body .player-form {
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    font-family: Impact; }
+    font-family: Impact;
+    text-shadow: -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000; }
   .body.wwdmm.group .room-container {
     border: 15px solid #b7d63a;
     border-radius: 10px; }
@@ -1508,7 +1509,8 @@ body .player-form {
       margin-right: auto;
       padding-right: 10%;
       padding-left: 10%;
-      font-size: 1.5em; }
+      font-size: 1.5em;
+      text-shadow: -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff; }
     .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
       margin-top: -6px; }
   .body.wwdmm.group #results-container .meme-canvas {
@@ -1608,7 +1610,7 @@ body .player-form {
     color: #21b7f0;
     font-size: 1em; }
     .body.wwdmm.group #make-meme h3 {
-      font-size: 1em;
+      font-size: 2em;
       font-weight: normal; }
     .body.wwdmm.group #make-meme #meme-topic {
       font-size: 3em;
@@ -1990,6 +1992,10 @@ body .player-form {
 
 .body.wwdmm.player .glide__wrapper {
   min-height: 400px; }
+  @media (max-width: 320px) {
+    .body.wwdmm.player .glide__wrapper {
+      min-height: 320px;
+      max-height: 320px; } }
 
 .body.wwdmm.player .glide__bullets {
   position: static;
@@ -2008,7 +2014,7 @@ body .player-form {
 
 .body.wwdmm.player .post-button {
   margin-top: 40px;
-  width: 400px;
+  width: 100%;
   background-color: #19f7ad; }
   .body.wwdmm.player .post-button.back {
     background-color: #ff8d5b; }
@@ -2018,6 +2024,16 @@ body .player-form {
 .body.wwdmm.player #meme-slider {
   min-width: 400px;
   max-width: 400px; }
+  @media (max-width: 320px) {
+    .body.wwdmm.player #meme-slider {
+      min-width: 100%;
+      max-width: 100%; } }
+
+.body.wwdmm.player #meme-create #meme-canvas canvas {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  pointer-events: none; }
 
 .body.wwdmm.player #meme-voting .glide__arrows {
   top: 35%; }
@@ -2027,15 +2043,8 @@ body .player-form {
 
 .body.wwdmm.player #meme-voting .meme {
   position: relative;
-  width: 400px;
+  width: 100%;
   min-height: 400px; }
-
-.body.wwdmm.player #meme-voting .btn-like {
-  position: absolute;
-  left: 80%;
-  bottom: 0;
-  border: none;
-  box-shadow: none; }
 
 .body.wwdmm.player #meme-voting .meme-text {
   display: inline-block;

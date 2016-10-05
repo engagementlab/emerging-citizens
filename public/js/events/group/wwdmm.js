@@ -239,8 +239,6 @@ var gameEvents = function(eventId, eventData) {
 
         submissionsAnim
         .from($('#submissions'), 1, {autoAlpha:0}).add('submissions');
-
-        debugger;
         
         var elements = $('#submissions .submission');
 

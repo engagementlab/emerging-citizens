@@ -16,6 +16,12 @@
 
 	// Meme slider
 	.glide__wrapper {
+
+  	@include mobile-portrait-only {
+			min-height: 320px;
+	  	max-height: 320px;
+  	}
+  	
 		min-height: 400px;
 	}
 	.glide__bullets {
@@ -39,7 +45,7 @@
 	// Meme submission/go back
   .post-button {
   	margin-top: 40px;
-  	width: 400px;
+  	width: 100%;
   	background-color: $color-bright-sea-green;
 
   	&.back {
@@ -51,10 +57,28 @@
   }
 
   #meme-slider {
-  	
+
+  	@include mobile-portrait-only {
+	  	min-width: 100%;
+	  	max-width: 100%;
+  	}
+
   	min-width: 400px;
   	max-width: 400px;
 
+  }
+
+  #meme-create {
+
+  	#meme-canvas {
+  		canvas {
+  			user-select: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				pointer-events: none;
+  		}
+  	}
+  
   }
 
 	#meme-voting {
@@ -68,17 +92,8 @@
 
 		.meme {
 			position: relative;
-			width: 400px;
+			width: 100%;
 			min-height: 400px;
-		}
-
-		.btn-like {
-	    position: absolute;
-	    left: 80%;
-	    bottom: 0;
-	    border: none;
-	    box-shadow: none;
- 
 		}
 		
 		.meme-text {

@@ -44,124 +44,130 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            // updateGameContent(eventData.html);
             $('.header').fadeIn();
 
             var slideIndex = 0,
                 imgInstance;
 
             updateGameContent(eventData, function(animateIn) {
+              var dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
 
-                imageLoaded($("#meme-slider"), function() {
+              // Do not allow player to submit more than once
+              if(sessionStorage.getItem('playerSubmission')) {
+                gameEvents('meme:received');
+                return;
+              }
 
-                  $("#meme-slider").glide({
-                        type: "carousel",
-                        autoplay: false,
-                        autoheight: true,
-                        afterTransition: function(evt) {
-                            slideIndex = evt.index - 1;
-                            $('#image-index').val(slideIndex);
-                        }
-                    }); 
+              imageLoaded($("#meme-slider"), function() {
 
-                  animateIn();
+                $("#meme-slider").glide({
+                      type: "carousel",
+                      autoplay: false,
+                      autoheight: true,
+                      afterTransition: function(evt) {
+                          slideIndex = evt.index - 1;
+                          $('#image-index').val(slideIndex);
+                      }
+                  }); 
 
-                });
-            
-                var canvas = new Kinetic.Stage({
-                    container: 'meme-canvas',
-                    width: 400,
-                    height: 400
-                }),
-                layer = new Kinetic.Layer();
-                canvas.add(layer);
+                animateIn();
 
-                var upperCaption = new Kinetic.Text({
-                    name: 'upper',
-                    x: 0,
-                    y: 40,
-                    text: '',
-                    fontSize: 46,
-                    fontFamily: 'Impact, "Impact-External"',
-                    fill: '#fff',
-                    stroke: '#000',
-                    strokeWidth: 2,
-                    lineJoin: 'round',
-                    width: 400,
-                    align: 'center'
-                }),
-                lowerCaption = new Kinetic.Text({
-                    name: 'lower',
-                    x: 0,
-                    y: 400,
-                    text: '',
-                    fontSize: 46,
-                    fontFamily: 'Impact, "Impact-External"',
-                    fill: '#fff',
-                    stroke: '#000',
-                    strokeWidth: 2,
-                    lineJoin: 'round',
-                    width: 400,
-                    align: 'center'
-                });
+              });
+          
+              var canvas = new Kinetic.Stage({
+                  container: 'meme-canvas',
+                  width: dimensions,
+                  height: 400
+              }),
+              layer = new Kinetic.Layer();
+              canvas.add(layer);
 
-                var writeText = function(txtElement) {
+              var upperCaption = new Kinetic.Text({
+                  name: 'upper',
+                  x: 0,
+                  y: 40,
+                  text: '',
+                  fontSize: 46,
+                  fontFamily: 'Impact, "Impact-External"',
+                  fill: '#fff',
+                  stroke: '#000',
+                  strokeWidth: 2,
+                  lineJoin: 'round',
+                  width: dimensions,
+                  align: 'center'
+              }),
+              lowerCaption = new Kinetic.Text({
+                  name: 'lower',
+                  x: 0,
+                  y: 400,
+                  text: '',
+                  fontSize: 46,
+                  fontFamily: 'Impact, "Impact-External"',
+                  fill: '#fff',
+                  stroke: '#000',
+                  strokeWidth: 2,
+                  lineJoin: 'round',
+                  width: dimensions,
+                  align: 'center'
+              });
 
-                    var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
+              var writeText = function(txtElement) {
 
-                    caption.setText(txtElement.val().toUpperCase());
-                    caption.fontSize(getFontSize(txtElement.val()));
+                  var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
 
-                    lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
+                  caption.setText(txtElement.val().toUpperCase());
+                  caption.fontSize(getFontSize(txtElement.val()));
 
-                    layer.draw();
-                
-                }
+                  lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
 
-                $('#btn-next input').click(function(evt) {
+                  layer.draw();
+              
+              }
 
-                    var imgElement = $('.glide__slide.active img')[0];
-                    
-                    if(!imgInstance) {
-                        imgInstance = new Kinetic.Image({
-                                        x: 0,
-                                        y: 0,
-                                        width: canvas.getWidth(),
-                                        height: canvas.getHeight(),
-                                        image: imgElement
-                                      });
-                        
-                        layer.add(imgInstance);
-                        layer.add(upperCaption);
-                        layer.add(lowerCaption);
-                    }
-                    else
-                        imgInstance.setImage(imgElement);
-                    
-                    layer.draw();
+              $('#btn-next input').click(function(evt) {
 
-                    $('#btn-next').hide();
-                    $('#meme-slider').hide();
-                    $('#meme-text').show();
+                  var imgElement = $('.glide__slide.active img')[0];
+                  
+                  if(!imgInstance) {
+                      imgInstance = new Kinetic.Image({
+                                      x: 0,
+                                      y: 0,
+                                      width: canvas.getWidth(),
+                                      height: canvas.getHeight(),
+                                      image: imgElement
+                                    });
+                      
+                      layer.add(imgInstance);
+                      layer.add(upperCaption);
+                      layer.add(lowerCaption);
+                  }
+                  else
+                      imgInstance.setImage(imgElement);
+                  
+                  layer.draw();
 
-                    $('#btns-submit').show();
+                  $('#btn-next').hide();
+                  $('#meme-slider').hide();
+                  $('#meme-text').show();
 
-                });
+                  $('#btns-submit').show();
 
-                $('#btn-back').click(function(evt) {
-                
-                    $('#meme-slider').show();
-                    $('#meme-text').hide();
+              });
 
-                    $('#btn-next').show();
-                    $('#btns-submit').hide();
+              $('#btn-back').click(function(evt) {
+              
+                  $('#meme-slider').show();
+                  $('#meme-text').hide();
 
-                });
+                  $('#btn-next').show();
+                  $('#btns-submit').hide();
 
-                // Write text to canvas as player types
-                $('.meme-text').keyup(function(evt) {
-                    writeText($(evt.currentTarget));
-                });
+              });
+
+              // Write text to canvas as player types
+              $('.meme-text').keyup(function(evt) {
+                  writeText($(evt.currentTarget));
+              });
 
             }, true);
 
@@ -208,13 +214,14 @@ var gameEvents = function(eventId, eventData) {
                 $.each($('.meme-canvas'), function(index, meme) {
 
                   var upperText = $(meme).data().upper ? $(meme).data().upper.toUpperCase() : '',
-                      lowerText = $(meme).data().lower ? $(meme).data().lower.toUpperCase() : '';
+                      lowerText = $(meme).data().lower ? $(meme).data().lower.toUpperCase() : '',
+                      dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
 
                   // Create meme canvas, render layer, captions, and image
                   var canvas = new Kinetic.Stage({
                       container: $(meme)[0],
-                      width: 400,
-                      height: 400
+                      width: dimensions,
+                      height: dimensions
                   }),
                   layer = new Kinetic.Layer(),
                   upperCaption = new Kinetic.Text({
@@ -228,7 +235,7 @@ var gameEvents = function(eventId, eventData) {
                       stroke: '#000',
                       strokeWidth: 2,
                       lineJoin: 'round',
-                      width: 400,
+                      width: dimensions,
                       align: 'center'
                   }),
                   lowerCaption = new Kinetic.Text({
@@ -242,7 +249,7 @@ var gameEvents = function(eventId, eventData) {
                       stroke: '#000',
                       strokeWidth: 2,
                       lineJoin: 'round',
-                      width: 400,
+                      width: dimensions,
                       align: 'center'
                   });
 
@@ -284,18 +291,6 @@ var gameEvents = function(eventId, eventData) {
                   socket.emit('meme:vote', emitData(slideIndex));
 
                   $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
-
-              });
-
-              // When 'like' is clicked, send event and set slide as liked
-              $('.btn-like').click(function(evt) {
-
-                  // var slideIndex = $('#meme-slider ul li').index($('.glide__slide.active'));
-                  
-                  socket.emit('meme:like', emitData(slideIndex));
-                  
-                  $(evt.currentTarget).attr('disabled', true).css('opacity', '0.3');
-                  TweenLite.to($(evt.currentTarget), 0.5, {scale: 0.7, ease: Bounce.easeOut});
 
               });
 
