@@ -114,6 +114,13 @@
 
 		}
 
+		.meme-canvas {
+			pointer-events: none;
+		}	
+  	.kineticjs-content {
+			pointer-events: none;		
+  	}
+
 		.text-upper {
 			top: 4%;
 		}

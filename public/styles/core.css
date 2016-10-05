@@ -2054,6 +2054,12 @@ body .player-form {
   text-transform: uppercase;
   text-align: center; }
 
+.body.wwdmm.player #meme-voting .meme-canvas {
+  pointer-events: none; }
+
+.body.wwdmm.player #meme-voting .kineticjs-content {
+  pointer-events: none; }
+
 .body.wwdmm.player #meme-voting .text-upper {
   top: 4%; }
 
