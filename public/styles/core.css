@@ -2035,6 +2035,9 @@ body .player-form {
   -moz-user-select: none;
   pointer-events: none; }
 
+.body.wwdmm.player #meme-create .kineticjs-content {
+  pointer-events: none; }
+
 .body.wwdmm.player #meme-voting .glide__arrows {
   top: 35%; }
 
