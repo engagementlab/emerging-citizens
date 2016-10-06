@@ -22,7 +22,7 @@
     "console-remote-client": "^0.4.3",
     "express": "4.13.4",
     "keystone": "0.3.15",
-    "learning-games-core": "git://github.com/engagementgamelab/learning-games-core.git",
+    "learning-games-core": "https://github.com/engagementgamelab/learning-games-core/tarball/master",
     "mongoose": "^4.4.5",
     "node-sass-middleware": "^0.9.7",
     "html-entities": "1.2.0",
