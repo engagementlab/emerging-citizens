@@ -139,7 +139,9 @@ module.exports = function() {
         if(!xAxis) {
 
             if(dest) {
-                if(index >= 9) return 200;
+                if(index >= 19) return 380;
+                else if(index >= 14) return 290;
+                else if(index >= 9) return 200;
                 else if(index >= 4) return 110;
                 else return 10;
             }
@@ -148,6 +150,8 @@ module.exports = function() {
                 if(index === 4) {
                     return 10
                 }
+                else if(index >= 22) return 380;
+                else if(index >= 16) return 290;
                 else if(index >= 10) return 200;
                 else if(index > 4) return 110;
                 else return 10;
@@ -158,12 +162,17 @@ module.exports = function() {
         // x position
         else {
 
-            // Reverse position for odd-num rows
-            if(index > 4 && index < 9) {
+            var secondRow = (index > 4 && index < 9),
+                fourthRow = (index > 14 && index < 19);
+            
+            var evenRow = secondRow || fourthRow;
 
-                let offset = index - 5;
-                let offsetXVal = (baseXVal * 4);
-                let xPos = (offsetXVal - (baseXVal * offset));
+            // Reverse position for even-num rows
+            if(evenRow) {
+
+                let offset = index - (secondRow ? 5 : 14); // 5
+                let offsetXVal = (baseXVal * 4); // 880
+                let xPos = (offsetXVal - (baseXVal * offset)); // 880 - 1100
 
                 if(dest)
                     xPos = (offsetXVal - (baseXVal * offset) - baseXVal);

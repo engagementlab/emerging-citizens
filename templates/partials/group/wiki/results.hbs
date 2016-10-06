@@ -11,9 +11,11 @@
 
 					{{#each results}}
 
+					{{!-- {{jsonPrint this}} --}}
+
 	          {{#iflt @index 3}}
 
-	          	{{#if finished}}
+	          	{{!-- {{#if finished}} --}}
 
 		          	<section class="player-path hidden-el">
 				
@@ -36,7 +38,7 @@
 												<div class="content target-article">
 
 													<h2>Target article:</h2>
-													<h3>{{../../../title}}</h3>
+													<h3>{{../../title}}</h3>
 
 													<div class="border"></div>
 
@@ -60,16 +62,15 @@
 															left: {{sum (wikiResultPosition @index true false false) 20}}px;
 														{{/if}}
 														top: {{wikiResultPosition @index false false false}}px;
-														width: 170px">{{ellipsis 25 this}}</div>
+														width: 170px">{{ellipsis 25 title}}</div>
 
 													{{/each}}
 
 												</div>
 											
 												<svg height="990" width="1100" style="position:absolute; left:0px;">
+													{{!-- Path lines --}}
 													{{#each articles}}
-														
-														{{@index}}
 
 														{{#unless @last}}
 
@@ -80,14 +81,17 @@
 																			
 																			style="stroke:rgb(188,255,252);stroke-width:8" />
 															{{else}}
+
+															{{display_index}}
+														
 																<line class="articleLine" 
-																			x1="{{sum (wikiResultPosition @index true false false) 105}}" 
+																			x1="{{sum (wikiResultPosition display_index true false false) 105}}" 
 																			y1="{{wikiResultPosition @index false false false}}" 
 																			
-																			x2="{{sum (wikiResultPosition @index true false false) 105}}" 
+																			x2="{{sum (wikiResultPosition display_index true false false) 105}}" 
 																			y2="{{wikiResultPosition @index false false false}}" 
 
-																			data-x2="{{sum (wikiResultPosition @index true true false) 105}}" 
+																			data-x2="{{sum (wikiResultPosition display_index true true false) 105}}" 
 																			data-y2="{{wikiResultPosition @index false true false}}"
 																			
 																			style="stroke:rgb(188,255,252);stroke-width:8" />
@@ -97,6 +101,7 @@
 
 													{{/each}}
 												
+													{{!-- Path dots --}}
 													{{#each articles}}
 
 															{{@index}}
@@ -146,7 +151,7 @@
 
 								</section>
 
-							{{/if}}
+							{{!-- {{/if}} --}}
 
 	          {{/iflt}}
 
