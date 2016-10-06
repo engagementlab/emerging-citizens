@@ -2,7 +2,7 @@
     <div class="row">
 
         {{!-- Players left-hand column --}}
-        {{> group/players_column players=players.left offset=0 left=true active=false }}
+        {{> group/players_column players=players.left offset=0 left=trues }}
         
         {{!-- Room Code Container --}}
         <section class="col-sm-6 room-container" id="tweet-container">
@@ -30,7 +30,7 @@
         </section>
         
         {{!-- Players right-hand column --}}
-        {{> group/players_column players=players.right offset=4 left=false active=false }}
+        {{> group/players_column players=players.right offset=4 left=false }}
 
     </div> {{!-- end page row --}}
 </div>
