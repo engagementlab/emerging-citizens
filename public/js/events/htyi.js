@@ -64,24 +64,34 @@ var gameEvents = function(eventId, eventData) {
             $('#submitted').show();
 
             sessionStorage.setItem('playerSubmission', eventData);
-            
+
+
             loadToggle(false);
 
             break;
     
         case 'hashtags:received':
 
-            updateGameContent(eventData);
+            updateGameContent(eventData, function(animateIn) {
 
-            // Remove current player's submission from selections
-            $('#vote-submission').find('button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
+                console.log('"' + sessionStorage.getItem('playerSubmission') + '"');
 
-            // Hide voting (if player was reconnected and already voted)?
-            if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
-            {
-                $('#' + $('#submitted').data('hide')).remove();
-                $('#submitted').show();
-            }
+                // Remove current player's submission from selections
+                var myHash = $('button.voting-button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]');
+
+                console.log (myHash);
+
+                myHash.remove();
+                animateIn();
+                
+                // Hide voting (if player was reconnected and already voted)?
+                if(playerWasReconnected && (sessionStorage.getItem('voted') === 'true'))
+                {
+                    $('#' + $('#submitted').data('hide')).remove();
+                    $('#submitted').show();
+                }
+
+            }, true);
 
             break;
 
