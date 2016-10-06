@@ -46,9 +46,11 @@ var gameEvents = function(eventId, eventData) {
 
             $('.header').fadeIn();
 
-            var slideIndex = 0,
+            var voteId = 0,
                 memeImgsLoaded = false,
                 imgInstance;
+
+            sessionStorage.removeItem('playerVote');
 
             updateGameContent(eventData, function(animateIn) {
               var dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
@@ -64,14 +66,14 @@ var gameEvents = function(eventId, eventData) {
               imageLoaded($("#meme-slider"), function() {
 
                 $("#meme-slider").glide({
-                      type: "carousel",
-                      autoplay: false,
-                      autoheight: true,
-                      afterTransition: function(evt) {
-                          slideIndex = evt.index - 1;
-                          $('#image-index').val(slideIndex);
-                      }
-                  });
+                  type: "carousel",
+                  autoplay: false,
+                  autoheight: true,
+                  afterTransition: function(evt) {
+                      voteId = evt.index - 1;
+                      $('#image-index').val(voteId);
+                  }
+                });
 
                 if(!memeImgsLoaded) {
                   animateIn();
@@ -207,31 +209,34 @@ var gameEvents = function(eventId, eventData) {
             });
 
             sessionStorage.setItem('playerSubmission', eventData);
-            
+
             loadToggle(false);
 
             break;
 
         case 'meme:voting':
 
-            var slideIndex = 0;
+            var voteId = 0;
 
             updateGameContent(eventData, function() {
 
                 $('#meme-slider').find('li.glide__slide[data-id="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
             
                 $("#meme-slider").glide({
-                    type: "carousel",
-                    autoplay: false,
-                    afterTransition: function(evt) {
-                        slideIndex = evt.index - 1;
-                    }
+                  type: "carousel",
+                  autoplay: false,
+                  afterInit: function(evt) {
+                      voteId = $(evt.current[0]).data('id');
+                  },
+                  afterTransition: function(evt) {
+                      voteId = $(evt.current[0]).data('id');
+                  }
                 });
 
                 $.each($('.meme-canvas'), function(index, meme) {
 
-                  var upperText = $(meme).data().upper ? $(meme).data().upper.toUpperCase() : '',
-                      lowerText = $(meme).data().lower ? $(meme).data().lower.toUpperCase() : '',
+                  var upperText = $(meme).data().upper ? $(meme).data().upper.toString().toUpperCase() : '',
+                      lowerText = $(meme).data().lower ? $(meme).data().lower.toString().toUpperCase() : '',
                       dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
 
                   // Create meme canvas, render layer, captions, and image
@@ -305,11 +310,11 @@ var gameEvents = function(eventId, eventData) {
               // When 'vote' is clicked, send event
               $('#btn-vote').click(function(evt) {
                   
-                  socket.emit('meme:vote', emitData(slideIndex));
+                  socket.emit('meme:vote', emitData(voteId));
 
                   $(evt.currentTarget).val('voted!').attr('disabled', true).css({'opacity': '0.3'});
 
-                  sessionStorage.setItem('playerVote', slideIndex);
+                  sessionStorage.setItem('playerVote', voteId);
 
               });
 
