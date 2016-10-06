@@ -23,9 +23,11 @@
                             <div class="name submitter player-{{player.index}} hidden-el">
                                 {{player.username}} 
 
-                               
-                                {{#if score}}
+                                {{!-- Player score for this meme --}}
+                                {{#if score}}0
                                     <span class="score">+{{score}}</span>
+                                {{else}}
+                                    <span class="score">+0</span>
                                 {{/if}}
                             </div>
 
@@ -77,6 +79,7 @@
 
                 </section>
 
+                {{!-- ROUND SCORES --}}
                 <section id="scores" class="row hidden-el">
 
                     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">
@@ -102,6 +105,7 @@
                     
                 </section>
 
+                {{!-- LEADERBOARD --}}
                 <section id="leaderboard" class="row hidden-el"> 
 
                     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png">

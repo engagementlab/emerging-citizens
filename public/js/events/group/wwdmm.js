@@ -30,8 +30,8 @@ var loadMemes = function() {
   
   $.each($('.meme-canvas'), function(index, meme) {
 
-      var upperText = $(meme).data().upper ? $(meme).data().upper : '',
-          lowerText = $(meme).data().lower ? $(meme).data().lower : '',
+      var upperText = $(meme).data().upper ? $(meme).data().upper.toString() : '',
+          lowerText = $(meme).data().lower ? $(meme).data().lower.toString() : '',
           sizing = $(meme).data().dimension;
 
       // Create meme canvas, render layer, captions, and image
