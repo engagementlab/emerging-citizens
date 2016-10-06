@@ -77,6 +77,10 @@ var socketEvents = function(eventId, eventData) {
             // Remove saved sesh
             resetSession();
 
+            if ($('.modal')) {
+                $('.modal').fadeOut();
+            }
+
             $('#error-disconnected').fadeIn(function() {
                 $('#error-disconnected #text').css('top', '0');
             });

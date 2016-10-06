@@ -57,6 +57,8 @@
           {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
 
           <p>{{{text.html}}}</p>
+          <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
+
 
           <button class="button close-plan" id="" value="#">Back</button>
         </div>

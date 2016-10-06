@@ -3,7 +3,7 @@
 	"directory": "emerging-citizens",
 	"database": "emerging-citizens", 
 	"admin_nav": { 
-						"HomePage": ["HomePage", "FAQ", "ComingSoon"], 
+						"HomePage": ["HomePage", "FAQ", "ComingSoon", "WhatIs"], 
 						"LessonPlan": ["LessonPlan", "ContentCategory"], 
 						"AboutPage": ["AboutPage", "Person"],
 						"Game Config": ["GameConfig", "GameSession", "GameUser"],
