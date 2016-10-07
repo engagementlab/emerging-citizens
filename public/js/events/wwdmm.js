@@ -85,7 +85,7 @@ var gameEvents = function(eventId, eventData) {
               var canvas = new Kinetic.Stage({
                   container: 'meme-canvas',
                   width: dimensions,
-                  height: 400
+                  height: 380
               }),
               layer = new Kinetic.Layer();
               canvas.add(layer);

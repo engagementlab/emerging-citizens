@@ -2,6 +2,14 @@
 	WWDMM player view styling.
 */
 .body.wwdmm.player {
+
+	.slider-size {
+		@media(max-width:375px) {
+			min-height: 320px;
+	  	max-height: 320px;
+  	}
+  	width: 400px;
+	}
 	
 	.container-fluid {
 		@media(max-width:425px){
@@ -50,7 +58,7 @@
 	// Meme slider
 	.glide__wrapper {
 
-  	@include mobile-portrait-only {
+  	@media(max-width:375px) {
 			min-height: 320px;
 	  	max-height: 320px;
   	}
@@ -91,7 +99,7 @@
 
   #meme-slider {
 
-  	@include mobile-portrait-only {
+  	@media(max-width:375px) {
 	  	min-width: 100%;
 	  	max-width: 100%;
   	}
@@ -99,6 +107,12 @@
   	min-width: 400px;
   	max-width: 400px;
 
+  }
+
+  #btns-submit {
+  	input {
+  		margin: 0 auto;
+  	}
   }
 
   #meme-create {
@@ -114,6 +128,15 @@
   	.kineticjs-content {
 			pointer-events: none;		
   	}
+
+  	#meme-text {
+  		padding-top: 15px;
+  		input {
+  			padding:5px;
+  			margin-bottom: 5px;
+  		}
+  	}
+
   
   }
 
@@ -145,6 +168,7 @@
 			position: relative;
 			width: 100%;
 			min-height: 400px;
+
 		}
 		
 		.meme-text {

@@ -148,7 +148,7 @@
 
 
 		.meme-canvas {
-			width: 340px;
+			width: 339px;
 			height: 340px;
 			border: solid 20px white;
 			.kineticjs-content {
@@ -163,6 +163,18 @@
 
 		width: 80%;
 		margin: 0 auto;
+
+		.results-room {
+			border: 0px;
+			border-radius: 0px;
+			padding: 5%;
+			margin: 0px auto;
+		}
+
+		#top-header {
+			width: 100%;
+
+		}
 
 
 		h1 {
@@ -200,7 +212,7 @@
       float: right;
 	    left: -50%;
 
-	    font-size: 2em;
+	    font-size: 4em;
 
 	    ul {
 	    	position: relative;

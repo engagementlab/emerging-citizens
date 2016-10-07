@@ -1484,12 +1484,17 @@ body .player-form {
       background-clip: padding-box;
       color: #fff5a3; }
   .body.wwdmm.group #voting-container .meme-canvas {
-    width: 340px;
+    width: 339px;
     height: 340px;
     border: solid 20px white; }
   .body.wwdmm.group #results-container {
     width: 80%;
     margin: 0 auto; }
+    .body.wwdmm.group #results-container .results-room {
+      border: 0px;
+      margin: 0px auto; }
+    .body.wwdmm.group #results-container #top-header {
+      width: 100%; }
     .body.wwdmm.group #results-container h1 {
       font-size: 2em; }
     .body.wwdmm.group #results-container .score {
@@ -2002,6 +2007,13 @@ body .player-form {
 /* 
 	WWDMM player view styling.
 */
+.body.wwdmm.player .slider-size {
+  width: 400px; }
+  @media (max-width: 375px) {
+    .body.wwdmm.player .slider-size {
+      min-height: 320px;
+      max-height: 320px; } }
+
 @media (max-width: 425px) {
   .body.wwdmm.player .container-fluid {
     margin: 0px;
@@ -2032,7 +2044,7 @@ body .player-form {
 
 .body.wwdmm.player .glide__wrapper {
   min-height: 400px; }
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     .body.wwdmm.player .glide__wrapper {
       min-height: 320px;
       max-height: 320px; } }
@@ -2064,10 +2076,13 @@ body .player-form {
 .body.wwdmm.player #meme-slider {
   min-width: 400px;
   max-width: 400px; }
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     .body.wwdmm.player #meme-slider {
       min-width: 100%;
       max-width: 100%; } }
+
+.body.wwdmm.player #btns-submit input {
+  margin: 0 auto; }
 
 .body.wwdmm.player #meme-create #meme-canvas canvas {
   user-select: none;
@@ -2077,6 +2092,12 @@ body .player-form {
 
 .body.wwdmm.player #meme-create .kineticjs-content {
   pointer-events: none; }
+
+.body.wwdmm.player #meme-create #meme-text {
+  padding-top: 15px; }
+  .body.wwdmm.player #meme-create #meme-text input {
+    padding: 5px;
+    margin-bottom: 5px; }
 
 .body.wwdmm.player #meme-created {
   min-height: 200px;
