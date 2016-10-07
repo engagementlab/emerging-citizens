@@ -3,6 +3,12 @@
 */
 .body.wwdmm.player {
 	
+	.container-fluid {
+		@media(max-width:425px){
+			margin: 0px;
+			padding: 0px;
+		}
+	}
 	.error-modal {
 		background-color: rgba(255, 91, 119, .9);
 		color: white;
@@ -12,7 +18,34 @@
     .indicator {
       background: rgba(255, 91, 119, .7) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg');
     }
+
   }
+
+   #waiting {
+   	min-height: 200px;
+   		border:  20px solid $color-mustard;
+	   	width: 30%;
+	   	margin: 40px auto;
+   	  background: white;
+
+   	  @media (max-width: 426px) {
+   	  	border-right: none;
+   	  	border-left: none;
+   	  	width: 100%;
+   	  }
+
+   	.game-message {
+   		
+   		margin-top: 20%;
+
+
+   	}
+
+   	.text {
+   		color: $color-bg-wwdmm;
+   	}
+
+   }
 
 	// Meme slider
 	.glide__wrapper {
@@ -82,6 +115,21 @@
 			pointer-events: none;		
   	}
   
+  }
+
+  #meme-created {
+  	 min-height: 200px;
+   		border:  10px solid $color-mustard;
+	   	width: 30%;
+	   	margin: 40px auto;
+   	  background: white;
+   	  color: $color-bg-wwdmm;
+
+   	  @media (max-width: 426px) {
+   	  	border-right: none;
+   	  	border-left: none;
+   	  	width: 100%;
+   	  }
   }
 
 	#meme-voting {

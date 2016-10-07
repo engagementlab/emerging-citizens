@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="page-container"  id="voting-container">
     <div class="row">
         <div id="top-header" class="top-bar">
             <h1 style="font-size:1.3em;">
@@ -16,13 +16,13 @@
         </div>
         
         {{!-- Room Code Container --}}
-        <section class="col-sm-12" id="voting-container">
+        <section class="col-sm-12">
             
             <div class="row">
 
                 {{#each submissions}}
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <div class="meme-canvas hidden-el" data-dimension="300"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=300 quality=80}}">
                         </div>
                     </div>
