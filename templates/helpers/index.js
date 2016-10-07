@@ -131,7 +131,7 @@ module.exports = function() {
     //
     //  *Usage example:*
     //  {{wikiResultPosition @index true false false}}
-    _helpers.wikiResultPosition = function(index, xAxis, dest, dot) {
+    _helpers.wikiResultPosition = function(index, xAxis, dest) {
 
         let baseXVal = 220;
 
@@ -139,19 +139,21 @@ module.exports = function() {
         if(!xAxis) {
 
             if(dest) {
+
                 if(index >= 19) return 380;
                 else if(index >= 14) return 290;
                 else if(index >= 9) return 200;
                 else if(index >= 4) return 110;
                 else return 10;
+
             }
             else {
 
                 if(index === 4) {
                     return 10
                 }
-                else if(index >= 22) return 380;
-                else if(index >= 16) return 290;
+                else if(index > 19) return 380;
+                else if(index > 14) return 290;
                 else if(index >= 10) return 200;
                 else if(index > 4) return 110;
                 else return 10;
@@ -163,7 +165,7 @@ module.exports = function() {
         else {
 
             var secondRow = (index > 4 && index < 9),
-                fourthRow = (index > 14 && index < 19);
+                fourthRow = (index > 13 && index < 18);
             
             var evenRow = secondRow || fourthRow;
 
@@ -193,7 +195,7 @@ module.exports = function() {
                 if(dest && index !== 4)
                     xPos += baseXVal;
 
-                if(index >= 10 || (dest && index === 9))
+                if(dest && index === 9)
                     xPos -= baseXVal;
 
                 return xPos;

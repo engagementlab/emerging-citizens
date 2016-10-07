@@ -225,8 +225,6 @@ var gameEvents = function(eventId, eventData) {
               // Animate in each top player
               topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
 
-              $('g.last').velocity({ opacity: 0 }, 0);
-
               // Animate titles and path
               _.each(articleTitles, function(title, index) {
 
@@ -235,21 +233,32 @@ var gameEvents = function(eventId, eventData) {
                       var line = $(articleLines[index]);
 
                       // Animate lines and dots at start of title animation
-                      $(articleDots[index]).velocity({r: 8}, 500, [50, 10]);
-                      line.velocity({x2: line.data().x2, y2: line.data().y2}, 1000, [50, 10]);                    
+                      $(articleDots[index]).velocity(
+                        {r: (index === 23) ? 14 : 8}, 
+                        {duration: 500,
+                         begin: function(elements) { 
+                            ion.sound.play("button_tiny");
+                         }
+                        },
+                      [50, 10]);
 
-                      if (index === (last - 2)){
+                      if(line.data())
+                        line.velocity({x2: line.data().x2, y2: line.data().y2}, 500, [50, 10]);
+
+                      // Animate in "final article" splash
+                      if (index == last-1) {
 
                         var destination = $('g.last').find('.destination');
-
-                        $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 15});
-                        console.log ("last one so we do it now");
-
+                        $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 1,
+                           begin: function(elements) { 
+                              ion.sound.play("bell_wiki");
+                           }}
+                        );
+                       
                         $.each(destination, function (index, path) {
-                          console.log("animating path");
                           $(path)
                             .velocity({ 'stroke-dashoffset': 400 }, 0)
-                            .velocity({ 'stroke-dashoffset': 0 }, { duration: 500, delay: 5 });
+                            .velocity({ 'stroke-dashoffset': 0 }, {duration: 500, delay: 1});
                         });
 
                       }

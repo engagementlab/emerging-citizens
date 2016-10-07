@@ -15,7 +15,7 @@
 
 	          {{#iflt @index 3}}
 
-	          	{{!-- {{#if finished}} --}}
+	          	{{#if finished}}
 
 		          	<section class="player-path hidden-el">
 				
@@ -76,23 +76,21 @@
 
 															{{#if @first}}
 																<line class="articleLine" 
+																			
 																			x1="105" y1="10" x2="105" y2="10" 
 																			data-x2="325" data-y2="10"
-																			
+
 																			style="stroke:rgb(188,255,252);stroke-width:8" />
-															{{else}}
-
-															{{display_index}}
-														
-																<line class="articleLine" 
-																			x1="{{sum (wikiResultPosition display_index true false false) 105}}" 
-																			y1="{{wikiResultPosition @index false false false}}" 
+															{{else}}														
+																<line data-ind="{{@index}}" class="articleLine" 
+																			x1="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			y1="{{wikiResultPosition @index false false}}" 
 																			
-																			x2="{{sum (wikiResultPosition display_index true false false) 105}}" 
-																			y2="{{wikiResultPosition @index false false false}}" 
+																			x2="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			y2="{{wikiResultPosition @index false false}}" 
 
-																			data-x2="{{sum (wikiResultPosition display_index true true false) 105}}" 
-																			data-y2="{{wikiResultPosition @index false true false}}"
+																			data-x2="{{sum (wikiResultPosition display_index true true) 105}}" 
+																			data-y2="{{wikiResultPosition @index false true}}"
 																			
 																			style="stroke:rgb(188,255,252);stroke-width:8" />
 															{{/if}}
@@ -104,21 +102,18 @@
 													{{!-- Path dots --}}
 													{{#each articles}}
 
-															{{@index}}
-
-															<circle class="articleDot {{wikiColor @index}}"
-																			cx="{{sum (wikiResultPosition @index true false true) 105}}" 
-																			cy="{{wikiResultPosition @index false false true}}" 
+															<circle data-ind="{{@index}}" class="articleDot {{wikiColor @index}}"
+																			cx="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			cy="{{wikiResultPosition @index false false}}" 
 																			r="0" />
 
 															{{#if @last}}
 
 																<g  class="last {{wikiColor @index}}"
-																		transform="translate({{sum (wikiResultPosition @index true false true) -10}}, 
-																											  {{sum (wikiResultPosition @index false false true) 150}})
+																		transform="translate({{sum (wikiResultPosition @index true false) -10}}, 
+																											  {{sum (wikiResultPosition @index false false) 100}})
 																											  scale(0.08,-0.08)" 
-																		stroke="none" >
-																		{{!-- <line class='destination' x1="20" y1="100" x2="100" y2="20" stroke-width="2" stroke="black"/> --}}
+																		stroke="none" style="opacity:0" >
 
 																	<path class="destination" d="M2820 1074 c-81 -12 -161 -28 -165 -34 -2 -3 0 -12 5 -20 7 -11 27
 																	-11 126 3 118 17 142 26 130 46 -7 11 -43 12 -96 5z"/>
@@ -151,7 +146,7 @@
 
 								</section>
 
-							{{!-- {{/if}} --}}
+							{{/if}}
 
 	          {{/iflt}}
 
