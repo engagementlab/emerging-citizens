@@ -7,9 +7,13 @@
 
 	#gameContent {
 
-		padding: 0;
+		padding: 5%;
 		padding-top: 0;
 
+	}
+
+	#meme-text {
+		width: 400px;
 	}
 
 	// GLOBAL styling for memes
@@ -53,10 +57,13 @@
 			width: 100%;
 		}
 	}
+
+
 	
 	.meme-text {
 
     z-index: 10;
+
 
     background: none;
     border: none;
@@ -97,6 +104,9 @@
 	}
 
 	#top-header {
+		margin-top:3%;
+		width:90%;
+		margin: auto;
 
 		min-height: 180px;
 
@@ -136,12 +146,27 @@
 
 	#voting-container {
 
+
+		.meme-canvas {
+			width: 340px;
+			height: 340px;
+			border: solid 20px white;
+			.kineticjs-content {
+				
+			}
+	    
+		}
+
 	}
 
 	#results-container {
 
+		width: 80%;
+		margin: 0 auto;
+
+
 		h1 {
-			font-size: 4em;
+			font-size: 2em;
 		}
 
     .score {
@@ -202,11 +227,6 @@
 	    }
 		}
 
-		.meme-canvas {
-			width: 450px;
-			height: 450px;
-	    border: solid 10px $color-aqua;
-		}
 
 		// ROUND SCORES
 		#scores, #leaderboard {
@@ -363,6 +383,8 @@
 	    font-size: 3em;
 			font-family: 'Patrick Hand', cursive;
 			line-height: 1;
+			margin-top: -30px;
+			margin-bottom: 30px;
 		}
 		#countdown {			
 	    font-size: 250%;
@@ -388,28 +410,32 @@
 
 		.player-background {
 			width: 250px;
-			height: 350px;
+			height: 250px;
 			background-color: white;
 			border-radius: 0px;
 			margin: 20px auto;
 			float:none;
-			display:inline-block;
+			position: relative;
+			display:inline-table;
 
 			.player-static {
 				
 				margin: 10px;
 				height: 80%;
+				position: relative;
 
 				.icon {
-					height: 240px;
+					height: 140px;
 					margin: 20px 0px 40px 0px;
 					opacity: 0.4;
+					position: relative;
 
 					@include scale(.9);
 				  @include transition(transform, .5s, ease-out-elastic);
 				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
 
 					&.active {
+						position: relative;
 						opacity: 1;
 						@include scale(1.1);
 					}

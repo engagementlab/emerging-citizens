@@ -621,6 +621,15 @@ body .player-form {
   .players.right div.player-background:nth-child(4) {
     transform: translate(-290px, -281px); } }
 
+@media (max-width: 425px) {
+  html, body.player {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%; } }
+
 /* 
 	HTYI group view styling.
 */
@@ -1400,8 +1409,10 @@ body .player-form {
 .body.wwdmm.group {
   overflow: hidden; }
   .body.wwdmm.group #gameContent {
-    padding: 0;
+    padding: 5%;
     padding-top: 0; }
+  .body.wwdmm.group #meme-text {
+    width: 400px; }
   .body.wwdmm.group .meme {
     background-color: white;
     background-repeat: no-repeat;
@@ -1449,6 +1460,9 @@ body .player-form {
     .body.wwdmm.group .top-bar h1 {
       font-size: 1.5em; }
   .body.wwdmm.group #top-header {
+    margin-top: 3%;
+    width: 90%;
+    margin: auto;
     min-height: 180px; }
     .body.wwdmm.group #top-header .img {
       margin-top: 2%;
@@ -1469,124 +1483,127 @@ body .player-form {
       background-position-x: center;
       background-clip: padding-box;
       color: #fff5a3; }
-  .body.wwdmm.group #results-container h1 {
-    font-size: 4em; }
-  .body.wwdmm.group #results-container .score {
-    font-family: 'Patrick Hand', cursive;
-    color: #11cfe0; }
-  .body.wwdmm.group #results-container .score-shadow {
-    text-shadow: 5px 1px rgba(0, 0, 0, 0.5); }
-  .body.wwdmm.group #results-container .name {
-    font-size: .8em; }
-    .body.wwdmm.group #results-container .name.submitter {
-      font-size: 4em; }
-    .body.wwdmm.group #results-container .name .icon {
-      display: inline-block;
+  .body.wwdmm.group #voting-container .meme-canvas {
+    width: 340px;
+    height: 340px;
+    border: solid 20px white; }
+  .body.wwdmm.group #results-container {
+    width: 80%;
+    margin: 0 auto; }
+    .body.wwdmm.group #results-container h1 {
+      font-size: 2em; }
+    .body.wwdmm.group #results-container .score {
+      font-family: 'Patrick Hand', cursive;
+      color: #11cfe0; }
+    .body.wwdmm.group #results-container .score-shadow {
+      text-shadow: 5px 1px rgba(0, 0, 0, 0.5); }
+    .body.wwdmm.group #results-container .name {
+      font-size: .8em; }
+      .body.wwdmm.group #results-container .name.submitter {
+        font-size: 4em; }
+      .body.wwdmm.group #results-container .name .icon {
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        left: -11px;
+        font-size: 2.7em;
+        -moz-transform: rotate(20deg);
+        -o-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+        -webkit-transform: rotate(20deg);
+        transform: rotate(20deg); }
+    .body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
       position: relative;
-      top: 10px;
-      left: -11px;
-      font-size: 2.7em;
-      -moz-transform: rotate(20deg);
-      -o-transform: rotate(20deg);
-      -ms-transform: rotate(20deg);
-      -webkit-transform: rotate(20deg);
-      transform: rotate(20deg); }
-  .body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
-    position: relative;
-    float: right;
-    left: -50%;
-    font-size: 2em; }
-    .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
-      position: relative;
-      left: 50%; }
-    .body.wwdmm.group #results-container .votes li, .body.wwdmm.group #results-container .likes li {
-      list-style-type: none;
-      height: 70px; }
-    .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score, .body.wwdmm.group #results-container .likes .score-shadow {
-      position: relative;
-      top: -69px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-right: 10%;
-      padding-left: 10%;
-      font-size: 1.5em;
-      text-shadow: -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff; }
-    .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
-      margin-top: -6px; }
-  .body.wwdmm.group #results-container .meme-canvas {
-    width: 450px;
-    height: 450px;
-    border: solid 10px #11cfe0; }
-  .body.wwdmm.group #results-container #scores, .body.wwdmm.group #results-container #leaderboard {
-    font-size: 2em; }
-    .body.wwdmm.group #results-container #scores .points, .body.wwdmm.group #results-container #leaderboard .points {
-      display: table-cell;
-      vertical-align: middle; }
-    .body.wwdmm.group #results-container #scores .player-rule, .body.wwdmm.group #results-container #leaderboard .player-rule {
-      border-top: 5px solid;
-      margin-top: 5%; }
-    .body.wwdmm.group #results-container #scores .large, .body.wwdmm.group #results-container #leaderboard .large {
-      font-size: 2.5em; }
-  .body.wwdmm.group #results-container #winners-circle .row .ranking {
-    font-family: 'Patrick Hand', cursive;
-    color: #fff;
-    padding: 2%;
-    border: 5px solid #ffa800;
-    float: left; }
-  .body.wwdmm.group #results-container #winners-circle .row .winner {
-    width: 800px;
-    font-size: 8em;
-    height: 200px; }
-    .body.wwdmm.group #results-container #winners-circle .row .winner .name {
-      font-size: .4em;
-      float: left;
-      height: 100%;
-      padding-left: 22%;
-      padding-right: 10%;
-      margin-left: -16%;
-      -webkit-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
-      box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3); }
-  .body.wwdmm.group #results-container #winners-circle .row .winner-0 {
-    margin-left: 10%;
-    color: #b7d63a; }
-    .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking {
-      width: 200px;
-      height: 200px;
-      background: #ff5b77;
-      -webkit-border-radius: 100px;
-      -moz-border-radius: 100px;
-      border-radius: 100px; }
-      .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking:before {
-        content: "1st"; }
-  .body.wwdmm.group #results-container #winners-circle .row .winner-1 {
-    margin-left: 25%;
-    color: #ffc000; }
-    .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking {
-      width: 200px;
-      height: 200px;
-      background: #31b9ff;
-      -webkit-border-radius: 100px;
-      -moz-border-radius: 100px;
-      border-radius: 100px; }
-      .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking:before {
-        content: "2nd"; }
-  .body.wwdmm.group #results-container #winners-circle .row .winner-2 {
-    margin-left: 45%;
-    color: #31b9ff; }
-    .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking {
-      width: 200px;
-      height: 200px;
-      background: #b7d63a;
-      -webkit-border-radius: 100px;
-      -moz-border-radius: 100px;
-      border-radius: 100px; }
-      .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking:before {
-        content: "3rd"; }
-  .body.wwdmm.group #results-container #countdown .text {
-    font-size: 8em;
-    top: 58% !important;
-    color: #21b7f0 !important; }
+      float: right;
+      left: -50%;
+      font-size: 2em; }
+      .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
+        position: relative;
+        left: 50%; }
+      .body.wwdmm.group #results-container .votes li, .body.wwdmm.group #results-container .likes li {
+        list-style-type: none;
+        height: 70px; }
+      .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score, .body.wwdmm.group #results-container .likes .score-shadow {
+        position: relative;
+        top: -69px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 10%;
+        padding-left: 10%;
+        font-size: 1.5em;
+        text-shadow: -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff; }
+      .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
+        margin-top: -6px; }
+    .body.wwdmm.group #results-container #scores, .body.wwdmm.group #results-container #leaderboard {
+      font-size: 2em; }
+      .body.wwdmm.group #results-container #scores .points, .body.wwdmm.group #results-container #leaderboard .points {
+        display: table-cell;
+        vertical-align: middle; }
+      .body.wwdmm.group #results-container #scores .player-rule, .body.wwdmm.group #results-container #leaderboard .player-rule {
+        border-top: 5px solid;
+        margin-top: 5%; }
+      .body.wwdmm.group #results-container #scores .large, .body.wwdmm.group #results-container #leaderboard .large {
+        font-size: 2.5em; }
+    .body.wwdmm.group #results-container #winners-circle .row .ranking {
+      font-family: 'Patrick Hand', cursive;
+      color: #fff;
+      padding: 2%;
+      border: 5px solid #ffa800;
+      float: left; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner {
+      width: 800px;
+      font-size: 8em;
+      height: 200px; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner .name {
+        font-size: .4em;
+        float: left;
+        height: 100%;
+        padding-left: 22%;
+        padding-right: 10%;
+        margin-left: -16%;
+        -webkit-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3); }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-0 {
+      margin-left: 10%;
+      color: #b7d63a; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #ff5b77;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking:before {
+          content: "1st"; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-1 {
+      margin-left: 25%;
+      color: #ffc000; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #31b9ff;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking:before {
+          content: "2nd"; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-2 {
+      margin-left: 45%;
+      color: #31b9ff; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #b7d63a;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking:before {
+          content: "3rd"; }
+    .body.wwdmm.group #results-container #countdown .text {
+      font-size: 8em;
+      top: 58% !important;
+      color: #21b7f0 !important; }
   .body.wwdmm.group #game_code {
     padding: 0px 20px;
     height: 715px; }
@@ -1619,7 +1636,9 @@ body .player-form {
     .body.wwdmm.group #make-meme .countdown {
       font-size: 3em;
       font-family: 'Patrick Hand', cursive;
-      line-height: 1; }
+      line-height: 1;
+      margin-top: -30px;
+      margin-bottom: 30px; }
     .body.wwdmm.group #make-meme #countdown {
       font-size: 250%;
       color: #ffab48; }
@@ -1633,19 +1652,22 @@ body .player-form {
     font-size: 7em; }
   .body.wwdmm.group .players-grid.row .player-background {
     width: 250px;
-    height: 350px;
+    height: 250px;
     background-color: white;
     border-radius: 0px;
     margin: 20px auto;
     float: none;
-    display: inline-block; }
+    position: relative;
+    display: inline-table; }
     .body.wwdmm.group .players-grid.row .player-background .player-static {
       margin: 10px;
-      height: 80%; }
+      height: 80%;
+      position: relative; }
       .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
-        height: 240px;
+        height: 140px;
         margin: 20px 0px 40px 0px;
         opacity: 0.4;
+        position: relative;
         -moz-transform: scale(0.9);
         -o-transform: scale(0.9);
         -ms-transform: scale(0.9);
@@ -1657,6 +1679,7 @@ body .player-form {
         transition: transform, 0.5s, ease-out-elastic;
         transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
         .body.wwdmm.group .players-grid.row .player-background .player-static .icon.active {
+          position: relative;
           opacity: 1;
           -moz-transform: scale(1.1);
           -o-transform: scale(1.1);
@@ -1979,12 +2002,33 @@ body .player-form {
 /* 
 	WWDMM player view styling.
 */
+@media (max-width: 425px) {
+  .body.wwdmm.player .container-fluid {
+    margin: 0px;
+    padding: 0px; } }
+
 .body.wwdmm.player .error-modal {
   background-color: rgba(255, 91, 119, 0.9);
   color: white; }
 
 .body.wwdmm.player #loading-modal .indicator {
   background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
+
+.body.wwdmm.player #waiting {
+  min-height: 200px;
+  border: 20px solid #fed34f;
+  width: 30%;
+  margin: 40px auto;
+  background: white; }
+  @media (max-width: 426px) {
+    .body.wwdmm.player #waiting {
+      border-right: none;
+      border-left: none;
+      width: 100%; } }
+  .body.wwdmm.player #waiting .game-message {
+    margin-top: 20%; }
+  .body.wwdmm.player #waiting .text {
+    color: #21b7f0; }
 
 .body.wwdmm.player .glide__wrapper {
   min-height: 400px; }
@@ -2033,6 +2077,19 @@ body .player-form {
 
 .body.wwdmm.player #meme-create .kineticjs-content {
   pointer-events: none; }
+
+.body.wwdmm.player #meme-created {
+  min-height: 200px;
+  border: 10px solid #fed34f;
+  width: 30%;
+  margin: 40px auto;
+  background: white;
+  color: #21b7f0; }
+  @media (max-width: 426px) {
+    .body.wwdmm.player #meme-created {
+      border-right: none;
+      border-left: none;
+      width: 100%; } }
 
 .body.wwdmm.player #meme-voting .glide__arrows {
   top: 35%; }

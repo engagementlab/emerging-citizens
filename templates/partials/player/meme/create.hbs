@@ -1,6 +1,15 @@
 <section class="form row">
     
-    <div id="meme-create" class="row col-lg-3 col-centered" style="margin-top: -5%;">
+    <div id="meme-create" class="col-lg-3 col-centered" style="margin-top: -5%;">
+
+    {{!-- TEXT INPUT AND SUBMISSION --}}
+        <div id="meme-text" class="row" style="display:none; width:400px;">
+
+            <input id="text-upper" class="meme-text" placeholder="top text" maxlength="140" tabindex="1" /> <br />
+            <input id="text-lower" class="meme-text" placeholder="bottom text" maxlength="140" tabindex="2" />
+            <div id="meme-canvas"></div>
+
+        </div>
 
     {{!-- IMAGE SELECTION --}}
         <div id="meme-slider" class="glide">
@@ -28,38 +37,27 @@
             </div>
 
             <div class="glide__bullets"></div>
-
         </div>
 
-        {{!-- TEXT INPUT AND SUBMISSION --}}
-        <div id="meme-text" class="row" style="display:none;">
+        <div class="row" style="width:400px;">
 
-            <input id="text-upper" class="meme-text" placeholder="top text" maxlength="140" tabindex="1" /> <br />
-            <input id="text-lower" class="meme-text" placeholder="bottom text" maxlength="140" tabindex="2" />
-            <div id="meme-canvas"></div>
+            <input id="btn-next" data-keep_enabled="true" class="post-button submit" type="submit" name="submit" value="next">
 
-        </div>
-   
-        <div id="btn-next" class="row">
-
-            <input data-keep_enabled="true" class="post-button submit" type="submit" name="submit" value="next">
-
-        </div>
-   
-        <div id="btns-submit" class="row" style="display:none;">
+            <div id="btns-submit" class="" style="display:none;">
             
-            {{!-- Game error --}}
-            <div class="error">Error!</div>
+                {{!-- Game error --}}
+                <div class="error">Error!</div>
 
-            <input id="btn-back" class="post-button back small" type="submit" name="submit" value="back">
-            <input id="btn-submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit small" type="submit" name="submit" value="submit">
+                <input id="btn-back" class="post-button back small" type="submit" name="submit" value="back">
+                <input id="btn-submit" data-event="meme:submit" data-package='{"text_upper": "#text-upper", "text_lower": "#text-lower", "image_index": "#image-index"}' data-autohide="false" class="post-button submit small" type="submit" name="submit" value="submit">
+
+            </div>
 
         </div>
-
     </div>
 
 </section>
 
-<section id="meme-created" class="form col-sm-6" style="display:none;">
+<section id="meme-created" class="form row" style="display:none;">
     <h1>meme submitted!</h1>waiting for other players...
 </section>

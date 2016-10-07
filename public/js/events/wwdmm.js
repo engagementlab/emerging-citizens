@@ -132,7 +132,7 @@ var gameEvents = function(eventId, eventData) {
               
               }
 
-              $('#btn-next input').click(function(evt) {
+              $('input#btn-next').click(function(evt) {
 
                   var imgElement = $('.glide__slide.active img')[0];
                   
@@ -154,7 +154,7 @@ var gameEvents = function(eventId, eventData) {
                   
                   layer.draw();
 
-                  $('#btn-next').hide();
+                  $('input#btn-next').hide();
                   $('#meme-slider').hide();
                   $('#meme-text').show();
 
