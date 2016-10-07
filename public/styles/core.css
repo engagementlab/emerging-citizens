@@ -2014,20 +2014,17 @@ body .player-form {
 .body.wwdmm.player #loading-modal .indicator {
   background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
 
-.body.wwdmm.player #waiting {
-  min-height: 200px;
+.body.wwdmm.player .game-message {
+  font-size: 3em;
   border: 20px solid #fed34f;
-  width: 30%;
   margin: 40px auto;
   background: white; }
   @media (max-width: 426px) {
-    .body.wwdmm.player #waiting {
+    .body.wwdmm.player .game-message {
       border-right: none;
       border-left: none;
       width: 100%; } }
-  .body.wwdmm.player #waiting .game-message {
-    margin-top: 20%; }
-  .body.wwdmm.player #waiting .text {
+  .body.wwdmm.player .game-message .text {
     color: #21b7f0; }
 
 .body.wwdmm.player .glide__wrapper {

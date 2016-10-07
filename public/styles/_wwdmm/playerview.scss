@@ -21,31 +21,25 @@
 
   }
 
-   #waiting {
-   	min-height: 200px;
-   		border:  20px solid $color-mustard;
-	   	width: 30%;
-	   	margin: 40px auto;
-   	  background: white;
+   .game-message {
 
-   	  @media (max-width: 426px) {
-   	  	border-right: none;
-   	  	border-left: none;
-   	  	width: 100%;
-   	  }
+    font-size: 3em;
+ 		border:  20px solid $color-mustard;
+   	// width: 30%;
+   	margin: 40px auto;
+ 	  background: white;
 
-   	.game-message {
-   		
-   		margin-top: 20%;
+ 	  @media (max-width: 426px) {
+ 	  	border-right: none;
+ 	  	border-left: none;
+ 	  	width: 100%;
+ 	  }
 
+	 	.text {
+	 		color: $color-bg-wwdmm;
+	 	}
 
-   	}
-
-   	.text {
-   		color: $color-bg-wwdmm;
-   	}
-
-   }
+	}
 
 	// Meme slider
 	.glide__wrapper {
