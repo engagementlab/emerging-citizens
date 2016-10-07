@@ -9,6 +9,7 @@
 var retrievingData;
 var random;
 var playerSubmitted = false;
+var playerFinished = false;
 var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
 if ($('.article-error').css('display') !== 'none') {
@@ -213,6 +214,12 @@ var gameEvents = function(eventId, eventData) {
         removeDom('sup');
 
         removeDom('.ambox-Refimprove');
+        removeDom('.ambox');
+        
+        removeDom('.thumb');
+        
+        removeDom('img');
+        removeDom('table');
         
         //Add necessary inline style changes
         $('li').css("text-align", "left");
@@ -397,6 +404,12 @@ var gameEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:finished':
+
+            playerFinished = true;
+
+            break;
+
         case 'wiki:results':
 
             updateGameContent(eventData, function() {
@@ -497,7 +510,7 @@ var gameEvents = function(eventId, eventData) {
             $('input').disabled = false;
             $('.form .error').hide();
 
-            if (eventData === "results")
+            if (eventData === "results" && !playerFinished)
                 $('#time-up').fadeIn(function() {
                     TweenLite.fromTo($('#btn_ok'), 1, {scale:0, autoAlpha:0}, {scale:1, autoAlpha:1, ease:Elastic.easeOut});
                 });
