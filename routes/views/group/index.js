@@ -73,6 +73,8 @@ exports = module.exports = function(req, res) {
 
             gameCode = code;
 
+            res.setHeader('Game-Code', code);
+
             // Check if there's already a game with the generated access code
             GameSession.model.findOne({accessCode: gameCode}, function (err, session) {
 

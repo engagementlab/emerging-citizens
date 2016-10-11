@@ -78,6 +78,10 @@ var PlayerLogin = function (nsp, socket, emitter) {
     
     'login:submit': function(package) {
 
+      // Handle server load testing where no uid sent
+      if(!package.msgData.uid)
+        package.msgData.uid = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+
       var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
       // Mark player as ready inside game session

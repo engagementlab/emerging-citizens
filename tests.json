@@ -1,0 +1,63 @@
+{
+	"config": {
+		"target": "http://localhost:3000",
+	 "phases": [
+      {"duration": 1, "arrivalRate": 5}
+    ]
+	},
+	"scenarios": [
+		{
+			"engine": "socketio",
+			"flow": [
+				{"get":
+				  {
+				    "url": "/new/htyi",
+				    "capture": {
+				    	"header": "game-code",
+				    	"as": "game-code"
+				    }
+				  }
+				},
+				{"post":
+				  {
+				    "url": "/api/create/htyi",
+				    "json": {"accessCode": "{{ game-code }}"}
+				  }
+				},
+				{"think": 1},
+				{
+					"loop": [
+						{"post":
+						  {
+						    "url": "/game",
+						  	"json": {"code": "{{ game-code }}", "name": "player-{{ $loopCount }}"}
+						  }
+						},
+						{"emit": {
+								"channel": "login:submit",
+								"data": { "gameId": "{{ game-code }}", "msgData": {"username": "player-{{ $loopCount }}"} }
+							}
+						}
+          ],
+	        "count": 8
+	      },
+				{"emit": {
+						"channel": "game:start",
+						"data": { "gameId": "{{ game-code }}" }
+					}
+				},
+				{"think": 4},
+				{
+					"loop": [
+						{"emit": {
+								"channel": "hashtags:submit",
+								"data": { "gameId": "{{ game-code }}", "msgData": "hashtag-{{ $loopCount }}" }
+							}
+						}
+          ],
+	        "count": 8
+	      }
+			]
+		}
+	]
+}

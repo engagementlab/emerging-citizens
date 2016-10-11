@@ -96,13 +96,12 @@ var socketEvents = function(eventId, eventData) {
                 if(sessionStorage.gameType === 'wwdmm')
                     TweenLite.from($('#waiting'), 10, { autoAlpha: 0, scale: 0, rotation: "360_cw", ease: Elastic.easeOut });
                 else if(sessionStorage.gameType === 'wikigeeks') {
-                    $('#waiting .row').css('border-radius', '125px');
+                    $('#waiting .row').css('border-radius', '140px');
 
-                    var open = new TimelineLite();
-                    open.from($('#waiting'), 3, { autoAlpha: 0, scale: 0, ease: Elastic.easeOut }, 'start')
-                    .to($('#waiting .row'), .5, { borderRadius:"0px 125px 0px 125px", ease: Expo.easeInOut }, 'start+=.2')
-                    .to($('#waiting .row'), .5, { borderRadius:"0px 0px 0px 0px", ease: Expo.easeInOut }, 'start+=.2')
-                    {{!-- .from($('#waiting .row'), 3, { borderRadius:"125px", ease: Elastic.easeOut, delay: 2 }); --}}
+                    new TimelineLite()
+                    .from($('#waiting'), 3, { autoAlpha: 0, scale: 0, ease: Elastic.easeOut }, 'start')
+                    .to($('#waiting .row'), .5, { borderRadius:"0px 140px 0px 140px", ease: Expo.easeInOut }, 'start+=.01')
+                    .to($('#waiting .row'), .5, { borderRadius:"0px 0px 0px 0px", ease: Expo.easeInOut }, 'start+=.01')
                 }
             });
 
