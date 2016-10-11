@@ -8,27 +8,9 @@
         <title>Emerging Citizens</title>
         <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
-        
-        {{#ifeq section 'play'}}
-          {{!-- Mobile Meta --}}
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta name="theme-color" content="#FFAB43">
-          
-          {{#ifeq environment "development"}}
-            <link rel="shortcut icon" href="/images/favicons/dev_icon-player.ico" type="image/x-icon" />
-          {{/ifeq}}
-
-        {{else}}
-          {{#ifeq environment "development"}}
-            <link rel="shortcut icon" href="/images/favicons/dev_icon-groupview.ico" type="image/x-icon" />
-          {{/ifeq}}
-        {{/ifeq}}
-
-        {{!-- Open Graph --}}
-        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
         {{!-- Load our CSS/docs --}}
-        {{> css environment=env section=section}}
+        {{> css environment=env section=section gameType=gameType}}
     </head>
     
     <body class="body {{gameType}}">
