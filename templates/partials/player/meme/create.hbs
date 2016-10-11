@@ -1,9 +1,9 @@
 <section class="form row">
     
-    <div id="meme-create" class="col-lg-3 col-centered" style="margin-top: -5%;">
+    <div id="meme-create" class="col-lg-3" style="margin-top: -5%;">
 
     {{!-- TEXT INPUT AND SUBMISSION --}}
-        <div id="meme-text" class="row" style="display:none; width:400px;">
+        <div id="meme-text" class="row" style="display:none;">
 
             <input id="text-upper" class="meme-text" placeholder="top text" maxlength="140" tabindex="1" /> <br />
             <input id="text-lower" class="meme-text" placeholder="bottom text" maxlength="140" tabindex="2" />
@@ -29,7 +29,7 @@
 
                     {{#each memeImages}}
                         <li class="glide__slide">
-                            <img src="{{{cloudinaryUrl this width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
+                            <img class="slider-size" src="{{{cloudinaryUrl this width=400 height=400 quality=80}}}" alt="Meme Image {{@index}}" />
                         </li>
                     {{/each}}
                 
@@ -37,9 +37,10 @@
             </div>
 
             <div class="glide__bullets"></div>
+
         </div>
 
-        <div class="row" style="width:400px;">
+        <div class="row slider-size">
 
             <input id="btn-next" data-keep_enabled="true" class="post-button submit" type="submit" name="submit" value="next">
 
@@ -54,6 +55,7 @@
             </div>
 
         </div>
+
     </div>
 
 </section>
