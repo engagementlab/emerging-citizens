@@ -254,6 +254,13 @@ body .player-form {
     text-decoration: none;
     cursor: pointer; }
 
+#game-menu {
+  position: absolute;
+  top: 40px; }
+  #game-menu #nav-dropdown {
+    margin-left: 40px;
+    position: fixed; }
+
 .nav-dropdown {
   position: fixed;
   height: 100%;
@@ -261,7 +268,8 @@ body .player-form {
   background-color: rgba(0, 0, 0, 0.9) !important;
   color: white;
   z-index: 1000;
-  text-align: center; }
+  text-align: center;
+  top: 0px; }
   .nav-dropdown ul {
     list-style-type: none;
     padding: 0px;
@@ -276,11 +284,27 @@ body .player-form {
         font-size: 3em;
         text-decoration: none; }
 
+.game-nav ul {
+  padding-top: 5%; }
+
+#logo_game {
+  padding: 20px 0px;
+  background: white;
+  width: 100%;
+  position: fixed; }
+
 #logo_ec {
   padding: 20px 0px;
   background: white;
   margin-left: -30px;
   margin-right: -30px; }
+  #logo_ec img {
+    height: 200px; }
+
+#game-logoec {
+  background: none;
+  width: 300px;
+  height: 300px; }
 
 .how-to-play img {
   width: 200px;
@@ -1461,7 +1485,7 @@ body .player-form {
       font-size: 1.5em; }
   .body.wwdmm.group #top-header {
     margin-top: 3%;
-    width: 90%;
+    width: 83%;
     margin: auto;
     min-height: 180px; }
     .body.wwdmm.group #top-header .img {
@@ -1492,6 +1516,8 @@ body .player-form {
     margin: 0 auto; }
     .body.wwdmm.group #results-container .results-room {
       border: 0px;
+      border-radius: 0px;
+      padding: 5%;
       margin: 0px auto; }
     .body.wwdmm.group #results-container #top-header {
       width: 100%; }
@@ -1521,7 +1547,7 @@ body .player-form {
       position: relative;
       float: right;
       left: -50%;
-      font-size: 2em; }
+      font-size: 4em; }
       .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
         position: relative;
         left: 50%; }
@@ -1787,6 +1813,7 @@ body .player-form {
 */
 .body.wikigeeks.player {
   overflow-x: hidden;
+  overflow-y: scroll;
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
   color: #36d5d9; }
   .body.wikigeeks.player #gameContent {
@@ -2011,8 +2038,8 @@ body .player-form {
   width: 400px; }
   @media (max-width: 375px) {
     .body.wwdmm.player .slider-size {
-      min-height: 320px;
-      max-height: 320px; } }
+      min-width: 320px;
+      max-width: 320px; } }
 
 @media (max-width: 425px) {
   .body.wwdmm.player .container-fluid {
@@ -2081,20 +2108,24 @@ body .player-form {
 .body.wwdmm.player #btns-submit input {
   margin: 0 auto; }
 
-.body.wwdmm.player #meme-create #meme-canvas canvas {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  pointer-events: none; }
-
-.body.wwdmm.player #meme-create .kineticjs-content {
-  pointer-events: none; }
-
-.body.wwdmm.player #meme-create #meme-text {
-  padding-top: 15px; }
-  .body.wwdmm.player #meme-create #meme-text input {
-    padding: 5px;
-    margin-bottom: 5px; }
+.body.wwdmm.player #meme-create {
+  float: none;
+  padding-top: 3%; }
+  @media (max-width: 425px) {
+    .body.wwdmm.player #meme-create {
+      padding: none; } }
+  .body.wwdmm.player #meme-create #meme-canvas canvas {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none; }
+  .body.wwdmm.player #meme-create .kineticjs-content {
+    pointer-events: none; }
+  .body.wwdmm.player #meme-create #meme-text {
+    padding-top: 15px; }
+    .body.wwdmm.player #meme-create #meme-text input {
+      padding: 5px;
+      margin-bottom: 5px; }
 
 .body.wwdmm.player #meme-created {
   min-height: 200px;

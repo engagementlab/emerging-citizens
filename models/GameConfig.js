@@ -28,7 +28,7 @@ var GameConfig = new keystone.List('GameConfig', {
 
 GameConfig.add({
 
-		name: { type: String, hidden: true, default: "Game Config" },
+		name: { type: String, hidden: true, from: 'game' },
 		gameType: { type: Types.Select, lable: "Which game are you configuring?", options: "HTYI, WikiGeeks, WWDMM", initial: true, required: true},
 		enabled: { type: Boolean, label: "Game Is Running?", note: "Disabling game will show 'coming soon'/signup page." }, 
 		playerCap: { type: Number, label: "Player Cap", required: true, initial: true },
@@ -50,7 +50,7 @@ GameConfig.add({
 	}, 
 
 	'Lesson Guide', {
-			image: { type: Types.CloudinaryImage, label: 'Game logo'},
+			gameLogo: { type: Types.CloudinaryImage, label: 'Game logo'},
 	    text: { type: Types.Markdown, label: 'Byline' }, 
 			lessonGuide: { type: Types.Markdown, label: "Lesson Guide/Learning Goals for this game" },
 			what: { type: Types.Markdown, label: "What is..?"},
@@ -63,6 +63,17 @@ GameConfig.add({
 
 GameConfig.relationship({ ref: 'LessonPlan', path: 'relatedGame' });
 
+
+GameConfig.schema.pre('save', function(next) {
+
+		this.name = this.name.toUpperCase();
+
+		console.log (this.name, "name");
+  
+
+    next();
+
+});
 /**
  * Registration
  */

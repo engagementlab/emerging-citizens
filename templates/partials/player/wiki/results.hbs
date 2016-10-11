@@ -1,11 +1,6 @@
 {{!-- PLAYER RESULTS --}}
 <section id="results">
-	{{#if last_round}}
 	
-		{{>shared/typeform this}}
-		<button id="survey-ready">Done</button>
-
-  {{else}}
 
 		<div class="row results-container">
 			
@@ -99,6 +94,12 @@
 			</div>
 
 		</div>
+	{{#if data.last_round}}
+	
+		{{>shared/typeform this}}
+		<button id="survey-ready">Done</button>
+
+  {{else}}
 
 	{{/if}}
 

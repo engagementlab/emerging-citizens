@@ -23,6 +23,16 @@
 	}
 }
 
+#game-menu {
+	position: absolute;
+	top: 40px;
+	#nav-dropdown{
+		margin-left:40px;
+		position:fixed;
+	}
+
+}
+
 .nav-dropdown {
 	position: fixed;
 	height: 100%;
@@ -31,6 +41,7 @@
 	color: white;
 	z-index: 1000;
 	text-align: center;
+	top: 0px;
 
 	ul {
 		list-style-type: none;
@@ -60,11 +71,33 @@
 	}
 }
 
+.game-nav {
+	ul {
+		padding-top:5%;
+	}
+}
+
+#logo_game {
+	padding: 20px 0px;
+	background: white;
+	width: 100%;
+	position: fixed;
+}
+
 #logo_ec {
 	padding: 20px 0px;
 	background: white;
 	margin-left: -30px;
 	margin-right: -30px;
+	img {
+		height: 200px;
+	}
+}
+
+#game-logoec {
+	background: none;
+	width: 300px;
+	height: 300px;
 }
 
 // HOME PAGE

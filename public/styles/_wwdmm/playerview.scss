@@ -5,8 +5,9 @@
 
 	.slider-size {
 		@media(max-width:375px) {
-			min-height: 320px;
-	  	max-height: 320px;
+			min-width: 320px;
+	  	max-width: 320px;
+
   	}
   	width: 400px;
 	}
@@ -110,6 +111,12 @@
   }
 
   #meme-create {
+  	float: none;
+  	padding-top: 3%;
+  	@media(max-width:425px) {
+			padding: none;
+	  	
+  	}
 
   	#meme-canvas {
   		canvas {
