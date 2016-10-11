@@ -10,18 +10,48 @@
 	*/
 --}}
 
-<!-- DOCS START -->
+{{!-- DOCS/META --}}
 
-<!-- Favicons -->
-<link rel="shortcut icon" href="/images/favicons/favicon.ico">
-<!-- For third-generation iPad with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-icon-114x114.png">
-<!-- For iPhone with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
-<!-- For first- and second-generation iPad: -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
-<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-<link rel="apple-touch-icon-precomposed" href="/images/favicons/apple-icon-57x57.png">
+<link rel="manifest" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1476205427/emerging-citizens/manifest.json">
+{{!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"> --}}
+<meta name="msapplication-TileColor" content="#FFAB43">
+<meta name="msapplication-TileImage" content="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_152' type='png' fetch='image'}}">
+
+{{!-- Open Graph --}}
+<meta property="og:image" content="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/v1476204609/emerging-citizens/images/logo_ec.png" />
+
+{{#ifeq section 'play'}}
+
+  {{!-- Mobile Meta --}}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFAB43">
+  
+  {{#ifeq environment "development"}}
+    <link rel="shortcut icon" href="/images/favicons/dev_icon-player.ico" type="image/x-icon" />
+  {{/ifeq}}
+
+{{else}}
+
+  {{#ifeq environment "development"}}
+    <link rel="shortcut icon" href="/images/favicons/dev_icon-groupview.ico" type="image/x-icon" />
+  {{/ifeq}}
+
+
+	{{!-- FAVICONS --}}
+	{{!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}"> --}}
+ 
+	<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_32' type='ico' fetch='image'}}" sizes="32x32">
+	<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_16' type='ico' fetch='image'}}" sizes="16x16">
+
+	<link class="favicon" rel="shortcut icon" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_32' type='ico' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="144x144" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_144' type='png' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="114x114" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_114' type='png' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="72x72" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_72' type='png' fetch='image'}}">
+	{{!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --}}
+	<link class="favicon" rel="apple-touch-icon-precomposed" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_57' type='png' fetch='image'}}">
+
+{{/ifeq}}
+
 
 {{!-- UI --}}
 <link href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet">
