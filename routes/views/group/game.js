@@ -43,32 +43,41 @@ exports = module.exports = function(req, res) {
         locals.lessonPlans = [];
         locals.whichGame = configGameType.toUpperCase();
 
+        console.log(locals.whichGame, "is the game");
+
         var queryContent = ContentCategory.model.find({});
 
-        queryContent.exec(function (err, category) {
-
-            locals.categories = category;
-        
-        });
-
-        queryPlan = LessonPlan.model.find({
+        var queryPlan = LessonPlan.model.find({
                                     'enabled':true
                                     })
                                     .populate('relatedGame')
                                     .populate('category');
 
+        var queryGame = GameConfig.model.findOne({
+                                    'enabled':true,
+                                    'gameType':new RegExp('^'+locals.whichGame+'$', "i")
+                                    });
+
         queryPlan.exec(function (err, plans) {
 
-            // if (plans.relatedGame === gameType) {
-                locals.lessonPlans = plans;
-            // }
+            _.each(plans, function(plan, index){
+                plan.relatedGame.gameType = plan.relatedGame.gameType.toUpperCase();
+            });
+            
+            locals.lessonPlans = plans;
 
-            GameConfig.model.findOne({ }, function (err, game) {
+            queryContent.exec(function (err, category) {
 
-                locals.game = game;
+                locals.categories = category;
+        
+                queryGame.exec(function (err, game) {
 
-                next(err);
-                
+                    locals.game = game;
+
+                    next(err);
+                    
+                });
+
             });
 
             

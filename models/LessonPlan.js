@@ -39,7 +39,7 @@ LessonPlan.add({
 
 // LessonPlan.schema.pre('save', function(next) {
 
-// 		this.keyName = this.name.replace(/' '/g,'-');
+// 		this.keyName = this.relatedGame;
 
 // 		console.log (this.keyName, "keyname");
     
@@ -51,5 +51,5 @@ LessonPlan.add({
 /**
  * Registration
  */
- LessonPlan.defaultColumns = 'name';
+ LessonPlan.defaultColumns = 'name, relatedGame, category, enabled';
  LessonPlan.register();
