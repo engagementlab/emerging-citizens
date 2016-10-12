@@ -11,6 +11,12 @@
 		padding-top: 0;
 
 	}
+  
+  #loading-modal {
+    .indicator {
+      background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg');
+    }
+  }
 
 	#meme-text {
 		width: 400px;

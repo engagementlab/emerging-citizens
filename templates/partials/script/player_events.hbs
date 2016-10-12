@@ -103,6 +103,15 @@ var socketEvents = function(eventId, eventData) {
                     .to($('#waiting .row'), .5, { borderRadius:"0px 140px 0px 140px", ease: Expo.easeInOut }, 'start+=.01')
                     .to($('#waiting .row'), .5, { borderRadius:"0px 0px 0px 0px", ease: Expo.easeInOut }, 'start+=.01')
                 }
+                else if(sessionStorage.gameType === 'htyi') {
+                    var cloud = $('#waiting')
+                    var yVal = -10 + Math.floor(Math.random() * (10 - -10 + 1));
+                    
+                    TweenMax.set(cloud,{transformOrigin:'50% 50%'});
+                    TweenMax.from(cloud,1,{autoAlpha:0, y:0, scale:0, ease: Back.easeOut.config(1.5)});
+                    TweenMax.fromTo(cloud,3,{yPercent:0}, {yPercent:yVal, yoyo: true, repeat: -1, ease: Sine.easeInOut})
+                    
+                }
             });
 
             sessionStorage.setItem('gameType', eventData.gameType);

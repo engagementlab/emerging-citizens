@@ -26,6 +26,12 @@
 			border-radius: 40px;
 		}
 	}
+	
+	#loading-modal {
+		.indicator {
+			background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
+		}
+	}
 
 	.submission {
 		padding: 0;

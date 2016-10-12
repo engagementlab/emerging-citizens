@@ -19,7 +19,7 @@
   	min-height: 100%;
   	margin-bottom: 10%;
     margin: 0 auto;
-  	font-size: medium;
+  	font-size: 2em;
   	color: $color-blue;
     min-height: 270px;
     min-width: 345px;
@@ -28,13 +28,9 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    span {
-    	left: 0;
-    	width: 100%;
-    	top: 45%;
-      position: absolute;
-      height: 100%;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #tweet-submission {

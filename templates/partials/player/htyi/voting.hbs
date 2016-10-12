@@ -1,32 +1,22 @@
-	{{!-- <div class="col-sm-4"></div> --}}
-	<div id="vote-submission" class="col-sm-12">
-	  <div class="form-prompt white">which hashtag went with the original tweet?</div>
-	  <div class="form">
+{{!-- <div class="col-sm-4"></div> --}}
+<div id="vote-submission" class="col-sm-12">
+  <div class="form-prompt white">which hashtag went with the original tweet?</div>
+  <div class="form">
 
-		    {{#each this}}
-					<button data-event="hashtag:vote" data-package='{{this}}' data-keep_enabled="true" data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{limit this 20}}</button>
-		    {{/each}}
-		    
-				{{!-- Game error --}}
-        <div class="error">Error!</div>
-		
-		</div>
-	</div>
-
-  <section id="submitted" data-hide="vote-submission" class="row" style="display:none">
+	    {{#each this}}
+				<button data-event="hashtag:vote" data-package='{{this}}' data-keep_enabled="true" data-autohide="true" class="voting-button {{htyiColor @index}} submit">#{{limit this 20}}</button>
+	    {{/each}}
 	    
-  		<div class="col-lg-12">
-	  		<div class="col-lg-4"></div>
-		    <div class="col-lg-4 game-message">
-		    		<div class="col-lg-3"></div>
-		        <span class="text col-lg-6">vote received, please wait!</span>
-		    		<div class="col-lg-3"></div>
+			{{!-- Game error --}}
+      <div class="error">Error!</div>
+	
+	</div>
+</div>
 
-		        <div class="col-lg-5"></div>
-		        <div id="tweet_sketch" class="col-lg-4">
-			        {{!-- <img src="/images/layout/hyi/twittersketch.png" alt=""> --}}
-		        </div>
-		    </div>
-	    </div>
+<section id="submitted" data-hide="vote-submission" class="col-sm-3 col-centered hidden-el">
+    
+  <div class="game-message row">
+        <span class="text col-md-12">vote received,<br />please wait!</span>
+  </div>
 
-	</section>
+</section>

@@ -139,6 +139,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       var session = Session.Get(playerGameId);
 
+      logger.info(playerGameId + " lost.");
+
       if(!session)
         return;
 

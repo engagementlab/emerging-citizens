@@ -114,19 +114,14 @@ $(document).on('click', '.form .submit', function(evt) {
     var event = $(this).data().event;
     var pkg = getFormData($(this));
 
-    // If there is a session flag ('flag:value'), set it
-    // TODO: Why?
-    // var sessionFlag = $(this).data().sessionFlagsessionFlag;
-    // if(sessionFlag)
-    //     sessionStorage.setItem(sessionFlag.split(':')[0], sessionFlag.split(':')[1]);
-
     // Emit event to socket
     socket.emit(event, emitData(pkg));
 
     // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
     if($(this).data().autohide) {
-        $('#' + $('#submitted').data('hide')).remove();
-        $('#submitted').show();
+        new TimelineLite()
+        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
     }
 
     // Disable form button unless explicitly prevented, and show loading...

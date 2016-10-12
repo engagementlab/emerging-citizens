@@ -28,6 +28,11 @@
 	}
 	body #waiting {
 		margin-top: 5%;
+		.text {
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+		}
 	}
 	body .game-header.wait-players {
 		font-size: 2em;

@@ -28,6 +28,12 @@
 		@include box-shadow(10px, 10px, 50px, #000);
 
 	}
+  
+  #loading-modal {
+    .indicator {
+      background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg');
+    }
+  }
 
 	.players {
 		margin-top: 40px;

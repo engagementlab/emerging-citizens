@@ -617,6 +617,10 @@ body .player-form {
     font-size: x-large; }
   body #waiting {
     margin-top: 5%; }
+    body #waiting .text {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
   body .game-header.wait-players {
     font-size: 2em; } }
 
@@ -674,6 +678,8 @@ body .player-form {
     -webkit-box-shadow: 10px 10px 50px #000;
     -moz-box-shadow: 10px 10px 50px #000;
     box-shadow: 10px 10px 50px #000; }
+  .body.htyi #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg"); }
   .body.htyi .players {
     margin-top: 40px; }
     .body.htyi .players.left div.player-background {
@@ -968,6 +974,8 @@ body .player-form {
     margin: 0 auto; }
     .body.wikigeeks.group .room-container#game_code {
       border-radius: 40px; }
+  .body.wikigeeks.group #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
   .body.wikigeeks.group .submission {
     padding: 0; }
   .body.wikigeeks.group #gameContent.container-fluid {
@@ -1435,6 +1443,8 @@ body .player-form {
   .body.wwdmm.group #gameContent {
     padding: 5%;
     padding-top: 0; }
+  .body.wwdmm.group #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
   .body.wwdmm.group #meme-text {
     width: 400px; }
   .body.wwdmm.group .meme {
@@ -1779,20 +1789,17 @@ body .player-form {
   min-height: 100%;
   margin-bottom: 10%;
   margin: 0 auto;
-  font-size: medium;
+  font-size: 2em;
   color: #4343ff;
   min-height: 270px;
   min-width: 345px;
   max-width: 40%;
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
   background-repeat: no-repeat;
-  background-position: center; }
-  .body.htyi.player .game-message span {
-    left: 0;
-    width: 100%;
-    top: 45%;
-    position: absolute;
-    height: 100%; }
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .body.htyi.player #tweet-submission {
   float: none;
@@ -1970,9 +1977,9 @@ body .player-form {
       margin: 0 auto;
       text-transform: capitalize; }
     .body.wikigeeks.player .game-message span {
+      font-size: 2em;
       left: 0;
       width: 100%;
-      top: 45%;
       position: absolute;
       height: 100%;
       text-align: center; }
@@ -2239,9 +2246,13 @@ html, body {
   top: 0;
   left: 0; }
   .modal .tutorial {
-    background-color: rgba(254, 120, 70, 0.7);
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    visibility: hidden; }
+    .modal .tutorial #img {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
     .modal .tutorial #countdown, .modal .tutorial #continue {
       position: fixed !important;
       bottom: 10%;
@@ -2250,9 +2261,9 @@ html, body {
       cursor: pointer; }
       .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
         display: inline-block;
+        fill: currentColor;
         width: 1em;
         height: 1em;
-        fill: currentColor;
         margin-top: 22%; }
       .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
         width: 0.8212890625em; }

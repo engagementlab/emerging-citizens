@@ -60,11 +60,12 @@ var gameEvents = function(eventId, eventData) {
         case 'hashtag:success':
 
             $('#countdownTimer').empty();
-            $('#tweet-submission').hide();
-            $('#submitted').show();
+
+            new TimelineLite()
+            .to($('#tweet-submission'), .5, {scale:0, autoAlpha:0, display:'none'})
+            .from($('#submitted'), .5, {scale:0, autoAlpha:0});
 
             sessionStorage.setItem('playerSubmission', eventData);
-
 
             loadToggle(false);
 
@@ -74,12 +75,8 @@ var gameEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function(animateIn) {
 
-                console.log('"' + sessionStorage.getItem('playerSubmission') + '"');
-
                 // Remove current player's submission from selections
                 var myHash = $('button.voting-button[data-package="' + sessionStorage.getItem('playerSubmission') + '"]');
-
-                console.log (myHash);
 
                 myHash.remove();
                 animateIn();
