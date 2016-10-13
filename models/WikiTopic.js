@@ -32,7 +32,6 @@ WikiTopic.add({
 	category: {
         type: Types.Relationship,
         ref: 'ContentCategory',
-        filters: { game: "WikiGeeks"},
         label: 'Category', 
         many: true
     }

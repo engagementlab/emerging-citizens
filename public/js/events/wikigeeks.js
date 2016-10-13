@@ -364,15 +364,17 @@ var gameEvents = function(eventId, eventData) {
         // Player guess the target article for start
         case 'article:tryagain':
 
+                $('#loading-modal').hide();
                 $('#btn_search img').hide();
                 $('#btn_search span').show();
                 $('.error').text(eventData).fadeIn();
                 $('input').disabled = false;
+
                 $('#btn_search').attr('disabled', false);
 
                 playerSubmitted = false;
 
-                loadToggle(false);
+                // loadToggle(false);
 
             break;
 
@@ -451,7 +453,10 @@ var gameEvents = function(eventId, eventData) {
 
                     $('#survey-ready').click(function() {
                         $('.results-container').fadeOut();
-                        $('.typeform').fadeIn();
+                        $('#survey-ready').hide();
+                        $('#surveyOptions').show();
+                        // sessionStorage.clear();
+
 
                     });
 
@@ -485,7 +490,7 @@ var gameEvents = function(eventId, eventData) {
         case 'game:countdown_ending':
 
             function bounce() {
-                $('.form .error').velocity({scale:1.2}, {duration:300, loop: 1, complete: bounce}, 'easeOutElastic', 5);
+                $('.form .error').velocity({scale:1.05}, {duration:500, loop: 1, complete: bounce}, 'easeOutElastic', 5);
             }
         
             if (sessionStorage.currentArticle !== undefined && playerWasReconnected) {
@@ -535,6 +540,7 @@ var gameEvents = function(eventId, eventData) {
             
             break;
 
+        
     }
 
 };

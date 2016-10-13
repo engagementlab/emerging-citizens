@@ -2003,6 +2003,7 @@ body .player-form {
     padding: 2%; }
     .body.wikigeeks.player #submitted .game-message {
       margin: 0;
+      margin-top: -2px;
       min-height: 100px; }
   .body.wikigeeks.player #wiki-content {
     padding-top: 5%;
@@ -2228,6 +2229,10 @@ html, body {
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
+
+#replay button, #btn_replay button {
+  width: 40%;
+  padding: 2%; }
 
 .body.game-bg {
   overflow-x: hidden; }

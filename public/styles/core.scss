@@ -57,6 +57,14 @@ html, body {
 	}
 }
 
+#replay, #btn_replay {
+	button {
+		width: 40%;
+		padding:2%;
+	}
+
+}
+
 .body.game-bg {
 	
   // @include linear_transition(background, 0.5s);
