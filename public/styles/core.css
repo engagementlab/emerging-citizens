@@ -1942,10 +1942,15 @@ body .player-form {
     @media (max-width: 425px) {
       .body.wikigeeks.player .submission {
         margin-top: 15%; } }
-  .body.wikigeeks.player #article .article-name {
-    background-color: #F83439;
-    color: #E8FCFB;
-    padding: 20px; }
+  .body.wikigeeks.player #article {
+    color: #95989A;
+    text-align: left; }
+    .body.wikigeeks.player #article .article-name {
+      background-color: #F83439;
+      color: #E8FCFB;
+      padding: 20px; }
+    .body.wikigeeks.player #article a {
+      color: #4394ff; }
   .body.wikigeeks.player .game-message {
     position: relative;
     padding-top: 10%;

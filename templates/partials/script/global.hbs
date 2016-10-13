@@ -284,7 +284,7 @@
 	detectPrivateMode(function(isPrivate) {
 		
 		if(isPrivate) {
-
+      $('.form').show();
 			$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
 
 			$(document).ready(function() {
@@ -445,12 +445,6 @@
 	 
 			}); 
 				
-		{{/ifeq}}
-
-		{{#ifeq section 'lessonPlans'}}
-
-			
-
 		{{/ifeq}}
 
 	  {{#ifeq section "comingsoon"}}
