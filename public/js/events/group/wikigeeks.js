@@ -145,7 +145,9 @@ var gameEvents = function(eventId, eventData) {
         var staticPlayers = $('.player-static');
         var finishedPlayer = staticPlayers[eventData.index];
 
-        var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+        console.log(eventData.username)
+
+        var nameFormatted = (eventData.username.length <= 15) ? eventData.username : eventData.username.substring(0, 15) + "...";
 
         $(finishedPlayer).children('.icon').addClass('active');
         $(finishedPlayer).children('.nameplate').addClass('active').text(nameFormatted);
