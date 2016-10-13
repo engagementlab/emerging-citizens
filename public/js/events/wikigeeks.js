@@ -48,7 +48,7 @@ var gameEvents = function(eventId, eventData) {
         var str = String(articleTitle);
         var articleChosen = $('.article-name');
 
-        articleChosen.text(articleTitle.replace('_', ' '));
+        articleChosen.text(articleTitle.replace(/_/g, ' '));
 
         retrievingData = true;
 
@@ -107,7 +107,7 @@ var gameEvents = function(eventId, eventData) {
                 }
 
                 if (!random)
-                    $('#article .article-name').text(articleTitle.replace('_', ' '));
+                    $('#article .article-name').text(articleTitle.replace(/_/g, ' '));
                 else 
                     $('#article .article-name').html('Our random article generator sent you to<br />' + articleTitle);
                 

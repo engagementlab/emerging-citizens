@@ -13,6 +13,13 @@
       background: rgba(254, 120, 70, .5) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg');
     }
   }
+
+  #waiting {
+    .row {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
 	
 	.game-message {
   	position: relative;

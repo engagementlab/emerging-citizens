@@ -1793,6 +1793,10 @@ body .player-form {
 .body.htyi.player #loading-modal .indicator {
   background: rgba(254, 120, 70, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg"); }
 
+.body.htyi.player #waiting .row {
+  width: 80%;
+  margin: 0 auto; }
+
 .body.htyi.player .game-message {
   position: relative;
   min-height: 100%;
@@ -1839,11 +1843,14 @@ body .player-form {
   color: #36d5d9; }
   .body.wikigeeks.player #gameContent {
     padding: 40px 0px; }
+  .body.wikigeeks.player #loading-modal .indicator {
+    background: rgba(9, 234, 210, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
+  .body.wikigeeks.player #waiting .row {
+    width: 80%;
+    margin: 0 auto; }
   .body.wikigeeks.player .error-modal {
     background-color: rgba(9, 234, 210, 0.9);
     color: white; }
-  .body.wikigeeks.player #loading-modal .indicator {
-    background: rgba(9, 234, 210, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
   .body.wikigeeks.player a.new {
     color: red;
     pointer-events: none !important; }
