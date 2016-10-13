@@ -148,6 +148,19 @@
 			color: $color-pale-yellow;
 		}
 
+		#round-header {
+
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+	    background-repeat: repeat-x;
+	    background-position-y: 100%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+
+			color: $color-pale-yellow;
+		}
+
 	}
 
 	#voting-container {
@@ -180,6 +193,12 @@
 		#top-header {
 			width: 100%;
 
+		}
+
+		.votes-box {
+			h1 {
+	    	font-size: 4em;
+	    }
 		}
 
 
@@ -220,6 +239,8 @@
 
 	    font-size: 4em;
 
+	    
+
 	    ul {
 	    	position: relative;
 	    	left: 50%;
@@ -231,7 +252,7 @@
 
 	    .score, .score-shadow {
   	    position: relative;
-		    top: -69px;
+		    top: -40px;
 		    margin-left: auto;
 		    margin-right: auto;
 		    padding-right: 10%;

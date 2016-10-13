@@ -61,6 +61,10 @@ html, body {
 	button {
 		width: 40%;
 		padding:2%;
+
+		@media (max-width:425px){
+			width: auto;
+		}
 	}
 
 }

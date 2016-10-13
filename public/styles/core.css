@@ -180,7 +180,7 @@
     border: none !important;
     height: 50px;
     line-height: 45px !important; }
-    @media (max-width: 375px) {
+    @media (max-width: 425px) {
       .post-button.survey {
         width: auto; } }
 
@@ -1516,6 +1516,14 @@ body .player-form {
       background-position-x: center;
       background-clip: padding-box;
       color: #fff5a3; }
+    .body.wwdmm.group #top-header #round-header {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+      background-repeat: repeat-x;
+      background-position-y: 100%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #fff5a3; }
   .body.wwdmm.group #voting-container .meme-canvas {
     width: 339px;
     height: 340px;
@@ -1530,6 +1538,8 @@ body .player-form {
       margin: 0px auto; }
     .body.wwdmm.group #results-container #top-header {
       width: 100%; }
+    .body.wwdmm.group #results-container .votes-box h1 {
+      font-size: 4em; }
     .body.wwdmm.group #results-container h1 {
       font-size: 2em; }
     .body.wwdmm.group #results-container .score {
@@ -1565,7 +1575,7 @@ body .player-form {
         height: 70px; }
       .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score, .body.wwdmm.group #results-container .likes .score-shadow {
         position: relative;
-        top: -69px;
+        top: -40px;
         margin-left: auto;
         margin-right: auto;
         padding-right: 10%;
@@ -1948,6 +1958,7 @@ body .player-form {
     .body.wikigeeks.player #article .article-name {
       background-color: #F83439;
       color: #E8FCFB;
+      font-size: 3em;
       padding: 20px; }
     .body.wikigeeks.player #article a {
       color: #4394ff; }
@@ -2232,6 +2243,9 @@ html, body {
 #replay button, #btn_replay button {
   width: 40%;
   padding: 2%; }
+  @media (max-width: 425px) {
+    #replay button, #btn_replay button {
+      width: auto; } }
 
 .body.game-bg {
   overflow-x: hidden; }
