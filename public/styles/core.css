@@ -165,10 +165,6 @@
     color: black;
     background-color: white; }
 
-#surveyOptions h2 {
-  color: white;
-  font-size: 2em; }
-
 .post-button {
   color: white !important;
   background-color: #00c5c2 !important;
@@ -176,7 +172,7 @@
   width: 100%;
   border: 0; }
   .post-button.survey {
-    width: 20%;
+    width: 40%;
     margin: 5px auto !important;
     background-image: none !important;
     text-align: center !important;
@@ -184,6 +180,9 @@
     border: none !important;
     height: 50px;
     line-height: 45px !important; }
+    @media (max-width: 375px) {
+      .post-button.survey {
+        width: auto; } }
 
 .voting-button {
   color: white;

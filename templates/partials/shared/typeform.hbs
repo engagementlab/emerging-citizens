@@ -1,21 +1,21 @@
 {{#ifeq survey true}}
 
-    <div id="surveyOptions" style="display:none;">
-        <h2>Would you like to take our survey?</h2>
+    <div id="surveyOptions">
         <div class="survey-button-group">
-            <a class="typeform-share post-button submit button survey" id="btn_survey" href="{{surveyUrl}}" data-mode="1" target="_blank">Totally!</a>
+            <a class="typeform-share post-button submit button survey" id="btn_survey" href="{{surveyUrl}}" data-mode="1" target="_blank">Take Our Survey!</a>
             <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script>
 
-            <button id="btn_replay" class="replay post-button submit survey" type="button" onclick="location.href='\\play';">No Thanks!</button>
         </div>
     </div>
 
-    <div id="replay" style="display:none;" ><button class="replay post-button submit" type="button" onclick="location.href='\\play';">LET ME PLAY AGAIN!</button></div>
+    <div id="replay" style="display:none;" ><button class="post-button submit" type="button" onclick="sessionStorage.clear(); location.href='\\play';">LET ME PLAY AGAIN!</button></div>
 
 {{else}} 
 
-    <button id="btn_replay" class="replay post-button submit" type="button" onclick="location.href='\\play';">LET ME PLAY AGAIN!</button>
+{{!--     <button id="btn_replay" class="replay post-button submit" type="button" onclick="location.href='\\play';">LET ME PLAY AGAIN!</button>
+ --}}
 
+ <h2>Game Over</h2>
 {{/ifeq}}
 
 <script type="text/javascript">
