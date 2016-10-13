@@ -81,7 +81,6 @@
 		}
 	}
 	
-
 	.submission {
 		min-height: 370px;
 		background-color: $color-dark-orange;
@@ -177,9 +176,16 @@
 		.article-name{
 			background-color: $color-bright-red;
 			color: $color-light-teal;
+			font-size: 3em;
 			padding: 20px;
-			// position: fixed;
 		}
+
+		color: $color-light-gray;
+    text-align: left;
+
+    a {
+    	color: #4394ff;
+    }
 	}
 
 	.game-message {

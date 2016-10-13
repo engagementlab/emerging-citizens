@@ -1943,10 +1943,15 @@ body .player-form {
     @media (max-width: 425px) {
       .body.wikigeeks.player .submission {
         margin-top: 15%; } }
-  .body.wikigeeks.player #article .article-name {
-    background-color: #F83439;
-    color: #E8FCFB;
-    padding: 20px; }
+  .body.wikigeeks.player #article {
+    color: #95989A;
+    text-align: left; }
+    .body.wikigeeks.player #article .article-name {
+      background-color: #F83439;
+      color: #E8FCFB;
+      padding: 20px; }
+    .body.wikigeeks.player #article a {
+      color: #4394ff; }
   .body.wikigeeks.player .game-message {
     position: relative;
     padding-top: 10%;
@@ -1972,7 +1977,9 @@ body .player-form {
         font-size: 2em;
         font-weight: bold; }
     .body.wikigeeks.player .game-message div {
-      padding-top: 3%; }
+      padding-top: 3%;
+      width: 80%;
+      margin: 0 auto; }
     .body.wikigeeks.player .game-message .article-name {
       font-weight: bolder;
       font-size: 1.8em;

@@ -1,6 +1,6 @@
 {
    "config":{
-      "target":"https://qa.emergingcitizens.org/",
+      "target":"https://qa.emergingcitizens.org",
       "variables":{
          "voteIndex":[
             "0",
@@ -15,8 +15,8 @@
       },
       "phases":[
          {
-            "duration":1,
-            "arrivalRate":2
+            "duration":30,
+            "arrivalRate":1
          }
       ]
    },
