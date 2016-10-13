@@ -42,7 +42,7 @@
 									{{!-- First article --}}
 									{{#if @first}}
 									
-										<h3 id="firstArticle" class="articleText">{{this.title}}</h3>
+										<h3 id="firstArticle" class="articleText">{{title}}</h3>
 
 									{{else}}
 
@@ -94,12 +94,13 @@
 			</div>
 
 		</div>
-		{{jsonPrint this}}
-	{{#if data.last_round}}
+		{{!-- {{jsonPrint this}} --}}
+	{{#if last_round}}
+	<div id="gameover" style="display:none"></div> 
 
 	
 		{{>shared/typeform this}}
-		<button id="survey-ready">Done</button>
+		<button id="survey-ready" style="display:none;" class="post-button submit survey" type="button">Done</button>
 
   {{else}}
 

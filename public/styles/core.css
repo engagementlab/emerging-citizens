@@ -1972,7 +1972,9 @@ body .player-form {
         font-size: 2em;
         font-weight: bold; }
     .body.wikigeeks.player .game-message div {
-      padding-top: 3%; }
+      padding-top: 3%;
+      width: 80%;
+      margin: 0 auto; }
     .body.wikigeeks.player .game-message .article-name {
       font-weight: bolder;
       font-size: 1.8em;
@@ -1996,6 +1998,7 @@ body .player-form {
     padding: 2%; }
     .body.wikigeeks.player #submitted .game-message {
       margin: 0;
+      margin-top: -2px;
       min-height: 100px; }
   .body.wikigeeks.player #wiki-content {
     padding-top: 5%;
@@ -2221,6 +2224,10 @@ html, body {
   @media (max-width: 480px) {
     .body {
       background-color: #fdae8f; } }
+
+#replay button, #btn_replay button {
+  width: 40%;
+  padding: 2%; }
 
 .body.game-bg {
   overflow-x: hidden; }
