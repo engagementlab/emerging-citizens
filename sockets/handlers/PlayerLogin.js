@@ -58,7 +58,6 @@ var PlayerLogin = function (nsp, socket, emitter) {
       }
   
       currentSocket.join(package.gameId, function(err) {
-
         if(err)
           throw err;
       });

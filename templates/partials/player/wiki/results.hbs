@@ -42,7 +42,7 @@
 									{{!-- First article --}}
 									{{#if @first}}
 									
-										<h3 id="firstArticle" class="articleText">{{this}}</h3>
+										<h3 id="firstArticle" class="articleText">{{title}}</h3>
 									
 									{{else}}
 
@@ -63,17 +63,17 @@
 												{{#if @last}}
 													{{#if ../finished}}
 													
-														<h3>{{this}}</h3>
+														<h3>{{title}}</h3>
 													
 													{{else}}
 													
-														{{this}}
+														{{title}}
 													
 													{{/if}}
 
 												{{else}}
 
-													{{this}}
+													{{title}}
 
 												{{/if}}
 
