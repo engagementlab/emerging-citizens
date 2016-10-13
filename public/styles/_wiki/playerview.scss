@@ -13,15 +13,22 @@
 		padding: 40px 0px;
 	}
 	
-	.error-modal {
-		background-color: rgba(9, 234, 210, .9);
-		color: white;
-	}
-	
 	#loading-modal {
 		.indicator {
 			background: rgba(9, 234, 210, .5) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
 		}
+	}
+
+	#waiting {
+		.row {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+	
+	.error-modal {
+		background-color: rgba(9, 234, 210, .9);
+		color: white;
 	}
 
 	a.new {
