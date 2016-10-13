@@ -36,13 +36,13 @@
 							<h2 id="player-name">{{username}}:</h2>
 
 							{{#each articles}}
-
+							{{!-- {{jsonPrint this}} --}}
 								<div class="row">
 
 									{{!-- First article --}}
 									{{#if @first}}
 									
-										<h3 id="firstArticle" class="articleText">{{this}}</h3>
+										<h3 id="firstArticle" class="articleText">{{this.title}}</h3>
 									
 									{{else}}
 
@@ -63,7 +63,7 @@
 												{{#if @last}}
 													{{#if ../finished}}
 													
-														<h3>{{this}}</h3>
+														<h3>{{this.title}}</h3>
 													
 													{{else}}
 													
@@ -94,7 +94,9 @@
 			</div>
 
 		</div>
+		{{jsonPrint this}}
 	{{#if data.last_round}}
+
 	
 		{{>shared/typeform this}}
 		<button id="survey-ready">Done</button>

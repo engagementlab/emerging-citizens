@@ -109,7 +109,7 @@ var socketEvents = function(eventId, eventData) {
                     
                     TweenMax.set(cloud,{transformOrigin:'50% 50%'});
                     TweenMax.from(cloud,1,{autoAlpha:0, y:0, scale:0, ease: Back.easeOut.config(1.5)});
-                    TweenMax.fromTo(cloud,3,{yPercent:0}, {yPercent:yVal, yoyo: true, repeat: -1, ease: Sine.easeInOut})
+                    TweenMax.fromTo(cloud,3,{yPercent:0}, {yPercent:yVal, yoyo: true, repeat: -1, ease: Sine.easeInOut});
                     
                 }
             });
