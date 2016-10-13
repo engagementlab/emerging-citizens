@@ -1797,9 +1797,15 @@ body .player-form {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center; }
+  @media (max-width: 320px) {
+    .body.htyi.player .game-message {
+      max-width: 270px;
+      min-width: 270px;
+      font-size: 1.5em; } }
 
 .body.htyi.player #tweet-submission {
   float: none;
@@ -1809,7 +1815,6 @@ body .player-form {
 .body.htyi.player #vote-submission {
   float: none;
   max-width: 375px;
-  width: 375px;
   margin: 0 auto; }
 
 .body.htyi.player #debugging {
@@ -1977,6 +1982,9 @@ body .player-form {
       margin: 0 auto;
       text-transform: capitalize; }
     .body.wikigeeks.player .game-message span {
+      justify-content: center;
+      align-items: center;
+      display: flex;
       font-size: 2em;
       left: 0;
       width: 100%;
@@ -1984,7 +1992,8 @@ body .player-form {
       height: 100%;
       text-align: center; }
   .body.wikigeeks.player #submitted {
-    margin-top: 5%; }
+    margin-top: 5%;
+    padding: 2%; }
     .body.wikigeeks.player #submitted .game-message {
       margin: 0;
       min-height: 100px; }

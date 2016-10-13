@@ -27,10 +27,17 @@
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media(max-width:320px) {
+      max-width: 270px;
+      min-width:270px;
+      font-size: 1.5em;
+    }
   }
 
   #tweet-submission {
@@ -39,12 +46,23 @@
     // width: 375px;
     margin: 0 auto;
 
+    // @media(max-width:320px) {
+    //   max-width: 315px;
+    //   min-width:315px;
+    //   margin:0 auto;
+    // }
+
   }
   #vote-submission {
     float: none;
     max-width: 375px;
-    width: 375px;
+    // width: 375px;
     margin: 0 auto;
+    // @media(max-width:320px) {
+    //   max-width: 315px;
+    //   min-width:315px;
+    //   margin:0 auto;
+    // }
   }
 
   #debugging {
