@@ -20,7 +20,10 @@
 	.invalid
 	{
 		@include animation('invalid-field .5s 1');
-		box-shadow:0 0 5px 1px $color-light-red;
+		@include box-shadow(0, 0, 15px 10px, $color-light-red);
+
+		// iOS fix
+		-webkit-appearance: none;
 	}
 
 	// Center all divs

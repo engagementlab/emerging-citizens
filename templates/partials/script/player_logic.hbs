@@ -12,6 +12,12 @@
 
 var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
 
+$(document).ready(function() {
+    // Prevent device sleep
+    var noSleep = new NoSleep();
+    noSleep.enable();
+});
+
 {{#ifnoteq environment "development"}}
     {{!-- Smartlook integration --}}
     window.smartlook||(function(d) {
@@ -41,8 +47,7 @@ if(!isEmulated) {
     ],
     volume: 0.5,
     path: sfxPath,
-    preload: true,
-    ready_callback: function(obj) { console.log('sounds ready', obj); }
+    preload: true
     });
 
 }
@@ -85,9 +90,8 @@ var checkIfLoggedIn = function() {
         .from($('#access_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
         .from($('#player_name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.2, ease:Expo.easeOut}, .2)
         .from($('.entry-footer'), 1.5, {yPercent:100, autoAlpha:0, delay:0, ease:Expo.easeOut}, .4)
-        .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1, ease:Expo.easeOut}, .4)
-        ;
-        
+        .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1, ease:Expo.easeOut}, .4);
+
         return;
     }
 
@@ -146,6 +150,27 @@ $(document).on('click', '.form .submit', function(evt) {
 $(document).on('click', '.btn.game_login', function(evt) {
 
     var data = getFormData($(this));
+    var errorBox = $('.form .error');
+
+    // Hide errors during typing
+    $('.form input').keyup(function() {
+        $('.form input').removeClass('invalid');
+    });
+
+    // Player entered code?
+    if(!data.code || data.code.length === 0) {
+        $('.form #access_code').addClass('invalid');
+        errorBox.text('You need to enter a room code!').fadeIn(); 
+
+        return;
+    }
+    // Player entered name?
+    else if(!data.name || data.name.length === 0) {
+        $('.form #player_name').addClass('invalid');
+        errorBox.text('You need to enter a name!').fadeIn(); 
+
+        return;
+    }
 
     // Create uid for player
     var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
@@ -167,7 +192,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
                 switch(data.error_code) {
 
                     case 'game_not_found': 
-                        $('.form #class_code').addClass('invalid');
+                        $('.form #access_code').addClass('invalid');
                         
                         // Session does not exist, make sure to clear data from storage
                         sessionStorage.removeItem('gameCode');
@@ -180,13 +205,13 @@ $(document).on('click', '.btn.game_login', function(evt) {
                         break;
 
                     case 'game_active': 
-                        $('.form #class_code').addClass('invalid');
+                        $('.form #access_code').addClass('invalid');
                         break;
 
                 }
     
                 $('.btn.game_login').removeAttr('disabled');
-                $('.form .error').text(data.msg).fadeIn();
+                errorBox.text(data.msg).fadeIn();
                 loadToggle(false, true);
 
                 return;

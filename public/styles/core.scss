@@ -24,6 +24,12 @@ html, body {
 // Bootstrap override
 .form {
 	min-height: 10%;
+
+	// iOS fixes
+	#btn-submit-code {
+		-webkit-appearance: none;
+		background: white;
+	}
 }
 
 .text.centered {
