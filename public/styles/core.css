@@ -298,7 +298,10 @@ body .player-form {
   margin-left: -30px;
   margin-right: -30px; }
   #logo_ec img {
-    height: 200px; }
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin: 0 auto; }
 
 #game-logoec {
   background: none;
@@ -2240,12 +2243,12 @@ html, body {
   font-size: 4em;
   color: white; }
 
+.body.game-bg.player {
+  background-color: white;
+  color: #36d5d9; }
+
 .body {
-  font-family: "Avenir";
-  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png), #ff9971; }
-  @media (max-width: 480px) {
-    .body {
-      background-color: #fdae8f; } }
+  font-family: "Avenir"; }
 
 #replay button, #btn_replay button {
   width: 40%;

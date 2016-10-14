@@ -47,13 +47,18 @@ html, body {
 	color: white;
 }
 
+.body.game-bg.player {
+	background-color:white;
+	color: $color-teal;
+}
+
 // Body
 .body {
   font-family: "Avenir";
-  background: $background-main, $color-peach;
+  // background: $background-main, $color-peach;
 	
 	@include mobile-only {
-	  background-color: #fdae8f;
+	  // background-color: #fdae8f;
 	}
 }
 

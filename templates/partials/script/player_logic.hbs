@@ -84,8 +84,9 @@ var checkIfLoggedIn = function() {
         new TimelineLite()
         .from($('#access_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
         .from($('#player_name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.2, ease:Expo.easeOut}, .2)
-        .from($('#btn_submit_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .4)
-        .from($('.entry-footer'), 1.5, {yPercent:200, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .4);
+        .from($('.entry-footer'), 1.5, {yPercent:100, autoAlpha:0, delay:0, ease:Expo.easeOut}, .4)
+        .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1, ease:Expo.easeOut}, .4)
+        ;
         
         return;
     }
