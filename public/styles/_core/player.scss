@@ -12,21 +12,22 @@
 		max-width: 290px;
 		background-color:$color-gray;
 		border: none;
+		color: black;
 
 		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  color: darken($color-gray, 10%);
+		  color: darken($color-gray, 20%);
 		  text-align: center;
 		}
 		&::-moz-placeholder { /* Firefox 19+ */
-		  color: darken($color-gray, 10%);
+		  color: darken($color-gray, 20%);
 		  text-align: center;
 		}
 		&:-ms-input-placeholder { /* IE 10+ */
-		  color: darken($color-gray, 10%);
+		  color: darken($color-gray, 20%);
 		  text-align: center;
 		}
 		&:-moz-placeholder { /* Firefox 18- */
-		  color: darken($color-gray, 10%);
+		  color: darken($color-gray, 20%);
 		  text-align: center;
 		}
 	}
