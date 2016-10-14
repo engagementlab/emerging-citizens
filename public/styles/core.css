@@ -583,13 +583,21 @@ body .player-form {
   #mailing-list span:hover {
     border-bottom: none; }
 
+.games-row {
+  padding-top: 5%;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 5%; }
+  .games-row img {
+    height: 200px; }
+
 .home-page-info {
   font-size: large;
-  color: #ff9971;
-  background-color: white;
+  color: white;
   padding: 3%;
+  height: 300px;
   margin-top: 2%;
-  margin-left: 2%;
+  border-radius: 30px;
   -webkit-box-shadow: 6px 7px 10px #C7C6C6;
   -moz-box-shadow: 6px 7px 10px #C7C6C6;
   box-shadow: 6px 7px 10px #C7C6C6;
@@ -598,6 +606,12 @@ body .player-form {
   -ms-transition: -webkit-filter 0.5s linear;
   -o-transition: -webkit-filter 0.5s linear;
   transition: -webkit-filter 0.5s linear; }
+  .home-page-info#hashtag-info {
+    background-color: #ffab48; }
+  .home-page-info#geeks-info {
+    background-color: #F83439; }
+  .home-page-info#meme-info {
+    background-color: #31b9ff; }
   .home-page-info.coming-soon:hover {
     -webkit-filter: saturate(20%);
     -moz-filter: saturate(20%);
@@ -2470,21 +2484,49 @@ footer {
   margin-bottom: 3%;
   color: gray;
   align-items: center; }
+  .gameLanding button.more {
+    width: 180px;
+    height: 80px;
+    border-radius: 40px;
+    border: none;
+    background: #36d5d9;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em; }
   .gameLanding .top-section {
     padding: 3%;
     padding-bottom: 5%;
     margin-left: -30px;
     margin-right: -30px;
-    border-bottom: 2px #e6e6e6 solid; }
-    .gameLanding .top-section h1 {
-      width: 100%;
-      font-size: 5em;
-      text-align: left;
-      margin: 0px; }
-    .gameLanding .top-section h3 {
-      font-size: 3em;
-      text-align: left;
-      width: 100%; }
+    width: 90%;
+    margin: 0 auto; }
+  .gameLanding .what-text {
+    font-size: 2em;
+    font-weight: 100;
+    line-height: 4s0px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify; }
+  .gameLanding .what-bubbles {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3%; }
+    .gameLanding .what-bubbles p {
+      font-size: 1.2em; }
+    .gameLanding .what-bubbles img {
+      width: 160px;
+      height: 160px;
+      border-radius: 80px;
+      border: 2px gray solid; }
+  .gameLanding h1 {
+    width: 100%;
+    font-size: 5em;
+    text-align: left;
+    margin: 0px; }
+  .gameLanding h3 {
+    font-size: 3em;
+    text-align: left;
+    width: 100%; }
   @media only screen and (min-width: 769px) {
     .gameLanding #desktop {
       display: block; }

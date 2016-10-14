@@ -59,20 +59,42 @@
     }
   }
 }
+.games-row {
+  padding-top: 5%;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 5%;
+  img {
+    height: 200px;
+    // width: 200px;
+  }
+}
 
 .home-page-info {
 	
   font-size: large;
-	color: $color-peach;
-	background-color: white;
+	color: white;
 	padding: 3%;
+  height: 300px;
 
   margin-top: 2%;
-  margin-left: 2%;
+  border-radius: 30px;
 
   @include box-shadow(6px, 7px, 10px, #C7C6C6);
   @include linear_transition(-webkit-filter, 0.5s);
 
+  &#hashtag-info {
+    background-color: $color-light-orange;
+  }
+
+  &#geeks-info {
+
+    background-color: $color-bright-red;
+  }
+
+  &#meme-info{
+    background-color: $color-dodger-blue;
+  }
   &.coming-soon {
     &:hover {
       @include filter(saturate, 20%);
