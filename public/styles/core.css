@@ -301,8 +301,8 @@ body .player-form {
   margin-left: -30px;
   margin-right: -30px; }
   #logo_ec img {
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
     display: block;
     margin: 0 auto; }
 
