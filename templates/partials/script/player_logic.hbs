@@ -12,6 +12,12 @@
 
 var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
 
+$(document).ready(function() {
+    // Prevent device sleep
+    var noSleep = new NoSleep();
+    noSleep.enable();
+});
+
 {{#ifnoteq environment "development"}}
     {{!-- Smartlook integration --}}
     window.smartlook||(function(d) {
