@@ -155,9 +155,29 @@
 #gameContent {
   padding-top: 3%; }
 
-#login input[type=text] {
-  width: 100%;
-  max-width: 290px; }
+#login {
+  margin-top: 5%; }
+  #login input[type=text] {
+    width: 100%;
+    max-width: 290px;
+    background-color: #e6e6e6;
+    border: none; }
+    #login input[type=text]::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #cccccc;
+      text-align: center; }
+    #login input[type=text]::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #cccccc;
+      text-align: center; }
+    #login input[type=text]:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #cccccc;
+      text-align: center; }
+    #login input[type=text]:-moz-placeholder {
+      /* Firefox 18- */
+      color: #cccccc;
+      text-align: center; }
 
 .form-prompt {
   color: white;
@@ -237,6 +257,10 @@
   bottom: 0;
   right: 0;
   background-color: white; }
+  .entry-footer button {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #36d5d9; }
 
 body .player-form {
   padding: 3%; }
@@ -2271,6 +2295,15 @@ html, body {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
   .body.game-bg.wwdmm {
     background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
+  .body.game-bg.player {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png); }
+    .body.game-bg.player #logo_ec {
+      margin-top: -15px;
+      background-color: #e6e6e6; }
+    .body.game-bg.player .entry-footer {
+      background-color: #e6e6e6; }
+      .body.game-bg.player .entry-footer button {
+        background-color: #e6e6e6; }
 
 .body.login {
   -webkit-transition: background 0.5s linear;

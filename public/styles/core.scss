@@ -96,6 +96,25 @@ html, body {
 		background-image: $background-wwdmm;
 	}
 
+	&.player {
+		background-image: $background-main;
+
+		#logo_ec {
+			margin-top: -15px;
+			background-color: $color-gray;
+		}
+
+		.entry-footer{
+			background-color: $color-gray;
+
+			button {
+				background-color: $color-gray;
+			}
+		}
+
+
+	}
+
 }
 
 .body.login {

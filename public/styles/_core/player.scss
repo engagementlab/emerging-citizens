@@ -4,11 +4,35 @@
 
 // Login form
 #login {
+
+	margin-top:5%;
+
 	input[type=text] {
 		width: 100%;
 		max-width: 290px;
+		background-color:$color-gray;
+		border: none;
+
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: darken($color-gray, 10%);
+		  text-align: center;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  color: darken($color-gray, 10%);
+		  text-align: center;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  color: darken($color-gray, 10%);
+		  text-align: center;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  color: darken($color-gray, 10%);
+		  text-align: center;
+		}
 	}
 }
+
+
 .form-prompt {
 	color: white;
 	background-color: $color-dark-orange;
@@ -110,6 +134,12 @@
 	right: 0;
 	// height: 100px;
 	background-color: white;
+
+	button {
+		background-color: white;
+		border-radius: 5px;
+		border: 2px solid $color-teal;
+	}
 }
 
 body .player-form {
