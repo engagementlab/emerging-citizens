@@ -85,7 +85,10 @@
     -moz-animation: invalid-field .5s 1;
     -o-animation: invalid-field .5s 1;
     animation: invalid-field .5s 1;
-    box-shadow: 0 0 5px 1px #ab3724; }
+    -webkit-box-shadow: 0 0 15px 10px #ab3724;
+    -moz-box-shadow: 0 0 15px 10px #ab3724;
+    box-shadow: 0 0 15px 10px #ab3724;
+    -webkit-appearance: none; }
   .form div {
     margin-left: auto;
     margin-right: auto; }
@@ -2215,6 +2218,9 @@ html, body {
 
 .form {
   min-height: 10%; }
+  .form #btn-submit-code {
+    -webkit-appearance: none;
+    background: white; }
 
 .text.centered {
   text-align: center; }
