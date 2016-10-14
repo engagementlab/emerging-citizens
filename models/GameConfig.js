@@ -33,6 +33,7 @@ GameConfig.add({
 		enabled: { type: Boolean, label: "Game Is Running?", note: "Disabling game will show 'coming soon'/signup page." }, 
 		playerCap: { type: Number, label: "Player Cap", required: true, initial: true },
 	  timeLimit: { type: Number, label: "Time Limit", required: true, initial: true },
+	  votingTimeLimit: { type: Number, label: "Voting Time Limit", dependsOn: {gameType: ["HTYI", "WWDMM"]}},
 		roundNumber: { type: Number, label: "Number of Rounds", required: true, initial: true },
 
 		voteScoreGuess: { type: Number, label: "Score per Vote for guess", dependsOn: {gameType: "HTYI"}},
