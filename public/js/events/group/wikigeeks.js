@@ -216,6 +216,14 @@ var gameEvents = function(eventId, eventData) {
 
           }
 
+          function nextRound() {
+
+            $('#results, #scoring, #leaderboard').remove();
+
+            TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
+            
+          }
+
           var topPlayers = $('#top-players .player-path');
           _.each(topPlayers, function(player, index) {
 

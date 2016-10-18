@@ -348,8 +348,22 @@
 			<div id="countdown" class="row hidden-el form">
 		    <h2>
 			    {{#if last_round}}
-			    Game is over!
-						{{!-- Returning to Main Menu --}}
+	          <div id="game-ended" class="col-sm-7 col-centered hidden-el results last">
+	              
+	              <div class="col-sm-4"></div>
+	              <div class="col-sm-4">
+	                  
+	                  <h1 style="font-size: 3em;color: #fa9060" class="game-header">Game Ended<br>Thank you for playing WikiGeeks!
+	                      </h1>
+
+	                  {{#if survey}}
+	                      <h1 style="font-size: 2.4em;color: #fe6444" class="game-header">Please fill out the survey on your device.
+	                      </h1>
+	                  {{/if}}
+	              </div>
+	              <div class="col-sm-4"></div>
+
+	          </div>
 					{{else}}
             <div class="col-sm-7 col-centered">
                 <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
