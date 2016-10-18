@@ -36,6 +36,7 @@
 
    	margin: 40px auto;
  	  background: white;
+ 	  display: inline-block;
 
  	  @media (max-width: 426px) {
  	  	border-right: none;
@@ -45,6 +46,7 @@
 
 	 	.text {
 	 		color: $color-bg-wwdmm;
+	 		// padding: 2%;
 	 	}
 
 	}

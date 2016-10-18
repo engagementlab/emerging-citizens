@@ -154,10 +154,49 @@
 body.player #gameContent {
   padding-top: 3%; }
 
+body.player #login {
+  margin-top: 5%; }
+  body.player #login input[type=text] {
+    width: 100%;
+    max-width: 290px;
+    background-color: #e6e6e6;
+    border: none;
+    color: black; }
+    body.player #login input[type=text]::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]:-moz-placeholder {
+      /* Firefox 18- */
+      color: #b3b3b3;
+      text-align: center; }
+
+body.player .form-prompt {
+  color: white;
+  background-color: #ff5e41;
+  font-size: x-large;
+  padding: 10px; }
+  body.player .form-prompt.white {
+    color: black;
+    background-color: white; }
+
 body.player #logo_ec {
   background: white;
   padding: 20px 0px;
   margin: 0 auto; }
+  body.player #logo_ec img {
+    height: 40%;
+    width: 40%;
+    display: block;
+    margin: 0 auto; }
   @media only screen and (max-width: 480px) {
     body.player #logo_ec.mobile {
       display: none; } }
@@ -241,14 +280,18 @@ body.player .generic-game-message {
   -moz-box-shadow: 6px 7px 10px #C7C6C6;
   box-shadow: 6px 7px 10px #C7C6C6; }
 
+body.player body .player-form {
+  padding: 3%; }
+
 body.player .entry-footer {
   position: fixed;
   bottom: 0;
   right: 0;
   background-color: white; }
-
-body.player body .player-form {
-  padding: 3%; }
+  body.player .entry-footer button {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #36d5d9; }
 
 #wrapper.group {
   width: 1680px !important;
@@ -306,7 +349,7 @@ body.player body .player-form {
 
 #logo_ec {
   padding: 20px 0px;
-  background: white;
+  background: #b7f0f1;
   margin-left: -30px;
   margin-right: -30px; }
   #logo_ec img {
@@ -567,13 +610,21 @@ body.player body .player-form {
   #mailing-list span:hover {
     border-bottom: none; }
 
+.games-row {
+  padding-top: 5%;
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 5%; }
+  .games-row img {
+    height: 200px; }
+
 .home-page-info {
   font-size: large;
-  color: #ff9971;
-  background-color: white;
+  color: white;
   padding: 3%;
+  height: 300px;
   margin-top: 2%;
-  margin-left: 2%;
+  border-radius: 30px;
   -webkit-box-shadow: 6px 7px 10px #C7C6C6;
   -moz-box-shadow: 6px 7px 10px #C7C6C6;
   box-shadow: 6px 7px 10px #C7C6C6;
@@ -582,6 +633,12 @@ body.player body .player-form {
   -ms-transition: -webkit-filter 0.5s linear;
   -o-transition: -webkit-filter 0.5s linear;
   transition: -webkit-filter 0.5s linear; }
+  .home-page-info#hashtag-info {
+    background-color: #ffab48; }
+  .home-page-info#geeks-info {
+    background-color: #F83439; }
+  .home-page-info#meme-info {
+    background-color: #31b9ff; }
   .home-page-info.coming-soon:hover {
     -webkit-filter: saturate(20%);
     -moz-filter: saturate(20%);
@@ -1519,7 +1576,7 @@ body.player body .player-form {
       display: inline;
       background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
       background-repeat: repeat-x;
-      background-position-y: 100%;
+      background-position-y: 110%;
       background-position-x: center;
       background-clip: padding-box;
       color: #19f7ad; }
@@ -1580,7 +1637,6 @@ body.player body .player-form {
     .body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
       position: relative;
       float: right;
-      left: -50%;
       font-size: 4em; }
       .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
         position: relative;
@@ -2113,7 +2169,8 @@ body.player body .player-form {
   font-size: 3em;
   border: 20px solid #fed34f;
   margin: 40px auto;
-  background: white; }
+  background: white;
+  display: inline-block; }
   @media (max-width: 426px) {
     .body.wwdmm.player .game-message {
       border-right: none;
@@ -2236,7 +2293,9 @@ body.player body .player-form {
   width: 100%; }
 
 html, body {
-  max-height: 100%; }
+  max-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden; }
 
 .form {
   min-height: 10%; }
@@ -2280,6 +2339,15 @@ html, body {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
   .body.game-bg.wwdmm {
     background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
+  .body.game-bg.player {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png); }
+    .body.game-bg.player #logo_ec {
+      margin-top: -15px;
+      background-color: #e6e6e6; }
+    .body.game-bg.player .entry-footer {
+      background-color: #e6e6e6; }
+      .body.game-bg.player .entry-footer button {
+        background-color: #e6e6e6; }
 
 .body.login {
   -webkit-transition: background 0.5s linear;
@@ -2437,7 +2505,55 @@ footer {
   z-index: 1000; }
 
 .gameLanding {
-  margin-bottom: 3%; }
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  color: gray;
+  align-items: center; }
+  .gameLanding button.more {
+    width: 180px;
+    height: 80px;
+    border-radius: 40px;
+    border: none;
+    background: #36d5d9;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em; }
+  .gameLanding .top-section {
+    padding: 3%;
+    padding-bottom: 5%;
+    margin-left: -30px;
+    margin-right: -30px;
+    width: 90%;
+    margin: 0 auto; }
+  .gameLanding .what-text {
+    font-size: 2em;
+    font-weight: 100;
+    line-height: 4s0px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify; }
+  .gameLanding .what-bubbles {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3%; }
+    .gameLanding .what-bubbles p {
+      font-size: 1.2em; }
+    .gameLanding .what-bubbles img {
+      width: 160px;
+      height: 160px;
+      border-radius: 80px;
+      border: 2px gray solid; }
+  .gameLanding h1 {
+    width: 100%;
+    font-size: 5em;
+    text-align: left;
+    margin: 0px; }
+  .gameLanding h3 {
+    font-size: 3em;
+    text-align: left;
+    width: 100%; }
   @media only screen and (min-width: 769px) {
     .gameLanding #desktop {
       display: block; }

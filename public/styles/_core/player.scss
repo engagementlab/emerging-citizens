@@ -1,6 +1,52 @@
 body.player {
+
 	#gameContent {
 		padding-top: 3%;
+	}
+
+	// Login form
+	#login {
+
+		margin-top:5%;
+
+		input[type=text] {
+			width: 100%;
+			max-width: 290px;
+			background-color:$color-gray;
+			border: none;
+			color: black;
+
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+		}
+	}
+
+
+	.form-prompt {
+		color: white;
+		background-color: $color-dark-orange;
+		font-size: x-large;
+		padding: 10px;
+
+		&.white {
+			color: black;
+			background-color: white;
+		}
+
 	}
 
 	// Login form
@@ -9,6 +55,13 @@ body.player {
 		background: white;
 		padding: 20px 0px;
 		margin: 0 auto;
+
+		img {
+	    height: 40%;
+	    width: 40%;
+	    display: block;
+	    margin:0 auto;
+		}
 
 		&.mobile {
 			@include mobile-landscape-and-below {
@@ -117,6 +170,10 @@ body.player {
 
 	}
 
+	body .player-form {
+		padding: 3%;
+	}
+	
 	// Footer on entry page
 	.entry-footer {
 		position: fixed;
@@ -124,10 +181,12 @@ body.player {
 		right: 0;
 		// height: 100px;
 		background-color: white;
-	}
 
-	body .player-form {
-		padding: 3%;
+		button {
+			background-color: white;
+			border-radius: 5px;
+			border: 2px solid $color-teal;
+		}
 	}
 
 }
