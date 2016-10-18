@@ -118,6 +118,13 @@ var checkIfLoggedIn = function() {
             });
         }
 
+        $('#player_name').keydown(function(evt) {
+            
+            if(evt.keyCode == 13)
+                $('#btn_submit_code').click();
+
+        });
+
         return;
     }
 

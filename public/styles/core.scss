@@ -89,16 +89,6 @@ html, body {
   
   overflow-x: hidden;
 
-  &.htyi {
-	  background: $background-groupview, $color-peach;
-	}
-	&.wikigeeks {
-	  background-image: $background-wiki;
-	}
-	&.wwdmm {
-		background-image: $background-wwdmm;
-	}
-
 	&.player {
 		background-image: $background-main;
 
@@ -115,7 +105,16 @@ html, body {
 			}
 		}
 
+	}
 
+  &.htyi {
+	  background: $background-groupview, $color-peach !important;
+	}
+	&.wikigeeks {
+	  background-image: $background-wiki !important;
+	}
+	&.wwdmm {
+		background-image: $background-wwdmm !important;
 	}
 
 }
