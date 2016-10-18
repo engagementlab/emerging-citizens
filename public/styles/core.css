@@ -126,7 +126,6 @@
     vertical-align: middle; }
   .form button.mobile-login {
     background: white;
-    margin-top: 10%;
     cursor: pointer; }
   .form .error {
     display: none;
@@ -152,29 +151,36 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
-#gameContent {
+body.player #gameContent {
   padding-top: 3%; }
 
-#login input[type=text] {
-  width: 100%;
-  max-width: 290px; }
+body.player #logo_ec {
+  background: white;
+  padding: 20px 0px;
+  margin: 0 auto; }
 
-.form-prompt {
+body.player #login {
+  min-height: 300px; }
+  body.player #login input[type=text] {
+    width: 100%;
+    max-width: 290px; }
+
+body.player .form-prompt {
   color: white;
   background-color: #ff5e41;
   font-size: x-large;
   padding: 10px; }
-  .form-prompt.white {
+  body.player .form-prompt.white {
     color: black;
     background-color: white; }
 
-.post-button {
+body.player .post-button {
   color: white !important;
   background-color: #00c5c2 !important;
   font-size: large !important;
   width: 100%;
   border: 0; }
-  .post-button.survey {
+  body.player .post-button.survey {
     width: 40%;
     margin: 5px auto !important;
     background-image: none !important;
@@ -184,10 +190,10 @@
     height: 50px;
     line-height: 45px !important; }
     @media (max-width: 425px) {
-      .post-button.survey {
+      body.player .post-button.survey {
         width: auto; } }
 
-.voting-button {
+body.player .voting-button {
   color: white;
   font-size: medium;
   width: 100%;
@@ -198,32 +204,32 @@
   -ms-transition: background-color 0.3s linear;
   -o-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear; }
-  .voting-button:hover {
+  body.player .voting-button:hover {
     -webkit-filter: brightness(115%);
     -moz-filter: brightness(115%);
     -ms-filter: brightness(115%);
     -o-filter: brightness(115%);
     filter: brightness(115%); }
-  .voting-button.color-0 {
+  body.player .voting-button.color-0 {
     background-color: #4343ff; }
-  .voting-button.color-1 {
+  body.player .voting-button.color-1 {
     background-color: #ff5e41; }
-  .voting-button.color-2 {
+  body.player .voting-button.color-2 {
     background-color: #ffab48; }
-  .voting-button.color-3 {
+  body.player .voting-button.color-3 {
     background-color: #2bd3ee; }
-  .voting-button.color-4 {
+  body.player .voting-button.color-4 {
     background-color: #13e695; }
-  .voting-button.color-5 {
+  body.player .voting-button.color-5 {
     background-color: #ff7f7d; }
-  .voting-button.color-6 {
+  body.player .voting-button.color-6 {
     background-color: #7c90ff; }
-  .voting-button.color-7 {
+  body.player .voting-button.color-7 {
     background-color: #36d5d9; }
-  .voting-button.color-8 {
+  body.player .voting-button.color-8 {
     background-color: #F83439; }
 
-.generic-game-message {
+body.player .generic-game-message {
   font-size: 2em;
   color: #ff9971;
   background-color: white;
@@ -232,13 +238,13 @@
   -moz-box-shadow: 6px 7px 10px #C7C6C6;
   box-shadow: 6px 7px 10px #C7C6C6; }
 
-.entry-footer {
+body.player .entry-footer {
   position: fixed;
   bottom: 0;
   right: 0;
   background-color: white; }
 
-body .player-form {
+body.player body .player-form {
   padding: 3%; }
 
 #wrapper.group {
