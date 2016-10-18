@@ -127,7 +127,7 @@
 
 	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
 	    background-repeat: repeat-x;
-	    background-position-y: 110%;
+	    background-position-y: 105%;
 	    background-position-x: center;
 	    background-clip: padding-box;
 		
@@ -183,6 +183,10 @@
 
 		width: 80%;
 		margin: 0 auto;
+
+		.vote {
+			height: 150px;
+		}
 
 		.results-room {
 			border: 0px;

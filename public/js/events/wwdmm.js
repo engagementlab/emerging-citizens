@@ -204,19 +204,32 @@ var gameEvents = function(eventId, eventData) {
 
         case 'meme:received': 
 
-            $('#meme-create').fadeOut(function() {
+
+
+            
+            if (eventData.random == true){
+              console.log ("the meme was recieved");
+              sessionStorage.setItem('playerSubmission', eventData.player);
+            } else {
+              $('#meme-create').fadeOut(function() {
                 $('#meme-created').fadeIn();
-            });
+              });
 
-            sessionStorage.setItem('playerSubmission', eventData);
+              sessionStorage.setItem('playerSubmission', eventData.player);
 
-            loadToggle(false);
+              loadToggle(false);
 
-            break;
+            }
+
+            
+
+            break;            
 
         case 'meme:voting':
 
             var voteId = 0;
+
+            console.log(sessionStorage.getItem('playerSubmission'));
 
             updateGameContent(eventData, function() {
 
