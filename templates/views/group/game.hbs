@@ -10,8 +10,7 @@
     <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
       <button value="*" data-filter="" class="button">All</button>
       {{#each categories}}
-      <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
-
+        <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
       {{/each}}
     </div>
   </div>

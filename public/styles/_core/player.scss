@@ -1,148 +1,192 @@
-#gameContent {
-	padding-top: 3%;
-}
+body.player {
 
-// Login form
-#login {
-
-	margin-top:5%;
-
-	input[type=text] {
-		width: 100%;
-		max-width: 290px;
-		background-color:$color-gray;
-		border: none;
-		color: black;
-
-		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-		  color: darken($color-gray, 20%);
-		  text-align: center;
-		}
-		&::-moz-placeholder { /* Firefox 19+ */
-		  color: darken($color-gray, 20%);
-		  text-align: center;
-		}
-		&:-ms-input-placeholder { /* IE 10+ */
-		  color: darken($color-gray, 20%);
-		  text-align: center;
-		}
-		&:-moz-placeholder { /* Firefox 18- */
-		  color: darken($color-gray, 20%);
-		  text-align: center;
-		}
+	#gameContent {
+		padding-top: 3%;
 	}
-}
 
+	// Login form
+	#login {
 
-.form-prompt {
-	color: white;
-	background-color: $color-dark-orange;
-	font-size: x-large;
-	padding: 10px;
+		margin-top:5%;
 
-	&.white {
-		color: black;
-		background-color: white;
-	}
-}
+		input[type=text] {
+			width: 100%;
+			max-width: 290px;
+			background-color:$color-gray;
+			border: none;
+			color: black;
 
-#surveyOptions {
-	
-}
-.post-button {
-	color: white !important;
-	background-color: $logo-color !important;
-	font-size: large !important;
-	width: 100%;
-	border: 0;
-
-	&.survey {
-		width: 40%;
-		margin: 5px auto !important;
-		background-image: none !important;
-		text-align: center !important;
-		float: none !important;
-		border: none !important;
-		height: 50px;
-		line-height: 45px !important;
-
-		@media (max-width: 425px){
-			width: auto;
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: darken($color-gray, 20%);
+			  text-align: center;
+			}
 		}
 	}
 
-}
 
-.voting-button {
-	color: white;
-	font-size: medium;
-	width: 100%;
-	min-height: 50px;
-	border: 0;
-  
-  @include linear_transition(background-color, 0.3s);
-
-	&:hover {
-		@include filter(brightness, 115%);
-	}
-	
-	&.color-0 {
-		background-color: $color-blue;
-	}
-	&.color-1 {
+	.form-prompt {
+		color: white;
 		background-color: $color-dark-orange;
-	}
-	&.color-2 {
-		background-color: $color-light-orange;
-	}
-	&.color-3 {
-		background-color: $color-light-blue;
-	}
-	&.color-4 {
-		background-color: $color-light-green;
-	}
-	&.color-5 {
-		background-color: $color-salmon;
-	}
-	&.color-6 {
-		background-color: $color-violet;
-	}
-	&.color-7 {
-		background-color: $color-teal;
-	}
-	&.color-8 {
-		background-color: $color-bright-red;
-	}
-	
+		font-size: x-large;
+		padding: 10px;
 
-}
+		&.white {
+			color: black;
+			background-color: white;
+		}
 
-.generic-game-message {
-	
-  font-size: 2em;
-	color: $color-peach;
-	background-color: white;
-	padding: 3%;
+	}
 
-  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+	// Login form
+	#logo_ec {
 
-}
+		background: white;
+		padding: 20px 0px;
+		margin: 0 auto;
 
-// Footer on entry page
-.entry-footer {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	// height: 100px;
-	background-color: white;
+		img {
+	    height: 40%;
+	    width: 40%;
+	    display: block;
+	    margin:0 auto;
+		}
 
-	button {
+		&.mobile {
+			@include mobile-landscape-and-below {
+				display: none;
+			}
+		}
+
+	}
+
+	#login {
+
+		input[type=text] {
+			width: 100%;
+			max-width: 290px;
+		}
+
+	  min-height: 300px;
+	}
+	.form-prompt {
+		color: white;
+		background-color: $color-dark-orange;
+		font-size: x-large;
+		padding: 10px;
+
+		&.white {
+			color: black;
+			background-color: white;
+		}
+	}
+
+	.post-button {
+		color: white !important;
+		background-color: $logo-color !important;
+		font-size: large !important;
+		width: 100%;
+		border: 0;
+
+		&.survey {
+			width: 40%;
+			margin: 5px auto !important;
+			background-image: none !important;
+			text-align: center !important;
+			float: none !important;
+			border: none !important;
+			height: 50px;
+			line-height: 45px !important;
+
+			@media (max-width: 425px){
+				width: auto;
+			}
+		}
+
+	}
+
+	.voting-button {
+		color: white;
+		font-size: medium;
+		width: 100%;
+		min-height: 50px;
+		border: 0;
+	  
+	  @include linear_transition(background-color, 0.3s);
+
+		&:hover {
+			@include filter(brightness, 115%);
+		}
+		
+		&.color-0 {
+			background-color: $color-blue;
+		}
+		&.color-1 {
+			background-color: $color-dark-orange;
+		}
+		&.color-2 {
+			background-color: $color-light-orange;
+		}
+		&.color-3 {
+			background-color: $color-light-blue;
+		}
+		&.color-4 {
+			background-color: $color-light-green;
+		}
+		&.color-5 {
+			background-color: $color-salmon;
+		}
+		&.color-6 {
+			background-color: $color-violet;
+		}
+		&.color-7 {
+			background-color: $color-teal;
+		}
+		&.color-8 {
+			background-color: $color-bright-red;
+		}	
+
+	}
+
+	.generic-game-message {
+		
+	  font-size: 2em;
+		color: $color-peach;
 		background-color: white;
-		border-radius: 5px;
-		border: 2px solid $color-teal;
-	}
-}
+		padding: 3%;
 
-body .player-form {
-	padding: 3%;
+	  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+
+	}
+
+	body .player-form {
+		padding: 3%;
+	}
+	
+	// Footer on entry page
+	.entry-footer {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		// height: 100px;
+		background-color: white;
+
+		button {
+			background-color: white;
+			border-radius: 5px;
+			border: 2px solid $color-teal;
+		}
+	}
+
 }
