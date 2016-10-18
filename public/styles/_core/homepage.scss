@@ -16,6 +16,34 @@
   font-size: x-large;
 }
 
+.top-section {
+  text-align: left;
+  h2 {
+    font-size: 3.5em;
+    color: black;
+    margin: 0px;
+  }
+  button {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+
+  }
+
+}
+.what-text {
+  background-color: darken($color-gray, 10%);
+
+  h1 {
+    color: $color-teal;
+  }
+
+  h3 {
+    font-size: 1em !important;
+    color: $color-teal;
+  }
+}
+
 #home-page-banner {
 
 	color: white;

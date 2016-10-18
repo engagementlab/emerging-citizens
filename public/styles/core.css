@@ -354,7 +354,7 @@ body.player .entry-footer {
   margin-right: -30px; }
   #logo_ec img {
     height: 100%;
-    width: 100%;
+    width: 200px;
     display: block;
     margin: 0 auto; }
 
@@ -583,6 +583,25 @@ body.player .entry-footer {
 #home-page {
   margin-top: 6%;
   font-size: x-large; }
+
+.top-section {
+  text-align: left; }
+  .top-section h2 {
+    font-size: 3.5em;
+    color: black;
+    margin: 0px; }
+  .top-section button {
+    text-align: center;
+    display: block;
+    margin: 0 auto; }
+
+.what-text {
+  background-color: #cccccc; }
+  .what-text h1 {
+    color: #36d5d9; }
+  .what-text h3 {
+    font-size: 1em !important;
+    color: #36d5d9; }
 
 #home-page-banner {
   color: white;
@@ -2452,6 +2471,9 @@ footer {
   @media (max-width: 480px) {
     .footer {
       display: none; } }
+
+.black {
+  color: black; }
 
 .orange-font {
   color: #ffa76d; }

@@ -506,8 +506,13 @@
 
 				 // PLAYER VIEW
 				{{else}}
+						{{#ifeq section "index"}}
 
-					{{> script/player_logic section=section}}
+						{{else}}
+						
+						{{> script/player_logic section=section}}
+
+					{{/ifeq}}
 
 				{{/ifeq}}
 
