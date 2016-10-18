@@ -10,16 +10,21 @@ body.player {
 		padding: 20px 0px;
 		margin: 0 auto;
 
-		img {
+		&.mobile {
+			@include mobile-landscape-and-below {
+				display: none;
+			}
 		}
 
 	}
 
 	#login {
+
 		input[type=text] {
 			width: 100%;
 			max-width: 290px;
 		}
+
 	  min-height: 300px;
 	}
 	.form-prompt {
@@ -34,9 +39,6 @@ body.player {
 		}
 	}
 
-	#surveyOptions {
-		
-	}
 	.post-button {
 		color: white !important;
 		background-color: $logo-color !important;

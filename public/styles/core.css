@@ -158,6 +158,9 @@ body.player #logo_ec {
   background: white;
   padding: 20px 0px;
   margin: 0 auto; }
+  @media only screen and (max-width: 480px) {
+    body.player #logo_ec.mobile {
+      display: none; } }
 
 body.player #login {
   min-height: 300px; }
