@@ -22,7 +22,6 @@ lobbyAnim
 .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1')
 .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1');
 
-
 /* 
  Renders each meme on screen to canvases
 */

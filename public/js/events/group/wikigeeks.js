@@ -184,41 +184,58 @@ var gameEvents = function(eventId, eventData) {
         updateGameContent(eventData, function() {
 
           var topPlayersAnim = new TimelineLite({paused: true, onComplete: function() { scoreAnimPlay(); } });
-          var scoreAnim = new TimelineLite({paused: true});
+          var scoreAnim = new TimelineLite({paused: true, onComplete: function() { nextRound(); } });
           
           function scoreAnimPlay() {
 
             $('#results, #results-header').show();
-           
-              scoreAnim.fromTo($('#results-header'), 1, {autoAlpha:0, delay: 0}, {autoAlpha:1})
-              .add('resultsShow')
-              .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 0}, 'resultsShow+=1')
-              .staggerFromTo($('#results .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'resultsShow+=3')
-              .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=9')
-              .add('scoringShow')
-              .add(function(){$('#scoring').show();})
-              .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringShow+=1')
-              .staggerFromTo($('#scoring .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'scoringShow+=3')
-              .to($('#scoring'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'scoringShow+=7')
-              .add('leadersShow')
-              .add(function(){$('#leaderboard, #count').show();})
-              .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'leadersShow+=1')
+         
+            scoreAnim.fromTo($('#results-header'), 1, {autoAlpha:0, delay: 0}, {autoAlpha:1})
+            
+            .add('resultsShow')
+            .from($('#results'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 0}, 'resultsShow+=1')
+            .staggerFromTo($('#results .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'resultsShow+=3')
+            .to($('#results'), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut}, 'resultsShow+=9')
+            
+            .add('scoringShow')
+            .add(function(){$('#scoring').show();})
+            .from($('#scoring'), 1, {autoAlpha:0, scale: 0, ease:Bounce.easeOut}, 'scoringShow+=1')
+            .staggerFromTo($('#scoring .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'scoringShow+=3')
+            .to($('#scoring'), 1, {autoAlpha:0, scale:0, display:'none', ease:Bounce.easeOut}, 'scoringShow+=7')
+            
+            .add('leadersShow');
+            if($('#winners-circle')[0] !== undefined) {
+
+              scoreAnim.to($('#results-header'), .5, {autoAlpha:0, y:'50%', display:'none'}).add('header')
+              .add(function(){$('#winners-circle-header').show();})
+              .fromTo($('#winners-circle-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=.6')
+              .from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
+              .staggerFromTo($('#winners-circle .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
+              .to($('#winners-circle'), 1, {autoAlpha:0, scale: 0}, 'leadersShow+=7');
+
+            }
+            else {
+
+              scoreAnim.add(function(){$('#leaderboard, #count').show();})
+              .from($('#leaderboard'), 1, {autoAlpha:0, scale: 0}, 'leadersShow+=1')
               .staggerFromTo($('#leaderboard .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
-              .from($('#countdown'), 1, {autoAlpha:0, ease:Bounce.easeOut}, 'leadersShow+=7');
-        
-              if($('#slider-gsap').length) {
-                wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
-                    width: 600
-                });
-              }
-              
-              scoreAnim.play();
+              .to($('#leaderboard'), 1, {autoAlpha:0, scale: 0}, 'leadersShow+=7');
+
+            }
+         
+            if($('#slider-gsap').length) {
+              wikiAnimSlider = new GSAPTLSlider(scoreAnim, "slider-gsap", {
+                  width: 600
+              });
+            }
+
+            scoreAnim.play();
 
           }
 
           function nextRound() {
 
-            $('#results, #scoring, #leaderboard').remove();
+            $('#results, #scoring, #leaderboard, #winners-circle, #results-header, #winners-circle-header').remove();
 
             TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
             

@@ -215,7 +215,6 @@ function showScores() {
 
   // Winner Circle, if rendered
   var winner = $('.score-box')[0];
-  console.log(winner);
   $(winner).addClass('winner');
   if($('#winners-circle')[0] !== undefined) {
 

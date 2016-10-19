@@ -3,693 +3,570 @@
 */
 
 .body.wikigeeks.group {
-
-	overflow: hidden;
-
-	svg {
-		.last {
-			// display: none;
-			// @include translate(40px, 0px);
-
-			.destination {
-					stroke-dasharray: 400;
-					// animation: dash 5s linear;
-			}
-		}
-	}
-
-	.room-container {
-		width: 80%;
-		margin: 0 auto;
-
-		&#game_code {
-			border-radius: 40px;
-		}
-	}
-	
-	#loading-modal {
-		.indicator {
-			background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
-		}
-	}
-
-	.submission {
-		padding: 0;
-	}
-
-	#gameContent.container-fluid {
-		padding-top: 3%;
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.header {
-		background-color:transparent;
-		display:inline-block;
-		width:1680px;
-		height:125px;
-
-		.container {
-			background-color:transparent;
-		}
-		.headerImage {
-			@include circle(200px, white);
-			width: 200px;
-			display:block;
-			left: 740px;
-			margin: 0 auto;
-			@include translate(0px, -50px);
-
-			img {
-				padding-top:40%;
-				width: 80%;
-				margin-left: 10%;
-			}
-		}
-	}
-
-	#startGameForm {
-		top:80%;
-		right: -60px;
-		position: absolute;
-		width: 100px;
-		height: 100px;
-		border-radius: 10px;
-
-		input {
-			border-radius: 20px;
-			background-color: $color-teal;
-
-			&:hover, &:active, &:focus {
-				box-shadow: none;
-				border: 0px;
-				border-radius: 20px;
-				background-color: darken($color-teal, 10%);
-			}
-		}
-
-	}
-
-	.logo {
-		img {
-			max-width: 80%;
-			margin-top: 2%;
-		}
-	}
-
-	.players {
-		margin-top: 5%;
-
-		// Move last one in column to the right or left
-		&.left {
-			// float: none;
-			// @include translate(50%, 0px);
-
-			div.player-background {
-				clear: both;
-				// float: left;
-			}
-			div.player-background:nth-child(1) {
-				@include translate(25px, -35px);
-				clear: both;
-			}
-			div.player-background:nth-child(2) {
-				@include translate(25px, 0px);
-				clear: both;
-			}
-			div.player-background:nth-child(3) {
-				@include translate(155px, 25px);
-				clear: both;
-			}
-			div.player-background:nth-child(4) {
-				@include translate(455px, -155px);
-				clear: none;
-			}
-		}
-		&.right {
-			// float: none;
-			// @include translate(-50%, 0px);
-
-			div.player-background {
-				clear: both;
-				// float: right;
-			}
-			div.player-background:nth-child(1) {
-				@include translate(-25px, -35px);
-				clear: both;
-			}
-			div.player-background:nth-child(2) {
-				@include translate(-25px, 0px);
-				clear: both;
-			}
-			div.player-background:nth-child(3) {
-				@include translate(-155px, 25px);
-				clear: both;
-			}
-			div.player-background:nth-child(4) {
-				@include translate(-455px, -155px);
-				clear: none;
-			}
-		}
-
-	}
-
-	.room-container {
-		box-shadow: none;
-	}
-
-	#topic-container.room-container {
-		width: 60%;
-		left: 20%;
-		padding: 2%;
-
-		#current-topic {
-			padding-bottom: 2%;
-		}
-
-		.arrow {
-			@include translate (-250px, 0px);
-		}
-
-		.topic-description {
-			p {
-				color: $color-teal;
-				font-size: 1.5em;
-				
-			}
-		}
-
-		h3 {
-			width: 80%;
-			color: $color-light-orange;
-			font-size: 3em;
-			margin: 0 auto;
-			padding-bottom: 15px;
-			background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
-			background-size: 200px auto;
-			background-position: bottom;
-			background-repeat: no-repeat;
-		}
-
-		.topic-title {
-			font-size: 3.2em;
-			color: $color-red;
-		}
-
-		.topic-image {
-			height: 300px;
-			width: 300px;
-			margin: 0 auto;
-			position: relative;
-			img {
-				display: block;
-				max-width: 100%;
-				max-height: 100%;
-				height: auto;
-				width: auto;
-				margin: 0 auto;
-				
-			}
-		}
-
-		.countdown {
-			@include translate(0px,-50px);
-		}
-	}
-	
-	#article-container.room-container {
-		width: 60%;
-		left: 20%;
-		padding: 2%;
-		.players-countdown {
-			margin-top: 2%;
-			.col-sm-8{
-				width: 60%;
-			}
-		}
-
-		.find {
-			h4 {
-				color: $color-teal;
-				font-size: 3em;
-				font-weight: bold;
-				margin: 0px;
-			}
-			h2 {
-				font-size: 3em;
-				color: $color-bright-red;
-				text-transform:capitalize;
-			}
-		}
-
-		.countdown {
-			margin: 0 auto;
-		}
-
-		.article-info {
-			padding: 2%;
-			border: 5px solid $color-light-orange;
-			max-height: 200px;
-			height: 200px;
-			width: 90%;
-			margin: 0 auto;
-			.col-sm-4 {
-				height: 100%;
-
-				.article-image {
-					height: 100%;
-					width: 200px;
-					margin: 0px auto;
-					position: relative;
-					img {
-						display: block;
-						max-width: 100%;
-						max-height: 100%;
-						height: 200px;
-						width: auto;
-						margin: 0 auto;
-						
-					}
-				}
-			}
-			
-			.article-description {
-				padding: 0px;
-				float: right;
-
-				p {
-					padding: 0px;
-					display: inline-block;
-					text-align: left;
-					font-size: 1.5em;
-					color: darken(white, 40%);
-				}
-
-			}
-			.article-name {
-				color: $color-red;
-				display: inline-block;
-				text-transform:capitalize;
-			}
-
-		}
-	}
-
-	.countdown {
-		min-height:175px;
-		width:30%;
-		padding-top:2%;
-		margin-left:10%;
-		font-size: 7em;
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-		border: 5px #ffcc00 dashed;
-		animation: 1s animateBorder infinite;
-		color: $color-red;
-
-		#countdown {
-			width: 100%;
-			height: 100%;
-		}
-		#out-of-time {
-			display: none;
-			font-size: .4em;
-		}
-		span {
-			width: 100%;
-			height: 100%;
-		}
-
-	}
-
-	.players-countdown {
-		
-	}
-
-	.players {
-		.player-background {
-			border-radius: 20px;
-			box-shadow: none;
-			display: block;
-			position: relative;
-			margin: 20px auto;
-			margin-bottom: 40px;
-			background: white;
-			
-			.icon {
-				margin: 10px auto;
-				display: block;
-				position:relative;
-				height: 150px;
-				width: 100%;
-				opacity: 0.3;
-
-				&.active {
-					opacity: 1;
-				}
-
-				img {
-					width: 130px;
-					height: 130px;
-				}
-			}
-
-			.points {
-				display: none;
-				float: left;
-				width: 100%;
-			    position: absolute;
-			    padding-top: 26%;
-				font-size: 3.6em;
-			}
-
-			.score {
-				font-size: 4.6em;
-				font-weight: bold;
-				color: #91c92f;
-			  text-shadow:
-			   -1px -1px 0 #FFF,  
-			    1px -1px 0 #FFF,
-			    -1px 1px 0 #FFF,
-			     1px 1px 0 #FFF;
-
-			}
-
-			.nameplate {
-
-			  position: relative;
-			  padding: 2px;
-			  opacity: 0;
-			  font-weight: bold;
-			  font-size: 1.5em;
-			  color: $color-bright-red;
-			  background-color: transparent;
-				box-shadow: none;
-
-				@include transition(opacity .5s, transform .5s);
-
-				&.active {
-					opacity: 1;
-				}
-			}
-
-		}
-	}
-
-	// Results screen
-	#results-container {
-		min-height: 800px;
-		max-height: 800px;
-		width: 80%;
-		left: 10%;
-		padding: 5%;
-	  padding-top: 1%;
-
-		color: $color-bg;
-		border: 8px solid $color-results-light-orange;
-		font-size: 1.6em;
-
-		// .last{
-		// 	display:none;
-		// }
-		
-		h1 {
-		  font-size: 4em;
-		}
-		h2 {
-			font-size: 2em;
-		}
-
-		.results-header {
-			span {
-				font-size: 2em;
-
-				&.small {
-					font-size: 1.1em;
-				}
-			}
-		}
-		
-		#article-title {
-			color: $color-red;
-			text-transform:capitalize;
-		}
-
-
-
-		.row.user {
-		    padding: 1%;
-		    font-size: 1.3em;
-
-		    .ranking {
-			    position: absolute;
-		    	background: white;
-		    	font-size: .8em;
-					border: 3px solid $color-results-light-orange;
-					padding: 9px;
-			    left: -44px;
-			    top: -7px;
-					@include circle (56px, white);
-		    }
-		    .name {
-		    	text-align: left;
-		    }
-		    .score {
-		    	text-align: right;
-		    }
-		}
-
-		.row-color-0, .row-color-6 {
-			background-color: $color-red;
-			color: #FFF;
-		}
-		.row-color-2 {
-			background-color: $color-peach;
-			color: #FFF;
-		}
-		.row-color-4 {
-			background-color: $color-dark-orange;
-			color: #FFF;
-		}
-		.row-color-1, .row-color-3, .row-color-5, .row-color-7  {
-			background-color: #FFF;
-		}
-
-		.row-color-0 {
-			.ranking {
-				color: $color-results-peach;
-
-				&:before {
-					content: "1st";
-				}
-		  }	
-		}
-		.row-color-1 {
-			.ranking {
-				color: $color-red;
-
-				&:before {
-					content: "2nd";
-				}
-		  }	
-		}
-		.row-color-2 {
-			.ranking {
-				color: $color-results-light-orange;
-
-				&:before {
-					content: "3rd";
-				}
-		  }	
-		}
-
-	}
-
-	#top-players {
-
-		.player-info {
-
-	    border: 8px solid $color-results-orange;
-	    color: $color-results-peach;
-
-	    h2 {
-	    	color: $color-dark-yellow;
-	    }
-	    h3 {
-	    	color: $color-red;
-	    }
-
-		}
-
-		.target-article {
-
-			h2 {
-				color: $color-bg;
-			}
-			h3 {
-				color: #f99ba8;
-			}
-
-			.border {
-				background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_400/v1/emerging-citizens/images/layout/wiki/divider_results.png");
-			}
-
-		}
-
-		.article-titles {
-
-			position: absolute;
-			z-index: 2;
-			width: 100%;
-			margin-top: 2%;
-
-			.title {
-				font-size: .7em;
-
-				.last {
-					color: $color-dark-orange;
-
-
-					.destination {
-						@include translate(20px, -40px);
-						
-						
-					}
-				}
-			}
-
-		}
-
-
-		.color-0 {
-			color: $color-results-orange;
-			fill: $color-results-orange;
-		}
-		.color-1 {
-			color: $color-results-peach;
-			fill: $color-results-peach;
-		}
-		.color-2 {
-			color: $color-dark-yellow;
-			fill: $color-dark-yellow;
-		}
-		.color-3 {
-			color: $color-red;
-			fill: $color-red;
-		}
-		.color-4 {
-			color: $color-bg;
-			fill: $color-bg;
-		}
-		
-	}
-
-	.players-grid {
-		padding-left: 5%;
-		.player-background {
-			margin: 0 auto;
-			height: 120px;
-			width: 140px;
-			
-			.icon {
-				margin: 0 auto;
-				display: block;
-				position:relative;
-				height: 125px;
-				width: 100%;
-				opacity: 0.3;
-
-				&.active {
-					opacity: 1;
-				}
-
-				img {
-					margin: 0 auto;
-					width: 100px;
-					height: 100px;
-				}
-			}
-
-			.points {
-				display: none;
-				float: left;
-				width: 100%;
-			    position: absolute;
-			    padding-top: 26%;
-				font-size: 3.6em;
-			}
-
-			.score {
-				font-size: 4.6em;
-				font-weight: bold;
-				color: #91c92f;
-			  text-shadow:
-			   -1px -1px 0 #FFF,  
-			    1px -1px 0 #FFF,
-			    -1px 1px 0 #FFF,
-			     1px 1px 0 #FFF;
-
-			}
-
-			.nameplate {
-
-			  position: relative;
-			  background-color: transparent;
-			  padding: 2px;
-			  opacity: 0;
-			  font-weight: bold;
-			  font-size: medium;
-			  color: $color-blue;
-
-				&.active {
-					opacity: 1;
-				}
-			}
-
-		}
-
-	}
-
-	#article-reveal, #round-over {
-		
-		display: none;
-		background-color: rgba(255, 255, 255, .7);
-		top: 0;
-		left: 0;
-		color: $color-bg;
-
-		#content {
-			margin-top: 3%;
-			padding: 5%;
-			left:25%;
-			width: 50%;
-			height: 500px;
-			background-color: white;
-			font-size: 2.2em;
-			border: 5px solid $color-dark-orange;
-
-			#countdown {
-				width: 28%;
-				margin-right: auto;
-				margin-left: auto;
-			}
-
-			h1 {
-				font-size: 2.5em;
-			}
-			h2 {
-				font-size: 1.7em;
-				color: $color-dark-orange;
-			}
-		}
-
-	}
-	
-	.error-modal {
-		background-color: rgba(9, 234, 210, .9);
-		color: white;
-	}
-
+    overflow: hidden;
+    svg {
+        .last {
+            // display: none;
+            // @include translate(40px, 0px);
+            .destination {
+                stroke-dasharray: 400;
+                // animation: dash 5s linear;
+            }
+        }
+    }
+    .room-container {
+        width: 80%;
+        margin: 0 auto;
+        &#game_code {
+            border-radius: 40px;
+        }
+    }
+    #loading-modal {
+        .indicator {
+            background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
+        }
+    }
+    .submission {
+        padding: 0;
+    }
+    #gameContent.container-fluid {
+        padding-top: 3%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header {
+        background-color: transparent;
+        display: inline-block;
+        width: 1680px;
+        height: 125px;
+        .container {
+            background-color: transparent;
+        }
+        .headerImage {
+            @include circle(200px, white);
+            width: 200px;
+            display: block;
+            left: 740px;
+            margin: 0 auto;
+            @include translate(0px, -50px);
+            img {
+                padding-top: 40%;
+                width: 80%;
+                margin-left: 10%;
+            }
+        }
+    }
+    #startGameForm {
+        top: 80%;
+        right: -60px;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        input {
+            border-radius: 20px;
+            background-color: $color-teal;
+            &:hover, &:active, &:focus {
+                box-shadow: none;
+                border: 0px;
+                border-radius: 20px;
+                background-color: darken($color-teal, 10%);
+            }
+        }
+    }
+    .logo {
+        img {
+            max-width: 80%;
+            margin-top: 2%;
+        }
+    }
+    .players {
+        margin-top: 5%;
+        // Move last one in column to the right or left
+        &.left {
+            // float: none;
+            // @include translate(50%, 0px);
+            div.player-background {
+                clear: both;
+                // float: left;
+            }
+            div.player-background:nth-child(1) {
+                @include translate(25px, -35px);
+                clear: both;
+            }
+            div.player-background:nth-child(2) {
+                @include translate(25px, 0px);
+                clear: both;
+            }
+            div.player-background:nth-child(3) {
+                @include translate(155px, 25px);
+                clear: both;
+            }
+            div.player-background:nth-child(4) {
+                @include translate(455px, -155px);
+                clear: none;
+            }
+        }
+        &.right {
+            // float: none;
+            // @include translate(-50%, 0px);
+            div.player-background {
+                clear: both;
+                // float: right;
+            }
+            div.player-background:nth-child(1) {
+                @include translate(-25px, -35px);
+                clear: both;
+            }
+            div.player-background:nth-child(2) {
+                @include translate(-25px, 0px);
+                clear: both;
+            }
+            div.player-background:nth-child(3) {
+                @include translate(-155px, 25px);
+                clear: both;
+            }
+            div.player-background:nth-child(4) {
+                @include translate(-455px, -155px);
+                clear: none;
+            }
+        }
+    }
+    .room-container {
+        box-shadow: none;
+    }
+    #topic-container.room-container {
+        width: 60%;
+        left: 20%;
+        padding: 2%;
+        #current-topic {
+            padding-bottom: 2%;
+        }
+        .arrow {
+            @include translate (-250px, 0px);
+        }
+        .topic-description {
+            p {
+                color: $color-teal;
+                font-size: 1.5em;
+            }
+        }
+        h3 {
+            width: 80%;
+            color: $color-light-orange;
+            font-size: 3em;
+            margin: 0 auto;
+            padding-bottom: 15px;
+            background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
+            background-size: 200px auto;
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+        .topic-title {
+            font-size: 3.2em;
+            color: $color-red;
+        }
+        .topic-image {
+            height: 300px;
+            width: 300px;
+            margin: 0 auto;
+            position: relative;
+            img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                width: auto;
+                margin: 0 auto;
+            }
+        }
+        .countdown {
+            @include translate(0px, -50px);
+        }
+    }
+    #article-container.room-container {
+        width: 60%;
+        left: 20%;
+        padding: 2%;
+        .players-countdown {
+            margin-top: 2%;
+            .col-sm-8 {
+                width: 60%;
+            }
+        }
+        .find {
+            h4 {
+                color: $color-teal;
+                font-size: 3em;
+                font-weight: bold;
+                margin: 0px;
+            }
+            h2 {
+                font-size: 3em;
+                color: $color-bright-red;
+                text-transform: capitalize;
+            }
+        }
+        .countdown {
+            margin: 0 auto;
+        }
+        .article-info {
+            padding: 2%;
+            border: 5px solid $color-light-orange;
+            max-height: 200px;
+            height: 200px;
+            width: 90%;
+            margin: 0 auto;
+            .col-sm-4 {
+                height: 100%;
+                .article-image {
+                    height: 100%;
+                    width: 200px;
+                    margin: 0px auto;
+                    position: relative;
+                    img {
+                        display: block;
+                        max-width: 100%;
+                        max-height: 100%;
+                        height: 200px;
+                        width: auto;
+                        margin: 0 auto;
+                    }
+                }
+            }
+            .article-description {
+                padding: 0px;
+                float: right;
+                p {
+                    padding: 0px;
+                    display: inline-block;
+                    text-align: left;
+                    font-size: 1.5em;
+                    color: darken(white, 40%);
+                }
+            }
+            .article-name {
+                color: $color-red;
+                display: inline-block;
+                text-transform: capitalize;
+            }
+        }
+    }
+    .countdown {
+        min-height: 175px;
+        width: 30%;
+        padding-top: 2%;
+        margin-left: 10%;
+        font-size: 7em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 5px #ffcc00 dashed;
+        animation: 1s animateBorder infinite;
+        color: $color-red;
+        #countdown {
+            width: 100%;
+            height: 100%;
+        }
+        #out-of-time {
+            display: none;
+            font-size: .4em;
+        }
+        span {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .players-countdown {} .players {
+        .player-background {
+            border-radius: 20px;
+            box-shadow: none;
+            display: block;
+            position: relative;
+            margin: 20px auto;
+            margin-bottom: 40px;
+            background: white;
+            .icon {
+                margin: 10px auto;
+                display: block;
+                position: relative;
+                height: 150px;
+                width: 100%;
+                opacity: 0.3;
+                &.active {
+                    opacity: 1;
+                }
+                img {
+                    width: 130px;
+                    height: 130px;
+                }
+            }
+            .points {
+                display: none;
+                float: left;
+                width: 100%;
+                position: absolute;
+                padding-top: 26%;
+                font-size: 3.6em;
+            }
+            .score {
+                font-size: 4.6em;
+                font-weight: bold;
+                color: #91c92f;
+                text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+            }
+            .nameplate {
+                position: relative;
+                padding: 2px;
+                opacity: 0;
+                font-weight: bold;
+                font-size: 1.5em;
+                color: $color-bright-red;
+                background-color: transparent;
+                box-shadow: none;
+                @include transition(opacity .5s, transform .5s);
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    // Results screen
+    #results-container {
+        min-height: 800px;
+        max-height: 800px;
+        width: 80%;
+        left: 10%;
+        padding: 5%;
+        padding-top: 1%;
+        color: $color-bg;
+        border: 8px solid $color-results-light-orange;
+        font-size: 1.6em;
+        // .last{
+        // 	display:none;
+        // }
+        h1 {
+            font-size: 4em;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        .results-header {
+            span {
+                font-size: 2em;
+                &.small {
+                    font-size: 1.1em;
+                }
+            }
+        }
+        #article-title {
+            color: $color-red;
+            text-transform: capitalize;
+        }
+        .row.user {
+            padding: 1%;
+            font-size: 1.3em;
+            .ranking {
+                position: absolute;
+                background: white;
+                font-size: .8em;
+                border: 3px solid $color-results-light-orange;
+                padding: 9px;
+                left: -44px;
+                top: -7px;
+                @include circle (56px, white);
+            }
+            .name {
+                text-align: left;
+            }
+            .score {
+                text-align: right;
+            }
+        }
+        .row-color-0,
+        .row-color-6 {
+            background-color: $color-red;
+            color: #FFF;
+        }
+        .row-color-2 {
+            background-color: $color-peach;
+            color: #FFF;
+        }
+        .row-color-4 {
+            background-color: $color-dark-orange;
+            color: #FFF;
+        }
+        .row-color-1,
+        .row-color-3,
+        .row-color-5,
+        .row-color-7 {
+            background-color: #FFF;
+        }
+        .row-color-0 {
+            .ranking {
+                color: $color-results-peach;
+                &:before {
+                    content: "1st";
+                }
+            }
+        }
+        .row-color-1 {
+            .ranking {
+                color: $color-red;
+                &:before {
+                    content: "2nd";
+                }
+            }
+        }
+        .row-color-2 {
+            .ranking {
+                color: $color-results-light-orange;
+                &:before {
+                    content: "3rd";
+                }
+            }
+        }
+    }
+    #top-players {
+        .player-info {
+            border: 8px solid $color-results-orange;
+            color: $color-results-peach;
+            h2 {
+                color: $color-dark-yellow;
+            }
+            h3 {
+                color: $color-red;
+            }
+        }
+        .target-article {
+            h2 {
+                color: $color-bg;
+            }
+            h3 {
+                color: #f99ba8;
+            }
+            .border {
+                background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_400/v1/emerging-citizens/images/layout/wiki/divider_results.png");
+            }
+        }
+        .article-titles {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            margin-top: 2%;
+            .title {
+                font-size: .7em;
+                .last {
+                    color: $color-dark-orange;
+                    .destination {
+                        @include translate(20px, -40px);
+                    }
+                }
+            }
+        }
+        .color-0 {
+            color: $color-results-orange;
+            fill: $color-results-orange;
+        }
+        .color-1 {
+            color: $color-results-peach;
+            fill: $color-results-peach;
+        }
+        .color-2 {
+            color: $color-dark-yellow;
+            fill: $color-dark-yellow;
+        }
+        .color-3 {
+            color: $color-red;
+            fill: $color-red;
+        }
+        .color-4 {
+            color: $color-bg;
+            fill: $color-bg;
+        }
+    }
+    .players-grid {
+        padding-left: 5%;
+        .player-background {
+            margin: 0 auto;
+            height: 120px;
+            width: 140px;
+            .icon {
+                margin: 0 auto;
+                display: block;
+                position: relative;
+                height: 125px;
+                width: 100%;
+                opacity: 0.3;
+                &.active {
+                    opacity: 1;
+                }
+                img {
+                    margin: 0 auto;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            .points {
+                display: none;
+                float: left;
+                width: 100%;
+                position: absolute;
+                padding-top: 26%;
+                font-size: 3.6em;
+            }
+            .score {
+                font-size: 4.6em;
+                font-weight: bold;
+                color: #91c92f;
+                text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+            }
+            .nameplate {
+                position: relative;
+                background-color: transparent;
+                padding: 2px;
+                opacity: 0;
+                font-weight: bold;
+                font-size: medium;
+                color: $color-blue;
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    #article-reveal,
+    #round-over {
+        display: none;
+        background-color: rgba(255, 255, 255, .7);
+        top: 0;
+        left: 0;
+        color: $color-bg;
+        #content {
+            margin-top: 3%;
+            padding: 5%;
+            left: 25%;
+            width: 50%;
+            height: 500px;
+            background-color: white;
+            font-size: 2.2em;
+            border: 5px solid $color-dark-orange;
+            #countdown {
+                width: 28%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.7em;
+                color: $color-dark-orange;
+            }
+        }
+    }
+    .error-modal {
+        background-color: rgba(9, 234, 210, .9);
+        color: white;
+    }
 }
-
