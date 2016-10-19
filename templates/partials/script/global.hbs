@@ -23,9 +23,11 @@
   var playerId;
 	var timeline = new TimelineLite();
 
+	// Can be set by any event logic waiting for content update
+	var updateContentCallback;
+
 	// For countdown debugging
   var countdownPaused = false;
-
 
 	{{!-- Group view cleanup --}}
 	{{#ifeq section 'group/monitor'}}
@@ -185,6 +187,8 @@
 											 		if(callback)
 												 		callback();
 
+												 	updateContentCallback();
+
 												}})
 											}
 											else {
@@ -193,6 +197,8 @@
 												 		callback(function() {
 												 			lobbyAnim.fromTo(gameContainer, .5, {xPercent:100}, {x:0, xPercent:0, ease:Expo.easeInOut});
 												 		});
+
+												 	updateContentCallback();
 
 											}
 

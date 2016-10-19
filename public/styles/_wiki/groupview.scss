@@ -264,7 +264,7 @@
         background-repeat: no-repeat;
         background-position: center;
 
-        @include marching-ants-v2-init(20px, 5px,1s,1);
+        @include marching-ants-v2-init(20px,5px,1s,1);
         @include marching-ants-v2-color(#ffcc00,#fff);
 
         color: $color-red;
