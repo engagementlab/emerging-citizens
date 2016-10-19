@@ -3,6 +3,8 @@
 */
 
 .body.wikigeeks.group {
+    @include marching-ants-v2-animation(20px, 1);
+
     overflow: hidden;
     svg {
         .last {
@@ -261,8 +263,10 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        border: 5px #ffcc00 dashed;
-        animation: 1s animateBorder infinite;
+
+        @include marching-ants-v2-init(20px, 5px,1s,1);
+        @include marching-ants-v2-color(#ffcc00,#fff);
+
         color: $color-red;
         #countdown {
             width: 100%;
