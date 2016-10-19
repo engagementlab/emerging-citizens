@@ -30,28 +30,20 @@ exports = module.exports = function(req, res) {
     var gameType = req.params.game_type;
     var gameCode;
 
-    var GameType = {
-        'htyi' : "Hash Tag You're It",
-        'wikigeeks' : "WikiGeeks"
-        // 1 : "Wait, Wait, Don't Tell MEME",
-    }
-
-    // locals.section is used to set the currently selected
-    // item in the header navigation.
     locals.section = 'group';
 
     // Prevents generated code from being vulgar
     function checkCode(code, callback) {
 
-        var badWords = ['ANUS', 'ARSE', 'CLIT', 'COCK', 'COON', 'CUNT', 'DAGO', 'DAMN', 'DICK', 'DIKE', 'DYKE', 'FUCK', 
-                        'GOOK', 'HEEB', 'HECK', 'HELL', 'HOMO', 'JIZZ', 'KIKE', 'KUNT', 'KYKE', 'LICK', 'MICK', 'MUFF',
-                        'PAKI', 'PISS', 'POON', 'PUTO', 'SHIT', 'SHIZ', 'SLUT', 'SMEG', 'SPIC', 'TARD', 'TITS', 'TWAT', 
-                        'WANK', 'POOP', 'FUCK', 'FCUK', 'FUKK', 'KILL', 'JERK', 'CRAP', 'FOOK', 'DORK', 'DOPE', 'DUNG',
-                        'FAGS', 'FART', 'GAYS', 'HELL', 'HOAR', 'JAPS', 'NAZI', 'ORGY', 'PORN', 'PUKE', 'RAPE', 'SEXY',
-                        'SPIG', 'SUCK', 'STAB', 'SMUT', 'SPAZ', 'TWIT'];
+        var fourLetter = ['ANUS', 'ARSE', 'CLIT', 'COCK', 'COON', 'CUNT', 'DAGO', 'DAMN', 'DICK', 'DIKE', 'DYKE', 'FUCK', 'GOOK', 'HEEB', 'HECK', 'HELL', 'HOMO', 'JIZZ', 'KIKE', 'KUNT', 'KYKE', 'LICK', 'MICK', 'MUFF', 'PAKI', 'PISS', 'POON', 'PUTO', 'SHIT', 'SHIZ', 'SLUT', 'SMEG', 'SPIC', 'TARD', 'TITS', 'TWAT', 'WANK', 'POOP', 'FUCK', 'FCUK', 'FUKK', 'KILL', 'JERK', 'CRAP', 'FOOK', 'DORK', 'DOPE', 'DUNG', 'FAGS', 'FART', 'GAYS', 'HELL', 'HOAR', 'JAPS', 'NAZI', 'ORGY', 'PORN', 'PUKE', 'RAPE', 'SEXY', 'SPIG', 'SUCK', 'STAB', 'SMUT', 'SPAZ', 'TWIT'];
+        var threeLetter = ['ASS','FUC','FUK','FUQ','FUX','FCK','COC','COK','COQ','KOX','KOC','KOK','KOQ','CAC','CAK','CAQ','KAC','KAK','KAQ','DIC','DIK','DIQ','DIX','DCK','PNS','PSY','FAG','FGT','NGR','NIG','CNT','KNT','SHT','DSH','TWT','BCH','CUM','CLT','KUM','KLT','SUC','SUK','SUQ','SCK','LIC','LIK','LIQ','LCK','JIZ','JZZ','GAY','GEY','GEI','GAI','VAG','VGN','SJV','FAP','PRN','LOL','JEW','JOO','GVR','PUS','PIS','PSS','SNM','TIT','FKU','FCU','FQU','HOR','SLT','JAP','WOP','KIK','KYK','KYC','KYQ','DYK','DYQ','DYC','KKK','JYZ','PRK','PRC','PRQ','MIC','MIK','MIQ','MYC','MYK','MYQ','GUC','GUK','GUQ','GIZ','GZZ','SEX','SXX','SXI','SXE','SXY','XXX','WAC','WAK','WAQ','WCK','POT','THC','VAJ','VJN','NUT','STD','LSD','POO','AZN','PCP','DMN','ORL','ANL','ANS','MUF','MFF','PHK','PHC','PHQ','XTC','TOK','TOC','TOQ','MLF','RAC','RAK','RAQ','RCK','SAC','SAK','SAQ','PMS','NAD','NDZ','NDS','WTF','SOL','SOB','FOB','SFU'];
 
-        if (_.contains (badWords, code))
+        if (_.contains (fourLetter, code))
             checkCode(generateCode(), callback);
+        
+        else if(threeLetter.some(function(s) { return code.indexOf(s) >= 0; }))
+            checkCode(generateCode(), callback);
+
         else
             callback(code);
 
