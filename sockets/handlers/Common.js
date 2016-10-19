@@ -41,6 +41,13 @@ var Common = function (nsp, socket) {
 
         },
 
+        'game:show_survey': function(package) {
+
+            Session.Get(package.gameId).
+            DisplaySurvey(currentSpace);
+
+        },
+
         /* Pauses all game cooldowns (debugging only) */
         'debug:pause': function(package) {
 

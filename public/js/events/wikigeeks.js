@@ -257,7 +257,7 @@ var gameEvents = function(eventId, eventData) {
 
         });
 
-        window.scrollTo(0, 0);
+        $('html, body').animate({scrollTop:0}, '500', 'swing');
 
         // Clear the temp workspace
         $(workspace).empty();

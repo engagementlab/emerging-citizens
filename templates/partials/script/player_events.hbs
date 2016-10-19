@@ -231,6 +231,15 @@ var socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:survey':
+
+            // Display survey on player screen if enabled
+            $('#results').fadeOut(function() {
+                $('#survey').fadeIn();
+            });
+
+            break;
+
         case 'game:end':
         case 'players:update':
 

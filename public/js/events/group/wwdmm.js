@@ -227,6 +227,7 @@ var gameEvents = function(eventId, eventData) {
             TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
 
           }
+          // Winners circle
           else {
 
             nextRoundAnim
@@ -239,6 +240,8 @@ var gameEvents = function(eventId, eventData) {
             .to($('#winners-header'), .5, {autoAlpha:0, y:'50%', display:'none'}).add('header+=6')
             .fromTo($('#ended-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=7')
             .from($('#next-round, #game-ended'), 1, {autoAlpha:0, scale:0}, 'header+=7.1');
+
+            socket.emit('game:show_survey', emitData());
 
           }
 

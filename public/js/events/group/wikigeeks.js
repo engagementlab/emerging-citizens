@@ -207,11 +207,17 @@ var gameEvents = function(eventId, eventData) {
             if($('#winners-circle')[0] !== undefined) {
 
               scoreAnim.to($('#results-header'), .5, {autoAlpha:0, y:'50%', display:'none'}).add('header')
-              .add(function(){$('#winners-circle-header').show();})
+              .add(function() {
+                $('#winners-circle-header').show(); 
+                socket.emit('game:show_survey', emitData());
+              })
+              
               .fromTo($('#winners-circle-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=.6')
               .from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
               .staggerFromTo($('#winners-circle .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
               .to($('#winners-circle'), 1, {autoAlpha:0, scale: 0}, 'leadersShow+=7');
+
+              
 
             }
             else {
