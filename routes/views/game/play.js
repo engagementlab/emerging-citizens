@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 	  locals.debug = true;
 
   view.on('init', function(next) {
-        next();
+    next();
   });
 
   // Render the view

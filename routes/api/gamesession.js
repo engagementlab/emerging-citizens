@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Emerging Citizens
  * Developed by Engagement Lab, 2016
@@ -38,42 +40,31 @@ exports.create = function(req, res) {
     
     // Set game type for model
     data.gameType = req.params.game_type;
+    data.contentCategories = req.body.contentCategories;
 
-    data.categories = req.body.contentCategories;
+    if(data.contentCategories === undefined || data.contentCategories.length === 0) {
+       res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
+       return;
+    }
+    
+    if(data.gameType === "htyi")
+        sessionType = new HashtagGame.model();
+    
+    else if (data.gameType === "wikigeeks")
+        sessionType = new WikiGame.model();
+    
+    else if (data.gameType === "wwdmm")
+        sessionType = new MemeGame.model();
 
-    ContentCategory.model.find({ _id: { $in: data.categories } }, 'name', function (err, categories) {
+    sessionType.getUpdateHandler(req).process(data, function(err) {
 
-        // TEMP: Pull all categories for all games
-        data.contentCategories = categories;
+        if (err) return res.apiError('error', err);
 
-        console.log (data.contentCategories, " categories");
+        // Save this session to memory for faster retrieval (deleted when game ends)
+        Session.Create(data.accessCode, new Game(sessionType));
 
-        if(data.contentCategories === undefined || data.contentCategories.length === 0) {
-           res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
-           return;
-        }
+        res.send('/game/' + data.accessCode);
         
-        if(data.gameType === "htyi") 
-            sessionType = new HashtagGame.model();
-        
-        else if (data.gameType === "wikigeeks")
-            sessionType = new WikiGame.model();
-        
-        else if (data.gameType === "wwdmm")
-            sessionType = new MemeGame.model();
-        
-        sessionType.getUpdateHandler(req).process(data, function(err) {
-
-            console.log(data, " is the final data")
-            
-            if (err) return res.apiError('error', err);
-
-            // Save this session to memory for faster retrieval (deleted when game ends)
-            Session.Create(data.accessCode, new Game(sessionType));
-
-            res.send('/game/' + data.accessCode);
-            
-        });
-
     });
+
 };
