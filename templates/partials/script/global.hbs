@@ -464,6 +464,10 @@
 
 		{{/ifeq}}
 
+		  
+
+
+
 		{{#ifeq environment "production"}}
 			
 			// GA include
@@ -548,9 +552,9 @@
 					// Form click to begin game
 					$('#btn_submit').click(function(evt) {
 						var data = {};
-						/*data.contentCategories = $(".form :input.active").map(function(){
+						data.contentCategories = $(".form :input.active").map(function(){
 																		    return $(this).val();
-																		 }).get();*/
+																		 }).get();
 						data.accessCode = $('#access-code').text();
 
 					  $.post( 
