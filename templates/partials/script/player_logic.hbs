@@ -147,36 +147,6 @@ var checkIfLoggedIn = function() {
 
 }
 
-/**
- * Listen for forms that dispatch socket events.
- *
- * ### Examples:
- *
- * @class global
- */
-$(document).on('click', '.form .submit', function(evt) {
-    
-    var event = $(this).data().event;
-    var pkg = getFormData($(this));
-
-    // Emit event to socket
-    socket.emit(event, emitData(pkg));
-
-    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-    if($(this).data().autohide) {
-        new TimelineLite()
-        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-    }
-
-    // Disable form button unless explicitly prevented, and show loading...
-    if(!$(this).data().keep_enabled) {
-        $(evt.currentTarget).attr('disabled', 'disabled');
-        loadToggle(true);
-    }
-
-});
-
 /* 
  Logs player into game with room code and name
 */
@@ -214,7 +184,7 @@ $(document).on('click', '.btn.game_login', function(evt) {
     $('#loading-modal').fadeIn(250);
 
     $.post(
-        "/game",
+        "/login",
         data,
         function( data ) {
 
@@ -262,157 +232,18 @@ $(document).on('click', '.btn.game_login', function(evt) {
 // Check if this client is logged in on server
 checkIfLoggedIn();
 
-{{!-- INDEX Template Script --}}
-{{#ifeq section 'group/monitor'}}
+// Load events for players
+{{> script/player_events gameType=gameType}}
 
-    // Show or hide error about various game error states
-    var showErrorModal = function(show, textType) {
-
-        var showing = !$('#gameContent').is(':visible');
-
-        // Exit?
-        if( show && showing ||
-            !show && !showing )
-            return;
-
-        // Fade game content in or out
-        $('#gameContent').fadeTo("fast", (show ? 0 : 1), function() {
-
-            // Hide/show game content
-            $(this).css('display', (show ? 'none' : 'block'));
-
-            if(show) {
-                // Reset zoom
-                $('body').css('zoom', 1);
-            }
-
-            $('#error-modal').fadeTo("fast", (show ? 1 : 0), function() {
-                
-                $('#error-modal #text h2').hide();
-
-                // Show correct msg
-                $('#error-modal #text #' + textType).show();
-                $('#error-modal #text').css('top', (show ? 0 : '-100%'));
-                
-                // Hide/show error    
-                $(this).css('display', (show ? 'block' : 'none'));
-
-            });
-
-        });
-
-    };
-
-    // Open socket connection
-    socket = io();
-    registerEvents();
-
-    gameCode = '{{game.accessCode}}-group'; 
-
-    // Thanks GOTA
-    function doResize() {
-        
-        if (jQuery.browser.mobile)
-            return;
-      
-        var scale = Math.min(
-            $(window).outerWidth() / 1680, 1.0
-        );
-
-        // If screen too small, show error saying so
-        if($(window).outerWidth() < 1024)
-            showErrorModal(true, 'size');
-        else {
-            showErrorModal(false, 'size');
-            // Apply zoom
-            $('body').css('zoom', scale);
-        }
-
-
-    }
-    // Scale screen as window is resized
-    $(window).resize(function() {
-         doResize();
-    });
-    doResize();
-
-    {{#ifeq debug true}}
-        // Debugging view
-        $('#debugging').appendTo('body');
+{{#ifeq debug true}}
+    // Debugging view
+    {{#ifeq section 'login'}}
+        $('#access_code').val('TEST');
+        $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     {{/ifeq}}
-
-    // Load events for group
-    {{> script/groupview_events gameType=gameType}}
-
-{{else}}
-
-    // Load events for players
-    {{> script/player_events gameType=gameType}}
-
-    {{#ifeq debug true}}
-        // Debugging view
-        {{#ifeq section 'play'}}
-            $('#access_code').val('TEST');
-            $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-        {{/ifeq}}
-    {{/ifeq}}
-
 {{/ifeq}}
 
-function registerEvents() {
-
-    {{#ifeq environment "development"}}
-        
-        socket.on('connect_timeout', function() {
-           console.warn('Client timed out when connecting.');
-           {{!-- debugger; --}}
-        });
-        socket.on('disconnect', function() {
-           console.warn('Client was disconnected!');
-           {{!-- debugger; --}}
-        });
-        socket.on('reconnecting', function() {
-           console.log('Reconnecting.');
-           {{!-- debugger; --}}
-        });
-        socket.on('reconnect_attempt', function() {
-           console.log('Trying to reconnect!');
-           {{!-- debugger; --}}
-        });
-        socket.on('reconnect_error', function(err) {
-           console.error('Reconnect error: %s', err);
-           {{!-- debugger; --}}
-        });
-
-        console.log('Connecting to game "' + gameCode + '".');
-
-    {{/ifeq}}
-
-    $.each(eventIds, function(index, id) {
-      
-      socket.on(id, function(eventData) {
-
-            {{#ifnoteq environment "production"}}
-
-                $('#last-event').text('last event: ' + id);
-
-                console.log("EVENT ID: ", id);
-
-            {{/ifnoteq}}
-            
-            socketEvents(id, eventData);
-
-            if(typeof(gameEvents) == "function")
-                gameEvents(id, eventData);
-
-        });
-
-    });
-
-}
-
-
-{{#ifeq section 'index'}}
+{{!-- {{#ifeq section 'index'}}
 
     playerEntry();
 
@@ -442,10 +273,10 @@ function registerEvents() {
                 
     });
 
-{{/ifeq}}
+{{/ifeq}} --}}
 
 // /play URL
-{{#ifeq section 'play'}}
+{{#ifeq section 'login'}}
 
   $('.body').addClass('game-bg');
   $('.body').addClass('player');

@@ -30,7 +30,8 @@ exports = module.exports = function(req, res) {
     var gameType = req.params.game_type;
     var gameCode;
 
-    locals.section = 'group';
+    locals.viewType = 'landing';
+    locals.section = 'newgame';
 
     // Prevents generated code from being vulgar
     function checkCode(code, callback) {

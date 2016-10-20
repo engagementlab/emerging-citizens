@@ -46,7 +46,7 @@ $(document).on('focus', 'input, textarea', function() {
     }, 0);
 });
 
-var socketEvents = function(eventId, eventData) {
+socketEvents = function(eventId, eventData) {
 
     // Wait for load defined if player is reconnected, so client can load needed logic before event is called
     if(eventData && eventData.waitForLoad)

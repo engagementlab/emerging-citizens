@@ -2395,7 +2395,7 @@ html, body {
   .body.game-bg.wwdmm {
     background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
-.body.login {
+.body.newgame {
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;

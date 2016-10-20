@@ -26,15 +26,10 @@ exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
-    app.post('/game', routes.views.game.player);
+    app.post('/login', routes.views.game.login);
 
     // Group screen
-    app.get('/game/:accesscode/:debug?', routes.views.group.lobby);
-    
-    // Deprecated
-
-    // app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
-    
+    app.get('/game/:accesscode/:debug?', routes.views.group.lobby);    
     
     app.get('/group/:game_type', routes.views.group.game);
     app.get('/about', routes.views.group.about);

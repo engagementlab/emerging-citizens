@@ -50,7 +50,8 @@ exports = module.exports = function(req, res) {
 		    queryHomePage.exec(function (err, resultHomePage) {
 		    
 		    	locals.content = resultHomePage;
-			    locals.section = 'index';
+			    locals.viewType = 'landing';
+          locals.section = 'index';
 
           WhatIs.model.findOne({}, {}, function (err, what) {
             locals.what = what;
@@ -71,7 +72,8 @@ exports = module.exports = function(req, res) {
 		    queryComingSoon.exec(function (err, resultComingSoon) {
 
 		    	locals.content = resultComingSoon;
-			    locals.section = 'comingsoon';
+			    locals.viewType = 'landing';
+          locals.section = 'comingsoon';
 
 			    // Render the view
 			    view.render('comingsoon');

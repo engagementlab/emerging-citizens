@@ -11,10 +11,8 @@
 var clockInterval;
 var hashtagsAnimSlider;
 
-var openAnim = new TimelineLite();
-
 // Show players
-openAnim
+new TimelineLite()
 .from($('.room-container'), 1, {scale:0, autoAlpha:0, delay:1, ease:Elastic.easeOut})
 .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
 .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
@@ -25,6 +23,17 @@ var gameEvents = function(eventId, eventData) {
     Catch socket events -- MAKE SURE ALL EVENT IDS ARE IN global.hbs
   */
   switch (eventId) {
+
+    case 'game:start':
+
+      // Called after updateGameContent succeeds
+      updateContentCallback = function() {
+        new TimelineLite()
+        .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
+        .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1);
+      }
+      
+      break;
 
     case 'game:countdown':
 
