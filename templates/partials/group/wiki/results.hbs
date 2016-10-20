@@ -11,8 +11,6 @@
 
 					{{#each results}}
 
-					{{!-- {{jsonPrint this}} --}}
-
 	          {{#iflt @index 3}}
 
 	          	{{#if finished}}
@@ -38,7 +36,7 @@
 												<div class="content target-article">
 
 													<h2>Target article:</h2>
-													<h3>{{../../title}}</h3>
+													<h3>{{../../../title}}</h3>
 
 													<div class="border"></div>
 
@@ -163,6 +161,10 @@
 	    	<h2 id="article-title">"{{title}}"</h2>
 	    </div>
 
+	    <div id="winners-circle-header" class="row hidden-el" style="display:none">
+	    	<h1 class="bold">Final Scores</h1>
+	    </div>
+
     	{{!-- RESULTS SCREEN --}}
 			<div id="results" class="row hidden-el">
 
@@ -253,14 +255,6 @@
 				    <div class="col-sm-4">    
 
 					    {{scores.[0]}}
-		                
-										<div class="row">
-											
-											{{!-- {{#each articles}}
-												{{this}} <br />
-											{{/each}} --}}
-
-				            </div>
 
 		        </div>
 				    <div class="col-sm-2">
@@ -280,83 +274,97 @@
 
 			</div>
 
-    {{!-- Show WINNERS CIRCLE at last round instead of leaderboard --}}
-    {{#if last_round}}
+	    {{!-- Show WINNERS CIRCLE at last round instead of leaderboard --}}
+	    {{#if last_round}}
 
-      <div id="winners-circle" class="row hidden-el">
+	      <div id="winners-circle" class="row hidden-el">
 
-          <h1 class="screen-title">Final Scores!</h1>
-          {{#each players}}
-      
-              {{#iflt @index 3}}
+	          {{#each players}}
+	      
+	              {{#iflt @index 3}}
 
-								<div class="user hidden-el row row-color-{{@index}}">
+									<div class="user hidden-el row row-color-{{@index}}">
 
-							    <div class="col-sm-10">
+								    <div class="col-sm-10">
+									    <div class="ranking"></div>
 
-							    	{{username}}
+								    	{{username}}
 
-							    </div>    
+								    </div>    
 
-							  </div>
+								  </div>
 
-              {{/iflt}}
-      
-          {{/each}}
+	              {{/iflt}}
+	      
+	          {{/each}}
 
-      </div>
+	      </div>
 
-    {{else}}
+	    {{else}}
 
-			{{!-- LEADERBOARD --}}
-			<div id="leaderboard" class="row hidden-el">
+				{{!-- LEADERBOARD --}}
+				<div id="leaderboard" class="row hidden-el">
 
-				<div class="results-header row bold">
-	    
-					    <div class="col-sm-4" style="float:left; text-align:left;">
-						    <h2>Player</h2>
-					    </div>    
-					    <div class="col-sm-4" style="float:right; text-align:right;">
-						    <h2>Score</h2>
-			        </div>
-
-			  </div>
-
-				{{#each players}}
-
-					<div class="user row row-color-{{@index}}">
-	          <div class="col-sm-6 name">
-
-				    	{{username}}
-
-				    </div>    
-				    
-				    <div class="col-sm-6 score">
-
-					    {{score_total}}
-
-				    </div>
+					<div class="results-header row bold">
+		    
+						    <div class="col-sm-4" style="float:left; text-align:left;">
+							    <h2>Player</h2>
+						    </div>    
+						    <div class="col-sm-4" style="float:right; text-align:right;">
+							    <h2>Score</h2>
+				        </div>
 
 				  </div>
 
-	      {{/each}}
+					{{#each players}}
 
-			</div>
+						<div class="user row row-color-{{@index}}">
+		          <div class="col-sm-6 name">
 
-    {{/if}}
+					    	{{username}}
 
-			<div id="countdown" class="row hidden-el form">
-		    <h2>
-			    {{#if last_round}}
-			    Game is over!
-						{{!-- Returning to Main Menu --}}
-					{{else}}
-            <div class="col-sm-7 col-centered">
-                <input id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
-            </div>
-					{{/if}}
-				</h2>
-			</div>
+					    </div>    
+					    
+					    <div class="col-sm-6 score">
+
+						    {{score_total}}
+
+					    </div>
+
+					  </div>
+
+		      {{/each}}
+
+				</div>
+
+	    {{/if}}
+
+      {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
+      {{#if last_round}}
+          <div id="game-ended" class="hidden-el row results last">
+              
+              <div class="col-sm-7 col-centered">
+                  
+                  <h1 style="font-size: 3em;color: #FF421C" class="game-header">Game Ended<br>Thank you for playing WikiGeeks!
+                      </h1>
+
+                  {{#if survey}}
+                      <h1 style="font-size: 2.4em;color: #ffbb90" class="game-header">Please fill out the survey on your device.
+                      </h1>
+                  {{/if}}
+              </div>
+
+          </div>
+      {{else}}
+          <div id="next-round" class="col-sm-12 hidden-el results form">
+              
+              <div class="col-sm-7 col-centered">
+                  <input style="font-size:4em !important;" id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
+              </div>
+              
+          </div>
+      {{/if}}
+
 
 		</section>
 

@@ -1,105 +1,102 @@
 {{!-- PLAYER RESULTS --}}
-<section id="results">
+<section>
 	
-
-		<div class="row results-container">
-			
-			<div class="col-xs-12 col-sm-12">
-			{{!-- {{jsonPrint this}} --}}
-							
-					<div class="row">
+	<div id="results" class="row results-container">
 		
-						<div class="col-xs-6 col-sm-6">
-							<div class="content" id="clicks">
+		<div class="col-xs-12 col-sm-12">
+		{{!-- {{jsonPrint this}} --}}
+						
+				<div class="row">
+	
+					<div class="col-xs-6 col-sm-6">
+						<div class="content" id="clicks">
 
-								<h2>clicks</h2>
-								<span>{{clicks}}</span>
+							<h2>clicks</h2>
+							<span>{{clicks}}</span>
 
-							</div>
 						</div>
-
-						<div class="col-xs-6 col-sm-6">
-							<div class="content" id="time">
-
-								<h2>time</h2>
-								<span>{{getMinutes time}}</span>
-							
-							</div>
-						</div>
-
 					</div>
 
-					<div class="row">
+					<div class="col-xs-6 col-sm-6">
+						<div class="content" id="time">
 
-						<div id="articles" class="col-lg-6 col-centered">
+							<h2>time</h2>
+							<span>{{getMinutes time}}</span>
+						
+						</div>
+					</div>
 
-							<h2 id="player-name">{{username}}:</h2>
+				</div>
 
-							{{#each articles}}
-							{{!-- {{jsonPrint this}} --}}
-								<div class="row">
+				<div class="row">
 
-									{{!-- First article --}}
-									{{#if @first}}
-									
-										<h3 id="firstArticle" class="articleText">{{title}}</h3>
+					<div id="articles" class="col-lg-6 col-centered">
 
-									{{else}}
+						<h2 id="player-name">{{username}}:</h2>
 
-										<div class="articleGroup">
+						{{#each articles}}
+						{{!-- {{jsonPrint this}} --}}
+							<div class="row">
 
-											<svg height="70" width="50">
-													
-												<line class="articleLine" x1="25" y1="10" x2="25" y2="0" style="stroke:rgb(188,255,252);stroke-width:8"></line>
-
-												<circle class="articleDot" cx="25" cy="10" r="0" stroke="black" stroke-width="0" fill="red"></circle>
-												<circle class="articleDot" cx="25" cy="55" r="0" stroke="black" stroke-width="0" fill="red"></circle>
-
-											</svg>
+								{{!-- First article --}}
+								{{#if @first}}
 								
-											<div class="row articleText">
+									<h3 id="firstArticle" class="articleText">{{title}}</h3>
 
-												{{!-- Final article (if player finished) --}}
-												{{#if @last}}
-													{{#if ../finished}}
-													
-														<h3>{{title}}</h3>
-													
-													{{else}}
-													
-														{{title}}
-													
-													{{/if}}
+								{{else}}
 
+									<div class="articleGroup">
+
+										<svg height="70" width="50">
+												
+											<line class="articleLine" x1="25" y1="10" x2="25" y2="0" style="stroke:rgb(188,255,252);stroke-width:8"></line>
+
+											<circle class="articleDot" cx="25" cy="10" r="0" stroke="black" stroke-width="0" fill="red"></circle>
+											<circle class="articleDot" cx="25" cy="55" r="0" stroke="black" stroke-width="0" fill="red"></circle>
+
+										</svg>
+							
+										<div class="row articleText">
+
+											{{!-- Final article (if player finished) --}}
+											{{#if @last}}
+												{{#if ../finished}}
+												
+													<h3>{{title}}</h3>
+												
 												{{else}}
-
+												
 													{{title}}
-
+												
 												{{/if}}
 
-											</div>
+											{{else}}
+
+												{{title}}
+
+											{{/if}}
 
 										</div>
-									
-									{{/if}}
 
-								</div>
+									</div>
+								
+								{{/if}}
 
-							{{/each}}
+							</div>
 
-						</div>
+						{{/each}}
 
 					</div>
-				
-			</div>
 
+				</div>
+			
 		</div>
-		{{!-- {{jsonPrint this}} --}}
-	{{#if last_round}}
-	
-		{{>shared/typeform this}}
 
-  {{else}}
+	</div>
+
+	{{#if last_round}}
+
+		{{>shared/typeform this}}
 
 	{{/if}}
 

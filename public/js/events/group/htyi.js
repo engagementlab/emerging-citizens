@@ -215,8 +215,8 @@ function showScores() {
 
   // Winner Circle, if rendered
   var winner = $('.score-box')[0];
-  console.log(winner);
   $(winner).addClass('winner');
+
   if($('#winners-circle')[0] !== undefined) {
 
       scoreAnim.from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
@@ -224,6 +224,7 @@ function showScores() {
       .staggerFrom($('.score-box').get().reverse(), 1.5, {xPercent:100, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, 2)
       .to($('#winners-circle'), 1, {autoAlpha:0, display:'none', delay: 5})
 
+      socket.emit('game:show_survey', emitData());
   }
 
   // Leaderboard

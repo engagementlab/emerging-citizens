@@ -22,7 +22,6 @@ lobbyAnim
 .from($('.players-left'), 1.25, {x: 600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1')
 .from($('.players-right'), 1.25, {x: -600, autoAlpha:0, ease:Elastic.easeOut}, 'header+=1');
 
-
 /* 
  Renders each meme on screen to canvases
 */
@@ -228,23 +227,22 @@ var gameEvents = function(eventId, eventData) {
             TweenLite.from($('#next-round, #game-ended'), 1, { autoAlpha: 0, scale: 0 });
 
           }
+          // Winners circle
           else {
-
-            var secondsLeft = 10;
 
             nextRoundAnim
             .to($('#leaderboard-header'), .5, {autoAlpha:0, y:'0%', display:'none'}).add('header')
             .fromTo($('#winners-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=.6')
-            .from($('#winners-circle'), 1, {autoAlpha:0});
-
-            setInterval(function() {
-                secondsLeft--;
-
-                // End countdown
-                if(secondsLeft == 0)
-                  location.href = '\\';
-            }, 1000);
             
+            .from($('#winners-circle'), 1, {autoAlpha:0})
+            .to($('#winners-circle'), 1, {autoAlpha:0, display:'none'}, 'header+=6')
+
+            .to($('#winners-header'), .5, {autoAlpha:0, y:'50%', display:'none'}).add('header+=6')
+            .fromTo($('#ended-header'), .5, {autoAlpha:0, y:'50%'}, {autoAlpha:1, y:'0%', display:'block'}, 'header+=7')
+            .from($('#next-round, #game-ended'), 1, {autoAlpha:0, scale:0}, 'header+=7.1');
+
+            socket.emit('game:show_survey', emitData());
+
           }
 
         }

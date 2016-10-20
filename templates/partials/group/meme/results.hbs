@@ -7,6 +7,7 @@
                 <span id="leaderboard-header" style="display:none" class="hidden-el">leaderboard</span>
                 <span id="next-round-header" style="display:none" class="hidden-el">get ready for the next round</span>
                 <span id="winners-header" style="display:none" class="hidden-el">winners</span>
+                <span id="ended-header" style="display:none" class="hidden-el">game ended</span>
             </h1>
         </div>
 
@@ -89,11 +90,11 @@
                                 {{username}}
                             </div>
                             
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <hr class="player-rule" />
                             </div>
                             
-                            <div class="col-sm-2 points">
+                            <div class="col-sm-3 points">
                                 <span class="large bold">{{#if score}} {{score}} {{else}} 0 {{/if}}</span> 
                                 points
                             </div>
@@ -115,11 +116,11 @@
                                 {{username}}
                             </div>
                             
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <hr class="player-rule" />
                             </div>
                             
-                            <div class="col-sm-2 points">
+                            <div class="col-sm-3 points">
                                 <span class="large bold">{{#if score_total}} {{score_total}} {{else}} 0 {{/if}}</span> 
                                 points
                             </div>
@@ -163,7 +164,14 @@
                         
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">
-                            game ended
+                            
+                            <h1 style="font-size: 3em;color: #FF421C" class="game-header">Game Ended<br>Thank you for playing Wait Wait Don't Meme Me!
+                                </h1>
+
+                            {{#if survey}}
+                                <h1 style="font-size: 2.4em;color: #93B700" class="game-header">Please fill out the survey on your device.
+                                </h1>
+                            {{/if}}
                         </div>
                         <div class="col-sm-4"></div>
 

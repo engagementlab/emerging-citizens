@@ -40,13 +40,6 @@ var getScript = function(gameType) {
 
 }
 
-$("#player_name").keydown(function(event) {
-    
-    if(event.keyCode == 13)
-        $('#btn-submit-code').click();
-
-});
-
 $(document).on('focus', 'input, textarea', function() {
     setTimeout(function() {
         window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
@@ -235,6 +228,15 @@ var socketEvents = function(eventId, eventData) {
                 resetSession();
             else
                 sessionStorage.removeItem('playerSubmission');
+
+            break;
+
+        case 'game:survey':
+
+            // Display survey on player screen if enabled
+            $('#results').fadeOut(function() {
+                $('#survey').fadeIn();
+            });
 
             break;
 

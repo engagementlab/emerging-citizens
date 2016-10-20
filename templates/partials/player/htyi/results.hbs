@@ -1,6 +1,14 @@
 <section class="row" id="nextRound" style="margin-top:5%;">
     {{#if last_round}}
-        {{>shared/typeform this}}
+      {{>shared/typeform this}}
+          
+	    <section id="results" data-hide="vote-submission" class="col-sm-3 col-centered">
+	        
+	      <div class="game-message row">
+	            <span class="text col-md-12">game over!<br />see main screen for results!</span>
+	      </div>
+
+	    </section>
     {{else}}
           
     <section id="submitted" data-hide="vote-submission" class="col-sm-3 col-centered">
