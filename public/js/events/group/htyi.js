@@ -28,9 +28,12 @@ var gameEvents = function(eventId, eventData) {
 
       // Called after updateGameContent succeeds
       updateContentCallback = function() {
+        // Show players
         new TimelineLite()
-        .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)
-        .staggerFrom($('.players.right .player-background'), 2, {xPercent:200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1);
+        .staggerFrom(_.shuffle($('.player-background')), 2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1);
+
+        // Clear prior content callback
+        updateContentCallback = undefined;
       }
       
       break;

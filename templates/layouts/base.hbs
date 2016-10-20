@@ -26,7 +26,7 @@
                 {{> nav}}
                 <div class="container">
             {{/ifeq}}
-            {{#ifeq section "group/monitor"}}
+            {{#ifeq viewType "group/monitor"}}
 
                 {{> game_nav}}
                    <div class="container">
@@ -84,7 +84,7 @@
               </div>
           </section>
 
-          {{#ifnoteq section 'group/monitor'}}
+          {{#ifnoteq viewType 'group'}}
 
             <section id="loading-modal" class="modal">
               <div class="indicator"></div>
