@@ -300,11 +300,13 @@ body.player .entry-footer {
   margin-left: auto; }
 
 #nav-dropdown {
-  margin-left: 60px;
+  margin: 10px auto;
+  display: block;
+  text-align: center;
   font-size: 2em;
-  color: #e6e6e6; }
+  color: #cccccc; }
   #nav-dropdown:hover, #nav-dropdownfocus {
-    color: #cccccc;
+    color: #b3b3b3;
     text-decoration: none;
     cursor: pointer; }
 
@@ -349,7 +351,7 @@ body.player .entry-footer {
 
 #logo_ec {
   padding: 20px 0px;
-  background: #b7f0f1;
+  background: transparent;
   margin-left: -30px;
   margin-right: -30px; }
   #logo_ec img {
@@ -362,6 +364,54 @@ body.player .entry-footer {
   background: none;
   width: 300px;
   height: 300px; }
+
+.game-page {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 40px;
+  display: inline-block; }
+  .game-page .divider {
+    border-top: 2px solid #e6e6e6;
+    width: 100%; }
+  .game-page .logo {
+    padding: 5%;
+    height: 200px; }
+    .game-page .logo img {
+      height: 150px; }
+  .game-page .blurb {
+    padding: 5%;
+    width: 60%;
+    margin: 0 auto; }
+  .game-page .content {
+    margin-top: 5%; }
+    .game-page .content .plans-info {
+      width: 60%;
+      margin: 10px auto; }
+    .game-page .content .plans-buttons button {
+      border-radius: 25px;
+      height: 50px;
+      min-width: 50px;
+      padding: 0px 20px;
+      background-color: rgba(255, 0, 0, 0.6);
+      color: white; }
+    .game-page .content .plan-card {
+      background-colorw: white;
+      border-radius: 40px;
+      border: 2px solid #e6e6e6; }
+      .game-page .content .plan-card button {
+        border-radius: 25px;
+        height: 50px;
+        min-width: 50px;
+        background-color: #36d5d9;
+        padding: 0px 20px;
+        color: white; }
+  .game-page#wwdmm-page .blurb {
+    color: #36d5d9; }
+  .game-page#wikigeeks-page .blurb {
+    color: #F83439; }
+  .game-page#htyi-page .blurb {
+    color: #ffa800; }
 
 .how-to-play img {
   width: 200px;
@@ -588,7 +638,6 @@ body.player .entry-footer {
   text-align: left; }
   .top-section h2 {
     font-size: 3.5em;
-    color: black;
     margin: 0px; }
   .top-section button {
     text-align: center;
@@ -596,12 +645,25 @@ body.player .entry-footer {
     margin: 0 auto; }
 
 .what-text {
-  background-color: #cccccc; }
-  .what-text h1 {
-    color: #36d5d9; }
+  background-color: white; }
+  .what-text h2 {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 3em;
+    text-align: center; }
   .what-text h3 {
-    font-size: 1em !important;
-    color: #36d5d9; }
+    font-size: 2em !important;
+    color: #36d5d9;
+    margin: 0 auto;
+    text-align: center; }
+  .what-text p {
+    text-align: justify; }
+  .what-text .col-sm-4 {
+    padding: 40px; }
+    .what-text .col-sm-4 img {
+      display: block;
+      height: 120px;
+      margin: 20px auto; }
 
 #home-page-banner {
   color: white;
@@ -617,6 +679,8 @@ body.player .entry-footer {
   background-color: #ff9971;
   padding: 2%;
   margin-top: 2%;
+  margin: 0 auto;
+  width: 40%;
   font-family: "Avenir";
   font-weight: bolder;
   font-size: xx-large; }
@@ -630,28 +694,36 @@ body.player .entry-footer {
     border-bottom: none; }
 
 .games-row {
-  padding-top: 5%;
-  width: 90%;
-  margin: 0 auto;
-  padding-bottom: 5%; }
+  width: auto;
+  margin: 0 auto; }
   .games-row img {
     height: 200px; }
+  .games-row .col-sm-4 {
+    padding: 40px 0px;
+    margin: 20px auto;
+    background-color: white; }
 
 .home-page-info {
   font-size: large;
   color: white;
   padding: 3%;
   height: 300px;
+  text-align: justify;
   margin-top: 2%;
-  border-radius: 30px;
-  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
-  -moz-box-shadow: 6px 7px 10px #C7C6C6;
-  box-shadow: 6px 7px 10px #C7C6C6;
   -webkit-transition: -webkit-filter 0.5s linear;
   -moz-transition: -webkit-filter 0.5s linear;
   -ms-transition: -webkit-filter 0.5s linear;
   -o-transition: -webkit-filter 0.5s linear;
   transition: -webkit-filter 0.5s linear; }
+  .home-page-info .info-buttons {
+    text-align: center; }
+  .home-page-info a {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.6); }
   .home-page-info#hashtag-info {
     background-color: #ffab48; }
   .home-page-info#geeks-info {
@@ -677,16 +749,17 @@ body.player .entry-footer {
     -moz-transition: transform 0.1s linear;
     -ms-transition: transform 0.1s linear;
     -o-transition: transform 0.1s linear;
-    transition: transform 0.1s linear; }
+    transition: transform 0.1s linear;
+    padding: 40px; }
     .home-page-info.current h1 {
       font-size: 2.3em;
       color: #58c5c1; }
     .home-page-info.current:hover {
-      -moz-transform: scale(1.1);
-      -o-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1); }
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1); }
 
 @media (min-width: 1024px) {
   body .container {
@@ -1775,7 +1848,7 @@ body.player .entry-footer {
     padding: 0px 20px;
     height: 715px; }
     .body.wwdmm.group #game_code #first {
-      color: #ac7ce8 l; }
+      color: #ac7ce8; }
     .body.wwdmm.group #game_code #second {
       color: #ff6000; }
     .body.wwdmm.group #game_code #third {
@@ -2341,7 +2414,16 @@ body.player .entry-footer {
 html, body {
   max-height: 100%;
   max-width: 100%;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background: #5DD9D6;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, white, #5DD9D6 40%, white 50%); }
 
 .form {
   min-height: 10%; }
@@ -2465,7 +2547,7 @@ nav.header.navbar-fixed-top {
       display: none; } }
 
 nav.navbar.main {
-  background-color: #FFF;
+  background-color: none;
   padding-bottom: 2%; }
   nav.navbar.main #nav-logo {
     padding-top: 1%; }
@@ -2497,8 +2579,20 @@ footer {
     .footer {
       display: none; } }
 
-.black {
+.orange {
+  background-color: #ffab48; }
+
+.red {
+  background-color: #F83439; }
+
+.blue {
+  background-color: #21b7f0; }
+
+.black-font {
   color: black; }
+
+.white-font {
+  color: white; }
 
 .orange-font {
   color: #ffa76d; }
@@ -2560,22 +2654,27 @@ footer {
   margin-bottom: 3%;
   color: gray;
   align-items: center; }
+  .gameLanding .row {
+    margin-right: -30px;
+    margin-left: -30px; }
   .gameLanding button.more {
-    width: 180px;
+    width: auto;
     height: 80px;
-    border-radius: 40px;
+    border-radius: none;
     border: none;
-    background: #36d5d9;
+    background: #a3e9e8;
     color: white;
     font-weight: bold;
-    font-size: 1.6em; }
+    font-size: 3.5em;
+    padding: 0px 20px; }
   .gameLanding .top-section {
     padding: 3%;
     padding-bottom: 5%;
     margin-left: -30px;
     margin-right: -30px;
-    width: 90%;
-    margin: 0 auto; }
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block; }
   .gameLanding .what-bubbles {
     width: 90%;
     margin: 0 auto;
@@ -2593,8 +2692,7 @@ footer {
     text-align: left;
     margin: 0px; }
   .gameLanding h3 {
-    font-size: 3em;
-    text-align: left;
+    font-size: 2.3em;
     width: 100%; }
   @media only screen and (min-width: 769px) {
     .gameLanding #desktop {

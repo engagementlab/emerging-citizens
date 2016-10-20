@@ -20,7 +20,6 @@
   text-align: left;
   h2 {
     font-size: 3.5em;
-    color: black;
     margin: 0px;
   }
   button {
@@ -32,15 +31,35 @@
 
 }
 .what-text {
-  background-color: darken($color-gray, 10%);
+  background-color: white;
+  
 
-  h1 {
-    color: $color-teal;
+  h2 {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 3em;
+    text-align: center;
   }
 
   h3 {
-    font-size: 1em !important;
+    font-size: 2em !important;
     color: $color-teal;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .col-sm-4 {
+    padding: 40px;
+
+    img {
+      display: block;
+      height: 120px;
+      margin: 20px auto;
+    }
   }
 }
 
@@ -64,6 +83,8 @@
   background-color: $color-peach;
   padding: 2%;
   margin-top: 2%;
+  margin: 0 auto;
+  width: 40%;
 
   font-family: "Avenir";
   font-weight: bolder;
@@ -88,13 +109,19 @@
   }
 }
 .games-row {
-  padding-top: 5%;
-  width: 90%;
+  // padding-top: 5%;
+  width: auto;
   margin: 0 auto;
-  padding-bottom: 5%;
+  // padding-bottom: 5%;
   img {
     height: 200px;
     // width: 200px;
+  }
+  .col-sm-4{
+    padding: 40px 0px;
+    margin: 20px auto;
+    background-color: white;
+    // width: auto;
   }
 }
 
@@ -104,12 +131,25 @@
 	color: white;
 	padding: 3%;
   height: 300px;
-
+  text-align: justify;
   margin-top: 2%;
-  border-radius: 30px;
+  // border-radius: 30px;
 
-  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+  // @include box-shadow(6px, 7px, 10px, #C7C6C6);
   @include linear_transition(-webkit-filter, 0.5s);
+
+  .info-buttons {
+    text-align: center;
+  }
+
+  a {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    background-color: transparentize(white, 0.4);
+  }
 
   &#hashtag-info {
     background-color: $color-light-orange;
@@ -140,6 +180,7 @@
 
   &.current {
     @include linear_transition(transform, 0.1s);
+    padding: 40px;
 
     h1 {
       font-size: 2.3em;
@@ -147,7 +188,7 @@
     }
 
     &:hover {
-      @include scale(1.1);
+      @include scale(1.0);
     }
   }
 

@@ -21,6 +21,11 @@ html, body {
 	max-height: 100%;	
 	max-width:100%;
 	overflow-x: hidden;
+		background: $homepage-color; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, white, $homepage-color 40%, white 50%);
 
 }
 
@@ -223,7 +228,7 @@ nav.header.navbar-fixed-top{
 }
 nav.navbar.main {
 
-	background-color: #FFF;
+	background-color: none;
 	padding-bottom: 2%;
 
 	#nav-logo {
@@ -275,8 +280,24 @@ footer {
 	}
 }
 
-.black {
+.orange {
+	background-color: $color-light-orange;
+}
+
+.red {
+	background-color: $color-bright-red;
+}
+
+.blue {
+	background-color: $color-bg-wwdmm;
+}
+
+.black-font {
     color: black;
+  }
+
+  .white-font {
+  	color: white;
   }
 
 .orange-font {
@@ -341,6 +362,8 @@ footer {
 }
 
 .gameLanding {
+
+
 	
 	// margin-top: 3%;
 
@@ -353,15 +376,21 @@ footer {
 
   align-items: center;
 
+  .row {
+  	margin-right: -30px;
+  	margin-left: -30px;
+  }
+
   button.more {
-  	width: 180px;
+  	width: auto;
   	height: 80px;
-  	border-radius: 40px;
+  	border-radius: none;
   	border: none;
-  	background: $color-teal;
+  	background: lighten($homepage-color, 17%);
   	color: white;
   	font-weight: bold;
-  	font-size: 1.6em;
+  	font-size: 3.5em;
+  	padding: 0px 20px
 
   }
 	.top-section {
@@ -369,8 +398,10 @@ footer {
 		padding-bottom:5%;
 		margin-left:-30px;
 		margin-right:-30px;
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
+		display: inline-block;
+		
 		// border-bottom: 2px $color-gray solid;
 			
 
@@ -401,8 +432,8 @@ footer {
 			
 			} 
 		h3 {
-			font-size: 3em;
-			text-align:left;
+			font-size: 2.3em;
+			// text-align:left;
 			width: 100%;
 			// color: darken($color-gray, 40%);
 		}

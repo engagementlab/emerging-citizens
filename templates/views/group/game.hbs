@@ -1,66 +1,101 @@
-<div class="launch"><a class="button" href="/new/{{lowerCase whichGame}}">Launch Game</a></div>
 
+<div class="game-page" id="{{lowerCase whichGame}}-page">
+  <div class="logo row">
+    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1464294182/emerging-citizens/comingsoon/logo_{{lowerCase whichGame}}.png">
+  </div>
 	<div class="blurb row">
     {{{game.lessonGuide.html}}}
-	</div>
+	
 
-<div class="content">
-
-  <div class="row">
-    <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
-      <button value="*" data-filter="" class="button">All</button>
-      {{#each categories}}
-        <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
-      {{/each}}
+    <div class="game-buttons">
+       <div class="launch"><a class="button" href="/new/{{lowerCase whichGame}}">play now</a></div>
+      <div class=""><a class="button" href="">lesson plans</a></div>
+      <div class=""><a class="button" href="">how to play</a></div>
+      <div class=""><a class="button" href="">learning guide</a></div>
     </div>
+
+  </div>
+  <div class="divider"></div>
+
+  <div class="content">
+
+    
+
+    {{#if lessonPlans}}
+    <div class="row plans-info">
+      <h2>Lesson Plans</h2>
+      <p>Lesson plans are for....Bespoke occupy single-origin coffee, marfa taxidermy everyday carry raw denim pop-up literally kogi sartorial +1. Edison bulb snackwave meggings freegan keytar plaid, sartorial gochujang etsy lo-fi hella tilde franzen. Semiotics green juice tofu four dollar toast iceland williamsburg. Seitan vice salvia neutra messenger bag, normcore tbh. </p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+          <button value="*" data-filter="" class="button">All</button>
+          {{#each ../categories}}
+            <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
+          {{/each}}
+        </div>
+      </div>
+
+
+    <div id="plans">
+      {{#each lessonPlans}}
+
+        {{#each relatedGame}}
+
+          {{#ifeq gameType ../../whichGame}}
+
+            <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{gameType}} {{../../category.cat_key}}">
+              <div class="plan-card" data-category="">
+                <h3>{{../../name}}</h3>
+                <h4>Content: </h4> {{#each ../../category}}<p>{{topicName}}</p> {{/each}}
+                {{!-- <h4>Associated Games: </h4> <p>{{gameType}}</p> --}}
+
+                <button class="button open-plan" id="" data-id="{{../../plan_key}}" value="#">Open Lesson</button>
+              </div>
+            </div>
+
+            {{/ifeq}}
+
+        {{/each}}
+
+      {{/each}}
+      {{else}}
+
+      Coming Soon
+
+      {{/if}}
+
+    </div>
+
   </div>
 
+  <div class="plan-modals" style="display:none">
 
-<div id="plans">
     {{#each lessonPlans}}
 
-      {{#each relatedGame}}
+        <div class="plan-outer" style="display:none" id="{{plan_key}}">
+          <div class="plan-inner">
+            <h3>{{name}}</h3>
+            <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+            {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
 
-        {{#ifeq gameType ../../whichGame}}
+            <p>{{{text.html}}}</p>
+            <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
 
-          <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{gameType}} {{../../category.cat_key}}">
-            <div class="plan-card" data-category="">
-              <h3>{{../../name}}</h3>
-              <h4>Content: </h4> {{#each ../../category}}<p>{{topicName}}</p> {{/each}}
-              {{!-- <h4>Associated Games: </h4> <p>{{gameType}}</p> --}}
 
-              <button class="button open-plan" id="" data-id="{{../../plan_key}}" value="#">More</button>
-            </div>
+            <button class="button close-plan" id="" value="#">Back</button>
           </div>
-
-          {{/ifeq}}
-
-      {{/each}}
-
+        </div>
+         
     {{/each}}
 
   </div>
 
-</div>
-
-  <div class="plan-modals" style="display:none">
-
-  {{#each lessonPlans}}
-
-      <div class="plan-outer" style="display:none" id="{{plan_key}}">
-        <div class="plan-inner">
-          <h3>{{name}}</h3>
-          <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
-          {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
-
-          <p>{{{text.html}}}</p>
-          <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
-
-
-          <button class="button close-plan" id="" value="#">Back</button>
-        </div>
-      </div>
-       
-  {{/each}}
+  <div class="how-to-play">
 
   </div>
+
+  <div class="">
+
+  </div>
+</div>
