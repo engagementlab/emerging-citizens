@@ -409,6 +409,40 @@
 
 
 
+		  // ACCESS CODE 
+
+		  $('#session-create #btn_submit').click(function(evt) {
+						var data = {};
+						data.contentCategories = $(".form button.inactive").map(function(){
+																				// console.log(this);
+																		    return $(this).val();
+																		 }).get();
+						data.accessCode = $('#access-code').text();
+
+						// console.log(data, "data");
+
+					  $.post( 
+					  	"/api/create/" + $(evt.currentTarget).data().type,
+							data,
+							function( data ) {
+
+								if(data.error_code !== undefined) {
+
+									if(data.error_code === 'need_content')
+										$('#session-create #categories').addClass('invalid');
+									
+									$('#session-create .error').text(data.msg).fadeIn();
+									
+									return;
+								}
+
+							  window.location = data;
+							}
+						);
+					});
+
+
+
 		  
 
 
@@ -468,6 +502,8 @@
 				// Get reference to main content div
 				gameContainer = $('#gameContent');
 
+				
+
 				// GROUP VIEW
 				{{#ifeq section 'group'}}
 					
@@ -482,40 +518,16 @@
 					});
 
 					// Form click to begin game
-					$('#btn_submit').click(function(evt) {
-						var data = {};
-						data.contentCategories = $(".form :input.active").map(function(){
-																		    return $(this).val();
-																		 }).get();
-						data.accessCode = $('#access-code').text();
 
-					  $.post( 
-					  	"/api/create/" + $(evt.currentTarget).data().type,
-							data,
-							function( data ) {
-
-								if(data.error_code !== undefined) {
-
-									if(data.error_code === 'need_content')
-										$('#session-create #categories').addClass('invalid');
-									
-									$('#session-create .error').text(data.msg).fadeIn();
-									
-									return;
-								}
-
-							  window.location = data;
-							}
-						);
-					});
 
 				 // PLAYER VIEW
 				{{else}}
+
 						{{#ifeq section "index"}}
 
 						{{else}}
 						
-						{{> script/player_logic section=section}}
+							{{> script/player_logic section=section}}
 
 					{{/ifeq}}
 

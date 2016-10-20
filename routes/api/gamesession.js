@@ -39,10 +39,14 @@ exports.create = function(req, res) {
     // Set game type for model
     data.gameType = req.params.game_type;
 
-    ContentCategory.model.find({}, 'name', function (err, categories) {
+    data.categories = req.body.contentCategories;
+
+    ContentCategory.model.find({ _id: { $in: data.categories } }, 'name', function (err, categories) {
 
         // TEMP: Pull all categories for all games
         data.contentCategories = categories;
+
+        console.log (data.contentCategories, " categories");
 
         if(data.contentCategories === undefined || data.contentCategories.length === 0) {
            res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
@@ -59,6 +63,8 @@ exports.create = function(req, res) {
             sessionType = new MemeGame.model();
         
         sessionType.getUpdateHandler(req).process(data, function(err) {
+
+            console.log(data, " is the final data")
             
             if (err) return res.apiError('error', err);
 
