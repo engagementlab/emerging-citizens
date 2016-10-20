@@ -564,8 +564,6 @@
 			{{#ifeq viewType 'landing'}}
 			
 				{{#ifeq section 'newgame'}}						
-				
-					{{> script/groupview_logic section=section}}
 					
 		      $('.body').addClass('newgame');
 					$('.navbar.main').hide();
@@ -594,6 +592,12 @@
 					return;
 				
 				}
+
+			{{/ifeq}}
+
+			{{#ifeq viewType 'group'}}
+
+				{{> script/groupview_logic section=section}}
 
 			{{/ifeq}}
 
