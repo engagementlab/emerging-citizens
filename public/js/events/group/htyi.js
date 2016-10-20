@@ -26,6 +26,7 @@ var gameEvents = function(eventId, eventData) {
 
     case 'game:start':
 
+      // Called after updateGameContent succeeds
       updateContentCallback = function() {
         new TimelineLite()
         .staggerFrom($('.players.left .player-background'), 2, {xPercent:-200, force3D:true, autoAlpha:0, ease:Elastic.easeOut}, .1)

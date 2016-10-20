@@ -20,8 +20,8 @@ exports = module.exports = function(req, res) {
   var view = new keystone.View(req, res);
   var locals = res.locals;
 
-  // locals.section is used to set the currently loaded view
-  locals.section = 'play';
+  locals.viewType = 'player';
+  locals.section = 'login';
 
   // Save host to allow path specification for socket.io
   locals.socketHost = req.headers.host;

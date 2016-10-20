@@ -31,19 +31,16 @@ exports = module.exports = function(req, res) {
     var configGameType = req.params.game_type;
     var gameCode;
 
+    locals.viewType = 'landing';
+    locals.section = configGameType.toUpperCase();
+
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    
-
     view.on('init', function(next) {
-
-        locals.section = 'group-' + configGameType.toUpperCase();
-
+        
         locals.categories = [];
         locals.lessonPlans = [];
         locals.whichGame = configGameType.toUpperCase();
-
-        console.log(locals.whichGame, "is the game");
 
         var queryContent = ContentCategory.model.find({});
 
