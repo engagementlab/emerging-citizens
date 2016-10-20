@@ -22,47 +22,20 @@
             {{> nav_comingsoon}}
             <div class="col-sm-12">
         {{else}}
-            {{#ifeq section "index"}}
+
+            {{#ifeq viewType "landing"}}
+
                 {{> nav}}
-                <div class="container">
+                   <div class="container">
             {{/ifeq}}
-            {{#ifeq viewType "group/monitor"}}
+
+            {{#ifeq viewType "group"}}
 
                 {{> game_nav}}
                    <div class="container">
             {{/ifeq}}
 
-            {{#ifeq section "group-HTYI"}}
-              <div class="row" id="logo_ec">
-                <div class="col-md-5 col-xs-4"><a id="nav-dropdown">menu</a></div>
-                  <img class="row" src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-                  <div class ="col-md-5"></div>
-              </div>
-
-              {{> nav}}
-              <div class="container">
-            {{/ifeq}}
-            {{#ifeq section "group-WIKIGEEKS"}}
-              <div class="row" id="logo_ec">
-                <div class="col-md-5 col-xs-4"><a id="nav-dropdown">menu</a></div>
-                  <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
-                  <div class ="col-md-5"></div>
-              </div>
-
-              {{> nav}}
-              <div class="container">
-            {{/ifeq}}
-
-            {{#ifeq section "group-WWDMM"}}
-              <div class="row" id="logo_ec">
-                <div class="col-md-5 col-xs-4"><a id="nav-dropdown">menu</a></div>
-                  <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">
-                  <div class ="col-md-5"></div>
-              </div>
-
-              {{> nav}}
-              <div class="container">
-            {{/ifeq}}
+            
             
         {{/ifeq}}
 
@@ -120,7 +93,7 @@
                   <div id="debug-info">
                   </div>
 
-                  {{#ifeq section 'group/monitor'}}
+                  {{#ifeq viewType 'group'}}
                       
                       <button id="template_reload" class="submit">reload</button>
                       <select id="template_selector" name="template_selector_player">

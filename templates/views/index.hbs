@@ -1,38 +1,25 @@
 {{!-- {{> nav}} --}}
 
 <div class="gameLanding" id="homepage">
-    <div class="row top-section">
+    <div class="row">
+      <div class="top-section">
       
-        <div class="col-md-6">
-          <h2><span class="orange-font">Bluff</span> with Hashtags.</h2>
-          <h2><span class="red-font">Race</span> through Wikipedia.</h2>
-          <h2><span class="teal-font">Create</span> dank Memes.</h2>
-          <h2 class="black">Become an Emerging Citizen</h2>
-          <h3 class="light">Emerging Citizens is a free-to-play suite of digital multiplayer games that teach students how to critique and create civic media through play.</h3>
+        <div class="col-md-6" style="width: 40%;">
+          <h2 class="white-font"><span class="orange-font">Bluff</span> with Hashtags.</h2>
+          <h2 class="white-font"><span class="bright-red-font">Race</span> through Wikipedia.</h2>
+          <h2 class="white-font"><span class="green-font">Create</span> dank Memes.</h2>
+          <h2 class="black-font">Become an Emerging Citizen</h2>
+          <h3 class="white-font light">Emerging Citizens is a free-to-play suite of digital multiplayer games that teach students how to critique and create civic media through play.</h3>
           <button class="more">Learn More</button>
         </div>
         <div class="col-md-6">  
-        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
+          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
         </div>
+
+      </div>
     </div>
 
-    <div class="row what-text light">
-
-      {{!-- <p>{{{what.text.html}}}</p> --}}
-      <h2>Emerging Citizens allows students an accessible way to engage in civic media, game-based experience</h2>
-      <div class="col-sm-4">
-        <h3>No installation, no downloads, no logins, no problem</h3>
-        <p>Emerging Citizens is accessed and played thorugh our website, so therre is no need to download applications or conenct devices on the same network. Learn below how to start a game in 3 simple steps! It's that easy!</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Three games, three modalities, one easy to use platform</h3>
-        <p>Emerging Citizens consists of three games: hashtag You're It, WikiGeeks, and Wait Wait Don't Meme Me! Each game encourages players to engage with cultural, educational , or political topics while focusing on a specific, 21st century, digital modality (Memes, Hashtags, or Hyperlinks).</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Lesson guides and subject specific content to keep learning focused</h3>
-        <p>Research suppoted lesson guides help facillitators teach students about hashtags, meme,s and wikis within a media literacy context. Each content category is provided a specifc lesson plan to help facilitators integrate Emerging Citizens into subject specific curriculums.</p>
-      </div>
-    </div>
+    
 
 
     <div class="row games-row">
@@ -43,8 +30,10 @@
 
           
             {{{what.htyi_blurb.html}}}
-            <a href="group/htyi">Play Now</a>
-            <a href="group/htyi">Learn More</a>
+          <div class="info-buttons">
+            <a href="new/htyi">play now</a>
+            <a href="group/htyi">learn more</a>
+          </div>
         </div>
       </div>
       
@@ -54,10 +43,14 @@
           
           
             {{{what.wiki_blurb.html}}}
-          <a href="group/wikigeeks">Play Now</a>
-          <a href="group/wikigeeks">Learn More</a>
+          <div class="info-buttons">
+            <a href="new/wikigeeks">play now</a>
+            <a href="group/wikigeeks">learn more</a>
+          </div>
         </div>
       </div>
+
+
       
 
 
@@ -67,8 +60,10 @@
 
           
             {{{what.wwdmm_blurb.html}}}
-            <a href="group/wwdmm">Play Now</a>
-            <a href="group/wwdmm">Learn More</a>
+          <div class="info-buttons">
+            <a href="new/wwdmm">play now</a>
+            <a href="group/wwdmm">learn more</a>
+          </div>
         
         </div>
       </div>
@@ -76,7 +71,28 @@
 
     </div>
 
-    
+    <div class="row what-text">
+
+      {{!-- <p>{{{what.text.html}}}</p> --}}
+      <h2 class="teal-font">Emerging Citizens <span class="light">allows students an accessible way to engage in civic media, game-based experience</span></h2>
+      <div class="col-sm-4">
+      <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993613/emerging-citizens/nodownloads_wmxwxo.png">  
+        <h3 class="teal-font">No installations, no downloads, no logins, no problem</h3>
+        <p>Emerging Citizens is accessed and played thorugh our website, so therre is no need to download applications or conenct devices on the same network. Learn below how to start a game in 3 simple steps! It's that easy!</p>
+      </div>
+      <div class="col-sm-4">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993581/emerging-citizens/computer_qv2lyg.png">  
+        <h3 class="teal-font">Three games, three modalities, one easy to use platform</h3>
+        <p>Emerging Citizens consists of three games: hashtag You're It, WikiGeeks, and Wait Wait Don't Meme Me! Each game encourages players to engage with cultural, educational , or political topics while focusing on a specific, 21st century, digital modality (Memes, Hashtags, or Hyperlinks).</p>
+      </div>
+      <div class="col-sm-4">
+      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993611/emerging-citizens/lightbulb_ywkyk5.png">  
+        <h3 class="teal-font">Lesson guides and subject specific content to keep learning focused</h3>
+        <p>Research suppoted lesson guides help facillitators teach students about hashtags, meme,s and wikis within a media literacy context. Each content category is provided a specifc lesson plan to help facilitators integrate Emerging Citizens into subject specific curriculums.</p>
+      </div>
+    </div>
+
+    {{!-- 
 
     <div class="row">
 
@@ -136,9 +152,9 @@
 
       </div>
 
-    </div>
+    </div> --}}
 
-    <div id="mailing-list" class="row col-sm-5 col-md-4 col-lg-4">
+    <div id="mailing-list" class="row">
       {{!-- <span><a href="{{content.mailing_link}}">join our mailing list!</a></span> --}}
 
       <div id="mc_embed_signup" class="form">
