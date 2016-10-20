@@ -56,7 +56,7 @@
 	{{!-- DEVELOPMENT --}}
 	
 	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
+	{{#ifeq viewType 'group'}}
 		<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
 	{{else}}
 		{{#ifeq section 'index'}}
@@ -80,7 +80,7 @@
 	{{!-- PRODUCTION/STAGING --}}
 
 	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
+	{{#ifeq viewType 'group'}}
 		<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
 	{{else}}
 		{{#ifeq section 'index'}}
