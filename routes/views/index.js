@@ -53,6 +53,8 @@ exports = module.exports = function(req, res) {
 			    locals.viewType = 'landing';
           locals.section = 'index';
 
+          // console.log(locals.content)
+
           WhatIs.model.findOne({}, {}, function (err, what) {
             locals.what = what;
 

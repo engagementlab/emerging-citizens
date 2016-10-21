@@ -698,8 +698,24 @@ body.player .entry-footer {
 
 .what-text {
   background-color: white; }
-  .what-text h2 {
+  .what-text h1.markdown-content {
+    font-size: 2em;
     width: 60%;
+    margin: 0px auto;
+    color: #36d5d9;
+    line-height: 1.2; }
+    .what-text h1.markdown-content p {
+      text-align: center; }
+  .what-text .markdown-content {
+    text-align: center; }
+    .what-text .markdown-content h2 {
+      font-size: 1.6em;
+      margin: 0px auto;
+      color: #36d5d9;
+      line-height: 1.2; }
+    .what-text .markdown-content p {
+      text-align: justify; }
+  .what-text h2 {
     margin: 0 auto;
     font-size: 3em;
     text-align: center; }
@@ -715,7 +731,69 @@ body.player .entry-footer {
     .what-text .col-sm-4 img {
       display: block;
       height: 120px;
-      margin: 20px auto; }
+      margin: 20px auto;
+      filter: alpha(opacity=50);
+      opacity: 0.5; }
+
+.how-works .how-works-top {
+  background: #e6e6e6;
+  text-align: justify;
+  width: 100%;
+  margin: 0 auto; }
+  .how-works .how-works-top h2 {
+    font-size: 2.4em;
+    text-align: center;
+    margin: 30px auto; }
+  .how-works .how-works-top .markdown-content {
+    font-size: 1.2em;
+    width: 80%;
+    margin: 0 auto;
+    text-align: justify; }
+
+.how-works .step-one .markdown-content {
+  width: 40%;
+  font-size: 1.6em;
+  margin: 0 auto;
+  text-align: center; }
+
+.how-works .step-one img {
+  margin: 0 auto;
+  display: inherit; }
+
+.how-works .step-two-three {
+  width: 80%;
+  margin: 0 auto; }
+  .how-works .step-two-three .markdown-content {
+    width: 80%;
+    font-size: 1.2em;
+    margin: 0 auto;
+    text-align: center; }
+
+.how-works .step-four {
+  margin-top: 5%;
+  background-color: #e6e6e6; }
+  .how-works .step-four .markdown-content {
+    width: 60%;
+    font-size: 1.6em;
+    margin: 0 auto;
+    text-align: center; }
+
+.how-works .step-five {
+  margin-top: 5%; }
+  .how-works .step-five .markdown-content {
+    width: 60%;
+    font-size: 1.6em;
+    margin: 0 auto;
+    text-align: center; }
+
+.how-works .final-step {
+  margin-top: 5%;
+  background-color: #e6e6e6; }
+  .how-works .final-step .markdown-content {
+    width: 60%;
+    font-size: 1.6em;
+    margin: 0 auto;
+    text-align: center; }
 
 #home-page-banner {
   color: white;
