@@ -1,7 +1,7 @@
 /**
  * Emerging Citizens
  * 
- * ComingSoon Model
+ * HomePage Model
  * @module comingsoon
  * @class comingsoon
  * @author Johnny Richardson
@@ -14,19 +14,19 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * ComingSoon Model
+ * HomePage Model
  * ==========
  */
 
-var ComingSoon = new keystone.List('ComingSoon', {
+var HomePage = new keystone.List('HomePage', {
     
-    label: 'Coming Soon',
-    singular: 'Coming Soon',
+    label: 'Home Page',
+    singular: 'Home Page',
     nodelete: true
 
 });
 
-ComingSoon.add({
+HomePage.add({
     
     name: { type: String, default: 'Home Page Content', hidden: true },
     intro: { type: Types.Markdown, label: 'Intro Text', required: true, initial: true },
@@ -66,5 +66,5 @@ ComingSoon.add({
 /**
  * Registration
  */
- ComingSoon.defaultColumns = 'name';
- ComingSoon.register();
+ HomePage.defaultColumns = 'name';
+ HomePage.register();
