@@ -28,9 +28,10 @@ var ContentCategory = new keystone.List('ContentCategory', {
 ContentCategory.add({
 
   topicName: { type: String, required: true, initial: true, label: "Category Name" }, 
+  text: { type: Types.Markdown, label: "Description for the category"}, 
   enabled: { type: Types.Boolean, label: "Enabled?" }
   // game: { type: Types.Relationship, label: "Which game(s) is this content for?", ref: 'GameConfig', many: true} 
-  // topicDescription: { type: Types.Markdown, label: "Description for Wiki Geeks topics.", dependsOn: {game: "WikiGeeks"}}, 
+  
   // topicImage: { type: Types.CloudinaryImage, label: "Topic Image", dependsOn: {game: "WikiGeeks"}}
 
 });

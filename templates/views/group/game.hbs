@@ -4,14 +4,14 @@
     <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1464294182/emerging-citizens/comingsoon/logo_{{lowerCase whichGame}}.png">
   </div>
 	<div class="blurb row">
-    {{{game.lessonGuide.html}}}
+    {{{game.text.html}}}
 	
 
     <div class="game-buttons">
        <div class="launch"><a class="button" href="/new/{{lowerCase whichGame}}">play now</a></div>
-      <div class=""><a class="button" href="">lesson plans</a></div>
+      {{!-- <div class=""><a class="button" href="">lesson plans</a></div>
       <div class=""><a class="button" href="">how to play</a></div>
-      <div class=""><a class="button" href="">learning guide</a></div>
+      <div class=""><a class="button" href="">learning guide</a></div> --}}
     </div>
 
   </div>
@@ -19,25 +19,22 @@
 
   <div class="content">
 
-    
-
-    {{#if lessonPlans}}
     <div class="row plans-info">
       <h2>Lesson Plans</h2>
       <p>Lesson plans are for....Bespoke occupy single-origin coffee, marfa taxidermy everyday carry raw denim pop-up literally kogi sartorial +1. Edison bulb snackwave meggings freegan keytar plaid, sartorial gochujang etsy lo-fi hella tilde franzen. Semiotics green juice tofu four dollar toast iceland williamsburg. Seitan vice salvia neutra messenger bag, normcore tbh. </p>
     </div>
 
+    {{#if lessonPlans}}
+
     <div class="row">
-        <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+        <div class="col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
           <button value="*" data-filter="" class="button">All</button>
           {{#each ../categories}}
             <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
           {{/each}}
         </div>
-      </div>
-
-
-    <div id="plans">
+    </div>
+    <div id="plans" class="row">
       {{#each lessonPlans}}
 
         {{#each relatedGame}}
@@ -59,43 +56,66 @@
         {{/each}}
 
       {{/each}}
-      {{else}}
 
-      Coming Soon
+    {{else}}
 
-      {{/if}}
+    Coming Soon
+
+    {{/if}}
 
     </div>
 
-  </div>
+      <div class="plan-modals" style="display:none">
 
-  <div class="plan-modals" style="display:none">
+        {{#each lessonPlans}}
 
-    {{#each lessonPlans}}
+            <div class="plan-outer" style="display:none" id="{{plan_key}}">
+              <div class="plan-inner">
+                <h3>{{name}}</h3>
+                <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+                {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
 
-        <div class="plan-outer" style="display:none" id="{{plan_key}}">
-          <div class="plan-inner">
-            <h3>{{name}}</h3>
-            <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
-            {{!-- <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}} --}}
-
-            <p>{{{text.html}}}</p>
-            <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
+                <p>{{{text.html}}}</p>
+                <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
 
 
-            <button class="button close-plan" id="" value="#">Back</button>
-          </div>
+                <button class="button close-plan" id="" value="#">Back</button>
+              </div>
+            </div>
+             
+        {{/each}}
+
+      </div>
+
+      <div class="how-to-play row">
+        <h2>How To Play</h2>
+
+      {{{game.howToPlay.html}}}
+
+      </div>
+
+      <div class="lesson-guide row">
+        <h2 class="centered">Learning Guide</h2>
+
+        <div class="what-is col-sm-6">
+
+          {{{game.what.html}}}
         </div>
-         
-    {{/each}}
+        <div class="why-learn col-sm-6">
+          {{{game.why.html}}}
+        </div>
+        <div class="learning col-sm-6">
+          {{{game.lessonGuide.html}}}
+        </div>
+        <div class="tips col-sm-6">
+          {{{game.tips.html}}}
+        </div>
+        <div class="questions col-sm-6">
+          {{{game.questions.html}}}
+        </div>
 
+      </div>
   </div>
 
-  <div class="how-to-play">
 
-  </div>
-
-  <div class="">
-
-  </div>
 </div>

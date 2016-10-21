@@ -371,6 +371,18 @@ body.player .entry-footer {
   margin: 0 auto;
   border-radius: 40px;
   display: inline-block; }
+  .game-page .game-buttons .button {
+    border-radius: 25px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    min-width: 100px;
+    padding: 0px 20px;
+    margin: 10px auto;
+    background-color: #36d5d9;
+    color: white; }
+  .game-page .row {
+    margin: 0 auto; }
   .game-page .divider {
     border-top: 2px solid #e6e6e6;
     width: 100%; }
@@ -406,6 +418,16 @@ body.player .entry-footer {
         background-color: #36d5d9;
         padding: 0px 20px;
         color: white; }
+    .game-page .content .how-to-play {
+      background-color: #36d5d9;
+      padding: 5%; }
+    .game-page .content .lesson-guide {
+      background-color: darken white, 10%;
+      color: #999999;
+      text-align: left;
+      padding: 5%; }
+      .game-page .content .lesson-guide .col-sm-6 {
+        padding: 1%; }
   .game-page#wwdmm-page .blurb {
     color: #36d5d9; }
   .game-page#wikigeeks-page .blurb {
@@ -2668,7 +2690,8 @@ footer {
     font-size: 3.5em;
     padding: 0px 20px; }
   .gameLanding .top-section {
-    padding: 3%;
+    height: 80vh;
+    padding: 0px 3%;
     padding-bottom: 5%;
     margin-left: -30px;
     margin-right: -30px;

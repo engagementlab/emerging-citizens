@@ -115,6 +115,24 @@
 	border-radius: 40px;
 	display: inline-block;
 
+	.game-buttons {
+		.button {
+			border-radius: 25px;
+				height: 60px;
+				line-height: 60px;
+				display: inline-block;
+				min-width: 100px;
+				padding: 0px 20px;
+				margin: 10px auto;
+				background-color: $color-teal;
+				color: white;
+		}
+	}
+
+	.row {
+		margin: 0 auto;
+	}
+
 	.divider {
 		border-top: 2px solid $color-gray;
 		width: 100%;
@@ -167,6 +185,22 @@
 				color: white;
 			}
 
+		}
+
+		.how-to-play {
+			background-color: $color-teal;
+			padding: 5%;
+		}
+
+		.lesson-guide {
+			background-color: darken (white, 10%);
+			color: darken($color-gray, 30%);
+			text-align: left;
+			padding: 5%;
+
+			.col-sm-6 {
+				padding: 1%;
+			}
 		}
 	}
 

@@ -29,6 +29,7 @@ var GameConfig = new keystone.List('GameConfig', {
 GameConfig.add({
 
 		name: { type: String, hidden: true, from: 'game' },
+		play_link: { type: String, label: 'URL for players', default: "qa.ecplay.org"},
 		gameType: { type: Types.Select, lable: "Which game are you configuring?", options: "HTYI, WikiGeeks, WWDMM", initial: true, required: true},
 		enabled: { type: Boolean, label: "Game Is Running?", note: "Disabling game will show 'coming soon'/signup page." }, 
 		playerCap: { type: Number, label: "Player Cap", required: true, initial: true },
@@ -53,6 +54,7 @@ GameConfig.add({
 	'Lesson Guide', {
 			gameLogo: { type: Types.CloudinaryImage, label: 'Game logo'},
 	    text: { type: Types.Markdown, label: 'Byline' }, 
+	    lessonPlanBlurb: { type: Types.Markdown, label: 'Lesson Plan Blurb' }, 
 			lessonGuide: { type: Types.Markdown, label: "Lesson Guide/Learning Goals for this game" },
 			what: { type: Types.Markdown, label: "What is..?"},
 	    why: { type: Types.Markdown, label: "Why think about..?"},

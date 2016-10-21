@@ -15,7 +15,10 @@
                 <div class="form">
                     <div id="categories">
                         {{#each categories}}
+                        <div class="category-box">
+                            {{{text.html}}}
                             <button value="{{id}}" class="voting-button active submit">{{topicName}}</button>
+                        </div>
                         {{/each}} 
                     </div> 
                     <div class="form-prompt white">access code:</div>

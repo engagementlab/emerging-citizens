@@ -16,6 +16,7 @@
 var keystone = require('keystone'),
     randomstring = require('randomstring'),
     GameSession = keystone.list('GameSession'),
+    GameConfig = keystone.list('GameConfig'),
     ContentCategory = keystone.list('ContentCategory');
 
 exports = module.exports = function(req, res) {
@@ -28,6 +29,7 @@ exports = module.exports = function(req, res) {
     var locals = res.locals;
 
     var gameType = req.params.game_type;
+
     var gameCode;
 
     locals.viewType = 'landing';
@@ -85,13 +87,27 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
+        locals.whichGame = gameType.toUpperCase();
+        console.log(locals.whichGame, "which is hte game")
+
+         var queryGame = GameConfig.model.findOne({
+                                    'enabled':true,
+                                    'gameType':new RegExp('^'+locals.whichGame+'$', "i")
+                                    });
+
         // Get game config and content buckets (categories)
-        ContentCategory.model.find({}, 'topicName', function (err, categories) {
+        ContentCategory.model.find({}, {}, function (err, categories) {
 
             locals.gameCode = gameCode;
             locals.gameType = gameType;
+            
 
             locals.categories = categories;
+            console.log(locals.categories);
+            queryGame.exec(function (err, game) {
+                locals.game = game;
+
+            });
 
             next(err);
 
