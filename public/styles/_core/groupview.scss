@@ -16,7 +16,7 @@
 	display: block;
 	text-align:center;
 	font-size: 2em;
-	color: darken(white, 20%);
+	color: white;
 
 	&:hover, &focus {
 		color: darken(white, 30%);
@@ -29,7 +29,6 @@
 	position: fixed;
 	z-index: 1000;
 	margin: 2.1%;
-	color: white;
 }
 
 #game-menu {

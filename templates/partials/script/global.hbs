@@ -378,19 +378,19 @@
 		// Global nav
 		{{#ifeq viewType 'group'}}
 
-			var openAnim = new TimelineLite({paused: true})				
+			var openAnim = new TimelineLite({paused: true, onComplete: function() { closeAnim.pause(0); }})				
 			.to($('#game-menu'), .3, {autoAlpha:0})
-			.from($('.nav-dropdown'), .5, {autoAlpha:0})
-			.from($('#game-logo'), .5, {yPercent:50, scale:0, autoAlpha:0, ease: Elastic.easeOut})
-			.from($('#nav-close'), .5, {scale:0, autoAlpha:0, display:'none', ease: Elastic.easeOut})
-			.staggerFrom($('#navbar li'), .6, {yPercent:50, scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1);
+			.from($('.nav-dropdown'), .2, {autoAlpha:0})
+			.from($('#game-logo'), .2, {yPercent:50, scale:0, autoAlpha:0, ease: Ease.easeOut})
+			.from($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none', ease: Ease.easeOut})
+			.staggerFrom($('#navbar li'), .2, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .1);
 
 			var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
-			.staggerTo($('#navbar li'), .6, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
-			.to($('#game-logo'), .5, {yPercent:50, autoAlpha:0})
-			.to($('#nav-close'), .5, {autoAlpha:0, display:'none'})
-			.to($('.nav-dropdown'), .5, {autoAlpha:0, display:'none'})
-			.to($('#game-menu'), .4, {autoAlpha:1});
+			.staggerTo($('#navbar li'), .2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
+			.to($('#game-logo'), .2, {yPercent:50, autoAlpha:0})
+			.to($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none'})
+			.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
+			.to($('#game-menu'), .3, {autoAlpha:1});
 
 			$("#nav-dropdown").click(function() {
 				$('.nav-dropdown').show();
