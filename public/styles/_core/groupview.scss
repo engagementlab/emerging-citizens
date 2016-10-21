@@ -96,6 +96,10 @@
     width: 200px;
 		display: block;
 		margin:0 auto;
+
+		@media(max-width:1024px) {
+			width: 160px;
+		}
 	}
 }
 

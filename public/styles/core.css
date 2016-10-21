@@ -359,6 +359,9 @@ body.player .entry-footer {
     width: 200px;
     display: block;
     margin: 0 auto; }
+    @media (max-width: 1024px) {
+      #logo_ec img {
+        width: 160px; } }
 
 #game-logoec {
   background: none;
@@ -652,19 +655,120 @@ body.player .entry-footer {
   100% {
     left: 0px; } }
 
+.gameLanding {
+  margin-right: -15px;
+  margin-left: -15px;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  color: gray;
+  align-items: center; }
+  .gameLanding .row {
+    margin-right: -30px;
+    margin-left: -30px; }
+  .gameLanding .top {
+    height: 80vh; }
+    @media (max-width: 769px) {
+      .gameLanding .top {
+        height: 60vh; } }
+  .gameLanding .top-section {
+    height: 100%;
+    padding: 0px 3%;
+    padding-bottom: 5%;
+    margin-left: -30px;
+    margin-right: -30px;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    background: #5DD9D6;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+    .gameLanding .top-section h2 {
+      font-size: 3.5em;
+      margin: 0px; }
+    .gameLanding .top-section h3 {
+      font-size: 2.3em;
+      margin: 10px auto; }
+    .gameLanding .top-section .more {
+      width: auto;
+      height: 80px;
+      margin: 20px auto;
+      border-radius: none;
+      border: none;
+      background: #a3e9e8;
+      color: white;
+      font-weight: bold;
+      font-size: 3.5em;
+      padding: 0px 20px; }
+    @media (max-width: 1024px) {
+      .gameLanding .top-section h2 {
+        font-size: 2em; }
+      .gameLanding .top-section .more {
+        font-size: 2em;
+        height: 60px; }
+      .gameLanding .top-section h3 {
+        font-size: 1.5em; } }
+    @media (max-width: 1560px) and (min-width: 1025px) {
+      .gameLanding .top-section h2 {
+        font-size: 2.5em; }
+      .gameLanding .top-section .more {
+        font-size: 2.5em;
+        height: 60px; }
+      .gameLanding .top-section h3 {
+        font-size: 1.8em; } }
+    @media (max-width: 1960px) and (min-width: 1561px) {
+      .gameLanding .top-section {
+        height: 60vh; }
+        .gameLanding .top-section h2 {
+          font-size: 3.2em; }
+        .gameLanding .top-section .more {
+          font-size: 3.2em;
+          height: 60px; }
+        .gameLanding .top-section h3 {
+          font-size: 2.2em; } }
+  .gameLanding .what-bubbles {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3%; }
+    .gameLanding .what-bubbles p {
+      font-size: 1.2em; }
+    .gameLanding .what-bubbles img {
+      width: 160px;
+      height: 160px;
+      border-radius: 80px;
+      border: 2px gray solid; }
+  .gameLanding h1 {
+    width: 100%;
+    font-size: 5em;
+    text-align: left;
+    margin: 0px; }
+  .gameLanding h3 {
+    font-size: 2.3em;
+    width: 100%; }
+  @media only screen and (min-width: 769px) {
+    .gameLanding #desktop {
+      display: block; }
+    .gameLanding #mobile {
+      display: none; } }
+  @media (max-width: 480px) {
+    .gameLanding #desktop {
+      display: none; }
+    .gameLanding #mobile {
+      display: block; } }
+
 #home-page {
   margin-top: 6%;
   font-size: x-large; }
-
-.top-section {
-  text-align: left; }
-  .top-section h2 {
-    font-size: 3.5em;
-    margin: 0px; }
-  .top-section button {
-    text-align: center;
-    display: block;
-    margin: 0 auto; }
 
 .what-text {
   background-color: white; }
@@ -717,7 +821,8 @@ body.player .entry-footer {
 
 .games-row {
   width: auto;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 90vh; }
   .games-row img {
     height: 200px; }
   .games-row .col-sm-4 {
@@ -728,8 +833,7 @@ body.player .entry-footer {
 .home-page-info {
   font-size: large;
   color: white;
-  padding: 3%;
-  height: 300px;
+  height: 400px;
   text-align: justify;
   margin-top: 2%;
   -webkit-transition: -webkit-filter 0.5s linear;
@@ -738,7 +842,10 @@ body.player .entry-footer {
   -o-transition: -webkit-filter 0.5s linear;
   transition: -webkit-filter 0.5s linear; }
   .home-page-info .info-buttons {
-    text-align: center; }
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    width: 100%; }
   .home-page-info a {
     width: auto;
     height: auto;
@@ -746,6 +853,8 @@ body.player .entry-footer {
     color: white;
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.6); }
+  .home-page-info .text {
+    padding: 5% 10%; }
   .home-page-info#hashtag-info {
     background-color: #ffab48; }
   .home-page-info#geeks-info {
@@ -771,8 +880,7 @@ body.player .entry-footer {
     -moz-transition: transform 0.1s linear;
     -ms-transition: transform 0.1s linear;
     -o-transition: transform 0.1s linear;
-    transition: transform 0.1s linear;
-    padding: 40px; }
+    transition: transform 0.1s linear; }
     .home-page-info.current h1 {
       font-size: 2.3em;
       color: #58c5c1; }
@@ -782,6 +890,22 @@ body.player .entry-footer {
       -ms-transform: scale(1);
       -webkit-transform: scale(1);
       transform: scale(1); }
+
+.aboutPage {
+  background: #5DD9D6;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 @media (min-width: 1024px) {
   body .container {
@@ -2436,16 +2560,14 @@ body.player .entry-footer {
 html, body {
   max-height: 100%;
   max-width: 100%;
-  overflow-x: hidden;
-  background: #5DD9D6;
-  /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(to bottom, white, #5DD9D6 40%, white 50%);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom, white, #5DD9D6 40%, white 50%); }
+  overflow-x: hidden; }
+
+html {
+  height: 100%; }
+
+.container {
+  width: 100% !important;
+  padding: 0px !important; }
 
 .form {
   min-height: 10%; }
@@ -2601,6 +2723,12 @@ footer {
     .footer {
       display: none; } }
 
+.left-text {
+  text-align: left; }
+
+.bold {
+  font-weight: bold; }
+
 .orange {
   background-color: #ffab48; }
 
@@ -2615,6 +2743,12 @@ footer {
 
 .white-font {
   color: white; }
+
+.gray-font {
+  color: #999999; }
+
+.dark-gray-font {
+  color: #666666; }
 
 .orange-font {
   color: #ffa76d; }
@@ -2668,65 +2802,6 @@ footer {
 
 #debugging {
   z-index: 1000; }
-
-.gameLanding {
-  margin-right: -15px;
-  margin-left: -15px;
-  margin: 0 auto;
-  margin-bottom: 3%;
-  color: gray;
-  align-items: center; }
-  .gameLanding .row {
-    margin-right: -30px;
-    margin-left: -30px; }
-  .gameLanding button.more {
-    width: auto;
-    height: 80px;
-    border-radius: none;
-    border: none;
-    background: #a3e9e8;
-    color: white;
-    font-weight: bold;
-    font-size: 3.5em;
-    padding: 0px 20px; }
-  .gameLanding .top-section {
-    height: 80vh;
-    padding: 0px 3%;
-    padding-bottom: 5%;
-    margin-left: -30px;
-    margin-right: -30px;
-    width: 100%;
-    margin: 0 auto;
-    display: inline-block; }
-  .gameLanding .what-bubbles {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 3%; }
-    .gameLanding .what-bubbles p {
-      font-size: 1.2em; }
-    .gameLanding .what-bubbles img {
-      width: 160px;
-      height: 160px;
-      border-radius: 80px;
-      border: 2px gray solid; }
-  .gameLanding h1 {
-    width: 100%;
-    font-size: 5em;
-    text-align: left;
-    margin: 0px; }
-  .gameLanding h3 {
-    font-size: 2.3em;
-    width: 100%; }
-  @media only screen and (min-width: 769px) {
-    .gameLanding #desktop {
-      display: block; }
-    .gameLanding #mobile {
-      display: none; } }
-  @media (max-width: 480px) {
-    .gameLanding #desktop {
-      display: none; }
-    .gameLanding #mobile {
-      display: block; } }
 
 #gameContent {
   padding-bottom: 10%;
