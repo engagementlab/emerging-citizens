@@ -347,8 +347,9 @@
 
 		// Landing page class for body
 		{{#ifeq viewType 'landing'}}
+				$('body').addClass('landing');
 	
-			{{#ifeq section 'WIKIGEEKS'}}
+			{{!--{{#ifeq section 'WIKIGEEKS'}}
 				$('body').addClass('wikigeeks');
 				$('body').addClass('game-bg');
 			{{/ifeq}}
@@ -360,6 +361,7 @@
 				$('body').addClass('wwdmm');
 				$('body').addClass('game-bg');
 			{{/ifeq}}
+			--}}
 
 			// MENU
 			{{#ifeq section 'index'}}

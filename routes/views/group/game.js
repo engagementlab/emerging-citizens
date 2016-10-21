@@ -14,7 +14,6 @@
 */
 
 var keystone = require('keystone'),
-    randomstring = require('randomstring'),
     LessonPlan = keystone.list('LessonPlan'),
     GameConfig = keystone.list('GameConfig'),
     ContentCategory = keystone.list('ContentCategory');
@@ -79,8 +78,6 @@ exports = module.exports = function(req, res) {
 
             
         });
-
-
 
         // LessonPlan.model.find({ relatedGame: gameType }, {}, function (err, plans) {
 

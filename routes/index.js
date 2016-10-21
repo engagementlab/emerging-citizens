@@ -31,7 +31,7 @@ exports = module.exports = function(app) {
     // Group screen
     app.get('/game/:accesscode/:debug?', routes.views.group.lobby);    
     
-    app.get('/group/:game_type', routes.views.group.game);
+    app.get('/about/:game_type', routes.views.group.game);
     app.get('/about', routes.views.group.about);
     app.get('/help', routes.views.group.help);
     app.get('/lessonPlans', routes.views.group.lessonPlans);

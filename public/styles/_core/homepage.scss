@@ -189,20 +189,6 @@
   font-size: x-large;
 }
 
-// .top-section {
-//   text-align: left;
-//   h2 {
-//     font-size: 3.5em;
-//     margin: 0px;
-//   }
-//   button {
-//     text-align: center;
-//     display: block;
-//     margin: 0 auto;
-
-//   }
-
-// }
 .what-text {
   background-color: white;
   
@@ -371,6 +357,178 @@
 
     &:hover {
       @include scale(1.0);
+    }
+  }
+
+}
+
+// LANDING PAGE(S)
+.landing {
+
+  #gameContent {
+    padding: 0;
+  }
+
+  // GAMES ABOUT PAGE
+  .game-about {
+    background-color: white;
+    // width: 90%;
+    
+    margin: 0 auto;
+    border-radius: 40px;
+    display: inline-block;
+
+    #launch {
+      position: relative;
+      display: inline-block;
+
+      height: 76px; 
+      width: 200px;
+
+      border: solid 4px $color-dodger-blue;
+      padding: 2%;
+      font-size: 2em;
+      color: $color-dodger-blue;
+      margin-top: 1%;
+      
+      @include transition(transform, .5s, ease-in-out-expo);
+
+      &:hover {
+        background-color: darken(white, 10%);
+        @include scale(1.4);
+      }
+    
+    }
+
+    #description {
+      background-color: $color-teal;
+    }
+
+    .game-buttons {
+      .button {
+        border-radius: 25px;
+          height: 60px;
+          line-height: 60px;
+          display: inline-block;
+          min-width: 100px;
+          padding: 0px 20px;
+          margin: 10px auto;
+          background-color: $color-teal;
+          color: white;
+      }
+    }
+
+    .row {
+      margin: 0 auto;
+    }
+
+    .divider {
+      border-top: 2px solid $color-gray;
+      width: 100%;
+    }
+
+    .logo {
+      padding: 5%;
+      height: 200px;
+      img {
+        height: 150px;
+      }
+    }
+
+    .blurb {
+      padding: 5%;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    .content {
+
+      padding-top: 1%;
+      
+      &.htyi {
+        background: $background-htyi $color-peach;
+      }
+      &.wiki {
+        background: $background-wiki;      
+      }
+      &.wwdmm {
+        background: $background-wwdmm;
+      }
+      
+      .plans-info {
+        width: 60%;
+        margin: 10px auto;
+      }
+
+      .plans-buttons {
+        button {
+          border-radius: 25px;
+          height: 50px;
+          min-width: 50px;
+          padding: 0px 20px;
+          background-color: transparentize(red, 0.4);
+          color: white;
+        }
+      }
+
+      .plan-card {
+        background-colorw:white;
+        border-radius: 40px;
+        border: 2px solid $color-gray;
+
+        button {
+          border-radius: 25px;
+          height: 50px;
+          min-width: 50px;
+          background-color: $color-teal;
+          padding: 0px 20px;
+          color: white;
+        }
+
+      }
+
+      .how-to-play {
+        font-size: 1.4em;
+        background-color: $color-teal;
+        color: white;
+        padding: 5%;
+        margin: 4%;
+      }
+
+      .learning-guide {
+        background-color:white;
+        color: darken($color-gray, 30%);
+
+        padding: 5%;
+        
+        margin-top: 4%;
+        margin-left: 4%;
+        margin-right: 4%;
+
+        .col-sm-6 {
+          padding: 1%;
+          text-align: left;
+        }
+      }
+    }
+
+
+    &#wwdmm-page {
+      .blurb {
+        color: $color-teal;
+      }
+    }
+
+    &#wikigeeks-page {
+      .blurb {
+        color: $color-bright-red;
+      }
+    }
+
+    &#htyi-page {
+      .blurb {
+        color: $color-orange-yellow;
+      }
     }
   }
 
