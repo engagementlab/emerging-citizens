@@ -310,6 +310,12 @@ body.player .entry-footer {
     text-decoration: none;
     cursor: pointer; }
 
+#nav-close {
+  position: fixed;
+  z-index: 1000;
+  margin: 2.1%;
+  color: white; }
+
 #game-menu {
   position: absolute;
   top: 40px; }

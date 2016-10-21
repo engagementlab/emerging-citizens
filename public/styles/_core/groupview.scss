@@ -25,6 +25,13 @@
 	}
 }
 
+#nav-close {
+	position: fixed;
+	z-index: 1000;
+	margin: 2.1%;
+	color: white;
+}
+
 #game-menu {
 	position: absolute;
 	top: 40px;
@@ -57,11 +64,6 @@
 				font-size: 3em;
 				color: white;
 				cursor: pointer;
-
-				// &#nav-close {
-
-				// }
-
 
 				&:hover, &:focus {
 					color: darken(white, 20%);

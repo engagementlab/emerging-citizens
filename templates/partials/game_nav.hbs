@@ -1,19 +1,21 @@
 <!-- Top Navbar -->
 <div id="game-menu"><a id="nav-dropdown">menu</a></div>
 
-<nav class="navbar main nav-dropdown game-nav" style="display:none;">
+<nav class="navbar main nav-dropdown game-nav">
 
-<img  id="game-logoec" src="/images/layout/logo_ec.png" class="row">
+  <img id="game-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_300/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el">
   
   <div class="container">
-    <div id="navbar" class="">
+    <div id="navbar">
     <ul>
       <li><a href='/' target='_blank'>Home</a></li>
       <li><a href='/about' target='_blank'>About Page</a></li>
       <li><a href='/lessonPlans' target='_blank'>Lesson Plans</a></li>
       <li><a href='/help' target='_blank'>Help</a></li>
-      <li style="padding:5%;"><a id="nav-close">close</a></li>
+      {{!-- <li style="padding:5%;"><a id="nav-close">close</a></li> --}}
     </ul>
   </div>
+
 </nav>
+<div id="nav-close" class="hidden-el"><a id="nav-dropdown">close</a></div>
 <!-- End Navbar -->
