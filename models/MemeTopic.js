@@ -28,8 +28,8 @@ MemeTopic.add({
     
     topicName: { type: String, label: 'Topic Name', initial:true, required:true},
     topicDescriptors: { type: Types.TextArray, label: 'Descriptors' },
-    topicImage: { type: Types.CloudinaryImage, label: 'Topic Image', folder: 'emerging-citizens/wwdmm/topic-images', autoCleanup: true },
-    memeImages: { type: Types.CloudinaryImages, label: 'Meme Images', folder: 'emerging-citizens/wwdmm/meme-images', autoCleanup: true },
+    topicImage: { type: Types.CloudinaryImage, label: 'Topic Image', folder: 'emerging-citizens/wwdmm/topic-images', autoCleanup: true, note: "Images should be in square format to display properly" },
+    memeImages: { type: Types.CloudinaryImages, label: 'Meme Images', folder: 'emerging-citizens/wwdmm/meme-images', autoCleanup: true, note: "Images should be in square format to display properly" },
     category: {
         type: Types.Relationship,
         ref: 'ContentCategory',

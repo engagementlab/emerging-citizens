@@ -15,7 +15,61 @@
     -o-background-size: cover;
     background-size: cover;
 
-    
+    color: darken($color-gray, 40%);
+
+    .aboutResearch {
+        
+
+        .research {
+            padding: 0px 10%;
+
+            .about-title {
+                font-size: 2em;
+                text-align: left;
+            }
+
+            .research-text {
+                font-size: 1.2em;
+                text-align: justify;
+            }
+        }
+
+        img {
+            padding-right: 5%;
+        }
+    }
+
+    .feat-title, .bottom-title {
+        text-align: left;
+        width: 80%;
+        font-size: 2em;
+        margin: 40px auto;
+
+    }
+
+    .bottom-title {
+        margin-bottom: 10%;
+    }
+
+
+    .aboutFeatures {
+
+        width: 90%;
+        margin: 0 auto;
+
+        .feature {
+
+            .markdown-content {
+                h2 {
+
+                }
+            }
+
+        }
+
+    }
+
+
 
 }
 
@@ -24,5 +78,80 @@
 
 
 //LESSON PLAN PAGE
+
+
+// GAME PAGES 
+
+.coming-soon-plans {
+    font-size: 5em;
+    color: darken($color-gray, 30%);
+}
+
+
+// CATEGORIES 
+body.newgame {
+
+    &.htyi {
+        #session-create {
+            background-color: $color-peach;
+        }
+        #categories {
+
+            .category-box {
+                border: 5px solid lighten($color-orange, 20%);
+                background-color: white;
+                color: $color-orange;
+                margin: 2%;
+
+                .markdown-content {
+                    color: darken($color-gray, 30%);
+                }
+            }
+        }
+    }
+    &.wikigeeks {
+        #session-create {
+            background-color: $color-dodger-blue;
+            #categories {
+
+                .category-box {
+                    border: 5px solid lighten($color-dodger-blue, 20%);
+                    background-color: white;
+                    color: $color-dodger-blue;
+                    margin: 2%;
+
+                    .markdown-content {
+                        color: darken($color-gray, 30%);
+                    }
+                }
+            }
+        }
+    }
+    &.wwdmm {
+        #session-create {
+            background-color: $color-teal;
+        }
+
+        #categories {
+
+            .category-box {
+                border: 5px solid lighten($color-teal, 20%);
+                background-color: white;
+                color: $color-teal;
+                margin: 2%;
+
+                .markdown-content {
+                    color: darken($color-gray, 30%);
+                }
+            }
+        }
+    }
+}
+
+#session-create {
+    .form {
+        padding: 2%;
+    }
+}
 
 

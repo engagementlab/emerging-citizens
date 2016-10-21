@@ -142,7 +142,15 @@ body {
 .body.newgame {
 
   @include linear_transition(background, 0.5s);
-  background-color: #fdae8f;
+  &.htyi {
+	  background: $background-groupview, $color-peach !important;
+	}
+	&.wikigeeks {
+	  background-image: $background-wiki !important;
+	}
+	&.wwdmm {
+		background-image: $background-wwdmm !important;
+	}
 
 }
 

@@ -27,7 +27,7 @@ var WikiLink = new keystone.List('WikiLink', {
 
 WikiLink.add({
     articleName: { type: String, label: 'Destination Article Name', initial:true, required:true},
-    articleImage: { type: Types.CloudinaryImage, label: "Destination Article Image"},
+    articleImage: { type: Types.CloudinaryImage, label: "Destination Article Image", note: "Images should be in square format to display properly"},
     articleDescription: { type: Types.Markdown, label: 'Destination Article Description', initial:true, required:true},
 	category: {
         type: Types.Relationship,
