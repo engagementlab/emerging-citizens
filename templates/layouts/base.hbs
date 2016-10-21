@@ -29,7 +29,7 @@
                    <div class="container">
             {{/ifeq}}
 
-            {{#ifeq section "group/monitor"}}
+            {{#ifeq viewType "group"}}
 
                 {{> game_nav}}
                    <div class="container">
@@ -57,7 +57,7 @@
               </div>
           </section>
 
-          {{#ifnoteq section 'group/monitor'}}
+          {{#ifnoteq viewType 'group'}}
 
             <section id="loading-modal" class="modal">
               <div class="indicator"></div>
@@ -93,7 +93,7 @@
                   <div id="debug-info">
                   </div>
 
-                  {{#ifeq section 'group/monitor'}}
+                  {{#ifeq viewType 'group'}}
                       
                       <button id="template_reload" class="submit">reload</button>
                       <select id="template_selector" name="template_selector_player">

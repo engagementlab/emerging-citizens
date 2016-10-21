@@ -323,9 +323,6 @@
       
       socket.on(id, function(eventData) {
 
-      			// Clear prior content callback
-      			updateContentCallback = undefined;
-
             {{#ifnoteq environment "production"}}
 
                 $('#last-event').text('last event: ' + id);
