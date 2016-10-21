@@ -4,13 +4,13 @@
   <div class="aboutText">
     
   
-    {{{this.about.text.html}}}
+    {{{this.about.top_text.html}}}
 
   </div>
 
   <div class="aboutResearch">
-    {{{this.about.research.html}}}
-
+  <div class="research markdown-content">{{{this.about.research.html}}}</div>
+    <img src="{{{cloudinaryUrl this.about.image crop=scale width=300}}}" >
   </div>
 
   {{!-- <div class="aboutPeople">

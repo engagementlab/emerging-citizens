@@ -36,13 +36,15 @@ AboutPage.add({
 
 }, 
 		'Features', {
-			what_text: { type: Types.Markdown, label: 'Features Title Text' }, 
-			no_downloads: { type: Types.Markdown, label: 'No downloads paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			no_downloads_img: { type: Types.CloudinaryImage, label: "No Downloads Image"}, 
-			three_games: { type: Types.Markdown, label: 'Three Games, Three Modalities Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			three_games_img: { type: Types.CloudinaryImage, label: "Step Two Image"}, 
-			lesson_guides: { type: Types.Markdown, label: 'Lesson Guides Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			lesson_guides_img: { type: Types.CloudinaryImage, label: "Lesson Guides Image"}
+			title_text: { type: Types.Markdown, label: 'Features Title Text' }, 
+			feat_one: { type: Types.Markdown, label: 'Feature one paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			feat_one_img: { type: Types.CloudinaryImage, label: "Feature One Image"}, 
+			feat_two: { type: Types.Markdown, label: 'Feature Two Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			feat_two_img: { type: Types.CloudinaryImage, label: "Feature Two Image"}, 
+			feat_three: { type: Types.Markdown, label: 'Feature Three Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			feat_three_img: { type: Types.CloudinaryImage, label: "Feature Three Image"}, 
+			feat_four: { type: Types.Markdown, label: 'Feature Four Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			feat_four_img: { type: Types.CloudinaryImage, label: "Feature Four Image"}
 
 });
 
