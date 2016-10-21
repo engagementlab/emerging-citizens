@@ -52,7 +52,7 @@ GameConfig.add({
 	}, 
 
 	'Lesson Guide', {
-			gameLogo: { type: Types.CloudinaryImage, label: 'Game logo'},
+			gameLogo: { type: Types.CloudinaryImage, label: 'Game logo', note: "Images should be in square format to display properly"},
 	    text: { type: Types.Markdown, label: 'Byline' }, 
 	    lessonPlanBlurb: { type: Types.Markdown, label: 'Lesson Plan Blurb' }, 
 			lessonGuide: { type: Types.Markdown, label: "Lesson Guide/Learning Goals for this game" },

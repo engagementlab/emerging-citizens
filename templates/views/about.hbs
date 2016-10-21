@@ -1,64 +1,45 @@
-<div class="row aboutPage" id="about">
-{{!-- {{jsonPrint this}}  --}}
+<div class="col-sm-12 aboutPage" id="about">
 
-  <div class="aboutText">
-    
-  
-    {{{this.about.top_text.html}}}
+  <div class="aboutResearch row">
+
+    <div class="col-sm-8 research">
+      <div class="row about-title markdown-content">{{{this.about.top_text.html}}}</div>
+      <div class="row research-text markdown-content">{{{this.about.research.html}}}</div>
+    </div>
+
+    <img class="col-sm-4" src="{{{cloudinaryUrl this.about.image crop=scale width=300}}}" >
+  </div>
+
+
+  <div class="row feat-title markdown-content">{{{this.about.title_text.html}}}</div>
+
+  <div class="aboutFeatures row">
+
+    <div class="feature col-sm-3">
+      <img src="{{{cloudinaryUrl this.about.feat_one_img crop=scale height=200}}}" >
+      <div class="markdown-content">{{{this.about.feat_one.html}}}</div>
+    </div>
+
+    <div class="feature col-sm-3">
+      <img src="{{{cloudinaryUrl this.about.feat_two_img crop=scale height=200}}}" >
+      <div class="markdown-content">{{{this.about.feat_two.html}}}</div>
+    </div>
+
+    <div class="feature col-sm-3">
+      <img src="{{{cloudinaryUrl this.about.feat_three_img crop=scale height=200}}}" >
+      <div class="markdown-content">{{{this.about.feat_three.html}}}</div>
+    </div>
+
+    <div class="feature col-sm-3">
+      <img src="{{{cloudinaryUrl this.about.feat_four_img crop=scale height=200}}}" >
+      <div class="markdown-content">{{{this.about.feat_four.html}}}</div>
+    </div>
+
 
   </div>
 
-  <div class="aboutResearch">
-  <div class="research markdown-content">{{{this.about.research.html}}}</div>
-    <img src="{{{cloudinaryUrl this.about.image crop=scale width=300}}}" >
-  </div>
+  <div class="row bottom-title markdown-content">{{{this.about.bottom_text.html}}}</div>
 
-  {{!-- <div class="aboutPeople">
-    <h2>People</h2>
-    <div class="teachers row">
-    <h4>Teachers</h4>
-    {{#each this.person}}
-      {{#ifeq this.type "teacher"}}
-
-        <div class="col-sm-6 col-md-3 team-member">
-          <div class="image-box style-2 mb-20 text-center">
-              
-              <img class="person-image" src="{{{cloudinaryUrl this.image}}}" alt="{{this.name.first}} {{this.name.last}}" class="photo">
-              
-              <div class="person-info">
-                <h3 class="margin-clear theme-primary">{{this.name.first}} {{this.name.last}}</h3>
-                <p>{{this.type}}</p>
-              </div>
-
-          </div>
-        </div>
-      {{/ifeq}}
-    {{/each}}
-    </div>
-
-    <div class="partners row">
-    <h4>Partners</h4>
-    {{#each this.person}}
-
-      {{#ifeq this.type "partner"}}
-
-      <div class="col-sm-6 col-md-3 team-member">
-          <div class="image-box style-2 mb-20 text-center">
-              
-              <img class="person-image" src="{{{cloudinaryUrl this.image}}}" alt="{{this.name.first}} {{this.name.last}}" class="photo">
-              
-              <div class="person-info">
-                <h3 class="margin-clear theme-primary">{{this.name.first}} {{this.name.last}}</h3>
-                <p>{{this.type}}</p>
-              </div>
-
-          </div>
-        </div>
-      {{/ifeq}}
-    {{/each}}
-
-    </div>
-  </div> --}}
   
 
 </div>

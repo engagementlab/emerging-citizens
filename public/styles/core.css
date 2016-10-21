@@ -304,7 +304,7 @@ body.player .entry-footer {
   display: block;
   text-align: center;
   font-size: 2em;
-  color: white; }
+  color: #d9d9d9; }
   #nav-dropdown:hover, #nav-dropdownfocus {
     color: #b3b3b3;
     text-decoration: none;
@@ -314,6 +314,10 @@ body.player .entry-footer {
   position: fixed;
   z-index: 1000;
   margin: 2.1%; }
+
+body.landing #nav-close {
+  position: relative;
+  margin: 0px; }
 
 #game-menu {
   position: absolute;
@@ -1016,7 +1020,67 @@ body.player .entry-footer {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  color: gray; }
+  .aboutPage .aboutResearch .research {
+    padding: 0px 10%; }
+    .aboutPage .aboutResearch .research .about-title {
+      font-size: 2em;
+      text-align: left; }
+    .aboutPage .aboutResearch .research .research-text {
+      font-size: 1.2em;
+      text-align: justify; }
+  .aboutPage .aboutResearch img {
+    padding-right: 5%; }
+  .aboutPage .feat-title, .aboutPage .bottom-title {
+    text-align: left;
+    width: 80%;
+    font-size: 2em;
+    margin: 40px auto; }
+  .aboutPage .bottom-title {
+    margin-bottom: 10%; }
+  .aboutPage .aboutFeatures {
+    width: 90%;
+    margin: 0 auto; }
+
+.coming-soon-plans {
+  font-size: 5em;
+  color: #999999; }
+
+body.newgame.htyi #session-create {
+  background-color: #ff9971; }
+
+body.newgame.htyi #categories .category-box {
+  border: 5px solid #fec6be;
+  background-color: white;
+  color: #FD6D59;
+  margin: 2%; }
+  body.newgame.htyi #categories .category-box .markdown-content {
+    color: #999999; }
+
+body.newgame.wikigeeks #session-create {
+  background-color: #31b9ff; }
+  body.newgame.wikigeeks #session-create #categories .category-box {
+    border: 5px solid #97dcff;
+    background-color: white;
+    color: #31b9ff;
+    margin: 2%; }
+    body.newgame.wikigeeks #session-create #categories .category-box .markdown-content {
+      color: #999999; }
+
+body.newgame.wwdmm #session-create {
+  background-color: #36d5d9; }
+
+body.newgame.wwdmm #categories .category-box {
+  border: 5px solid #8ce7e9;
+  background-color: white;
+  color: #36d5d9;
+  margin: 2%; }
+  body.newgame.wwdmm #categories .category-box .markdown-content {
+    color: #999999; }
+
+#session-create .form {
+  padding: 2%; }
 
 @media (min-width: 1024px) {
   body .container {
@@ -2752,8 +2816,13 @@ html {
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
-  transition: background 0.5s linear;
-  background-color: #fdae8f; }
+  transition: background 0.5s linear; }
+  .body.newgame.htyi {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
+  .body.newgame.wikigeeks {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
+  .body.newgame.wwdmm {
+    background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 .body.player.wikigeeks {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }

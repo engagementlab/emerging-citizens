@@ -16,7 +16,7 @@
 	display: block;
 	text-align:center;
 	font-size: 2em;
-	color: white;
+	color: darken(white, 15%);
 
 	&:hover, &focus {
 		color: darken(white, 30%);
@@ -29,6 +29,13 @@
 	position: fixed;
 	z-index: 1000;
 	margin: 2.1%;
+}
+
+body.landing {
+	#nav-close {
+		position: relative;
+		margin: 0px;
+	}
 }
 
 #game-menu {

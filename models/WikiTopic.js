@@ -27,7 +27,7 @@ var WikiTopic = new keystone.List('WikiTopic', {
 
 WikiTopic.add({
     topicName: { type: String, label: 'Topic Name', initial:true, required:true},
-    topicImage: { type: Types.CloudinaryImage, label: "Topic Image"},
+    topicImage: { type: Types.CloudinaryImage, label: "Topic Image", note: "Images should be in square format to display properly"},
     topicDescription: { type: Types.Markdown, label: 'Topic Description', initial:true, required:true},
 	category: {
         type: Types.Relationship,

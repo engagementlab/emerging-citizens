@@ -1,6 +1,6 @@
 {{!-- {{> group/header_htyi }} --}}
 
-<div class="page-container">
+<div class="page-container category-page {{lowerCase whichGame}}">
     <div class="row">
         <div class="col-sm-12">                
             {{!-- <select id="game_type" name="gameType">
@@ -13,16 +13,16 @@
             <div id="session-create" class="submission col-sm-6 input-box">
                 {{!-- <div class="form-prompt white">de-select any content to not include in this session:</div> --}}
                 <div class="form">
-                    <div id="categories">
+                    <div id="categories" class="row ">
                         {{#each categories}}
-                        <div class="category-box">
-                            {{{text.html}}}
-                            <button value="{{id}}" class="voting-button active submit">{{topicName}}</button>
+                        <div class="category-box col-sm-4">
+                            <div class="markdown-content"><h2>{{topicName}}</h2>{{{text.html}}}</div>
+                            <button value="{{id}}" class="voting-button active submit">Select</button>
                         </div>
                         {{/each}} 
                     </div> 
-                    <div class="form-prompt white">access code:</div>
-                    <div id="access-code">{{gameCode}}</div>
+                    {{!-- <div class="form-prompt white">access code:</div>
+                    <div id="access-code">{{gameCode}}</div> --}}
 
                     <div class="error">Error!</div>
                     <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="Start!">       
