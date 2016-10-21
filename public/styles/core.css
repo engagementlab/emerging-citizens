@@ -304,7 +304,7 @@ body.player .entry-footer {
   display: block;
   text-align: center;
   font-size: 2em;
-  color: #cccccc; }
+  color: white; }
   #nav-dropdown:hover, #nav-dropdownfocus {
     color: #b3b3b3;
     text-decoration: none;
@@ -313,8 +313,7 @@ body.player .entry-footer {
 #nav-close {
   position: fixed;
   z-index: 1000;
-  margin: 2.1%;
-  color: white; }
+  margin: 2.1%; }
 
 #game-menu {
   position: absolute;
