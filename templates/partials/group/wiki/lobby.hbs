@@ -11,11 +11,13 @@
                         <div class="col-lg-12 col-sm-12" style="margin: 3% auto;">
                             <h1 class="wait-players game-header light bright-red-font">
                             Go to <span class="teal-font" style="padding-left:1%;"> 
-                            {{#ifeq environment "production"}}
+                            {{jsonPrint this}}
+                            {{game.play_link}}
+                            {{!-- {{#ifeq environment "production"}}
                             ecplay.org
                             {{else}}
                             qa.ecplay.org
-                            {{/ifeq}}
+                            {{/ifeq}} --}}
                             </span><br />on your smartphone or tablet to join</h1>
                         </div>
                     </div>

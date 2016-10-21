@@ -34,6 +34,7 @@ ComingSoon.add({
     htyi_blurb: { type: Types.Markdown, label: 'HTYI Blurb', required: true, initial: true },
     wwdmm_blurb: { type: Types.Markdown, label: 'WWDMM Blurb', required: true, initial: true },
 		wiki_blurb: { type: Types.Markdown, label: 'Wiki Blurb', required: true, initial: true }
+		
 
 });
 
