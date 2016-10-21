@@ -310,6 +310,12 @@ body.player .entry-footer {
     text-decoration: none;
     cursor: pointer; }
 
+#nav-close {
+  position: fixed;
+  z-index: 1000;
+  margin: 2.1%;
+  color: white; }
+
 #game-menu {
   position: absolute;
   top: 40px; }
@@ -1043,9 +1049,24 @@ body.player .entry-footer {
         height: 160px;
         padding-left: 5px;
         width: 100%;
-        opacity: 0.3; }
+        opacity: 0.3;
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -moz-transition: transform, 0.5s, ease-out-elastic;
+        -o-transition: transform, 0.5s, ease-out-elastic;
+        -webkit-transition: transform, 0.5s, ease-out-elastic;
+        transition: transform, 0.5s, ease-out-elastic;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
         .body.htyi .players .player-background .icon.active {
-          opacity: 1; }
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
         .body.htyi .players .player-background .icon img {
           width: 140px;
           height: 140px;

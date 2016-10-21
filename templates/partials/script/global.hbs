@@ -378,13 +378,31 @@
 		// Global nav
 		{{#ifeq viewType 'group'}}
 
-			$("#nav-dropdown").on('click', function() {
-				$('#game-menu').hide();
+			var openAnim = new TimelineLite({paused: true})				
+			.to($('#game-menu'), .3, {autoAlpha:0})
+			.from($('.nav-dropdown'), .5, {autoAlpha:0})
+			.from($('#game-logo'), .5, {yPercent:50, scale:0, autoAlpha:0, ease: Elastic.easeOut})
+			.from($('#nav-close'), .5, {scale:0, autoAlpha:0, display:'none', ease: Elastic.easeOut})
+			.staggerFrom($('#navbar li'), .6, {yPercent:50, scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1);
+
+			var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
+			.staggerTo($('#navbar li'), .6, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
+			.to($('#game-logo'), .5, {yPercent:50, autoAlpha:0})
+			.to($('#nav-close'), .5, {autoAlpha:0, display:'none'})
+			.to($('.nav-dropdown'), .5, {autoAlpha:0, display:'none'})
+			.to($('#game-menu'), .4, {autoAlpha:1});
+
+			$("#nav-dropdown").click(function() {
 				$('.nav-dropdown').show();
+				$('#nav-close').show();
+
+				openAnim.play(0);
+
 			});
-			$('#nav-close').on('click', function() {
-				$('.nav-dropdown').hide();
-				$('#game-menu').show();
+			$('#nav-close').click(function() {
+
+				closeAnim.play();
+
 			});
 
 		{{/ifeq}}

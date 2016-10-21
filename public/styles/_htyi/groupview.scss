@@ -85,8 +85,13 @@
 				width: 100%;
 				opacity: 0.3;
 
+				@include scale(.9);
+			  @include transition(transform, .5s, ease-out-elastic);
+			  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+
 				&.active {
 					opacity: 1;
+					@include scale(1.1);
 				}
 
 				img {
