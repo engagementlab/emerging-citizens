@@ -1006,6 +1006,10 @@ body.landing #nav-close {
   .landing .game-about#htyi-page .blurb {
     color: #ffa800; }
 
+@media (min-width: 2000px) {
+  body.newgame .page-container {
+    margin-top: 3%; } }
+
 .aboutPage {
   background: #5DD9D6;
   /* For browsers that do not support gradients */
@@ -1047,37 +1051,99 @@ body.landing #nav-close {
   font-size: 5em;
   color: #999999; }
 
+body.newgame #btn_submit {
+  color: white;
+  border: none;
+  outline: 0; }
+
+body.newgame #session-create {
+  width: 80%;
+  margin: 0 auto;
+  left: 10%; }
+
+body.newgame #logo_ec {
+  background-color: white;
+  margin-bottom: 5%; }
+
+body.newgame .category-box {
+  min-height: 225px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2%; }
+  body.newgame .category-box h2 {
+    font-size: 1.3em; }
+  body.newgame .category-box button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 10%;
+    left: -2%;
+    width: 100%; }
+    body.newgame .category-box button:focus {
+      outline: 0; }
+
 body.newgame.htyi #session-create {
-  background-color: #ff9971; }
+  background-color: #ff9971;
+  border: none; }
 
 body.newgame.htyi #categories .category-box {
   border: 5px solid #fec6be;
   background-color: white;
   color: #FD6D59;
   margin: 2%; }
+  body.newgame.htyi #categories .category-box.selected {
+    border: 5px solid #ed1f03; }
   body.newgame.htyi #categories .category-box .markdown-content {
     color: #999999; }
+  body.newgame.htyi #categories .category-box button {
+    color: #FD6D59; }
+
+body.newgame.htyi #btn_submit {
+  background-color: #FD6D59; }
+  body.newgame.htyi #btn_submit:hover {
+    background-color: #ed1f03; }
 
 body.newgame.wikigeeks #session-create {
-  background-color: #31b9ff; }
-  body.newgame.wikigeeks #session-create #categories .category-box {
-    border: 5px solid #97dcff;
-    background-color: white;
-    color: #31b9ff;
-    margin: 2%; }
-    body.newgame.wikigeeks #session-create #categories .category-box .markdown-content {
-      color: #999999; }
+  background-color: #0be8d4;
+  border: none; }
+
+body.newgame.wikigeeks #categories .category-box {
+  border: 5px solid #61f8ea;
+  background-color: white;
+  color: #0be8d4;
+  margin: 2%; }
+  body.newgame.wikigeeks #categories .category-box.selected {
+    border: 5px solid #06877b; }
+  body.newgame.wikigeeks #categories .category-box .markdown-content {
+    color: #999999; }
+  body.newgame.wikigeeks #categories .category-box button {
+    color: #0be8d4; }
+
+body.newgame.wikigeeks #btn_submit {
+  background-color: #0be8d4; }
+  body.newgame.wikigeeks #btn_submit:hover {
+    background-color: #06877b; }
 
 body.newgame.wwdmm #session-create {
-  background-color: #36d5d9; }
+  background-color: #31b9ff;
+  border: none; }
 
 body.newgame.wwdmm #categories .category-box {
-  border: 5px solid #8ce7e9;
+  border: 5px solid #97dcff;
   background-color: white;
-  color: #36d5d9;
+  color: #31b9ff;
   margin: 2%; }
+  body.newgame.wwdmm #categories .category-box.selected {
+    border: 5px solid #0085ca; }
   body.newgame.wwdmm #categories .category-box .markdown-content {
     color: #999999; }
+  body.newgame.wwdmm #categories .category-box button {
+    color: #31b9ff; }
+
+body.newgame.wwdmm #btn_submit {
+  background-color: #31b9ff; }
+  body.newgame.wwdmm #btn_submit:hover {
+    background-color: #0085ca; }
 
 #session-create .form {
   padding: 2%; }
