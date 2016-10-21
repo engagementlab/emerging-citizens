@@ -584,18 +584,17 @@ body.player .entry-footer {
 .gameLanding {
   margin-right: -15px;
   margin-left: -15px;
-  margin: 0 auto;
   margin-bottom: 3%;
+  margin: 0 auto;
   color: gray;
   align-items: center; }
   .gameLanding .row {
     margin-right: -30px;
     margin-left: -30px; }
-  .gameLanding .top {
-    height: 80vh; }
-    @media (max-width: 769px) {
-      .gameLanding .top {
-        height: 60vh; } }
+  @media (max-width: 769px) {
+    .gameLanding .top {
+      padding-left: 15px;
+      padding-right: 15px; } }
   .gameLanding .top-section {
     height: 100%;
     padding: 0px 3%;
@@ -825,8 +824,7 @@ body.player .entry-footer {
 
 .games-row {
   width: auto;
-  margin: 0 auto;
-  height: 90vh; }
+  margin: 0 auto; }
   .games-row img {
     height: 200px; }
   .games-row .col-sm-4 {

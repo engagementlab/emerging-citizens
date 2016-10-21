@@ -13,33 +13,28 @@
 
 .gameLanding {
 
-
-  
-  // margin-top: 3%;
-
-  // width: 90%;
   margin-right: -15px;
   margin-left: -15px;
+  margin-bottom: 3%;
   margin:0 auto;
-    margin-bottom: 3%;
-    color: darken($color-gray, 40%);
+  color: darken($color-gray, 40%);
 
   align-items: center;
 
   .row {
     margin-right: -30px;
-    margin-left: -30px;
-
-    
+    margin-left: -30px;    
   }
 
   .top {
-      height: 80vh;
+    // height: 80vh;
 
-      @media (max-width: 769px) {
-        height: 60vh;
-      }
+    @media (max-width: 769px) {
+      // height: 60vh;
+      padding-left: 15px;
+      padding-right: 15px;
     }
+  }
   
   .top-section {
     height: 100%;
@@ -396,20 +391,16 @@
   }
 }
 .games-row {
-  // padding-top: 5%;
   width: auto;
   margin: 0 auto;
-  height: 90vh;
-  // padding-bottom: 5%;
+
   img {
     height: 200px;
-    // width: 200px;
   }
-  .col-sm-4{
+  .col-sm-4 {
     padding: 40px 0px;
     margin: 20px auto;
     background-color: white;
-    // width: auto;
   }
 }
 
