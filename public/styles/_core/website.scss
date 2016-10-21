@@ -1,0 +1,26 @@
+// EC Website Other Than Homepage
+
+//ABOUT PAGE
+
+.aboutPage {
+
+  background: $homepage-color; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+
+//HELP PAGE
+
+
+//LESSON PLAN PAGE
+
+

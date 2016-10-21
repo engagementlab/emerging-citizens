@@ -7,6 +7,7 @@
 @import "_core/groupview";
 @import "_core/comingsoon";
 @import "_core/homepage";
+@import "_core/website";
 @import "_core/media";
 
 // Game-specific styling
@@ -20,13 +21,26 @@
 html, body {
 	max-height: 100%;	
 	max-width:100%;
+	// height:100%;
 	overflow-x: hidden;
-		background: $homepage-color; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to bottom, white, $homepage-color 40%, white 50%); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom, white, $homepage-color 40%, white 50%);
+		
 
+}
+html {
+	height:100%;
+}
+
+body {
+	// height:100%;
+	
+  //    background-color: #ffffff; // Old browsers
+		// @include filter-gradient(#ffffff, $homepage-color, vertical); // IE6-9
+		// @include background-image(linear-gradient(top, #ffffff 1%,#1e5799 43%));
+}
+
+.container {
+	width: 100% !important;
+	padding: 0px !important;
 }
 
 // Bootstrap override
@@ -280,6 +294,14 @@ footer {
 	}
 }
 
+.left-text {
+	text-align: left;
+}
+
+.bold {
+	font-weight: bold;
+}
+
 .orange {
 	background-color: $color-light-orange;
 }
@@ -298,6 +320,13 @@ footer {
 
   .white-font {
   	color: white;
+  }
+
+  .gray-font {
+  	color: darken($color-gray, 30%);
+  }
+  .dark-gray-font {
+  	color: darken($color-gray, 50%);
   }
 
 .orange-font {
@@ -361,103 +390,7 @@ footer {
 	z-index: 1000;
 }
 
-.gameLanding {
 
-
-	
-	// margin-top: 3%;
-
-  // width: 90%;
-  margin-right: -15px;
-  margin-left: -15px;
-  margin:0 auto;
-    margin-bottom: 3%;
-    color: darken($color-gray, 40%);
-
-  align-items: center;
-
-  .row {
-  	margin-right: -30px;
-  	margin-left: -30px;
-  }
-
-  button.more {
-  	width: auto;
-  	height: 80px;
-  	border-radius: none;
-  	border: none;
-  	background: lighten($homepage-color, 17%);
-  	color: white;
-  	font-weight: bold;
-  	font-size: 3.5em;
-  	padding: 0px 20px
-
-  }
-	.top-section {
-		height: 80vh;
-		padding: 0px 3%;
-		padding-bottom:5%;
-		margin-left:-30px;
-		margin-right:-30px;
-		width: 100%;
-		margin: 0 auto;
-		display: inline-block;
-		
-		// border-bottom: 2px $color-gray solid;
-			
-
-	}
-
-
-	.what-bubbles {
-
-		width: 90%;
-		margin: 0 auto;
-		margin-top: 3%;
-		p {
-			font-size: 1.2em;
-		}
-		img {
-			width: 160px;
-			height: 160px;
-			border-radius: 80px;
-			border: 2px darken($color-gray, 40%) solid;
-		}
-	}
-
-	h1 {
-			width:100%;
-			font-size: 5em;
-			text-align:left;
-			margin:0px;
-			
-			} 
-		h3 {
-			font-size: 2.3em;
-			// text-align:left;
-			width: 100%;
-			// color: darken($color-gray, 40%);
-		}
-  
-	@include tablet-landscape-and-up {
-		#desktop {
-			display: block;
-		}
-		#mobile {
-			display: none;
-		}
-	}
-
-	@include mobile-only {
-		#desktop {
-			display: none;
-		}
-		#mobile {
-			display: block;
-		}
-	}
-
-}
 
 #gameContent {
 
