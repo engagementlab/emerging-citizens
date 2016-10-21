@@ -205,14 +205,47 @@
 // }
 .what-text {
   background-color: white;
+
+
+  h1 {
+    &.markdown-content{
+      font-size: 2em;
+        width: 60%;
+        margin: 0px auto;
+        color: $color-teal;
+        line-height: 1.2;
+      p {
+        text-align: center;
+      }
+      
+    }
+  }
+  .markdown-content {
+    text-align: center;
+
+    h2 {
+      font-size: 1.6em;
+      // width: 60%;
+      margin: 0px auto;
+      color: $color-teal;
+      line-height: 1.2;
+    }
+
+    p {
+      text-align: justify;
+
+    }
+  }
   
 
   h2 {
-    width: 60%;
+    // width: 60%;
     margin: 0 auto;
     font-size: 3em;
     text-align: center;
-  }
+
+    
+ }
 
   h3 {
     font-size: 2em !important;
@@ -232,8 +265,103 @@
       display: block;
       height: 120px;
       margin: 20px auto;
+      filter: alpha(opacity=50);
+      opacity: 0.5;
     }
   }
+}
+
+.how-works {
+  .how-works-top {
+    background: $color-gray;
+    text-align: justify;
+    width: 100%;
+    margin: 0 auto;
+
+    h2 {
+      font-size: 2.4em;
+      text-align: center;
+      margin: 30px auto;
+
+    }
+
+    .markdown-content {
+      // font-style: bold;
+      font-size: 1.2em;
+      width: 80%;
+      margin: 0 auto;
+      text-align: justify;
+    }
+  }
+
+  .step-one {
+
+    .markdown-content {
+      width: 40%;
+      font-size: 1.6em;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    img {
+      margin: 0 auto;
+      display: inherit;
+    }
+
+  }
+
+  .step-two-three {
+
+    width: 80%;
+    margin: 0 auto;
+
+    .markdown-content {
+      width: 80%;
+      font-size: 1.2em;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    img {
+
+    }
+
+  }
+
+  .step-four {
+    margin-top: 5%;
+    background-color: $color-gray;
+    .markdown-content {
+      width: 60%;
+      font-size: 1.6em;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .step-five {
+    margin-top: 5%;
+    .markdown-content {
+      width: 60%;
+      font-size: 1.6em;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .final-step {
+    margin-top: 5%;
+    background-color: $color-gray;
+    .markdown-content {
+      width: 60%;
+      font-size: 1.6em;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  
+
+
 }
 
 #home-page-banner {

@@ -36,6 +36,17 @@ HomePage.add({
 		wiki_blurb: { type: Types.Markdown, label: 'Wiki Blurb', required: true, initial: true }
 }, 
 
+'What is Emerging Citizens', {
+			what_text: { type: Types.Markdown, label: 'Title Text' }, 
+			no_downloads: { type: Types.Markdown, label: 'No downloads paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			no_downloads_img: { type: Types.CloudinaryImage, label: "No Downloads Image"}, 
+			three_games: { type: Types.Markdown, label: 'Three Games, Three Modalities Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			three_games_img: { type: Types.CloudinaryImage, label: "Three Games, Three Modalitites Image"}, 
+			lesson_guides: { type: Types.Markdown, label: 'Lesson Guides Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
+			lesson_guides_img: { type: Types.CloudinaryImage, label: "Lesson Guides Image"}
+			
+},
+
 	'How The Platform Works', {
 			rationale: { type: Types.Markdown, label: 'Blurb about how to play' }, 
 			step_one: { type: Types.Markdown, label: 'Step One Paragraph'}, 
@@ -50,17 +61,6 @@ HomePage.add({
 			step_five_img: { type: Types.CloudinaryImage, label: "Step Five Image"}, 
 			final_info: { type: Types.Markdown, label: 'Final Step Paragraph'}, 
 			final_info_img: { type: Types.CloudinaryImage, label: "Final Step Image"}
-}, 
-
-'What is Emerging Citizens', {
-			what_text: { type: Types.Markdown, label: 'Title Text' }, 
-			no_downloads: { type: Types.Markdown, label: 'No downloads paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			no_downloads_img: { type: Types.CloudinaryImage, label: "No Downloads Image"}, 
-			three_games: { type: Types.Markdown, label: 'Three Games, Three Modalities Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			three_games_img: { type: Types.CloudinaryImage, label: "Step Two Image"}, 
-			lesson_guides: { type: Types.Markdown, label: 'Lesson Guides Paragraph', note: "Make sure to make title of paragraph a H2 element"}, 
-			lesson_guides_img: { type: Types.CloudinaryImage, label: "Lesson Guides Image"}
-			
 });
 
 /**

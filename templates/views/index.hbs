@@ -12,7 +12,7 @@
           <button class="more">Learn More</button>
         </div>
         <div class="col-md-6">  
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
+          <img style="height:100%; width: 100%;" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1477080288/emerging-citizens/Desktop_Login_ijehgy.png">
         </div>
 
       </div>
@@ -24,7 +24,8 @@
     <div class="row games-row">
     
       <div class="col-sm-4">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
+      <img src="{{{cloudinaryImg what.htyi_image crop=scale height=200}}}">
+
         <div id="hashtag-info" class="home-page-info current">
 
           
@@ -37,7 +38,7 @@
       </div>
       
       <div class="col-sm-4">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
+      <img src="{{{cloudinaryImg what.wiki_image crop=scale height=200}}}">
         <div id="geeks-info" class="home-page-info current">
           
           
@@ -54,7 +55,7 @@
 
 
       <div class="col-sm-4">  
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">    
+      <img src="{{{cloudinaryImg what.wwdmm_image crop=scale height=200}}}">   
         <div id="meme-info" class="home-page-info current">
 
           
@@ -73,21 +74,21 @@
     <div class="row what-text">
 
       {{!-- <p>{{{what.text.html}}}</p> --}}
-      <h2 class="teal-font">Emerging Citizens <span class="light">allows students an accessible way to engage in civic media, game-based experience</span></h2>
+      <h1 class="teal-font markdown-content">{{{content.what_text.html}}}</h1>
       <div class="col-sm-4">
-      <img src="http://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993613/emerging-citizens/nodownloads_wmxwxo.png">  
-        <h3 class="teal-font">No installations, no downloads, no logins, no problem</h3>
-        <p>Emerging Citizens is accessed and played thorugh our website, so therre is no need to download applications or conenct devices on the same network. Learn below how to start a game in 3 simple steps! It's that easy!</p>
+        <img src="{{{cloudinaryImg content.no_downloads_img crop=scale height=200}}}">  
+        <div class="markdown-content">{{{content.no_downloads.html}}}</div>
+
       </div>
       <div class="col-sm-4">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993581/emerging-citizens/computer_qv2lyg.png">  
-        <h3 class="teal-font">Three games, three modalities, one easy to use platform</h3>
-        <p>Emerging Citizens consists of three games: hashtag You're It, WikiGeeks, and Wait Wait Don't Meme Me! Each game encourages players to engage with cultural, educational , or political topics while focusing on a specific, 21st century, digital modality (Memes, Hashtags, or Hyperlinks).</p>
+        <img src="{{{cloudinaryImg content.three_games_img crop=scale height=200}}}">  
+        <div class="markdown-content">{{{content.three_games.html}}}</div>
+
       </div>
       <div class="col-sm-4">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/o_30/v1476993611/emerging-citizens/lightbulb_ywkyk5.png">  
-        <h3 class="teal-font">Lesson guides and subject specific content to keep learning focused</h3>
-        <p>Research suppoted lesson guides help facillitators teach students about hashtags, meme,s and wikis within a media literacy context. Each content category is provided a specifc lesson plan to help facilitators integrate Emerging Citizens into subject specific curriculums.</p>
+        <img src="{{{cloudinaryImg content.lesson_guides_img crop=scale height=200}}}">  
+        <div class="markdown-content">{{{content.lesson_guides.html}}}</div>
+
       </div>
     </div>
 
@@ -97,16 +98,49 @@
 
       <div class="how-works col-sm-12 col-md-12 col-lg-12">
 
-          <div class="row how-works-blurb">
+          <div class="row how-works-top">
             <h2 class="teal-font">How the <span class="dark-gray-font light">Emerging</span><span class="dark-gray-font bold">Citizens</span> Platform Works</h2>
-            <p></p>
+            <div class="light markdown-content">{{{content.rationale.html}}}</div>
+
+            <div class="row step-one">
+              <div class="markdown-content">{{{content.step_one.html}}}</div>
+              <img src="{{{cloudinaryImg content.step_one_img crop=scale height=700}}}">
+
+            </div>
+          </div>
+          <div class="row step-two-three">
+            <div class="col-sm-6 step-two">
+              <img src="{{{cloudinaryImg content.step_two_img crop=scale height=300}}}">
+              <div class="markdown-content">{{{content.step_two.html}}}</div>
+
+            </div>
+            <div class="col-sm-6 step-three">
+              <img src="{{{cloudinaryImg content.step_three_img crop=scale height=300}}}">
+              <div class="markdown-content">{{{content.step_three.html}}}</div>
+
+            </div>
           </div>
 
-          <div class="row step-one">
-            <p></p>
-            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1477070661/emerging-citizens/screens_tyxuqi.png">
+          
 
+          <div class="row step-four">
+              
+              <img src="{{{cloudinaryImg content.step_four_img crop=scale height=300}}}">
+              <div class="markdown-content">{{{content.step_four.html}}}</div>
           </div>
+
+          <div class="row step-five">
+              
+              <img src="{{{cloudinaryImg content.step_five_img crop=scale height=300}}}">
+              <div class="markdown-content">{{{content.step_five.html}}}</div>
+          </div>
+          <div class="row final-step">
+              
+              <img src="{{{cloudinaryImg content.final_info_img crop=scale height=300}}}">
+              <div class="markdown-content">{{{content.final_info.html}}}</div>
+          </div>
+
+          
         
       </div>
 
