@@ -373,76 +373,6 @@ body.player .entry-footer {
   width: 300px;
   height: 300px; }
 
-.game-page {
-  background-color: white;
-  width: 90%;
-  margin: 0 auto;
-  border-radius: 40px;
-  display: inline-block; }
-  .game-page .game-buttons .button {
-    border-radius: 25px;
-    height: 60px;
-    line-height: 60px;
-    display: inline-block;
-    min-width: 100px;
-    padding: 0px 20px;
-    margin: 10px auto;
-    background-color: #36d5d9;
-    color: white; }
-  .game-page .row {
-    margin: 0 auto; }
-  .game-page .divider {
-    border-top: 2px solid #e6e6e6;
-    width: 100%; }
-  .game-page .logo {
-    padding: 5%;
-    height: 200px; }
-    .game-page .logo img {
-      height: 150px; }
-  .game-page .blurb {
-    padding: 5%;
-    width: 60%;
-    margin: 0 auto; }
-  .game-page .content {
-    margin-top: 5%; }
-    .game-page .content .plans-info {
-      width: 60%;
-      margin: 10px auto; }
-    .game-page .content .plans-buttons button {
-      border-radius: 25px;
-      height: 50px;
-      min-width: 50px;
-      padding: 0px 20px;
-      background-color: rgba(255, 0, 0, 0.6);
-      color: white; }
-    .game-page .content .plan-card {
-      background-colorw: white;
-      border-radius: 40px;
-      border: 2px solid #e6e6e6; }
-      .game-page .content .plan-card button {
-        border-radius: 25px;
-        height: 50px;
-        min-width: 50px;
-        background-color: #36d5d9;
-        padding: 0px 20px;
-        color: white; }
-    .game-page .content .how-to-play {
-      background-color: #36d5d9;
-      padding: 5%; }
-    .game-page .content .lesson-guide {
-      background-color: darken white, 10%;
-      color: #999999;
-      text-align: left;
-      padding: 5%; }
-      .game-page .content .lesson-guide .col-sm-6 {
-        padding: 1%; }
-  .game-page#wwdmm-page .blurb {
-    color: #36d5d9; }
-  .game-page#wikigeeks-page .blurb {
-    color: #F83439; }
-  .game-page#htyi-page .blurb {
-    color: #ffa800; }
-
 .how-to-play img {
   width: 200px;
   height: 200px; }
@@ -487,15 +417,6 @@ body.player .entry-footer {
   height: 192px;
   width: 192px;
   border-radius: 96px; }
-
-.launch {
-  height: 60px; }
-  .launch a {
-    width: 100px;
-    background-color: white;
-    color: black; }
-    .launch a:hover {
-      background-color: #e6e6e6; }
 
 .submission button {
   color: white;
@@ -973,6 +894,113 @@ body.player .entry-footer {
       -ms-transform: scale(1);
       -webkit-transform: scale(1);
       transform: scale(1); }
+
+.landing #gameContent {
+  padding: 0; }
+
+.landing .game-about {
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 40px;
+  display: inline-block; }
+  .landing .game-about #launch {
+    position: relative;
+    display: inline-block;
+    height: 76px;
+    width: 200px;
+    border: solid 4px #31b9ff;
+    padding: 2%;
+    font-size: 2em;
+    color: #31b9ff;
+    margin-top: 1%;
+    -moz-transition: transform, 0.5s, ease-in-out-expo;
+    -o-transition: transform, 0.5s, ease-in-out-expo;
+    -webkit-transition: transform, 0.5s, ease-in-out-expo;
+    transition: transform, 0.5s, ease-in-out-expo; }
+    .landing .game-about #launch:hover {
+      background-color: #e6e6e6;
+      -moz-transform: scale(1.4);
+      -o-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+      -webkit-transform: scale(1.4);
+      transform: scale(1.4); }
+  .landing .game-about #description {
+    background-color: #36d5d9; }
+  .landing .game-about .game-buttons .button {
+    border-radius: 25px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    min-width: 100px;
+    padding: 0px 20px;
+    margin: 10px auto;
+    background-color: #36d5d9;
+    color: white; }
+  .landing .game-about .row {
+    margin: 0 auto; }
+  .landing .game-about .divider {
+    border-top: 2px solid #e6e6e6;
+    width: 100%; }
+  .landing .game-about .logo {
+    padding: 5%;
+    height: 200px; }
+    .landing .game-about .logo img {
+      height: 150px; }
+  .landing .game-about .blurb {
+    padding: 5%;
+    width: 60%;
+    margin: 0 auto; }
+  .landing .game-about .content {
+    padding-top: 1%; }
+    .landing .game-about .content.htyi {
+      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/bg.png) #ff9971; }
+    .landing .game-about .content.wiki {
+      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
+    .landing .game-about .content.wwdmm {
+      background: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
+    .landing .game-about .content .plans-info {
+      width: 60%;
+      margin: 10px auto; }
+    .landing .game-about .content .plans-buttons button {
+      border-radius: 25px;
+      height: 50px;
+      min-width: 50px;
+      padding: 0px 20px;
+      background-color: rgba(255, 0, 0, 0.6);
+      color: white; }
+    .landing .game-about .content .plan-card {
+      background-colorw: white;
+      border-radius: 40px;
+      border: 2px solid #e6e6e6; }
+      .landing .game-about .content .plan-card button {
+        border-radius: 25px;
+        height: 50px;
+        min-width: 50px;
+        background-color: #36d5d9;
+        padding: 0px 20px;
+        color: white; }
+    .landing .game-about .content .how-to-play {
+      font-size: 1.4em;
+      background-color: #36d5d9;
+      color: white;
+      padding: 5%;
+      margin: 4%; }
+    .landing .game-about .content .learning-guide {
+      background-color: white;
+      color: #999999;
+      padding: 5%;
+      margin-top: 4%;
+      margin-left: 4%;
+      margin-right: 4%; }
+      .landing .game-about .content .learning-guide .col-sm-6 {
+        padding: 1%;
+        text-align: left; }
+  .landing .game-about#wwdmm-page .blurb {
+    color: #36d5d9; }
+  .landing .game-about#wikigeeks-page .blurb {
+    color: #F83439; }
+  .landing .game-about#htyi-page .blurb {
+    color: #ffa800; }
 
 .aboutPage {
   background: #5DD9D6;

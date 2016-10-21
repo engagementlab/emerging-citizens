@@ -110,127 +110,6 @@
 	height: 300px;
 }
 
-// GAME PAGES
-
-.game-page {
-	background-color: white;
-	width: 90%;
-	
-	margin: 0 auto;
-	border-radius: 40px;
-	display: inline-block;
-
-	.game-buttons {
-		.button {
-			border-radius: 25px;
-				height: 60px;
-				line-height: 60px;
-				display: inline-block;
-				min-width: 100px;
-				padding: 0px 20px;
-				margin: 10px auto;
-				background-color: $color-teal;
-				color: white;
-		}
-	}
-
-	.row {
-		margin: 0 auto;
-	}
-
-	.divider {
-		border-top: 2px solid $color-gray;
-		width: 100%;
-	}
-
-	.logo {
-		padding: 5%;
-		height: 200px;
-		img {
-			height: 150px;
-		}
-	}
-
-	.blurb {
-		padding: 5%;
-		width: 60%;
-		margin: 0 auto;
-	}
-
-	.content {
-		margin-top: 5%;
-
-		.plans-info {
-			width: 60%;
-			margin: 10px auto;
-		}
-
-		.plans-buttons {
-			button {
-				border-radius: 25px;
-				height: 50px;
-				min-width: 50px;
-				padding: 0px 20px;
-				background-color: transparentize(red, 0.4);
-				color: white;
-			}
-		}
-
-		.plan-card {
-			background-colorw:white;
-			border-radius: 40px;
-			border: 2px solid $color-gray;
-
-			button {
-				border-radius: 25px;
-				height: 50px;
-				min-width: 50px;
-				background-color: $color-teal;
-				padding: 0px 20px;
-				color: white;
-			}
-
-		}
-
-		.how-to-play {
-			background-color: $color-teal;
-			padding: 5%;
-		}
-
-		.lesson-guide {
-			background-color: darken (white, 10%);
-			color: darken($color-gray, 30%);
-			text-align: left;
-			padding: 5%;
-
-			.col-sm-6 {
-				padding: 1%;
-			}
-		}
-	}
-
-
-	&#wwdmm-page {
-		.blurb {
-			color: $color-teal;
-		}
-	}
-
-	&#wikigeeks-page {
-		.blurb {
-			color: $color-bright-red;
-		}
-	}
-
-	&#htyi-page {
-		.blurb {
-			color: $color-orange-yellow;
-		}
-	}
-}
-
-
-
 // HOME PAGE
 
 .how-to-play {
@@ -313,19 +192,7 @@
 
 // CONTENT SELECTION
 
-.launch {
-	height: 60px; 
-		
-	a {
-		width: 100px;
-		background-color: white;
-		color: black;
 
-		&:hover {
-			background-color: darken(white, 10%);
-		}
-	}
-}
 .submission {
 	
 	button {
