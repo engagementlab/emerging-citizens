@@ -20,7 +20,7 @@
 {{!-- Open Graph --}}
 <meta property="og:image" content="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/v1476204609/emerging-citizens/images/logo_ec.png" />
 
-{{#ifeq section 'play'}}
+{{#ifeq viewType 'player'}}
 
   {{!-- Mobile Meta --}}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,6 +57,7 @@
 	
 	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq viewType 'group'}}
+	
 		<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
 	{{else}}
 		{{#ifeq section 'index'}}
@@ -66,6 +67,7 @@
 			{{!-- Our custom, barebones bootstrap for players --}}
 	    <link rel="stylesheet" href="/styles/bootstrap.min.css" crossorigin="anonymous">
 		{{/ifeq}}
+
 	{{/ifeq}}
 
 	{{!-- Core layout --}}
