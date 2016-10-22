@@ -141,6 +141,8 @@ body {
 
 .body.newgame {
 
+	overflow: visible;
+
   @include linear_transition(background, 0.5s);
   &.htyi {
 	  background: $background-groupview, $color-peach !important;

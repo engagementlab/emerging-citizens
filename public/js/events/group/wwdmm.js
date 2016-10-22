@@ -13,7 +13,7 @@ var resultsAnimSlider;
 
 var header = $('#top-header');
 var topBar = header.detach();
-topBar.prependTo('body');
+topBar.after('#nav-close-wrapper');
 
 var lobbyAnim = new TimelineLite();
 lobbyAnim

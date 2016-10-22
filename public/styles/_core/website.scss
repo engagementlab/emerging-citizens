@@ -1,154 +1,121 @@
 // EC Website Other Than Homepage
-
 @media (min-width: 2000px) {
     body.newgame {
         .page-container {
-        margin-top: 3%;
+            margin-top: 3%;
+        }
     }
-    }
-    
 }
-
 //ABOUT PAGE
-
 .aboutPage {
-
-  background: $homepage-color; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%); /* For Firefox 3.6 to 15 */
+    background: $homepage-color;
+    /* For browsers that do not support gradients */
+    
+    background: -webkit-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Safari 5.1 to 6.0 */
+    
+    background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Opera 11.1 to 12.0 */
+    
+    background: -moz-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Firefox 3.6 to 15 */
+    
     background: linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
     color: darken($color-gray, 40%);
-
     .aboutResearch {
-        
-
         .research {
             padding: 0px 10%;
-
             .about-title {
                 font-size: 2em;
                 text-align: left;
             }
-
             .research-text {
                 font-size: 1.2em;
                 text-align: justify;
             }
         }
-
         img {
             padding-right: 5%;
         }
     }
-
-    .feat-title, .bottom-title {
+    .feat-title,
+    .bottom-title {
         text-align: left;
         width: 80%;
         font-size: 2em;
         margin: 40px auto;
-
     }
-
     .bottom-title {
         margin-bottom: 10%;
     }
-
-
     .aboutFeatures {
-
         width: 90%;
         margin: 0 auto;
-
         .feature {
-
             .markdown-content {
-                h2 {
-
-                }
+                h2 {}
             }
-
         }
-
     }
-
-
-
 }
-
-
-//HELP PAGE
-
-
-//LESSON PLAN PAGE
-
-
 // GAME PAGES 
-
 .coming-soon-plans {
     font-size: 5em;
     color: darken($color-gray, 30%);
 }
-
-
 // CATEGORIES 
 body.newgame {
-
     #btn_submit {
         color: white;
         border: none;
         outline: 0;
-
-
-
     }
-
     #session-create {
         width: 80%;
         margin: 0 auto;
         left: 10%;
     }
-
     #logo_ec {
         background-color: white;
         margin-bottom: 5%;
     }
-
     .category-box {
         min-height: 225px;
         width: 90%;
         margin: 0 auto;
         padding: 2%;
+        cursor: pointer;
+
+        @include transition(transform, .2s, ease-out-elastic);
+
         h2 {
             font-size: 1.3em;
         }
-
         button {
-            background-color:transparent;
+            background-color: transparent;
             border: none;
-            position:absolute;
-        bottom: 10%;
-        left: -2%;
-        width: 100%;
+            margin-top: 16%;
+            bottom: 10%;
+            width: 100%;
             &:focus {
                 outline: 0;
             }
         }
+        &:hover {
+            @include scale(1.1);
+        }
     }
-
     &.htyi {
         #session-create {
             background-color: $color-peach;
             border: none;
         }
         #categories {
-
             .category-box {
                 border: 5px solid lighten($color-orange, 20%);
                 background-color: white;
@@ -162,7 +129,6 @@ body.newgame {
                 }
                 button {
                     color: $color-orange;
-                    
                 }
             }
         }
@@ -179,7 +145,6 @@ body.newgame {
             border: none;
         }
         #categories {
-
             .category-box {
                 border: 5px solid lighten($color-bg, 20%);
                 background-color: white;
@@ -188,7 +153,6 @@ body.newgame {
                 &.selected {
                     border: 5px solid darken($color-bg, 20%);
                 }
-
                 .markdown-content {
                     color: darken($color-gray, 30%);
                 }
@@ -209,9 +173,7 @@ body.newgame {
             background-color: $color-dodger-blue;
             border: none;
         }
-
         #categories {
-
             .category-box {
                 border: 5px solid lighten($color-dodger-blue, 20%);
                 background-color: white;
@@ -225,7 +187,6 @@ body.newgame {
                 }
                 button {
                     color: $color-dodger-blue;
-                    
                 }
             }
         }
@@ -237,11 +198,8 @@ body.newgame {
         }
     }
 }
-
 #session-create {
     .form {
         padding: 2%;
     }
 }
-
-

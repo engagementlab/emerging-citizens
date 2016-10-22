@@ -14,9 +14,9 @@
     </head>
     
     <body class="body {{gameType}}">
-          {{!-- {{#ifeq section "group/monitor"}}
-                {{> group/header}}
-            {{/ifeq}} --}}
+      {{#ifnoteq viewType 'landing'}}  
+        <div id="nav-close-wrapper"><a id="nav-close" class="nav-close hidden-el">close</a></div>
+      {{/ifnoteq}}
 
         {{#ifeq section "comingsoon"}}
             {{> nav_comingsoon}}
@@ -33,13 +33,10 @@
 
                 {{> game_nav}}
                    <div class="container">
-            {{/ifeq}}
-
-            
+            {{/ifeq}}           
             
         {{/ifeq}}
 
-        {{!-- {{jsonPrint section}} --}}
 
         <div id="wrapper">
 

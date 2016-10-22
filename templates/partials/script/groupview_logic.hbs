@@ -65,14 +65,18 @@
   });
   doResize();
 
-  {{#ifeq debug true}}
-      // Debugging view
-      $('#debugging').appendTo('body');
-  {{/ifeq}}
+  {{#ifnoteq section 'newgame'}}
 
-  // Load events for group
-  {{> script/groupview_events gameType=gameType}}
+    {{#ifeq debug true}}
+        // Debugging view
+        $('#debugging').appendTo('body');
+    {{/ifeq}}
 
-  // Open socket connection
-  socket = io();
-  registerEvents();
+    // Load events for group
+    {{> script/groupview_events gameType=gameType}}
+
+    // Open socket connection
+    socket = io();
+    registerEvents();
+
+  {{/ifnoteq}}

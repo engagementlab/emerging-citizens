@@ -32,7 +32,7 @@ exports = module.exports = function(req, res) {
 
     var gameCode;
 
-    locals.viewType = 'landing';
+    locals.viewType = 'group';
     locals.section = 'newgame';
 
     // Prevents generated code from being vulgar
@@ -88,7 +88,6 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
 
         locals.whichGame = gameType.toUpperCase();
-        console.log(locals.whichGame, "which is hte game")
 
          var queryGame = GameConfig.model.findOne({
                                     'enabled':true,

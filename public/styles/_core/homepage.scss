@@ -29,9 +29,7 @@
         margin-left: -30px;
     }
     .top {
-        // height: 80vh;
         @media (max-width: 769px) {
-            // height: 60vh;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -143,9 +141,7 @@
     }
     h3 {
         font-size: 2.3em;
-        // text-align:left;
         width: 100%;
-        // color: darken($color-gray, 40%);
     }
     @include tablet-landscape-and-up {
         #desktop {
@@ -171,7 +167,7 @@
 .what-text {
     background-color: white;
     h1 {
-        &.markdown-content {
+        &.content {
             font-size: 2em;
             width: 60%;
             margin: 0px auto;
@@ -180,19 +176,6 @@
             p {
                 text-align: center;
             }
-        }
-    }
-    .markdown-content {
-        text-align: center;
-        h2 {
-            font-size: 1.6em;
-            // width: 60%;
-            margin: 0px auto;
-            color: $color-teal;
-            line-height: 1.2;
-        }
-        p {
-            text-align: justify;
         }
     }
     h2 {
@@ -210,7 +193,19 @@
     p {
         text-align: justify;
     }
-    .col-sm-4 {
+    .content {
+        text-align: center;
+        h2 {
+            font-size: 1.6em;
+            margin: 0px auto;
+            color: $color-teal;
+            line-height: 1.2;
+        }
+        p {
+            text-align: justify;
+        }
+    }
+    .col-lg-4 {
         padding: 40px;
         img {
             display: block;
@@ -220,10 +215,32 @@
             opacity: 0.5;
         }
     }
+    .col-sm-12 {
+        @include mobile-landscape-and-below {
+          padding-left: 10%;
+          padding-right: 10%;
+        }
+    }
+}
+.games-row {
+    width: auto;
+    margin: 0 auto;
+    img {
+        height: 200px;
+    }
+    .col-sm-4 {
+        padding: 40px 0px;
+        margin: 20px auto;
+        background-color: white;
+    }
 }
 .how-works {
-    .how-works-top {
-        background: $color-gray;
+    // Grey for odd rows only
+    .row:nth-child(odd) {
+      background: #f1f0f0;
+    }
+
+    .top {
         text-align: justify;
         width: 100%;
         margin: 0 auto;
@@ -232,7 +249,16 @@
             text-align: center;
             margin: 30px auto;
         }
-        .markdown-content {
+        img {
+          @include tablet-portrait-and-up {
+              max-width: 100%;
+          }
+          @include mobile-landscape-and-below {
+              max-width: 80%;
+          }
+
+        }
+        .content {
             // font-style: bold;
             font-size: 1.2em;
             width: 80%;
@@ -240,62 +266,32 @@
             text-align: justify;
         }
     }
-    .step-one {
-        .markdown-content {
-            @include mobile-portrait-and-up {
-                width: 40%;
-            }
-            @include mobile-portrait-and-below {
-                width: 90%;
-            }
+    .how-step {
+            
+        margin-left: 5%;
+        margin-right: 5%;
+
+        .content {
             font-size: 1.6em;
-            margin: 0 auto;
             text-align: center;
+            margin-left: 10%;
+            margin-right: 10%;
         }
         img {
             margin: 0 auto;
-            display: inherit;
+            display: block;
         }
     }
     .step-two-three {
-        width: 80%;
+        // width: 80%;
         margin: 0 auto;
-        .markdown-content {
-            width: 80%;
+        .content {
+            // width: 80%;
             font-size: 1.2em;
             margin: 0 auto;
             text-align: center;
         }
         img {}
-    }
-    .step-four {
-        margin-top: 5%;
-        background-color: $color-gray;
-        .markdown-content {
-            width: 60%;
-            font-size: 1.6em;
-            margin: 0 auto;
-            text-align: center;
-        }
-    }
-    .step-five {
-        margin-top: 5%;
-        .markdown-content {
-            width: 60%;
-            font-size: 1.6em;
-            margin: 0 auto;
-            text-align: center;
-        }
-    }
-    .final-step {
-        margin-top: 5%;
-        background-color: $color-gray;
-        .markdown-content {
-            width: 60%;
-            font-size: 1.6em;
-            margin: 0 auto;
-            text-align: center;
-        }
     }
 }
 #home-page-banner {
@@ -334,18 +330,6 @@
         }
     }
 }
-.games-row {
-    width: auto;
-    margin: 0 auto;
-    img {
-        height: 200px;
-    }
-    .col-sm-4 {
-        padding: 40px 0px;
-        margin: 20px auto;
-        background-color: white;
-    }
-}
 .home-page-info {
     font-size: large;
     color: white;
@@ -374,7 +358,7 @@
         padding: 5% 10%;
     }
     &#hashtag-info {
-        background-color: $color-light-orange;
+        background-color: $color-peach;
     }
     &#geeks-info {
         background-color: $color-bright-red;
@@ -400,9 +384,6 @@
         h1 {
             font-size: 2.3em;
             color: #58c5c1;
-        }
-        &:hover {
-            @include scale(1.0);
         }
     }
 }
@@ -465,8 +446,11 @@
             }
         }
         .blurb {
+            @include mobile-landscape-and-below {
+                width: 100%;
+            }
+            width: 50%;
             padding: 5%;
-            width: 60%;
             margin: 0 auto;
         }
         .content {
@@ -481,8 +465,13 @@
                 background: $background-wwdmm;
             }
             .plans-info {
-                width: 60%;
-                margin: 10px auto;
+                color: white;
+                padding: 5%;
+                margin: 4%;
+                background-color: #FD7D4B;
+                #coming {                  
+                  color: $color-teal;
+                }
             }
             .plans-buttons {
                 button {

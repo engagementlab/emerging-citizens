@@ -310,12 +310,21 @@ body.player .entry-footer {
     text-decoration: none;
     cursor: pointer; }
 
-#nav-close {
+.nav-close {
+  text-align: center;
+  font-size: 2em;
+  color: #d9d9d9; }
+  .nav-close:hover, .nav-closefocus {
+    color: #b3b3b3;
+    text-decoration: none;
+    cursor: pointer; }
+
+#nav-close-wrapper {
   position: fixed;
-  z-index: 1000;
+  z-index: 2000;
   margin: 2.1%; }
 
-body.landing #nav-close {
+body.landing #nav-close-wrapper {
   position: relative;
   margin: 0px; }
 
@@ -701,23 +710,14 @@ body.landing #nav-close {
 
 .what-text {
   background-color: white; }
-  .what-text h1.markdown-content {
+  .what-text h1.content {
     font-size: 2em;
     width: 60%;
     margin: 0px auto;
     color: #36d5d9;
     line-height: 1.2; }
-    .what-text h1.markdown-content p {
+    .what-text h1.content p {
       text-align: center; }
-  .what-text .markdown-content {
-    text-align: center; }
-    .what-text .markdown-content h2 {
-      font-size: 1.6em;
-      margin: 0px auto;
-      color: #36d5d9;
-      line-height: 1.2; }
-    .what-text .markdown-content p {
-      text-align: justify; }
   .what-text h2 {
     margin: 0 auto;
     font-size: 3em;
@@ -729,77 +729,77 @@ body.landing #nav-close {
     text-align: center; }
   .what-text p {
     text-align: justify; }
-  .what-text .col-sm-4 {
+  .what-text .content {
+    text-align: center; }
+    .what-text .content h2 {
+      font-size: 1.6em;
+      margin: 0px auto;
+      color: #36d5d9;
+      line-height: 1.2; }
+    .what-text .content p {
+      text-align: justify; }
+  .what-text .col-lg-4 {
     padding: 40px; }
-    .what-text .col-sm-4 img {
+    .what-text .col-lg-4 img {
       display: block;
       height: 120px;
       margin: 20px auto;
       filter: alpha(opacity=50);
       opacity: 0.5; }
+  @media only screen and (max-width: 480px) {
+    .what-text .col-sm-12 {
+      padding-left: 10%;
+      padding-right: 10%; } }
 
-.how-works .how-works-top {
-  background: #e6e6e6;
+.games-row {
+  width: auto;
+  margin: 0 auto; }
+  .games-row img {
+    height: 200px; }
+  .games-row .col-sm-4 {
+    padding: 40px 0px;
+    margin: 20px auto;
+    background-color: white; }
+
+.how-works .row:nth-child(odd) {
+  background: #f1f0f0; }
+
+.how-works .top {
   text-align: justify;
   width: 100%;
   margin: 0 auto; }
-  .how-works .how-works-top h2 {
+  .how-works .top h2 {
     font-size: 2.4em;
     text-align: center;
     margin: 30px auto; }
-  .how-works .how-works-top .markdown-content {
+  @media only screen and (min-width: 481px) {
+    .how-works .top img {
+      max-width: 100%; } }
+  @media only screen and (max-width: 480px) {
+    .how-works .top img {
+      max-width: 80%; } }
+  .how-works .top .content {
     font-size: 1.2em;
     width: 80%;
     margin: 0 auto;
     text-align: justify; }
 
-.how-works .step-one .markdown-content {
-  font-size: 1.6em;
-  margin: 0 auto;
-  text-align: center; }
-  @media (min-width: 320px) {
-    .how-works .step-one .markdown-content {
-      width: 40%; } }
-  @media (max-width: 320px) {
-    .how-works .step-one .markdown-content {
-      width: 90%; } }
-
-.how-works .step-one img {
-  margin: 0 auto;
-  display: inherit; }
+.how-works .how-step {
+  margin-left: 5%;
+  margin-right: 5%; }
+  .how-works .how-step .content {
+    font-size: 1.6em;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%; }
+  .how-works .how-step img {
+    margin: 0 auto;
+    display: block; }
 
 .how-works .step-two-three {
-  width: 80%;
   margin: 0 auto; }
-  .how-works .step-two-three .markdown-content {
-    width: 80%;
+  .how-works .step-two-three .content {
     font-size: 1.2em;
-    margin: 0 auto;
-    text-align: center; }
-
-.how-works .step-four {
-  margin-top: 5%;
-  background-color: #e6e6e6; }
-  .how-works .step-four .markdown-content {
-    width: 60%;
-    font-size: 1.6em;
-    margin: 0 auto;
-    text-align: center; }
-
-.how-works .step-five {
-  margin-top: 5%; }
-  .how-works .step-five .markdown-content {
-    width: 60%;
-    font-size: 1.6em;
-    margin: 0 auto;
-    text-align: center; }
-
-.how-works .final-step {
-  margin-top: 5%;
-  background-color: #e6e6e6; }
-  .how-works .final-step .markdown-content {
-    width: 60%;
-    font-size: 1.6em;
     margin: 0 auto;
     text-align: center; }
 
@@ -831,16 +831,6 @@ body.landing #nav-close {
   #mailing-list span:hover {
     border-bottom: none; }
 
-.games-row {
-  width: auto;
-  margin: 0 auto; }
-  .games-row img {
-    height: 200px; }
-  .games-row .col-sm-4 {
-    padding: 40px 0px;
-    margin: 20px auto;
-    background-color: white; }
-
 .home-page-info {
   font-size: large;
   color: white;
@@ -867,7 +857,7 @@ body.landing #nav-close {
   .home-page-info .text {
     padding: 5% 10%; }
   .home-page-info#hashtag-info {
-    background-color: #ffab48; }
+    background-color: #ff9971; }
   .home-page-info#geeks-info {
     background-color: #F83439; }
   .home-page-info#meme-info {
@@ -895,12 +885,6 @@ body.landing #nav-close {
     .home-page-info.current h1 {
       font-size: 2.3em;
       color: #58c5c1; }
-    .home-page-info.current:hover {
-      -moz-transform: scale(1);
-      -o-transform: scale(1);
-      -ms-transform: scale(1);
-      -webkit-transform: scale(1);
-      transform: scale(1); }
 
 .landing #gameContent {
   padding: 0; }
@@ -954,9 +938,12 @@ body.landing #nav-close {
     .landing .game-about .logo img {
       height: 150px; }
   .landing .game-about .blurb {
+    width: 50%;
     padding: 5%;
-    width: 60%;
     margin: 0 auto; }
+    @media only screen and (max-width: 480px) {
+      .landing .game-about .blurb {
+        width: 100%; } }
   .landing .game-about .content {
     padding-top: 1%; }
     .landing .game-about .content.htyi {
@@ -966,8 +953,12 @@ body.landing #nav-close {
     .landing .game-about .content.wwdmm {
       background: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
     .landing .game-about .content .plans-info {
-      width: 60%;
-      margin: 10px auto; }
+      color: white;
+      padding: 5%;
+      margin: 4%;
+      background-color: #FD7D4B; }
+      .landing .game-about .content .plans-info #coming {
+        color: #36d5d9; }
     .landing .game-about .content .plans-buttons button {
       border-radius: 25px;
       height: 50px;
@@ -1039,7 +1030,8 @@ body.landing #nav-close {
       text-align: justify; }
   .aboutPage .aboutResearch img {
     padding-right: 5%; }
-  .aboutPage .feat-title, .aboutPage .bottom-title {
+  .aboutPage .feat-title,
+  .aboutPage .bottom-title {
     text-align: left;
     width: 80%;
     font-size: 2em;
@@ -1072,18 +1064,27 @@ body.newgame .category-box {
   min-height: 225px;
   width: 90%;
   margin: 0 auto;
-  padding: 2%; }
+  padding: 2%;
+  cursor: pointer;
+  -moz-transition: transform, 0.2s, ease-out-elastic;
+  -o-transition: transform, 0.2s, ease-out-elastic;
+  -webkit-transition: transform, 0.2s, ease-out-elastic;
+  transition: transform, 0.2s, ease-out-elastic; }
   body.newgame .category-box h2 {
     font-size: 1.3em; }
   body.newgame .category-box button {
     background-color: transparent;
     border: none;
-    position: absolute;
     bottom: 10%;
-    left: -2%;
     width: 100%; }
     body.newgame .category-box button:focus {
       outline: 0; }
+  body.newgame .category-box:hover {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
 
 body.newgame.htyi #session-create {
   background-color: #ff9971;
@@ -2881,6 +2882,7 @@ html {
     background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 .body.newgame {
+  overflow: visible;
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;

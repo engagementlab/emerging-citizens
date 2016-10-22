@@ -214,7 +214,7 @@
 
 		if($('#top-header').length > 0) {
 			var topBar = $('#top-header').detach();
-			topBar.prependTo('body');
+			topBar.after('#nav-close-wrapper');
 		}
 	}
 
@@ -348,170 +348,35 @@
 		// Landing page class for body
 		{{#ifeq viewType 'landing'}}
 				$('body').addClass('landing');
-	
-			{{!--{{#ifeq section 'WIKIGEEKS'}}
-				$('body').addClass('wikigeeks');
-				$('body').addClass('game-bg');
-			{{/ifeq}}
-			{{#ifeq section 'HTYI'}}
-				$('body').addClass('htyi');
-				$('body').addClass('game-bg');
-			{{/ifeq}}
-			{{#ifeq section 'WWDMM'}}
-				$('body').addClass('wwdmm');
-				$('body').addClass('game-bg');
-			{{/ifeq}}
-			--}}
-
-			// MENU
-			{{#ifeq section 'index'}}
-
-				$("#nav-dropdown").on('click', function() {
-					$('.nav-dropdown').show();
-				});
-				$('#nav-close').on('click', function() {
-					$('.nav-dropdown').hide();
-				});
-
-			{{/ifeq}}
-
 		{{/ifeq}}
 
 		// Global nav
-		{{#ifeq viewType 'group'}}
+		var openAnim = new TimelineLite({paused: true, onComplete: function() { closeAnim.pause(0); }})				
+		.to($('#game-menu'), .3, {autoAlpha:0})
+		.from($('.nav-dropdown'), .2, {autoAlpha:0})
+		.from($('#game-logo'), .2, {yPercent:50, scale:0, autoAlpha:0, ease: Ease.easeOut})
+		.from($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none', ease: Ease.easeOut})
+		.staggerFrom($('#navbar li'), .2, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .1);
 
-			var openAnim = new TimelineLite({paused: true, onComplete: function() { closeAnim.pause(0); }})				
-			.to($('#game-menu'), .3, {autoAlpha:0})
-			.from($('.nav-dropdown'), .2, {autoAlpha:0})
-			.from($('#game-logo'), .2, {yPercent:50, scale:0, autoAlpha:0, ease: Ease.easeOut})
-			.from($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none', ease: Ease.easeOut})
-			.staggerFrom($('#navbar li'), .2, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .1);
+		var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
+		.staggerTo($('#navbar li'), .2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
+		.to($('#game-logo'), .2, {yPercent:50, autoAlpha:0})
+		.to($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none'})
+		.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
+		.to($('#game-menu'), .3, {autoAlpha:1});
 
-			var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
-			.staggerTo($('#navbar li'), .2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
-			.to($('#game-logo'), .2, {yPercent:50, autoAlpha:0})
-			.to($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none'})
-			.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
-			.to($('#game-menu'), .3, {autoAlpha:1});
+		$("#nav-dropdown").on('click', function() {
+			$('.nav-dropdown').show();
+			$('#nav-close').show();
 
-			$("#nav-dropdown").click(function() {
-				$('.nav-dropdown').show();
-				$('#nav-close').show();
+			openAnim.play(0);
 
-				openAnim.play(0);
+		});
+		$('#nav-close').on('click', function() {
 
-			});
-			$('#nav-close').click(function() {
+			closeAnim.play();
 
-				closeAnim.play();
-
-			});
-
-		{{/ifeq}}
-
-		{{#ifeq viewType 'landing'}}
-
-			$("#nav-dropdown").on('click', function() {
-				$('.nav-dropdown').show();
-			});
-			$('#nav-close').on('click', function() {
-				$('.nav-dropdown').hide();
-			});
-
-			{{#ifeq section 'lessons'}}
-
-				// LESSON PLANS
-				$('.filters-button-group').on('click', 'button', function() {
-
-				    var filterValue = $(this).attr('data-filter');
-				    $('#plans').isotope({
-				        filter: filterValue
-				    });
-				});
-
-				$('#plans').isotope({
-			    itemSelector: '.plans-item', 
-			    isFitHeight: true, 
-			    layoutMode: 'fitRows'
-			  });
-
-			  $('.open-plan').on('click', function() {
-			  	var id = '#' + $(this).attr('data-id');
-
-			  	$('.plan-modals').show();
-			  	$(id).show();
-			  });
-
-			  $('.close-plan').on('click', function() {
-			  	$(this).closest('.plan-outer').hide();
-			  	$('.plan-modals').hide();
-			  });
-
-			  // Launch game from lesson plan
-			  function launchPlan(game, category) {
-
-			  	var data = { 'game': game, 'category': category };
-			  	
-			  }
-
-			{{/ifeq}}
-
-			// LANDING INDEX PAGE
-			{{#ifeq section "index"}}
-
-				$(document).ready(function() {
-
-					if (jQuery.browser.mobile)
-						return;
-
-					$('.home-page-info.coming-soon').click(function(evt) {
-						
-						evt.preventDefault();
-						$(evt.currentTarget).addClass('invalid');
-
-						setTimeout(
-							function() {
-								$(evt.currentTarget).removeClass('invalid');
-							}, 1000);
-					});
-		 
-				});
-					
-			{{/ifeq}}
-
-			{{#ifeq section 'newgame'}}
-
-			  // ACCESS CODE 
-			  $('#session-create #btn_submit').click(function(evt) {
-							var data = {};
-							data.contentCategories = $(".form button.inactive").map(function(){
-																			    return $(this).val();
-																			 }).get();
-							data.accessCode = $('#access-code').text();
-
-						  $.post( 
-						  	"/api/create/" + $(evt.currentTarget).data().type,
-								data,
-								function( data ) {
-
-									if(data.error_code !== undefined) {
-
-										if(data.error_code === 'need_content')
-											$('#session-create #categories').addClass('invalid');
-										
-										$('#session-create .error').text(data.msg).fadeIn();
-										
-										return;
-									}
-
-								  window.location = data;
-								}
-							);
-				});
-
-			{{/ifeq}}
-
-		{{/ifeq}}
+		});
 
 		{{#ifeq environment "production"}}
 			
@@ -544,57 +409,40 @@
 			gameContainer = $('#gameContent');
 	
 			{{#ifnoteq viewType 'landing'}}
+				{{#ifnoteq section 'newgame'}}
 
-				/**
-				 * Listen for forms that dispatch socket events.
-				 *
-				 * ### Examples:
-				 *
-				 * @class global
-				 */
-				$(document).on('click', '.form .submit', function(evt) {
-				    
-			    var event = $(this).data().event;
-			    var pkg = getFormData($(this));
+					/**
+					 * Listen for forms that dispatch socket events.
+					 *
+					 * ### Examples:
+					 *
+					 * @class global
+					 */
+					$(document).on('click', '.form .submit', function(evt) {
+					    
+				    var event = $(this).data().event;
+				    var pkg = getFormData($(this));
 
-			    // Emit event to socket
-			    socket.emit(event, emitData(pkg));
+				    // Emit event to socket
+				    socket.emit(event, emitData(pkg));
 
-			    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
-			    if($(this).data().autohide) {
-			        new TimelineLite()
-			        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
-			        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
-			    }
+				    // If autohide defined for this form, remove the element defined by 'data-hide' on the '#submitted' dom
+				    if($(this).data().autohide) {
+				        new TimelineLite()
+				        .to('#' + $('#submitted').data('hide'), .5, {scale:0, autoAlpha:0, display:'none'})
+				        .from($('#submitted'), .5, {scale:0, autoAlpha:0});
+				    }
 
-			    // Disable form button unless explicitly prevented, and show loading...
-			    if(!$(this).data().keep_enabled) {
-		        $(evt.currentTarget).attr('disabled', 'disabled');
-		        loadToggle(true);
-			    }
+				    // Disable form button unless explicitly prevented, and show loading...
+				    if(!$(this).data().keep_enabled) {
+			        $(evt.currentTarget).attr('disabled', 'disabled');
+			        loadToggle(true);
+				    }
 
-				});
-
-			{{/ifnoteq}}
-
-			// GROUP VIEW
-			{{#ifeq viewType 'landing'}}
-			
-				{{#ifeq section 'newgame'}}						
-					
-		      $('.body').addClass('newgame');
-					$('.navbar.main').hide();
-
-					$('.voting-button').click(function(e) {
-
-						$(e.currentTarget).toggleClass('inactive');
-						$(e.currentTarget).toggleClass('active');
-						$(e.currentTarget).parent('.category-box').toggleClass('selected');
 					});
-				
-				{{/ifeq}}
 
-			{{/ifeq}}
+				{{/ifnoteq}}
+			{{/ifnoteq}}
 
 			 // PLAYER VIEW
 			{{#ifeq viewType 'player'}}
@@ -612,7 +460,58 @@
 
 			{{/ifeq}}
 
+			// GROUP VIEW
 			{{#ifeq viewType 'group'}}
+			
+				{{#ifeq section 'newgame'}}			
+					
+		      $('.body').addClass('newgame');
+					$('.navbar.main').hide();
+
+				  // ACCESS CODE 
+				  $('#session-create #btn_submit').click(function(evt) {
+								var data = {};
+								data.contentCategories = $(".form button.inactive").map(function(){
+																				    return $(this).val();
+																				 }).get();
+								data.accessCode = '{{gameCode}}';
+
+							  $.post( 
+							  	"/api/create/" + $(evt.currentTarget).data().type,
+									data,
+									function( data ) {
+
+										if(data.error_code !== undefined) {
+
+											// if(data.error_code === 'need_content')
+												// $('#session-create #categories').addClass('invalid');
+											
+											$('#session-create .error').text(data.msg).fadeIn();
+											
+											return;
+										}
+
+									  window.location = data;
+									}
+								);
+					});
+					
+					$('.category-box').click(function(e) {
+						// .click();
+
+						var btn = $(e.currentTarget).find('.voting-button')
+
+						btn.toggleClass('inactive');
+						btn.toggleClass('active');
+						btn.parent('.category-box').toggleClass('selected');
+
+						if(btn.hasClass('inactive'))
+							btn.text('Clear');
+						else
+							btn.text('Select');
+					});
+				
+				{{/ifeq}}
 
 				{{> script/groupview_logic section=section}}
 
