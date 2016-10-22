@@ -754,10 +754,15 @@ body.landing #nav-close {
     text-align: justify; }
 
 .how-works .step-one .markdown-content {
-  width: 40%;
   font-size: 1.6em;
   margin: 0 auto;
   text-align: center; }
+  @media (min-width: 320px) {
+    .how-works .step-one .markdown-content {
+      width: 40%; } }
+  @media (max-width: 320px) {
+    .how-works .step-one .markdown-content {
+      width: 90%; } }
 
 .how-works .step-one img {
   margin: 0 auto;
