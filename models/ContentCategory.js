@@ -28,7 +28,7 @@ var ContentCategory = new keystone.List('ContentCategory', {
 ContentCategory.add({
 
   topicName: { type: String, required: true, initial: true, label: "Category Name" }, 
-  text: { type: Types.Markdown, label: "Description for the category"}, 
+  text: { type: Types.Markdown, label: "Description for the category", note: "Will cut of with ... after 120 characters"}, 
   enabled: { type: Types.Boolean, label: "Enabled?" }
   // game: { type: Types.Relationship, label: "Which game(s) is this content for?", ref: 'GameConfig', many: true} 
   
