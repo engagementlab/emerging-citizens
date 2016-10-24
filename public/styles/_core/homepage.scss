@@ -18,16 +18,18 @@
     }
 }
 .gameLanding {
+    
     margin-right: -15px;
     margin-left: -15px;
     margin-bottom: 3%;
     margin: 0 auto;
     color: darken($color-gray, 40%);
     align-items: center;
-    .row {
-        margin-right: -30px;
-        margin-left: -30px;
+
+    strong {
+        font-family: "AvenirBold";
     }
+
     .top {
         @media (max-width: 769px) {
             padding-left: 15px;
@@ -159,6 +161,11 @@
             display: block;
         }
     }
+
+    #fold-divider {
+        width: 50%;
+        border: solid 2px #ebebeb;
+    }
 }
 #home-page {
     margin-top: 6%;
@@ -228,6 +235,9 @@
     img {
         height: 200px;
     }
+    h2 {
+        font-size: 2em;
+    }
     .col-sm-4 {
         padding: 40px 0px;
         margin: 20px auto;
@@ -268,30 +278,67 @@
     }
     .how-step {
             
-        margin-left: 5%;
-        margin-right: 5%;
+        // margin-left: 5%;
+        // margin-right: 5%;
 
         .content {
-            font-size: 1.6em;
+            font-size: 1.1em;
             text-align: center;
             margin-left: 10%;
             margin-right: 10%;
+            padding-bottom: 5%;
         }
         img {
             margin: 0 auto;
             display: block;
+
+            @include mobile-landscape-and-below {
+                width: 100%;
+            }
         }
     }
-    .step-two-three {
-        // width: 80%;
-        margin: 0 auto;
+    .step-four {
         .content {
-            // width: 80%;
-            font-size: 1.2em;
-            margin: 0 auto;
-            text-align: center;
+            padding-bottom: 9%;
         }
-        img {}
+    }
+    .step-five {
+        margin-top: -8%;
+        .content {
+            padding-bottom: 10%;
+        }
+    }
+    .step-six {
+        font-size: 2.1em;
+
+        strong {                
+            color: $color-teal;
+        }
+        img {
+            margin-top: -8%;
+
+            @include mobile-landscape-and-below {
+                width: 50%;
+            }
+        }
+    }
+}
+#credits {
+    ul {
+        @include mobile-landscape-and-up {
+          columns: 3;
+          -webkit-columns: 3;
+        }
+      -moz-columns: 3;
+      list-style-type: none;
+
+      li {
+        padding-bottom: 2%;
+      }
+    }
+    strong:after {
+        content: "\A";
+        white-space: pre; 
     }
 }
 #home-page-banner {
@@ -333,12 +380,9 @@
 .home-page-info {
     font-size: large;
     color: white;
-    // padding: 3%;
     height: 400px;
     text-align: justify;
     margin-top: 2%;
-    // border-radius: 30px;
-    // @include box-shadow(6px, 7px, 10px, #C7C6C6);
     @include linear_transition(-webkit-filter, 0.5s);
     .info-buttons {
         text-align: center;
@@ -361,10 +405,10 @@
         background-color: $color-peach;
     }
     &#geeks-info {
-        background-color: $color-bright-red;
+        background-color: $color-watermelon;
     }
     &#meme-info {
-        background-color: $color-dodger-blue;
+        background-color: $color-tealish;
     }
     &.coming-soon {
         &:hover {
@@ -380,7 +424,6 @@
     }
     &.current {
         @include linear_transition(transform, 0.1s);
-        // padding: 40px;
         h1 {
             font-size: 2.3em;
             color: #58c5c1;

@@ -40,7 +40,8 @@ exports = module.exports = function(req, res) {
 
         if(!game) {
           console.log("Game with ID '" + req.params.accesscode.toUpperCase() + "' not found!");
-          return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist!');  
+          locals.viewType = 'landing'; 
+          return res.notfound('Game not found!', 'Sorry, but it looks like this game session does not exist! Try going back <a href="/">home</a>.');  
         }
 
         // If session does not exist, create it; otherwise, flag current one as restarting

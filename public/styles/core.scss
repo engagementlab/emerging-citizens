@@ -21,21 +21,10 @@
 html, body {
 	max-height: 100%;	
 	max-width:100%;
-	// height:100%;
 	overflow-x: hidden;
-		
-
 }
 html {
 	height:100%;
-}
-
-body {
-	// height:100%;
-	
-  //    background-color: #ffffff; // Old browsers
-		// @include filter-gradient(#ffffff, $homepage-color, vertical); // IE6-9
-		// @include background-image(linear-gradient(top, #ffffff 1%,#1e5799 43%));
 }
 
 .container {
@@ -58,11 +47,15 @@ body {
 	text-align:center;
 }
 
-
 // Center any column, yay!
 .col-centered {
   float: none;
   margin: 0 auto;
+}
+
+// No padding for column
+.col-no-padding {
+	padding: 0;
 }
 
 // Use for any elements hidden initially
@@ -282,25 +275,17 @@ nav.header {
 }
 
 footer {
-  position: fixed;
   width: 100%;
   left: 0;
   bottom: 0;
-  
 }
 
 .footer {
-	// position: static;
-	// bottom: 0;
-	// right: 0;
-	// height: 100px;
-	color: #FFF;
-	font-size: medium; 
-	background-color: #ff9971;
-
-	// Hide for mobile
-	@include mobile-only {
-		display: none;
+	font-size: 1.6em;
+  background: #f1f0f0;
+  
+	strong {
+		color: $color-teal;
 	}
 }
 

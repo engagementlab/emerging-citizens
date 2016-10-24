@@ -603,9 +603,8 @@ body.landing #nav-close-wrapper {
   margin: 0 auto;
   color: gray;
   align-items: center; }
-  .gameLanding .row {
-    margin-right: -30px;
-    margin-left: -30px; }
+  .gameLanding strong {
+    font-family: "AvenirBold"; }
   @media (max-width: 769px) {
     .gameLanding .top {
       padding-left: 15px;
@@ -705,6 +704,9 @@ body.landing #nav-close-wrapper {
       display: none; }
     .gameLanding #mobile {
       display: block; } }
+  .gameLanding #fold-divider {
+    width: 50%;
+    border: solid 2px #ebebeb; }
 
 #home-page {
   margin-top: 6%;
@@ -758,6 +760,8 @@ body.landing #nav-close-wrapper {
   margin: 0 auto; }
   .games-row img {
     height: 200px; }
+  .games-row h2 {
+    font-size: 2em; }
   .games-row .col-sm-4 {
     padding: 40px 0px;
     margin: 20px auto;
@@ -786,24 +790,51 @@ body.landing #nav-close-wrapper {
     margin: 0 auto;
     text-align: justify; }
 
-.how-works .how-step {
-  margin-left: 5%;
-  margin-right: 5%; }
-  .how-works .how-step .content {
-    font-size: 1.6em;
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%; }
-  .how-works .how-step img {
-    margin: 0 auto;
-    display: block; }
+.how-works .how-step .content {
+  font-size: 1.1em;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 5%; }
 
-.how-works .step-two-three {
-  margin: 0 auto; }
-  .how-works .step-two-three .content {
-    font-size: 1.2em;
-    margin: 0 auto;
-    text-align: center; }
+.how-works .how-step img {
+  margin: 0 auto;
+  display: block; }
+  @media only screen and (max-width: 480px) {
+    .how-works .how-step img {
+      width: 100%; } }
+
+.how-works .step-four .content {
+  padding-bottom: 9%; }
+
+.how-works .step-five {
+  margin-top: -8%; }
+  .how-works .step-five .content {
+    padding-bottom: 10%; }
+
+.how-works .step-six {
+  font-size: 2.1em; }
+  .how-works .step-six strong {
+    color: #36d5d9; }
+  .how-works .step-six img {
+    margin-top: -8%; }
+    @media only screen and (max-width: 480px) {
+      .how-works .step-six img {
+        width: 50%; } }
+
+#credits ul {
+  -moz-columns: 3;
+  list-style-type: none; }
+  @media only screen and (min-width: 481px) {
+    #credits ul {
+      columns: 3;
+      -webkit-columns: 3; } }
+  #credits ul li {
+    padding-bottom: 2%; }
+
+#credits strong:after {
+  content: "\A";
+  white-space: pre; }
 
 #home-page-banner {
   color: white;
@@ -861,9 +892,9 @@ body.landing #nav-close-wrapper {
   .home-page-info#hashtag-info {
     background-color: #ff9971; }
   .home-page-info#geeks-info {
-    background-color: #F83439; }
+    background-color: #fd5057; }
   .home-page-info#meme-info {
-    background-color: #31b9ff; }
+    background-color: #1ecfba; }
   .home-page-info.coming-soon:hover {
     -webkit-filter: saturate(20%);
     -moz-filter: saturate(20%);
@@ -953,7 +984,7 @@ body.landing #nav-close-wrapper {
     .landing .game-about .content.wiki {
       background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
     .landing .game-about .content.wwdmm {
-      background: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
+      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
     .landing .game-about .content .plans-info {
       color: white;
       padding: 5%;
@@ -2842,6 +2873,9 @@ html {
   float: none;
   margin: 0 auto; }
 
+.col-no-padding {
+  padding: 0; }
+
 .hidden-el {
   visibility: hidden; }
 
@@ -2879,7 +2913,7 @@ html {
   .body.game-bg.wikigeeks {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
   .body.game-bg.wwdmm {
-    background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 .body.newgame {
   overflow: visible !important;
@@ -2893,7 +2927,7 @@ html {
   .body.newgame.wikigeeks {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
   .body.newgame.wwdmm {
-    background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 .body.player.wikigeeks {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
@@ -2976,18 +3010,15 @@ nav.header {
   padding-bottom: 1%; }
 
 footer {
-  position: fixed;
   width: 100%;
   left: 0;
   bottom: 0; }
 
 .footer {
-  color: #FFF;
-  font-size: medium;
-  background-color: #ff9971; }
-  @media (max-width: 480px) {
-    .footer {
-      display: none; } }
+  font-size: 1.6em;
+  background: #f1f0f0; }
+  .footer strong {
+    color: #36d5d9; }
 
 .left-text {
   text-align: left; }

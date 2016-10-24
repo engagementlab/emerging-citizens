@@ -50,20 +50,27 @@ HomePage.add({
 			
 },
 
-	'How The Platform Works', {
-			rationale: { type: Types.Markdown, label: 'Blurb about how to play' }, 
-			step_one: { type: Types.Markdown, label: 'Step One Paragraph'}, 
-			step_one_img: { type: Types.CloudinaryImage, label: "Step One Image", note: "Images should be in square format to display properly"}, 
-			step_two: { type: Types.Markdown, label: 'Step Two Paragraph'}, 
-			step_two_img: { type: Types.CloudinaryImage, label: "Step Two Image", note: "Images should be in square format to display properly"}, 
-			step_three: { type: Types.Markdown, label: 'Step Three Paragraph'}, 
-			step_three_img: { type: Types.CloudinaryImage, label: "Step Three Image", note: "Images should be in square format to display properly"}, 
-			step_four: { type: Types.Markdown, label: 'Step Four Paragraph'}, 
-			step_four_img: { type: Types.CloudinaryImage, label: "Step Four Image", note: "Images should be in square format to display properly"}, 
-			step_five: { type: Types.Markdown, label: 'Step Five Paragraph'}, 
-			step_five_img: { type: Types.CloudinaryImage, label: "Step Five Image", note: "Images should be in square format to display properly"}, 
-			final_info: { type: Types.Markdown, label: 'Final Step Paragraph'}, 
-			final_info_img: { type: Types.CloudinaryImage, label: "Final Step Image", note: "Images should be in square format to display properly"}
+'How The Platform Works', {
+		rationale: { type: Types.Markdown, label: 'Blurb about how to play' }, 
+		step_one: { type: Types.Markdown, label: 'Step One Paragraph'}, 
+		step_one_img: { type: Types.CloudinaryImage, label: "Step One Image", note: "Images should be in square format to display properly"}, 
+		step_one_group: { type: Types.Markdown, label: 'Step One - Group Screen Info'}, 
+		step_one_player: { type: Types.Markdown, label: 'Step One - Player Screen Info'}, 
+		step_two: { type: Types.Markdown, label: 'Step Two Paragraph'}, 
+		step_two_img: { type: Types.CloudinaryImage, label: "Step Two Image", note: "Images should be in square format to display properly"}, 
+		step_three: { type: Types.Markdown, label: 'Step Three Paragraph'}, 
+		step_three_img: { type: Types.CloudinaryImage, label: "Step Three Image", note: "Images should be in square format to display properly"}, 
+		step_four: { type: Types.Markdown, label: 'Step Four Paragraph'}, 
+		step_four_img: { type: Types.CloudinaryImage, label: "Step Four Image" }, 
+		step_five: { type: Types.Markdown, label: 'Step Five Paragraph'}, 
+		step_five_img: { type: Types.CloudinaryImage, label: "Step Five Image"}, 
+		final_info: { type: Types.Markdown, label: 'Final Step Paragraph'}, 
+		final_info_img: { type: Types.CloudinaryImage, label: "Final Step Image", note: "Images should be in square format to display properly"}
+},
+
+'Design and Development Team', 
+{
+		people: { type: Types.Markdown, label: 'Credits', note: 'Each person should be a list item'},
 });
 
 /**

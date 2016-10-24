@@ -28,8 +28,10 @@
   
   {{!-- GAMES --}}
   <div class="row games-row light">
+
+    <h2 class="dark-gray-font light">Tweets. Wikis. Memes.<br /><span class="teal-font">The Games</span> of Emerging <strong class="dark-gray-font bold">Citizens</strong>.</h2>
     
-    <div class="col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12 col-no-padding">
       <img src="{{{cloudinaryImg content.htyi_image crop=scale height=200}}}">
       <div id="hashtag-info" class="home-page-info current">
         
@@ -41,11 +43,10 @@
       </div>
     </div>
     
-    <div class="col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12 col-no-padding">
       <img src="{{{cloudinaryImg content.wiki_image crop=scale height=200}}}">
       <div id="geeks-info" class="home-page-info current">
-        
-        
+                
         <div class="text">{{{ellipsis 200 content.wiki_blurb.html}}}</div>
         <div class="info-buttons">
           <a href="new/wikigeeks">play now</a>
@@ -53,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12 col-no-padding">
       <img src="{{{cloudinaryImg content.wwdmm_image crop=scale height=200}}}">
       <div id="meme-info" class="home-page-info current">
         
@@ -66,6 +67,8 @@
       </div>
     </div>
   </div>
+
+  <hr id="fold-divider" />
 
   {{!-- WHAT IS IT? --}}
   <div class="row what-text light">
@@ -88,14 +91,27 @@
   {{!-- HOW IT WORKS --}}
   <div class="row light">
     <div class="how-works col-sm-12 col-md-12 col-lg-12">
-      <div class="row top">
+      <div class="row top step-one">
+        
         <h2 class="teal-font">How the <span class="dark-gray-font light">Emerging</span><span class="dark-gray-font bold">Citizens</span> Platform Works</h2>
         <div class="light content">{{{content.rationale.html}}}</div>
+        
         <div class="row how-step">
           <div class="content">{{{content.step_one.html}}}</div>
           <img src="{{{cloudinaryImg content.step_one_img crop=scale height=700}}}">
         </div>
+
+        <div class="row how-step">
+          <div class="col-sm-6">
+            <div class="content">{{{content.step_one_group.html}}}</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="content">{{{content.step_one_player.html}}}</div>
+          </div>
+        </div>
+
       </div>
+
       <div class="row how-step">
         <div class="col-sm-6">
           <img src="{{{cloudinaryImg content.step_two_img crop=scale height=300}}}">
@@ -106,17 +122,17 @@
           <div class="content">{{{content.step_three.html}}}</div>
         </div>
       </div>
-      <div class="row how-step">
+      <div class="row how-step step-four">
         
-        <img src="{{{cloudinaryImg content.step_four_img crop=scale height=300}}}">
+        <img src="{{{cloudinaryImg content.step_four_img crop=scale width=1300}}}">
         <div class="content">{{{content.step_four.html}}}</div>
       </div>
-      <div class="row how-step">
+      <div class="row how-step step-five">
         
-        <img src="{{{cloudinaryImg content.step_five_img crop=scale height=300}}}">
+        <img src="{{{cloudinaryImg content.step_five_img crop=scale width=1300}}}">
         <div class="content">{{{content.step_five.html}}}</div>
       </div>
-      <div class="row how-step">
+      <div class="row how-step step-six">
         
         <img src="{{{cloudinaryImg content.final_info_img crop=scale height=300}}}">
         <div class="content">{{{content.final_info.html}}}</div>
@@ -124,57 +140,30 @@
       
     </div>
   </div>
-  {{!-- <div class="row what-bubbles">
-    <div class="col-sm-3">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-      <p>Succulents wolf coloring book, skateboard leggings fashion axe keffiyeh 90's 3 wolf moon PBR&B polaroid. Tumeric irony tilde, whatever cold-pressed viral cliche photo booth edison bulb pug venmo</p>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-      <p>Succulents wolf coloring book, skateboard leggings fashion axe keffiyeh 90's 3 wolf moon PBR&B polaroid. Tumeric irony tilde, whatever cold-pressed viral cliche photo booth edison bulb pug venmo</p>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-      <p>vSucculents wolf coloring book, skateboard leggings fashion axe keffiyeh 90's 3 wolf moon PBR&B polaroid. Tumeric irony tilde, whatever cold-pressed viral cliche photo booth edison bulb pug venmo</p>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-      <p>Succulents wolf coloring book, skateboard leggings fashion axe keffiyeh 90's 3 wolf moon PBR&B polaroid. Tumeric irony tilde, whatever cold-pressed viral cliche photo booth edison bulb pug venmo</p>
-    </div>
+
+  {{!-- CREDITS --}}
+  <div id="credits" class="row light col-lg-7 col-sm-12 col-centered">
+    <h3 class="teal-font">Design and Development Team</h3>
+    {{{content.people.html}}}
   </div>
-  {{!-- <div id="mailing-list" class="row">
-    <span><a href="{{content.mailing_link}}">join our mailing list!</a></span>
-    <div id="mc_embed_signup" class="form">
-      <form action="//communityplanit.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=5166b8e185" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-        <div id="mc_embed_signup_scroll">
-          <label for="mce-EMAIL">Join our mailing list!</label>
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8cb16e3042072f11cc0680d36_5166b8e185" tabindex="-1" value=""></div>
-          <div class="clear">
-            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" style="background-color:white" class="default"></div>
+
+<footer id="footer">
+
+  <div class="footer col-lg-12">
+    <div class="col-lg-5 col-sm-12 col-centered">
+      <div class="row">
+        <div class="footer-content text-center padding-ver-clear">
+          <div class="logos-footer col-sm-12 col-lg-6">
+            <a href="http://elab.emerson.edu/"><img id="logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1477341572/logos/el_logo_3x.png" alt="Engagement Lab" width="200" height="153"></a>
           </div>
-        </form>
-      </div>
-    </div> --}}
-  </div>
-  {{!--
-  <footer id="footer">
-    <!-- .footer start -->
-    <div class="footer col-md-12">
-      <div class="container">
-        <div class="footer-inner">
-          <div class="row">
-            <div class="footer-content text-center padding-ver-clear">
-              <div class="logos-footer center-block">
-                <a href="http://elab.emerson.edu/"><img id="logo" src="/images/layout/logo_el.png" alt="Engagement Lab" width="60" height="60"></a>
-              </div>
-              <p class="text-center">An applied research lab at Emerson College for reimagining civic engagement in a digital culture<br />
-              </div>
-            </div>
+          <div class="logos-footer col-sm-12 col-lg-6">
+            <img id="logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469709/emerging-citizens/images/layout/logo_ec.png" alt="Emerging Citizens" width="200" height="200">
+          </div>
+          <p class="text-center"><strong>Emerging Citizens</strong> is a product of <strong>The Engagement Lab @ Emerson College</strong> an applied research lab for reimaging civic engagement in a digital culture.</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- .footer end -->
-  </footer> --}}
+  </div>
+
+</footer>
