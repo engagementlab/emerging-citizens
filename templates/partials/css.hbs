@@ -96,7 +96,9 @@
 		{{else}}
 			<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
 		{{/ifeq}}
+
 	{{else}}
+	
 		{{#ifeq section 'index'}}
 			{{!-- Our custom, barebones bootstrap for home --}}
 			<link href="{{cdnAsset product='emerging-citizens' path='styles/home-bootstrap.min' type='css' }}" rel="stylesheet">		
@@ -104,6 +106,7 @@
 			{{!-- Our custom, barebones bootstrap for players --}}
 			<link href="{{cdnAsset product='emerging-citizens' path='styles/bootstrap.min' type='css' }}" rel="stylesheet">
 		{{/ifeq}}
+
 	{{/ifeq}}
 
 	{{!-- Game styling --}}

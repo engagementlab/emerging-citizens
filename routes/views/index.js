@@ -13,7 +13,6 @@
  * ==========
  */
 var keystone = require('keystone'),
-    GameConfig = keystone.list('GameConfig'),
     HomePage = keystone.list('HomePage');
 
 exports = module.exports = function(req, res) {
