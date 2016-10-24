@@ -358,8 +358,10 @@ body.landing #nav-close-wrapper {
         font-size: 3em;
         text-decoration: none; }
 
-.game-nav ul {
-  padding-top: 5%; }
+.game-nav {
+  display: none; }
+  .game-nav ul {
+    padding-top: 5%; }
 
 #logo_game {
   padding: 20px 0px;
@@ -1075,6 +1077,7 @@ body.newgame .category-box {
   body.newgame .category-box button {
     background-color: transparent;
     border: none;
+    margin-top: 16%;
     bottom: 10%;
     width: 100%; }
     body.newgame .category-box button:focus {
@@ -1181,13 +1184,11 @@ body.newgame.wwdmm #btn_submit {
 @media (min-width: 2000px) {
   body .game-header.wait-players {
     font-size: 2em; }
-  body .page-container {
-    margin-top: 10%; }
   body .player-background .icon {
     height: 200px; }
   body .player-background {
     margin: 0 auto;
-    margin-bottom: 10%;
+    margin-bottom: 10% !important;
     width: 220px;
     height: 220px;
     border-radius: 110px; }
@@ -1197,11 +1198,7 @@ body.newgame.wwdmm #btn_submit {
   body .player-background .nameplate {
     font-size: xx-large; }
   body .game-header {
-    font-size: 6em; }
-  .players.left div.player-background:nth-child(4) {
-    transform: translate(290px, -281px); }
-  .players.right div.player-background:nth-child(4) {
-    transform: translate(-290px, -281px); } }
+    font-size: 6em; } }
 
 @media (max-width: 425px) {
   html, body.player {
@@ -1603,7 +1600,10 @@ body.newgame.wwdmm #btn_submit {
     max-width: 80%;
     margin-top: 2%; }
   .body.wikigeeks.group .players {
-    margin-top: 5%; }
+    margin-top: -1%; }
+    @media only screen and (max-width: 2000px) {
+      .body.wikigeeks.group .players {
+        margin-top: 5%; } }
     .body.wikigeeks.group .players.left div.player-background {
       clear: both; }
     .body.wikigeeks.group .players.left div.player-background:nth-child(1) {
@@ -1687,7 +1687,7 @@ body.newgame.wwdmm #btn_submit {
       font-size: 3em;
       margin: 0 auto;
       padding-bottom: 15px;
-      background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
       background-size: 200px auto;
       background-position: bottom;
       background-repeat: no-repeat; }
@@ -2882,7 +2882,7 @@ html {
     background-image: url(http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 .body.newgame {
-  overflow: visible;
+  overflow: visible !important;
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;

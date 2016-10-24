@@ -141,7 +141,7 @@ body {
 
 .body.newgame {
 
-	overflow: visible;
+	overflow: visible !important;
 
   @include linear_transition(background, 0.5s);
   &.htyi {

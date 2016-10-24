@@ -46,7 +46,7 @@ exports = module.exports = function(req, res) {
         // If session does not exist, create it; otherwise, flag current one as restarting
     		let sesh = Session.Get(game.accessCode);
         if(!sesh)
-    			Session.Create(game.accessCode, new GameManager(game, game.contentCategories));
+    			Session.Create(game.accessCode, new GameManager(game));
         else
           sesh.SetToRestarting();
 

@@ -29,7 +29,7 @@ var GameConfig = new keystone.List('GameConfig', {
 GameConfig.add({
 
 		name: { type: String, hidden: true, from: 'game' },
-		play_link: { type: String, label: 'URL for players', default: "qa.ecplay.org"},
+		playLink: { type: String, label: 'URL for players', default: "ecplay.org"},
 		gameType: { type: Types.Select, lable: "Which game are you configuring?", options: "HTYI, WikiGeeks, WWDMM", initial: true, required: true},
 		enabled: { type: Boolean, label: "Game Is Running?", note: "Disabling game will show 'coming soon'/signup page." }, 
 		playerCap: { type: Number, label: "Player Cap", required: true, initial: true },

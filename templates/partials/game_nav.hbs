@@ -1,5 +1,17 @@
-<!-- Top Navbar -->
-<div id="game-menu"><a id="nav-dropdown">menu</a></div>
+{{#ifeq viewType 'landing'}}
+  
+  <div class="row" id="logo_ec">
+    <div class="col-sm-12">
+      <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row">
+      <a id="nav-dropdown">&#9776;</a>
+    </div>
+  </div>
+
+{{else}}
+
+  <div id="game-menu"><a id="nav-dropdown">menu</a></div>
+
+{{/ifeq}}
 
 <nav class="navbar main nav-dropdown game-nav">
 
@@ -7,15 +19,23 @@
   
   <div class="container">
     <div id="navbar">
-    <ul>
-      <li><a href='/' target='_blank'>Home</a></li>
-      <li><a href='/about' target='_blank'>About Page</a></li>
-      <li><a href='/lessonPlans' target='_blank'>Lesson Plans</a></li>
-      <li><a href='/help' target='_blank'>Help</a></li>
-      {{!-- <li style="padding:5%;"><a id="nav-close">close</a></li> --}}
+    <ul style="padding-top: 2%">
+      <li><a href='/'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Home</a></li>
+      
+      <li><a href='/about/htyi'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Hashtag You're It</a></li>
+      <li><a href='/about/wikigeeks'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>WikiGeeks</a></li>
+      <li><a href='/about/wwdmm'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Wait Wait Don't Meme Me</a></li>
+
+      <li style="padding-top:4%;"><a href='/about'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>About</a></li>
+      {{!-- <li><a href='/lessonPlans' target='_blank'>Lesson Plans</a></li> --}}
+      <li><a href='/help'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Help</a></li>
+      
+      {{#ifeq viewType 'landing'}}
+        <li style="padding:4%;"><a id="nav-close">close</a></li>
+      {{/ifeq}}
+
     </ul>
   </div>
 
 </nav>
 {{!-- nav_close is in base layout file --}}
-<!-- End Navbar -->

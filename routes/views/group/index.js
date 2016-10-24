@@ -95,20 +95,17 @@ exports = module.exports = function(req, res) {
                                     });
 
         // Get game config and content buckets (categories)
-        ContentCategory.model.find({}, {}, function (err, categories) {
+        ContentCategory.model.find({ 'enabled': true }, {}, function (err, categories) {
 
             locals.gameCode = gameCode;
             locals.gameType = gameType;
-            
-
             locals.categories = categories;
-            console.log(locals.categories);
+            
             queryGame.exec(function (err, game) {
                 locals.game = game;
-
+                
+                next(err);
             });
-
-            next(err);
 
         });
 

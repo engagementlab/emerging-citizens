@@ -356,10 +356,10 @@
 		.from($('.nav-dropdown'), .2, {autoAlpha:0})
 		.from($('#game-logo'), .2, {yPercent:50, scale:0, autoAlpha:0, ease: Ease.easeOut})
 		.from($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none', ease: Ease.easeOut})
-		.staggerFrom($('#navbar li'), .2, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .1);
+		.staggerFrom($('#navbar li'), .1, {yPercent:50, scale:0, autoAlpha:0, ease:Ease.easeInOut}, .05);
 
 		var closeAnim = new TimelineLite({paused: true, onComplete: function() { openAnim.pause(0); }})
-		.staggerTo($('#navbar li'), .2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1)
+		.staggerTo($('#navbar li'), .1, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .05)
 		.to($('#game-logo'), .2, {yPercent:50, autoAlpha:0})
 		.to($('#nav-close'), .2, {yPercent:50, autoAlpha:0, display:'none'})
 		.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
