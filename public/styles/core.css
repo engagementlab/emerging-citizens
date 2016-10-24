@@ -927,6 +927,8 @@ body.landing #nav-close-wrapper {
   margin: 0 auto;
   border-radius: 40px;
   display: inline-block; }
+  .landing .game-about h2 {
+    text-align: center; }
   .landing .game-about #launch {
     position: relative;
     display: inline-block;
@@ -1012,11 +1014,13 @@ body.landing #nav-close-wrapper {
         color: white; }
     .landing .game-about .content .how-to-play {
       font-size: 1.4em;
+      text-align: left;
       background-color: #36d5d9;
       color: white;
       padding: 5%;
       margin: 4%; }
     .landing .game-about .content .learning-guide {
+      text-align: left;
       background-color: white;
       color: #999999;
       padding: 5%;
@@ -3015,8 +3019,8 @@ footer {
   bottom: 0; }
 
 .footer {
-  font-size: 1.6em;
-  background: #f1f0f0; }
+  background-color: white;
+  font-size: 1.6em; }
   .footer strong {
     color: #36d5d9; }
 

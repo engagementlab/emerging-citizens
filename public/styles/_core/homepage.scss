@@ -442,6 +442,10 @@
         margin: 0 auto;
         border-radius: 40px;
         display: inline-block;
+
+        h2 {
+            text-align: center;
+        }
         #launch {
             position: relative;
             display: inline-block;
@@ -541,12 +545,14 @@
             }
             .how-to-play {
                 font-size: 1.4em;
+                text-align: left;
                 background-color: $color-teal;
                 color: white;
                 padding: 5%;
                 margin: 4%;
             }
             .learning-guide {
+                text-align: left;
                 background-color: white;
                 color: darken($color-gray, 30%);
                 padding: 5%;

@@ -57,8 +57,14 @@
 	
 	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq viewType 'group'}}
-	
-		<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
+		
+		{{#ifeq section 'newgame'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+	    <link rel="stylesheet" href="/styles/home-bootstrap.min.css" crossorigin="anonymous">			
+		{{else}}
+			<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
+		{{/ifeq}}
+
 	{{else}}
 		{{#ifeq section 'index'}}
 			{{!-- Our custom, barebones bootstrap for home --}}
@@ -83,7 +89,13 @@
 
 	{{!-- Bootstrap non-responsive for group view --}}
 	{{#ifeq viewType 'group'}}
-		<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
+		
+		{{#ifeq section 'newgame'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/home-bootstrap.min' type='css' }}" rel="stylesheet">		
+		{{else}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
+		{{/ifeq}}
 	{{else}}
 		{{#ifeq section 'index'}}
 			{{!-- Our custom, barebones bootstrap for home --}}

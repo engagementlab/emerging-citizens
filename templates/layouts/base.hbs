@@ -22,17 +22,6 @@
             {{> nav_comingsoon}}
             <div class="col-sm-12">
         {{else}}
-
-          {{!-- {{#ifeq viewType "landing"}}
-
-                {{> nav}}
-                   <div class="container">
-            {{/ifeq}}
-
-            {{#ifeq viewType "group"}}
-            {{/ifeq}}           
-          --}}
-
           {{> game_nav viewType=viewType }}
              <div class="container">
         {{/ifeq}}
@@ -162,6 +151,17 @@
             {{> script/production host=socketHost environment=env section=section}}
         {{/ifeq}}
 
+        {{#ifnoteq viewType 'player'}} 
+
+          {{> shared/footer}}
+
+        {{else}}
+
+          {{#ifeq section 'newgamae'}}
+            {{> shared/footer}}
+          {{/ifeq}}
+          
+        {{/ifnoteq}}
         </div>
 
     </body>

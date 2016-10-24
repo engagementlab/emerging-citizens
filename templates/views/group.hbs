@@ -1,15 +1,7 @@
-{{!-- {{> group/header_htyi }} --}}
-
 <div class="page-container category-page {{lowerCase whichGame}}">
     <div class="row">
-            {{!-- <select id="game_type" name="gameType">
-            {{#each gameTypes}}
-              <option value="{{@index}}">{{this}}</option>
-            {{/each}}
-            </select><br /> --}}
 
             <div id="session-create" class="submission col-sm-12 input-box">
-                {{!-- <div class="form-prompt white">de-select any content to not include in this session:</div> --}}
                 <div class="form">
                     <div id="categories" class="row">
                         {{#each categories}}
@@ -20,9 +12,7 @@
                             </div>
                         </div>
                         {{/each}} 
-                    </div> 
-                    {{!-- <div class="form-prompt white">access code:</div>
-                    <div id="access-code">{{gameCode}}</div> --}}
+                    </div>
 
                     <div class="error">Error!</div>
                     <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="Start!">       
