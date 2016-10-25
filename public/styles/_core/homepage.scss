@@ -433,7 +433,6 @@
             width: 90%;
             max-width:1024px;
             margin: 0 auto;
-            margin-top: 5%;
         }
 
         .top-section {
@@ -449,7 +448,7 @@
         #launch {
             position: relative;
             display: inline-block;
-            height: 76px;
+            height: auto;
             width: 200px;
             border: solid 4px $color-dodger-blue;
             padding: 2%;
@@ -459,7 +458,8 @@
             @include transition(transform, .5s, ease-in-out-expo);
             &:hover {
                 background-color: darken(white, 10%);
-                @include scale(1.4);
+                @include scale(1.2);
+                text-decoration: none;
             }
         }
         #description {
@@ -486,10 +486,10 @@
             width: 100%;
         }
         .logo {
-            padding: 5%;
-            height: 200px;
+            padding: 0px;
+            height: auto;
             img {
-                height: 150px;
+                height: 250px;
             }
         }
         .blurb {
