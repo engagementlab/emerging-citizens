@@ -92,6 +92,7 @@ body.landing {
 
 .game-nav {
 	display: none;
+	overflow-y: scroll;
 	ul {
 		padding-top:5%;
 	}
@@ -125,17 +126,6 @@ body.landing {
 	background: none;
 	width: 300px;
 	height: 300px;
-}
-
-// HOME PAGE
-
-.how-to-play {
-
-	img {
-		width: 200px;
-		height: 200px;
-
-	}
 }
 
 // LESSON PLANS

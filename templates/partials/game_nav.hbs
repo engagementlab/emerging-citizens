@@ -2,7 +2,9 @@
   
   <div class="row" id="logo_ec">
     <div class="col-sm-12">
-      <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row">
+      <a href='/'>
+        <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row desktop-only">
+      </a>
       <a id="nav-dropdown">&#9776;</a>
     </div>
   </div>
@@ -15,7 +17,10 @@
 
 <nav class="navbar main nav-dropdown game-nav">
 
-  <img id="game-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_300/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el">
+  <a href='/'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>
+    <img id="game-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_300/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el desktop-only">
+    <img id="game-logo-sm" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_100/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el mobile-only">
+  </a>
   
   <div class="container">
     <div id="navbar">

@@ -5,9 +5,6 @@
   <div class="blurb row">
     {{{game.text.html}}}
     <a id="launch" class="button" href="/new/{{lowerCase whichGame}}"><span>Play Now!</span></a>
-    {{!-- <div class=""><a class="button" href="">lesson plans</a></div>
-    <div class=""><a class="button" href="">how to play</a></div>
-    <div class=""><a class="button" href="">learning guide</a></div> --}}
   </div>
   <div class="divider"></div>
   <div class="content {{lowerCase whichGame}}">
@@ -54,11 +51,11 @@
     </div>
     --}}
     <div class="how-to-play row">
-      <h2>How To Play</h2>
+      <h2><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_86/v1477408499/emerging-citizens/images/layout/landing/{{lowerCase whichGame}}-howto-icon.png" width="86" height="96" alt="How To Play" /> How To Play</h2>
       {{{game.howToPlay.html}}}
     </div>
     <div class="learning-guide row">
-      <h2>Learning Guide</h2>
+    <h2><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_86/v1477408499/emerging-citizens/images/layout/landing/{{lowerCase whichGame}}-learningguide-icon.png" width="86" height="96" alt="Learning Guide" /> <strong class="bold">Learning</strong> Guide</h2>
       <div class="what-is col-sm-12 col-md-6">
         {{{game.what.html}}}
       </div>

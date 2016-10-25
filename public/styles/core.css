@@ -359,7 +359,8 @@ body.landing #nav-close-wrapper {
         text-decoration: none; }
 
 .game-nav {
-  display: none; }
+  display: none;
+  overflow-y: scroll; }
   .game-nav ul {
     padding-top: 5%; }
 
@@ -387,10 +388,6 @@ body.landing #nav-close-wrapper {
   background: none;
   width: 300px;
   height: 300px; }
-
-.how-to-play img {
-  width: 200px;
-  height: 200px; }
 
 .allPlans {
   width: 90%;
@@ -548,53 +545,11 @@ body.landing #nav-close-wrapper {
   .coming-soon-info h1 {
     font-size: 30px; }
 
-@-webkit-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@-moz-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@-o-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
+#navbar {
+  font-size: 0.9em; }
+  @media only screen and (max-width: 480px) {
+    #navbar {
+      font-size: 0.7em; } }
 
 .gameLanding {
   margin-right: -15px;
@@ -1027,6 +982,8 @@ body.landing #nav-close-wrapper {
       margin-top: 4%;
       margin-left: 4%;
       margin-right: 4%; }
+      .landing .game-about .content .learning-guide h2 {
+        color: #36d5d9; }
       .landing .game-about .content .learning-guide .col-sm-6 {
         padding: 1%;
         text-align: left; }
@@ -3023,6 +2980,8 @@ footer {
   font-size: 1.6em; }
   .footer strong {
     color: #36d5d9; }
+  .footer #tagline {
+    text-align: justify; }
 
 .left-text {
   text-align: left; }
