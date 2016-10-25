@@ -78,6 +78,9 @@ body.newgame {
         font-size: 1.3em;
         padding: 2%;
     }
+    #categories {
+        display: inline-block;
+    }
     #btn_submit {
         color: white;
         border: none;
@@ -88,6 +91,22 @@ body.newgame {
         width: 80%;
         margin: 0 auto;
         left: 10%;
+
+        .select-buttons {
+            color: white;
+            border: none;
+            outline: 0;
+            margin: 40px auto;
+            font-size: 0.5em;
+            display: inline-block;
+            .button_text {
+                line-height: 35px;
+                width: 200px;
+                margin: 0px 20px;
+                text-align: center;
+                
+            }
+        }
     }
     #logo_ec {
         background-color: white;
@@ -126,25 +145,28 @@ body.newgame {
         }
         #categories {
             .category-box {
-                border: 5px solid lighten($color-orange, 20%);
+                border: 5px solid lighten($color-peach, 20%);
                 background-color: white;
                 color: $color-orange;
                 margin: 2% auto;
                 &.selected {
-                    border: 5px solid darken($color-orange, 20%);
+                    border: 5px solid darken($color-peach, 20%);
                 }
                 .markdown-content {
                     color: darken($color-gray, 30%);
                 }
                 button {
-                    color: $color-orange;
+                    color: $color-peach;
                 }
             }
         }
-        #btn_submit {
-            background-color: $color-orange;
-            &:hover {
-                background-color: darken($color-orange, 20%);
+        .button_text {
+            border: 0px;
+            background-color: darken($color-peach, 5%);
+            &:hover, &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-peach, 10%);
             }
         }
     }
@@ -170,10 +192,13 @@ body.newgame {
                 }
             }
         }
-        #btn_submit {
+        .button_text  {
+            border: 0px;
             background-color: $color-bg;
-            &:hover {
-                background-color: darken($color-bg, 20%);
+            &:hover, &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-bg, 10%);
             }
         }
     }
@@ -199,10 +224,13 @@ body.newgame {
                 }
             }
         }
-        #btn_submit {
+        .button_text {
             background-color: $color-dodger-blue;
-            &:hover {
-                background-color: darken($color-dodger-blue, 20%);
+            border: 0px;
+            &:hover , &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-dodger-blue, 10%);
             }
         }
     }
@@ -211,4 +239,13 @@ body.newgame {
     .form {
         padding: 2%;
     }
+}
+#htyi-page {
+    background: $background-groupview, $color-peach !important;
+}
+#wikigeeks-page {
+  background-image: $background-wiki !important;
+}
+#wwdmm-page {
+    background-image: $background-wwdmm !important;
 }

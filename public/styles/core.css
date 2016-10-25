@@ -836,16 +836,21 @@ body.landing #nav-close-wrapper {
   padding: 0; }
 
 .landing .game-about {
-  background-color: white;
+  width: 100%;
   margin: 0 auto;
-  border-radius: 40px;
   display: inline-block; }
+  .landing .game-about .game-page {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto; }
+  .landing .game-about .top-section {
+    background-color: white; }
   .landing .game-about h2 {
     text-align: center; }
   .landing .game-about #launch {
     position: relative;
     display: inline-block;
-    height: 76px;
+    height: auto;
     width: 200px;
     border: solid 4px #31b9ff;
     padding: 2%;
@@ -858,11 +863,12 @@ body.landing #nav-close-wrapper {
     transition: transform, 0.5s, ease-in-out-expo; }
     .landing .game-about #launch:hover {
       background-color: #e6e6e6;
-      -moz-transform: scale(1.4);
-      -o-transform: scale(1.4);
-      -ms-transform: scale(1.4);
-      -webkit-transform: scale(1.4);
-      transform: scale(1.4); }
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      text-decoration: none; }
   .landing .game-about #description {
     background-color: #36d5d9; }
   .landing .game-about .game-buttons .button {
@@ -881,12 +887,12 @@ body.landing #nav-close-wrapper {
     border-top: 2px solid #e6e6e6;
     width: 100%; }
   .landing .game-about .logo {
-    padding: 5%;
-    height: 200px; }
+    padding: 0px;
+    height: auto; }
     .landing .game-about .logo img {
-      height: 150px; }
+      height: 250px; }
   .landing .game-about .blurb {
-    width: 50%;
+    width: 80%;
     padding: 5%;
     margin: 0 auto; }
     @media only screen and (max-width: 480px) {
@@ -894,16 +900,10 @@ body.landing #nav-close-wrapper {
         width: 100%; } }
   .landing .game-about .content {
     padding-top: 1%; }
-    .landing .game-about .content.htyi {
-      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/bg.png) #ff9971; }
-    .landing .game-about .content.wiki {
-      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
-    .landing .game-about .content.wwdmm {
-      background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png); }
     .landing .game-about .content .plans-info {
       color: white;
       padding: 5%;
-      margin: 4%;
+      margin: 4% 0px;
       background-color: #FD7D4B; }
       .landing .game-about .content .plans-info #coming {
         color: #36d5d9; }
@@ -931,15 +931,14 @@ body.landing #nav-close-wrapper {
       background-color: #36d5d9;
       color: white;
       padding: 5%;
-      margin: 4%; }
+      margin: 4% 0px; }
     .landing .game-about .content .learning-guide {
       text-align: left;
       background-color: white;
       color: #999999;
       padding: 5%;
-      margin-top: 4%;
-      margin-left: 4%;
-      margin-right: 4%; }
+      margin: 4% auto;
+      width: 100%; }
       .landing .game-about .content .learning-guide h2 {
         color: #36d5d9; }
       .landing .game-about .content .learning-guide .col-sm-6 {
@@ -1007,6 +1006,9 @@ body.newgame .category-instructions {
   font-size: 1.3em;
   padding: 2%; }
 
+body.newgame #categories {
+  display: inline-block; }
+
 body.newgame #btn_submit {
   color: white;
   border: none;
@@ -1017,6 +1019,18 @@ body.newgame #session-create {
   width: 80%;
   margin: 0 auto;
   left: 10%; }
+  body.newgame #session-create .select-buttons {
+    color: white;
+    border: none;
+    outline: 0;
+    margin: 40px auto;
+    font-size: 0.5em;
+    display: inline-block; }
+    body.newgame #session-create .select-buttons .button_text {
+      line-height: 35px;
+      width: 200px;
+      margin: 0px 20px;
+      text-align: center; }
 
 body.newgame #logo_ec {
   background-color: white;
@@ -1054,21 +1068,24 @@ body.newgame.htyi #session-create {
   border: none; }
 
 body.newgame.htyi #categories .category-box {
-  border: 5px solid #fec6be;
+  border: 5px solid #ffe2d7;
   background-color: white;
   color: #FD6D59;
   margin: 2% auto; }
   body.newgame.htyi #categories .category-box.selected {
-    border: 5px solid #ed1f03; }
+    border: 5px solid #ff500b; }
   body.newgame.htyi #categories .category-box .markdown-content {
     color: #999999; }
   body.newgame.htyi #categories .category-box button {
-    color: #FD6D59; }
+    color: #ff9971; }
 
-body.newgame.htyi #btn_submit {
-  background-color: #FD6D59; }
-  body.newgame.htyi #btn_submit:hover {
-    background-color: #ed1f03; }
+body.newgame.htyi .button_text {
+  border: 0px;
+  background-color: #ff8758; }
+  body.newgame.htyi .button_text:hover, body.newgame.htyi .button_text:focus, body.newgame.htyi .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #ff743e; }
 
 body.newgame.wikigeeks #session-create {
   background-color: #0be8d4;
@@ -1086,10 +1103,13 @@ body.newgame.wikigeeks #categories .category-box {
   body.newgame.wikigeeks #categories .category-box button {
     color: #0be8d4; }
 
-body.newgame.wikigeeks #btn_submit {
+body.newgame.wikigeeks .button_text {
+  border: 0px;
   background-color: #0be8d4; }
-  body.newgame.wikigeeks #btn_submit:hover {
-    background-color: #06877b; }
+  body.newgame.wikigeeks .button_text:hover, body.newgame.wikigeeks .button_text:focus, body.newgame.wikigeeks .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #09b7a8; }
 
 body.newgame.wwdmm #session-create {
   background-color: #31b9ff;
@@ -1107,13 +1127,25 @@ body.newgame.wwdmm #categories .category-box {
   body.newgame.wwdmm #categories .category-box button {
     color: #31b9ff; }
 
-body.newgame.wwdmm #btn_submit {
-  background-color: #31b9ff; }
-  body.newgame.wwdmm #btn_submit:hover {
-    background-color: #0085ca; }
+body.newgame.wwdmm .button_text {
+  background-color: #31b9ff;
+  border: 0px; }
+  body.newgame.wwdmm .button_text:hover, body.newgame.wwdmm .button_text:focus, body.newgame.wwdmm .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #00a7fd; }
 
 #session-create .form {
   padding: 2%; }
+
+#htyi-page {
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
+
+#wikigeeks-page {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
+
+#wwdmm-page {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 @media (min-width: 1024px) {
   body .container {
