@@ -89,6 +89,24 @@ var playerLogin = function(data) {
     Checks if this client is logged in as a player already
 */
 var checkIfLoggedIn = function() {
+
+    // Disallow private/incognito
+    if(isPrivate) {
+
+        $('.form').show();
+        $('.form input').hide();
+        $('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
+        $('#login').css('margin-top', '0');
+
+        var errorAnim = new TimelineLite();
+        errorAnim
+        .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
+        .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
+        .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
+        .fromTo($('.form .error'), 1, { scale: 0, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut});
+        
+        return;
+    }
     
     // Check if game code saved to session (player is already logged in)
     if(!sessionStorage.getItem('gameCode')) {
