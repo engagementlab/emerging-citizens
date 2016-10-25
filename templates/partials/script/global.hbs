@@ -493,24 +493,31 @@ window.onload = function() {
 								);
 					});
 					$('#session-create #btn_select_all').click(function(evt) {
-								
+						var btn = $('#session-create').find('.voting-button');
+
+						if (btn.hasClass('active')) {
+							btn.addClass('inactive');
+							btn.removeClass('active');
+							btn.parent('.category-box').addClass('selected');
+
+						}
+
+						btn.text('Clear');
+
 
 							  
 					});
 					$('#session-create #btn_clear_all').click(function(evt) {
 						var btn = $('#session-create').find('.voting-button');
 
-						if (btn.hasClass('inactive')){
-							btn.toggleClass('inactive');
-							btn.toggleClass('active');
+						if (btn.hasClass('inactive')) {
+							btn.addClass('active');
+							btn.removeClass('inactive');
 							btn.parent('.category-box').removeClass('selected');
 
-							btn.text('Select');
-						} else {
-							btn.toggleClass('active');
-							
-							btn.text('Clear');
 						}
+
+						btn.text('Select');
 
 					});
 					
