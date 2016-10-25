@@ -175,7 +175,6 @@
         }
     }
     h2 {
-        // width: 60%;
         margin: 0 auto;
         font-size: 3em;
         text-align: center;
@@ -205,9 +204,9 @@
         padding: 40px;
         img {
             display: block;
-            height: 120px;
+            height: 203px;
             margin: 20px auto;
-            filter: alpha(opacity=50);
+            @include filter(opacity, 50%);
             opacity: 0.5;
         }
     }

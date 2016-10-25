@@ -198,25 +198,6 @@ body.landing {
 
 
 // CONTENT SELECTION
-
-
-.submission {
-	
-	button {
-		color: white;
-		background-color: $color-orange;
-	    @include linear_transition(background-color, 0.3s);
-
-		&.inactive {
-			background-color: $color-gray-orange;
-		}
-	}
-	#access-code {
-		font-size: 4em; 
-	}
-
-}
-
 .ended-container {
 	background-color: white;
 	margin: 0 auto;

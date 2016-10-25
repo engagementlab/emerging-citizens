@@ -11,7 +11,11 @@
 
 {{else}}
 
-  <div id="game-menu"><a id="nav-dropdown">menu</a></div>
+  {{#ifnoteq viewType 'player'}}
+
+    <div id="game-menu"><a id="nav-dropdown">menu</a></div>
+
+  {{/ifnoteq}}
 
 {{/ifeq}}
 

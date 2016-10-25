@@ -430,20 +430,6 @@ body.landing #nav-close-wrapper {
   width: 192px;
   border-radius: 96px; }
 
-.submission button {
-  color: white;
-  background-color: #FD6D59;
-  -webkit-transition: background-color 0.3s linear;
-  -moz-transition: background-color 0.3s linear;
-  -ms-transition: background-color 0.3s linear;
-  -o-transition: background-color 0.3s linear;
-  transition: background-color 0.3s linear; }
-  .submission button.inactive {
-    background-color: #674B47; }
-
-.submission #access-code {
-  font-size: 4em; }
-
 .ended-container {
   background-color: white;
   margin: 0 auto; }
@@ -508,42 +494,6 @@ body.landing #nav-close-wrapper {
 .last .text {
   font-size: 26em;
   top: 58% !important; }
-
-#coming-soon {
-  margin-top: 6%;
-  font-size: x-large; }
-
-#coming-soon-banner {
-  color: white;
-  background-color: #ff9971;
-  padding: 2%; }
-  #coming-soon-banner #intro {
-    padding-left: 10%;
-    padding-right: 10%; }
-  #coming-soon-banner #mailing-list {
-    font-family: "Avenir";
-    font-weight: bolder;
-    font-size: xx-large;
-    border-bottom: solid 2px #ffddb0; }
-    #coming-soon-banner #mailing-list a {
-      color: white; }
-      #coming-soon-banner #mailing-list a:hover {
-        text-decoration: none; }
-    #coming-soon-banner #mailing-list:hover {
-      border-bottom: none; }
-
-.coming-soon-info {
-  font-size: large;
-  color: #ff9971;
-  background-color: white;
-  padding: 3%;
-  margin-top: 2%;
-  margin-left: 2%;
-  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
-  -moz-box-shadow: 6px 7px 10px #C7C6C6;
-  box-shadow: 6px 7px 10px #C7C6C6; }
-  .coming-soon-info h1 {
-    font-size: 30px; }
 
 #navbar {
   font-size: 0.9em; }
@@ -701,9 +651,13 @@ body.landing #nav-close-wrapper {
     padding: 40px; }
     .what-text .col-lg-4 img {
       display: block;
-      height: 120px;
+      height: 203px;
       margin: 20px auto;
-      filter: alpha(opacity=50);
+      -webkit-filter: opacity(50%);
+      -moz-filter: opacity(50%);
+      -ms-filter: opacity(50%);
+      -o-filter: opacity(50%);
+      filter: opacity(50%);
       opacity: 0.5; }
   @media only screen and (max-width: 480px) {
     .what-text .col-sm-12 {
@@ -2816,6 +2770,9 @@ html, body {
 
 html {
   height: 100%; }
+
+body {
+  display: none; }
 
 .container {
   width: 100% !important;
