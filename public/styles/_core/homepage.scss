@@ -425,11 +425,23 @@
     }
     // GAMES ABOUT PAGE
     .game-about {
-        background-color: white;
-        // width: 90%;
+        width: 100%;
         margin: 0 auto;
-        border-radius: 40px;
         display: inline-block;
+
+        .game-page {
+            width: 90%;
+            max-width:1024px;
+            margin: 0 auto;
+            margin-top: 5%;
+        }
+
+        .top-section {
+
+            background-color: white;
+            
+            
+        }
 
         h2 {
             text-align: center;
@@ -484,26 +496,18 @@
             @include mobile-landscape-and-below {
                 width: 100%;
             }
-            width: 50%;
+            width: 80%;
             padding: 5%;
             margin: 0 auto;
         }
         .content {
             padding-top: 1%;
-            &.htyi {
-                background: $background-htyi $color-peach;
-            }
-            &.wiki {
-                background: $background-wiki;
-            }
-            &.wwdmm {
-                background: $background-wwdmm;
-            }
             .plans-info {
                 color: white;
                 padding: 5%;
-                margin: 4%;
+                margin: 4% 0px;
                 background-color: #FD7D4B;
+
                 #coming {                  
                   color: $color-teal;
                 }
@@ -522,6 +526,7 @@
                 background-colorw: white;
                 border-radius: 40px;
                 border: 2px solid $color-gray;
+
                 button {
                     border-radius: 25px;
                     height: 50px;
@@ -537,16 +542,15 @@
                 background-color: $color-teal;
                 color: white;
                 padding: 5%;
-                margin: 4%;
+                margin: 4% 0px;
             }
             .learning-guide {
                 text-align: left;
                 background-color: white;
                 color: darken($color-gray, 30%);
                 padding: 5%;
-                margin-top: 4%;
-                margin-left: 4%;
-                margin-right: 4%;
+                margin: 4% auto;
+                width:100%;
 
                 h2 {
                     color: $color-teal;
