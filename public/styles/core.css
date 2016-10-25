@@ -989,15 +989,25 @@ body.landing #nav-close-wrapper {
   .aboutPage .aboutFeatures {
     width: 90%;
     margin: 0 auto; }
+    .aboutPage .aboutFeatures .feature .markdown-content {
+      text-align: justify; }
+      .aboutPage .aboutFeatures .feature .markdown-content h2 {
+        text-align: center; }
 
 .coming-soon-plans {
   font-size: 5em;
   color: #999999; }
 
+body.newgame .category-instructions {
+  color: white;
+  font-size: 1.3em;
+  padding: 2%; }
+
 body.newgame #btn_submit {
   color: white;
   border: none;
-  outline: 0; }
+  outline: 0;
+  margin: 40px auto; }
 
 body.newgame #session-create {
   width: 80%;
@@ -1043,7 +1053,7 @@ body.newgame.htyi #categories .category-box {
   border: 5px solid #fec6be;
   background-color: white;
   color: #FD6D59;
-  margin: 2%; }
+  margin: 2% auto; }
   body.newgame.htyi #categories .category-box.selected {
     border: 5px solid #ed1f03; }
   body.newgame.htyi #categories .category-box .markdown-content {
@@ -1064,7 +1074,7 @@ body.newgame.wikigeeks #categories .category-box {
   border: 5px solid #61f8ea;
   background-color: white;
   color: #0be8d4;
-  margin: 2%; }
+  margin: 2% auto; }
   body.newgame.wikigeeks #categories .category-box.selected {
     border: 5px solid #06877b; }
   body.newgame.wikigeeks #categories .category-box .markdown-content {
@@ -1085,7 +1095,7 @@ body.newgame.wwdmm #categories .category-box {
   border: 5px solid #97dcff;
   background-color: white;
   color: #31b9ff;
-  margin: 2%; }
+  margin: 2% auto; }
   body.newgame.wwdmm #categories .category-box.selected {
     border: 5px solid #0085ca; }
   body.newgame.wwdmm #categories .category-box .markdown-content {
@@ -2772,10 +2782,13 @@ html {
   height: 100%; }
 
 body {
-  display: none; }
+  display: none;
+  height: 100%; }
 
 .container {
   width: 100% !important;
+  height: auto;
+  min-height: 75%;
   padding: 0px !important; }
 
 .form {
@@ -2931,14 +2944,21 @@ footer {
   width: 100%;
   left: 0;
   bottom: 0; }
+  footer.row {
+    margin: 0px; }
 
 .footer {
   background-color: white;
   font-size: 1.6em; }
   .footer strong {
     color: #36d5d9; }
+  .footer .logos-footer {
+    padding: 2%;
+    text-align: center; }
   .footer #tagline {
-    text-align: justify; }
+    text-align: center;
+    padding: 2% 0px;
+    margin: 0 auto; }
 
 .left-text {
   text-align: left; }

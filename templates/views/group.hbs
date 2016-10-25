@@ -1,8 +1,17 @@
 <div class="page-container category-page {{lowerCase whichGame}}">
     <div class="row">
 
+
             <div id="session-create" class="submission col-sm-12 input-box">
+                <div class="category-instructions">
+                    {{{game.lessonPlanBlurb.html}}}
+                </div>
                 <div class="form">
+                    <div class="row select-buttons">
+                        <input id="btn_select_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="SELECT ALL">
+                        <input id="btn_clear_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="SELECT ALL">
+                    </div>
+
                     <div id="categories" class="row">
                         {{#each categories}}
                         <div class="col-sm-4">
@@ -13,9 +22,11 @@
                         </div>
                         {{/each}} 
                     </div>
+                    
+                    <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="LAUNCH GAME">
 
                     <div class="error">Error!</div>
-                    <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="LAUNCE GAME">       
+                           
                 </div>
             </div>
 

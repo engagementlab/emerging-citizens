@@ -58,7 +58,10 @@
         margin: 0 auto;
         .feature {
             .markdown-content {
-                h2 {}
+                text-align: justify;
+                h2 {
+                    text-align: center;
+                }
             }
         }
     }
@@ -70,10 +73,16 @@
 }
 // CATEGORIES 
 body.newgame {
+    .category-instructions {
+        color: white;
+        font-size: 1.3em;
+        padding: 2%;
+    }
     #btn_submit {
         color: white;
         border: none;
         outline: 0;
+        margin: 40px auto;
     }
     #session-create {
         width: 80%;
@@ -120,7 +129,7 @@ body.newgame {
                 border: 5px solid lighten($color-orange, 20%);
                 background-color: white;
                 color: $color-orange;
-                margin: 2%;
+                margin: 2% auto;
                 &.selected {
                     border: 5px solid darken($color-orange, 20%);
                 }
@@ -149,7 +158,7 @@ body.newgame {
                 border: 5px solid lighten($color-bg, 20%);
                 background-color: white;
                 color: $color-bg;
-                margin: 2%;
+                margin: 2% auto;
                 &.selected {
                     border: 5px solid darken($color-bg, 20%);
                 }
@@ -178,7 +187,7 @@ body.newgame {
                 border: 5px solid lighten($color-dodger-blue, 20%);
                 background-color: white;
                 color: $color-dodger-blue;
-                margin: 2%;
+                margin: 2% auto;
                 &.selected {
                     border: 5px solid darken($color-dodger-blue, 20%);
                 }

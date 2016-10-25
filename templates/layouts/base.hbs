@@ -146,7 +146,11 @@
               {{> script/production host=socketHost environment=env section=section}}
           {{/ifeq}}
 
-          {{#ifnoteq viewType 'player'}} 
+          
+
+      </div>
+
+      {{#ifnoteq viewType 'player'}} 
 
             {{> shared/footer}}
 
@@ -157,8 +161,6 @@
             {{/ifeq}}
             
           {{/ifnoteq}}
-
-      </div>
 
     </body>
 </html>
