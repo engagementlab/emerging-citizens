@@ -128,7 +128,7 @@ socketEvents = function(eventId, eventData) {
                         trailWidth: 0.8,
                         fill: '#00c5c2',
                         text: {
-                            value: '8',
+                            value: '',
                             className: 'text',
                         }
                     });
@@ -137,31 +137,19 @@ socketEvents = function(eventId, eventData) {
                         $('#overlay').fadeOut();
                     });
 
-                    var tutorialCountdown = setInterval(function() {
-                        secondsLeft--;
+                    var icon = $('#continue .icon').detach();
+                    $('#countdown .text').empty();
+                    icon.appendTo($('#countdown .text'));
+                    
+                    var continueAnim = new TimelineMax({ paused:true });
+                    continueAnim
+                    .from(icon, 1.5, {scale: 0, autoAlpha: 0, ease: Bounce.easeOut })
+                    .from(icon, 1, {x: '+20', repeat: -1, yoyo: true, ease: Expo.easeOut });
+                    // .to($('#countdown'), 1, {scale: 2, ease: Bounce.easeOut })
+                    // .from($('#countdown'), 1, {scale: 2, ease: Bounce.easeOut, delay: 1 });
 
-                        $('#countdown .text').text(secondsLeft);
-
-                        // End countdown and show arrow to continue
-                        if(secondsLeft == 0) {
-                            clearInterval(tutorialCountdown);
-
-                            var icon = $('#continue .icon').detach();
-                            $('#countdown .text').empty();
-                            icon.appendTo($('#countdown .text'));
-                            
-                            var continueAnim = new TimelineMax({ paused:true });
-                            continueAnim
-                            .from(icon, 1.5, {scale: 0, autoAlpha: 0, ease: Bounce.easeOut })
-                            .from(icon, 1, {x: '+20', repeat: -1, yoyo: true, ease: Expo.easeOut });
-                            // .to($('#countdown'), 1, {scale: 2, ease: Bounce.easeOut })
-                            // .from($('#countdown'), 1, {scale: 2, ease: Bounce.easeOut, delay: 1 });
-
-                            continueAnim.play();
-                        }
-                    }, 1000);
-
-                    circle.animate(1);
+                    continueAnim.play();
+                    
                 }})
                 .to($('.room-container'), .5, {scale:0, autoAlpha:0, ease:Elastic.easeOut})
                 .to($('#top-header'), .5, {y:'-100%', ease:Elastic.easeOut})

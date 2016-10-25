@@ -151,16 +151,16 @@
       </div>
 
       {{#ifnoteq viewType 'player'}} 
+    
+        {{> shared/footer}}
 
-            {{> shared/footer}}
+      {{else}}
 
-          {{else}}
-
-            {{#ifeq section 'newgamae'}}
-              {{> shared/footer}}
-            {{/ifeq}}
-            
-          {{/ifnoteq}}
+        {{#ifeq section 'newgamae'}}
+          {{> shared/footer}}
+        {{/ifeq}}
+        
+      {{/ifnoteq}}
 
     </body>
 </html>
