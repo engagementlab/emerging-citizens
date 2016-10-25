@@ -159,9 +159,10 @@ body.player #login {
   body.player #login input[type=text] {
     width: 100%;
     max-width: 290px;
-    background-color: #e6e6e6;
     border: none;
-    color: black; }
+    color: black;
+    text-align: center;
+    background-color: #e6e6e6; }
     body.player #login input[type=text]::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #b3b3b3;
@@ -178,6 +179,9 @@ body.player #login {
       /* Firefox 18- */
       color: #b3b3b3;
       text-align: center; }
+  body.player #login input[type=submit] {
+    border: solid 4px #36d5d9;
+    width: 145px; }
 
 body.player .form-prompt {
   color: white;

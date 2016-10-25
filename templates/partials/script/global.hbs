@@ -395,8 +395,10 @@ window.onload = function() {
 
 		{{else}}
 
-			// For socket debugging
-			sessionStorage.debug = '*';
+			if(!isPrivate) {
+				// For socket debugging
+				sessionStorage.debug = '*';
+			}
 
 		{{/ifeq}}
 		
@@ -452,15 +454,6 @@ window.onload = function() {
 			{{#ifeq viewType 'player'}}
 									
 				{{> script/player_logic section=section}}
-				
-				if(isPrivate) {
-					
-		      $('.form').show();
-					$('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
-					
-					return;
-				
-				}
 
 			{{/ifeq}}
 

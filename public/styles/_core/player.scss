@@ -12,9 +12,10 @@ body.player {
 		input[type=text] {
 			width: 100%;
 			max-width: 290px;
-			background-color:$color-gray;
 			border: none;
 			color: black;
+			text-align: center;
+			background-color: $color-gray;
 
 			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 			  color: darken($color-gray, 20%);
@@ -32,6 +33,11 @@ body.player {
 			  color: darken($color-gray, 20%);
 			  text-align: center;
 			}
+		}
+
+		input[type=submit] {
+	    border: solid 4px $color-teal;
+	    width: 145px;
 		}
 	}
 
