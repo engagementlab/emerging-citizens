@@ -528,19 +528,17 @@ body.landing #nav-close-wrapper {
     margin: 0 auto;
     display: inline-block;
     background: #5DD9D6;
-    /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
-    /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
-    /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
-    /* For Firefox 3.6 to 15 */
     background: linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; }
+    .gameLanding .top-section img {
+      width: 100%; }
     .gameLanding .top-section h2 {
       font-size: 3.5em;
       margin: 0px; }
@@ -642,6 +640,12 @@ body.landing #nav-close-wrapper {
     text-align: center; }
   .what-text p {
     text-align: justify; }
+    @media only screen and (min-width: 481px) {
+      .what-text p {
+        font-size: 1.6em; } }
+    @media only screen and (max-width: 480px) {
+      .what-text p {
+        font-size: 0.8em; } }
   .what-text .content {
     text-align: center; }
     .what-text .content h2 {
@@ -651,18 +655,19 @@ body.landing #nav-close-wrapper {
       line-height: 1.2; }
     .what-text .content p {
       text-align: justify; }
-  .what-text .col-lg-4 {
-    padding: 40px; }
-    .what-text .col-lg-4 img {
-      display: block;
-      height: 203px;
-      margin: 20px auto;
-      -webkit-filter: opacity(50%);
-      -moz-filter: opacity(50%);
-      -ms-filter: opacity(50%);
-      -o-filter: opacity(50%);
-      filter: opacity(50%);
-      opacity: 0.5; }
+  @media only screen and (min-width: 1025px) {
+    .what-text .col-lg-4 {
+      padding: 40px; } }
+  .what-text .col-lg-4 img {
+    display: block;
+    height: 203px;
+    margin: 20px auto;
+    -webkit-filter: opacity(50%);
+    -moz-filter: opacity(50%);
+    -ms-filter: opacity(50%);
+    -o-filter: opacity(50%);
+    filter: opacity(50%);
+    opacity: 0.5; }
   @media only screen and (max-width: 480px) {
     .what-text .col-sm-12 {
       padding-left: 10%;
@@ -672,7 +677,8 @@ body.landing #nav-close-wrapper {
   width: auto;
   margin: 0 auto; }
   .games-row img {
-    height: 200px; }
+    height: 200px;
+    max-width: 100%; }
   .games-row h2 {
     font-size: 2em; }
   .games-row .col-sm-4 {
@@ -698,13 +704,13 @@ body.landing #nav-close-wrapper {
     .how-works .top img {
       max-width: 80%; } }
   .how-works .top .content {
-    font-size: 1.2em;
+    font-size: 1.6em;
     width: 80%;
     margin: 0 auto;
     text-align: justify; }
 
 .how-works .how-step .content {
-  font-size: 1.1em;
+  font-size: 1.6em;
   text-align: center;
   margin-left: 10%;
   margin-right: 10%;
@@ -712,10 +718,11 @@ body.landing #nav-close-wrapper {
 
 .how-works .how-step img {
   margin: 0 auto;
-  display: block; }
+  display: block;
+  max-width: 90%; }
   @media only screen and (max-width: 480px) {
     .how-works .how-step img {
-      width: 100%; } }
+      width: 83%; } }
 
 .how-works .step-four .content {
   padding-bottom: 9%; }
@@ -726,7 +733,7 @@ body.landing #nav-close-wrapper {
     padding-bottom: 10%; }
 
 .how-works .step-six {
-  font-size: 2.1em; }
+  font-size: 1.3em; }
   .how-works .step-six strong {
     color: #36d5d9; }
   .how-works .step-six img {
@@ -778,7 +785,7 @@ body.landing #nav-close-wrapper {
     border-bottom: none; }
 
 .home-page-info {
-  font-size: large;
+  font-size: 1.6em;
   color: white;
   height: 400px;
   text-align: justify;
@@ -2840,6 +2847,16 @@ body {
   float: none;
   margin: 0 auto; }
 
+@media only screen and (max-width: 1024px) {
+  .col-centered-md {
+    float: none;
+    margin: 0 auto; } }
+
+@media only screen and (max-width: 480px) {
+  .col-centered-sm {
+    float: none;
+    margin: 0 auto; } }
+
 .col-no-padding {
   padding: 0; }
 
@@ -2984,8 +3001,13 @@ footer {
     margin: 0px; }
 
 .footer {
-  background-color: white;
-  font-size: 1.6em; }
+  background-color: white; }
+  @media only screen and (min-width: 481px) {
+    .footer {
+      font-size: 1.6em; } }
+  @media only screen and (max-width: 480px) {
+    .footer {
+      font-size: 1.2em; } }
   .footer strong {
     color: #36d5d9; }
   .footer .logos-footer {

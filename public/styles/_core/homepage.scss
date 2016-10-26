@@ -34,24 +34,21 @@
         width: 100%;
         margin: 0 auto;
         display: inline-block;
-        background: $homepage-color;
-        /* For browsers that do not support gradients */
-        
+
+        background: $homepage-color;        
         background: -webkit-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
-        /* For Safari 5.1 to 6.0 */
-        
-        background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
-        /* For Opera 11.1 to 12.0 */
-        
+        background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);        
         background: -moz-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
-        /* For Firefox 3.6 to 15 */
-        
         background: linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+
+        img {
+            width: 100%;
+        }
         h2 {
             font-size: 3.5em;
             margin: 0px;
@@ -187,6 +184,13 @@
     }
     p {
         text-align: justify;
+
+        @include mobile-landscape-and-up {
+            font-size: 1.6em;
+        }
+        @include mobile-landscape-and-below {
+            font-size: 0.8em;
+        }
     }
     .content {
         text-align: center;
@@ -201,7 +205,9 @@
         }
     }
     .col-lg-4 {
-        padding: 40px;
+        @include desktop-and-up {
+            padding: 40px;
+        }
         img {
             display: block;
             height: 203px;
@@ -222,6 +228,7 @@
     margin: 0 auto;
     img {
         height: 200px;
+        max-width: 100%;
     }
     h2 {
         font-size: 2em;
@@ -257,20 +264,16 @@
 
         }
         .content {
-            // font-style: bold;
-            font-size: 1.2em;
+            font-size: 1.6em;
             width: 80%;
             margin: 0 auto;
             text-align: justify;
         }
     }
     .how-step {
-            
-        // margin-left: 5%;
-        // margin-right: 5%;
 
         .content {
-            font-size: 1.1em;
+            font-size: 1.6em;
             text-align: center;
             margin-left: 10%;
             margin-right: 10%;
@@ -280,8 +283,10 @@
             margin: 0 auto;
             display: block;
 
+            max-width: 90%;
+
             @include mobile-landscape-and-below {
-                width: 100%;
+                width: 83%;
             }
         }
     }
@@ -297,7 +302,7 @@
         }
     }
     .step-six {
-        font-size: 2.1em;
+        font-size: 1.3em;
 
         strong {                
             color: $color-teal;
@@ -349,7 +354,7 @@
     font-family: "Avenir";
     font-weight: bolder;
     font-size: xx-large;
-    // border-bottom: solid 2px #ffddb0;
+
     .email {
         color: #58c5c1;
     }
@@ -366,12 +371,13 @@
     }
 }
 .home-page-info {
-    font-size: large;
+    font-size: 1.6em;
     color: white;
     height: 400px;
     text-align: justify;
     margin-top: 2%;
     @include linear_transition(-webkit-filter, 0.5s);
+
     .info-buttons {
         text-align: center;
         position: absolute;
