@@ -215,12 +215,11 @@ module.exports = function() {
     }
 
     _helpers.ellipsis = function (limit, currentText) {
-            if (currentText.length > limit) {
-              console.log (currentText, "current text");
+            if (currentText.length > limit)
               return currentText.substr(0, limit) + "...";
-            } else {
+          
+            else
                 return currentText;
-            }
     }
 
     _helpers.upperCase = function(text) {

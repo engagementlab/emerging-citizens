@@ -49,7 +49,8 @@ HomePage.add({
             type: Types.Markdown,
             label: 'HTYI Blurb',
             required: true,
-            initial: true
+            initial: true,
+            note: 'Must be under 200 characters.'
         },
         htyi_image: {
             type: Types.CloudinaryImage,
@@ -62,7 +63,8 @@ HomePage.add({
             type: Types.Markdown,
             label: 'WWDMM Blurb',
             required: true,
-            initial: true
+            initial: true,
+            note: 'Must be under 200 characters.'
         },
         wwdmm_image: {
             type: Types.CloudinaryImage,
@@ -75,7 +77,8 @@ HomePage.add({
             type: Types.Markdown,
             label: 'Wiki Blurb',
             required: true,
-            initial: true
+            initial: true,
+            note: 'Must be under 200 characters.'
         },
         wiki_image: {
             type: Types.CloudinaryImage,
