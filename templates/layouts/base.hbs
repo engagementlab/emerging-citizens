@@ -15,11 +15,13 @@
     
     <body class="body {{gameType}}">
     
-      {{#ifnoteq viewType 'landing'}}  
-        <div id="nav-close-wrapper"><a id="nav-close" class="nav-close hidden-el">close</a></div>
+      {{#ifnoteq viewType 'landing'}}
+        {{#ifnoteq section 'newgame'}}
+          <div id="nav-close-wrapper"><a id="nav-close" class="nav-close hidden-el">close</a></div>
+        {{/ifnoteq}}
       {{/ifnoteq}}
 
-      {{> game_nav viewType=viewType }}
+      {{> game_nav viewType=viewType game=game }}
        <div class="container">
 
           <div id="wrapper">

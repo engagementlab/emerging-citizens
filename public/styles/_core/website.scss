@@ -73,10 +73,27 @@
 }
 // CATEGORIES 
 body.newgame {
-    .category-instructions {
+    #gameContent {
+        padding: 0 !important;
+    }
+    input[type=submit] {
+        min-width: 100px;
+        min-height: 60px;
+        font-size: 3em;
+    }
+     .error {
+        display: none;
         color: white;
-        font-size: 1.3em;
-        padding: 2%;
+        background-color: #ab3724;
+        font-size: 2em;
+        min-height: 50px;
+        padding: 10px;
+        border: 0;
+    }
+    .category-instructions {
+        text-align: center;
+        color: #595959;
+        font-size: 1.6em;
     }
     #categories {
         display: inline-block;
@@ -85,7 +102,8 @@ body.newgame {
         color: white;
         border: none;
         outline: 0;
-        margin: 40px auto;
+        margin: 40px; 
+        margin-top: -5%;
     }
     #session-create {
         width: 80%;
@@ -96,7 +114,6 @@ body.newgame {
             color: white;
             border: none;
             outline: 0;
-            margin: 40px auto;
             font-size: 0.5em;
             display: inline-block;
             .button_text {
@@ -119,8 +136,12 @@ body.newgame {
         padding: 2%;
         cursor: pointer;
 
-        @include transition(transform, .2s, ease-out-elastic);
-
+        .checkbox {
+            visibility: hidden;
+            position: absolute;
+            right: 5%;
+            top: -13%;
+        }
         h2 {
             font-size: 1.3em;
         }
@@ -134,23 +155,30 @@ body.newgame {
                 outline: 0;
             }
         }
-        &:hover {
-            @include scale(1.1);
+    }
+    #session-create {
+        background: none;
+        border: none;
+
+        .form {
+            height: 980px;
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
     }
     &.htyi {
-        #session-create {
-            background-color: $color-peach;
-            border: none;
+        #title {
+            color: $color-peach;
         }
         #categories {
             .category-box {
-                border: 5px solid lighten($color-peach, 20%);
+                @include box-shadow(3px, 0px, 12px, #964b2d);
+                border: 5px solid $color-peach;
                 background-color: white;
                 color: $color-orange;
                 margin: 2% auto;
                 &.selected {
-                    border: 5px solid darken($color-peach, 20%);
+                    border: 5px solid lighten($color-peach, 20%);
                 }
                 .markdown-content {
                     color: darken($color-gray, 30%);
@@ -171,18 +199,17 @@ body.newgame {
         }
     }
     &.wikigeeks {
-        #session-create {
-            background-color: $color-bg;
-            border: none;
+        #title {
+            color: $color-bg;
         }
         #categories {
             .category-box {
-                border: 5px solid lighten($color-bg, 20%);
+                border: 5px solid $color-bg;
                 background-color: white;
                 color: $color-bg;
                 margin: 2% auto;
                 &.selected {
-                    border: 5px solid darken($color-bg, 20%);
+                    border: 5px solid lighten($color-bg, 20%);
                 }
                 .markdown-content {
                     color: darken($color-gray, 30%);
@@ -203,18 +230,17 @@ body.newgame {
         }
     }
     &.wwdmm {
-        #session-create {
-            background-color: $color-dodger-blue;
-            border: none;
+        #title {
+            color: $color-dodger-blue;
         }
         #categories {
             .category-box {
-                border: 5px solid lighten($color-dodger-blue, 20%);
+                border: 5px solid $color-dodger-blue;
                 background-color: white;
                 color: $color-dodger-blue;
                 margin: 2% auto;
                 &.selected {
-                    border: 5px solid darken($color-dodger-blue, 20%);
+                    border: 5px solid lighten($color-dodger-blue, 20%);
                 }
                 .markdown-content {
                     color: darken($color-gray, 30%);

@@ -1016,10 +1016,27 @@ body.landing #nav-close-wrapper {
   font-size: 5em;
   color: #999999; }
 
-body.newgame .category-instructions {
+body.newgame #gameContent {
+  padding: 0 !important; }
+
+body.newgame input[type=submit] {
+  min-width: 100px;
+  min-height: 60px;
+  font-size: 3em; }
+
+body.newgame .error {
+  display: none;
   color: white;
-  font-size: 1.3em;
-  padding: 2%; }
+  background-color: #ab3724;
+  font-size: 2em;
+  min-height: 50px;
+  padding: 10px;
+  border: 0; }
+
+body.newgame .category-instructions {
+  text-align: center;
+  color: #595959;
+  font-size: 1.6em; }
 
 body.newgame #categories {
   display: inline-block; }
@@ -1028,7 +1045,8 @@ body.newgame #btn_submit {
   color: white;
   border: none;
   outline: 0;
-  margin: 40px auto; }
+  margin: 40px;
+  margin-top: -5%; }
 
 body.newgame #session-create {
   width: 80%;
@@ -1038,7 +1056,6 @@ body.newgame #session-create {
     color: white;
     border: none;
     outline: 0;
-    margin: 40px auto;
     font-size: 0.5em;
     display: inline-block; }
     body.newgame #session-create .select-buttons .button_text {
@@ -1056,11 +1073,12 @@ body.newgame .category-box {
   width: 90%;
   margin: 0 auto;
   padding: 2%;
-  cursor: pointer;
-  -moz-transition: transform, 0.2s, ease-out-elastic;
-  -o-transition: transform, 0.2s, ease-out-elastic;
-  -webkit-transition: transform, 0.2s, ease-out-elastic;
-  transition: transform, 0.2s, ease-out-elastic; }
+  cursor: pointer; }
+  body.newgame .category-box .checkbox {
+    visibility: hidden;
+    position: absolute;
+    right: 5%;
+    top: -13%; }
   body.newgame .category-box h2 {
     font-size: 1.3em; }
   body.newgame .category-box button {
@@ -1071,24 +1089,28 @@ body.newgame .category-box {
     width: 100%; }
     body.newgame .category-box button:focus {
       outline: 0; }
-  body.newgame .category-box:hover {
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1); }
 
-body.newgame.htyi #session-create {
-  background-color: #ff9971;
+body.newgame #session-create {
+  background: none;
   border: none; }
+  body.newgame #session-create .form {
+    height: 980px;
+    overflow-x: hidden;
+    overflow-y: scroll; }
+
+body.newgame.htyi #title {
+  color: #ff9971; }
 
 body.newgame.htyi #categories .category-box {
-  border: 5px solid #ffe2d7;
+  -webkit-box-shadow: 3px 0px 12px #964b2d;
+  -moz-box-shadow: 3px 0px 12px #964b2d;
+  box-shadow: 3px 0px 12px #964b2d;
+  border: 5px solid #ff9971;
   background-color: white;
   color: #FD6D59;
   margin: 2% auto; }
   body.newgame.htyi #categories .category-box.selected {
-    border: 5px solid #ff500b; }
+    border: 5px solid #ffe2d7; }
   body.newgame.htyi #categories .category-box .markdown-content {
     color: #999999; }
   body.newgame.htyi #categories .category-box button {
@@ -1102,17 +1124,16 @@ body.newgame.htyi .button_text {
     box-shadow: none;
     background-color: #ff743e; }
 
-body.newgame.wikigeeks #session-create {
-  background-color: #0be8d4;
-  border: none; }
+body.newgame.wikigeeks #title {
+  color: #0be8d4; }
 
 body.newgame.wikigeeks #categories .category-box {
-  border: 5px solid #61f8ea;
+  border: 5px solid #0be8d4;
   background-color: white;
   color: #0be8d4;
   margin: 2% auto; }
   body.newgame.wikigeeks #categories .category-box.selected {
-    border: 5px solid #06877b; }
+    border: 5px solid #61f8ea; }
   body.newgame.wikigeeks #categories .category-box .markdown-content {
     color: #999999; }
   body.newgame.wikigeeks #categories .category-box button {
@@ -1126,17 +1147,16 @@ body.newgame.wikigeeks .button_text {
     box-shadow: none;
     background-color: #09b7a8; }
 
-body.newgame.wwdmm #session-create {
-  background-color: #31b9ff;
-  border: none; }
+body.newgame.wwdmm #title {
+  color: #31b9ff; }
 
 body.newgame.wwdmm #categories .category-box {
-  border: 5px solid #97dcff;
+  border: 5px solid #31b9ff;
   background-color: white;
   color: #31b9ff;
   margin: 2% auto; }
   body.newgame.wwdmm #categories .category-box.selected {
-    border: 5px solid #0085ca; }
+    border: 5px solid #97dcff; }
   body.newgame.wwdmm #categories .category-box .markdown-content {
     color: #999999; }
   body.newgame.wwdmm #categories .category-box button {

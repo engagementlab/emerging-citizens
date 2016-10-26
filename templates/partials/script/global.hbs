@@ -462,16 +462,21 @@ window.onload = function() {
 			// GROUP VIEW
 			{{#ifeq viewType 'group'}}
 			
+				// CATEGORY SELECT
 				{{#ifeq section 'newgame'}}			
 					
 		      $('.body').addClass('newgame');
 					$('.navbar.main').hide();
 
+					// Show categoriews
+	        new TimelineLite()
+	        .staggerFrom(_.shuffle($('.category-box')), 1.4, {scale:0, ease:Elastic.easeOut}, .2);
+
 				  // ACCESS CODE 
 				  $('#session-create #btn_submit').click(function(evt) {
 								var data = {};
-								data.contentCategories = $(".form button.inactive").map(function(){
-																				    return $(this).val();
+								data.contentCategories = $(".category-box.selected").map(function(){
+																				    return $(this).data().id;
 																				 }).get();
 								data.accessCode = '{{gameCode}}';
 
@@ -495,47 +500,33 @@ window.onload = function() {
 								);
 					});
 					$('#session-create #btn_select_all').click(function(evt) {
-						var btn = $('#session-create').find('.voting-button');
+						
+						$('.category-box').addClass('selected');	  
+						TweenLite.fromTo($('.checkbox'), 1, {autoAlpha:0, scale:0}, {autoAlpha:1, scale:1, ease: Elastic.easeOut});
 
-						if (btn.hasClass('active')) {
-							btn.addClass('inactive');
-							btn.removeClass('active');
-							btn.parent('.category-box').addClass('selected');
-
-						}
-
-						btn.text('Clear');
-
-
-							  
 					});
 					$('#session-create #btn_clear_all').click(function(evt) {
-						var btn = $('#session-create').find('.voting-button');
-
-						if (btn.hasClass('inactive')) {
-							btn.addClass('active');
-							btn.removeClass('inactive');
-							btn.parent('.category-box').removeClass('selected');
-
-						}
-
-						btn.text('Select');
-
+						
+						$('.category-box').removeClass('selected')
+						TweenLite.fromTo($('.checkbox'), 1, {autoAlpha:1, scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
+					
 					});
 					
-					$('.category-box').click(function(e) {
-						// .click();
+					$('.category-box').click(function(evt) {
+						$(evt.currentTarget).toggleClass('selected');
 
-						var btn = $(e.currentTarget).find('.voting-button');
-
-						btn.toggleClass('inactive');
-						btn.toggleClass('active');
-						btn.parent('.category-box').toggleClass('selected');
-
-						if(btn.hasClass('inactive'))
-							btn.text('Clear');
+						if(!$(evt.currentTarget).hasClass('selected'))
+							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {scale:1}, {autoAlpha:0, scale:0, ease: Elastic.easeOut});
 						else
-							btn.text('Select');
+							TweenLite.fromTo($(evt.currentTarget).find('.checkbox'), 1, {autoAlpha:0, scale:0, rotation: "20_ccw"}, {autoAlpha:1, scale:1, rotation: "0_cw", ease: Elastic.easeOut});
+					});
+					
+					$('.category-box')
+					.hover(function(evt) {
+							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1}, {scale:1.1, ease: Elastic.easeOut});
+					})
+					.mouseleave(function(evt) {
+							TweenLite.fromTo($(evt.currentTarget), 1, {scale:1.1}, {scale:1});
 					});
 				
 				{{/ifeq}}

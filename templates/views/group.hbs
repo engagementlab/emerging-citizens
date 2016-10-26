@@ -1,33 +1,29 @@
 <div class="page-container category-page {{lowerCase whichGame}}">
     <div class="row">
 
-
             <div id="session-create" class="submission col-sm-12 input-box">
-                <div class="category-instructions">
-                    {{{game.lessonPlanBlurb.html}}}
+                <div class="row select-buttons">
+                    <input id="btn_select_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="select all">
+                    <input id="btn_clear_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="clear all">
                 </div>
                 <div class="form">
-                    <div class="row select-buttons">
-                        <input id="btn_select_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="SELECT ALL">
-                        <input id="btn_clear_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="CLEAR ALL">
-                    </div>
 
                     <div id="categories" class="row">
                         {{#each categories}}
                         <div class="col-sm-4">
-                            <div class="category-box ">
+                            <div class="category-box" data-id="{{id}}">
+                                <div class="checkbox"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_80/emerging-citizens/images/layout/category_check_{{lowerCase ../whichGame}}.png" /></div>
                                 <div class="markdown-content"><h2>{{topicName}}</h2>{{{ellipsis 120 text.html}}}</div>
-                                <button value="{{id}}" class="voting-button active submit">Select</button>
                             </div>
                         </div>
                         {{/each}} 
                     </div>
-
-                    <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="LAUNCH GAME">
-
-                    <div class="error">Error!</div>
                            
                 </div>
+
+                <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="launch game">
+
+                <div class="error">Error!</div>
             </div>
 
     </div>
