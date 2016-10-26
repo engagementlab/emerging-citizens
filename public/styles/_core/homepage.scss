@@ -160,8 +160,14 @@
 .what-text {
     background-color: white;
     h1 {
+
         &.content {
-            font-size: 2em;
+            @include mobile-landscape-and-up {
+                font-size: 1.8em;
+            }
+            @include mobile-landscape-and-below {
+                font-size: 1.2em;
+            }
             width: 60%;
             margin: 0px auto;
             color: $color-teal;
@@ -184,13 +190,6 @@
     }
     p {
         text-align: justify;
-
-        @include mobile-landscape-and-up {
-            font-size: 1.6em;
-        }
-        @include mobile-landscape-and-below {
-            font-size: 0.8em;
-        }
     }
     .content {
         text-align: center;
@@ -229,6 +228,9 @@
     img {
         height: 200px;
         max-width: 100%;
+        @include mobile-landscape-and-below {
+            padding: 4%;
+        }
     }
     h2 {
         font-size: 2em;
@@ -436,18 +438,15 @@
         display: inline-block;
 
         .game-page {
-            width: 90%;
+            @include mobile-landscape-and-up {
+                width: 90%;
+            }
             max-width:1024px;
             margin: 0 auto;
         }
-
         .top-section {
-
-            background-color: white;
-            
-            
+            background-color: white;            
         }
-
         h2 {
             text-align: center;
         }
@@ -458,7 +457,6 @@
             width: 200px;
             border: solid 4px $color-dodger-blue;
             padding: 2%;
-            font-size: 2em;
             color: $color-dodger-blue;
             margin-top: 1%;
             @include transition(transform, .5s, ease-in-out-expo);
@@ -496,12 +494,17 @@
             height: auto;
             img {
                 height: 250px;
+                @include mobile-landscape-and-below {
+                    width: 100%;
+                    height: 197px;
+                }
             }
         }
         .blurb {
             @include mobile-landscape-and-below {
                 width: 100%;
             }
+            font-size: 1.6em;
             width: 80%;
             padding: 5%;
             margin: 0 auto;

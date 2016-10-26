@@ -89,9 +89,9 @@ exports = module.exports = function(req, res) {
 
             queryPlan.exec(function (err, plans) {
 
-                _.each(plans, function(plan, index){
+                /*_.each(plans, function(plan, index){
                     plan.relatedGame.gameType = plan.relatedGame.gameType.toUpperCase();
-                });
+                });*/
                 
                 locals.lessonPlans = plans;
 

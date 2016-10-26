@@ -1,13 +1,16 @@
 {{#ifeq viewType 'landing'}}
-  
-  <div class="row" id="logo_ec">
-    <div class="col-sm-12">
-      <a href='/'>
-        <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row desktop-only">
-      </a>
-      <a id="nav-dropdown">&#9776;</a>
+    
+    <div class="row" id="logo_ec">
+      <div class="col-sm-12">
+        {{#ifeq section 'index'}}
+          <a href='/'>
+            <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row desktop-only">
+          </a>
+        {{/ifeq}}
+        <a id="nav-dropdown">&#9776;</a>
+      </div>
     </div>
-  </div>
+
 
 {{else}}
 

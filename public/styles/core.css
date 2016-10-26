@@ -622,11 +622,16 @@ body.landing #nav-close-wrapper {
 .what-text {
   background-color: white; }
   .what-text h1.content {
-    font-size: 2em;
     width: 60%;
     margin: 0px auto;
     color: #36d5d9;
     line-height: 1.2; }
+    @media only screen and (min-width: 481px) {
+      .what-text h1.content {
+        font-size: 1.8em; } }
+    @media only screen and (max-width: 480px) {
+      .what-text h1.content {
+        font-size: 1.2em; } }
     .what-text h1.content p {
       text-align: center; }
   .what-text h2 {
@@ -640,12 +645,6 @@ body.landing #nav-close-wrapper {
     text-align: center; }
   .what-text p {
     text-align: justify; }
-    @media only screen and (min-width: 481px) {
-      .what-text p {
-        font-size: 1.6em; } }
-    @media only screen and (max-width: 480px) {
-      .what-text p {
-        font-size: 0.8em; } }
   .what-text .content {
     text-align: center; }
     .what-text .content h2 {
@@ -679,6 +678,9 @@ body.landing #nav-close-wrapper {
   .games-row img {
     height: 200px;
     max-width: 100%; }
+    @media only screen and (max-width: 480px) {
+      .games-row img {
+        padding: 4%; } }
   .games-row h2 {
     font-size: 2em; }
   .games-row .col-sm-4 {
@@ -847,9 +849,11 @@ body.landing #nav-close-wrapper {
   margin: 0 auto;
   display: inline-block; }
   .landing .game-about .game-page {
-    width: 90%;
     max-width: 1024px;
     margin: 0 auto; }
+    @media only screen and (min-width: 481px) {
+      .landing .game-about .game-page {
+        width: 90%; } }
   .landing .game-about .top-section {
     background-color: white; }
   .landing .game-about h2 {
@@ -861,7 +865,6 @@ body.landing #nav-close-wrapper {
     width: 200px;
     border: solid 4px #31b9ff;
     padding: 2%;
-    font-size: 2em;
     color: #31b9ff;
     margin-top: 1%;
     -moz-transition: transform, 0.5s, ease-in-out-expo;
@@ -898,7 +901,12 @@ body.landing #nav-close-wrapper {
     height: auto; }
     .landing .game-about .logo img {
       height: 250px; }
+      @media only screen and (max-width: 480px) {
+        .landing .game-about .logo img {
+          width: 100%;
+          height: 197px; } }
   .landing .game-about .blurb {
+    font-size: 1.6em;
     width: 80%;
     padding: 5%;
     margin: 0 auto; }
