@@ -229,6 +229,8 @@ socketEvents = function(eventId, eventData) {
             nextRoundAnim.play();
 
             if (eventData.data && eventData.data.last_round){
+                console.log("this is the last round");
+                socket.emit('game:survey');
                 resetSession();
                 $('#survey').fadeIn();
             }
