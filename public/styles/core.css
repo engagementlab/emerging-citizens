@@ -966,10 +966,6 @@ body.landing #nav-close-wrapper {
   .landing .game-about#htyi-page .blurb {
     color: #ffa800; }
 
-@media (min-width: 2000px) {
-  body.newgame .page-container {
-    margin-top: 3%; } }
-
 .aboutPage {
   background: #5DD9D6;
   /* For browsers that do not support gradients */
@@ -1044,9 +1040,18 @@ body.newgame #categories {
 body.newgame #btn_submit {
   color: white;
   border: none;
+  position: fixed;
+  font-size: 4em;
+  bottom: 0;
+  height: 150px;
+  width: 400px;
   outline: 0;
-  margin: 40px;
-  margin-top: -5%; }
+  margin: 0 auto;
+  -moz-transform: translate(-200px, 0px);
+  -o-transform: translate(-200px, 0px);
+  -ms-transform: translate(-200px, 0px);
+  -webkit-transform: translate(-200px, 0px);
+  transform: translate(-200px, 0px); }
 
 body.newgame #session-create {
   width: 80%;
@@ -1069,7 +1074,8 @@ body.newgame #logo_ec {
   margin-bottom: 5%; }
 
 body.newgame .category-box {
-  min-height: 225px;
+  min-height: 300px;
+  max-height: 300px;
   width: 90%;
   margin: 0 auto;
   padding: 2%;
@@ -1094,7 +1100,9 @@ body.newgame #session-create {
   background: none;
   border: none; }
   body.newgame #session-create .form {
-    height: 980px;
+    padding: 2%;
+    font-size: 1.3em;
+    height: auto;
     overflow-x: hidden;
     overflow-y: scroll; }
 
@@ -1119,10 +1127,14 @@ body.newgame.htyi #categories .category-box {
 body.newgame.htyi .button_text {
   border: 0px;
   background-color: #ff8758; }
-  body.newgame.htyi .button_text:hover, body.newgame.htyi .button_text:focus, body.newgame.htyi .button_text:visited {
+  body.newgame.htyi .button_text:hover, body.newgame.htyi .button_text:focus {
     outline: 0;
     box-shadow: none;
     background-color: #ff743e; }
+  body.newgame.htyi .button_text:visited {
+    background-color: #ff8758;
+    outline: 0;
+    box-shadow: none; }
 
 body.newgame.wikigeeks #title {
   color: #0be8d4; }
@@ -1142,10 +1154,14 @@ body.newgame.wikigeeks #categories .category-box {
 body.newgame.wikigeeks .button_text {
   border: 0px;
   background-color: #0be8d4; }
-  body.newgame.wikigeeks .button_text:hover, body.newgame.wikigeeks .button_text:focus, body.newgame.wikigeeks .button_text:visited {
+  body.newgame.wikigeeks .button_text:hover, body.newgame.wikigeeks .button_text:focus {
     outline: 0;
     box-shadow: none;
     background-color: #09b7a8; }
+  body.newgame.wikigeeks .button_text:visited {
+    background-color: #0be8d4;
+    outline: 0;
+    box-shadow: none; }
 
 body.newgame.wwdmm #title {
   color: #31b9ff; }
@@ -1165,13 +1181,14 @@ body.newgame.wwdmm #categories .category-box {
 body.newgame.wwdmm .button_text {
   background-color: #31b9ff;
   border: 0px; }
-  body.newgame.wwdmm .button_text:hover, body.newgame.wwdmm .button_text:focus, body.newgame.wwdmm .button_text:visited {
+  body.newgame.wwdmm .button_text:hover, body.newgame.wwdmm .button_text:focus {
     outline: 0;
     box-shadow: none;
     background-color: #00a7fd; }
-
-#session-create .form {
-  padding: 2%; }
+  body.newgame.wwdmm .button_text:visited {
+    background-color: #31b9ff;
+    outline: 0;
+    box-shadow: none; }
 
 #htyi-page {
   background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
@@ -1181,6 +1198,27 @@ body.newgame.wwdmm .button_text {
 
 #wwdmm-page {
   background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
+
+@media (min-width: 2000px) {
+  body.newgame #session-create {
+    width: 100%;
+    left: 0px; }
+  body.newgame .form {
+    font-size: 1.5em; } }
+
+@media (min-width: 1024px) and (max-width: 1680px) {
+  body.newgame #session-create {
+    width: 95%;
+    left: 2.5%; }
+  body.newgame .select-buttons input {
+    width: 300px !important;
+    height: 100px;
+    font-size: 5.2em; }
+  body.newgame .form {
+    font-size: 1.6em; }
+    body.newgame .form .category-box {
+      height: 400px;
+      font-size: 1.2em; } }
 
 @media (min-width: 1024px) {
   body .container {
