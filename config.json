@@ -1,7 +1,7 @@
 {
 	"name": "Emerging Citizens",
 	"directory": "emerging-citizens",
-	"database": "emerging-citizens", 
+	"database": "emerging-citizens",
 	"admin_nav": { 
 						"HomePage": ["HomePage"], 
 						"LessonPlan": ["LessonPlan", "ContentCategory"], 

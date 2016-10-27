@@ -209,7 +209,8 @@ body.player #login {
   min-height: 300px; }
   body.player #login input[type=text] {
     width: 100%;
-    max-width: 290px; }
+    max-width: 290px;
+    color: white; }
 
 body.player .form-prompt {
   color: white;

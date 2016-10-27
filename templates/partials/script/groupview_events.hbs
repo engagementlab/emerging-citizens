@@ -199,14 +199,13 @@ socketEvents = function(eventId, eventData) {
 
 // Get events script for the game type logged in to
 $.getScript( '/{{#ifnoteq environment "development"}}release{{else}}js{{/ifnoteq}}/events/group/{{gameType}}.js' )
-    {{#ifnoteq environment "production"}}
-        .done(function( script, textStatus ) {
-            var startBtn = $('#btn-start-game');
-            startAnim.from(startBtn, 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
-        })
-        .fail(function( jqxhr, settings, exception ) {
-            console.error('Unable to load %s (error: "%s")', '{{gameType}}.js', exception);
-        });
-
-    {{else}};
-    {{/ifnoteq}}
+    .done(function( script, textStatus ) {
+        var startBtn = $('#btn-start-game');
+        startAnim.from(startBtn, 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});
+    })
+{{#ifnoteq environment "production"}}
+    .fail(function( jqxhr, settings, exception ) {
+        console.error('Unable to load %s (error: "%s")', '{{gameType}}.js', exception);
+    });
+{{else}};
+{{/ifnoteq}}

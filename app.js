@@ -48,6 +48,18 @@ module.exports = function(frameworkDir) {
 	var keystoneInst = require('keystone');
 	
 	keystoneInst.set('module root', appRootPath);
+	keystoneInst.set('static', 'public');
+
+  // Enables CORS for play domain on production, for static assets
+	if(process.env.NODE_ENV === 'production') {
+		keystoneInst.set('static options', {
+			'setHeaders': function(res, path) {
+		    res.header("Access-Control-Allow-Origin", "https://ecplay.org");
+		    res.header('Access-Control-Allow-Methods', 'GET');
+		    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+		  }
+		});
+	}
 
 	return { 
 
