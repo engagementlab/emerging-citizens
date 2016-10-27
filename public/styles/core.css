@@ -154,6 +154,9 @@
 body.player #gameContent {
   padding-top: 3%; }
 
+body.player .game-message {
+  padding: 40px; }
+
 body.player #login {
   margin-top: 5%; }
   body.player #login input[type=text] {
@@ -2377,7 +2380,7 @@ body.newgame.wwdmm .button_text {
       font-size: 3em;
       font-family: 'Patrick Hand', cursive;
       line-height: 1;
-      margin-top: -80px;
+      margin-top: -60px;
       margin-bottom: 30px; }
     .body.wwdmm.group #make-meme #countdown {
       font-size: 250%;
