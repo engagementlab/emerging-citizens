@@ -193,6 +193,17 @@
     a {
     	color: #4394ff;
     }
+
+    .error {
+			display: none;
+			text-align: center;
+			color: white;
+			background-color: $color-light-red;
+			font-size: 1.4em;
+			min-height: 50px;
+			padding: 10px;
+			border: 0;
+    }
 	}
 
 	.game-message {
@@ -270,7 +281,8 @@
 	#wiki-content {
 		padding-top:5%;
 		padding-bottom:5%;
-		overflow-y:scroll;
+		// overflow-y:scroll;
+		// -webkit-overflow-scrolling:touch;
 	}
 	#toc {
 		background-color: $color-gray;

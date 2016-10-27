@@ -2630,6 +2630,15 @@ body.newgame.wwdmm .button_text {
       padding: 20px; }
     .body.wikigeeks.player #article a {
       color: #4394ff; }
+    .body.wikigeeks.player #article .error {
+      display: none;
+      text-align: center;
+      color: white;
+      background-color: #ab3724;
+      font-size: 1.4em;
+      min-height: 50px;
+      padding: 10px;
+      border: 0; }
   .body.wikigeeks.player .game-message {
     position: relative;
     padding-top: 10%;
@@ -2685,8 +2694,7 @@ body.newgame.wwdmm .button_text {
       min-height: 100px; }
   .body.wikigeeks.player #wiki-content {
     padding-top: 5%;
-    padding-bottom: 5%;
-    overflow-y: scroll; }
+    padding-bottom: 5%; }
   .body.wikigeeks.player #toc {
     background-color: #e6e6e6;
     border: 2px solid; }

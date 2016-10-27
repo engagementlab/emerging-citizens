@@ -35,7 +35,31 @@ var gameEvents = function(eventId, eventData) {
 
     };
 
+    var retrieveError = function(textStatus) {
+
+        var msg = "Looks like there's something up with that link/article...<br />Try a different one!";
+
+        if(textStatus && textStatus === 'timeout')
+            msg = "Sorry, finding that article took too long.<br />Please try again!";
+
+        $('.error').html(msg).fadeIn();
+
+        var btn = $('#btn_search');
+        
+        btn.find('img').fadeOut(150, function() {
+            btn.find('span').fadeIn(150);                    
+        });    
+        btn.removeAttr('disabled');
+        
+        retrievingData = false;
+
+        loadToggle(false, true);
+
+    };
+
     var retrieveArticle = function(articleTitle, initialSearch, displayNow) {
+
+        $('.error').fadeOut(400);
 
         if (retrievingData === true)
             return;
@@ -52,74 +76,63 @@ var gameEvents = function(eventId, eventData) {
 
         retrievingData = true;
 
-        // if (initialSearch === false)
-        //     $('#article-loading').show();
-
         // Get article content
-        $.getJSON(
-            retrievalUrl,
-            function(articleData) {
+        $.ajax({
 
-                if(articleData.error) {
+                url: retrievalUrl,
+                timeout: 10000,
+                dataType: 'json',
+                success: function(articleData) {
 
-                    var msg = "Looks like there's something up with that link/article...<br />Try a different one!";
+                    if(articleData.error) {
+                        retrieveError();
+                        return;                
+                    }
 
-                    $('.error').html(msg).fadeIn();
+                    if (articleData.parse.redirects.length !== 0)
+                        articleTitle = articleData.parse.redirects[0].to;
 
-                    var btn = $('#btn_search');
+                    displayWikiContent(articleData);
+
+                    // Tell server about this article being chosen by player, unless overriden
+                    if (!displayNow)
+                        socket.emit('article:select', emitData({
+                                title: articleTitle,
+                                initial: initialSearch
+                            })
+                        );
+
+                    // Used only for auto-submission
+                    else if (displayNow) {
+                        $('#topic-submission').fadeOut(function() {
+
+                            $('section#submitted').hide();
+                            $('#wiki-article').fadeIn();
+                            $('section#article').show();
+
+                        });
+                    }
+
+                    if (!random)
+                        $('#article .article-name').text(articleTitle.replace(/_/g, ' '));
+                    else 
+                        $('#article .article-name').html('Our random article generator sent you to<br />' + articleTitle);
                     
-                    btn.find('img').fadeOut(150, function() {
-                        btn.find('span').fadeIn(150);                    
-                    });    
-
-                    btn.removeAttr('disabled');
-                    
-                    // playerSubmitted = false;
                     retrievingData = false;
+                    random = false;
 
-                    loadToggle(false, true);
+                    if (initialSearch === false)
+                      $('#article-loading').hide();  
+                    else
+                        playerSubmitted = true;
+                                    
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
 
-                    return;                
-                }
-
-                if (articleData.parse.redirects.length !== 0)
-                    articleTitle = articleData.parse.redirects[0].to;
-
-                displayWikiContent(articleData);
-
-                // Tell server about this article being chosen by player, unless overriden
-                if (!displayNow)
-                    socket.emit('article:select', emitData({
-                            title: articleTitle,
-                            initial: initialSearch
-                        })
-                    );
-
-                // Used only for auto-submission
-                else if (displayNow) {
-                    $('#topic-submission').fadeOut(function() {
-
-                        $('section#submitted').hide();
-                        $('#wiki-article').fadeIn();
-                        $('section#article').show();
-
-                    });
-                }
-
-                if (!random)
-                    $('#article .article-name').text(articleTitle.replace(/_/g, ' '));
-                else 
-                    $('#article .article-name').html('Our random article generator sent you to<br />' + articleTitle);
+                    retrieveError(textStatus);
                 
-                retrievingData = false;
-                random = false;
-
-                if (initialSearch === false)
-                  $('#article-loading').hide();  
-                else
-                    playerSubmitted = true;
-                                
-            });
+                }
+        });
 
     };
 
@@ -410,6 +423,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'wiki:results':
 
+            sessionStorage.removeItem('currentArticle');
+
             updateGameContent(eventData, function() {
 
                 var timing = 500;
@@ -455,9 +470,6 @@ var gameEvents = function(eventId, eventData) {
                         $('.results-container').fadeOut();
                         $('#survey-ready').hide();
                         $('#surveyOptions').show();
-                        // sessionStorage.clear();
-
-
                     });
 
                 });
