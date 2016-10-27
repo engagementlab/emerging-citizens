@@ -230,9 +230,10 @@ socketEvents = function(eventId, eventData) {
 
             if (eventData.data && eventData.data.last_round){
                 console.log("this is the last round");
-                socket.emit('game:survey');
+                $('#survey').fadeIn(console.log("fade in"));
+                socket.emit('game:survey', eventData.data);
                 resetSession();
-                $('#survey').fadeIn();
+                
             }
             else{
                 sessionStorage.removeItem('playerSubmission');
@@ -252,7 +253,7 @@ socketEvents = function(eventId, eventData) {
                 } else {
                     $('#survey').fadeIn();
                 } --}}
-            $('#survey').fadeIn();
+            $('#survey').fadeIn(console.log("fade in 22"));
 
             break;
 
