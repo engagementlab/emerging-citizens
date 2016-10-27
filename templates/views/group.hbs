@@ -1,31 +1,30 @@
-{{!-- {{> group/header_htyi }} --}}
-
-<div class="page-container">
+<div class="page-container category-page {{lowerCase whichGame}}">
     <div class="row">
-        <div class="col-sm-12">                
-            {{!-- <select id="game_type" name="gameType">
-            {{#each gameTypes}}
-              <option value="{{@index}}">{{this}}</option>
-            {{/each}}
-            </select><br /> --}}
 
-            <div class="col-sm-3"></div>
-            <div id="session-create" class="submission col-sm-6 input-box">
-                {{!-- <div class="form-prompt white">de-select any content to not include in this session:</div> --}}
-                <div class="form">
-                    {{!-- <div id="categories">
-                        {{#each categories}}
-                            <button value="{{id}}" class="voting-button active submit">{{name}}</button>
-                        {{/each}} 
-                    </div>  --}}
-                    <div class="form-prompt white">access code:</div>
-                    <div id="access-code">{{gameCode}}</div>
-
-                    <div class="error">Error!</div>
-                    <input id="btn_submit" data-event="game:start" class="button_text" type="submit" name="submit" value="Start!">       
+            <div id="session-create" class="submission col-sm-12 input-box">
+                <div class="row select-buttons">
+                    <input id="btn_select_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="select all">
+                    <input id="btn_clear_all" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="clear all">
                 </div>
+                <div class="form">
+
+                    <div id="categories" class="row">
+                        {{#each categories}}
+                        <div class="col-sm-4">
+                            <div class="category-box" data-id="{{id}}">
+                                <div class="checkbox"><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_80/emerging-citizens/images/layout/category_check_{{lowerCase ../whichGame}}.png" /></div>
+                                <div class="markdown-content"><h2>{{topicName}}</h2>{{{ellipsis 120 text.html}}}</div>
+                            </div>
+                        </div>
+                        {{/each}} 
+                    </div>
+                           
+                </div>
+
+                <input id="btn_submit" data-type="{{gameType}}" class="button_text" type="submit" name="submit" value="launch game">
+
+                <div class="error">Error!</div>
             </div>
 
-        </div>
     </div>
 </div>

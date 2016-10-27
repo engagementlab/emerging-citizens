@@ -1,6 +1,8 @@
+'use strict';
+
 /**
  * Emerging Citizens
- * Developed by Engagement Lab, 2015
+ * Developed by Engagement Lab, 2016
  * ==============
  * Home page view controller.
  *
@@ -15,12 +17,13 @@
 
 var keystone = require('keystone'),
     async = require('async'),
-    appRoot = require('app-root-path'),
-    _ = require('underscore');
+    appRoot = require('app-root-path');
     
 var HashtagGame = keystone.list('HashtagGame'),
+    WikiGame = keystone.list('WikiGame'),
+    MemeGame = keystone.list('MemeGame'),
     Game = require(appRoot + '/lib/GameManager'),
-    Session = require(appRoot + '/lib/SessionManager'),
+    Session = require('learning-games-core').SessionManager,
     ContentCategory = keystone.list('ContentCategory');
 
 /**
@@ -28,35 +31,40 @@ var HashtagGame = keystone.list('HashtagGame'),
  */
 exports.create = function(req, res) {
 
+    // Check if game type specified
+    if(!req.params.game_type)        
+        return res.notfound('Game type not specified!', 'Sorry, but a game type needs to be specified.');  
+
     var sessionType;
     var data = (req.method == 'POST') ? req.body : req.query;
+    
+    // Set game type for model
+    data.gameType = req.params.game_type;
+    data.contentCategories = req.body.contentCategories;
 
-    ContentCategory.model.find({}, 'name', function (err, categories) {
+    if(data.contentCategories === undefined || data.contentCategories.length === 0) {
+       res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
+       return;
+    }
+    
+    if(data.gameType === "htyi")
+        sessionType = new HashtagGame.model();
+    
+    else if (data.gameType === "wikigeeks")
+        sessionType = new WikiGame.model();
+    
+    else if (data.gameType === "wwdmm")
+        sessionType = new MemeGame.model();
 
-        // TEMP: Pull all categories for all games
-        data.contentCategories = categories;
+    sessionType.getUpdateHandler(req).process(data, function(err) {
 
-        if(data.contentCategories === undefined || data.contentCategories.length === 0) {
-           res.send({error_code: 'need_content', msg: 'You must include at least one type of content.'});
-           return;
-        }
+        if (err) return res.apiError('error', err);
+
+        // Save this session to memory for faster retrieval (deleted when game ends)
+        Session.Create(data.accessCode, new Game(sessionType));
+
+        res.send('/game/' + data.accessCode);
         
-        // if(data.gameType === "0")
-            sessionType = new HashtagGame.model();
-
-        // TODO: temporary
-        data.gameType = "0";
-
-        sessionType.getUpdateHandler(req).process(data, function(err) {
-            
-            if (err) return res.apiError('error', err);
-
-            // Save this session to memory for faster retrieval (deleted when game ends)
-            Session.Create(data.accessCode, new Game(sessionType));
-
-            res.send('/game/' + data.accessCode);
-            
-        });
-
     });
+
 };

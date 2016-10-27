@@ -1,0 +1,44 @@
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@include font-face(Avenir, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0', null, null, woff2 woff eot ttf);
+@include font-face(AvenirLight, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_1_0', null, null, woff2 woff eot ttf);
+@include font-face(AvenirBold, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0', null, null, woff2 woff eot ttf);
+
+@include font-face(HalisGR-Book, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0', null, null, woff2 woff eot ttf);
+
+@include font-face(Impact-External, 'https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/fonts/impact', null, null, ttf);
+
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+.light {
+	font-family: "AvenirLight";
+}
+.bold {
+	font-family: "AvenirBold";
+}

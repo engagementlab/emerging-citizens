@@ -1,0 +1,46 @@
+<div class="page-container" id="create">
+    <div class="row">
+        {{!-- STATE TEXT --}}
+        <div id="top-header" class="top-bar hidden-el">
+            <h1>
+                make a meme about:
+                <span id="topic">
+                    <span class="text">{{topicName}}</span>
+                </span>
+            </h1>
+        </div>
+        
+        <div class="col-lg-4 col-sm-4 players-left hidden-el"> 
+            {{> group/meme/players_grid players=players.left offset=0 left=true}}
+        </div>
+
+        {{!-- Meme Create Container --}}
+        <section class="col-lg-4 col-sm-4">
+            <div id="make-meme" class="row room-container hidden-el">
+
+                {{!-- MAKE MEME --}}
+                <div>
+                    <h3>
+                        use your device to make a meme about:
+                    </h3>
+                    <img src="{{{cloudinaryUrl topicImage width=350 height=350 quality=80}}}" />
+                    <div id="meme-topic" class="meme-text">{{topicName}}</div>
+                </div>
+
+                {{!-- COUNTDOWN --}}
+                <div class="row countdown">
+
+                    <div id="countdown"></div>
+
+                    <div>REMAINING</div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="col-lg-4 col-sm-4 players-right hidden-el"> 
+            {{> group/meme/players_grid players=players.right offset=4 left=false}}
+        </div>
+        
+    </div>
+</div>

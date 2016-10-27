@@ -12,6 +12,7 @@
  */
 var keystone = require('keystone');
 var GameSession = require('./GameSession');
+var Tweet = require('./Tweet');
 var Types = keystone.Field.Types;
 
 /**
@@ -26,9 +27,14 @@ var HashtagGame = new keystone.List('HashtagGame', {
 
 HashtagGame.add({
 
-  contentCategories: { type : keystone.Field.Types.Relationship, ref: 'ContentCategory', many: true }
+  contentCategories: { type: Types.Relationship, ref: 'ContentCategory', many: true },
+  // roundData: { type: Array }
+  tweets: { type: Types.Relationship, ref: 'Tweet', many: true }
 
 });
+
+// Store all hashtag submissions/votes (not visible in admin UI)
+HashtagGame.schema.add({ submissions: Object });
 
 /**
  * Registration

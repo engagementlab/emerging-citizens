@@ -1,22 +1,22 @@
-<!-- Top Navbar -->
-<nav class="navbar main navbar-fixed-top hidden-sm hidden-xs notfixed">
-  <div class="container">
-  <div class="col-md-5 col-xs-4"></div>
-    <img src="/images/layout/logo_ec.png" class="col-xs-3 col-sm-3 col-md-2">
-    <div class ="col-md-5"></div>
+<div class="row" id="logo_ec">
+  <div class="col-sm-12">
+    <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row">
+    <a id="nav-dropdown">&#9776;</a>
   </div>
+</div>
+
+<nav class="navbar main nav-dropdown" style="display:none;">
+  
+  <img id="game-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_300/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el">
+  
   <div class="container">
-    <div id="navbar" class="{{!-- collapse navbar-collapse --}}">
-{{!--     <div class ="col-sm-5 col-xs-3"></div>
-
-      <ul class="nav navbar-nav col-lg-4 col-xs-8">
-        <li><a href="moderator.html" id="login">login</a></li>
-        <li><a href="playerInterface.html" id="about">about</a></li>
-        <li><a href="#contact" id="help">help</a></li>
-      </ul>
-
-      <div class ="col-sm-4"></div>
-    </div> --}}
+    <div id="navbar" class="">
+    <ul>
+      <li><a href='/'>Home</a></li>
+      <li><a href='/about'>About Page</a></li>
+      {{!-- <li><a href='/lessonPlans'>Lesson Plans</a></li> --}}
+      <li><a href='/help'>Help</a></li>
+      <li style="padding:4%;"><a id="nav-close">close</a></li>
+    </ul>
   </div>
 </nav>
-<!-- End Navbar -->

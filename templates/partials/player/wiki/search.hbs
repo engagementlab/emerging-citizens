@@ -1,0 +1,59 @@
+<div id="topic-submission">
+
+	<div class="submission col-xs-12 col-lg-12 col-centered">
+	  <div class="form-prompt">Choose a starting article from our drop-down list!</div>
+	  <div class="form">
+	  <button id="clear" class="post-button hidden" name="clear">x</button>
+
+				<div class="input-container">
+					{{!-- <span id="clear">x</span> --}}
+
+					<input id="article_input" name="element_1" class="prompt" type="text" autofocus="autofocus" placeholder="start typing article name here...">
+					
+					
+				</div>
+				<br />
+				{{!-- Game error --}}
+        
+				<button id="btn_search" class="post-button submit" type="button"><span>go to article</span><img src="/images/layout/wiki/search-load.svg" style="display:none" /></button>
+
+				<div class="error">Error!</div>
+
+				{{!-- <div class="article-error row"></div> --}}
+		
+		</div>
+		<div id="countdownTimer"></div>
+	</div>
+
+</div>
+
+<div class="timesUp game-message" style="z-index:1000; display:none;"><span>Time is up!</span></div>
+
+<section id="submitted" class="row" style="display:none">
+		<div class="col-lg-4 game-message">
+			<div class="row">your starting article is</div>
+		    <div class="article-name row">Article Name</div>
+		</div>
+	    <div class="col-lg-4 game-message">
+	        <div class="text centered row">waiting for other players, please wait a moment</div>
+	    </div>
+
+</section>
+
+{{!-- WIKI ARTICLE --}}
+<div id="article-loading" style="display:none;"><div class="indicator"><h3>Please Wait</h3><img src="/images/layout/wiki/search-load.svg"/></div></div>
+
+<section id="article" style="display:none">
+
+	<div class="article-name row">Article Name</div>
+
+	<div id="wiki-workspace" style="display:none"></div>
+	<div class="col-sm-1"></div>
+	<div id="wiki-content" class="col-sm-12" style="background:white;"></div>
+	<div class="col-sm-1"></div>
+
+	<div class="error row"></div>
+
+</section>
+
+

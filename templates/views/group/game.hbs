@@ -1,0 +1,99 @@
+<div class="game-about" id="{{lowerCase whichGame}}-page">
+
+  <div class="top-section">
+
+    <div class="logo row">
+      <img src="{{{cloudinaryUrl game.gameLogo width=405}}}">
+    </div>
+    <div class="blurb row">
+      {{{game.text.html}}}
+      <a id="launch" class="button" href="/new/{{lowerCase whichGame}}"><span>Play Now!</span></a>
+    </div>
+
+  </div>
+
+    
+<div class="game-page">
+
+    {{!-- <div class="divider"></div> --}}
+    <div class="content">
+      <div class="how-to-play row">
+        <h2><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_86/v1477408499/emerging-citizens/images/layout/landing/{{lowerCase whichGame}}-howto-icon.png" width="86" height="96" alt="How To Play" /> How To Play</h2>
+        {{{game.howToPlay.html}}}
+      </div>
+
+      <div class="learning-guide row">
+        <h2><img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_86/v1477408499/emerging-citizens/images/layout/landing/{{lowerCase whichGame}}-learningguide-icon.png" width="86" height="96" alt="Learning Guide" /> <strong class="bold">Learning</strong> Guide</h2>
+        <div class="what-is col-sm-12 col-md-6">
+          {{{game.what.html}}}
+        </div>
+        <div class="why-learn col-sm-12 col-md-6">
+          {{{game.why.html}}}
+        </div>
+        <div class="learning col-sm-12 col-md-6">
+          {{{game.lessonGuide.html}}}
+        </div>
+        <div class="tips col-sm-12 col-md-6">
+          {{{game.tips.html}}}
+        </div>
+        <div class="questions col-sm-12 col-md-6">
+          {{{game.questions.html}}}
+        </div>
+      </div>
+
+      <div class="plans-info row">
+        <h2>Lesson Plans</h2>
+        {{{game.lessonPlanBlurb.html}}}
+        <div class="row coming-soon-plans">
+          <h2 id="coming">COMING SOON</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{{!-- Lesson Plans  --}}
+{{!-- {{#if lessonPlans}}
+    <div class="row">
+      <div class="col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+        <button value="*" data-filter="" class="button">All</button>
+        {{#each ../categories}}
+        <button class="button" value="#" data-filter=".{{this.cat_key}}">{{this.topicName}}</button>
+        {{/each}}
+      </div>
+    </div>
+    <div id="plans" class="row">
+      {{#each lessonPlans}}
+      {{#each relatedGame}}
+      {{#ifeq gameType ../../whichGame}}
+      <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{gameType}} {{../../category.cat_key}}">
+        <div class="plan-card" data-category="">
+          <h3>{{../../name}}</h3>
+          <h4>Content: </h4> {{#each ../../category}}<p>{{topicName}}</p> {{/each}}
+          <button class="button open-plan" id="" data-id="{{../../plan_key}}" value="#">Open Lesson</button>
+        </div>
+      </div>
+      {{/ifeq}}
+      {{/each}}
+      {{/each}}
+      {{else}}
+      Coming Soon
+      {{/if}} --}}
+    {{!--  </div>
+    <div class="plan-modals" style="display:none">
+      {{#each lessonPlans}}
+      <div class="plan-outer" style="display:none" id="{{plan_key}}">
+        <div class="plan-inner">
+          <h3>{{name}}</h3>
+          <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+          <p>{{{text.html}}}</p>
+          <div class="launch"><a class="button" href="/new/{{lowerCase ../whichGame}}" onclick="return launchPlan({{lowerCase ../whichGame}}, {{#each category}}{{cat_key}}{{/each}})">Launch Game</a></div>
+          <button class="button close-plan" id="" value="#">Back</button>
+        </div>
+      </div>
+      
+      {{/each}}
+    </div>
+    --}}

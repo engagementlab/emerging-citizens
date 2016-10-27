@@ -1,0 +1,43 @@
+<div class="page-container"  id="voting-container">
+    <div class="row">
+        <div id="top-header" class="top-bar">
+            <h1 style="font-size:1.3em;">
+                
+                which meme about 
+                <span id="topic" class="hidden-el">
+                    <span class="text">{{topic.topicName}}</span>
+                </span>
+                is 
+                <span id="descriptor" class="hidden-el">
+                    <span class="text">{{descriptor}}</span>
+                </span>
+                
+            </h1>
+        </div>
+        
+        {{!-- Room Code Container --}}
+        <section class="col-sm-12">
+            
+            <div class="row">
+
+                {{#each submissions}}
+
+                    <div class="col-sm-3" style="margin: 10px auto;">
+                        <div class="meme-canvas hidden-el" data-dimension="300"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=300 quality=80}}">
+                        </div>
+                    </div>
+                
+                {{/each}}
+
+            </div>
+           {{!--  <div class="row countdown">
+
+                <div id="countdown"></div>
+
+                <h2>remaining</h2>
+            </div> --}}
+
+        </section>
+        
+    </div> {{!-- end page row --}}
+</div>

@@ -1,0 +1,37 @@
+<section class="form row">
+        
+    <div id="meme-voting" class="row col-lg-3 col-centered">
+
+        <div id="meme-slider" class="glide">
+
+            <div class="glide__arrows">
+                <button class="glide__arrow prev desktop-only" data-glide-dir="<"><<</button>
+                <button class="glide__arrow next desktop-only" data-glide-dir=">">>></button>
+            </div>
+
+            <div class="glide__wrapper">
+                <ul class="glide__track">
+
+                    {{#each submissions}}
+                    {{!-- {{jsonPrint this}} --}}
+                        <li class="glide__slide" data-id="{{@key}}">
+                            <div class="meme-canvas"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=300 quality=80}}">
+                        </li>
+                    {{/each}}
+                
+                </ul>
+            </div>
+
+            <div class="glide__bullets"></div>
+        
+            <div class="row">
+
+                <input id="btn-vote" class="post-button" type="submit" name="submit" value="vote">
+
+            </div>                  
+
+        </div>
+
+    </div>
+
+</section>

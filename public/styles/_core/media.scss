@@ -1,0 +1,80 @@
+@media (min-width: 1024px) {
+	body .container {
+		width: 100%;
+	}
+	body .player-background .icon {
+		height: 163px;
+
+	}
+	body .player-background {
+		margin: 0 auto;
+		margin-bottom: 15%;
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+	}
+	body .player-background .icon img {
+		width: 170px;
+		height: 170px;
+		padding-left: 5px;
+	}
+	body .player-background .nameplate {
+		font-size: x-large;
+
+	}
+	body #waiting {
+		margin-top: 5%;
+		.text {
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+		}
+	}
+	body .game-header.wait-players {
+		font-size: 2em;
+	}
+
+}
+
+@media (min-width: 2000px) {
+
+	body .game-header.wait-players {
+		font-size: 2em;
+	}
+	body .player-background .icon {
+		height: 200px;
+
+	}
+	body .player-background {
+		margin: 0 auto;
+		margin-bottom: 10% !important;
+		width: 220px;
+		height: 220px;
+		border-radius: 110px;
+	}
+	body .player-background .icon img {
+		width: 220px;
+		height: 220px;
+	}
+	body .player-background .nameplate {
+		font-size: xx-large;
+	}
+
+	body .game-header {
+		font-size: 6em;
+	}
+
+}
+
+@media(max-width:425px){
+
+	html, body.player {
+		margin: 0px;
+		padding: 0px;
+		overflow-x:hidden;
+		overflow-y:hidden;
+		height: 100%;
+		width: 100%;
+	}
+			
+}

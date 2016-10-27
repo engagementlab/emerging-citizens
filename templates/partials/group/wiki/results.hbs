@@ -1,0 +1,372 @@
+<div class="page-container">
+  <div class="row">
+
+    {{!-- Results Screen Container --}}
+    <section class="col-sm-12 room-container" id="results-container">
+
+    {{!-- TOP PLAYERS --}}
+    	<div id="top-players">
+
+				<div class="col-xs-12 col-sm-12">
+
+					{{#each results}}
+
+	          {{#iflt @index 3}}
+
+	          	{{#if finished}}
+
+		          	<section class="player-path hidden-el">
+				
+										<div class="row">
+							
+											<div class="col-xs-6 col-sm-6">
+												<div class="content player-info">
+
+													<h2>{{username}}</h2>
+													<h3>{{ordinalPosition @index}} Place!</h3>
+
+													<span>{{clicks}} clicks</span>
+													<span>{{score_sum}} points</span>
+													<span>{{getMinutes time}}</span>
+
+												</div>
+											</div>
+
+											<div class="col-xs-6 col-sm-6">
+												<div class="content target-article">
+
+													<h2>Target article:</h2>
+													<h3>{{../../../title}}</h3>
+
+													<div class="border"></div>
+
+												</div>
+											</div>
+
+										</div>
+
+										{{#if articles}}
+
+											<div class="articles" class="row">
+
+												<div class="article-titles">
+													
+													{{#each articles}}
+													{{!-- {{jsonPrint this}} --}}
+
+														<div class="title{{#if @last}} final{{/if}} {{wikiColor @index}}" style="position:absolute; 
+														{{#if @first}}
+															left: 20px;
+														{{else}}
+															left: {{sum (wikiResultPosition display_index true false false) 20}}px;
+														{{/if}}
+														top: {{wikiResultPosition @index false false false}}px;
+														width: 170px">{{ellipsis 25 title}}</div>
+
+													{{/each}}
+
+												</div>
+											
+												<svg height="990" width="1100" style="position:absolute; left:0px;">
+													{{!-- Path lines --}}
+													{{#each articles}}
+
+														{{#unless @last}}
+
+															{{#if @first}}
+																<line class="articleLine" 
+																			
+																			x1="105" y1="10" x2="105" y2="10" 
+																			data-x2="325" data-y2="10"
+
+																			style="stroke:rgb(188,255,252);stroke-width:8" />
+															{{else}}														
+																<line data-ind="{{@index}}" class="articleLine" 
+																			x1="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			y1="{{wikiResultPosition @index false false}}" 
+																			
+																			x2="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			y2="{{wikiResultPosition @index false false}}" 
+
+																			data-x2="{{sum (wikiResultPosition display_index true true) 105}}" 
+																			data-y2="{{wikiResultPosition @index false true}}"
+																			
+																			style="stroke:rgb(188,255,252);stroke-width:8" />
+															{{/if}}
+
+														{{/unless}}
+
+													{{/each}}
+												
+													{{!-- Path dots --}}
+													{{#each articles}}
+
+															<circle data-ind="{{@index}}" class="articleDot {{wikiColor @index}}"
+																			cx="{{sum (wikiResultPosition display_index true false) 105}}" 
+																			cy="{{wikiResultPosition @index false false}}" 
+																			r="0" />
+
+															{{#if @last}}
+
+																<g  class="last {{wikiColor @index}}"
+																		transform="translate({{sum (wikiResultPosition @index true false) -10}}, 
+																											  {{sum (wikiResultPosition @index false false) 100}})
+																											  scale(0.08,-0.08)" 
+																		stroke="none" style="opacity:0" >
+
+																	<path class="destination" d="M2820 1074 c-81 -12 -161 -28 -165 -34 -2 -3 0 -12 5 -20 7 -11 27
+																	-11 126 3 118 17 142 26 130 46 -7 11 -43 12 -96 5z"/>
+																	<path class="destination" d="M90 923 c-34 -6 -47 -20 -33 -34 7 -7 55 -11 135 -10 118 2 154 10
+																	133 30 -11 10 -198 22 -235 14z"/>
+																	<path class="destination" d="M2664 645 c-11 -28 7 -37 111 -52 22 -3 50 -12 62 -20 25 -17 63 -9
+																	63 13 0 8 -8 17 -17 20 -10 3 -26 10 -35 15 -10 5 -32 9 -50 9 -18 1 -44 7
+																	-58 15 -33 19 -69 19 -76 0z"/>
+																	<path class="destination" d="M283 502 c-60 -37 -93 -63 -93 -74 0 -28 22 -22 102 27 40 25 83 49
+																	96 55 26 11 27 43 2 47 -8 1 -57 -23 -107 -55z"/>
+																	<path class="destination" d="M2247 404 c-12 -13 -8 -34 24 -112 35 -90 43 -100 63 -83 12 10 11
+																	20 -11 74 -14 34 -29 75 -32 92 -7 29 -29 44 -44 29z"/>
+																	<path class="destination" d="M921 250 c-17 -28 -31 -55 -31 -60 0 -6 -12 -28 -26 -50 -25 -38 -25
+																	-60 0 -60 16 0 48 44 75 105 12 27 29 57 38 67 17 19 11 48 -11 48 -8 0 -28
+																	-23 -45 -50z"/>
+																	<path class="destination" d="M1644 255 c-8 -20 35 -201 50 -214 7 -6 18 -6 25 -1 11 6 10 22 -7
+																	91 -11 46 -22 95 -24 109 -3 29 -35 40 -44 15z"/>
+
+																</g>
+
+															{{/if}}
+
+													{{/each}}
+												
+												</svg>
+												
+											</div>
+
+										{{/if}}
+
+								</section>
+
+							{{/if}}
+
+	          {{/iflt}}
+
+					{{/each}}
+					
+				</div>
+
+    	</div>
+
+	    <div id="results-header" class="row hidden-el">
+	    	<h1 class="bold">Round {{round}} Results</h1>
+
+	    	<h2 id="article-title">"{{title}}"</h2>
+	    </div>
+
+	    <div id="winners-circle-header" class="row hidden-el" style="display:none">
+	    	<h1 class="bold">Final Scores</h1>
+	    </div>
+
+    	{{!-- RESULTS SCREEN --}}
+			<div id="results" class="row hidden-el">
+
+						<div class="results-header row bold">
+          
+					    <div class="col-sm-4">
+						    <span>Player</span>
+					    </div>    
+					    <div class="col-sm-4">
+						    <span>Score</span>
+			        </div>
+					    <div class="col-sm-2">
+						    <span>Time</span>
+					    </div>
+					    <div class="col-sm-2">
+						    <span>Click</span>
+					    </div>
+
+					  </div>
+
+					{{#each results}}
+
+						<div class="user hidden-el row light row-color-{{@index}}">
+					    <div class="col-sm-4 name">
+          
+			          {{#iflt @index 3}}
+							    <div class="ranking"></div>
+						    {{/iflt}}
+
+						    {{username}}
+
+					    </div>
+					    <div class="col-sm-4">    
+
+                {{score_sum}}
+
+			        </div>
+					    <div class="col-sm-2">
+
+					    	{{getMinutes time}}
+
+					    </div>
+					    <div class="col-sm-2">
+
+						    {{clicks}}
+
+					    </div>
+
+					  </div>
+
+          {{/each}}
+
+			</div>
+
+			{{!-- SCORING BREAKDOWN --}}
+			<div id="scoring" class="row hidden-el">
+
+				<div class="results-header row bold">
+	    
+			    <div class="col-sm-4">
+				    <span>Player</span>
+			    </div>    
+			    <div class="col-sm-4">
+				    <span class="small">Target reached bonus</span>
+	        </div>
+			    <div class="col-sm-2">
+				    <span class="small">Rank bonus</span>
+			    </div>
+			    <div class="col-sm-2">
+				    <span class="small">Under 10 clicks bonus</span>
+			    </div>
+
+			  </div>
+
+				{{#each results}}
+	      
+					<div class="user hidden-el row row-color-{{@index}}">
+
+				    <div class="col-sm-4 name">
+
+		          {{#iflt @index 3}}
+						    <div class="ranking"></div>
+					    {{/iflt}}
+
+				    	{{username}}
+
+				    </div>    
+				    <div class="col-sm-4">    
+
+					    {{scores.[0]}}
+
+		        </div>
+				    <div class="col-sm-2">
+					    
+					    {{scores.[1]}}
+
+				    </div>
+				    <div class="col-sm-2">
+
+					    {{scores.[2]}}
+
+				    </div>
+
+				  </div>
+
+	      {{/each}}
+
+			</div>
+
+	    {{!-- Show WINNERS CIRCLE at last round instead of leaderboard --}}
+	    {{#if last_round}}
+
+	      <div id="winners-circle" class="row hidden-el">
+
+	          {{#each players}}
+	      
+	              {{#iflt @index 3}}
+
+									<div class="user hidden-el row row-color-{{@index}}">
+
+								    <div class="col-sm-10">
+									    <div class="ranking"></div>
+
+								    	{{username}}
+
+								    </div>    
+
+								  </div>
+
+	              {{/iflt}}
+	      
+	          {{/each}}
+
+	      </div>
+
+	    {{else}}
+
+				{{!-- LEADERBOARD --}}
+				<div id="leaderboard" class="row hidden-el">
+
+					<div class="results-header row bold">
+		    
+						    <div class="col-sm-4" style="float:left; text-align:left;">
+							    <h2>Player</h2>
+						    </div>    
+						    <div class="col-sm-4" style="float:right; text-align:right;">
+							    <h2>Score</h2>
+				        </div>
+
+				  </div>
+
+					{{#each players}}
+
+						<div class="user row row-color-{{@index}}">
+		          <div class="col-sm-6 name">
+
+					    	{{username}}
+
+					    </div>    
+					    
+					    <div class="col-sm-6 score">
+
+						    {{score_total}}
+
+					    </div>
+
+					  </div>
+
+		      {{/each}}
+
+				</div>
+
+	    {{/if}}
+
+      {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
+      {{#if last_round}}
+          <div id="game-ended" class="hidden-el row results last">
+              
+              <div class="col-sm-7 col-centered">
+                  
+                  <h1 style="font-size: 3em;color: #FF421C" class="game-header">Game Ended<br>Thank you for playing WikiGeeks!
+                      </h1>
+
+                  {{#if survey}}
+                      <h1 style="font-size: 2.4em;color: #ffbb90" class="game-header">Please fill out the survey on your device.
+                      </h1>
+                  {{/if}}
+              </div>
+
+          </div>
+      {{else}}
+          <div id="next-round" class="col-sm-12 hidden-el results form">
+              
+              <div class="col-sm-7 col-centered">
+                  <input style="font-size:4em !important;" id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
+              </div>
+              
+          </div>
+      {{/if}}
+
+
+		</section>
+
+	</div>
+</div>

@@ -1,0 +1,302 @@
+{{!< default}}
+{{!-- 
+/**
+ * Emerging Citizens
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Script includes partial for PLAYERS global client logic
+ * ==========
+ */
+--}}
+
+var isEmulated = window.frameElement && window.frameElement.getAttribute('data-emulated');
+
+$(document).ready(function() {
+
+    function noSleeping() {
+        // Prevent device sleep
+        var noSleep = new NoSleep();
+        noSleep.enable();
+
+        document.removeEventListener('click', noSleeping);
+    }
+    // Enable no sleep on first click/tap
+    document.addEventListener('click', noSleeping, false);
+
+});
+
+{{#ifnoteq environment "development"}}
+    {{!-- Smartlook integration --}}
+    window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', 'f70bc72265f75e886b23785202aafc01c9b5c2e1');
+
+    // Warn about reloading
+    window.addEventListener("onbeforeunload", function (e) {
+
+      (e || window.event).returnValue = null;
+      return null;
+
+    });
+{{/ifnoteq}}
+
+// Do not enable sound for emulated (debug) player
+if(!isEmulated) {
+
+    ion.sound({
+    sounds: [
+        {
+            name: "button_tiny"
+        }
+    ],
+    volume: 0.5,
+    path: sfxPath,
+    preload: true
+    });
+
+}
+else
+    $('#debugging').remove();
+
+/*
+    Logs the player in
+*/
+var playerLogin = function(data) {
+
+    gameCode = data.code;
+
+    $('.navbar').slideUp();
+    
+    // Open socket connection
+    if(!socket) {
+        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        registerEvents();
+    }
+
+    playerName = $('#player_name').val();
+    sessionStorage.setItem('username', playerName);
+
+    // Log player in
+    socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
+
+}
+
+/*
+    Checks if this client is logged in as a player already
+*/
+var checkIfLoggedIn = function() {
+
+    // Disallow private/incognito
+    if(isPrivate) {
+
+        $('.form').show();
+        $('.form input').hide();
+        $('.form .error').text('You cannot play in private/incognito browsing mode. Please try again in a non-private window or tab.');
+        $('#login').css('margin-top', '0');
+
+        var errorAnim = new TimelineLite();
+        errorAnim
+        .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
+        .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
+        .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
+        .fromTo($('.form .error'), 1, { scale: 0, opacity:0 }, { scale: 1, opacity: 1, display: 'block', ease:Elastic.easeOut});
+        
+        return;
+    }
+    
+    // Check if game code saved to session (player is already logged in)
+    if(!sessionStorage.getItem('gameCode')) {
+        var isAndroid = /Android/ig.test(navigator.userAgent);
+
+        $('.form').show();
+
+        var entryAnim = new TimelineLite()
+        .from($('#logo_ec'), .5, {autoAlpha:0, delay:1, ease:Expo.easeOut}, .1)
+        .from($('#logo_ec img'), 1.5, {css:{'margin-top':'10%'}, delay:1, ease:Expo.easeOut}, .6)
+        .from($('#logo_ec'), 1.5, {scale:2, delay:1, ease:Expo.easeOut}, .6)
+
+        // .to($('#login'), 1.5, {css:{'margin-top':'-9%'}, delay:1.2, ease:Expo.easeOut}, .1)
+        .from($('#access_code'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.3, ease:Expo.easeOut}, .7)
+        .from($('#player_name'), 1.5, {yPercent:-20, autoAlpha:0, delay:1.4, ease:Expo.easeOut}, .8)
+        .from($('.entry-footer'), 1.5, {yPercent:100, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5)
+        .from($('#btn_submit_code, #btn_help'), 1.5, {yPercent:20, autoAlpha:0, delay:1.5, ease:Expo.easeOut}, .5);
+
+        // For Android only, move input boxes into view on phones
+        if(isAndroid) {
+            $('.form input')
+            .focus(function() { 
+                $('#logo_ec').addClass('mobile');
+            })
+            .blur(function() { 
+                $('#logo_ec').removeClass('mobile');
+            });
+        }
+
+        $('#player_name').keydown(function(evt) {
+            
+            if(evt.keyCode == 13)
+                $('#btn_submit_code').click();
+
+        });
+
+        return;
+    }
+
+    $('#resuming').show();
+
+    gameCode = sessionStorage.getItem('gameCode');
+    
+    // Open socket connection
+    if(!socket) {
+        socket = io('//{{host}}', {'reconnection': true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
+        registerEvents();
+    }
+
+    // Check if player is active in game
+    socket.emit('login:active', {
+      gameId: sessionStorage.getItem('gameCode'), 
+      username: sessionStorage.getItem('username'),
+      uid: sessionStorage.getItem('uUID')
+    });
+
+}
+
+/* 
+ Logs player into game with room code and name
+*/
+$(document).on('click', '.btn.game_login', function(evt) {
+
+    var data = getFormData($(this));
+    var errorBox = $('.form .error');
+
+    // Hide errors during typing
+    $('.form input').keyup(function() {
+        $('.form input').removeClass('invalid');
+    });
+
+    // Player entered code?
+    if(!data.code || data.code.length === 0) {
+        $('.form #access_code').addClass('invalid');
+        errorBox.text('You need to enter a room code!').fadeIn(); 
+
+        return;
+    }
+    // Player entered name?
+    else if(!data.name || data.name.length === 0) {
+        $('.form #player_name').addClass('invalid');
+        errorBox.text('You need to enter a name!').fadeIn(); 
+
+        return;
+    }
+
+    // Create uid for player
+    var playerUID = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+    sessionStorage.setItem('uUID', playerUID);
+
+    // Disable button and show loading modal
+    $(evt.currentTarget).attr('disabled', 'disabled');
+    $('#loading-modal').fadeIn(250);
+
+    $.post(
+        "/login",
+        data,
+        function( data ) {
+
+            $('.form input').removeClass('invalid');
+
+            if(data.error_code) {
+
+                switch(data.error_code) {
+
+                    case 'game_not_found': 
+                        $('.form #access_code').addClass('invalid');
+                        
+                        // Session does not exist, make sure to clear data from storage
+                        sessionStorage.removeItem('gameCode');
+                        sessionStorage.removeItem('playerSubmission');
+                        break;
+
+                    case 'no_username':
+                    case 'username_taken':
+                        $('.form #player_name').addClass('invalid');
+                        break;
+
+                    case 'game_active': 
+                        $('.form #access_code').addClass('invalid');
+                        break;
+
+                }
+    
+                $('.btn.game_login').removeAttr('disabled');
+                errorBox.text(data.msg).fadeIn();
+                loadToggle(false, true);
+
+                return;
+
+            }
+
+            data.uid = playerUID;
+            playerLogin(data);                          
+
+        }
+    );
+
+});
+
+// Check if this client is logged in on server
+checkIfLoggedIn();
+
+// Load events for players
+{{> script/player_events gameType=gameType}}
+
+{{#ifeq debug true}}
+    // Debugging view
+    {{#ifeq section 'login'}}
+        $('#access_code').val('TEST');
+        $('#player_name').val('Player_' + Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+    {{/ifeq}}
+{{/ifeq}}
+
+{{!-- {{#ifeq section 'index'}}
+
+    playerEntry();
+
+    $(document).on('click', '.btn.game_entry', function() {
+        
+        var type = $(this).data().game;
+
+        $.get( 
+            "/game/get/" + type,
+            function( data ) {
+
+                $('#gameContent').html(data);
+
+                $('.form input[type=submit]')
+                .hover(function(evt) {
+
+                    timeline.to(evt.currentTarget, .5, { ease: Elastic.easeOut, scale:1.2 });
+
+                })
+                .mouseleave(function(evt) {
+
+                    timeline.from(evt.currentTarget, .5, { scale:1.2 });
+
+                });
+
+            });
+                
+    });
+
+{{/ifeq}} --}}
+
+// /play URL
+{{#ifeq section 'login'}}
+
+  $('.body').addClass('game-bg');
+  $('.body').addClass('player');
+
+{{/ifeq}}

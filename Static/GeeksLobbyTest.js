@@ -24,7 +24,7 @@ function Player(number, active, avatar){
 
 function TurnOn(Player){
 	TweenMax.to(Player.avatar, 1, {css:{opacity:"1.0"}});
-	TweenMax.to(Player.avatar, 1, {scale:1.2, ease:Elastic.easeOut});
+	TweenMax.to(Player.avatar, 1, {scale:1.1, ease:Elastic.easeOut});
 }
 
 function TurnOff(Player){
@@ -59,10 +59,10 @@ $losePlayer.click(function(){
 
 $avatarsOut.click(function(){
 	TweenMax.to($lobbyPane, .75, {scale:0, ease:Expo.easeIn});
-	TweenMax.to($(".playerLeftEven"), 1.75, {x:1200, ease:Elastic.easeIn});
-	TweenMax.to($(".playerRightEven"), 1.25, {x:-1200, ease:Elastic.easeIn});
-	TweenMax.to($(".playerLeftOdd"), 1.25, {x:1200, ease:Elastic.easeIn});
-	TweenMax.to($(".playerRightOdd"), 1.75, {x:-1200, ease:Elastic.easeIn});
+	TweenMax.to($(".playerLeftEven"), 1.75, {x:1200, opacity:0.0, ease:Elastic.easeIn});
+	TweenMax.to($(".playerRightEven"), 1.25, {x:-1200, opacity:0.0, ease:Elastic.easeIn});
+	TweenMax.to($(".playerLeftOdd"), 1.25, {x:1200, opacity:0.0, ease:Elastic.easeIn});
+	TweenMax.to($(".playerRightOdd"), 1.75, {x:-1200, opacity:0.0, ease:Elastic.easeIn});
 });
 
 $("#lobbyLink").click(function (e) {

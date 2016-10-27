@@ -14,14 +14,13 @@
 var Hashtag = function (nsp, socket) {
     var currentSpace = nsp,
         currentSocket = socket, 
-        appRoot = require('app-root-path'),
-        Session = require(appRoot + '/lib/SessionManager');
+        Session = require('learning-games-core').SessionManager;
 
     // Expose handler methods for events
     this.handler = {
 
         'hashtags:submit': function(package) {
-
+            
             Session.Get(package.gameId).
             HashtagSubmitted(
                                 currentSocket.id,
@@ -29,6 +28,7 @@ var Hashtag = function (nsp, socket) {
                                 currentSocket,
                                 currentSpace
                             );
+
 
         },
 
@@ -40,27 +40,6 @@ var Hashtag = function (nsp, socket) {
                             package.msgData,
                             currentSpace
                         );
-
-        },
-
-        'game:tutorial': function(package) {
-
-            Session.Get(package.gameId).
-            StartTutorial(currentSpace);
-
-        },
-
-        'game:start': function(package) {
-
-            Session.Get(package.gameId).
-            StartGame(currentSpace);
-
-        },
-
-        'game:next_round': function(package) {
-
-            Session.Get(package.gameId).
-            AdvanceRound(currentSpace);
 
         }
     

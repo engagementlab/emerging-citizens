@@ -1,0 +1,82 @@
+   // Show or hide error about various game error states
+  var showErrorModal = function(show, textType) {
+
+      var showing = !$('#gameContent').is(':visible');
+
+      // Exit?
+      if( show && showing ||
+          !show && !showing )
+          return;
+
+      // Fade game content in or out
+      $('#gameContent').fadeTo("fast", (show ? 0 : 1), function() {
+
+          // Hide/show game content
+          $(this).css('display', (show ? 'none' : 'block'));
+
+          if(show) {
+              // Reset zoom
+              $('body').css('zoom', 1);
+          }
+
+          $('#error-modal').fadeTo("fast", (show ? 1 : 0), function() {
+              
+              $('#error-modal #text h2').hide();
+
+              // Show correct msg
+              $('#error-modal #text #' + textType).show();
+              $('#error-modal #text').css('top', (show ? 0 : '-100%'));
+              
+              // Hide/show error    
+              $(this).css('display', (show ? 'block' : 'none'));
+
+          });
+
+      });
+
+  };
+
+  gameCode = '{{game.accessCode}}-group'; 
+
+  // Thanks GOTA
+  function doResize() {
+      
+      if (jQuery.browser.mobile)
+          return;
+    
+      var scale = Math.min(
+          $(window).outerWidth() / 1680, 1.0
+      );
+
+      // If screen too small, show error saying so
+      if($(window).outerWidth() < 1024)
+          showErrorModal(true, 'size');
+      else {
+          showErrorModal(false, 'size');
+          // Apply zoom
+          $('body').css('zoom', scale);
+      }
+
+
+  }
+  // Scale screen as window is resized
+  $(window).resize(function() {
+       doResize();
+  });
+  doResize();
+
+  {{#ifnoteq section 'newgame'}}
+
+    {{#ifeq debug true}}
+        // Debugging view
+        $('#debugging').appendTo('body');
+    {{/ifeq}}
+
+    // Load events for group
+    {{> script/groupview_events gameType=gameType}}
+
+    // Open socket connection
+    socket = io();
+    registerEvents();
+
+  {{/ifnoteq}}

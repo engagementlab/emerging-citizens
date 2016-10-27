@@ -1,0 +1,93 @@
+<div class="lessonPlans">
+
+
+  <div class="row">
+    <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+      <button value="*" data-filter="" class="button">All</button>
+      <button class="button" value="#" data-filter=".htyi">Hashtag, You're It!</button>
+      <button class="button" value="#" data-filter=".wikigeeks">WikiGeeks</button>
+      <button class="button" value="#" data-filter=".wwdmm">Wait, Wait, Don't Meme Me</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-12 plans-buttons clearfix button-group filters-button-group" data-filter-group="">
+      <button value="*" data-filter="" class="button">All</button>
+      {{#each this.categories}}
+      <button class="button" value="#" data-filter=".{{cat_key}}">{{topicName}}</button>
+
+      {{/each}}
+    </div>
+  </div>
+
+
+  <div class="row allPlans" id="plans">
+
+    {{#each this.plans}}
+    
+
+    <div class="col-lg-4 col-md-4 col-sm-12 plans-item item {{relatedGame.gameType}} {{category.cat_key}}">
+      <div class="plan-card" data-category="">
+        <h3>{{name}}</h3>
+        <h4>Content: </h4> {{#each category}}<p>{{topicName}}</p> {{/each}}
+        <h4>Associated Games: </h4> {{#each relatedGame}}<p>{{gameType}}</p>{{/each}}
+
+        <button class="button open-plan" id="" data-id="{{plan_key}}" value="#">More</button>
+      </div>
+    </div>
+     
+    {{!-- {{jsonPrint this}} --}}
+
+    {{/each}}
+
+  </div>
+  
+
+</div>
+
+
+<div class="plan-modals" style="display:none">
+
+{{#each this.plans}}
+
+    <div class="plan-outer" style="display:none" id="{{plan_key}}">
+      <div class="plan-inner">
+        <h3>{{name}}</h3>
+        <h4>Content: </h4>{{#each category}} <p>{{topicName}}</p> {{/each}}
+        <h4>Associated Games: </h4>{{#each relatedGame}} <p>{{gameType}}</p> {{/each}}
+
+        <p>{{{text.html}}}</p>
+
+        <button class="button close-plan" id="" value="#">Back</button>
+      </div>
+    </div>
+     
+    {{!-- {{jsonPrint this}} --}}
+
+{{/each}}
+
+</div>
+
+
+<footer id="footer">
+
+  <!-- .footer start -->
+  <div class="footer col-md-12">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="footer-content text-center padding-ver-clear">
+
+            <div class="logos-footer center-block">
+              <a href="http://elab.emerson.edu/"><img id="logo" src="/images/layout/logo_el.png" alt="Engagement Lab" width="60" height="60"></a>
+            </div>
+
+            <p class="text-center">An applied research lab at Emerson College for reimagining civic engagement in a digital culture<br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .footer end -->
+
+</footer>

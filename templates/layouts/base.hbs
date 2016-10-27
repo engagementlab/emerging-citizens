@@ -8,97 +8,161 @@
         <title>Emerging Citizens</title>
         <meta name="description" content="A suite of digital multiplayer games that teaches students how to critique and create civic media.">
         <meta name="author" content="Engagement Lab">
-        
-
-        {{#ifeq section 'play'}}
-            {{!-- Mobile Meta --}}
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="theme-color" content="#FFAB43">
-        {{/ifeq}}
-
-        {{!-- Open Graph --}}
-        {{!-- <meta property="og:image" content="http://res.cloudinary.com/engagement-lab-home/image/upload/v1455896685/site/about/logo_color.png" /> --}}
 
         {{!-- Load our CSS/docs --}}
-        {{> css environment=env section=section}}
-        
-        {{!-- This file provides the default styling for the KeystoneJS Content Editor
-        - only renders when user is logged in and admin--}}
-        {{!-- {{{isAdminEditorCSS user}}} --}}
+        {{> css environment=env section=section gameType=gameType}}
     </head>
     
-    <body class="body">
+    <body class="body {{gameType}}">
+    
+      {{#ifnoteq viewType 'landing'}}
+        {{#ifnoteq section 'newgame'}}
+          <div id="nav-close-wrapper"><a id="nav-close" class="nav-close hidden-el">close</a></div>
+        {{/ifnoteq}}
+      {{/ifnoteq}}
 
-        {{#ifeq section "comingsoon"}}
-            {{> nav_comingsoon}}
-            <div class="col-sm-12">
-        {{else}}
-            {{#ifeq section "index"}}
-                {{> nav}}
-                <div class="container">
+      {{> game_nav viewType=viewType game=game }}
+       <div class="container">
+
+          <div id="wrapper">
+
+            <section id="loading-modal" class="modal">
+              <div class="indicator"></div>
+            </section>
+
+            <section id="overlay" class="modal">
+            </section>
+
+            <section id="error-disconnected" class="modal error-modal">
+                <div id="text" class="col-sm-8 col-centered">
+                  <h1>Uh oh!<br /> :(</h1>
+                  <h2>There's some troubles connecting to the game's server or this game was ended. Please try refreshing!</h2>
+                </div>
+            </section>
+
+            {{#ifnoteq viewType 'group'}}
+
+              <section id="loading-modal" class="modal">
+                <div class="indicator"></div>
+              </section>
+
+              {{!-- WIKIGEEKS 'time up' PLAYER MODAL --}}
+              <section id="time-up" class="modal error-modal">
+                <div class="indicator">
+                  <h3>Time is up! First player to reach the destination article wins!</h3>
+                  <button id="btn_ok" class="post-button submit hidden-el" type="button">okay, back to the game!</button>
+                </div>
+              </section>
+
             {{else}}
-                {{> group/header_htyi}}
-            {{/ifeq}}
-        {{/ifeq}}
 
-        <div id="wrapper">
-
-            <div id="overlay" class="modal">
-            
-            </div>
+              <section id="error-modal" class="modal error-modal">
+                  <div id="text" class="col-sm-12 col-centered">
+                    <h1>Hmmm...</h1>
+                    <h2 id="size">Looks like you are trying to start a new game, but your screen isn’t big enough! Try visiting this website on a larger screen or expanding your browser window. If you are looking to join a game, please visit ecplay.org on your personal device.</h2>
+                    <h2 id="mobile">Looks like you are trying to start a new game, but you are on a mobile device or tablet! Try visiting this website on a desktop browser.</h2>
+                    <h2 id="ended">Looks like the game ended because all of the players left. :(</h2>
+                  </div>
+              </section>
+            {{/ifnoteq}}
 
             {{#ifeq debug true}}
                 <div id="error-box">
                 </div>
                 
                 {{!-- DEBUGGING --}}
-                <div id="debugging" style="position: fixed;top: 0;">
+                <div id="debugging" class="form" style="position: fixed;top: 0;min-height: 30%;background-color: rgba(0, 255, 250, 1);">
                     
                     <div id="debug-info">
                     </div>
 
-                    {{#ifeq section 'group/monitor'}}
+                    {{#ifeq viewType 'group'}}
                         
-                        <button id="template_reload">reload</button>
+                        <button id="template_reload" class="submit">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
-                          <option value="partials/group/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
-                          <option value="partials/group/voting" data-key="submissions" data-event_id="hashtags:received">voting</option>
-                          <option value="partials/group/results" data-key="results" data-event_id="hashtags:results">results</option>
+
+                          {{#ifeq gameType "htyi"}}
+                              <option value="partials/group/htyi/tweet" data-key="tweet" data-event_id="game:start">tweet</option>
+                              <option value="partials/group/htyi/voting" data-key="" data-event_id="hashtags:received">voting</option>
+                              <option value="partials/group/htyi/results" data-key="submissions" data-event_id="hashtags:results">results</option>
+                          {{/ifeq}}
+
+                          {{#ifeq gameType "wikigeeks"}}
+                              <option value="partials/group/wiki/topic" data-key="tweet" data-event_id="game:start">topic</option>
+                              <option value="partials/group/wiki/article" data-key="" data-event_id="hashtags:received">article</option>
+                              <option value="partials/group/wiki/results" data-key="submissions" data-event_id="wiki:results">results</option>
+                          {{/ifeq}}
+
                         </select>
 
                     {{else}}
-
+                        
+                        <button id="template_reload" class="submit">reload</button>
                         <select id="template_selector" name="template_selector_player">
                           <option value="">choose:</option>
-                          <option value="partials/player/tweet">tweet</option>
-                          <option value="partials/player/voting" data-key="voting" data-event_id="hashtags:received">voting</option>
-                          <option value="partials/player/results" data-key="none" data-event_id="game:end">results</option>
+
+                          {{!-- {{#ifeq gameType "wikigeeks"}} --}}
+                              <option value="partials/player/wiki/results" data-key="submissions" data-event_id="wiki:results">wiki-results</option>
+                          {{!-- {{/ifeq}} --}}
+
                         </select>
+                        <br /><button id="generate_players">generate players</button>
 
                     {{/ifeq}}
+                      <br /><button id="countdowns_pause" data-resume="false" class="submit">pause countdowns</button>
+                      <br /><button id="goto_results" data-event="game:force_results" class="submit"{{!--  style="display:none" --}}>show results</button>
+
+                      <div id="last-event">last event: none</div>
 
                     <div id="slider-gsap">
                     </div>
                 </div>
             {{/ifeq}}
 
-                  <div class="container" id="gameContent">
+            <div class="container-fluid" id="gameContent">
 
-                    <!-- BODY CONTENT START -->
-                    {{{body}}}
+              <!-- BODY CONTENT START -->
+              {{{body}}}
 
-                  </div>
-            </div><!-- /.container -->
+              {{#ifeq debug true}}
+                <div id="emulate-players" style="display:none">
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                  <iframe src="" data-emulated='true' width="400" height="400"></iframe>
+                </div>
+              {{/ifeq}}
 
-            <!-- page-wrapper end -->
-            {{#ifeq env "development"}}
-                {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
-            {{else}}
-                {{> script/production host=socketHost environment=env section=section}}
-            {{/ifeq}}
+            </div>
+                
+          </div>
 
-        </div>
+          {{#ifeq env "development"}}
+              {{> script/development host=socketHost environment=env section=section subSection=sub_section}}
+          {{else}}
+              {{> script/production host=socketHost environment=env section=section}}
+          {{/ifeq}}
+
+          
+
+      </div>
+
+      {{#ifnoteq viewType 'player'}} 
+    
+        {{> shared/footer}}
+
+      {{else}}
+
+        {{#ifeq section 'newgamae'}}
+          {{> shared/footer}}
+        {{/ifeq}}
+        
+      {{/ifnoteq}}
 
     </body>
 </html>

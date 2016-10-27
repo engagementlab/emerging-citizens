@@ -1,0 +1,545 @@
+/* 
+	WWDMM group view styling.
+*/
+.body.wwdmm.group {
+
+	overflow: hidden;
+
+	#gameContent {
+
+		padding: 5%;
+		padding-top: 0;
+
+	}
+  
+  #loading-modal {
+    .indicator {
+      background: url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg');
+    }
+  }
+
+	#meme-text {
+		width: 400px;
+	}
+
+	// GLOBAL styling for memes
+	.meme {
+
+		background-color: white;
+	  background-repeat: no-repeat;
+	  background-size: 100% 100%;
+
+	  // padding: 6%;
+	  box-sizing: content-box;
+	  
+	  height: 300px;
+	  border: 25px white solid;
+
+		.text-upper, .text-lower {
+
+			display: inline-block;
+
+		  font-size: 32pt;
+		  font-weight: bold;
+
+      margin-left: auto;
+	    margin-right: auto;
+
+		}
+
+		.text-upper {
+			top: 4%;
+		}
+
+		.text-lower {
+	    position: relative;
+	    left: -50%;
+		}
+
+		#text-lower-wrapper {
+			position: absolute;
+			left: 50%;
+			bottom: 4%;
+			width: 100%;
+		}
+	}
+
+
+	
+	.meme-text {
+
+    z-index: 10;
+
+
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+
+	  font-family: Impact;
+
+  	@include stroke(3, #000);
+	
+	}
+
+	.room-container {
+
+		border: 15px solid $color-sick-green;
+		border-radius: 10px;
+
+	}
+
+	.top-bar {
+
+    color: white;
+		font-family: 'Patrick Hand', cursive;
+		font-size: 4em;
+
+		text-transform: uppercase;
+		text-align: center;
+
+		background-color: $color-warm-pink;
+		padding: 1%;
+
+		h1 {
+			font-size: 1.5em;
+		}
+
+	}
+
+	#top-header {
+		margin-top:3%;
+		width:83%;
+		margin: auto;
+
+		min-height: 180px;
+
+		.img {
+	    margin-top: 2%;
+      margin-left: -19%;
+		}
+
+		#topic {
+
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+	    background-repeat: repeat-x;
+	    background-position-y: 105%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+		
+			color: $color-bright-sea-green;
+
+		}
+
+		#descriptor {
+
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
+	    background-repeat: repeat-x;
+	    background-position-y: 100%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+
+			color: $color-pale-yellow;
+		}
+
+		#round-header {
+
+			display: inline;
+
+	    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+	    background-repeat: repeat-x;
+	    background-position-y: 100%;
+	    background-position-x: center;
+	    background-clip: padding-box;
+
+			color: $color-pale-yellow;
+		}
+
+	}
+
+	#voting-container {
+
+
+		.meme-canvas {
+			width: 339px;
+			height: 340px;
+			border: solid 20px white;
+			// margin: 5px auto;
+			.kineticjs-content {
+				
+			}
+	    
+		}
+
+	}
+
+	#results-container {
+
+		width: 80%;
+		margin: 0 auto;
+
+		.vote {
+			height: 150px;
+		}
+
+		.results-room {
+			border: 0px;
+			border-radius: 0px;
+			padding: 5%;
+			margin: 0px auto;
+		}
+
+		#top-header {
+			width: 100%;
+
+		}
+
+		.votes-box {
+			h1 {
+	    	font-size: 4em;
+	    }
+		}
+
+
+		h1 {
+			font-size: 2em;
+		}
+
+    .score {
+			font-family: 'Patrick Hand', cursive;
+			color: $color-aqua;
+    }
+    .score-shadow {
+	    text-shadow: 5px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .name {
+    	font-size: .8em;
+
+    	&.submitter {
+    		font-size: 4em;
+    	}
+
+	    .icon {
+  	    display: inline-block;
+		    position: relative;
+		    top: 10px;
+		    left: -11px;
+	    	font-size: 2.7em;
+
+	    	@include rotate(20);
+	    }
+    }
+
+		.votes, .likes {
+	    position: relative;
+      float: right;
+	    // left: -50%;
+
+	    font-size: 4em;
+
+	    
+
+	    ul {
+	    	position: relative;
+	    	left: 50%;
+	    }
+	    li {
+	    	list-style-type: none;
+		    height: 70px;
+	    }
+
+	    .score, .score-shadow {
+  	    position: relative;
+		    top: -40px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    padding-right: 10%;
+		    padding-left: 10%;
+	    	font-size: 1.5em;
+
+	    	@include stroke(3, #fff);
+	    }
+	    .score-shadow {
+		    margin-top: -6px;
+	    }
+		}
+
+
+		// ROUND SCORES
+		#scores, #leaderboard {
+		
+			font-size: 2em;
+
+			.points {
+		    display: table-cell;
+		    vertical-align: middle;
+			}
+
+			.player-rule {
+				border-top: 5px solid;
+		    margin-top: 5%;			
+			}
+
+			.large {
+				font-size: 2.5em;
+			}
+		
+		}
+
+		// WINNER CIRCLE	
+		#winners-circle {
+
+			.row {
+
+				.ranking {
+					font-family: 'Patrick Hand', cursive;
+
+					color: #fff;
+					padding: 2%;
+					border: 5px solid $color-orange-yellow;
+					float: left; 
+				}
+			
+				.winner {
+					width: 800px;
+					font-size: 8em;
+					height: 200px;
+					.name {    
+						font-size: .4em;
+						float: left;
+				    height: 100%; 
+
+				    padding-left: 22%;
+				    padding-right: 10%;
+
+				    margin-left: -16%;
+					
+						@include box-shadow(8px, 7px, 10px, rgba(0, 0, 0, 0.3));
+					}
+				}
+				.winner-0 {
+					margin-left: 10%;
+					color: $color-sick-green;
+
+					.ranking {
+						@include circle(200px, $color-warm-pink);
+
+						&:before {
+							content: "1st";
+						}
+				  }	
+				}
+				.winner-1 {
+					margin-left:25%;
+					color: $color-marigold;
+
+					.ranking {
+						@include circle(200px, $color-dodger-blue);
+
+						&:before {
+							content: "2nd";
+						}
+				  }	
+				}
+				.winner-2 {
+					margin-left:45%;
+					color: $color-dodger-blue;
+
+					.ranking {
+						@include circle(200px, $color-sick-green);
+
+						&:before {
+							content: "3rd";
+						}
+				  }	
+				}
+			}
+
+		}
+
+		#countdown .text {
+    	font-size: 8em;
+    	top: 58% !important;
+    	color: $color-azure !important;
+		}
+	}
+
+	#game_code {
+
+		padding: 0px 20px;
+		height: 715px;
+
+		#first {
+			color: $color-perrywinkle;
+		}
+		#second {
+			color: $color-bright-orange;
+		}
+		#third {
+			color: $color-cerulean;
+		}
+		#fourth {
+			color: $color-sick-green;
+		}
+
+		h1 {
+	    font-size: 5em;
+			color: $color-bright-sea-green;
+
+			&.game-header {
+				color: $color-pastel-orange;
+			}
+		}
+
+		#blurb h3 {
+			font-size: 3em;
+			color: $color-bright-sea-green;
+		}
+
+	}
+
+	#make-meme {
+
+		color: $color-azure;
+    font-size: 1em;
+
+    h3 {
+    	font-size: 2em;
+    	font-weight: normal;
+    }
+
+		#meme-topic {
+
+	    font-size: 3em;
+			position: relative;
+	    top: -70px;
+
+		}
+
+		.countdown {
+	    font-size: 3em;
+			font-family: 'Patrick Hand', cursive;
+			line-height: 1;
+			margin-top: -30px;
+			margin-bottom: 30px;
+		}
+		#countdown {			
+	    font-size: 250%;
+			color: $color-light-orange;
+		}
+	}
+  
+  #btn-start-game {
+		font-family: 'Patrick Hand', cursive;
+  	// visibility: hidden;
+  	
+  	background-color: $color-bright-sea-green;
+  	color: $color-melon;
+
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 3%;
+
+    font-size: 7em;
+  }
+
+	.players-grid.row {
+
+		.player-background {
+			width: 250px;
+			height: 250px;
+			background-color: white;
+			border-radius: 0px;
+			margin: 20px auto;
+			float:none;
+			position: relative;
+			display:inline-table;
+
+			.player-static {
+				
+				margin: 10px;
+				height: 80%;
+				position: relative;
+
+				.icon {
+					height: 140px;
+					margin: 20px 0px 40px 0px;
+					opacity: 0.4;
+					position: relative;
+
+					@include scale(.9);
+				  @include transition(transform, .5s, ease-out-elastic);
+				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+
+					&.active {
+						position: relative;
+						opacity: 1;
+						@include scale(1.1);
+					}
+				}
+
+				.nameplate {
+
+					@include scale(.9);
+				  @include linear-transition(transform, .5s);
+				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+
+					&.active {
+						opacity: 1;
+						@include scale(1.1);
+					}
+				}
+				
+			}
+
+		}
+
+	}
+
+	// PLAYER COLORS
+	.player-0 {
+		color: #FF421C;
+		border-top-color: #FF421C;
+	}
+	.player-1{
+		color: $color-orange-yellow;
+		border-top-color: $color-orange-yellow;
+	}
+	.player-2{
+		color: #93B700;
+		border-top-color: #93B700;
+	}
+	.player-3{
+		color: #EA4200;
+		border-top-color: #EA4200;
+	}
+	.player-4{
+		color: #F56800;
+		border-top-color: #F56800;
+	}
+	.player-5{
+		color: #14B1E5;
+		border-top-color: #14B1E5;
+	}
+	.player-6 {
+		color: #006CB8;
+		border-top-color: #006CB8;
+	}
+	.player-7 {
+		color: #8851CD;
+		border-top-color: #8851CD;
+	}
+	
+	.error-modal {
+		background-color: rgba(255, 91, 119, .9);
+		color: white;
+	}
+
+}

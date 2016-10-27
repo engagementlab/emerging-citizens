@@ -2,7 +2,7 @@
 {{!-- 
 /**
 	* Engagement Lab Website
-	* Developed by Engagement Lab, 2015
+	* Developed by Engagement Lab, 2016
 	* ==============
 	* 
 	* Document includes partial 
@@ -10,59 +10,106 @@
 	*/
 --}}
 
-<!-- DOCS START -->
+{{!-- DOCS/META --}}
 
-<!-- Favicons -->
-<link rel="shortcut icon" href="/images/favicons/favicon.ico">
-<!-- For third-generation iPad with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-icon-114x114.png">
-<!-- For iPhone with high-resolution Retina display: -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
-<!-- For first- and second-generation iPad: -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
-<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-<link rel="apple-touch-icon-precomposed" href="/images/favicons/apple-icon-57x57.png">
+{{!-- Mobile Meta --}}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFAB43">
+
+<link rel="manifest" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1476205427/emerging-citizens/manifest.json">
+{{!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"> --}}
+<meta name="msapplication-TileColor" content="#FFAB43">
+<meta name="msapplication-TileImage" content="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_152' type='png' fetch='image'}}">
+
+{{!-- Open Graph --}}
+<meta property="og:image" content="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/v1476204609/emerging-citizens/images/logo_ec.png" />
+
+{{#ifeq viewType 'player'}}
+  
+  {{#ifeq environment "development"}}
+    <link rel="shortcut icon" href="/images/favicons/dev_icon-player.ico" type="image/x-icon" />
+  {{/ifeq}}
+
+{{else}}
+
+	{{!-- FAVICONS --}}
+	{{!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}"> --}}
+ 
+	<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_32' type='ico' fetch='image'}}" sizes="32x32">
+	<link class="favicon" rel="icon" type="image/png" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_16' type='ico' fetch='image'}}" sizes="16x16">
+
+	<link class="favicon" rel="shortcut icon" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_32' type='ico' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="144x144" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_144' type='png' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="114x114" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_114' type='png' fetch='image'}}">
+	<link class="favicon" rel="apple-touch-icon-precomposed" sizes="72x72" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_72' type='png' fetch='image'}}">
+	{{!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --}}
+	<link class="favicon" rel="apple-touch-icon-precomposed" href="{{cdnAsset product='emerging-citizens' path='images/favicons/ec_favicon_57' type='png' fetch='image'}}">
+
+{{/ifeq}}
+
+
+{{!-- UI --}}
+<link href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet">
 
 {{#ifeq environment "development"}}
 	
 	{{!-- DEVELOPMENT --}}
 	
 	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+	{{#ifeq viewType 'group'}}
+		
+		{{#ifeq section 'newgame'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+	    <link rel="stylesheet" href="/styles/home-bootstrap.min.css" crossorigin="anonymous">			
+		{{else}}
+			<link rel="stylesheet" href="/styles/group-bootstrap.min.css">
+		{{/ifeq}}
+
 	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		{{#ifeq section 'index'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+	    <link rel="stylesheet" href="/styles/home-bootstrap.min.css" crossorigin="anonymous">			
+		{{else}}
+			{{!-- Our custom, barebones bootstrap for players --}}
+	    <link rel="stylesheet" href="/styles/bootstrap.min.css" crossorigin="anonymous">
+		{{/ifeq}}
+
 	{{/ifeq}}
 
 	{{!-- Core layout --}}
 	<link href="/styles/core.css" rel="stylesheet"/>
-	
-	<!-- Custom fonts -->
-	<link href="/fonts/fonts.css" rel="stylesheet"/>
-	
-	{{!-- UI --}}
-	<link href="/styles/jquery-ui.min.css" rel="stylesheet">
-	<link href="/bower_components/flipclock/compiled/flipclock.css" rel="stylesheet">
 
-	<!-- Font Awesome CSS -->
-	<link href="/fonts/icons/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-	<!-- Fontello CSS -->
-	<link href="/fonts/icons/fontello/css/fontello.css" rel="stylesheet">
-
-	{{!-- Bower plugins --}}
-	<link rel="stylesheet" href="/bower_components/glidejs/dist/css/glide.core.css">
+	{{!-- Other plugins --}}
+	<link rel="stylesheet" href="/styles/plugins/glide.core.min.css">
+	<link rel="stylesheet" href="/styles/plugins/glide.theme.min.css">
 
 {{else}}
 
 	{{!-- PRODUCTION/STAGING --}}
 
 	{{!-- Bootstrap non-responsive for group view --}}
-	{{#ifeq section 'group/monitor'}}
-		<link rel="stylesheet" href="/plugins/groupview/bootstrap.css">
+	{{#ifeq viewType 'group'}}
+		
+		{{#ifeq section 'newgame'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/home-bootstrap.min' type='css' }}" rel="stylesheet">		
+		{{else}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/group-bootstrap.min' type='css' }}" rel="stylesheet">	
+		{{/ifeq}}
+
 	{{else}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		{{#ifeq section 'index'}}
+			{{!-- Our custom, barebones bootstrap for home --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/home-bootstrap.min' type='css' }}" rel="stylesheet">		
+		{{else}}
+			{{!-- Our custom, barebones bootstrap for players --}}
+			<link href="{{cdnAsset product='emerging-citizens' path='styles/bootstrap.min' type='css' }}" rel="stylesheet">
+		{{/ifeq}}
+
 	{{/ifeq}}
-	<link href="{{cdnAsset site='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
+
+	{{!-- Game styling --}}
+	<link href="{{cdnAsset product='emerging-citizens' env=environment type='css' }}" rel="stylesheet">
 
 {{/ifeq}}

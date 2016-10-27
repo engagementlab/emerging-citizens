@@ -1,0 +1,287 @@
+
+
+// Disable scrolling on groupview and fix width
+#wrapper.group {
+
+  width: 1680px !important;
+  max-width: none !important;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+// NAV BAR
+#nav-dropdown {
+	margin:10px auto;
+	display: block;
+	text-align:center;
+	font-size: 2em;
+	color: darken(white, 15%);
+
+	&:hover, &focus {
+		color: darken(white, 30%);
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+.nav-close {
+  text-align: center;
+  font-size: 2em;
+  color: #d9d9d9;
+  &:hover, &focus {
+		color: darken(white, 30%);
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+#nav-close-wrapper {
+	position: fixed;
+	z-index: 2000;
+	margin: 2.1%;
+}
+
+body.landing {
+	#nav-close-wrapper {
+		position: relative;
+		margin: 0px;
+	}
+}
+
+#game-menu {
+	position: absolute;
+	top: 40px;
+	#nav-dropdown{
+		margin-left:40px;
+		position:fixed;
+	}
+
+}
+
+.nav-dropdown {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(black, 0.9) !important;
+	color: white;
+	z-index: 1000;
+	text-align: center;
+	top: 0px;
+
+	ul {
+		list-style-type: none;
+
+		padding: 0px;
+		padding-top: 12%;
+		margin: 0px;
+
+		li {
+			a {
+				font-size: 3em;
+				color: white;
+				cursor: pointer;
+
+				&:hover, &:focus {
+					color: darken(white, 20%);
+					font-size: 3em;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+.game-nav {
+	display: none;
+	overflow-y: scroll;
+	ul {
+		padding-top:5%;
+	}
+}
+
+#logo_game {
+	padding: 20px 0px;
+	background: white;
+	width: 100%;
+	position: fixed;
+}
+
+#logo_ec {
+	padding: 20px 0px;
+	background: transparent;
+	margin-left: -30px;
+	margin-right: -30px;
+	img {
+    height: 100%;
+    width: 200px;
+		display: block;
+		margin:0 auto;
+
+		@media(max-width:1024px) {
+			width: 160px;
+		}
+	}
+}
+
+#game-logoec {
+	background: none;
+	width: 300px;
+	height: 300px;
+}
+
+// LESSON PLANS
+
+.allPlans {
+	width: 90%;
+	margin: 0 auto;
+}
+.plans-item {
+	
+	min-height: 300px;
+	
+
+	.plan-card {
+		padding: 40px;
+		margin: 20px;
+		background-color: white;
+	}
+}
+
+.plan-modals {
+	position: fixed;
+
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	.plan-outer {
+		padding: 40px;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(black, 0.6);
+
+		.plan-inner {
+			padding: 60px;
+			background-color: white;
+			height: 80%;
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+}
+
+
+// ABOUT PAGE 
+
+.aboutPeople {
+	background-color: white;
+	padding-top: 40px;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+}
+.person-image {
+	height: 192px;
+	width: 192px;
+	border-radius: 96px;
+}
+.person-info {
+
+}
+
+
+// HELP PAGE
+
+.qa {
+	
+}
+
+
+// CONTENT SELECTION
+.ended-container {
+	background-color: white;
+	margin: 0 auto;
+}
+
+.room-container {
+	bottom: 10%;
+	padding-left: 10%;
+  padding-right: 10%;
+	position: relative;
+	margin: 10px auto;
+	background-color: white;
+
+	h1 {
+		font-size: 6em;
+	}
+}
+
+.player-background {
+	
+	display: block;
+	position: relative;
+	margin: 20px auto;
+	margin-bottom: 40px;
+	background: white;
+	height: 175px;
+	
+	.icon {
+		margin: 10px auto;
+		display: block;
+		position:relative;
+		width: 100%;
+		opacity: 0.3;
+		padding-left: 5px;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	.points {
+		display: none;
+		float: left;
+		width: 100%;
+    position: absolute;
+    padding-top: 30%;
+		font-size: 3.6em;
+	}
+
+	.score {
+		font-size: 4.6em;
+		font-weight: bold;
+		color: #91c92f;
+	  text-shadow:
+	   -1px -1px 0 #FFF,  
+	    1px -1px 0 #FFF,
+	    -1px 1px 0 #FFF,
+	     1px 1px 0 #FFF;
+
+	}
+
+	.nameplate {
+
+	  position: relative;
+	  background-color: white;
+	  padding: 2px;
+	  opacity: 0;
+	  font-weight: bold;
+	  font-size: medium;
+
+		@include transition(opacity .5s, transform .5s);
+
+		&.active {
+			opacity: 1;
+			@include translate(0px, -28px);
+		}
+	}
+
+}
+
+// RESULTS LAST SECTION COUNTDOWN
+.last {
+	.text {
+	  font-size: 26em;
+  	top: 58% !important;
+	}
+}

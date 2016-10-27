@@ -38,6 +38,10 @@
         font-family: OdinRounded-Bold;
         src: url(css/OdinRoundedBold.otf);
     }
+    @font-face{
+        font-family: Avenir;
+        src: url(css/AvenirLTStd-Book.otf);
+    }
 /*End Fonts*/
 /*Background Image*/
     body{
@@ -63,37 +67,63 @@
     background-color: white;
     margin: 20px auto;
 }
-#redStroke{
-    width: 16px;
-    height: 650px;
-    background-position: center;
+#startingModal{
+    width: 600px;
+    height: 500px;
+    background-color:white;
+    visibility: visible;
     position: relative;
     margin: 0 auto;
-    background-image: url("css/divider_red.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 3;
+    top: -600px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #f2a585;
+    visibility: hidden;
 }
-#pinkStroke{
-    background-position: center;
-    margin: auto 0;
-    background-image: url("css/divider_pink.png");
-    background-repeat: no-repeat;
+#wikiLogo{
+    background-image: url("css/wikiLogoNoText.png");
+    width: 300px;
+    height: 140px;
     background-size: contain;
-    width: 800px;
-    height: 18px;
-    z-index: 2;
+    background-repeat: no-repeat;
     position: relative;
-    top:-325px;
+    left: 165px;
+    top: 40px;
 }
-
+#modalInstructions{
+    font-family: Aileron-Thin;
+    font-size: 18pt;
+    text-align: center;
+    color: #07e8d0;
+    position: relative;
+    top: 50px;
+}
+#countCircle{
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    background-color:#02c4c3;
+    position: relative;
+    left: 220px;
+    top: 60px;
+}
+#modalCountdown{
+    text-align: center;
+    color: white;
+    font-family: Aileron;
+    font-size: 74pt;
+    position: relative;
+    top: -5px;
+    left: -3px;
+}
 #q1{
     width: 400px;
     height: 325px;
     z-index: 1;
     position: absolute;
-    top:10px;
+    top: 40px;
     display: inline-block;
+    left: 2%;
 }
 #pakistan{
     background-image: url("css/pakistan.png");
@@ -110,7 +140,7 @@
     text-align: center;
     color: #fd7174;
 }
-#q2{
+#q3{
     width: 400px;
     height: 325px;
     z-index: 1;
@@ -118,15 +148,43 @@
     top: 10px;
     left: 400px;
 }
-#pakistanInfo{
-    
+#pinkLine{
+    background-image: url(css/divider_pink.png);
+    width: 200px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-left: 95px;
+    margin-top: 50px;
 }
-#q3{
+
+#pakistanInfo{
+    font-family: Aileron-Thin;
+    color: #07e8d0;
+    text-align: center;
+    padding: 15px;
+    top: 15px;
+    position: relative;
+}
+#q2{
     width: 400px;
     height: 325px;
     z-index: 1;
     position: absolute;
     top: 335px;
+    left: 3%;
+}
+#instructions{
+    font-family: Avenir;
+    font-size: 24pt;
+    line-height: 1.5em;
+    text-align: center;
+    width: 325px;
+    position: relative;
+    margin: 0 auto;
+    top: 55px;
+    color: #f2a585;
 }
 #q4{
     width: 400px;
@@ -136,6 +194,44 @@
     top: 335px;
     left:400px;
 }
+#timerBox{
+    background-image: url("css/timer_bounding_box.png");
+    width: 250px;
+    height: 200px;
+    top: -50px;
+    right: -67.5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    position: relative;
+}
+#timer{
+    font-family: OdinRounded-Bold;
+    font-size: 66pt;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    top: 28%;
+    color:#FD9A06;
+
+}
+#timer1{
+    color:#fd986c;
+}
+#timerColon{
+    color:#fd986c;
+}
+#timer2{
+    color:#fd560c;
+}
+#timer3{
+    color:#FD9A06;
+}
+#linkButton{
+    width: 100%;
+}
+
 
 	</style>
 </head>
@@ -149,8 +245,6 @@
 <body>
 <div id="startContext">
     <div id="contextPane">
-        <div id="redStroke"></div>
-        <div id="pinkStroke"></div>
         <div id="q1">
             <div id="pakistan"></div>
             <h2 id="pakistanText">Pakistan</h2>
@@ -158,8 +252,24 @@
         <div id="q2">
             <h3 id="pakistanInfo">Pakistan (Listeni/ˈpækᵻstæn/ or Listeni/pɑːkᵻˈstɑːn/), officially the Islamic Republic of Pakistan, is a country in South Asia. It is the sixth-most populous country with a population exceeding 199 million people.[13]</h3>
         </div>
-        <div id="q3"></div>
-        <div id="q4"></div>
+        <div id="q3"> <h3 id="instructions"> Use your mobile device to search for a starting article based on this topic!</h3>
+        <div id="pinkLine"></div>
+        </div>
+        
+        <div id="q4">
+            
+        <h2 id="timer"><span id="timer1">0</span><span id="timerColon">:</span><span id="timer2">3</span><span id="timer3">0</span></h2>
+        <div id="timerBox"></div>
+        </div>
+    </div>
+    <div id="startingModal">
+        <div id="wikiLogo"></div>
+        <div id="modalInstructions">
+        <h2>Get Ready!</h2>
+        <h2>The target article will reveal in</h2></div>
+        <div id="countCircle">
+            <div id="modalCountdown">4</div>
+        </div>
     </div>
 </div>
 
@@ -179,6 +289,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="jquery.modal.css" type="text/css" media="screen" />
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <!-- GreenSock library -->

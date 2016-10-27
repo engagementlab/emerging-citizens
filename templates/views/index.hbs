@@ -1,83 +1,147 @@
-<div class="row gameLanding" id="homepage">
-    
-    <div class="row" id="home-page-banner">
-        <div id="intro">{{{content.intro.html}}}</div>
-    </div>
-
-    <div class="row">
-    
-      <div class="col-sm-1"></div>
-
-      <a href="new/">
-        <div id="hashtag-info" class="col-sm-3 home-page-info current">
-
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_youreit.png">
-            {{{content.htyi_blurb.html}}}
-
-        </div>
-      </a>
+<div class="gameLanding" id="homepage">
+  <div class="row top">
+    {{!-- TOP SECTION --}}
+    <div class="top-section">
       
-      <a href="">
-        <div id="geeks-info" class="col-sm-3 home-page-info coming-soon">
-          
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wiki.png">
-            {{{content.wiki_blurb.html}}}
-
-        </div>
-      </a>
-
-      <a href="">
-        <div id="meme-info" class="col-sm-3 home-page-info coming-soon">
-
-          <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,q_auto/v1466622714/emerging-citizens/images/home/logo_wwdmm.png">
-            {{{content.wwdmm_blurb.html}}}
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <h2 class="left-text black-font"><span class="orange-font">Bluff</span> with Hashtags.</h2>
+        <h2 class="left-text black-font"><span class="bright-red-font">Race</span> through Wikipedia.</h2>
+        <h2 class="left-text black-font"><span class="green-font">Create</span> dank Memes.</h2>
+        <h2 class="left-text gray-font">Become an Emerging Citizen</h2>
+        <h3 class="left-text white-font light">Emerging Citizens is a free-to-play suite of digital multiplayer games that teach students how to critique and create civic media.</h3>
+        <a href="/about"><button class="more desktop-only">Learn More</button></a>
         
-        </div>
-      </a>
-
-    </div>
-
-    <div class="col-sm-4"></div>
-    <div id="mailing-list" class="row col-sm-5 col-md-4 col-lg-4">
-      {{!-- <span><a href="{{content.mailing_link}}">join our mailing list!</a></span> --}}
-
-      <div id="mc_embed_signup" class="form">
-      <form action="//communityplanit.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=5166b8e185" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-          <div id="mc_embed_signup_scroll">
-        <label for="mce-EMAIL">Join our mailing list!</label>
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8cb16e3042072f11cc0680d36_5166b8e185" tabindex="-1" value=""></div>
-          <div class="clear">
-            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" style="background-color:white" class="default"></div>
-          </div>
-      </form>
       </div>
-    </div>
-    <div class="col-sm-3"></div>
-
-</div>
-
-<footer id="footer">
-
-  <!-- .footer start -->
-  <div class="footer col-md-12">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="row">
-          <div class="footer-content text-center padding-ver-clear">
-
-            <div class="logos-footer center-block">
-              <a href="http://elab.emerson.edu/"><img id="logo" src="/images/layout/logo_el.png" alt="Engagement Lab" width="60" height="60"></a>
-            </div>
-
-            <p class="text-center">An applied research lab at Emerson College for reimagining civic engagement in a digital culture<br />
-            </div>
-          </div>
-        </div>
+      
+      <div class="col-md-6 col-lg-6 desktop-only">
+        <img alt="Devices" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_800/v1477080288/emerging-citizens/images/layout/landing_devices.png" style="width:100%">
+      </div>
+      
+      <div class="col-sm-12 mobile-only">
+        <img alt="Devices" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_350/v1477080288/emerging-citizens/images/layout/landing_devices.png">
+      </div>
+      <div class="col-lg-12 col-sm-12 mobile-only">
+        <button class="more">Learn More</button>
       </div>
     </div>
   </div>
-  <!-- .footer end -->
+  
+  {{!-- GAMES --}}
+  <div class="row games-row light">
 
-</footer>
+    <h2 class="dark-gray-font light">Tweets. Wikis. Memes.<br /><span class="teal-font">The Games</span> of Emerging <strong class="dark-gray-font bold">Citizens</strong>.</h2>
+    
+    <div class="col-lg-4 col-md-4 col-sm-12 col-no-padding game-col">
+      <img src="{{{cloudinaryImg content.htyi_image crop=scale height=200}}}">
+      <div id="hashtag-info" class="home-page-info current">
+        <div class="text">{{{content.htyi_blurb.html}}}</div>
+        <div class="info-buttons">
+          <a href="new/htyi">play now</a>
+          <a href="about/htyi">learn more</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-4 col-sm-12 col-no-padding game-col">
+      <img src="{{{cloudinaryImg content.wiki_image crop=scale height=200}}}">
+      <div id="geeks-info" class="home-page-info current">      
+        <div class="text">{{{content.wiki_blurb.html}}}</div>
+        <div class="info-buttons">
+          <a href="new/wikigeeks">play now</a>
+          <a href="about/wikigeeks">learn more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-no-padding game-col">
+      <img src="{{{cloudinaryImg content.wwdmm_image crop=scale height=200}}}">
+      <div id="meme-info" class="home-page-info current">
+       <div class="text">{{{content.wwdmm_blurb.html}}}</div>
+        <div class="info-buttons">
+          <a href="new/wwdmm">play now</a>
+          <a href="about/wwdmm">learn more</a>
+        </div>
+      </div>
+        
+    </div>
+
+  </div>
+
+  <hr id="fold-divider" />
+
+  {{!-- WHAT IS IT? --}}
+  <div class="row what-text light">
+    {{!-- <p>{{{what.text.html}}}</p> --}}
+    <h1 class="teal-font content">{{{content.what_text.html}}}</h1>
+    <div class="col-lg-4 col-md-8 col-sm-12 col-centered-md">
+      <img src="{{{cloudinaryImg content.no_downloads_img crop=scale height=203}}}">
+      <div class="content">{{{content.no_downloads.html}}}</div>
+    </div>
+    <div class="col-lg-4 col-md-8 col-sm-12 col-centered-md">
+      <img src="{{{cloudinaryImg content.three_games_img crop=scale height=203}}}">
+      <div class="content">{{{content.three_games.html}}}</div>
+    </div>
+    <div class="col-lg-4 col-md-8 col-sm-12 col-centered-md">
+      <img src="{{{cloudinaryImg content.lesson_guides_img crop=scale height=203}}}">
+      <div class="content">{{{content.lesson_guides.html}}}</div>
+    </div>
+  </div>
+
+  {{!-- HOW IT WORKS --}}
+  <div class="row light">
+    <div class="how-works col-sm-12 col-md-12 col-lg-12">
+      <div class="row top step-one">
+        
+        <h2 class="teal-font">How the <span class="dark-gray-font light">Emerging</span><span class="dark-gray-font bold">Citizens</span> Platform Works</h2>
+        <div class="light content">{{{content.rationale.html}}}</div>
+        
+        <div class="row how-step">
+          <div class="content">{{{content.step_one.html}}}</div>
+          <img src="{{{cloudinaryImg content.step_one_img crop=scale height=700}}}">
+        </div>
+
+        <div class="row how-step">
+          <div class="col-sm-6">
+            <div class="content">{{{content.step_one_group.html}}}</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="content">{{{content.step_one_player.html}}}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row how-step" style="width: 70%; margin: 0 auto;">
+        <div class="col-sm-6">
+          <img src="{{{cloudinaryImg content.step_two_img crop=scale height=300}}}">
+          <div class="content">{{{content.step_two.html}}}</div>
+        </div>
+        <div class="col-sm-6">
+          <img src="{{{cloudinaryImg content.step_three_img crop=scale height=300}}}">
+          <div class="content">{{{content.step_three.html}}}</div>
+        </div>
+      </div>
+      <div class="row how-step step-four">
+        
+        <img src="{{{cloudinaryImg content.step_four_img crop=scale width=1300}}}">
+        <div class="content">{{{content.step_four.html}}}</div>
+      </div>
+      <div class="row how-step step-five">
+        
+        <img src="{{{cloudinaryImg content.step_five_img crop=scale width=1300}}}">
+        <div class="content">{{{content.step_five.html}}}</div>
+      </div>
+      <div class="row how-step step-six">
+        
+        <img src="{{{cloudinaryImg content.final_info_img crop=scale height=300}}}">
+        <div class="content">{{{content.final_info.html}}}</div>
+      </div>
+      
+    </div>
+  </div>
+
+  {{!-- CREDITS --}}
+  <div id="credits" class="row light col-lg-7 col-sm-12 col-centered">
+    <h3 class="teal-font">Design and Development Team</h3>
+    {{{content.people.html}}}
+  </div>

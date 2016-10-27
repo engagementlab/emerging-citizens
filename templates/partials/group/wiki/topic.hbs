@@ -1,0 +1,69 @@
+<div class="page-container">
+		<div class="row">
+
+    {{!-- Topic Screen Container --}}
+    <section class="col-sm-6 room-container" id="topic-container">
+
+			{{!-- Article reveal countdown modal --}}
+	    <div id="article-reveal" class="modal row">
+
+	      <div id="content" class="col-sm-12 hidden-el">
+	  			    
+			    <div class="row">
+       			Get ready!
+       			{{!-- <br />
+       			The target article will be revealed in... --}}
+					</div>
+			    
+			    <div class="row">
+						{{{cloudinaryImg "emerging-citizens/images/layout/wiki/reveal_glasses.png" crop=scale width=215}}}
+			    </div>
+
+			    <div class="row timesUp" style="display:none;">Finding destination article...</div>
+
+			    <div class="row">           
+		            <div id="countdown"></div>
+	        </div>
+
+
+
+	      </div>
+
+      </div>
+
+			<div class="row" id="current-topic">
+			    <div class="col-sm-6">
+			        <div class="topic-image">
+			            
+			            <img src="{{{cloudinaryUrl this.topicImage width=auto height=auto crop='scale' quality=100}}}">
+
+			        </div>
+			        <h2 class="topic-title">"{{{removePara this.topicName}}}"</h2>
+			    </div>
+			    <div class="col-sm-6">
+			        <h3>Use your mobile device to search for a starting article based on <br><bold>this topic!</bold></h3>
+			        <img class="arrow" src="https://res.cloudinary.com/engagement-lab-home/image/upload/v1/arrow_l5g5fy.png" width="100px" height="100px">
+			    </div>
+			</div>
+
+			<div class="row">
+			    <div class="col-sm-6">
+				    <div class="topic-description ellipsis">
+				    	
+			            <p>{{{ellipsis 200 this.topicDescription}}}</p>
+
+				    </div>
+			    </div>
+			    <div class="col-sm-4 countdown hidden-el">
+
+			      <section id="countdown">
+			      	<span id="text"></span>
+			      </section>
+		    
+			    </div>
+			</div>
+
+		</section>
+
+	</div>
+</div>

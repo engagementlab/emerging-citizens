@@ -1,0 +1,90 @@
+{{#ifeq section 'newgame'}}
+    
+    <div class="row" id="logo_ec">
+      <div class="col-sm-12" style="text-align:center">
+        <a id="nav-dropdown">&#9776;</a>
+        <img src="{{{cloudinaryUrl game.gameLogo width=405}}}">
+
+        <h1 id="title">
+        
+          <strong class="bold">
+            {{#ifeq gameType "htyi"}}
+              hash tag you're it
+            {{/ifeq}}
+            {{#ifeq gameType "wikigeeks"}}
+              wikigeeks
+            {{/ifeq}}
+            {{#ifeq gameType "wwdmm"}}
+              wait wait don't meme me
+            {{/ifeq}}
+          </strong>
+          content categories
+
+        </h1>
+
+        <div class="col-lg-6 col-centered category-instructions">
+            {{{../game.lessonPlanBlurb.html}}}
+        </div>
+      </div>
+    </div>
+
+{{else}}
+
+  {{#ifeq viewType 'landing'}}
+      
+      <div class="row" id="logo_ec">
+        <div class="col-sm-12">
+          {{#ifeq section 'index'}}
+            <a href='/'>
+              <img id="game-logo-nav" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_200/v1476469779/emerging-citizens/images/layout/logo_ec.png" class="row desktop-only">
+            </a>
+          {{/ifeq}}
+          <a id="nav-dropdown">&#9776;</a>
+        </div>
+      </div>
+
+
+  {{else}}
+
+    {{#ifnoteq viewType 'player'}}
+
+      <div id="game-menu"><a id="nav-dropdown">menu</a></div>
+
+    {{/ifnoteq}}
+
+  {{/ifeq}}
+
+{{/ifeq}}
+
+<nav class="navbar main nav-dropdown game-nav">
+
+  <a href='/'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>
+    <img id="game-logo" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_300/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el desktop-only">
+    <img id="game-logo-sm" src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_100/v1476469779/emerging-citizens/images/layout/logo_ec-white.png" class="row hidden-el mobile-only">
+  </a>
+  
+  <div class="container">
+    <div id="navbar">
+    <ul style="padding-top: 2%">
+      <li><a href='/'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Home</a></li>
+      
+      <li><a href='/about/htyi'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Hashtag You're It</a></li>
+      <li><a href='/about/wikigeeks'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>WikiGeeks</a></li>
+      <li><a href='/about/wwdmm'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Wait Wait Don't Meme Me</a></li>
+
+      <li style="padding-top:4%;"><a href='/about'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>About</a></li>
+      {{!-- <li><a href='/lessonPlans' target='_blank'>Lesson Plans</a></li> --}}
+      <li><a href='/help'{{#ifeq viewType 'group'}} target='_blank'{{/ifeq}}>Help</a></li>
+      
+      {{#ifeq viewType 'landing'}}
+        <li style="padding:4%;"><a id="nav-close">close</a></li>
+      {{/ifeq}}
+      {{#ifeq section 'newgame'}}
+        <li style="padding:4%;"><a id="nav-close">close</a></li>
+      {{/ifeq}}
+
+    </ul>
+  </div>
+
+</nav>
+{{!-- nav_close is in base layout file --}}

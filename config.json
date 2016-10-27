@@ -1,6 +1,15 @@
 {
 	"name": "Emerging Citizens",
-	"subdomain": "emerging",
 	"directory": "emerging-citizens",
-	"database": "emerging-citizens"
+	"database": "emerging-citizens", 
+	"admin_nav": { 
+						"HomePage": ["HomePage"], 
+						"LessonPlan": ["LessonPlan", "ContentCategory"], 
+						"AboutPage": ["AboutPage", "Person"],
+						"Game Config": ["GameConfig", "GameSession", "GameUser"],
+						"HTYI": ["Tweet", "HashtagGame"],
+						"WikiGeeks": ["WikiTopic", "WikiLink", "WikiGame"], 
+						"WWDMM": ["MemeGame", "MemeTopic"]
+						
+					}
 }

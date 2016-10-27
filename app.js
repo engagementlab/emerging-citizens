@@ -1,5 +1,11 @@
 // Return server object
 serverStart = function() {
+  
+  /* Global accessor for underscore  */
+	_ = require('underscore');
+
+  /* Global accessor for logger  */
+  logger = require('winston');
 	
 	var express = require('express');
 	var app = express();
@@ -8,6 +14,9 @@ serverStart = function() {
 	var bodyParser = require('body-parser');
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
+
+	// Enable view template compilation caching
+	app.enable('view cache');
 
 	return app;
 
@@ -21,14 +30,10 @@ appStart = function(app) {
 	var rootDir = require('app-root-path');
 	var io = require(rootDir + '/sockets/')(appServer);
 
-	// io.set('origins')
-
 	if(process.env.NODE_ENV === 'staging')
 		var consolere = require('console-remote-client').connect('console.re','80','emerging-citizens-qa');
 	else
 		console.re = console;
-
-	console.log(console.re)
 
 };
 

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>WikiGeeks Prompt Context - Emerging Citizens</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+    <style>
+        /*Import Fonts*/
+
+        @font-face{
+            font-family: Avenir-Regular;
+            src: url(css/AvenirLTStd-Book.otf);}
+        @font-face{
+            font-family: Avenir-Oblique;
+            src: url(AvenirLTStd-HeavyOblique-1.otf);
+        }
+        @font-face{
+            font-family: Avenir-Bold;
+            src: url(css/AvenirBold.ttf);}
+
+        @font-face{
+            font-family: OdinRounded-Regular;
+            src: url(css/OdinRoundedRegular.otf);
+        }
+        @font-face{
+            font-family: OdinRounded-Bold;
+            src: url(css/OdinRoundedBold.otf);
+        }
+        /*End Fonts*/
+        /*Background Image*/
+        body{
+          background-image: url("css/WG_grid_tileable.png");
+          background-repeat: repeat;
+          overflow-x: hidden;
+          padding: 0;}
+        #topMenu{
+            width:200px;
+            margin: 0 auto;
+        }
+        #menuImage{
+            width:200px;
+        }
+        #pathContainer{
+            width: 1000px;
+            height: 750px;
+            background-color: white;
+            border: 5px solid #ffc844;
+            margin: 0 auto;
+        }
+        #winnerContainer{
+            width: 450px;
+            height: 175px;
+            background-color: white;
+            border: 8px solid #fa9060;
+            position: relative;
+            margin: 25px 0px 0px 25px;
+            visibility: hidden;
+        }
+        #winnerName{
+            font-family:Avenir-Bold;
+            font-size: 32pt;
+            text-align: center;
+            color: #fcc843;
+            visibility: hidden;
+        }
+        #place{
+            font-family:Avenir-Oblique;
+            font-size: 20pt;
+            text-align: center;
+            position: relative;
+            bottom: 10px;
+            color: #ed5739;
+            visibility: hidden;
+        }
+        #roundInfo{
+            font-family:Avenir-Regular;
+            font-size: 16pt;
+            color: #fdbb88;
+            display:inline-block;
+            margin: 0 40px 0 40px;
+            position: relative;
+            top: -5px;
+            left: 30px;
+        }
+        #clicks{
+            display: inline-block;
+            margin-left:15px;
+        }
+        #clickNo{
+            display: inline-block;
+            visibility: hidden;
+        }
+        #points{
+            display: inline-block;
+            margin: 0 50px 0 50px;
+            visibility: hidden;
+        }
+        #pointsNo{
+            display: inline-block;
+        }
+        #timeSpent{
+            display: inline-block;
+            visibility: hidden;
+        }
+        #targetHeader{
+            font-family:Avenir-Bold;
+            color: #0be8d4;
+            font-size: 40pt;
+            position: relative;
+            top: -165px;
+            left: 550px;
+            visibility: hidden;
+        }
+        #targetName{
+            font-family: Avenir-Regular;
+            font-size: 26pt;
+            color:#f99ba8;
+            position: relative;
+            left: -45px;
+            visibility: hidden;
+        }
+        #targetStroke{
+            background-image: url("css/divider_red.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 20px;
+            height: 400px;
+            position: relative;
+            z-index: 1;
+            -ms-transform: rotate(90deg); /* IE 9 */
+            -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+            transform: rotate(90deg);
+            top: -180px;
+            left: 175px;
+            visibility: hidden;
+        }
+        #clickMap{
+            width: 800px;
+            height: 500px;
+            position: relative;
+            z-index: 1;
+            top:-500px;
+            margin: 0 auto;
+            visibility: hidden;
+        }
+        .mapRow{
+            width: 800px;
+            height: 125px;
+        }
+        .mapPoint{
+            display: inline-block;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+            top: -35px;
+        }
+        .salmonPointOdd{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_salmon.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+        .salmonPointEven{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_salmon.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 770px;
+        }
+        .peachPointOdd{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dotpeach.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 170px;
+        }
+        .peachPointEven{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dotpeach.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 575px;
+        }
+        .goldPoint{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_gold.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 350px;
+        }
+        .tomatoPointOdd{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_tomato.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 525px;
+        }
+        .tomatoPointEven{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_tomato.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 125px
+        }
+        .tealPointOdd{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_teal.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 675px;
+        }
+        .tealPointEven{
+            width: 20px;
+            height: 20px;
+            background-image: url("css/clickmap_dot_teal.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            left:-95px;
+        }
+        .mapConnector{
+            position: relative;
+            z-index: 1;
+            background-image: url(css/clickmap_connector.png);
+            width: 192px;
+            height:10px;
+            margin-left:5px;
+        }
+        #connector1{
+            top: -130px;
+        }
+        #connector2{
+            top: -140px;
+            left: 200px;
+        }
+        #connector3{
+            top: -150px;
+            left: 400px;
+        }
+        #connector4{
+            top: -160px;
+            left: 590px;
+        }
+        #connector5{
+            top: -150px;
+        }
+        #connector6{
+            top: -160px;
+            left: 200px;
+        }
+        #connector7{
+            top: -170px;
+            left: 400px;
+        }
+        #connector8{
+            top: -180px;
+            left: 593px;
+        }
+        #connector9{
+            top: -150px;
+        }
+        #connector10{
+            top: -160px;
+            left: 200px;
+        }
+        #connector11{
+            top: -170px;
+            left: 400px;
+        }
+        #connector12{
+            top: -180px;
+            left: 590px;
+        }
+        #connector13{
+            top: -175px;
+        }
+        #connector14{
+            top: -185px;
+            left: 200px;
+        }
+        #connector15{
+            top: -195px;
+            left: 400px;
+        }
+        #connector16{
+            top: -205px;
+            left: 593px;
+        }
+        .verticalOdd{
+        background-image: url(css/clickmap_connector.png);
+        height:10px;
+        width: 75px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    position: relative;
+    left: 743px;
+    top: 20px;
+        }
+        .verticalEven{
+            height:10px;
+        width: 75px;
+        background-image: url(css/clickmap_connector.png);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    position: relative;
+    left: -27px;
+    top: 20px;
+        }
+.pointNames{
+    display: inline-block;
+    position: relative;
+    top:-80px;
+    font-family: Avenir-Regular;
+    font-size: 12pt;
+}
+#name1{
+    left: -50px;
+    font-family: Avenir-Bold;
+    font-size: 14pt;
+    color:#fd9069;
+}
+#name2{
+    left: 15px;
+    color:#fdbc8f;
+}
+#name3{
+    text-align: center;
+    left: 100px;
+    top: -65px;
+    color: #fda128;
+}
+#name4{
+    left: 190px;
+    top: -80px;
+    color: #fc563d;
+}
+#name5{
+    left: 240px;
+    text-align: center;
+    top: -68px;
+    color: #42dccb;
+}
+
+#name6{
+    left: 225px;
+    top: -100px;
+    color:#fd9069;
+}
+#name7{
+    text-align: center;
+    left: 173px;
+    top: -60px;
+    color:#fdbc8f;
+}
+#name8{
+    left: 93px;
+    top: -100px;
+    color: #fda128;
+}
+#name9{
+    left: 15px;
+    text-align: center;
+    top: -85px;
+    color: #fc563d;
+}
+#name10{
+    text-align: center;
+    left: -50px;
+    top: -88px;
+    color: #42dccb;
+}
+#name11{
+    text-align: center;
+    left: -53px;
+    top: -88px;
+    color:#fd9069;
+}
+#name12{
+    text-align: center;
+    left: -23px;
+    top: -65px;
+    color:#fdbc8f;
+}
+#name13{
+    top: -105px;
+    left: 35px;
+    color: #fda128;
+}
+#name14{
+    text-align: center;
+    left: 90px;
+    top: -60px;
+    color: #fc563d;
+}
+#name15{
+    left: 115px;
+    top: -102px;
+    color: #42dccb;
+}
+#name16{
+    left: 725px;
+    top: -55px;
+    color:#fd9069;
+}
+#name17{
+    text-align: center;
+    top: -15px;
+    left: -25px;
+    color:#fdbc8f;
+}
+#name18{
+    left: -75px;
+    top: -30px;
+    color: #fda128;
+}
+#name19{
+    text-align: center;
+    left: -125px;
+    top: -15px;
+    color: #fc563d;
+}
+#name20{
+    text-align: center;
+    left: -170px;
+    top: -7px;
+    font-family: Avenir-Bold;
+    font-size: 14pt;
+    color:#fd9069;
+}
+#finalFlare{
+    background-image: url(css/clickmap_finaltitleflare.png);
+    width: 200px;
+    height: 75px;
+    background-size: contain;
+    position: relative;
+    left: -87px;
+    top: -77px;
+    z-index: 3;
+    visibility: hidden;
+}
+
+
+    </style>
+</head>
+
+<header>
+    <div id="topMenu">
+    <img id="menuImage" src="css/menu.png">
+    </div>
+</header>
+
+<body>
+<div id="winnerPath">
+    <div id="pathContainer">
+        <div id="winnerContainer">
+        <h2 id="winnerName">jordanpail</h2>
+        <h3 id="place">1st place!</h3>
+        <div id="roundInfo">
+        <div id="clickNo">0</div>
+        <div id="clicks">clicks</div>
+        <div id="points"> <div id="pointsNo">0</div> pts</div>
+        <div id="timeSpent"> 2:09</div>
+        </div>
+        </div>
+        <div id="targetHeader">
+        Target article:
+        <div id="targetName">"Indo-Pakistani War of 1947"</div>
+        <div id="targetStroke"></div>
+        </div>
+        <div id="clickMap">
+        <div class="mapRow" id="mapRow1">
+            <div class="mapPoint salmonPointOdd" id="point1"></div>
+            <div class="mapPoint peachPointOdd" id="point2"></div>
+            <div class="mapPoint goldPoint" id="point3"></div>
+            <div class="mapPoint tomatoPointOdd" id="point4"></div>
+            <div class="mapPoint tealPointOdd" id="point5"></div>
+            <div class="verticalOdd" id="vertical1"></div>
+                <div class="pointNames" id="name1">Starting Article</div>
+                <div class="pointNames" id="name2">Second Article</div>
+                <div class="pointNames" id="name3">Third Article with<br/> more Words</div>
+                <div class="pointNames" id="name4">Fourth Article</div>
+                <div class="pointNames" id="name5">Fifth Article with a<br/> bunch more words</div>
+                <div class="mapConnector" id="connector1"></div>
+            <div class="mapConnector" id="connector2"></div>
+            <div class="mapConnector" id="connector3"></div>
+            <div class="mapConnector" id="connector4"></div>
+            </div>
+            <div class="mapRow" id="mapRow2">
+            <div class="mapPoint salmonPointEven" id="point6"></div>
+            <div class="mapPoint peachPointEven" id="point7"></div>
+            <div class="mapPoint goldPoint" id="point8"></div>
+            <div class="mapPoint tomatoPointEven" id="point9"></div>
+            <div class="mapPoint tealPointEven" id="point10"></div> 
+            <div class="verticalEven" id="vertical2"></div>
+            <div class="pointNames" id="name10">Tenth Article wow<br/> that's a lot</div>
+                <div class="pointNames" id="name9">Ninth Article with<br/> a looooooong title</div>
+                <div class="pointNames" id="name8">Eighth Article</div>
+                <div class="pointNames" id="name7">Seventh Article with<br/> a title that shouldn't<br/> be this long</div>
+                <div class="pointNames" id="name6">Sixth Article</div>
+            <div class="mapConnector" id="connector5"></div>
+            <div class="mapConnector" id="connector6"></div>
+            <div class="mapConnector" id="connector7"></div>
+            <div class="mapConnector" id="connector8"></div>
+            </div>
+            <div class="mapRow" id="mapRow3">
+            <div class="mapPoint salmonPointOdd" id="point11"></div>
+            <div class="mapPoint peachPointOdd" id="point12"></div>
+            <div class="mapPoint goldPoint" id="point13"></div>
+            <div class="mapPoint tomatoPointOdd" id="point14"></div>
+            <div class="mapPoint tealPointOdd" id="point15"></div>
+            <div class="verticalOdd" id="vertical3"></div>
+            <div class="pointNames" id="name11">Eleventh Article with<br/> even more words</div>
+                <div class="pointNames" id="name12">Twelfth Article with a<br/> loooooooooooonger<br/> title</div>
+                <div class="pointNames" id="name13">Thirteenth Article</div>
+                <div class="pointNames" id="name14">Fourteenth Article with<br/> a title that still shouldn't<br/> be this long</div>
+                <div class="pointNames" id="name15">Fifteenth Article</div>
+                <div class="mapConnector" id="connector9"></div>
+            <div class="mapConnector" id="connector10"></div>
+            <div class="mapConnector" id="connector11"></div>
+            <div class="mapConnector" id="connector12"></div>
+            </div>
+            <div class="mapRow" id="mapRow4">
+            <div class="mapPoint salmonPointEven" id="point16"></div>
+            <div class="mapPoint peachPointEven" id="point17"></div>
+            <div class="mapPoint goldPoint" id="point18"></div>
+            <div class="mapPoint tomatoPointEven" id="point19"></div>
+            <div class="mapPoint tealPointEven" id="point20"></div>
+            <div class="pointNames" id="name20">Indo-Pakistani <br/>War of 1947</div>
+                <div class="pointNames" id="name19">Nineteenth Article are <br/> we almost there</div>
+                <div class="pointNames" id="name18">Eighteenth Article</div>
+                <div class="pointNames" id="name17">Seventeenth Article with<br/>an acceptable title</div>
+                <div class="pointNames" id="name16">Sixteenth Article</div>
+                <div id="finalFlare"></div>
+                <div class="mapConnector" id="connector13"></div>
+            <div class="mapConnector" id="connector14"></div>
+            <div class="mapConnector" id="connector15"></div>
+            <div class="mapConnector" id="connector16"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+    <script src="GeeksWinnerPath.js"></script>
+</body>
+</html>

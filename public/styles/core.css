@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Patrick+Hand");
 @font-face {
   font-family: "Avenir";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_0_0.ttf") format("truetype"); }
@@ -9,6 +10,14 @@
 @font-face {
   font-family: "AvenirBold";
   src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/emerging-citizens/fonts/315916_2_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "HalisGR-Book";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff2") format("woff2"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.woff") format("woff"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.eot?") format("eot"), url("https://res.cloudinary.com/engagement-lab-home/raw/upload/v1/site/fonts/301F62_6_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Impact-External";
+  src: url("https://res.cloudinary.com/engagement-lab-home/raw/upload/emerging-citizens/fonts/impact.ttf") format("truetype"); }
 
 .light {
   font-family: "AvenirLight"; }
@@ -76,7 +85,10 @@
     -moz-animation: invalid-field .5s 1;
     -o-animation: invalid-field .5s 1;
     animation: invalid-field .5s 1;
-    box-shadow: 0 0 5px 1px #ab3724; }
+    -webkit-box-shadow: 0 0 15px 10px #ab3724;
+    -moz-box-shadow: 0 0 15px 10px #ab3724;
+    box-shadow: 0 0 15px 10px #ab3724;
+    -webkit-appearance: none; }
   .form div {
     margin-left: auto;
     margin-right: auto; }
@@ -114,7 +126,6 @@
     vertical-align: middle; }
   .form button.mobile-login {
     background: white;
-    margin-top: 10%;
     cursor: pointer; }
   .form .error {
     display: none;
@@ -140,23 +151,95 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
-.form-prompt {
+body.player #gameContent {
+  padding-top: 3%; }
+
+body.player #login {
+  margin-top: 5%; }
+  body.player #login input[type=text] {
+    width: 100%;
+    max-width: 290px;
+    border: none;
+    color: black;
+    text-align: center;
+    background-color: #e6e6e6; }
+    body.player #login input[type=text]::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #b3b3b3;
+      text-align: center; }
+    body.player #login input[type=text]:-moz-placeholder {
+      /* Firefox 18- */
+      color: #b3b3b3;
+      text-align: center; }
+  body.player #login input[type=submit] {
+    border: solid 4px #36d5d9;
+    width: 145px; }
+
+body.player .form-prompt {
   color: white;
   background-color: #ff5e41;
   font-size: x-large;
   padding: 10px; }
-  .form-prompt.white {
+  body.player .form-prompt.white {
     color: black;
     background-color: white; }
 
-.post-button {
+body.player #logo_ec {
+  background: white;
+  padding: 20px 0px;
+  margin: 0 auto; }
+  body.player #logo_ec img {
+    height: 40%;
+    width: 40%;
+    display: block;
+    margin: 0 auto; }
+  @media only screen and (max-width: 480px) {
+    body.player #logo_ec.mobile {
+      display: none; } }
+
+body.player #login {
+  min-height: 300px; }
+  body.player #login input[type=text] {
+    width: 100%;
+    max-width: 290px; }
+
+body.player .form-prompt {
   color: white;
-  background-color: #00c5c2;
-  font-size: large;
+  background-color: #ff5e41;
+  font-size: x-large;
+  padding: 10px; }
+  body.player .form-prompt.white {
+    color: black;
+    background-color: white; }
+
+body.player .post-button {
+  color: white !important;
+  background-color: #00c5c2 !important;
+  font-size: large !important;
   width: 100%;
   border: 0; }
+  body.player .post-button.survey {
+    width: 40%;
+    margin: 5px auto !important;
+    background-image: none !important;
+    text-align: center !important;
+    float: none !important;
+    border: none !important;
+    height: 50px;
+    line-height: 45px !important; }
+    @media (max-width: 425px) {
+      body.player .post-button.survey {
+        width: auto; } }
 
-.voting-button {
+body.player .voting-button {
   color: white;
   font-size: medium;
   width: 100%;
@@ -167,35 +250,52 @@
   -ms-transition: background-color 0.3s linear;
   -o-transition: background-color 0.3s linear;
   transition: background-color 0.3s linear; }
-  .voting-button:hover {
+  body.player .voting-button:hover {
     -webkit-filter: brightness(115%);
     -moz-filter: brightness(115%);
     -ms-filter: brightness(115%);
     -o-filter: brightness(115%);
     filter: brightness(115%); }
-  .voting-button.color-1 {
+  body.player .voting-button.color-0 {
+    background-color: #4343ff; }
+  body.player .voting-button.color-1 {
     background-color: #ff5e41; }
-  .voting-button.color-2 {
-    background-color: #ffb71d; }
-  .voting-button.color-3 {
+  body.player .voting-button.color-2 {
+    background-color: #ffab48; }
+  body.player .voting-button.color-3 {
     background-color: #2bd3ee; }
-  .voting-button.color-4 {
+  body.player .voting-button.color-4 {
     background-color: #13e695; }
-  .voting-button.color-5 {
+  body.player .voting-button.color-5 {
     background-color: #ff7f7d; }
-  .voting-button.color-6 {
+  body.player .voting-button.color-6 {
     background-color: #7c90ff; }
-  .voting-button.color-7 {
+  body.player .voting-button.color-7 {
     background-color: #36d5d9; }
+  body.player .voting-button.color-8 {
+    background-color: #F83439; }
 
-.entry-footer {
+body.player .generic-game-message {
+  font-size: 2em;
+  color: #ff9971;
+  background-color: white;
+  padding: 3%;
+  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
+  -moz-box-shadow: 6px 7px 10px #C7C6C6;
+  box-shadow: 6px 7px 10px #C7C6C6; }
+
+body.player body .player-form {
+  padding: 3%; }
+
+body.player .entry-footer {
   position: fixed;
   bottom: 0;
   right: 0;
   background-color: white; }
-
-body .player-form {
-  padding: 3%; }
+  body.player .entry-footer button {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #36d5d9; }
 
 #wrapper.group {
   width: 1680px !important;
@@ -203,37 +303,140 @@ body .player-form {
   margin-right: auto;
   margin-left: auto; }
 
-.submission button {
-  color: white;
-  background-color: #FD6D59;
-  -webkit-transition: background-color 0.3s linear;
-  -moz-transition: background-color 0.3s linear;
-  -ms-transition: background-color 0.3s linear;
-  -o-transition: background-color 0.3s linear;
-  transition: background-color 0.3s linear; }
-  .submission button.inactive {
-    background-color: #674B47; }
+#nav-dropdown {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  color: #d9d9d9; }
+  #nav-dropdown:hover, #nav-dropdownfocus {
+    color: #b3b3b3;
+    text-decoration: none;
+    cursor: pointer; }
 
-.submission #access-code {
-  font-size: 4em; }
+.nav-close {
+  text-align: center;
+  font-size: 2em;
+  color: #d9d9d9; }
+  .nav-close:hover, .nav-closefocus {
+    color: #b3b3b3;
+    text-decoration: none;
+    cursor: pointer; }
+
+#nav-close-wrapper {
+  position: fixed;
+  z-index: 2000;
+  margin: 2.1%; }
+
+body.landing #nav-close-wrapper {
+  position: relative;
+  margin: 0px; }
+
+#game-menu {
+  position: absolute;
+  top: 40px; }
+  #game-menu #nav-dropdown {
+    margin-left: 40px;
+    position: fixed; }
+
+.nav-dropdown {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  color: white;
+  z-index: 1000;
+  text-align: center;
+  top: 0px; }
+  .nav-dropdown ul {
+    list-style-type: none;
+    padding: 0px;
+    padding-top: 12%;
+    margin: 0px; }
+    .nav-dropdown ul li a {
+      font-size: 3em;
+      color: white;
+      cursor: pointer; }
+      .nav-dropdown ul li a:hover, .nav-dropdown ul li a:focus {
+        color: #cccccc;
+        font-size: 3em;
+        text-decoration: none; }
+
+.game-nav {
+  display: none;
+  overflow-y: scroll; }
+  .game-nav ul {
+    padding-top: 5%; }
+
+#logo_game {
+  padding: 20px 0px;
+  background: white;
+  width: 100%;
+  position: fixed; }
+
+#logo_ec {
+  padding: 20px 0px;
+  background: transparent;
+  margin-left: -30px;
+  margin-right: -30px; }
+  #logo_ec img {
+    height: 100%;
+    width: 200px;
+    display: block;
+    margin: 0 auto; }
+    @media (max-width: 1024px) {
+      #logo_ec img {
+        width: 160px; } }
+
+#game-logoec {
+  background: none;
+  width: 300px;
+  height: 300px; }
+
+.allPlans {
+  width: 90%;
+  margin: 0 auto; }
+
+.plans-item {
+  min-height: 300px; }
+  .plans-item .plan-card {
+    padding: 40px;
+    margin: 20px;
+    background-color: white; }
+
+.plan-modals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+  .plan-modals .plan-outer {
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); }
+    .plan-modals .plan-outer .plan-inner {
+      padding: 60px;
+      background-color: white;
+      height: 80%;
+      width: 80%;
+      margin: 0 auto; }
+
+.aboutPeople {
+  background-color: white;
+  padding-top: 40px;
+  height: 100%;
+  width: 100%;
+  display: inline-block; }
+
+.person-image {
+  height: 192px;
+  width: 192px;
+  border-radius: 96px; }
 
 .ended-container {
   background-color: white;
   margin: 0 auto; }
-
-.winner {
-  background-color: white; }
-
-.game_code {
-  margin-top: 20%; }
-  .game_code #first {
-    color: #fe6444; }
-  .game_code #second {
-    color: #ffb71d; }
-  .game_code #third {
-    color: #fbd738; }
-  .game_code #fourth {
-    color: #00CB86; }
 
 .room-container {
   bottom: 10%;
@@ -241,41 +444,9 @@ body .player-form {
   padding-right: 10%;
   position: relative;
   margin: 10px auto;
-  background-color: white;
-  -webkit-box-shadow: 10px 10px 50px #000;
-  -moz-box-shadow: 10px 10px 50px #000;
-  box-shadow: 10px 10px 50px #000; }
+  background-color: white; }
   .room-container h1 {
     font-size: 6em; }
-
-.players {
-  margin-top: -40px; }
-  .players.left div.player-background {
-    clear: both;
-    float: left; }
-  .players.left div.player-background:nth-child(4) {
-    -moz-transform: translate(55px, 0px);
-    -o-transform: translate(55px, 0px);
-    -ms-transform: translate(55px, 0px);
-    -webkit-transform: translate(55px, 0px);
-    transform: translate(55px, 0px);
-    clear: none; }
-  .players.right div.player-background {
-    clear: both;
-    float: right; }
-  .players.right div.player-background:nth-child(4) {
-    -moz-transform: translate(-55px, 0px);
-    -o-transform: translate(-55px, 0px);
-    -ms-transform: translate(-55px, 0px);
-    -webkit-transform: translate(-55px, 0px);
-    transform: translate(-55px, 0px);
-    clear: none; }
-
-.player-badge {
-  margin-top: 4%;
-  position: relative;
-  /*background-color:#333;*/
-  float: left; }
 
 .player-background {
   display: block;
@@ -283,34 +454,22 @@ body .player-form {
   margin: 20px auto;
   margin-bottom: 40px;
   background: white;
-  width: 140px;
-  height: 140px;
-  background: white;
-  -webkit-border-radius: 70px;
-  -moz-border-radius: 70px;
-  border-radius: 70px;
-  -webkit-box-shadow: 2px 10px 46px #000000;
-  -moz-box-shadow: 2px 10px 46px #000000;
-  box-shadow: 2px 10px 46px #000000; }
+  height: 175px; }
   .player-background .icon {
     margin: 10px auto;
     display: block;
     position: relative;
-    height: 118px;
     width: 100%;
-    opacity: 0.3; }
+    opacity: 0.3;
+    padding-left: 5px; }
     .player-background .icon.active {
       opacity: 1; }
-    .player-background .icon img {
-      width: 130px;
-      height: 130px;
-      float: left; }
   .player-background .points {
     display: none;
     float: left;
     width: 100%;
     position: absolute;
-    padding-top: 26%;
+    padding-top: 30%;
     font-size: 3.6em; }
   .player-background .score {
     font-size: 4.6em;
@@ -324,258 +483,280 @@ body .player-form {
     opacity: 0;
     font-weight: bold;
     font-size: medium;
-    color: #4343ff;
-    -webkit-box-shadow: 0px 21px 46px #000;
-    -moz-box-shadow: 0px 21px 46px #000;
-    box-shadow: 0px 21px 46px #000;
-    -moz-transform: translate(0px, -32px);
-    -o-transform: translate(0px, -32px);
-    -ms-transform: translate(0px, -32px);
-    -webkit-transform: translate(0px, -32px);
-    transform: translate(0px, -32px);
     -moz-transition: opacity 0.5s, transform 0.5s;
     -o-transition: opacity 0.5s, transform 0.5s;
     -webkit-transition: opacity 0.5s, transform 0.5s;
     transition: opacity 0.5s, transform 0.5s; }
     .player-background .nameplate.active {
       opacity: 1;
-      -moz-transform: translate(0px, -32px);
-      -o-transform: translate(0px, -32px);
-      -ms-transform: translate(0px, -32px);
-      -webkit-transform: translate(0px, -32px);
-      transform: translate(0px, -32px); }
-
-#tweet-container {
-  padding: 3%;
-  height: 400px; }
-
-.tweet #tweet-author {
-  display: block;
-  text-align: left; }
-
-#current-tweet {
-  position: absolute;
-  display: flex;
-  background-color: white;
-  color: black;
-  font-size: x-large;
-  padding: 1%;
-  top: 0;
-  right: 0;
-  left: 0;
-  text-align: left;
-  border: 9px solid #6768FE; }
-  #current-tweet #author {
-    color: #328FB5; }
-  #current-tweet #left {
-    float: left;
-    padding-right: 2%; }
-  #current-tweet #right {
-    float: right; }
-
-#clock-face {
-  margin: auto;
-  background-position: 50% 50%;
-  background-size: cover;
-  background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center; }
-
-#clock-hand {
-  left: -.5%;
-  position: relative; }
-
-#clock-bg {
-  margin: 0 auto;
-  width: 184px;
-  height: 168px;
-  background: white;
-  -webkit-border-radius: 83px;
-  -moz-border-radius: 83px;
-  border-radius: 83px; }
-  #clock-bg.voting {
-    background-color: #6768FE; }
-
-#hashtag-submissions-prompt {
-  display: none;
-  height: 320px;
-  color: white;
-  font-size: x-large;
-  background-color: #6768FE;
-  padding-bottom: 2%;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin-bottom: 4%; }
-  #hashtag-submissions-prompt #real {
-    color: #C8E646; }
-
-#hashtag-submissions .hashtag {
-  font-size: x-large;
-  background-color: white;
-  padding: 10px;
-  margin: 20px; }
-  #hashtag-submissions .hashtag .octothorp {
-    margin-top: 3%;
-    font-size: x-large; }
-
-#hashtag-results {
-  margin-top: 11%; }
-  #hashtag-results .hashtag {
-    background-color: #FFD255;
-    padding: 20px;
-    color: #FD6D59;
-    font-size: xx-large; }
-    #hashtag-results .hashtag .octothorp {
-      font-size: 1.3em; }
-  #hashtag-results .real {
-    transform: translate(0px, -50px); }
-  #hashtag-results #prompt {
-    color: white;
-    font-size: x-large;
-    background-color: #6768FE;
-    padding: 2%; }
-  #hashtag-results .result {
-    margin-top: 20%; }
-
-#winners-circle .score-box {
-  padding: 20px;
-  background-color: #ff9000;
-  font-size: large; }
-  #winners-circle .score-box img {
-    float: left; }
-  #winners-circle .score-box score {
-    color: #fbd738;
-    font-size: 3em;
-    font-weight: bold; }
-  #winners-circle .score-box name {
-    display: block;
-    font-size: 1.5em;
-    color: #FFF; }
-
-#winners-circle .score-box.winner {
-  background-color: #fbd738; }
-
-#scores .player, #leaderboard .player {
-  background-color: white;
-  padding: 8px;
-  display: flex;
-  margin-top: 2%;
-  clear: both; }
-
-#scores .score, #leaderboard .score {
-  float: left;
-  width: 50%;
-  font-weight: bold;
-  font-size: 4em; }
-
-.results h1 {
-  color: #FFF; }
-
-.results .row {
-  margin-bottom: 3%; }
-
-.results .creator {
-  position: absolute;
-  transform: translate(-75%, -38%); }
-
-.results .voter {
-  margin: 0;
-  float: left;
-  transform: scale(0.8); }
-
-.results .voter.screen-title {
-  float: none;
-  margin: 0 auto; }
+      -moz-transform: translate(0px, -28px);
+      -o-transform: translate(0px, -28px);
+      -ms-transform: translate(0px, -28px);
+      -webkit-transform: translate(0px, -28px);
+      transform: translate(0px, -28px); }
 
 .last .text {
   font-size: 26em;
   top: 58% !important; }
 
-#coming-soon {
-  margin-top: 6%;
-  font-size: x-large; }
+#navbar {
+  font-size: 0.9em; }
+  @media only screen and (max-width: 480px) {
+    #navbar {
+      font-size: 0.7em; } }
 
-#coming-soon-banner {
-  color: white;
-  background-color: #ff9971;
-  padding: 2%; }
-  #coming-soon-banner #intro {
-    padding-left: 10%;
-    padding-right: 10%; }
-  #coming-soon-banner #mailing-list {
-    font-family: "Avenir";
-    font-weight: bolder;
-    font-size: xx-large;
-    border-bottom: solid 2px #ffddb0; }
-    #coming-soon-banner #mailing-list a {
-      color: white; }
-      #coming-soon-banner #mailing-list a:hover {
-        text-decoration: none; }
-    #coming-soon-banner #mailing-list:hover {
-      border-bottom: none; }
-
-.coming-soon-info {
-  font-size: large;
-  color: #ff9971;
-  background-color: white;
-  padding: 3%;
-  margin-top: 2%;
-  margin-left: 2%;
-  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
-  -moz-box-shadow: 6px 7px 10px #C7C6C6;
-  box-shadow: 6px 7px 10px #C7C6C6; }
-  .coming-soon-info h1 {
-    font-size: 30px; }
-
-@-webkit-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@-moz-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@-o-keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
-
-@keyframes coming-soon {
-  0% {
-    left: 8px; }
-  10% {
-    left: -8px; }
-  30% {
-    left: 8px; }
-  60% {
-    left: -8px; }
-  100% {
-    left: 0px; } }
+.gameLanding {
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-bottom: 3%;
+  margin: 0 auto;
+  color: gray;
+  align-items: center; }
+  .gameLanding strong {
+    font-family: "AvenirBold"; }
+  @media (max-width: 769px) {
+    .gameLanding .top {
+      padding-left: 15px;
+      padding-right: 15px; } }
+  .gameLanding .top-section {
+    height: 100%;
+    padding: 0px 3%;
+    padding-bottom: 5%;
+    margin-left: -30px;
+    margin-right: -30px;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    background: #5DD9D6;
+    background: -webkit-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    background: -o-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    background: -moz-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    background: linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+    .gameLanding .top-section img {
+      width: 100%; }
+    .gameLanding .top-section h2 {
+      font-size: 3.5em;
+      margin: 0px; }
+    .gameLanding .top-section h3 {
+      font-size: 2.3em;
+      margin: 10px auto; }
+    .gameLanding .top-section .more {
+      width: auto;
+      height: 80px;
+      margin: 20px auto;
+      border-radius: none;
+      border: none;
+      background: #a3e9e8;
+      color: white;
+      font-weight: bold;
+      font-size: 3.5em;
+      padding: 0px 20px; }
+    @media (max-width: 1024px) {
+      .gameLanding .top-section h2 {
+        font-size: 2em; }
+      .gameLanding .top-section .more {
+        font-size: 2em;
+        height: 60px; }
+      .gameLanding .top-section h3 {
+        font-size: 1.5em; } }
+    @media (max-width: 1560px) and (min-width: 1025px) {
+      .gameLanding .top-section h2 {
+        font-size: 2.5em; }
+      .gameLanding .top-section .more {
+        font-size: 2.5em;
+        height: 60px; }
+      .gameLanding .top-section h3 {
+        font-size: 1.8em; } }
+    @media (max-width: 1960px) and (min-width: 1561px) {
+      .gameLanding .top-section {
+        height: 60vh; }
+        .gameLanding .top-section h2 {
+          font-size: 3.2em; }
+        .gameLanding .top-section .more {
+          font-size: 3.2em;
+          height: 60px; }
+        .gameLanding .top-section h3 {
+          font-size: 2.2em; } }
+  .gameLanding .what-bubbles {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3%; }
+    .gameLanding .what-bubbles p {
+      font-size: 1.2em; }
+    .gameLanding .what-bubbles img {
+      width: 160px;
+      height: 160px;
+      border-radius: 80px;
+      border: 2px gray solid; }
+  .gameLanding h1 {
+    width: 100%;
+    font-size: 5em;
+    text-align: left;
+    margin: 0px; }
+  .gameLanding h3 {
+    font-size: 2.3em;
+    width: 100%; }
+  @media only screen and (min-width: 769px) {
+    .gameLanding #desktop {
+      display: block; }
+    .gameLanding #mobile {
+      display: none; } }
+  @media (max-width: 480px) {
+    .gameLanding #desktop {
+      display: none; }
+    .gameLanding #mobile {
+      display: block; } }
+  .gameLanding #fold-divider {
+    width: 50%;
+    border: solid 2px #ebebeb; }
 
 #home-page {
   margin-top: 6%;
   font-size: x-large; }
+
+.what-text {
+  background-color: white; }
+  .what-text h1.content {
+    width: 60%;
+    margin: 0px auto;
+    color: #36d5d9;
+    line-height: 1.2; }
+    @media only screen and (min-width: 481px) {
+      .what-text h1.content {
+        font-size: 1.8em; } }
+    @media only screen and (max-width: 480px) {
+      .what-text h1.content {
+        font-size: 1.2em; } }
+    .what-text h1.content p {
+      text-align: center; }
+  .what-text h2 {
+    margin: 0 auto;
+    font-size: 3em;
+    text-align: center; }
+  .what-text h3 {
+    font-size: 2em !important;
+    color: #36d5d9;
+    margin: 0 auto;
+    text-align: center; }
+  .what-text p {
+    text-align: justify; }
+  .what-text .content {
+    text-align: center; }
+    .what-text .content h2 {
+      font-size: 1.6em;
+      margin: 0px auto;
+      color: #36d5d9;
+      line-height: 1.2; }
+    .what-text .content p {
+      text-align: justify; }
+  @media only screen and (min-width: 1025px) {
+    .what-text .col-lg-4 {
+      padding: 40px; } }
+  .what-text .col-lg-4 img {
+    display: block;
+    height: 203px;
+    margin: 20px auto;
+    -webkit-filter: opacity(50%);
+    -moz-filter: opacity(50%);
+    -ms-filter: opacity(50%);
+    -o-filter: opacity(50%);
+    filter: opacity(50%);
+    opacity: 0.5; }
+  @media only screen and (max-width: 480px) {
+    .what-text .col-sm-12 {
+      padding-left: 10%;
+      padding-right: 10%; } }
+
+.games-row {
+  width: auto;
+  margin: 0 auto; }
+  .games-row img {
+    height: 200px;
+    max-width: 100%; }
+    @media only screen and (max-width: 480px) {
+      .games-row img {
+        padding: 4%; } }
+  .games-row h2 {
+    font-size: 2em; }
+  .games-row .col-sm-4 {
+    padding: 40px 0px;
+    margin: 20px auto;
+    background-color: white; }
+
+.how-works .row:nth-child(odd) {
+  background: #f1f0f0; }
+
+.how-works .top {
+  text-align: justify;
+  width: 100%;
+  margin: 0 auto; }
+  .how-works .top h2 {
+    font-size: 2.4em;
+    text-align: center;
+    margin: 30px auto; }
+  @media only screen and (min-width: 481px) {
+    .how-works .top img {
+      max-width: 100%; } }
+  @media only screen and (max-width: 480px) {
+    .how-works .top img {
+      max-width: 80%; } }
+  .how-works .top .content {
+    font-size: 1.6em;
+    width: 80%;
+    margin: 0 auto;
+    text-align: justify; }
+
+.how-works .how-step .content {
+  font-size: 1.6em;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 5%; }
+
+.how-works .how-step img {
+  margin: 0 auto;
+  display: block;
+  max-width: 90%; }
+  @media only screen and (max-width: 480px) {
+    .how-works .how-step img {
+      width: 83%; } }
+
+.how-works .step-four .content {
+  padding-bottom: 9%; }
+
+.how-works .step-five {
+  margin-top: -8%; }
+  .how-works .step-five .content {
+    padding-bottom: 10%; }
+
+.how-works .step-six {
+  font-size: 1.3em; }
+  .how-works .step-six strong {
+    color: #36d5d9; }
+  .how-works .step-six img {
+    margin-top: -8%; }
+    @media only screen and (max-width: 480px) {
+      .how-works .step-six img {
+        width: 50%; } }
+
+#credits ul {
+  -moz-columns: 3;
+  list-style-type: none; }
+  @media only screen and (min-width: 481px) {
+    #credits ul {
+      columns: 3;
+      -webkit-columns: 3; } }
+  #credits ul li {
+    padding-bottom: 2%; }
+
+#credits strong:after {
+  content: "\A";
+  white-space: pre; }
 
 #home-page-banner {
   color: white;
@@ -591,6 +772,8 @@ body .player-form {
   background-color: #ff9971;
   padding: 2%;
   margin-top: 2%;
+  margin: 0 auto;
+  width: 40%;
   font-family: "Avenir";
   font-weight: bolder;
   font-size: xx-large; }
@@ -604,20 +787,36 @@ body .player-form {
     border-bottom: none; }
 
 .home-page-info {
-  font-size: large;
-  color: #ff9971;
-  background-color: white;
-  padding: 3%;
+  font-size: 1.6em;
+  color: white;
+  height: 400px;
+  text-align: justify;
   margin-top: 2%;
-  margin-left: 2%;
-  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
-  -moz-box-shadow: 6px 7px 10px #C7C6C6;
-  box-shadow: 6px 7px 10px #C7C6C6;
   -webkit-transition: -webkit-filter 0.5s linear;
   -moz-transition: -webkit-filter 0.5s linear;
   -ms-transition: -webkit-filter 0.5s linear;
   -o-transition: -webkit-filter 0.5s linear;
   transition: -webkit-filter 0.5s linear; }
+  .home-page-info .info-buttons {
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    width: 100%; }
+  .home-page-info a {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.6); }
+  .home-page-info .text {
+    padding: 5% 10%; }
+  .home-page-info#hashtag-info {
+    background-color: #ff9971; }
+  .home-page-info#geeks-info {
+    background-color: #fd5057; }
+  .home-page-info#meme-info {
+    background-color: #1ecfba; }
   .home-page-info.coming-soon:hover {
     -webkit-filter: saturate(20%);
     -moz-filter: saturate(20%);
@@ -641,18 +840,351 @@ body .player-form {
     .home-page-info.current h1 {
       font-size: 2.3em;
       color: #58c5c1; }
-    .home-page-info.current:hover {
-      -moz-transform: scale(1.1);
-      -o-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1); }
+
+.landing #gameContent {
+  padding: 0; }
+
+.landing .game-about {
+  width: 100%;
+  margin: 0 auto;
+  display: inline-block; }
+  .landing .game-about .game-page {
+    max-width: 1024px;
+    margin: 0 auto; }
+    @media only screen and (min-width: 481px) {
+      .landing .game-about .game-page {
+        width: 90%; } }
+  .landing .game-about .top-section {
+    background-color: white; }
+  .landing .game-about h2 {
+    text-align: center; }
+  .landing .game-about #launch {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    width: 200px;
+    border: solid 4px #31b9ff;
+    padding: 2%;
+    color: #31b9ff;
+    margin-top: 1%;
+    -moz-transition: transform, 0.5s, ease-in-out-expo;
+    -o-transition: transform, 0.5s, ease-in-out-expo;
+    -webkit-transition: transform, 0.5s, ease-in-out-expo;
+    transition: transform, 0.5s, ease-in-out-expo; }
+    .landing .game-about #launch:hover {
+      background-color: #e6e6e6;
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      text-decoration: none; }
+  .landing .game-about #description {
+    background-color: #36d5d9; }
+  .landing .game-about .game-buttons .button {
+    border-radius: 25px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    min-width: 100px;
+    padding: 0px 20px;
+    margin: 10px auto;
+    background-color: #36d5d9;
+    color: white; }
+  .landing .game-about .row {
+    margin: 0 auto; }
+  .landing .game-about .divider {
+    border-top: 2px solid #e6e6e6;
+    width: 100%; }
+  .landing .game-about .logo {
+    padding: 0px;
+    height: auto; }
+    .landing .game-about .logo img {
+      height: 250px; }
+      @media only screen and (max-width: 480px) {
+        .landing .game-about .logo img {
+          width: 100%;
+          height: 197px; } }
+  .landing .game-about .blurb {
+    font-size: 1.6em;
+    width: 80%;
+    padding: 5%;
+    margin: 0 auto; }
+    @media only screen and (max-width: 480px) {
+      .landing .game-about .blurb {
+        width: 100%; } }
+  .landing .game-about .content {
+    padding-top: 1%; }
+    .landing .game-about .content .plans-info {
+      color: white;
+      padding: 5%;
+      margin: 4% 0px;
+      background-color: #FD7D4B; }
+      .landing .game-about .content .plans-info #coming {
+        color: #36d5d9; }
+    .landing .game-about .content .plans-buttons button {
+      border-radius: 25px;
+      height: 50px;
+      min-width: 50px;
+      padding: 0px 20px;
+      background-color: rgba(255, 0, 0, 0.6);
+      color: white; }
+    .landing .game-about .content .plan-card {
+      background-colorw: white;
+      border-radius: 40px;
+      border: 2px solid #e6e6e6; }
+      .landing .game-about .content .plan-card button {
+        border-radius: 25px;
+        height: 50px;
+        min-width: 50px;
+        background-color: #36d5d9;
+        padding: 0px 20px;
+        color: white; }
+    .landing .game-about .content .how-to-play {
+      font-size: 1.4em;
+      text-align: left;
+      background-color: #36d5d9;
+      color: white;
+      padding: 5%;
+      margin: 4% 0px; }
+    .landing .game-about .content .learning-guide {
+      text-align: left;
+      background-color: white;
+      color: #999999;
+      padding: 5%;
+      margin: 4% auto;
+      width: 100%; }
+      .landing .game-about .content .learning-guide h2 {
+        color: #36d5d9; }
+      .landing .game-about .content .learning-guide .col-sm-6 {
+        padding: 1%;
+        text-align: left; }
+  .landing .game-about#wwdmm-page .blurb {
+    color: #36d5d9; }
+  .landing .game-about#wikigeeks-page .blurb {
+    color: #F83439; }
+  .landing .game-about#htyi-page .blurb {
+    color: #ffa800; }
+
+@media (min-width: 2000px) {
+  body.newgame .page-container {
+    margin-top: 3%; } }
+
+.aboutPage {
+  background: #5DD9D6;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, white 0%, #5DD9D6 70%, #5DD9D6 100%);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: gray; }
+  .aboutPage .aboutResearch .research {
+    padding: 0px 10%; }
+    .aboutPage .aboutResearch .research .about-title {
+      font-size: 2em;
+      text-align: left; }
+    .aboutPage .aboutResearch .research .research-text {
+      font-size: 1.2em;
+      text-align: justify; }
+  .aboutPage .aboutResearch img {
+    padding-right: 5%; }
+  .aboutPage .feat-title,
+  .aboutPage .bottom-title {
+    text-align: left;
+    width: 80%;
+    font-size: 2em;
+    margin: 40px auto; }
+  .aboutPage .bottom-title {
+    margin-bottom: 10%; }
+  .aboutPage .aboutFeatures {
+    width: 90%;
+    margin: 0 auto; }
+    .aboutPage .aboutFeatures .feature .markdown-content {
+      text-align: justify; }
+      .aboutPage .aboutFeatures .feature .markdown-content h2 {
+        text-align: center; }
+
+.coming-soon-plans {
+  font-size: 5em;
+  color: #999999; }
+
+body.newgame #gameContent {
+  padding: 0 !important; }
+
+body.newgame input[type=submit] {
+  min-width: 100px;
+  min-height: 60px;
+  font-size: 3em; }
+
+body.newgame .error {
+  display: none;
+  color: white;
+  background-color: #ab3724;
+  font-size: 2em;
+  min-height: 50px;
+  padding: 10px;
+  border: 0; }
+
+body.newgame .category-instructions {
+  text-align: center;
+  color: #595959;
+  font-size: 1.6em; }
+
+body.newgame #categories {
+  display: inline-block; }
+
+body.newgame #btn_submit {
+  color: white;
+  border: none;
+  outline: 0;
+  margin: 40px;
+  margin-top: -5%; }
+
+body.newgame #session-create {
+  width: 80%;
+  margin: 0 auto;
+  left: 10%; }
+  body.newgame #session-create .select-buttons {
+    color: white;
+    border: none;
+    outline: 0;
+    font-size: 0.5em;
+    display: inline-block; }
+    body.newgame #session-create .select-buttons .button_text {
+      line-height: 35px;
+      width: 200px;
+      margin: 0px 20px;
+      text-align: center; }
+
+body.newgame #logo_ec {
+  background-color: white;
+  margin-bottom: 5%; }
+
+body.newgame .category-box {
+  min-height: 225px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2%;
+  cursor: pointer; }
+  body.newgame .category-box .checkbox {
+    visibility: hidden;
+    position: absolute;
+    right: 5%;
+    top: -13%; }
+  body.newgame .category-box h2 {
+    font-size: 1.3em; }
+  body.newgame .category-box button {
+    background-color: transparent;
+    border: none;
+    margin-top: 16%;
+    bottom: 10%;
+    width: 100%; }
+    body.newgame .category-box button:focus {
+      outline: 0; }
+
+body.newgame #session-create {
+  background: none;
+  border: none; }
+  body.newgame #session-create .form {
+    height: 980px;
+    overflow-x: hidden;
+    overflow-y: scroll; }
+
+body.newgame.htyi #title {
+  color: #ff9971; }
+
+body.newgame.htyi #categories .category-box {
+  -webkit-box-shadow: 3px 0px 12px #964b2d;
+  -moz-box-shadow: 3px 0px 12px #964b2d;
+  box-shadow: 3px 0px 12px #964b2d;
+  border: 5px solid #ff9971;
+  background-color: white;
+  color: #FD6D59;
+  margin: 2% auto; }
+  body.newgame.htyi #categories .category-box.selected {
+    border: 5px solid #ffe2d7; }
+  body.newgame.htyi #categories .category-box .markdown-content {
+    color: #999999; }
+  body.newgame.htyi #categories .category-box button {
+    color: #ff9971; }
+
+body.newgame.htyi .button_text {
+  border: 0px;
+  background-color: #ff8758; }
+  body.newgame.htyi .button_text:hover, body.newgame.htyi .button_text:focus, body.newgame.htyi .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #ff743e; }
+
+body.newgame.wikigeeks #title {
+  color: #0be8d4; }
+
+body.newgame.wikigeeks #categories .category-box {
+  border: 5px solid #0be8d4;
+  background-color: white;
+  color: #0be8d4;
+  margin: 2% auto; }
+  body.newgame.wikigeeks #categories .category-box.selected {
+    border: 5px solid #61f8ea; }
+  body.newgame.wikigeeks #categories .category-box .markdown-content {
+    color: #999999; }
+  body.newgame.wikigeeks #categories .category-box button {
+    color: #0be8d4; }
+
+body.newgame.wikigeeks .button_text {
+  border: 0px;
+  background-color: #0be8d4; }
+  body.newgame.wikigeeks .button_text:hover, body.newgame.wikigeeks .button_text:focus, body.newgame.wikigeeks .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #09b7a8; }
+
+body.newgame.wwdmm #title {
+  color: #31b9ff; }
+
+body.newgame.wwdmm #categories .category-box {
+  border: 5px solid #31b9ff;
+  background-color: white;
+  color: #31b9ff;
+  margin: 2% auto; }
+  body.newgame.wwdmm #categories .category-box.selected {
+    border: 5px solid #97dcff; }
+  body.newgame.wwdmm #categories .category-box .markdown-content {
+    color: #999999; }
+  body.newgame.wwdmm #categories .category-box button {
+    color: #31b9ff; }
+
+body.newgame.wwdmm .button_text {
+  background-color: #31b9ff;
+  border: 0px; }
+  body.newgame.wwdmm .button_text:hover, body.newgame.wwdmm .button_text:focus, body.newgame.wwdmm .button_text:visited {
+    outline: 0;
+    box-shadow: none;
+    background-color: #00a7fd; }
+
+#session-create .form {
+  padding: 2%; }
+
+#htyi-page {
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
+
+#wikigeeks-page {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
+
+#wwdmm-page {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
 @media (min-width: 1024px) {
   body .container {
     width: 100%; }
-  body .gameLanding {
-    margin-top: 15%; }
   body .player-background .icon {
     height: 163px; }
   body .player-background {
@@ -662,25 +1194,28 @@ body .player-form {
     height: 180px;
     border-radius: 90px; }
   body .player-background .icon img {
-    width: 180px;
-    height: 180px; }
+    width: 170px;
+    height: 170px;
+    padding-left: 5px; }
   body .player-background .nameplate {
     font-size: x-large; }
   body #waiting {
-    margin-top: 10%; }
+    margin-top: 5%; }
+    body #waiting .text {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
   body .game-header.wait-players {
     font-size: 2em; } }
 
 @media (min-width: 2000px) {
   body .game-header.wait-players {
     font-size: 2em; }
-  body .page-container {
-    margin-top: 10%; }
   body .player-background .icon {
     height: 200px; }
   body .player-background {
     margin: 0 auto;
-    margin-bottom: 10%;
+    margin-bottom: 10% !important;
     width: 220px;
     height: 220px;
     border-radius: 110px; }
@@ -690,14 +1225,1668 @@ body .player-form {
   body .player-background .nameplate {
     font-size: xx-large; }
   body .game-header {
-    font-size: 6em; }
-  .players.left div.player-background:nth-child(4) {
-    transform: translate(290px, -281px); }
-  .players.right div.player-background:nth-child(4) {
-    transform: translate(-290px, -281px); } }
+    font-size: 6em; } }
+
+@media (max-width: 425px) {
+  html, body.player {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%; } }
+
+/* 
+	HTYI group view styling.
+*/
+.body.htyi {
+  overflow: hidden; }
+  .body.htyi #game_code {
+    margin-top: 5%;
+    padding-top: 5%; }
+    .body.htyi #game_code #first {
+      color: #fe6444; }
+    .body.htyi #game_code #second {
+      color: #ffab48; }
+    .body.htyi #game_code #third {
+      color: #fbd738; }
+    .body.htyi #game_code #fourth {
+      color: #00CB86; }
+  .body.htyi .room-container {
+    -webkit-box-shadow: 10px 10px 50px #000;
+    -moz-box-shadow: 10px 10px 50px #000;
+    box-shadow: 10px 10px 50px #000; }
+  .body.htyi #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg"); }
+  .body.htyi .players {
+    margin-top: 40px; }
+    .body.htyi .players.left div.player-background {
+      clear: both;
+      float: left;
+      -moz-transform: translate(105px, 0px);
+      -o-transform: translate(105px, 0px);
+      -ms-transform: translate(105px, 0px);
+      -webkit-transform: translate(105px, 0px);
+      transform: translate(105px, 0px); }
+    .body.htyi .players.left div.player-background:nth-child(4) {
+      -moz-transform: translate(225px, 0px);
+      -o-transform: translate(225px, 0px);
+      -ms-transform: translate(225px, 0px);
+      -webkit-transform: translate(225px, 0px);
+      transform: translate(225px, 0px);
+      clear: none; }
+    .body.htyi .players.right div.player-background {
+      clear: both;
+      float: right;
+      -moz-transform: translate(-105px, 0px);
+      -o-transform: translate(-105px, 0px);
+      -ms-transform: translate(-105px, 0px);
+      -webkit-transform: translate(-105px, 0px);
+      transform: translate(-105px, 0px); }
+    .body.htyi .players.right div.player-background:nth-child(4) {
+      -moz-transform: translate(-225px, 0px);
+      -o-transform: translate(-225px, 0px);
+      -ms-transform: translate(-225px, 0px);
+      -webkit-transform: translate(-225px, 0px);
+      transform: translate(-225px, 0px);
+      clear: none; }
+    .body.htyi .players .player-background {
+      display: block;
+      position: relative;
+      margin: 20px auto;
+      margin-bottom: 80px;
+      background: white;
+      width: 180px;
+      height: 180px;
+      background: white;
+      -webkit-border-radius: 90px;
+      -moz-border-radius: 90px;
+      border-radius: 90px;
+      -webkit-box-shadow: 2px 10px 46px #000000;
+      -moz-box-shadow: 2px 10px 46px #000000;
+      box-shadow: 2px 10px 46px #000000; }
+      .body.htyi .players .player-background .icon {
+        margin: 10px auto;
+        display: block;
+        position: relative;
+        height: 160px;
+        padding-left: 5px;
+        width: 100%;
+        opacity: 0.3;
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -moz-transition: transform, 0.5s, ease-out-elastic;
+        -o-transition: transform, 0.5s, ease-out-elastic;
+        -webkit-transition: transform, 0.5s, ease-out-elastic;
+        transition: transform, 0.5s, ease-out-elastic;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .body.htyi .players .player-background .icon.active {
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
+        .body.htyi .players .player-background .icon img {
+          width: 140px;
+          height: 140px;
+          margin: 0 auto; }
+      .body.htyi .players .player-background .points {
+        display: none;
+        float: left;
+        width: 100%;
+        position: absolute;
+        padding-top: 26%;
+        font-size: 3.6em; }
+      .body.htyi .players .player-background .score {
+        font-size: 4.6em;
+        font-weight: bold;
+        color: #91c92f;
+        text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+      .body.htyi .players .player-background .nameplate {
+        position: relative;
+        background-color: white;
+        padding: 5px;
+        opacity: 0;
+        font-weight: bold;
+        font-size: 1.4em;
+        color: #4343ff;
+        -webkit-box-shadow: 0px 21px 46px #000;
+        -moz-box-shadow: 0px 21px 46px #000;
+        box-shadow: 0px 21px 46px #000;
+        -moz-transform: translate(0px, -28px);
+        -o-transform: translate(0px, -28px);
+        -ms-transform: translate(0px, -28px);
+        -webkit-transform: translate(0px, -28px);
+        transform: translate(0px, -28px);
+        -moz-transition: opacity 0.5s, transform 0.5s;
+        -o-transition: opacity 0.5s, transform 0.5s;
+        -webkit-transition: opacity 0.5s, transform 0.5s;
+        transition: opacity 0.5s, transform 0.5s; }
+        .body.htyi .players .player-background .nameplate.active {
+          opacity: 1;
+          -moz-transform: translate(0px, -28px);
+          -o-transform: translate(0px, -28px);
+          -ms-transform: translate(0px, -28px);
+          -webkit-transform: translate(0px, -28px);
+          transform: translate(0px, -28px); }
+  .body.htyi #tweet-container {
+    padding: 3%;
+    height: 400px; }
+  .body.htyi .tweet #tweet-author {
+    display: block;
+    text-align: left; }
+  .body.htyi #current-tweet {
+    position: absolute;
+    display: flex;
+    background-color: white;
+    color: black;
+    font-size: x-large;
+    padding: 1%;
+    top: 0;
+    right: 0;
+    left: 0;
+    text-align: left;
+    border: 9px solid #6768FE; }
+    .body.htyi #current-tweet #author {
+      color: #328FB5; }
+    .body.htyi #current-tweet #left {
+      float: left;
+      padding-right: 2%; }
+    .body.htyi #current-tweet #right {
+      float: right; }
+  .body.htyi #clock-face {
+    margin: auto;
+    background-position: 50% 50%;
+    background-size: cover;
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/v1466525298/emerging-citizens/images/layout/htyi/clock.png") no-repeat center; }
+  .body.htyi #clock-hand {
+    left: -0.5%;
+    position: relative; }
+  .body.htyi #clock-bg {
+    margin: 0 auto;
+    width: 184px;
+    height: 168px;
+    background: white;
+    -webkit-border-radius: 83px;
+    -moz-border-radius: 83px;
+    border-radius: 83px; }
+    .body.htyi #clock-bg.voting {
+      background-color: #6768FE; }
+  .body.htyi #voting .left div.player-background {
+    clear: both;
+    float: left;
+    margin-bottom: 0;
+    -moz-transform: translate(105px, -70px);
+    -o-transform: translate(105px, -70px);
+    -ms-transform: translate(105px, -70px);
+    -webkit-transform: translate(105px, -70px);
+    transform: translate(105px, -70px); }
+  .body.htyi #voting .left div.player-background:nth-child(4) {
+    -moz-transform: translate(225px, -70px);
+    -o-transform: translate(225px, -70px);
+    -ms-transform: translate(225px, -70px);
+    -webkit-transform: translate(225px, -70px);
+    transform: translate(225px, -70px);
+    margin-bottom: 0;
+    clear: none; }
+  .body.htyi #voting .right div.player-background {
+    clear: both;
+    float: right;
+    margin-bottom: 0;
+    -moz-transform: translate(-105px, -70px);
+    -o-transform: translate(-105px, -70px);
+    -ms-transform: translate(-105px, -70px);
+    -webkit-transform: translate(-105px, -70px);
+    transform: translate(-105px, -70px); }
+  .body.htyi #voting .right div.player-background:nth-child(4) {
+    margin-bottom: 0;
+    -moz-transform: translate(-225px, -70px);
+    -o-transform: translate(-225px, -70px);
+    -ms-transform: translate(-225px, -70px);
+    -webkit-transform: translate(-225px, -70px);
+    transform: translate(-225px, -70px);
+    clear: none; }
+  .body.htyi #hashtag-submissions-prompt {
+    display: none;
+    height: 320px;
+    color: white;
+    font-size: x-large;
+    background-color: #6768FE;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 4%; }
+    .body.htyi #hashtag-submissions-prompt #real {
+      color: #C8E646; }
+  .body.htyi #hashtag-submissions .hashtag {
+    font-size: x-large;
+    background-color: white;
+    padding: 10px;
+    margin: 0px 20px 20px 20px; }
+    .body.htyi #hashtag-submissions .hashtag .octothorp {
+      margin-top: 3%;
+      font-size: x-large; }
+  .body.htyi #hashtag-results {
+    margin-top: 11%; }
+    .body.htyi #hashtag-results .hashtag {
+      background-color: #FFD255;
+      padding: 20px;
+      color: #FD6D59;
+      font-size: xx-large; }
+      .body.htyi #hashtag-results .hashtag .octothorp {
+        font-size: 1.3em; }
+    .body.htyi #hashtag-results .real {
+      transform: translate(0px, -50px); }
+    .body.htyi #hashtag-results .creatorWrapper {
+      position: absolute;
+      transform: translate(-200px, -60px); }
+    .body.htyi #hashtag-results .creator {
+      position: absolute; }
+    .body.htyi #hashtag-results .voterWrapper .slide {
+      position: absolute; }
+    .body.htyi #hashtag-results #prompt {
+      color: white;
+      font-size: x-large;
+      background-color: #6768FE;
+      padding: 2%; }
+    .body.htyi #hashtag-results .result {
+      margin-top: 20%; }
+  .body.htyi #winners-circle .row {
+    height: 180px; }
+    .body.htyi #winners-circle .row .winner-0 {
+      width: 700px;
+      margin-left: 10%; }
+    .body.htyi #winners-circle .row .winner-1 {
+      width: 700px;
+      margin-left: 25%; }
+    .body.htyi #winners-circle .row .winner-2 {
+      width: 700px;
+      margin-left: 45%; }
+  .body.htyi #winners-circle .score-box {
+    padding: 20px;
+    height: 180px;
+    background-color: #ff9000;
+    font-size: large; }
+    .body.htyi #winners-circle .score-box .player-badge {
+      float: left;
+      transform: translate(-110px, -170px); }
+    .body.htyi #winners-circle .score-box img {
+      float: left; }
+    .body.htyi #winners-circle .score-box score {
+      color: #fbd738;
+      font-size: 3em;
+      display: block;
+      font-weight: bold; }
+    .body.htyi #winners-circle .score-box name {
+      display: block;
+      font-size: 2.5em;
+      color: #FFF; }
+  .body.htyi #winners-circle .score-box.winner {
+    background-color: #fe6444; }
+  .body.htyi #scores .player, .body.htyi #leaderboard .player {
+    background-color: white;
+    padding: 8px;
+    display: flex;
+    margin-top: 2%;
+    clear: both; }
+  .body.htyi #scores .score, .body.htyi #leaderboard .score {
+    float: left;
+    width: 50%;
+    font-weight: bold;
+    font-size: 4em; }
+  .body.htyi .results h1 {
+    color: #FFF; }
+  .body.htyi .results .row {
+    margin-bottom: 3%; }
+  .body.htyi .results .voter {
+    margin: 0;
+    float: left;
+    transform: scale(0.8); }
+    .body.htyi .results .voter .icon {
+      padding-left: 5px; }
+  .body.htyi .results .voter.screen-title {
+    float: none;
+    margin: 0 auto; }
+  .body.htyi .error-modal {
+    background-color: rgba(254, 120, 70, 0.9);
+    color: white; }
+
+/* 
+	WikiGeeks group view styling.
+*/
+.body.wikigeeks.group {
+  overflow: hidden; }
+
+@keyframes marching-ants-1 {
+  0% {
+    background-position: 0 0,  0 100%,  0 0,  100% 0; }
+  100% {
+    background-position: 40px 0, -40px 100%, 0 -40px, 100% 40px; } }
+  .body.wikigeeks.group svg .last .destination {
+    stroke-dasharray: 400; }
+  .body.wikigeeks.group .room-container {
+    width: 80%;
+    margin: 0 auto; }
+    .body.wikigeeks.group .room-container#game_code {
+      border-radius: 40px; }
+  .body.wikigeeks.group #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
+  .body.wikigeeks.group .submission {
+    padding: 0; }
+  .body.wikigeeks.group #gameContent.container-fluid {
+    padding-top: 3%;
+    padding-left: 0;
+    padding-right: 0; }
+  .body.wikigeeks.group .header {
+    background-color: transparent;
+    display: inline-block;
+    width: 1680px;
+    height: 125px; }
+    .body.wikigeeks.group .header .container {
+      background-color: transparent; }
+    .body.wikigeeks.group .header .headerImage {
+      width: 200px;
+      height: 200px;
+      background: white;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+      width: 200px;
+      display: block;
+      left: 740px;
+      margin: 0 auto;
+      -moz-transform: translate(0px, -50px);
+      -o-transform: translate(0px, -50px);
+      -ms-transform: translate(0px, -50px);
+      -webkit-transform: translate(0px, -50px);
+      transform: translate(0px, -50px); }
+      .body.wikigeeks.group .header .headerImage img {
+        padding-top: 40%;
+        width: 80%;
+        margin-left: 10%; }
+  .body.wikigeeks.group #startGameForm {
+    top: 80%;
+    right: -60px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px; }
+    .body.wikigeeks.group #startGameForm input {
+      border-radius: 20px;
+      background-color: #36d5d9; }
+      .body.wikigeeks.group #startGameForm input:hover, .body.wikigeeks.group #startGameForm input:active, .body.wikigeeks.group #startGameForm input:focus {
+        box-shadow: none;
+        border: 0px;
+        border-radius: 20px;
+        background-color: #23b5b9; }
+  .body.wikigeeks.group .logo img {
+    max-width: 80%;
+    margin-top: 2%; }
+  .body.wikigeeks.group .players {
+    margin-top: -1%; }
+    @media only screen and (max-width: 2000px) {
+      .body.wikigeeks.group .players {
+        margin-top: 5%; } }
+    .body.wikigeeks.group .players.left div.player-background {
+      clear: both; }
+    .body.wikigeeks.group .players.left div.player-background:nth-child(1) {
+      -moz-transform: translate(25px, -35px);
+      -o-transform: translate(25px, -35px);
+      -ms-transform: translate(25px, -35px);
+      -webkit-transform: translate(25px, -35px);
+      transform: translate(25px, -35px);
+      clear: both; }
+    .body.wikigeeks.group .players.left div.player-background:nth-child(2) {
+      -moz-transform: translate(25px, 0px);
+      -o-transform: translate(25px, 0px);
+      -ms-transform: translate(25px, 0px);
+      -webkit-transform: translate(25px, 0px);
+      transform: translate(25px, 0px);
+      clear: both; }
+    .body.wikigeeks.group .players.left div.player-background:nth-child(3) {
+      -moz-transform: translate(155px, 25px);
+      -o-transform: translate(155px, 25px);
+      -ms-transform: translate(155px, 25px);
+      -webkit-transform: translate(155px, 25px);
+      transform: translate(155px, 25px);
+      clear: both; }
+    .body.wikigeeks.group .players.left div.player-background:nth-child(4) {
+      -moz-transform: translate(455px, -155px);
+      -o-transform: translate(455px, -155px);
+      -ms-transform: translate(455px, -155px);
+      -webkit-transform: translate(455px, -155px);
+      transform: translate(455px, -155px);
+      clear: none; }
+    .body.wikigeeks.group .players.right div.player-background {
+      clear: both; }
+    .body.wikigeeks.group .players.right div.player-background:nth-child(1) {
+      -moz-transform: translate(-25px, -35px);
+      -o-transform: translate(-25px, -35px);
+      -ms-transform: translate(-25px, -35px);
+      -webkit-transform: translate(-25px, -35px);
+      transform: translate(-25px, -35px);
+      clear: both; }
+    .body.wikigeeks.group .players.right div.player-background:nth-child(2) {
+      -moz-transform: translate(-25px, 0px);
+      -o-transform: translate(-25px, 0px);
+      -ms-transform: translate(-25px, 0px);
+      -webkit-transform: translate(-25px, 0px);
+      transform: translate(-25px, 0px);
+      clear: both; }
+    .body.wikigeeks.group .players.right div.player-background:nth-child(3) {
+      -moz-transform: translate(-155px, 25px);
+      -o-transform: translate(-155px, 25px);
+      -ms-transform: translate(-155px, 25px);
+      -webkit-transform: translate(-155px, 25px);
+      transform: translate(-155px, 25px);
+      clear: both; }
+    .body.wikigeeks.group .players.right div.player-background:nth-child(4) {
+      -moz-transform: translate(-455px, -155px);
+      -o-transform: translate(-455px, -155px);
+      -ms-transform: translate(-455px, -155px);
+      -webkit-transform: translate(-455px, -155px);
+      transform: translate(-455px, -155px);
+      clear: none; }
+  .body.wikigeeks.group .room-container {
+    box-shadow: none; }
+  .body.wikigeeks.group #topic-container.room-container {
+    width: 60%;
+    left: 20%;
+    padding: 2%; }
+    .body.wikigeeks.group #topic-container.room-container #current-topic {
+      padding-bottom: 2%; }
+    .body.wikigeeks.group #topic-container.room-container .arrow {
+      -moz-transform: translate(-250px, 0px);
+      -o-transform: translate(-250px, 0px);
+      -ms-transform: translate(-250px, 0px);
+      -webkit-transform: translate(-250px, 0px);
+      transform: translate(-250px, 0px); }
+    .body.wikigeeks.group #topic-container.room-container .topic-description p {
+      color: #36d5d9;
+      font-size: 1.5em; }
+    .body.wikigeeks.group #topic-container.room-container h3 {
+      width: 80%;
+      color: #ffab48;
+      font-size: 3em;
+      margin: 0 auto;
+      padding-bottom: 15px;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_52,q_100,w_1842/v1468512477/divider_pink_aikocp.png);
+      background-size: 200px auto;
+      background-position: bottom;
+      background-repeat: no-repeat; }
+    .body.wikigeeks.group #topic-container.room-container .topic-title {
+      font-size: 3.2em;
+      color: #fe6444; }
+    .body.wikigeeks.group #topic-container.room-container .topic-image {
+      height: 300px;
+      width: 300px;
+      margin: 0 auto;
+      position: relative; }
+      .body.wikigeeks.group #topic-container.room-container .topic-image img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        margin: 0 auto; }
+    .body.wikigeeks.group #topic-container.room-container .countdown {
+      -moz-transform: translate(0px, -50px);
+      -o-transform: translate(0px, -50px);
+      -ms-transform: translate(0px, -50px);
+      -webkit-transform: translate(0px, -50px);
+      transform: translate(0px, -50px); }
+  .body.wikigeeks.group #article-container.room-container {
+    width: 60%;
+    left: 20%;
+    padding: 2%; }
+    .body.wikigeeks.group #article-container.room-container .players-countdown {
+      margin-top: 2%; }
+      .body.wikigeeks.group #article-container.room-container .players-countdown .col-sm-8 {
+        width: 60%; }
+    .body.wikigeeks.group #article-container.room-container .find h4 {
+      color: #36d5d9;
+      font-size: 3em;
+      font-weight: bold;
+      margin: 0px; }
+    .body.wikigeeks.group #article-container.room-container .find h2 {
+      font-size: 3em;
+      color: #F83439;
+      text-transform: capitalize; }
+    .body.wikigeeks.group #article-container.room-container .countdown {
+      margin: 0 auto; }
+    .body.wikigeeks.group #article-container.room-container .article-info {
+      padding: 2%;
+      border: 5px solid #ffab48;
+      max-height: 200px;
+      height: 200px;
+      width: 90%;
+      margin: 0 auto; }
+      .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 {
+        height: 100%; }
+        .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 .article-image {
+          height: 100%;
+          width: 200px;
+          margin: 0px auto;
+          position: relative; }
+          .body.wikigeeks.group #article-container.room-container .article-info .col-sm-4 .article-image img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            height: 200px;
+            width: auto;
+            margin: 0 auto; }
+      .body.wikigeeks.group #article-container.room-container .article-info .article-description {
+        padding: 0px;
+        float: right; }
+        .body.wikigeeks.group #article-container.room-container .article-info .article-description p {
+          padding: 0px;
+          display: inline-block;
+          text-align: left;
+          font-size: 1.5em;
+          color: #999999; }
+      .body.wikigeeks.group #article-container.room-container .article-info .article-name {
+        color: #fe6444;
+        display: inline-block;
+        text-transform: capitalize; }
+  .body.wikigeeks.group .countdown {
+    min-height: 175px;
+    width: 30%;
+    padding-top: 2%;
+    margin-left: 10%;
+    font-size: 7em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    margin: 20px;
+    background-size: 20px 5px, 20px 5px, 5px 20px, 5px 20px;
+    background-position: 0 0,  0 100%,  0 0,  100% 0;
+    background-repeat: repeat-x,  repeat-x,  repeat-y,  repeat-y;
+    animation: marching-ants-1 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    background-image: linear-gradient(to right, #ffcc00 50%, #fff 50%), linear-gradient(to right, #ffcc00 50%, #fff 50%), linear-gradient(to bottom, #ffcc00 50%, #fff 50%), linear-gradient(to bottom, #ffcc00 50%, #fff 50%);
+    color: #fe6444; }
+    .body.wikigeeks.group .countdown.reverse {
+      animation-direction: reverse; }
+    .body.wikigeeks.group .countdown #countdown {
+      width: 100%;
+      height: 100%; }
+    .body.wikigeeks.group .countdown #out-of-time {
+      display: none;
+      font-size: .4em; }
+    .body.wikigeeks.group .countdown span {
+      width: 100%;
+      height: 100%; }
+  .body.wikigeeks.group .players .player-background {
+    border-radius: 20px;
+    box-shadow: none;
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    margin-bottom: 40px;
+    background: white; }
+    .body.wikigeeks.group .players .player-background .icon {
+      margin: 10px auto;
+      display: block;
+      position: relative;
+      height: 150px;
+      width: 100%;
+      opacity: 0.3; }
+      .body.wikigeeks.group .players .player-background .icon.active {
+        opacity: 1; }
+      .body.wikigeeks.group .players .player-background .icon img {
+        width: 130px;
+        height: 130px; }
+    .body.wikigeeks.group .players .player-background .points {
+      display: none;
+      float: left;
+      width: 100%;
+      position: absolute;
+      padding-top: 26%;
+      font-size: 3.6em; }
+    .body.wikigeeks.group .players .player-background .score {
+      font-size: 4.6em;
+      font-weight: bold;
+      color: #91c92f;
+      text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+    .body.wikigeeks.group .players .player-background .nameplate {
+      position: relative;
+      padding: 2px;
+      opacity: 0;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #F83439;
+      background-color: transparent;
+      box-shadow: none;
+      -moz-transition: opacity 0.5s, transform 0.5s;
+      -o-transition: opacity 0.5s, transform 0.5s;
+      -webkit-transition: opacity 0.5s, transform 0.5s;
+      transition: opacity 0.5s, transform 0.5s; }
+      .body.wikigeeks.group .players .player-background .nameplate.active {
+        opacity: 1; }
+  .body.wikigeeks.group #results-container {
+    min-height: 800px;
+    max-height: 800px;
+    width: 80%;
+    left: 10%;
+    padding: 5%;
+    padding-top: 1%;
+    color: #0be8d4;
+    border: 8px solid #ffa132;
+    font-size: 1.6em; }
+    .body.wikigeeks.group #results-container h1 {
+      font-size: 4em; }
+    .body.wikigeeks.group #results-container h2 {
+      font-size: 2em; }
+    .body.wikigeeks.group #results-container .results-header span {
+      font-size: 2em; }
+      .body.wikigeeks.group #results-container .results-header span.small {
+        font-size: 1.1em; }
+    .body.wikigeeks.group #results-container #article-title {
+      color: #fe6444;
+      text-transform: capitalize; }
+    .body.wikigeeks.group #results-container .row.user {
+      padding: 1%;
+      font-size: 1.3em; }
+      .body.wikigeeks.group #results-container .row.user .ranking {
+        position: absolute;
+        background: white;
+        font-size: .8em;
+        border: 3px solid #ffa132;
+        padding: 9px;
+        left: -44px;
+        top: -7px;
+        width: 56px;
+        height: 56px;
+        background: white;
+        -webkit-border-radius: 28px;
+        -moz-border-radius: 28px;
+        border-radius: 28px; }
+      .body.wikigeeks.group #results-container .row.user .name {
+        text-align: left; }
+      .body.wikigeeks.group #results-container .row.user .score {
+        text-align: right; }
+    .body.wikigeeks.group #results-container .row-color-0,
+    .body.wikigeeks.group #results-container .row-color-6 {
+      background-color: #fe6444;
+      color: #FFF; }
+    .body.wikigeeks.group #results-container .row-color-2 {
+      background-color: #ff9971;
+      color: #FFF; }
+    .body.wikigeeks.group #results-container .row-color-4 {
+      background-color: #ff5e41;
+      color: #FFF; }
+    .body.wikigeeks.group #results-container .row-color-1,
+    .body.wikigeeks.group #results-container .row-color-3,
+    .body.wikigeeks.group #results-container .row-color-5,
+    .body.wikigeeks.group #results-container .row-color-7 {
+      background-color: #FFF; }
+    .body.wikigeeks.group #results-container .row-color-0 .ranking {
+      color: #ffbb90; }
+      .body.wikigeeks.group #results-container .row-color-0 .ranking:before {
+        content: "1st"; }
+    .body.wikigeeks.group #results-container .row-color-1 .ranking {
+      color: #fe6444; }
+      .body.wikigeeks.group #results-container .row-color-1 .ranking:before {
+        content: "2nd"; }
+    .body.wikigeeks.group #results-container .row-color-2 .ranking {
+      color: #ffa132; }
+      .body.wikigeeks.group #results-container .row-color-2 .ranking:before {
+        content: "3rd"; }
+  .body.wikigeeks.group #top-players .player-info {
+    border: 8px solid #fa9060;
+    color: #ffbb90; }
+    .body.wikigeeks.group #top-players .player-info h2 {
+      color: #fcc843; }
+    .body.wikigeeks.group #top-players .player-info h3 {
+      color: #fe6444; }
+  .body.wikigeeks.group #top-players .target-article h2 {
+    color: #0be8d4; }
+  .body.wikigeeks.group #top-players .target-article h3 {
+    color: #f99ba8; }
+  .body.wikigeeks.group #top-players .target-article .border {
+    background-image: url("https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_400/v1/emerging-citizens/images/layout/wiki/divider_results.png"); }
+  .body.wikigeeks.group #top-players .article-titles {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    margin-top: 2%; }
+    .body.wikigeeks.group #top-players .article-titles .title {
+      font-size: .7em; }
+      .body.wikigeeks.group #top-players .article-titles .title .last {
+        color: #ff5e41; }
+        .body.wikigeeks.group #top-players .article-titles .title .last .destination {
+          -moz-transform: translate(20px, -40px);
+          -o-transform: translate(20px, -40px);
+          -ms-transform: translate(20px, -40px);
+          -webkit-transform: translate(20px, -40px);
+          transform: translate(20px, -40px); }
+  .body.wikigeeks.group #top-players .color-0 {
+    color: #fa9060;
+    fill: #fa9060; }
+  .body.wikigeeks.group #top-players .color-1 {
+    color: #ffbb90;
+    fill: #ffbb90; }
+  .body.wikigeeks.group #top-players .color-2 {
+    color: #fcc843;
+    fill: #fcc843; }
+  .body.wikigeeks.group #top-players .color-3 {
+    color: #fe6444;
+    fill: #fe6444; }
+  .body.wikigeeks.group #top-players .color-4 {
+    color: #0be8d4;
+    fill: #0be8d4; }
+  .body.wikigeeks.group .players-grid {
+    padding-left: 5%; }
+    .body.wikigeeks.group .players-grid .player-background {
+      margin: 0 auto;
+      height: 120px;
+      width: 140px; }
+      .body.wikigeeks.group .players-grid .player-background .icon {
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        height: 125px;
+        width: 100%;
+        opacity: 0.3; }
+        .body.wikigeeks.group .players-grid .player-background .icon.active {
+          opacity: 1; }
+        .body.wikigeeks.group .players-grid .player-background .icon img {
+          margin: 0 auto;
+          width: 100px;
+          height: 100px; }
+      .body.wikigeeks.group .players-grid .player-background .points {
+        display: none;
+        float: left;
+        width: 100%;
+        position: absolute;
+        padding-top: 26%;
+        font-size: 3.6em; }
+      .body.wikigeeks.group .players-grid .player-background .score {
+        font-size: 4.6em;
+        font-weight: bold;
+        color: #91c92f;
+        text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+      .body.wikigeeks.group .players-grid .player-background .nameplate {
+        position: relative;
+        background-color: transparent;
+        padding: 2px;
+        opacity: 0;
+        font-weight: bold;
+        font-size: medium;
+        color: #4343ff; }
+        .body.wikigeeks.group .players-grid .player-background .nameplate.active {
+          opacity: 1; }
+  .body.wikigeeks.group #article-reveal,
+  .body.wikigeeks.group #round-over {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 0;
+    left: 0;
+    color: #0be8d4; }
+    .body.wikigeeks.group #article-reveal #content,
+    .body.wikigeeks.group #round-over #content {
+      margin-top: 3%;
+      padding: 5%;
+      left: 25%;
+      width: 50%;
+      height: 500px;
+      background-color: white;
+      font-size: 2.2em;
+      border: 5px solid #ff5e41; }
+      .body.wikigeeks.group #article-reveal #content #countdown,
+      .body.wikigeeks.group #round-over #content #countdown {
+        width: 28%;
+        margin-right: auto;
+        margin-left: auto; }
+      .body.wikigeeks.group #article-reveal #content h1,
+      .body.wikigeeks.group #round-over #content h1 {
+        font-size: 2.5em; }
+      .body.wikigeeks.group #article-reveal #content h2,
+      .body.wikigeeks.group #round-over #content h2 {
+        font-size: 1.7em;
+        color: #ff5e41; }
+  .body.wikigeeks.group .error-modal {
+    background-color: rgba(9, 234, 210, 0.9);
+    color: white; }
+
+/* 
+	WWDMM group view styling.
+*/
+.body.wwdmm.group {
+  overflow: hidden; }
+  .body.wwdmm.group #gameContent {
+    padding: 5%;
+    padding-top: 0; }
+  .body.wwdmm.group #loading-modal .indicator {
+    background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
+  .body.wwdmm.group #meme-text {
+    width: 400px; }
+  .body.wwdmm.group .meme {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-sizing: content-box;
+    height: 300px;
+    border: 25px white solid; }
+    .body.wwdmm.group .meme .text-upper, .body.wwdmm.group .meme .text-lower {
+      display: inline-block;
+      font-size: 32pt;
+      font-weight: bold;
+      margin-left: auto;
+      margin-right: auto; }
+    .body.wwdmm.group .meme .text-upper {
+      top: 4%; }
+    .body.wwdmm.group .meme .text-lower {
+      position: relative;
+      left: -50%; }
+    .body.wwdmm.group .meme #text-lower-wrapper {
+      position: absolute;
+      left: 50%;
+      bottom: 4%;
+      width: 100%; }
+  .body.wwdmm.group .meme-text {
+    z-index: 10;
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Impact;
+    text-shadow: -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000; }
+  .body.wwdmm.group .room-container {
+    border: 15px solid #b7d63a;
+    border-radius: 10px; }
+  .body.wwdmm.group .top-bar {
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 4em;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #ff5b77;
+    padding: 1%; }
+    .body.wwdmm.group .top-bar h1 {
+      font-size: 1.5em; }
+  .body.wwdmm.group #top-header {
+    margin-top: 3%;
+    width: 83%;
+    margin: auto;
+    min-height: 180px; }
+    .body.wwdmm.group #top-header .img {
+      margin-top: 2%;
+      margin-left: -19%; }
+    .body.wwdmm.group #top-header #topic {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+      background-repeat: repeat-x;
+      background-position-y: 105%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #19f7ad; }
+    .body.wwdmm.group #top-header #descriptor {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png);
+      background-repeat: repeat-x;
+      background-position-y: 100%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #fff5a3; }
+    .body.wwdmm.group #top-header #round-header {
+      display: inline;
+      background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto,w_273/v1/emerging-citizens/images/layout/wwdmm/squiggle-yellow.png);
+      background-repeat: repeat-x;
+      background-position-y: 100%;
+      background-position-x: center;
+      background-clip: padding-box;
+      color: #fff5a3; }
+  .body.wwdmm.group #voting-container .meme-canvas {
+    width: 339px;
+    height: 340px;
+    border: solid 20px white; }
+  .body.wwdmm.group #results-container {
+    width: 80%;
+    margin: 0 auto; }
+    .body.wwdmm.group #results-container .vote {
+      height: 150px; }
+    .body.wwdmm.group #results-container .results-room {
+      border: 0px;
+      border-radius: 0px;
+      padding: 5%;
+      margin: 0px auto; }
+    .body.wwdmm.group #results-container #top-header {
+      width: 100%; }
+    .body.wwdmm.group #results-container .votes-box h1 {
+      font-size: 4em; }
+    .body.wwdmm.group #results-container h1 {
+      font-size: 2em; }
+    .body.wwdmm.group #results-container .score {
+      font-family: 'Patrick Hand', cursive;
+      color: #11cfe0; }
+    .body.wwdmm.group #results-container .score-shadow {
+      text-shadow: 5px 1px rgba(0, 0, 0, 0.5); }
+    .body.wwdmm.group #results-container .name {
+      font-size: .8em; }
+      .body.wwdmm.group #results-container .name.submitter {
+        font-size: 4em; }
+      .body.wwdmm.group #results-container .name .icon {
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        left: -11px;
+        font-size: 2.7em;
+        -moz-transform: rotate(20deg);
+        -o-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+        -webkit-transform: rotate(20deg);
+        transform: rotate(20deg); }
+    .body.wwdmm.group #results-container .votes, .body.wwdmm.group #results-container .likes {
+      position: relative;
+      float: right;
+      font-size: 4em; }
+      .body.wwdmm.group #results-container .votes ul, .body.wwdmm.group #results-container .likes ul {
+        position: relative;
+        left: 50%; }
+      .body.wwdmm.group #results-container .votes li, .body.wwdmm.group #results-container .likes li {
+        list-style-type: none;
+        height: 70px; }
+      .body.wwdmm.group #results-container .votes .score, .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score, .body.wwdmm.group #results-container .likes .score-shadow {
+        position: relative;
+        top: -40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 10%;
+        padding-left: 10%;
+        font-size: 1.5em;
+        text-shadow: -3px -3px 0 #fff, -3px -2px 0 #fff, -3px -1px 0 #fff, -3px 0px 0 #fff, -3px 1px 0 #fff, -3px 2px 0 #fff, -3px 3px 0 #fff, -2px -3px 0 #fff, -2px -2px 0 #fff, -2px -1px 0 #fff, -2px 0px 0 #fff, -2px 1px 0 #fff, -2px 2px 0 #fff, -2px 3px 0 #fff, -1px -3px 0 #fff, -1px -2px 0 #fff, -1px -1px 0 #fff, -1px 0px 0 #fff, -1px 1px 0 #fff, -1px 2px 0 #fff, -1px 3px 0 #fff, 0px -3px 0 #fff, 0px -2px 0 #fff, 0px -1px 0 #fff, 0px 0px 0 #fff, 0px 1px 0 #fff, 0px 2px 0 #fff, 0px 3px 0 #fff, 1px -3px 0 #fff, 1px -2px 0 #fff, 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 1px 2px 0 #fff, 1px 3px 0 #fff, 2px -3px 0 #fff, 2px -2px 0 #fff, 2px -1px 0 #fff, 2px 0px 0 #fff, 2px 1px 0 #fff, 2px 2px 0 #fff, 2px 3px 0 #fff, 3px -3px 0 #fff, 3px -2px 0 #fff, 3px -1px 0 #fff, 3px 0px 0 #fff, 3px 1px 0 #fff, 3px 2px 0 #fff, 3px 3px 0 #fff; }
+      .body.wwdmm.group #results-container .votes .score-shadow, .body.wwdmm.group #results-container .likes .score-shadow {
+        margin-top: -6px; }
+    .body.wwdmm.group #results-container #scores, .body.wwdmm.group #results-container #leaderboard {
+      font-size: 2em; }
+      .body.wwdmm.group #results-container #scores .points, .body.wwdmm.group #results-container #leaderboard .points {
+        display: table-cell;
+        vertical-align: middle; }
+      .body.wwdmm.group #results-container #scores .player-rule, .body.wwdmm.group #results-container #leaderboard .player-rule {
+        border-top: 5px solid;
+        margin-top: 5%; }
+      .body.wwdmm.group #results-container #scores .large, .body.wwdmm.group #results-container #leaderboard .large {
+        font-size: 2.5em; }
+    .body.wwdmm.group #results-container #winners-circle .row .ranking {
+      font-family: 'Patrick Hand', cursive;
+      color: #fff;
+      padding: 2%;
+      border: 5px solid #ffa800;
+      float: left; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner {
+      width: 800px;
+      font-size: 8em;
+      height: 200px; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner .name {
+        font-size: .4em;
+        float: left;
+        height: 100%;
+        padding-left: 22%;
+        padding-right: 10%;
+        margin-left: -16%;
+        -webkit-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 8px 7px 10px rgba(0, 0, 0, 0.3); }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-0 {
+      margin-left: 10%;
+      color: #b7d63a; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #ff5b77;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-0 .ranking:before {
+          content: "1st"; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-1 {
+      margin-left: 25%;
+      color: #ffc000; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #31b9ff;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-1 .ranking:before {
+          content: "2nd"; }
+    .body.wwdmm.group #results-container #winners-circle .row .winner-2 {
+      margin-left: 45%;
+      color: #31b9ff; }
+      .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking {
+        width: 200px;
+        height: 200px;
+        background: #b7d63a;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px; }
+        .body.wwdmm.group #results-container #winners-circle .row .winner-2 .ranking:before {
+          content: "3rd"; }
+    .body.wwdmm.group #results-container #countdown .text {
+      font-size: 8em;
+      top: 58% !important;
+      color: #21b7f0 !important; }
+  .body.wwdmm.group #game_code {
+    padding: 0px 20px;
+    height: 715px; }
+    .body.wwdmm.group #game_code #first {
+      color: #ac7ce8; }
+    .body.wwdmm.group #game_code #second {
+      color: #ff6000; }
+    .body.wwdmm.group #game_code #third {
+      color: #007dd5; }
+    .body.wwdmm.group #game_code #fourth {
+      color: #b7d63a; }
+    .body.wwdmm.group #game_code h1 {
+      font-size: 5em;
+      color: #19f7ad; }
+      .body.wwdmm.group #game_code h1.game-header {
+        color: #ff8d5b; }
+    .body.wwdmm.group #game_code #blurb h3 {
+      font-size: 3em;
+      color: #19f7ad; }
+  .body.wwdmm.group #make-meme {
+    color: #21b7f0;
+    font-size: 1em; }
+    .body.wwdmm.group #make-meme h3 {
+      font-size: 2em;
+      font-weight: normal; }
+    .body.wwdmm.group #make-meme #meme-topic {
+      font-size: 3em;
+      position: relative;
+      top: -70px; }
+    .body.wwdmm.group #make-meme .countdown {
+      font-size: 3em;
+      font-family: 'Patrick Hand', cursive;
+      line-height: 1;
+      margin-top: -30px;
+      margin-bottom: 30px; }
+    .body.wwdmm.group #make-meme #countdown {
+      font-size: 250%;
+      color: #ffab48; }
+  .body.wwdmm.group #btn-start-game {
+    font-family: 'Patrick Hand', cursive;
+    background-color: #19f7ad;
+    color: #ff775c;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 3%;
+    font-size: 7em; }
+  .body.wwdmm.group .players-grid.row .player-background {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border-radius: 0px;
+    margin: 20px auto;
+    float: none;
+    position: relative;
+    display: inline-table; }
+    .body.wwdmm.group .players-grid.row .player-background .player-static {
+      margin: 10px;
+      height: 80%;
+      position: relative; }
+      .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
+        height: 140px;
+        margin: 20px 0px 40px 0px;
+        opacity: 0.4;
+        position: relative;
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -moz-transition: transform, 0.5s, ease-out-elastic;
+        -o-transition: transform, 0.5s, ease-out-elastic;
+        -webkit-transition: transform, 0.5s, ease-out-elastic;
+        transition: transform, 0.5s, ease-out-elastic;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .body.wwdmm.group .players-grid.row .player-background .player-static .icon.active {
+          position: relative;
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
+      .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate {
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-transition: transform 0.5s linear;
+        -moz-transition: transform 0.5s linear;
+        -ms-transition: transform 0.5s linear;
+        -o-transition: transform 0.5s linear;
+        transition: transform 0.5s linear;
+        transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate.active {
+          opacity: 1;
+          -moz-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
+  .body.wwdmm.group .player-0 {
+    color: #FF421C;
+    border-top-color: #FF421C; }
+  .body.wwdmm.group .player-1 {
+    color: #ffa800;
+    border-top-color: #ffa800; }
+  .body.wwdmm.group .player-2 {
+    color: #93B700;
+    border-top-color: #93B700; }
+  .body.wwdmm.group .player-3 {
+    color: #EA4200;
+    border-top-color: #EA4200; }
+  .body.wwdmm.group .player-4 {
+    color: #F56800;
+    border-top-color: #F56800; }
+  .body.wwdmm.group .player-5 {
+    color: #14B1E5;
+    border-top-color: #14B1E5; }
+  .body.wwdmm.group .player-6 {
+    color: #006CB8;
+    border-top-color: #006CB8; }
+  .body.wwdmm.group .player-7 {
+    color: #8851CD;
+    border-top-color: #8851CD; }
+  .body.wwdmm.group .error-modal {
+    background-color: rgba(255, 91, 119, 0.9);
+    color: white; }
+
+/* 
+	HTYI player view styling.
+*/
+.body.htyi.player .error-modal {
+  background-color: rgba(254, 120, 70, 0.9);
+  color: white; }
+
+.body.htyi.player #loading-modal .indicator {
+  background: rgba(254, 120, 70, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/htyi/loading-spinner.svg"); }
+
+.body.htyi.player #waiting .row {
+  width: 80%;
+  margin: 0 auto; }
+
+.body.htyi.player .game-message {
+  position: relative;
+  min-height: 100%;
+  margin-bottom: 10%;
+  margin: 0 auto;
+  font-size: 2em;
+  color: #4343ff;
+  min-height: 270px;
+  min-width: 345px;
+  max-width: 40%;
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media (max-width: 320px) {
+    .body.htyi.player .game-message {
+      max-width: 270px;
+      min-width: 270px;
+      font-size: 1.5em; } }
+
+.body.htyi.player #tweet-submission {
+  float: none;
+  max-width: 375px;
+  margin: 0 auto; }
+
+.body.htyi.player #vote-submission {
+  float: none;
+  max-width: 375px;
+  margin: 0 auto; }
+
+.body.htyi.player #debugging {
+  z-index: 0; }
+
+/* 
+	WikiGeeks player view styling.
+*/
+.body.wikigeeks.player {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png);
+  color: #36d5d9; }
+  .body.wikigeeks.player #gameContent {
+    padding: 40px 0px; }
+  .body.wikigeeks.player #loading-modal .indicator {
+    background: rgba(9, 234, 210, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg"); }
+  .body.wikigeeks.player #waiting .row {
+    width: 80%;
+    margin: 0 auto; }
+  .body.wikigeeks.player .error-modal {
+    background-color: rgba(9, 234, 210, 0.9);
+    color: white; }
+  .body.wikigeeks.player a.new {
+    color: red;
+    pointer-events: none !important; }
+  .body.wikigeeks.player .article-error {
+    background-color: #F83439;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    display: none; }
+  .body.wikigeeks.player #time-up {
+    background-color: rgba(255, 94, 65, 0.7);
+    text-align: center; }
+    .body.wikigeeks.player #time-up .indicator {
+      height: 200px;
+      padding: 40px;
+      background-color: #36d5d9;
+      color: white;
+      margin-top: 30%; }
+      @media (min-width: 1024px) {
+        .body.wikigeeks.player #time-up .indicator {
+          margin-top: 15%; } }
+    .body.wikigeeks.player #time-up button {
+      color: white;
+      height: 80px;
+      background-color: #FD6D59; }
+  .body.wikigeeks.player #article-loading {
+    background-color: rgba(255, 94, 65, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: inline; }
+    .body.wikigeeks.player #article-loading .indicator {
+      margin-top: 25%; }
+  .body.wikigeeks.player .submission {
+    min-height: 370px;
+    background-color: #ff5e41; }
+    .body.wikigeeks.player .submission .form-prompt {
+      color: white;
+      background-color: none;
+      font-size: x-large;
+      padding: 10px;
+      width: 80%;
+      margin: 0 auto; }
+      .body.wikigeeks.player .submission .form-prompt.white {
+        color: black;
+        background-color: white; }
+    .body.wikigeeks.player .submission ::-webkit-input-placeholder {
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission :-moz-placeholder {
+      /* Firefox 18- */
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission :-ms-input-placeholder {
+      color: #e6e6e6; }
+    .body.wikigeeks.player .submission .form {
+      width: 80%;
+      margin: 20px auto;
+      color: #fff1e1; }
+      .body.wikigeeks.player .submission .form.moveUp {
+        -moz-transform: translate(0px, -30px);
+        -o-transform: translate(0px, -30px);
+        -ms-transform: translate(0px, -30px);
+        -webkit-transform: translate(0px, -30px);
+        transform: translate(0px, -30px); }
+      .body.wikigeeks.player .submission .form button#clear {
+        font-size: 1.6em;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        padding: 0px;
+        margin-left: 10px;
+        float: right;
+        border-radius: 20px;
+        background-color: #ff9971;
+        -moz-transform: translate(45px, 65px);
+        -o-transform: translate(45px, 65px);
+        -ms-transform: translate(45px, 65px);
+        -webkit-transform: translate(45px, 65px);
+        transform: translate(45px, 65px);
+        cursor: pointer;
+        -webkit-appearance: button;
+        color: #ffe2d7;
+        border: 2px solid #ffe2d7; }
+        .body.wikigeeks.player .submission .form button#clear:hover, .body.wikigeeks.player .submission .form button#clear:focus {
+          outline: none; }
+      .body.wikigeeks.player .submission .form button {
+        padding: 20px;
+        font-size: 2em;
+        background-color: #ff9971;
+        color: #ffe2d7;
+        border: 4px solid #ffe2d7; }
+      .body.wikigeeks.player .submission .form input.prompt {
+        margin: 5px auto;
+        border: 2px solid #ffab48;
+        background-color: white;
+        color: #ff9971; }
+  .body.wikigeeks.player .submission {
+    margin-top: 0; }
+    @media (max-width: 425px) {
+      .body.wikigeeks.player .submission {
+        margin-top: 15%; } }
+  .body.wikigeeks.player #article {
+    color: #95989A;
+    text-align: left; }
+    .body.wikigeeks.player #article .article-name {
+      background-color: #F83439;
+      color: #E8FCFB;
+      font-size: 3em;
+      padding: 20px; }
+    .body.wikigeeks.player #article a {
+      color: #4394ff; }
+  .body.wikigeeks.player .game-message {
+    position: relative;
+    padding-top: 10%;
+    padding: 0;
+    margin-bottom: 10%;
+    font-size: medium;
+    color: white;
+    min-height: 265px;
+    min-width: 100%;
+    background-color: #fe6444;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; }
+    .body.wikigeeks.player .game-message.wiki-modal {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 171, 72, 0.5);
+      position: fixed;
+      top: 0; }
+      .body.wikigeeks.player .game-message.wiki-modal span {
+        color: #F83439;
+        font-size: 2em;
+        font-weight: bold; }
+    .body.wikigeeks.player .game-message div {
+      padding-top: 3%;
+      width: 80%;
+      margin: 0 auto; }
+    .body.wikigeeks.player .game-message .article-name {
+      font-weight: bolder;
+      font-size: 1.8em;
+      color: #36d5d9;
+      word-break: break-word;
+      width: 80%;
+      margin: 0 auto;
+      text-transform: capitalize; }
+    .body.wikigeeks.player .game-message span {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 2em;
+      left: 0;
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      text-align: center; }
+  .body.wikigeeks.player #submitted {
+    margin-top: 5%;
+    padding: 2%; }
+    .body.wikigeeks.player #submitted .game-message {
+      margin: 0;
+      margin-top: -2px;
+      min-height: 100px; }
+  .body.wikigeeks.player #wiki-content {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    overflow-y: scroll; }
+  .body.wikigeeks.player #toc {
+    background-color: #e6e6e6;
+    border: 2px solid; }
+  .body.wikigeeks.player #wiki-article, .body.wikigeeks.player #wiki-workspace {
+    display: none; }
+    .body.wikigeeks.player #wiki-article ul, .body.wikigeeks.player #wiki-workspace ul {
+      padding: 2px; }
+      .body.wikigeeks.player #wiki-article ul li, .body.wikigeeks.player #wiki-workspace ul li {
+        padding: 2px;
+        text-align: left; }
+    .body.wikigeeks.player #wiki-article table td, .body.wikigeeks.player #wiki-article table tr, .body.wikigeeks.player #wiki-article table th, .body.wikigeeks.player #wiki-workspace table td, .body.wikigeeks.player #wiki-workspace table tr, .body.wikigeeks.player #wiki-workspace table th {
+      background-color: white;
+      color: #36d5d9; }
+  .body.wikigeeks.player #results .row .content {
+    width: 100px;
+    height: 100px;
+    background: white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    padding-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #8ef0eb; }
+    .body.wikigeeks.player #results .row .content#time h2 {
+      color: #FD6D59; }
+    .body.wikigeeks.player #results .row .content#clicks h2 {
+      color: #F83439; }
+    .body.wikigeeks.player #results .row .content span {
+      color: black; }
+  .body.wikigeeks.player #results #articles {
+    padding: 5%;
+    background-color: #fff; }
+    .body.wikigeeks.player #results #articles .articleText {
+      width: 200px;
+      margin: 0 auto;
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -moz-transition: transform 0.5s;
+      -o-transition: transform 0.5s;
+      -webkit-transition: transform 0.5s;
+      transition: transform 0.5s; }
+
+/* 
+	WWDMM player view styling.
+*/
+.body.wwdmm.player .slider-size {
+  width: 400px; }
+  @media (max-width: 375px) {
+    .body.wwdmm.player .slider-size {
+      min-width: 320px;
+      max-width: 320px; } }
+
+@media (max-width: 425px) {
+  .body.wwdmm.player .container-fluid {
+    margin: 0px;
+    padding: 0px; } }
+
+.body.wwdmm.player .error-modal {
+  background-color: rgba(255, 91, 119, 0.9);
+  color: white; }
+
+.body.wwdmm.player #loading-modal .indicator {
+  background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
+
+.body.wwdmm.player .game-message {
+  font-size: 3em;
+  border: 20px solid #fed34f;
+  margin: 40px auto;
+  background: white;
+  display: inline-block; }
+  @media (max-width: 426px) {
+    .body.wwdmm.player .game-message {
+      border-right: none;
+      border-left: none;
+      width: 100%; } }
+  .body.wwdmm.player .game-message .text {
+    color: #21b7f0; }
+
+.body.wwdmm.player .glide__wrapper {
+  min-height: 400px; }
+  @media (max-width: 375px) {
+    .body.wwdmm.player .glide__wrapper {
+      min-height: 320px;
+      max-height: 320px; } }
+
+.body.wwdmm.player .glide__bullets {
+  position: static;
+  bottom: -5%; }
+  .body.wwdmm.player .glide__bullets .glide__bullet {
+    margin-left: 3%;
+    margin-right: 3%; }
+
+.body.wwdmm.player .glide__track {
+  padding-left: 0; }
+
+.body.wwdmm.player .glide__arrow {
+  font-size: 1em;
+  color: black;
+  border: 2px solid black; }
+
+.body.wwdmm.player .post-button {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #19f7ad; }
+  .body.wwdmm.player .post-button.back {
+    background-color: #ff8d5b; }
+  .body.wwdmm.player .post-button.small {
+    width: 35%; }
+
+.body.wwdmm.player #meme-slider {
+  min-width: 400px;
+  max-width: 400px; }
+  @media (max-width: 375px) {
+    .body.wwdmm.player #meme-slider {
+      min-width: 100%;
+      max-width: 100%; } }
+
+.body.wwdmm.player #btns-submit input {
+  margin: 0 auto; }
+
+.body.wwdmm.player #meme-create {
+  float: none;
+  padding-top: 3%; }
+  @media (max-width: 425px) {
+    .body.wwdmm.player #meme-create {
+      padding: none; } }
+  .body.wwdmm.player #meme-create #meme-canvas canvas {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none; }
+  .body.wwdmm.player #meme-create .kineticjs-content {
+    pointer-events: none; }
+  .body.wwdmm.player #meme-create #meme-text {
+    padding-top: 15px; }
+    .body.wwdmm.player #meme-create #meme-text input {
+      padding: 5px;
+      margin-bottom: 5px; }
+
+.body.wwdmm.player #meme-created {
+  min-height: 200px;
+  border: 10px solid #fed34f;
+  width: 30%;
+  margin: 40px auto;
+  background: white;
+  color: #21b7f0; }
+  @media (max-width: 426px) {
+    .body.wwdmm.player #meme-created {
+      border-right: none;
+      border-left: none;
+      width: 100%; } }
+
+.body.wwdmm.player #meme-voting .glide__arrows {
+  top: 35%; }
+
+.body.wwdmm.player #meme-voting .glide__bullets {
+  position: static; }
+
+.body.wwdmm.player #meme-voting .meme {
+  position: relative;
+  width: 100%;
+  min-height: 400px; }
+
+.body.wwdmm.player #meme-voting .meme-text {
+  display: inline-block;
+  color: white;
+  font-family: Impact, 'Impact-External';
+  font-size: 16pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center; }
+
+.body.wwdmm.player #meme-voting .meme-canvas {
+  pointer-events: none; }
+
+.body.wwdmm.player #meme-voting .kineticjs-content {
+  pointer-events: none; }
+
+.body.wwdmm.player #meme-voting .text-upper {
+  top: 4%; }
+
+.body.wwdmm.player #meme-voting .text-lower {
+  position: relative;
+  left: -50%; }
+
+.body.wwdmm.player #meme-voting #text-lower-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: 100%; }
 
 html, body {
-  max-height: 100%; }
+  max-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden; }
+
+html {
+  height: 100%; }
+
+body {
+  display: none;
+  height: 100%; }
+
+.container {
+  width: 100% !important;
+  height: auto;
+  min-height: 75%;
+  padding: 0px !important; }
+
+.form {
+  min-height: 10%; }
+  .form #btn-submit-code {
+    -webkit-appearance: none;
+    background: white; }
+
+.text.centered {
+  text-align: center; }
+
+.col-centered {
+  float: none;
+  margin: 0 auto; }
+
+@media only screen and (max-width: 1024px) {
+  .col-centered-md {
+    float: none;
+    margin: 0 auto; } }
+
+@media only screen and (max-width: 480px) {
+  .col-centered-sm {
+    float: none;
+    margin: 0 auto; } }
+
+.col-no-padding {
+  padding: 0; }
 
 .hidden-el {
   visibility: hidden; }
@@ -706,35 +2895,57 @@ html, body {
   font-size: 4em;
   color: white; }
 
+.body.game-bg.player {
+  background-color: white;
+  color: #36d5d9; }
+
 .body {
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png);
   font-family: "Avenir"; }
-  @media (max-width: 480px) {
-    .body {
-      background-color: #fdae8f; } }
+
+#replay button, #btn_replay button {
+  width: 40%;
+  padding: 2%; }
+  @media (max-width: 425px) {
+    #replay button, #btn_replay button {
+      width: auto; } }
 
 .body.game-bg {
-  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971; }
+  overflow-x: hidden; }
+  .body.game-bg.player {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png); }
+    .body.game-bg.player #logo_ec {
+      margin-top: -15px;
+      background-color: #e6e6e6; }
+    .body.game-bg.player .entry-footer {
+      background-color: #e6e6e6; }
+      .body.game-bg.player .entry-footer button {
+        background-color: #e6e6e6; }
+  .body.game-bg.htyi {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
+  .body.game-bg.wikigeeks {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
+  .body.game-bg.wwdmm {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
-.body.login {
+.body.newgame {
+  overflow: visible !important;
   -webkit-transition: background 0.5s linear;
   -moz-transition: background 0.5s linear;
   -ms-transition: background 0.5s linear;
   -o-transition: background 0.5s linear;
-  transition: background 0.5s linear;
-  background-color: #fdae8f; }
+  transition: background 0.5s linear; }
+  .body.newgame.htyi {
+    background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
+  .body.newgame.wikigeeks {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png) !important; }
+  .body.newgame.wwdmm {
+    background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_400/v1475689312/emerging-citizens/images/layout/wwdmm/background_tilable.png) !important; }
 
-.body.player {
-  -webkit-transition: background 0.5s linear;
-  -moz-transition: background 0.5s linear;
-  -ms-transition: background 0.5s linear;
-  -o-transition: background 0.5s linear;
-  transition: background 0.5s linear;
-  background-color: #ff9971;
-  /* W3C compliant */ }
+.body.player.wikigeeks {
+  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/wiki/background_tileable.png); }
 
 .body.monitor {
-  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffb71d;
+  background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ffab48;
   background-size: 35%; }
 
 .modal {
@@ -742,34 +2953,41 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(254, 120, 70, 0.7);
   z-index: 1999;
   top: 0;
   left: 0; }
-  .modal .tutorial #countdown, .modal .tutorial #continue {
-    position: fixed !important;
-    bottom: 10%;
-    right: 4%;
-    width: 150px;
-    cursor: pointer; }
-    .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
-      margin-top: 22%; }
-    .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
-      width: 0.8212890625em; }
-    .modal .tutorial #countdown .text, .modal .tutorial #continue .text {
-      font-size: 8em;
-      top: 58% !important;
-      color: #fff !important; }
+  .modal .tutorial {
+    width: 100%;
+    height: 100%;
+    visibility: hidden; }
+    .modal .tutorial #img {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .modal .tutorial #countdown, .modal .tutorial #continue {
+      position: fixed !important;
+      bottom: 10%;
+      right: 4%;
+      width: 150px;
+      cursor: pointer; }
+      .modal .tutorial #countdown .icon, .modal .tutorial #continue .icon {
+        display: inline-block;
+        fill: currentColor;
+        width: 1em;
+        height: 1em;
+        margin-top: 22%; }
+      .modal .tutorial #countdown .icon-arrow-right, .modal .tutorial #continue .icon-arrow-right {
+        width: 0.8212890625em; }
+      .modal .tutorial #countdown .text, .modal .tutorial #continue .text {
+        font-size: 8em;
+        top: 58% !important;
+        color: #fff !important; }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
   .desktop-only {
     display: none; } }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 481px) {
   .mobile-only {
     display: none; } }
 
@@ -785,7 +3003,7 @@ nav.header.navbar-fixed-top {
       display: none; } }
 
 nav.navbar.main {
-  background-color: #FFF;
+  background-color: none;
   padding-bottom: 2%; }
   nav.navbar.main #nav-logo {
     padding-top: 1%; }
@@ -804,24 +3022,71 @@ nav.header {
   padding-bottom: 1%; }
 
 footer {
-  position: absolute;
   width: 100%;
   left: 0;
-  bottom: 1; }
+  bottom: 0; }
+  footer.row {
+    margin: 0px; }
 
 .footer {
-  color: #FFF;
-  font-size: medium;
-  background-color: #ff9971; }
-  @media (max-width: 480px) {
+  background-color: white; }
+  @media only screen and (min-width: 481px) {
     .footer {
-      display: none; } }
+      font-size: 1.6em; } }
+  @media only screen and (max-width: 480px) {
+    .footer {
+      font-size: 1.2em; } }
+  .footer strong {
+    color: #36d5d9; }
+  .footer .logos-footer {
+    padding: 2%;
+    text-align: center; }
+  .footer #tagline {
+    text-align: center;
+    padding: 2% 0px;
+    margin: 0 auto; }
+
+.left-text {
+  text-align: left; }
+
+.bold {
+  font-weight: bold; }
+
+.orange {
+  background-color: #ffab48; }
+
+.red {
+  background-color: #F83439; }
+
+.blue {
+  background-color: #21b7f0; }
+
+.black-font {
+  color: black; }
+
+.white-font {
+  color: white; }
+
+.gray-font {
+  color: #999999; }
+
+.dark-gray-font {
+  color: #666666; }
 
 .orange-font {
   color: #ffa76d; }
 
 .green-font {
   color: #00CB86; }
+
+.red-font {
+  color: #fe6444; }
+
+.bright-red-font {
+  color: #F83439; }
+
+.teal-font {
+  color: #36d5d9; }
 
 .tweetImg {
   height: 300px;
@@ -858,39 +3123,40 @@ footer {
   .game-header span {
     margin: -5px; }
 
-.game-message {
-  position: relative;
-  min-height: 100%;
-  margin-bottom: 10%;
-  font-size: medium;
-  color: #4343ff;
-  min-height: 265px;
-  min-width: 345px;
-  background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/cloud.png);
-  background-repeat: no-repeat;
-  background-position: center; }
-  .game-message span {
-    left: 0;
-    width: 100%;
-    top: 45%;
-    position: absolute;
-    height: 100%; }
-
-.gameLanding {
-  margin-top: 10%;
-  margin-bottom: 3%; }
-  @media only screen and (min-width: 769px) {
-    .gameLanding #desktop {
-      display: block; }
-    .gameLanding #mobile {
-      display: none; } }
-  @media (max-width: 480px) {
-    .gameLanding #desktop {
-      display: none; }
-    .gameLanding #mobile {
-      display: block; } }
+#debugging {
+  z-index: 1000; }
 
 #gameContent {
-  padding: 40px 15px;
-  padding-top: 3%;
+  padding-bottom: 10%;
   text-align: center; }
+
+#loading-modal .indicator {
+  background: rgba(254, 120, 70, 0.5) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/loading-spinner.svg");
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-position: center center !important;
+  background-repeat: no-repeat !important; }
+
+.error-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow-y: scroll; }
+  .error-modal #text {
+    top: -100%;
+    -moz-transition: top, 0.5s, ease-out;
+    -o-transition: top, 0.5s, ease-out;
+    -webkit-transition: top, 0.5s, ease-out;
+    transition: top, 0.5s, ease-out; }
+  @media (max-width: 480px) {
+    .error-modal h1 {
+      font-size: 4em; }
+    .error-modal h2 {
+      font-size: 2em; } }
+  @media only screen and (min-width: 769px) {
+    .error-modal h1 {
+      font-size: 7em; }
+    .error-modal h2 {
+      font-size: 4em; } }

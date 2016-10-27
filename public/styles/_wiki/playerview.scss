@@ -1,0 +1,339 @@
+/* 
+	WikiGeeks player view styling.
+*/
+.body.wikigeeks.player {
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	background-image: $background-wiki;
+	color: $color-teal;
+
+	#gameContent {
+		padding: 40px 0px;
+	}
+	
+	#loading-modal {
+		.indicator {
+			background: rgba(9, 234, 210, .5) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wiki/loading-spinner.svg');
+		}
+	}
+
+	#waiting {
+		.row {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+	
+	.error-modal {
+		background-color: rgba(9, 234, 210, .9);
+		color: white;
+	}
+
+	a.new {
+		color: red;
+		pointer-events: none !important;
+	}
+
+	.article-error {
+		background-color: $color-bright-red;
+		position: fixed;
+		bottom: 0;
+		width:100%;
+		margin: 0;
+		padding: 10px;
+		display:none;
+	}
+
+	#time-up {
+		background-color: rgba( $color-dark-orange, .7 );
+		// top: 0;
+		// left: 0;
+		text-align: center;
+		
+		.indicator {
+			height: 200px;
+			padding: 40px;
+			background-color: $color-teal;
+			color: white;
+			margin-top: 30%;
+
+			@media (min-width: 1024px) {
+				margin-top: 15%;
+			}
+
+		}
+
+		button {
+			color: white;
+			height: 80px;
+			background-color: $color-orange;
+		}
+	}
+
+	#article-loading {
+		background-color: rgba( $color-dark-orange, .6 );
+		height: 100%;
+		width: 100%;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		position: fixed;
+		display: inline;
+
+		.indicator {
+			margin-top: 25%;
+
+		}
+	}
+	
+	.submission {
+		min-height: 370px;
+		background-color: $color-dark-orange;
+		.form-prompt {
+			color: white;
+			background-color: none;
+			font-size: x-large;
+			padding: 10px;
+			width: 80%;
+			margin: 0 auto;
+			
+			&.white {
+				color: black;
+				background-color: white;
+			
+			}
+		}
+		::-webkit-input-placeholder {
+		   color: darken(white,10%);
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		    color: darken(white, 10%);
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		    color: darken(white,10%);
+		}
+
+		:-ms-input-placeholder {  
+		    color: darken(white, 10%);
+		}
+
+		.form {
+			width: 80%;
+			margin: 20px auto;
+			color: lighten($color-light-orange, 30%);
+			&.moveUp {
+				@include translate(0px, -30px);
+			}
+			button#clear {
+				font-size: 1.6em;
+				display:inline-block;
+				height: 40px;
+				width: 40px;
+				padding: 0px;
+				margin-left: 10px;
+				float: right;
+				border-radius: 20px;
+				background-color: $color-peach;
+				@include translate(45px, 65px);
+				cursor: pointer;
+				-webkit-appearance: button;
+				color: lighten($color-peach, 20%);
+				border: 2px solid lighten($color-peach, 20%);
+
+				&:hover, &:focus {
+					outline: none;
+				}
+			}
+
+			button {
+		    padding: 20px;
+		    font-size: 2em;
+
+				background-color: $color-peach;
+				color: lighten($color-peach, 20%);
+				border: 4px solid lighten($color-peach, 20%);
+				
+			}
+
+			input {
+				&.prompt {
+					margin: 5px auto;
+					border: 2px solid $color-light-orange;
+					background-color: white;
+					color: $color-peach;
+				}
+			}
+		}
+	}
+
+	.submission {
+		@media(max-width: 425px) {
+
+			margin-top: 15%;
+		}
+		margin-top:0;
+	}
+
+	#article {
+
+		.article-name{
+			background-color: $color-bright-red;
+			color: $color-light-teal;
+			font-size: 3em;
+			padding: 20px;
+		}
+
+		color: $color-light-gray;
+    text-align: left;
+
+    a {
+    	color: #4394ff;
+    }
+	}
+
+	.game-message {
+		position: relative;
+		padding-top: 10%;
+		padding: 0;
+		margin-bottom: 10%;
+		font-size: medium;
+		color: white;
+		min-height: 265px;
+		min-width: 100%;
+		background-color: $color-red;
+		background-image: none;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&.wiki-modal {
+			// display:none;
+			width: 100%;
+			height:100%;
+			background-color:transparentize($color-light-orange, 0.5);
+			position: fixed;
+			top: 0;
+
+			span {
+				color: $color-bright-red;
+				font-size:2em;
+				font-weight: bold;
+			}
+		}
+
+		div {
+			padding-top: 3%;
+			width:80%;
+			margin:0 auto;
+
+		}
+		.article-name {
+			font-weight: bolder;
+			font-size: 1.8em;
+			color: $color-teal;
+			word-break: break-word;
+			width: 80%;
+			margin: 0 auto;
+			text-transform:capitalize;
+		}
+
+
+		span {
+			justify-content: center;
+			align-items: center;
+			display:flex;
+				font-size:2em;
+    	  left: 0;
+    	  width: 100%;
+	      position: absolute;
+	      height: 100%;
+	      text-align: center;
+	    }
+
+	}
+
+	#submitted {
+
+		margin-top: 5%;
+		padding:2%;
+		.game-message {
+			margin: 0;
+			margin-top:-2px;
+			min-height: 100px;
+		}
+	}
+
+	#wiki-content {
+		padding-top:5%;
+		padding-bottom:5%;
+		overflow-y:scroll;
+	}
+	#toc {
+		background-color: $color-gray;
+		border: 2px solid;
+	}
+	#wiki-article, #wiki-workspace {
+		
+		display: none;
+
+		ul {
+			padding: 2px;
+
+		    li {
+		    	padding: 2px;
+		    	text-align: left;
+		    }
+		}
+
+		table {
+			td, tr, th {
+				background-color:white;
+				color: $color-teal;
+			}
+		}
+	}
+
+	#results {
+
+		.row .content {
+			@include circle (100px, white);
+		    padding-top: 1%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    border: 5px solid darken($color-light-teal,20%);
+
+		    &#time {
+		    	h2 {
+		    		color: $color-orange;
+		    	}
+		    }
+		    &#clicks {
+		    	h2 {
+		    		color: $color-bright-red;
+		    	}
+		    }
+
+		    span {
+		    	color: black;
+		    }
+		  }
+
+	  #articles {
+	  	padding: 5%;
+	  	background-color: #fff;
+
+	  	.articleText {
+	  		width: 200px;
+	  		margin: 0 auto;
+	  		@include scale(0);
+		    @include transition(transform 0.5s);
+		  }
+	  }
+
+	}
+	
+}

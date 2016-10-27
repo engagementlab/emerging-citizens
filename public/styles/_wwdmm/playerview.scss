@@ -1,0 +1,216 @@
+/* 
+	WWDMM player view styling.
+*/
+.body.wwdmm.player {
+
+	.slider-size {
+		@media(max-width:375px) {
+			min-width: 320px;
+	  	max-width: 320px;
+
+  	}
+  	width: 400px;
+	}
+	
+	.container-fluid {
+		@media(max-width:425px){
+			margin: 0px;
+			padding: 0px;
+		}
+	}
+	.error-modal {
+		background-color: rgba(255, 91, 119, .9);
+		color: white;
+	}
+  
+  #loading-modal {
+    .indicator {
+      background: rgba(255, 91, 119, .7) url('https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg');
+    }
+  }
+
+   .game-message {
+
+    font-size: 3em;
+ 		border:  20px solid $color-mustard;
+
+   	margin: 40px auto;
+ 	  background: white;
+ 	  display: inline-block;
+
+ 	  @media (max-width: 426px) {
+ 	  	border-right: none;
+ 	  	border-left: none;
+ 	  	width: 100%;
+ 	  }
+
+	 	.text {
+	 		color: $color-bg-wwdmm;
+	 		// padding: 2%;
+	 	}
+
+	}
+
+	// Meme slider
+	.glide__wrapper {
+
+  	@media(max-width:375px) {
+			min-height: 320px;
+	  	max-height: 320px;
+  	}
+  	
+		min-height: 400px;
+	}
+	.glide__bullets {
+		position: static;
+    bottom: -5%;
+  
+    .glide__bullet {
+    	margin-left: 3%;
+	    margin-right: 3%;
+    }
+  }
+  .glide__track {
+  	padding-left: 0;
+  }
+	.glide__arrow {
+		font-size: 1em;
+		color: black;
+		border: 2px solid black;
+	}
+
+	// Meme submission/go back
+  .post-button {
+  	margin-top: 40px;
+  	width: 100%;
+  	background-color: $color-bright-sea-green;
+
+  	&.back {
+  		background-color: $color-pastel-orange;
+  	}
+  	&.small {
+  		width: 35%;
+  	}
+  }
+
+  #meme-slider {
+
+  	@media(max-width:375px) {
+	  	min-width: 100%;
+	  	max-width: 100%;
+  	}
+
+  	min-width: 400px;
+  	max-width: 400px;
+
+  }
+
+  #btns-submit {
+  	input {
+  		margin: 0 auto;
+  	}
+  }
+
+  #meme-create {
+  	float: none;
+  	padding-top: 3%;
+  	@media(max-width:425px) {
+			padding: none;
+	  	
+  	}
+
+  	#meme-canvas {
+  		canvas {
+  			user-select: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				pointer-events: none;
+  		}
+  	}
+  	.kineticjs-content {
+			pointer-events: none;		
+  	}
+
+  	#meme-text {
+  		padding-top: 15px;
+  		input {
+  			padding:5px;
+  			margin-bottom: 5px;
+  		}
+  	}
+
+  
+  }
+
+  #meme-created {
+  	 min-height: 200px;
+   		border:  10px solid $color-mustard;
+	   	width: 30%;
+	   	margin: 40px auto;
+   	  background: white;
+   	  color: $color-bg-wwdmm;
+
+   	  @media (max-width: 426px) {
+   	  	border-right: none;
+   	  	border-left: none;
+   	  	width: 100%;
+   	  }
+  }
+
+	#meme-voting {
+		
+		.glide__arrows {
+	    top: 35%;
+	  }
+		.glide__bullets {
+			position: static;
+	  }
+
+		.meme {
+			position: relative;
+			width: 100%;
+			min-height: 400px;
+
+		}
+		
+		.meme-text {
+
+			display: inline-block;
+
+	    color: white;
+	    
+	    font-family: Impact, 'Impact-External';
+	    font-size: 16pt;
+	    font-weight: bold;
+	    
+	    text-transform: uppercase;
+	    text-align: center;
+
+		}
+
+		.meme-canvas {
+			pointer-events: none;
+		}	
+  	.kineticjs-content {
+			pointer-events: none;		
+  	}
+
+		.text-upper {
+			top: 4%;
+		}
+
+		.text-lower {
+	    position: relative;
+	    left: -50%;
+		}
+
+		#text-lower-wrapper {
+			position: absolute;
+			left: 50%;
+			bottom: 4%;
+			width: 100%;
+		}
+		
+	}
+
+}

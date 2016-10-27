@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Wait, Wait, Don't Meme Me! Lobby - Emerging Citizens</title>
+
+     <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+<!-- Styling for this page that varies from bootstrap.min.css -->
+<style>
+@font-face{
+	font-family:HalisGR;
+	src: url("css/Ahmet Altun - HalisGR-Regular.otf");
+}
+@font-face{
+	font-family:HalisGRBook;
+	src: url("css/Ahmet Altun - HalisGR-Book.otf");
+}
+@font-face{
+	font-family:OdinRoundedRegular;
+	src: url("css/OdinRoundedRegular.otf");
+}
+@font-face{
+	font-family:PatrickHand;
+	src: url("css/PatrickHandSC-Regular.ttf");
+}
+body{
+	background-image: url("css/wwdmmBackground.png");
+	background-size: cover;
+	overflow:hidden;
+	padding:0;
+}
+.lobby{
+	position: relative;
+}
+.topBar{
+	width: 100%;
+	height: 225px;
+	background-color: #ff5b77;
+}
+.waitingPlayers{
+font-family: PatrickHand;
+  font-size: 100px;
+  line-height: 0.49;
+  text-align: center;
+  position: relative;
+  top: 100px;
+  color: #ffffff;
+}
+.buttons{
+	position: relative;
+	top: 100px;
+}
+.playersA{
+	height: 615px;
+	margin: 0 80px;
+	position: absolute;
+	width: 471px;
+	z-index: 1;
+}
+.playersB{
+	height: 615px;
+	margin: 0 80px;
+	position: absolute;
+	right: 5px;
+	top: 1px;
+	width: 471px;
+	z-index: 0;
+}
+.player{
+	background-color: white;
+	height: 291px;
+	position: absolute;
+	width: 223px;
+}
+.playerImg{
+	background-size: cover;
+	height: 200px;
+	margin: 0 auto;
+	position: relative;
+	top: 25px;
+	width: 100px;
+	opacity: .4;
+}
+.playerName{
+	font-family: HalisGR;
+	font-size: 31.3px;
+	text-align: center;
+	margin-top: 35px;
+	opacity: .4;
+}
+.player1Img{
+	background-image: url("css/player1.png");
+}
+.player1Name{
+	color:#93b700;
+}
+.player2{
+	right: 0;
+}
+.player2Img{
+	background-image: url("css/player2.png");
+}
+.player2Name{
+	color: #ffa800;
+}
+.player3{
+	bottom: 0;
+}
+.player3Img{
+	background-image: url("css/player3.png");
+}
+.player3Name{
+	color:#ea4200;
+}
+.player4{
+	bottom: 0;
+	right: 0;
+}
+.player4Img{
+	background-image: url("css/player4.png");
+}
+.player4Name{
+	color:#f56800;
+}
+.player5Img{
+	background-image: url("css/player5.png");
+}
+.player5Name{
+	color:#14b1e5;
+}
+.player6{
+	right: 0;
+}
+.player6Img{
+	background-image: url("css/player6.png");
+}
+.player6Name{
+	color:#006cb8;
+}
+.player7{
+	bottom: 0;
+}
+.player7Img{
+	background-image: url("css/player7.png");
+}
+.player7Name{
+	color:#8851cd;
+}
+.player8{
+	bottom: 0;
+	right: 0;
+}
+.player8Img{
+	background-image: url("css/player8.png");
+}
+.player8Name{
+	color:#ff421c;
+}
+.centerBlock{
+	background-color: white;
+	border: 17.4px solid #b7d63a;
+	border-radius: 10px;
+	height: 615px;
+	margin: 0 auto;
+	position: relative;
+	width: 358px;
+	z-index: 3;
+}
+.waitingFor{
+	color: #ff8d5b;
+	font-family: HalisGRBook;
+	font-size: 50px;
+	font-weight: 400;
+	line-height: 0.99;
+	text-align: center;
+	position: relative;
+	top: 50px;
+}
+.lineGraphic{
+	background-image: url("css/center-sectioner.png");
+	background-size: contain;
+	height: 37px;
+	margin: 0 auto;
+	position: relative;
+	top: 80px;
+	width: 275.5px;
+}
+.codeHeader{
+	color:#19f7ad;
+	font-family: OdinRoundedRegular;
+	font-size: 60px;
+	letter-spacing: -1.6px;
+	position: relative;
+	text-align: center;
+	top: 90px;
+}
+.roomCode{
+	font-family: OdinRoundedRegular;
+	font-size: 60px;
+	position: relative;
+	text-align: center;
+	top: 75px;
+}
+.codeA{
+	color: #8851cd;
+}
+.codeB{
+	color: #ff421c;
+}
+.codeC{
+	color: #006cb8;
+}
+.codeD{
+	color: #93b700;
+}
+.instructions{
+	color: #19f7ad;
+	font-family: HalisGRBook;
+	font-size: 33.5px;
+  	font-weight: 400;
+  	letter-spacing: -0.8px;
+  	line-height: 0.95;
+  	position: relative;
+  	text-align: center;
+  	top: 75px;
+}
+</style>
+</head>
+<body>
+<header>
+	<div class="topBar">
+	<div class="buttons">
+	<button class="addPlayer">Add a Player</button>
+<button class="losePlayer">Lose a Player</button>
+<a id="lobbyLink" href="WWDMMMakeAMeme.html"><button type="button" class="startGame">Start Game</button></a>
+</div>
+	<div class="waitingPlayers">Waiting for players to join...</div>
+	</div>
+</header>
+<div class="lobby">
+	<div class="playersA">
+		<div class="player player1">
+		<div class= "playerImg player1Img"></div>
+		<div class="playerName player1Name">player 1</div>
+		</div>
+		<div class="player player2">
+		<div class= "playerImg player2Img"></div>
+		<div class="playerName player2Name">player 2</div>
+		</div>
+		<div class="player player3">
+		<div class= "playerImg player3Img"></div>
+		<div class="playerName player3Name">player 3</div>
+		</div>
+		<div class="player player4">
+		<div class= "playerImg player4Img"></div>
+		<div class="playerName player4Name">player 4</div>
+		</div>
+	</div>
+	<div class="centerBlock">
+		<div class="waitingFor">Waiting for players to join...</div>
+		<div class="lineGraphic"></div>
+		<div class="codeHeader">Room Code</div>
+		<div class="roomCode"><span class="codeA">A</span><span class="codeB">B</span><span class="codeC">C</span><span class="codeD">D</span></div>
+		<div class="instructions">visit <b>ecplay.org</b> on your smartphone or tablet to join the game.</div>
+	</div>
+	<div class= "playersB">
+		<div class="player player5">
+		<div class= "playerImg player5Img"></div>
+		<div class="playerName player5Name">player 5</div>
+			</div>
+		<div class="player player6">
+		<div class= "playerImg player6Img"></div>
+		<div class="playerName player6Name">player 6</div>
+			</div>
+		<div class="player player7">
+		<div class= "playerImg player7Img"></div>
+		<div class="playerName player7Name">player 7</div>
+			</div>
+		<div class="player player8">
+		<div class= "playerImg player8Img"></div>
+		<div class="playerName player8Name">player 8</div>
+			</div>
+	</div>
+</div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- GreenSock library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+<!-- Animation JS File -->
+	<script src="WWDMMLobbyAnim.js"></script>
+  </body>
+</html>

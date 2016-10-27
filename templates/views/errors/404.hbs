@@ -1,7 +1,7 @@
 {{!< default}}
 {{!--
 /**
-* Engagement Lab Website
+* Emerging Citizens
 * Developed by Engagement Lab, 2016
 * ==============
 *
@@ -11,13 +11,14 @@
 --}}
 
 <!-- 404 START -->
-<div class="banner border-clear light-translucent-bg" style="background-image:url('http://res.cloudinary.com/engagement-lab-home/image/upload/v1453821943/site/404_bg.jpg');">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 pv-20">
-				<h2 class="title">Uh oh! {{errorTitle}}</h2>
+<div class="col-lg-12">
+	<div id="404" class="row">
+			{{{cloudinaryImg "emerging-citizens/images/404.jpg"}}}
+			<h2 class="title">Uh oh! {{errorTitle}}</h2>
+			{{#if errorMsg}}
 				<p>{{{errorMsg}}}</p>
-			</div>
-		</div>
+			{{else}}
+				<p>You've taken a wrong turn! We can't find anything here. Try going <a href="/">home</a>?</p>
+			{{/if}}
 	</div>
 </div>

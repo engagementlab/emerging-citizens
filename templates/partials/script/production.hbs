@@ -2,7 +2,7 @@
 {{!-- 
 /**
  * Emerging Citizens
- * Developed by Engagement Lab, 2015
+ * Developed by Engagement Lab, 2016
  * ==============
  * 
  * Script includes partial for PRODUCTION/STAGING
@@ -15,15 +15,23 @@
 <script type="text/javascript" src="https://res.cloudinary.com/engagement-lab-home/raw/upload/site/js/core.js"></script>
 
 {{!-- Site JS --}}
-<script type="text/javascript" src="{{cdnAsset site='emerging-citizens' env=environment type='js' }}"></script>
-
-{{!-- TEMP --}}
-<script type="text/javascript" src="/bower_components/nosleep/NoSleep.min.js"></script>
+<script type="text/javascript" src="{{cdnAsset product='emerging-citizens' env=environment type='js' }}"></script>
+<script type="text/javascript" src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1476827118/emerging-citizens/NoSleep.min.js"></script>
 
 {{!-- Socket.io --}}
 <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
+{{!-- Velocity --}}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
 {{!-- GSAP --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+
+{{!-- Cycle2 and Cycle2 Flip --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.flip.min.js"></script>
+
+{{!-- Kinetic --}}
+{{!-- <script type="text/javascript" src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1474490770/emerging-citizens/kinetic-v5.1.0.min.js"></script> --}}
 
 {{> script/global host=host environment=environment section=section }}

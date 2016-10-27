@@ -11,7 +11,6 @@
  **/
 
 var keystone = require('keystone');
-var _ = require('underscore');
 
 /**
 	Initialises the standard view locals
@@ -59,6 +58,7 @@ exports.initErrorHandlers = function(req, res, next) {
     
     res.notfound = function(title, message) {
         res.status(404).render('errors/404', {
+            viewType: 'landing',
             errorTitle: title,
             errorMsg: message
         });
@@ -67,11 +67,3 @@ exports.initErrorHandlers = function(req, res, next) {
     next();
     
 };
-
-/*exports.socketHost = function(req, res, next) {
-
-    // Save host to allow path specification for socket.io
-    keystone.get('app').locals.socketHost = req.headers.host;
-
-    next();
-}*/

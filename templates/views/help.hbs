@@ -1,0 +1,49 @@
+<div class="row helpPage" id="help">
+
+  <div class="q-links row">
+    <ul>
+      {{#each faq}}
+          <li><a href="#{{this.name}}">
+          {{this.question.md}}
+        </a></li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+  <div class="faq">
+  {{#each faq}}
+      <div class="qa row" id="{{this.name}}">
+        <h3>{{this.question.md}}</h3>
+        <p>{{this.answer.md}}</p>
+      </div>
+  {{/each}}
+  </div>
+
+</div>
+
+
+
+<footer id="footer">
+
+  <!-- .footer start -->
+  <div class="footer col-md-12">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="footer-content text-center padding-ver-clear">
+
+            <div class="logos-footer center-block">
+              <a href="http://elab.emerson.edu/"><img id="logo" src="/images/layout/logo_el.png" alt="Engagement Lab" width="60" height="60"></a>
+            </div>
+
+            <p class="text-center">An applied research lab at Emerson College for reimagining civic engagement in a digital culture<br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .footer end -->
+
+</footer>

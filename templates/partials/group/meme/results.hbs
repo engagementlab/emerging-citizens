@@ -1,0 +1,194 @@
+<div class="page-container" id="results-container">
+    <div class="row">
+
+        <div id="top-header" class="top-bar">
+            <h1>
+                <span id="round-header">round results</span>
+                <span id="leaderboard-header" style="display:none" class="hidden-el">leaderboard</span>
+                <span id="next-round-header" style="display:none" class="hidden-el">get ready for the next round</span>
+                <span id="winners-header" style="display:none" class="hidden-el">winners</span>
+                <span id="ended-header" style="display:none" class="hidden-el">game ended</span>
+            </h1>
+        </div>
+
+        <section class="col-sm-12 room-container results-room">
+            
+            <div class="row" style="min-height: 200px">
+
+                <section class="row" id="submissions">
+               
+                    {{#each submissions}}
+        
+                        <div class="submission row hidden-el">
+
+                            <div class="col-sm-6">
+
+                                {{!-- Meme image and text --}}
+                                <div class="meme-canvas" data-dimension="450"{{#if upper}} data-upper="{{upper}}"{{/if}} {{#if lower}} data-lower="{{lower}}"{{/if}} data-img="{{cloudinaryUrl image width=450 quality=80}}">
+                                </div>
+                                <div class="name submitter player-{{player.index}} hidden-el">
+                                {{player.username}} 
+
+                                {{!-- Player score for this meme --}}
+                                {{#if score}}
+                                    <span class="score">+{{score}}</span>
+                                {{else}}
+                                    <span class="score">+0</span>
+                                {{/if}}
+                            </div>
+
+                            </div>
+                            
+                            <div class="col-sm-6">
+
+                                {{!-- VOTES --}}
+                                <div class="votes-box row hidden-el">
+
+                                    <h1>Votes</h1>
+                               
+
+                                    <div class="votes col-sm-12">
+                                        <div class="row">
+
+                                            {{#if votes}}
+                                                {{#each votes}}
+
+                                                    <div class="col-sm-6 vote hidden-el" style="float:left">
+                                                        <div class="name player-{{@index}}">
+                                                            {{username}}
+                                                        </div>
+                                                        <div class="score hidden-el">+{{score}}</div>
+                                                    </div>
+
+                                                {{/each}}
+
+                                            {{else}}
+                                                <div class="vote hidden-el">None!</div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                             
+                                </div>
+ 
+                            </div>
+                        
+                        </div>
+                    
+                    {{/each}}
+
+                </section>
+
+                {{!-- ROUND SCORES --}}
+                <section id="scores" class="row hidden-el">
+
+                    {{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png"> --}}
+
+                    {{#each players}}
+
+                        <div class="col-sm-12 name player-{{index}}">
+                            <div class="col-sm-2">
+                                {{username}}
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <hr class="player-rule" />
+                            </div>
+                            
+                            <div class="col-sm-3 points">
+                                <span class="large bold">{{#if score}} {{score}} {{else}} 0 {{/if}}</span> 
+                                points
+                            </div>
+                        </div>
+                    
+                    {{/each}}
+                    
+                </section>
+
+                {{!-- LEADERBOARD --}}
+                <section id="leaderboard" class="row hidden-el"> 
+
+                    {{!-- <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,co_rgb:ff9283,e_colorize:100,w_500/v1471383385/emerging-citizens/images/layout/wwdmm/squiggle-turquoise.png"> --}}
+
+                    {{#each players}}
+
+                        <div class="col-sm-12 name player-{{index}}">
+                            <div class="col-sm-2">
+                                {{username}}
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <hr class="player-rule" />
+                            </div>
+                            
+                            <div class="col-sm-3 points">
+                                <span class="large bold">{{#if score_total}} {{score_total}} {{else}} 0 {{/if}}</span> 
+                                points
+                            </div>
+                        </div>
+                    
+                    {{/each}}         
+                    
+                </section>
+
+                {{!-- Show FINAL scores only at last round --}}
+                {{#if last_round}}
+
+                    <div id="winners-circle" class="results hidden-el">
+
+                        {{#each players}}
+                    
+                            {{#iflt @index 3}}
+                                <div class="row">
+                                
+                                    <div class="winner winner-{{@index}}">
+                                        
+                                        <div class="ranking"></div>
+                                        <div class="name">
+                                            {{username}}
+                                        </div>                                        
+                                    
+                                    </div>
+                                
+                                </div>
+                            {{/iflt}}
+                    
+                        {{/each}}
+
+                    </div>
+
+                {{/if}}
+
+                {{!-- Show FINAL game screen at last round after showing scores/leaderboard --}}
+                {{#if last_round}}
+                    <div id="game-ended" class="row hidden-el results last">
+                        
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            
+                            <h1 style="font-size: 3em;color: #FF421C" class="game-header">Game Ended<br>Thank you for playing Wait Wait Don't Meme Me!
+                                </h1>
+
+                            {{#if survey}}
+                                <h1 style="font-size: 2.4em;color: #93B700" class="game-header">Please fill out the survey on your device.
+                                </h1>
+                            {{/if}}
+                        </div>
+                        <div class="col-sm-4"></div>
+
+                    </div>
+                {{else}}
+                    <div id="next-round" class="col-sm-12 hidden-el results form">
+                        
+                        <div class="col-sm-7 col-centered">
+                            <input style="font-size:4em !important;" id="btn-start-game" data-event="game:next_round" class="post-button submit" type="submit" name="submit" value="go to next round">
+                        </div>
+                        
+                    </div>
+                {{/if}}
+
+            </div>
+
+        </section>
+
+    </div>
+</div>

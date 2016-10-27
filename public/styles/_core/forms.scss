@@ -1,0 +1,126 @@
+.form { 
+	min-height:100%;
+	// padding: 10%;
+	// Animation keyframes
+	@include keyframes(invalid-field) {
+	
+	  0%   {left:8px;}
+		10%  {left:-8px;}
+		30%  {left:8px;}
+		60%  {left:-8px;}
+		100% {left:0px;}
+	
+	}
+	.button_text {
+		min-width: 100px;
+		min-height: 60px;
+		font-size: 3em;
+		background-color: $color-peach;
+	}
+	.invalid
+	{
+		@include animation('invalid-field .5s 1');
+		@include box-shadow(0, 0, 15px 10px, $color-light-red);
+
+		// iOS fix
+		-webkit-appearance: none;
+	}
+
+	// Center all divs
+	div {
+
+    margin-left: auto;
+    margin-right: auto;
+	}
+
+	input {
+
+		padding: 20px;
+	    font-size: x-large;
+	    margin-bottom: 20px;
+	    position: relative;
+
+	  &:focus {
+	    outline: none !important;
+	    border:6px solid #00c5c2;
+	    box-shadow: 0 0 10px #719ECE;
+		}
+	}
+
+	input[type=submit].default, button.default {
+
+		color: #00c5c2;
+	  font-size: x-large;
+		font-weight: bold;
+		border: 0;
+
+	}
+
+	input.prompt {
+		width: 100%;
+		display: inline;
+	}
+
+	.input-container {
+	
+	  position: relative;
+	
+	}
+	.input-container input {
+	
+	  width: 100%;
+	  padding-left: 30px;
+	  margin-bottom: -20px;
+	
+	}
+	.input-container .octothorp {
+
+	    position: absolute;
+	    display: block;
+	    top: 24px;
+	    color: gray;
+	    padding-left: 5px;
+	    width: 45px;
+	    font-size: x-large;
+	    vertical-align: middle;
+	
+	}
+
+	button.mobile-login {
+		background: white;
+		// margin-top: 10%;
+		cursor: pointer;
+	}
+
+	// Form error box
+	.error {
+		display: none;
+		color: white;
+		background-color: $color-light-red;
+		font-size: medium;
+		// width: 40%;
+		min-height: 50px;
+		padding: 10px;
+		border: 0;
+	}
+
+}
+
+.input [type=checkbox] {
+		margin: 1px;
+		
+	}
+
+.input-box {
+	min-height: 400px;
+	background-color: white;
+	border: solid black 1px;	
+}
+
+.moderatorInput {
+	margin: 10px auto;
+	display: block; 
+	border: 1px solid #d7d6d6; 
+	background: #fff; 
+	padding: 10px 10px 10px 20px; 
+}

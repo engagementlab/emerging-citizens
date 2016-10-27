@@ -11,7 +11,10 @@ var importRoutes = keystone.importer(__dirname);
 // Common Middleware
 keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
-// keystone.pre('routes', middleware.socketHost);
+// Handle 404 errors
+keystone.set('404', function(req, res, next) {
+    res.notfound();
+});
 
 // Import Route Controllers
 var routes = {
@@ -27,19 +30,20 @@ exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
     app.get('/play/:debug?', routes.views.game.play);
-    app.post('/game', routes.views.game.player);
-    app.post('/game/load', routes.views.game.template_load);
+    app.post('/login', routes.views.game.login);
 
     // Group screen
-    app.get('/game/:accesscode/:debug?', routes.views.group.monitor);
+    app.get('/game/:accesscode/:debug?', routes.views.group.lobby);    
     
-    // Deprecated
-    app.get('/group/monitor/:accesscode/:debug?', routes.views.group.monitor);
+    // app.get('/about', routes.views.group.about);
+    app.get('/about/:game_type?', routes.views.about);
+    app.get('/help', routes.views.group.help);
+    app.get('/lessonPlans', routes.views.group.lessonPlans);
+    app.get('/new/:game_type', routes.views.group.index);
     
-    app.get('/group', routes.views.group.index);
-    app.get('/new', routes.views.group.index);
+    app.post('/api/create/:game_type', keystone.middleware.api, routes.api.gamesession.create);
+    app.post('/api/load/', keystone.middleware.api, routes.api.templates.load);
     
-    app.post('/api/create', keystone.middleware.api, routes.api.gamesession.create);
     // app.post('/login', routes.views.user.login);
 
   	// app.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);

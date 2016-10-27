@@ -1,0 +1,277 @@
+// EC Website Other Than Homepage
+@media (min-width: 2000px) {
+    body.newgame {
+        .page-container {
+            margin-top: 3%;
+        }
+    }
+}
+//ABOUT PAGE
+.aboutPage {
+    background: $homepage-color;
+    /* For browsers that do not support gradients */
+    
+    background: -webkit-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Safari 5.1 to 6.0 */
+    
+    background: -o-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Opera 11.1 to 12.0 */
+    
+    background: -moz-linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    /* For Firefox 3.6 to 15 */
+    
+    background: linear-gradient(to bottom, white 0%, $homepage-color 70%, $homepage-color 100%);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: darken($color-gray, 40%);
+    .aboutResearch {
+        .research {
+            padding: 0px 10%;
+            .about-title {
+                font-size: 2em;
+                text-align: left;
+            }
+            .research-text {
+                font-size: 1.2em;
+                text-align: justify;
+            }
+        }
+        img {
+            padding-right: 5%;
+        }
+    }
+    .feat-title,
+    .bottom-title {
+        text-align: left;
+        width: 80%;
+        font-size: 2em;
+        margin: 40px auto;
+    }
+    .bottom-title {
+        margin-bottom: 10%;
+    }
+    .aboutFeatures {
+        width: 90%;
+        margin: 0 auto;
+        .feature {
+            .markdown-content {
+                text-align: justify;
+                h2 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+// GAME PAGES 
+.coming-soon-plans {
+    font-size: 5em;
+    color: darken($color-gray, 30%);
+}
+// CATEGORIES 
+body.newgame {
+    #gameContent {
+        padding: 0 !important;
+    }
+    input[type=submit] {
+        min-width: 100px;
+        min-height: 60px;
+        font-size: 3em;
+    }
+     .error {
+        display: none;
+        color: white;
+        background-color: #ab3724;
+        font-size: 2em;
+        min-height: 50px;
+        padding: 10px;
+        border: 0;
+    }
+    .category-instructions {
+        text-align: center;
+        color: #595959;
+        font-size: 1.6em;
+    }
+    #categories {
+        display: inline-block;
+    }
+    #btn_submit {
+        color: white;
+        border: none;
+        outline: 0;
+        margin: 40px; 
+        margin-top: -5%;
+    }
+    #session-create {
+        width: 80%;
+        margin: 0 auto;
+        left: 10%;
+
+        .select-buttons {
+            color: white;
+            border: none;
+            outline: 0;
+            font-size: 0.5em;
+            display: inline-block;
+            .button_text {
+                line-height: 35px;
+                width: 200px;
+                margin: 0px 20px;
+                text-align: center;
+                
+            }
+        }
+    }
+    #logo_ec {
+        background-color: white;
+        margin-bottom: 5%;
+    }
+    .category-box {
+        min-height: 225px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 2%;
+        cursor: pointer;
+
+        .checkbox {
+            visibility: hidden;
+            position: absolute;
+            right: 5%;
+            top: -13%;
+        }
+        h2 {
+            font-size: 1.3em;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            margin-top: 16%;
+            bottom: 10%;
+            width: 100%;
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+    #session-create {
+        background: none;
+        border: none;
+
+        .form {
+            height: 980px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+    }
+    &.htyi {
+        #title {
+            color: $color-peach;
+        }
+        #categories {
+            .category-box {
+                @include box-shadow(3px, 0px, 12px, #964b2d);
+                border: 5px solid $color-peach;
+                background-color: white;
+                color: $color-orange;
+                margin: 2% auto;
+                &.selected {
+                    border: 5px solid lighten($color-peach, 20%);
+                }
+                .markdown-content {
+                    color: darken($color-gray, 30%);
+                }
+                button {
+                    color: $color-peach;
+                }
+            }
+        }
+        .button_text {
+            border: 0px;
+            background-color: darken($color-peach, 5%);
+            &:hover, &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-peach, 10%);
+            }
+        }
+    }
+    &.wikigeeks {
+        #title {
+            color: $color-bg;
+        }
+        #categories {
+            .category-box {
+                border: 5px solid $color-bg;
+                background-color: white;
+                color: $color-bg;
+                margin: 2% auto;
+                &.selected {
+                    border: 5px solid lighten($color-bg, 20%);
+                }
+                .markdown-content {
+                    color: darken($color-gray, 30%);
+                }
+                button {
+                    color: $color-bg;
+                }
+            }
+        }
+        .button_text  {
+            border: 0px;
+            background-color: $color-bg;
+            &:hover, &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-bg, 10%);
+            }
+        }
+    }
+    &.wwdmm {
+        #title {
+            color: $color-dodger-blue;
+        }
+        #categories {
+            .category-box {
+                border: 5px solid $color-dodger-blue;
+                background-color: white;
+                color: $color-dodger-blue;
+                margin: 2% auto;
+                &.selected {
+                    border: 5px solid lighten($color-dodger-blue, 20%);
+                }
+                .markdown-content {
+                    color: darken($color-gray, 30%);
+                }
+                button {
+                    color: $color-dodger-blue;
+                }
+            }
+        }
+        .button_text {
+            background-color: $color-dodger-blue;
+            border: 0px;
+            &:hover , &:focus, &:visited {
+                outline: 0;
+                box-shadow: none;
+                background-color: darken($color-dodger-blue, 10%);
+            }
+        }
+    }
+}
+#session-create {
+    .form {
+        padding: 2%;
+    }
+}
+#htyi-page {
+    background: $background-groupview, $color-peach !important;
+}
+#wikigeeks-page {
+  background-image: $background-wiki !important;
+}
+#wwdmm-page {
+    background-image: $background-wwdmm !important;
+}

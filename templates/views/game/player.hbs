@@ -1,10 +1,27 @@
-<div class="form">
-  <input type="text" id="access_code" placeholder="room code"> <br />
-  <input type="text" id="player_name" placeholder="name"> <br />
-  <div class="error">Error!</div>
-  <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default desktop-only game_login hidden-sm hidden-xs" type="submit" name="submit" value="play">
+<div class="col-sm-4 col-centered login-screen hidden-el" id="logo_ec">
+
+  <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,f_auto,w_470/v1476469709/emerging-citizens/images/layout/logo_ec.png">
+
 </div>
 
+<div id="login" class="col-sm-4 col-centered">
+
+  <div class="form" style="display:none">
+    <input class="hidden-el" type="text" id="access_code" placeholder="room code" maxlength="4" tabindex="1"> <br />
+    <input class="hidden-el" type="text" id="player_name" placeholder="name" tabindex="2"> <br />
+    <div class="error">Error!</div>
+    <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="play">
+    <input id="btn_help" data-event="" data-package='' onclick="window.location.href='/help'" class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="help">
+
+  </div>
+
+</div>
+
+<section id="resuming" class="col-sm-4 col-centered generic-game-message" style="display:none">
+  <div>
+    resuming your session...
+  </div>
+</section>
 
 <footer id="footer">
 
@@ -15,13 +32,10 @@
         <div class="row">
           <div class="footer-content text-center padding-ver-clear">
 
-			      <div class="player-form form col-xl-2 col-xs-12">
-			        <div class="col-xs-6">
-								<button id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn default mobile-login game_login">play</button>
-							</div>
-			        {{!-- <div class="col-xs-6">
-								<button id="btn_submit_code" data-event="game:help" class="btn default mobile-login">help</button>
-							</div> --}}
+			      <div class="player-form form col-xl-2 col-xs-12 col-centered" style="display:none">
+							<button id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn default mobile-login game_login">play</button>
+              <button id="btn_help" onclick="window.location.href='/help'" class="btn default mobile-login game_login">help</button>
+
 			      </div>
 
           </div>

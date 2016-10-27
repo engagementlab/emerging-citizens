@@ -1,0 +1,224 @@
+{
+   "config":{
+      "target":"https://qa.emergingcitizens.org",
+      "variables":{
+         "voteIndex":[
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+         ]
+      },
+      "phases":[
+         {
+            "duration":30,
+            "arrivalRate":1
+         }
+      ]
+   },
+   "scenarios":[
+      {
+         "engine":"socketio",
+         "flow":[
+            {
+               "get":{
+                  "url":"/new/htyi",
+                  "capture":{
+                     "header":"game-code",
+                     "as":"game-code"
+                  }
+               }
+            },
+            {
+               "post":{
+                  "url":"/api/create/htyi",
+                  "json":{
+                     "accessCode":"{{ game-code }}"
+                  }
+               }
+            },
+            {
+               "emit":{
+                  "channel":"room",
+                  "data":{
+                     "gameId":"{{ game-code }}-group",
+                     "msgData":"moderator"
+                  }
+               }
+            },
+            {
+               "loop":[
+                  {
+                     "post":{
+                        "url":"/game",
+                        "json":{
+                           "code":"{{ game-code }}",
+                           "name":"player-{{ $loopCount }}"
+                        }
+                     }
+                  },
+                  {
+                     "emit":{
+                        "channel":"login:submit",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":{
+                              "username":"player-{{ $loopCount }}"
+                           }
+                        },
+                       "response":{
+                          "channel":"player:loggedin"
+                       }
+                     }
+                  },
+                 { 
+                 	"emit":{
+                    "channel":"room",
+                    "data":{
+                       "gameId":"{{ game-code }}",
+                       "msgData":"player"
+                    }
+	                 }
+	               }
+               ],
+               "count":8
+            },
+            {
+               "emit":{
+                  "channel":"game:start",
+                  "data":{
+                     "gameId":"{{ game-code }}"
+                  }
+               }
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtags:submit",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag-{{ $loopCount }}"
+                        },
+                       "response":{
+                          "channel":"hashtag:success",
+                          "data":"hashtag-{{ $loopCount }}"
+                       }
+                     }
+                  }
+               ],
+               "count":8
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtag:vote",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag-{{ voteIndex }}"
+                        }
+                     }
+                  }
+               ],
+               "count":8
+            },
+            {
+               "emit":{
+                  "channel":"game:next_round",
+                  "data":{
+                     "gameId":"{{ game-code }}"
+                  }
+               }
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtags:submit",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag2-{{ $loopCount }}"
+                        },
+												"response":{
+												  "channel":"hashtag:success",
+												  "data":"hashtag2-{{ $loopCount }}"
+												}
+                     }
+                  }
+               ],
+               "count":8
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtag:vote",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag2-{{ voteIndex }}"
+                        }
+                     }
+                  }
+               ],
+               "count":8
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"disconnect"
+                     }
+                  }
+               ],
+               "count":4
+            },
+            { "think": 5 },
+            {
+               "emit":{
+                  "channel":"game:next_round",
+                  "data":{
+                     "gameId":"{{ game-code }}"
+                  }
+               }
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtags:submit",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag3-{{ $loopCount }}",
+                           "response":{
+                              "channel":"hashtag:success",
+                              "data":"hashtag3-{{ $loopCount }}"
+                           }
+                        }
+                     }
+                  }
+               ],
+               "count":8
+            },
+            {
+               "loop":[
+                  {
+                     "emit":{
+                        "channel":"hashtag:vote",
+                        "data":{
+                           "gameId":"{{ game-code }}",
+                           "msgData":"hashtag3-{{ voteIndex }}"
+                        }
+                     }
+                  }
+               ],
+               "count":8
+            }
+         ]
+      }
+   ]
+}

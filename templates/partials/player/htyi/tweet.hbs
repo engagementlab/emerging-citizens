@@ -1,0 +1,24 @@
+<div id="tweet-submission" class="submission col-sm-12">
+  <div class="form-prompt">create the #hashtag that could go with the tweet onscreen!</div>
+  <div class="form">
+
+			<div class="input-container">
+				<input id="tweet_input" name="element_1" class="prompt" type="text" maxlength="25" value="" autofocus="autofocus">
+				<span class="octothorp">#</span>
+			</div>
+			<br />
+			{{!-- Game error --}}
+      <div class="error">Error!</div>
+			<input id="btn_submit" data-event="hashtags:submit" data-package='#tweet_input' data-autohide="false" class="post-button submit" type="submit" name="submit" value="post">
+	
+	</div>
+	<div id="countdownTimer"></div>
+</div>
+
+<section id="submitted" class="col-sm-3 col-centered hidden-el">
+    
+  <div class="game-message row">
+        <span class="text col-md-12">submission received,<br />please wait!</span>
+  </div>
+
+</section>
