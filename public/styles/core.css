@@ -154,6 +154,9 @@
 body.player #gameContent {
   padding-top: 3%; }
 
+body.player .game-message {
+  padding: 40px; }
+
 body.player #login {
   margin-top: 5%; }
   body.player #login input[type=text] {
@@ -299,6 +302,7 @@ body.player .entry-footer {
     border: 2px solid #36d5d9; }
 
 #wrapper.group {
+  height: 100%;
   width: 1680px !important;
   max-width: none !important;
   margin-right: auto;
@@ -440,9 +444,9 @@ body.landing #nav-close-wrapper {
   margin: 0 auto; }
 
 .room-container {
-  bottom: 10%;
   padding-left: 10%;
   padding-right: 10%;
+  height: 75%;
   position: relative;
   margin: 10px auto;
   background-color: white; }
@@ -1103,6 +1107,7 @@ body.newgame #session-create {
   border: none; }
   body.newgame #session-create .form {
     padding: 2%;
+    margin-bottom: 10%;
     font-size: 1.3em;
     height: auto;
     overflow-x: hidden;
@@ -1290,6 +1295,17 @@ body.newgame.wwdmm .button_text {
       color: #fbd738; }
     .body.htyi #game_code #fourth {
       color: #00CB86; }
+  .body.htyi #startGameForm input {
+    border-radius: 20px;
+    outline: 0;
+    border: 0px;
+    background-color: #ff9971; }
+    .body.htyi #startGameForm input:hover, .body.htyi #startGameForm input:active, .body.htyi #startGameForm input:focus {
+      box-shadow: none;
+      outline: 0;
+      border: 0px;
+      border-radius: 20px;
+      background-color: #ff743e; }
   .body.htyi .room-container {
     -webkit-box-shadow: 10px 10px 50px #000;
     -moz-box-shadow: 10px 10px 50px #000;
@@ -1655,6 +1671,7 @@ body.newgame.wwdmm .button_text {
     border-radius: 10px; }
     .body.wikigeeks.group #startGameForm input {
       border-radius: 20px;
+      border: 0px;
       background-color: #36d5d9; }
       .body.wikigeeks.group #startGameForm input:hover, .body.wikigeeks.group #startGameForm input:active, .body.wikigeeks.group #startGameForm input:focus {
         box-shadow: none;
@@ -2098,10 +2115,25 @@ body.newgame.wwdmm .button_text {
 	WWDMM group view styling.
 */
 .body.wwdmm.group {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }
   .body.wwdmm.group #gameContent {
+    height: 100%;
     padding: 5%;
     padding-top: 0; }
+  .body.wwdmm.group .page-container {
+    height: 100%; }
+  .body.wwdmm.group #startGameForm input {
+    border-radius: 20px;
+    outline: 0;
+    border: 0px;
+    background-color: #31b9ff; }
+    .body.wwdmm.group #startGameForm input:hover, .body.wwdmm.group #startGameForm input:active, .body.wwdmm.group #startGameForm input:focus {
+      box-shadow: none;
+      outline: 0;
+      border: 0px;
+      border-radius: 20px;
+      background-color: #00a7fd; }
   .body.wwdmm.group #loading-modal .indicator {
     background: url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
   .body.wwdmm.group #meme-text {
@@ -2141,7 +2173,8 @@ body.newgame.wwdmm .button_text {
     text-shadow: -3px -3px 0 #000, -3px -2px 0 #000, -3px -1px 0 #000, -3px 0px 0 #000, -3px 1px 0 #000, -3px 2px 0 #000, -3px 3px 0 #000, -2px -3px 0 #000, -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -2px 3px 0 #000, -1px -3px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, -1px 3px 0 #000, 0px -3px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 0px 3px 0 #000, 1px -3px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 1px 3px 0 #000, 2px -3px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000, 2px 3px 0 #000, 3px -3px 0 #000, 3px -2px 0 #000, 3px -1px 0 #000, 3px 0px 0 #000, 3px 1px 0 #000, 3px 2px 0 #000, 3px 3px 0 #000; }
   .body.wwdmm.group .room-container {
     border: 15px solid #b7d63a;
-    border-radius: 10px; }
+    border-radius: 10px;
+    height: 100%; }
   .body.wwdmm.group .top-bar {
     color: white;
     font-family: 'Patrick Hand', cursive;
@@ -2348,7 +2381,7 @@ body.newgame.wwdmm .button_text {
       font-size: 3em;
       font-family: 'Patrick Hand', cursive;
       line-height: 1;
-      margin-top: -30px;
+      margin-top: -60px;
       margin-bottom: 30px; }
     .body.wwdmm.group #make-meme #countdown {
       font-size: 250%;
@@ -2410,6 +2443,7 @@ body.newgame.wwdmm .button_text {
         transition: transform 0.5s linear;
         transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
         .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate.active {
+          background-color: transparent;
           opacity: 1;
           -moz-transform: scale(1.1);
           -o-transform: scale(1.1);
@@ -2749,7 +2783,9 @@ body.newgame.wwdmm .button_text {
   @media (max-width: 375px) {
     .body.wwdmm.player .slider-size {
       min-width: 320px;
-      max-width: 320px; } }
+      max-width: 320px;
+      min-height: 320px;
+      max-height: 320px; } }
 
 @media (max-width: 425px) {
   .body.wwdmm.player .container-fluid {
@@ -2813,8 +2849,8 @@ body.newgame.wwdmm .button_text {
   max-width: 400px; }
   @media (max-width: 375px) {
     .body.wwdmm.player #meme-slider {
-      min-width: 100%;
-      max-width: 100%; } }
+      min-width: 90%;
+      max-width: 90%; } }
 
 .body.wwdmm.player #btns-submit input {
   margin: 0 auto; }
@@ -2904,9 +2940,11 @@ body {
 
 .container {
   width: 100% !important;
-  height: auto;
-  min-height: 75%;
   padding: 0px !important; }
+
+.landing .container {
+  height: auto;
+  min-height: 75%; }
 
 .form {
   min-height: 10%; }
@@ -2963,7 +3001,8 @@ body {
       margin-top: -15px;
       background-color: #e6e6e6; }
     .body.game-bg.player .entry-footer {
-      background-color: #e6e6e6; }
+      background-color: #e6e6e6;
+      padding: 10px; }
       .body.game-bg.player .entry-footer button {
         background-color: #e6e6e6; }
   .body.game-bg.htyi {

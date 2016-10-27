@@ -4,13 +4,34 @@
 .body.wwdmm.group {
 
 	overflow: hidden;
+	height:100%;
 
 	#gameContent {
+		height:100%;
 
 		padding: 5%;
 		padding-top: 0;
 
 	}
+
+	.page-container {
+		height:100%;
+	}
+	#startGameForm {
+    input {
+      border-radius: 20px;
+      outline: 0;
+      border: 0px;
+      background-color: $color-dodger-blue;
+      &:hover, &:active, &:focus {
+          box-shadow: none;
+          outline: 0;
+          border: 0px;
+          border-radius: 20px;
+          background-color: darken($color-dodger-blue, 10%);
+      }
+    }
+  }
   
   #loading-modal {
     .indicator {
@@ -88,6 +109,7 @@
 
 		border: 15px solid $color-sick-green;
 		border-radius: 10px;
+		height:100%;
 
 	}
 
@@ -112,6 +134,7 @@
 	#top-header {
 		margin-top:3%;
 		width:83%;
+
 		margin: auto;
 
 		min-height: 180px;
@@ -427,7 +450,7 @@
 	    font-size: 3em;
 			font-family: 'Patrick Hand', cursive;
 			line-height: 1;
-			margin-top: -30px;
+			margin-top: -60px;
 			margin-bottom: 30px;
 		}
 		#countdown {			
@@ -492,6 +515,7 @@
 				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
 
 					&.active {
+						background-color:transparent;
 						opacity: 1;
 						@include scale(1.1);
 					}

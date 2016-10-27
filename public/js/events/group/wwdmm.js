@@ -268,9 +268,9 @@ var gameEvents = function(eventId, eventData) {
 
             .from($(el).find('.name.submitter'), 1, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=2')
 
-            .from($(el).find('.likes-box'), .5, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=.5')
-            .staggerFrom($(el).find('.likes-box .vote'), .3, {scale: 0, autoAlpha:0, ease:Bounce.easeOut}, .3, '+=.4')
-            .staggerFrom($(el).find('.likes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:-180, ease:Elastic.easeOut}, 1, '+=.4')
+            // .from($(el).find('.likes-box'), .5, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=.5')
+            // .staggerFrom($(el).find('.likes-box .vote'), .3, {scale: 0, autoAlpha:0, ease:Bounce.easeOut}, .3, '+=.4')
+            // .staggerFrom($(el).find('.likes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:-180, ease:Elastic.easeOut}, 1, '+=.4')
 
             .to(el, 1, {y:0, scale: 0, autoAlpha:0, display:'none', ease:Ease.easeIn}, '+=4');
 

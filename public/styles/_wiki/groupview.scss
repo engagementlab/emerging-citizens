@@ -58,6 +58,7 @@
             }
         }
     }
+
     #startGameForm {
         top: 80%;
         right: -60px;
@@ -67,6 +68,7 @@
         border-radius: 10px;
         input {
             border-radius: 20px;
+            border: 0px;
             background-color: $color-teal;
             &:hover, &:active, &:focus {
                 box-shadow: none;
