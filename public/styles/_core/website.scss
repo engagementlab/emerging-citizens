@@ -1,11 +1,4 @@
-// EC Website Other Than Homepage
-@media (min-width: 2000px) {
-    body.newgame {
-        .page-container {
-            margin-top: 3%;
-        }
-    }
-}
+
 //ABOUT PAGE
 .aboutPage {
     background: $homepage-color;
@@ -94,6 +87,7 @@ body.newgame {
         text-align: center;
         color: #595959;
         font-size: 1.6em;
+        padding: 0px 5%;
     }
     #categories {
         display: inline-block;
@@ -101,9 +95,14 @@ body.newgame {
     #btn_submit {
         color: white;
         border: none;
+        position: fixed;
+        font-size: 4em;
+        bottom: 0;
+        height: 150px;
+        width: 400px;
         outline: 0;
-        margin: 40px; 
-        margin-top: -5%;
+        margin: 0 auto; 
+        @include translate (-200px, 0px);
     }
     #session-create {
         width: 80%;
@@ -130,7 +129,8 @@ body.newgame {
         margin-bottom: 5%;
     }
     .category-box {
-        min-height: 225px;
+        min-height: 300px;
+        max-height: 300px;
         width: 90%;
         margin: 0 auto;
         padding: 2%;
@@ -161,7 +161,9 @@ body.newgame {
         border: none;
 
         .form {
-            height: 980px;
+            padding: 2%;
+            font-size: 1.3em;
+            height: auto;
             overflow-x: hidden;
             overflow-y: scroll;
         }
@@ -191,10 +193,15 @@ body.newgame {
         .button_text {
             border: 0px;
             background-color: darken($color-peach, 5%);
-            &:hover, &:focus, &:visited {
+            &:hover, &:focus {
                 outline: 0;
                 box-shadow: none;
                 background-color: darken($color-peach, 10%);
+            }
+            &:visited {
+                background-color: darken($color-peach, 5%);
+                outline: 0;
+                box-shadow: none;
             }
         }
     }
@@ -222,10 +229,15 @@ body.newgame {
         .button_text  {
             border: 0px;
             background-color: $color-bg;
-            &:hover, &:focus, &:visited {
+            &:hover, &:focus {
                 outline: 0;
                 box-shadow: none;
                 background-color: darken($color-bg, 10%);
+            }
+            &:visited {
+                background-color: $color-bg;
+                outline: 0;
+                box-shadow: none;
             }
         }
     }
@@ -253,19 +265,20 @@ body.newgame {
         .button_text {
             background-color: $color-dodger-blue;
             border: 0px;
-            &:hover , &:focus, &:visited {
+            &:hover , &:focus {
                 outline: 0;
                 box-shadow: none;
                 background-color: darken($color-dodger-blue, 10%);
             }
+            &:visited {
+                background-color: $color-dodger-blue;
+                outline: 0;
+                box-shadow: none;
+            }
         }
     }
 }
-#session-create {
-    .form {
-        padding: 2%;
-    }
-}
+
 #htyi-page {
     background: $background-groupview, $color-peach !important;
 }
@@ -274,4 +287,42 @@ body.newgame {
 }
 #wwdmm-page {
     background-image: $background-wwdmm !important;
+}
+
+// EC Website Other Than Homepage
+@media (min-width: 2000px) {
+    body.newgame {
+        #session-create {
+            width: 100%;
+            left: 0px;
+        }
+        .form {
+            font-size: 1.5em;
+        }
+    }
+}
+@media (min-width: 1024px) and (max-width: 1680px) {
+    body.newgame {
+        #session-create {
+            width: 95%;
+            left: 2.5%;
+        }
+        .select-buttons {
+            
+            input {
+                width: 300px !important;
+                height: 100px;
+                font-size: 5.2em;
+            }
+        }
+        .form {
+            font-size: 1.6em;
+
+            .category-box {
+                height: 400px;
+                font-size: 1.2em;
+
+            }
+        }
+    }
 }
