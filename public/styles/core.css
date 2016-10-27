@@ -1107,6 +1107,7 @@ body.newgame #session-create {
   border: none; }
   body.newgame #session-create .form {
     padding: 2%;
+    margin-bottom: 10%;
     font-size: 1.3em;
     height: auto;
     overflow-x: hidden;
@@ -2442,6 +2443,7 @@ body.newgame.wwdmm .button_text {
         transition: transform 0.5s linear;
         transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44); }
         .body.wwdmm.group .players-grid.row .player-background .player-static .nameplate.active {
+          background-color: transparent;
           opacity: 1;
           -moz-transform: scale(1.1);
           -o-transform: scale(1.1);
@@ -2839,8 +2841,8 @@ body.newgame.wwdmm .button_text {
   max-width: 400px; }
   @media (max-width: 375px) {
     .body.wwdmm.player #meme-slider {
-      min-width: 100%;
-      max-width: 100%; } }
+      min-width: 90%;
+      max-width: 90%; } }
 
 .body.wwdmm.player #btns-submit input {
   margin: 0 auto; }

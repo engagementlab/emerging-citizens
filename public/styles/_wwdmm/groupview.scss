@@ -515,6 +515,7 @@
 				  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
 
 					&.active {
+						background-color:transparent;
 						opacity: 1;
 						@include scale(1.1);
 					}

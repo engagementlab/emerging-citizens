@@ -221,40 +221,36 @@ socketEvents = function(eventId, eventData) {
 
             if(eventData.html) {
                 updateGameContent(eventData.html, function() {
-                    var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
+                    var nextRoundAnim = new TimelineLite({ paused:true , onComplete:CheckLast()});
                     nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut, display:'none' }, { scale: 1, opacity: 1, display: 'block'});
                     nextRoundAnim.play();
-                    if (eventData.data && eventData.data.last_round){
-                        console.log("this is the last round");
-                        socket.emit('game:survey');
-                        {{!-- $('#survey').fadeIn(console.log("fade in")); --}}
-                        
-                        resetSession();
-                        
-                    }
-                    else {
-                        sessionStorage.removeItem('playerSubmission');
-                    }
+                    
                 });
 
             }
             else {
                 updateGameContent(eventData, function() {
-                    var nextRoundAnim = new TimelineLite({ paused:true , onComplete:function() {}});
+                    var nextRoundAnim = new TimelineLite({ paused:true , onComplete:CheckLast()});
                     nextRoundAnim.from($('#nextRound'), 2.5, { scale: 0, opacity:0, ease:Elastic.easeOut, display:'none' }, { scale: 1, opacity: 1, display: 'block'});
                     nextRoundAnim.play();
-                    if (eventData.data && eventData.data.last_round){
-                        console.log("this is the last round");
-                        socket.emit('game:survey');
-                        {{!-- $('#survey').fadeIn(console.log("fade in")); --}}
-                        
-                        resetSession();
-                        
-                    }
-                    else {
-                        sessionStorage.removeItem('playerSubmission');
-                    }
+                    
                 });
+            }
+
+            var CheckLast = function() {
+                if (eventData.data && eventData.data.last_round){
+                    console.log("this is the last round");
+                    console.log($('div#survey'));
+                    socket.emit('game:survey');
+
+                    {{!-- $('#survey').fadeIn(console.log("fade in")); --}}
+                    
+                    resetSession();
+                    
+                }
+                else {
+                    sessionStorage.removeItem('playerSubmission');
+                }
             }
 
             
@@ -269,11 +265,12 @@ socketEvents = function(eventId, eventData) {
 
             // Display survey on player screen if enabled
             {{!-- if ($('#results')) { --}}
-                $('#results').fadeOut(function() {
+                {{!-- $('#results').fadeOut(function() {
                     $('div#survey').fadeIn();
-                });
+                }); --}}
             {{!-- } else { --}}
-                $('div#survey').fadeIn();
+                $('div#survey').fadeIn(console.log($('div#survey')));
+                console.log("fade in 22");
             {{!-- } --}}
             {{!-- $('#survey').fadeIn(console.log("fade in 22")); --}}
 
