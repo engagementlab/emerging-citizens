@@ -299,6 +299,7 @@ body.player .entry-footer {
     border: 2px solid #36d5d9; }
 
 #wrapper.group {
+  height: 100%;
   width: 1680px !important;
   max-width: none !important;
   margin-right: auto;
@@ -2116,6 +2117,8 @@ body.newgame.wwdmm .button_text {
     height: 100%;
     padding: 5%;
     padding-top: 0; }
+  .body.wwdmm.group .page-container {
+    height: 100%; }
   .body.wwdmm.group #startGameForm input {
     border-radius: 20px;
     outline: 0;
@@ -2374,7 +2377,7 @@ body.newgame.wwdmm .button_text {
       font-size: 3em;
       font-family: 'Patrick Hand', cursive;
       line-height: 1;
-      margin-top: -30px;
+      margin-top: -80px;
       margin-bottom: 30px; }
     .body.wwdmm.group #make-meme #countdown {
       font-size: 250%;
@@ -2767,7 +2770,9 @@ body.newgame.wwdmm .button_text {
   @media (max-width: 375px) {
     .body.wwdmm.player .slider-size {
       min-width: 320px;
-      max-width: 320px; } }
+      max-width: 320px;
+      min-height: 320px;
+      max-height: 320px; } }
 
 @media (max-width: 425px) {
   .body.wwdmm.player .container-fluid {
@@ -2922,7 +2927,6 @@ body {
 
 .container {
   width: 100% !important;
-  height: 100%;
   padding: 0px !important; }
 
 .landing .container {
