@@ -33,9 +33,15 @@ body {
 
 .container {
 	width: 100% !important;
-	height: auto;
-	min-height:75%;
+	
 	padding: 0px !important;
+}
+
+.landing {
+	.container {
+		height: auto;
+	min-height:75%;
+	}
 }
 
 // Bootstrap override
@@ -129,6 +135,7 @@ body {
 
 		.entry-footer{
 			background-color: $color-gray;
+			padding: 10px;
 
 			button {
 				background-color: $color-gray;

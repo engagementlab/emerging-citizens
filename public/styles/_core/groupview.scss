@@ -2,7 +2,7 @@
 
 // Disable scrolling on groupview and fix width
 #wrapper.group {
-
+	height:100%;
   width: 1680px !important;
   max-width: none !important;
   margin-right: auto;
@@ -204,9 +204,9 @@ body.landing {
 }
 
 .room-container {
-	bottom: 10%;
 	padding-left: 10%;
   padding-right: 10%;
+  height:75%;
 	position: relative;
 	margin: 10px auto;
 	background-color: white;

@@ -23,6 +23,21 @@
 		}
 
 	}
+    #startGameForm {
+      input {
+          border-radius: 20px;
+          outline: 0;
+          border: 0px;
+          background-color: $color-peach;
+          &:hover, &:active, &:focus {
+              box-shadow: none;
+              outline: 0;
+              border: 0px;
+              border-radius: 20px;
+              background-color: darken($color-peach, 10%);
+          }
+      }
+  }
 
 	.room-container {
 		@include box-shadow(10px, 10px, 50px, #000);
