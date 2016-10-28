@@ -3,18 +3,25 @@
 */
 .body.wwdmm.player {
 
+	overflow-y: scroll;
+
 	.slider-size {
 		@media(max-width:375px) {
-			min-width: 320px;
+			width: 320px;
 	  	max-width: 320px;
-	  	min-height: 320px;
-	  	max-height: 320px;
+
+  	}
+  	@media(max-width:325px) {
+			width: 288px;
+	  	max-width: 288px;
 
   	}
   	width: 400px;
+
 	}
 	
 	.container-fluid {
+		height:100%;
 		@media(max-width:425px){
 			margin: 0px;
 			padding: 0px;
@@ -97,9 +104,14 @@
 
   #meme-slider {
 
+  	@media(max-width:325px) {
+	  	min-width: 288px;
+	  	max-width: 288px;
+  	}
+
   	@media(max-width:375px) {
-	  	min-width: 90%;
-	  	max-width: 90%;
+	  	min-width: 320px;
+	  	max-width: 320px;
   	}
 
   	min-width: 400px;
@@ -108,12 +120,15 @@
   }
 
   #btns-submit {
+
   	input {
   		margin: 0 auto;
   	}
   }
 
   #meme-create {
+  	margin-bottom: -200px;
+  	min-height:100%;
   	float: none;
   	padding-top: 3%;
   	@media(max-width:425px) {
@@ -147,10 +162,12 @@
   #meme-created {
   	 min-height: 200px;
    		border:  10px solid $color-mustard;
-	   	width: 30%;
 	   	margin: 40px auto;
+	   	padding: 10px;
    	  background: white;
    	  color: $color-bg-wwdmm;
+   	  position: absolute;
+   	  top: 0;
 
    	  @media (max-width: 426px) {
    	  	border-right: none;
@@ -211,6 +228,10 @@
 			left: 50%;
 			bottom: 4%;
 			width: 100%;
+		}
+
+		#wrapper {
+			height: 100%;
 		}
 		
 	}

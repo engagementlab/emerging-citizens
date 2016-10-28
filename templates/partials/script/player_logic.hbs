@@ -44,6 +44,17 @@ $(document).ready(function() {
     });
 {{/ifnoteq}}
 
+// Tap away any errors
+$(document).on('click', 'div.error', function() {
+    $(this).hide();
+    console.log("error tap away player logic");
+});
+
+// Set height of content to minimum of device height
+$('#gameContent').css("height", window.screen.height);
+console.log(window.screen.height, "device height");
+console.log($('#gameContent').css("height"), "content height");
+
 // Do not enable sound for emulated (debug) player
 if(!isEmulated) {
 

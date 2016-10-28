@@ -44,6 +44,10 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
+            var contentHeight = window.screen.innerHeight;
+            var contentWidth = window.screen.innerWidth;
+            console.log(contentHeight);
+
             $('.header').fadeIn();
 
             var voteId = 0,
@@ -53,7 +57,25 @@ var gameEvents = function(eventId, eventData) {
             sessionStorage.removeItem('playerVote');
 
             updateGameContent(eventData, function(animateIn) {
-              var dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
+              if (contentHeight => 700) {
+
+                if (contentWidth => 375) {
+                  var memeHeight = 340;
+                } else {
+                  var memeHeight = 300;
+                }
+
+              } else {
+
+                if (contentWidth => 375) {
+                  var memeHeight = 320;
+                } else {
+                  var memeHeight = 288;
+                }
+                
+              }
+
+              var dimensions = (window.innerWidth >= 400) ? 400 : memeHeight;
 
               // Do not allow player to submit more than once
               if(sessionStorage.getItem('playerSubmission')) {
@@ -64,6 +86,9 @@ var gameEvents = function(eventId, eventData) {
               }
 
               imageLoaded($("#meme-slider"), function() {
+
+                
+                $('#meme-create').css("height", contentHeight - 300);
 
                 $("#meme-slider").glide({
                   type: "carousel",
@@ -81,11 +106,13 @@ var gameEvents = function(eventId, eventData) {
                 }
 
               });
+
+              
           
               var canvas = new Kinetic.Stage({
                   container: 'meme-canvas',
                   width: dimensions,
-                  height: 380
+                  height: memeHeight
               }),
               layer = new Kinetic.Layer();
               canvas.add(layer);
@@ -233,6 +260,24 @@ var gameEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
+              if (contentHeight => 700) {
+
+                if (contentWidth => 375) {
+                  var memeHeight = 340;
+                } else {
+                  var memeHeight = 300;
+                }
+
+              } else {
+
+                if (contentWidth => 375) {
+                  var memeHeight = 320;
+                } else {
+                  var memeHeight = 288;
+                }
+                
+              }
+
                 $('#meme-slider').find('li.glide__slide[data-id="' + sessionStorage.getItem('playerSubmission') + '"]').remove();
             
                 $("#meme-slider").glide({
@@ -250,7 +295,7 @@ var gameEvents = function(eventId, eventData) {
 
                   var upperText = $(meme).data().upper ? $(meme).data().upper.toString().toUpperCase() : '',
                       lowerText = $(meme).data().lower ? $(meme).data().lower.toString().toUpperCase() : '',
-                      dimensions = (window.innerWidth >= 400) ? 400 : window.innerWidth;
+                      dimensions = (window.innerWidth >= 400) ? 400 : memeHeight;
 
                   // Create meme canvas, render layer, captions, and image
                   var canvas = new Kinetic.Stage({

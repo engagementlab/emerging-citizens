@@ -346,7 +346,9 @@ window.onload = function() {
 
 	// Show body only after everything is loaded
   // document.body.style.display = "block";
-  $('body').fadeIn(1000)
+  $('body').fadeIn(1000);
+
+  
 
 	// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 	detectPrivateMode(function(isPrivate) {
@@ -456,6 +458,7 @@ window.onload = function() {
 			{{#ifeq viewType 'player'}}
 									
 				{{> script/player_logic section=section}}
+
 
 			{{/ifeq}}
 
