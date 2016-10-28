@@ -2790,8 +2790,12 @@ body.newgame.wwdmm .button_text {
     width: 400px; }
     @media (max-width: 375px) {
       .body.wwdmm.player .slider-size {
-        min-width: 320px;
+        width: 320px;
         max-width: 320px; } }
+    @media (max-width: 325px) {
+      .body.wwdmm.player .slider-size {
+        width: 288px;
+        max-width: 288px; } }
   .body.wwdmm.player .container-fluid {
     height: 100%; }
     @media (max-width: 425px) {
@@ -2845,10 +2849,14 @@ body.newgame.wwdmm .button_text {
   .body.wwdmm.player #meme-slider {
     min-width: 400px;
     max-width: 400px; }
+    @media (max-width: 325px) {
+      .body.wwdmm.player #meme-slider {
+        min-width: 288px;
+        max-width: 288px; } }
     @media (max-width: 375px) {
       .body.wwdmm.player #meme-slider {
-        min-width: 90%;
-        max-width: 90%; } }
+        min-width: 320px;
+        max-width: 320px; } }
   .body.wwdmm.player #btns-submit input {
     margin: 0 auto; }
   .body.wwdmm.player #meme-create {
@@ -2874,8 +2882,8 @@ body.newgame.wwdmm .button_text {
   .body.wwdmm.player #meme-created {
     min-height: 200px;
     border: 10px solid #fed34f;
-    width: 30%;
     margin: 40px auto;
+    padding: 10px;
     background: white;
     color: #21b7f0;
     position: absolute;

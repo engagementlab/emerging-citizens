@@ -7,8 +7,13 @@
 
 	.slider-size {
 		@media(max-width:375px) {
-			min-width: 320px;
+			width: 320px;
 	  	max-width: 320px;
+
+  	}
+  	@media(max-width:325px) {
+			width: 288px;
+	  	max-width: 288px;
 
   	}
   	width: 400px;
@@ -99,9 +104,14 @@
 
   #meme-slider {
 
+  	@media(max-width:325px) {
+	  	min-width: 288px;
+	  	max-width: 288px;
+  	}
+
   	@media(max-width:375px) {
-	  	min-width: 90%;
-	  	max-width: 90%;
+	  	min-width: 320px;
+	  	max-width: 320px;
   	}
 
   	min-width: 400px;
@@ -152,8 +162,8 @@
   #meme-created {
   	 min-height: 200px;
    		border:  10px solid $color-mustard;
-	   	width: 30%;
 	   	margin: 40px auto;
+	   	padding: 10px;
    	  background: white;
    	  color: $color-bg-wwdmm;
    	  position: absolute;
