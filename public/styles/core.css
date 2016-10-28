@@ -151,6 +151,12 @@
   background: #fff;
   padding: 10px 10px 10px 20px; }
 
+body.player #ended {
+  width: 60%; }
+  @media (max-width: 425px) {
+    body.player #ended {
+      width: 100%; } }
+
 body.player #gameContent {
   padding-top: 3%; }
 

@@ -1,6 +1,12 @@
 body.player {
 
-	
+	#ended {
+		width: 60%;
+		
+		@media (max-width: 425px) {
+			width: 100%;
+		}
+	}
 
 	#gameContent {
 		padding-top: 3%;
