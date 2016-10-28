@@ -57,9 +57,9 @@ var gameEvents = function(eventId, eventData) {
             sessionStorage.removeItem('playerVote');
 
             updateGameContent(eventData, function(animateIn) {
-              if (contentHeight => 700) {
+              if (contentHeight >= 700) {
 
-                if (contentWidth => 375) {
+                if (contentWidth >= 375) {
                   var memeHeight = 340;
                 } else {
                   var memeHeight = 300;
@@ -67,7 +67,7 @@ var gameEvents = function(eventId, eventData) {
 
               } else {
 
-                if (contentWidth => 375) {
+                if (contentWidth >= 375) {
                   var memeHeight = 320;
                 } else {
                   var memeHeight = 288;
@@ -260,9 +260,9 @@ var gameEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
-              if (contentHeight => 700) {
+              if (contentHeight >= 700) {
 
-                if (contentWidth => 375) {
+                if (contentWidth >= 375) {
                   var memeHeight = 340;
                 } else {
                   var memeHeight = 300;
@@ -270,7 +270,7 @@ var gameEvents = function(eventId, eventData) {
 
               } else {
 
-                if (contentWidth => 375) {
+                if (contentWidth >= 375) {
                   var memeHeight = 320;
                 } else {
                   var memeHeight = 288;
