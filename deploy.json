@@ -18,7 +18,7 @@
       "ref": "origin/master",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
-      "post-deploy" : "npm i ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging",
+      "post-deploy" : "npm i ; npm update ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging",
       "env": {
         "NODE_ENV": "staging"
       }
@@ -31,7 +31,7 @@
       "ref": "origin/master",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.'; git pull git@github.com:engagementgamelab/EL-Website.git master;",
-      "post-deploy" : "npm i ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=emerging-citizens --env staging ; NODE_ENV=staging pm2 restart 0 -- emerging-citizens --env staging"
+      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=emerging-citizens --env staging ; NODE_ENV=staging pm2 restart 0 -- emerging-citizens --env staging"
     },
 
     "web-production" : {
@@ -41,7 +41,7 @@
       "ref": "origin/master",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens --env production ; pm2 restart 0 -- emerging-citizens --env production",
+      "post-deploy" : "npm install ; npm update ; grunt compile --sites=emerging-citizens --env production ; pm2 restart 0 -- emerging-citizens --env production",
       "env": {
         "NODE_ENV": "production"
       }
@@ -54,7 +54,7 @@
       "ref": "origin/production",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
-      "post-deploy" : "npm i ; cd /srv/framework/current/ ; grunt compile --sites=emerging-citizens --env production ; NODE_ENV=production pm2 restart server.js -- emerging-citizens --env production"
+      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; grunt compile --sites=emerging-citizens --env production ; NODE_ENV=production pm2 restart server.js -- emerging-citizens --env production"
     }
 
   }
