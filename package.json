@@ -1,16 +1,11 @@
 {
   "name": "emerging-citizens",
-  "version": "0.1.9",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/engagementgamelab/emerging-citizens.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/engagementgamelab/emerging-citizens/raw/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "main": "app.js",
   "dependencies": {
     "app-module-path": "^1.0.6",
@@ -22,7 +17,7 @@
     "console-remote-client": "^0.4.3",
     "express": "4.13.4",
     "keystone": "0.3.15",
-    "learning-games-core": "https://github.com/engagementgamelab/learning-games-core/tarball/master",
+    "learning-games-core": "git://github.com/engagementgamelab/learning-games-core.git",
     "mongoose": "^4.4.5",
     "node-sass-middleware": "^0.9.7",
     "html-entities": "1.2.0",
