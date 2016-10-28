@@ -323,8 +323,8 @@
         @include mobile-landscape-and-up {
           columns: 3;
           -webkit-columns: 3;
+          -moz-columns: 3;
         }
-      -moz-columns: 3;
       list-style-type: none;
 
       li {
@@ -564,10 +564,9 @@
                 h2 {
                     color: $color-teal;
                 }
-                .col-sm-6 {
-                    padding: 1%;
-                    text-align: left;
-                }
+                
+                padding-left: 5%;
+                padding-right: 5%;
             }
         }
         &#wwdmm-page {

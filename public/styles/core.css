@@ -762,12 +762,12 @@ body.landing #nav-close-wrapper {
         width: 50%; } }
 
 #credits ul {
-  -moz-columns: 3;
   list-style-type: none; }
   @media only screen and (min-width: 481px) {
     #credits ul {
       columns: 3;
-      -webkit-columns: 3; } }
+      -webkit-columns: 3;
+      -moz-columns: 3; } }
   #credits ul li {
     padding-bottom: 2%; }
 
@@ -970,12 +970,11 @@ body.landing #nav-close-wrapper {
       color: #999999;
       padding: 5%;
       margin: 4% auto;
-      width: 100%; }
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%; }
       .landing .game-about .content .learning-guide h2 {
         color: #36d5d9; }
-      .landing .game-about .content .learning-guide .col-sm-6 {
-        padding: 1%;
-        text-align: left; }
   .landing .game-about#wwdmm-page .blurb {
     color: #36d5d9; }
   .landing .game-about#wikigeeks-page .blurb {
@@ -1015,6 +1014,10 @@ body.landing #nav-close-wrapper {
     width: 80%;
     font-size: 2em;
     margin: 40px auto; }
+    @media only screen and (max-width: 480px) {
+      .aboutPage .feat-title,
+      .aboutPage .bottom-title {
+        font-size: .8em; } }
   .aboutPage .bottom-title {
     margin-bottom: 10%; }
   .aboutPage .aboutFeatures {
@@ -1024,10 +1027,14 @@ body.landing #nav-close-wrapper {
       text-align: justify; }
       .aboutPage .aboutFeatures .feature .markdown-content h2 {
         text-align: center; }
+    .aboutPage .aboutFeatures img {
+      width: 100%; }
 
 .coming-soon-plans {
   font-size: 5em;
   color: #999999; }
+  .coming-soon-plans h2 {
+    font-size: 30px; }
 
 body.newgame #gameContent {
   padding: 0 !important; }

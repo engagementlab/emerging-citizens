@@ -42,6 +42,10 @@
         width: 80%;
         font-size: 2em;
         margin: 40px auto;
+
+        @include mobile-landscape-and-below {
+            font-size: .8em;
+        }
     }
     .bottom-title {
         margin-bottom: 10%;
@@ -57,12 +61,18 @@
                 }
             }
         }
+        img {
+            width: 100%;
+        }
     }
 }
 // GAME PAGES 
 .coming-soon-plans {
     font-size: 5em;
     color: darken($color-gray, 30%);
+    h2 {
+        font-size: 30px;
+    }
 }
 // CATEGORIES 
 body.newgame {

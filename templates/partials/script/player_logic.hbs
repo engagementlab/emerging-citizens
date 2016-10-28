@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 });
 
+{{#ifnoteq environment "production"}}
 {{#ifnoteq environment "development"}}
     {{!-- Smartlook integration --}}
     window.smartlook||(function(d) {
@@ -42,6 +43,7 @@ $(document).ready(function() {
       return null;
 
     });
+{{/ifnoteq}}
 {{/ifnoteq}}
 
 // Tap away any errors
