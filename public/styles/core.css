@@ -154,8 +154,14 @@
 body.player #gameContent {
   padding-top: 3%; }
 
+body.player #wrapper {
+  height: 100%; }
+
 body.player .game-message {
   padding: 40px; }
+  @media (max-width: 425px) {
+    body.player .game-message {
+      padding: 10px; } }
 
 body.player #login {
   margin-top: 5%; }
@@ -2778,153 +2784,139 @@ body.newgame.wwdmm .button_text {
 /* 
 	WWDMM player view styling.
 */
-.body.wwdmm.player .slider-size {
-  width: 400px; }
-  @media (max-width: 375px) {
-    .body.wwdmm.player .slider-size {
-      min-width: 320px;
-      max-width: 320px;
-      min-height: 320px;
-      max-height: 320px; } }
-
-@media (max-width: 425px) {
+.body.wwdmm.player {
+  overflow-y: scroll; }
+  .body.wwdmm.player .slider-size {
+    width: 400px; }
+    @media (max-width: 375px) {
+      .body.wwdmm.player .slider-size {
+        min-width: 320px;
+        max-width: 320px; } }
   .body.wwdmm.player .container-fluid {
-    margin: 0px;
-    padding: 0px; } }
-
-.body.wwdmm.player .error-modal {
-  background-color: rgba(255, 91, 119, 0.9);
-  color: white; }
-
-.body.wwdmm.player #loading-modal .indicator {
-  background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
-
-.body.wwdmm.player .game-message {
-  font-size: 3em;
-  border: 20px solid #fed34f;
-  margin: 40px auto;
-  background: white;
-  display: inline-block; }
-  @media (max-width: 426px) {
-    .body.wwdmm.player .game-message {
-      border-right: none;
-      border-left: none;
-      width: 100%; } }
-  .body.wwdmm.player .game-message .text {
-    color: #21b7f0; }
-
-.body.wwdmm.player .glide__wrapper {
-  min-height: 400px; }
-  @media (max-width: 375px) {
-    .body.wwdmm.player .glide__wrapper {
-      min-height: 320px;
-      max-height: 320px; } }
-
-.body.wwdmm.player .glide__bullets {
-  position: static;
-  bottom: -5%; }
-  .body.wwdmm.player .glide__bullets .glide__bullet {
-    margin-left: 3%;
-    margin-right: 3%; }
-
-.body.wwdmm.player .glide__track {
-  padding-left: 0; }
-
-.body.wwdmm.player .glide__arrow {
-  font-size: 1em;
-  color: black;
-  border: 2px solid black; }
-
-.body.wwdmm.player .post-button {
-  margin-top: 40px;
-  width: 100%;
-  background-color: #19f7ad; }
-  .body.wwdmm.player .post-button.back {
-    background-color: #ff8d5b; }
-  .body.wwdmm.player .post-button.small {
-    width: 35%; }
-
-.body.wwdmm.player #meme-slider {
-  min-width: 400px;
-  max-width: 400px; }
-  @media (max-width: 375px) {
-    .body.wwdmm.player #meme-slider {
-      min-width: 90%;
-      max-width: 90%; } }
-
-.body.wwdmm.player #btns-submit input {
-  margin: 0 auto; }
-
-.body.wwdmm.player #meme-create {
-  float: none;
-  padding-top: 3%; }
-  @media (max-width: 425px) {
-    .body.wwdmm.player #meme-create {
-      padding: none; } }
-  .body.wwdmm.player #meme-create #meme-canvas canvas {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
+    height: 100%; }
+    @media (max-width: 425px) {
+      .body.wwdmm.player .container-fluid {
+        margin: 0px;
+        padding: 0px; } }
+  .body.wwdmm.player .error-modal {
+    background-color: rgba(255, 91, 119, 0.9);
+    color: white; }
+  .body.wwdmm.player #loading-modal .indicator {
+    background: rgba(255, 91, 119, 0.7) url("https://res.cloudinary.com/engagement-lab-home/image/upload/emerging-citizens/images/layout/wwdmm/loading-spinner.svg"); }
+  .body.wwdmm.player .game-message {
+    font-size: 3em;
+    border: 20px solid #fed34f;
+    margin: 40px auto;
+    background: white;
+    display: inline-block; }
+    @media (max-width: 426px) {
+      .body.wwdmm.player .game-message {
+        border-right: none;
+        border-left: none;
+        width: 100%; } }
+    .body.wwdmm.player .game-message .text {
+      color: #21b7f0; }
+  .body.wwdmm.player .glide__wrapper {
+    min-height: 400px; }
+    @media (max-width: 375px) {
+      .body.wwdmm.player .glide__wrapper {
+        min-height: 320px;
+        max-height: 320px; } }
+  .body.wwdmm.player .glide__bullets {
+    position: static;
+    bottom: -5%; }
+    .body.wwdmm.player .glide__bullets .glide__bullet {
+      margin-left: 3%;
+      margin-right: 3%; }
+  .body.wwdmm.player .glide__track {
+    padding-left: 0; }
+  .body.wwdmm.player .glide__arrow {
+    font-size: 1em;
+    color: black;
+    border: 2px solid black; }
+  .body.wwdmm.player .post-button {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #19f7ad; }
+    .body.wwdmm.player .post-button.back {
+      background-color: #ff8d5b; }
+    .body.wwdmm.player .post-button.small {
+      width: 35%; }
+  .body.wwdmm.player #meme-slider {
+    min-width: 400px;
+    max-width: 400px; }
+    @media (max-width: 375px) {
+      .body.wwdmm.player #meme-slider {
+        min-width: 90%;
+        max-width: 90%; } }
+  .body.wwdmm.player #btns-submit input {
+    margin: 0 auto; }
+  .body.wwdmm.player #meme-create {
+    margin-bottom: -200px;
+    min-height: 100%;
+    float: none;
+    padding-top: 3%; }
+    @media (max-width: 425px) {
+      .body.wwdmm.player #meme-create {
+        padding: none; } }
+    .body.wwdmm.player #meme-create #meme-canvas canvas {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      pointer-events: none; }
+    .body.wwdmm.player #meme-create .kineticjs-content {
+      pointer-events: none; }
+    .body.wwdmm.player #meme-create #meme-text {
+      padding-top: 15px; }
+      .body.wwdmm.player #meme-create #meme-text input {
+        padding: 5px;
+        margin-bottom: 5px; }
+  .body.wwdmm.player #meme-created {
+    min-height: 200px;
+    border: 10px solid #fed34f;
+    width: 30%;
+    margin: 40px auto;
+    background: white;
+    color: #21b7f0;
+    position: absolute;
+    top: 0; }
+    @media (max-width: 426px) {
+      .body.wwdmm.player #meme-created {
+        border-right: none;
+        border-left: none;
+        width: 100%; } }
+  .body.wwdmm.player #meme-voting .glide__arrows {
+    top: 35%; }
+  .body.wwdmm.player #meme-voting .glide__bullets {
+    position: static; }
+  .body.wwdmm.player #meme-voting .meme {
+    position: relative;
+    width: 100%;
+    min-height: 400px; }
+  .body.wwdmm.player #meme-voting .meme-text {
+    display: inline-block;
+    color: white;
+    font-family: Impact, 'Impact-External';
+    font-size: 16pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center; }
+  .body.wwdmm.player #meme-voting .meme-canvas {
     pointer-events: none; }
-  .body.wwdmm.player #meme-create .kineticjs-content {
+  .body.wwdmm.player #meme-voting .kineticjs-content {
     pointer-events: none; }
-  .body.wwdmm.player #meme-create #meme-text {
-    padding-top: 15px; }
-    .body.wwdmm.player #meme-create #meme-text input {
-      padding: 5px;
-      margin-bottom: 5px; }
-
-.body.wwdmm.player #meme-created {
-  min-height: 200px;
-  border: 10px solid #fed34f;
-  width: 30%;
-  margin: 40px auto;
-  background: white;
-  color: #21b7f0; }
-  @media (max-width: 426px) {
-    .body.wwdmm.player #meme-created {
-      border-right: none;
-      border-left: none;
-      width: 100%; } }
-
-.body.wwdmm.player #meme-voting .glide__arrows {
-  top: 35%; }
-
-.body.wwdmm.player #meme-voting .glide__bullets {
-  position: static; }
-
-.body.wwdmm.player #meme-voting .meme {
-  position: relative;
-  width: 100%;
-  min-height: 400px; }
-
-.body.wwdmm.player #meme-voting .meme-text {
-  display: inline-block;
-  color: white;
-  font-family: Impact, 'Impact-External';
-  font-size: 16pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center; }
-
-.body.wwdmm.player #meme-voting .meme-canvas {
-  pointer-events: none; }
-
-.body.wwdmm.player #meme-voting .kineticjs-content {
-  pointer-events: none; }
-
-.body.wwdmm.player #meme-voting .text-upper {
-  top: 4%; }
-
-.body.wwdmm.player #meme-voting .text-lower {
-  position: relative;
-  left: -50%; }
-
-.body.wwdmm.player #meme-voting #text-lower-wrapper {
-  position: absolute;
-  left: 50%;
-  bottom: 4%;
-  width: 100%; }
+  .body.wwdmm.player #meme-voting .text-upper {
+    top: 4%; }
+  .body.wwdmm.player #meme-voting .text-lower {
+    position: relative;
+    left: -50%; }
+  .body.wwdmm.player #meme-voting #text-lower-wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    width: 100%; }
+  .body.wwdmm.player #meme-voting #wrapper {
+    height: 100%; }
 
 html, body {
   max-height: 100%;

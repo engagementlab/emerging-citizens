@@ -272,8 +272,25 @@ var gameEvents = function(eventId, eventData) {
 
         $('html, body').animate({scrollTop:0}, '500', 'swing');
 
+
+
         // Clear the temp workspace
         $(workspace).empty();
+
+
+        // console.log($('#article'));
+
+        // var myScroll = new IScroll('#article', {
+        //     mouseWheel: true,
+        //     scrollbars: true, 
+        //     disableMouse: false, 
+        //     disableTouch: false,
+        //     disablePointer: false,
+        //     bindToWrapper: true, 
+        //     click: true
+        // });
+
+        // console.log(myScroll.options, "valid article");
         
         loadToggle(false, true);
 
@@ -401,9 +418,12 @@ var gameEvents = function(eventId, eventData) {
                     $('#wiki-article').fadeIn();
                 });
 
+
                 playerSubmitted = true;
 
             }
+
+            
 
             break;
 
