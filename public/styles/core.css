@@ -350,6 +350,7 @@ body.landing #nav-close-wrapper {
   margin: 0px; }
 
 #game-menu {
+  z-index: 1000;
   position: absolute;
   top: 40px; }
   #game-menu #nav-dropdown {

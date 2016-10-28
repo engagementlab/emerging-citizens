@@ -47,7 +47,7 @@ $(document).ready(function() {
 {{/ifnoteq}}
 
 // Tap away any errors
-$(document).on('click touchstart', 'div.error', function() {
+$(document).on('click touch', 'div.error', function() {
     $(this).hide();
     console.log("error tap away player logic");
 });

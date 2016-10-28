@@ -48,6 +48,7 @@ body.landing {
 }
 
 #game-menu {
+	z-index: 1000;
 	position: absolute;
 	top: 40px;
 	#nav-dropdown{
