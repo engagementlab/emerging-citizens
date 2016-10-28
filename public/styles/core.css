@@ -964,7 +964,9 @@ body.landing #nav-close-wrapper {
       color: #999999;
       padding: 5%;
       margin: 4% auto;
-      width: 100%; }
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%; }
       .landing .game-about .content .learning-guide h2 {
         color: #36d5d9; }
   .landing .game-about#wwdmm-page .blurb {
