@@ -70,6 +70,9 @@
 .coming-soon-plans {
     font-size: 5em;
     color: darken($color-gray, 30%);
+    h2 {
+        font-size: 30px;
+    }
 }
 // CATEGORIES 
 body.newgame {
