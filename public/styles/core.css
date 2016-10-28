@@ -2971,6 +2971,7 @@ body {
 
 .col-centered {
   float: none;
+  display: inline-block;
   margin: 0 auto; }
 
 @media only screen and (max-width: 1024px) {
