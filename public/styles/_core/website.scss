@@ -42,6 +42,10 @@
         width: 80%;
         font-size: 2em;
         margin: 40px auto;
+
+        @include mobile-landscape-and-below {
+            font-size: .8em;
+        }
     }
     .bottom-title {
         margin-bottom: 10%;
@@ -56,6 +60,9 @@
                     text-align: center;
                 }
             }
+        }
+        img {
+            width: 100%;
         }
     }
 }
