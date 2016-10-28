@@ -55,7 +55,7 @@ module.exports = function(frameworkDir) {
 		keystoneInst.set('static options', {
 			'setHeaders': function(res, path) {
 		    res.header("Access-Control-Allow-Origin", "https://ecplay.org");
-		    res.header('Access-Control-Allow-Methods', 'GET');
+		    res.header('Access-Control-Allow-Methods', 'GET, POST');
 		    res.header("Access-Control-Allow-Headers", "X-Requested-With");
 		  }
 		});
