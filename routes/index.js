@@ -26,6 +26,16 @@ var routes = {
 exports = module.exports = function(app) {
 
     app.all('/*', keystone.middleware.cors);
+    
+    if(process.env.NODE_ENV === 'production') {
+        app.all('/*', function(req, res, next) {
+            res.header("Access-Control-Allow-Origin", "https://ecplay.org");
+            res.header('Access-Control-Allow-Methods', 'GET, POST');
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            
+            next();
+        });
+    }
 
     // Views
     app.get('/', routes.views.index);
