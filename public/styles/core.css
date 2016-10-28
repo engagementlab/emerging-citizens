@@ -750,12 +750,12 @@ body.landing #nav-close-wrapper {
         width: 50%; } }
 
 #credits ul {
-  -moz-columns: 3;
   list-style-type: none; }
   @media only screen and (min-width: 481px) {
     #credits ul {
       columns: 3;
-      -webkit-columns: 3; } }
+      -webkit-columns: 3;
+      -moz-columns: 3; } }
   #credits ul li {
     padding-bottom: 2%; }
 
@@ -961,9 +961,6 @@ body.landing #nav-close-wrapper {
       width: 100%; }
       .landing .game-about .content .learning-guide h2 {
         color: #36d5d9; }
-      .landing .game-about .content .learning-guide .col-sm-6 {
-        padding: 1%;
-        text-align: left; }
   .landing .game-about#wwdmm-page .blurb {
     color: #36d5d9; }
   .landing .game-about#wikigeeks-page .blurb {
