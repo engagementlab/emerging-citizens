@@ -63,6 +63,7 @@ body {
 // Center any column, yay!
 .col-centered {
   float: none;
+  display: inline-block;
   margin: 0 auto;
 }
 .col-centered-md {

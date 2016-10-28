@@ -29,7 +29,7 @@
     {{!-- {{jsonPrint this}} --}}
         <section id="hashtag-submissions" class="col-sm-12">
 
-            <div class="col-sm-3 leftmost">
+            <div class="col-sm-4 leftmost col-centered">
             
                 {{#each this.[hashtags]}}
                 
@@ -37,9 +37,8 @@
                         <span class="octothorp">#</span>{{{limit this 20}}}
                     </div>
 
-                   {{#ifeq @index 2}}</div><div class="col-sm-3 left">{{/ifeq}}
-                   {{#ifeq @index 5}}</div><div class="col-sm-3 right">{{/ifeq}}
-                   {{#ifeq @index 7}}</div><div class="col-sm-3 rightmost">{{/ifeq}}
+                   {{#ifeq @index 2}}</div><div class="col-sm-4 left col-centered">{{/ifeq}}
+                   {{#ifeq @index 5}}</div><div class="col-sm-4 right col-centered">{{/ifeq}}
                 {{/each}}
             </div>
             
