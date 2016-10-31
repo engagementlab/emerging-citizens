@@ -198,7 +198,7 @@ socketEvents = function(eventId, eventData) {
 };
 
 // Get events script for the game type logged in to
-$.getScript( '/{{#ifnoteq environment "development"}}release{{else}}js{{/ifnoteq}}/events/group/{{gameType}}.js' )
+$.getScript( '{{#ifnoteq environment "development"}}https://emergingcitizens.org/release{{else}}/js{{/ifnoteq}}/events/group/{{gameType}}.js' )
     .done(function( script, textStatus ) {
         var startBtn = $('#btn-start-game');
         startAnim.from(startBtn, 1, {scale:0, autoAlpha:0, ease:Elastic.easeOut});

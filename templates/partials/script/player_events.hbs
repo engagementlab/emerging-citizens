@@ -168,7 +168,7 @@ socketEvents = function(eventId, eventData) {
                 
             // Send player back to login after 5s
             setTimeout(function() {
-                window.location = window.location;
+                window.location = {{#ifnoteq environment "development"}}https://ecplay.org/{{else}}window.location{{/ifnoteq}};
             }, 5000);
 
             document.title = 'Game ended!';

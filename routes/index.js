@@ -30,10 +30,15 @@ exports = module.exports = function(app) {
     if(process.env.NODE_ENV === 'production') {
         app.all('/*', function(req, res, next) {
             res.header("Access-Control-Allow-Origin", "https://ecplay.org");
-            res.header('Access-Control-Allow-Methods', 'GET, POST');
-            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, HEAD, PUT');
+            res.header('Access-Control-Expose-Headers', 'Content-Length');
+            res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method");
             
-            next();
+            if(req.method === 'OPTIONS')
+                res.send(200);
+            else
+                next();
+
         });
     }
 
