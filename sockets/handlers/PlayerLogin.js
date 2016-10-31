@@ -133,8 +133,13 @@ var PlayerLogin = function (nsp, socket, emitter) {
         Session.Get(package.gameId).PlayerReady(player, currentSocket);
 
       }
-      else
+      else {
         logger.info('login:active', 'Player "' + package.uid + '" not active.');
+        
+        Templates.Load('partials/player/playerinactive', undefined, function(html) {
+          currentSocket.emit('player:inactive', html);
+        });
+      }
       
     },
 

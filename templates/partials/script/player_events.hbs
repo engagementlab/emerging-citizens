@@ -60,6 +60,15 @@ socketEvents = function(eventId, eventData) {
     switch (eventId) {
 
         case 'connect':
+            
+            if(sessionStorage.getItem('gameCode')) {
+                // Check if player is active in game
+                socket.emit('login:active', {
+                  gameId: sessionStorage.getItem('gameCode'), 
+                  username: sessionStorage.getItem('username'),
+                  uid: sessionStorage.getItem('uUID')
+                });
+            }
 
             // Connected, let's sign-up for to receive messages for this room
             socket.emit('room', emitData('player'));
@@ -157,6 +166,7 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'player:inactive':
         case 'game:ended':
 
             gameEnded = true;

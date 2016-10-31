@@ -167,13 +167,6 @@ var checkIfLoggedIn = function() {
         registerEvents();
     }
 
-    // Check if player is active in game
-    socket.emit('login:active', {
-      gameId: sessionStorage.getItem('gameCode'), 
-      username: sessionStorage.getItem('username'),
-      uid: sessionStorage.getItem('uUID')
-    });
-
 }
 
 /* 

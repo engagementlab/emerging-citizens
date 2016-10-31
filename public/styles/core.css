@@ -293,12 +293,9 @@ body.player .voting-button {
 
 body.player .generic-game-message {
   font-size: 2em;
-  color: #ff9971;
-  background-color: white;
-  padding: 3%;
-  -webkit-box-shadow: 6px 7px 10px #C7C6C6;
-  -moz-box-shadow: 6px 7px 10px #C7C6C6;
-  box-shadow: 6px 7px 10px #C7C6C6; }
+  color: black;
+  background-color: #e6e6e6;
+  padding: 3%; }
 
 body.player body .player-form {
   padding: 3%; }

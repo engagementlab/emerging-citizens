@@ -192,11 +192,11 @@ body.player {
 	.generic-game-message {
 		
 	  font-size: 2em;
-		color: $color-peach;
-		background-color: white;
+		color: black;
+		background-color: $color-gray;
 		padding: 3%;
 
-	  @include box-shadow(6px, 7px, 10px, #C7C6C6);
+	  // @include box-shadow(6px, 7px, 10px, #C7C6C6);
 
 	}
 
@@ -209,7 +209,6 @@ body.player {
 		position: fixed;
 		bottom: 0;
 		right: 0;
-		// height: 100px;
 		background-color: white;
 
 		button {
