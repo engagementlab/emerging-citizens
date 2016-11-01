@@ -2235,7 +2235,8 @@ body.newgame.wwdmm .button_text {
       background-clip: padding-box;
       color: #fff5a3; }
   .body.wwdmm.group #voting-container .meme-canvas {
-    width: 339px;
+    display: inline-block;
+    width: 340px;
     height: 340px;
     border: solid 20px white; }
   .body.wwdmm.group #results-container {
@@ -2421,7 +2422,6 @@ body.newgame.wwdmm .button_text {
     position: relative;
     display: inline-table; }
     .body.wwdmm.group .players-grid.row .player-background .player-static {
-      margin: 10px;
       height: 80%;
       position: relative; }
       .body.wwdmm.group .players-grid.row .player-background .player-static .icon {
@@ -2871,8 +2871,10 @@ body.newgame.wwdmm .button_text {
   .body.wwdmm.player #btns-submit input {
     margin: 0 auto; }
   .body.wwdmm.player #meme-create {
-    margin-bottom: -200px;
     min-height: 100%;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: -200px;
     float: none;
     padding-top: 3%; }
     @media (max-width: 425px) {

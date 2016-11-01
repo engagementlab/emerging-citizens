@@ -127,8 +127,12 @@
   }
 
   #meme-create {
-  	margin-bottom: -200px;
+  	
   	min-height:100%;
+  	width: 30%;
+  	left: 35%;
+  	margin: 0 auto;
+  	margin-bottom: -200px;
   	float: none;
   	padding-top: 3%;
   	@media(max-width:425px) {

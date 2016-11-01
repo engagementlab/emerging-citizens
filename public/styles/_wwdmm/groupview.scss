@@ -190,7 +190,8 @@
 
 
 		.meme-canvas {
-			width: 339px;
+			display: inline-block;
+			width: 340px;
 			height: 340px;
 			border: solid 20px white;
 			// margin: 5px auto;
@@ -487,7 +488,7 @@
 
 			.player-static {
 				
-				margin: 10px;
+				// margin: 10px;
 				height: 80%;
 				position: relative;
 
