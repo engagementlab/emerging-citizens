@@ -156,6 +156,10 @@
              type: Types.Markdown,
              label: 'Byline'
          },
+         categoryBlurb: {
+             type: Types.Markdown,
+             label: 'Instructions for choosing content categories'
+         },
          lessonPlanBlurb: {
              type: Types.Markdown,
              label: 'Lesson Plan Blurb'
