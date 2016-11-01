@@ -226,18 +226,15 @@ var gameEvents = function(eventId, eventData) {
             
             loadToggle(false, true);
 
-          
           break;
 
         case 'meme:received': 
 
-
-
-            
-            if (eventData.random == true){
-              console.log ("the meme was recieved");
+            if (eventData.random == true)
               sessionStorage.setItem('playerSubmission', eventData.player);
-            } else {
+            
+            else {
+           
               $('#meme-create').fadeOut(function() {
                 $('#meme-created').fadeIn();
               });
@@ -248,15 +245,11 @@ var gameEvents = function(eventId, eventData) {
 
             }
 
-            
-
             break;            
 
         case 'meme:voting':
 
             var voteId = 0;
-
-            console.log(sessionStorage.getItem('playerSubmission'));
 
             updateGameContent(eventData, function() {
 

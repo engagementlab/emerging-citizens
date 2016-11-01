@@ -6,10 +6,10 @@
         {{#if ../active}}
 
             <div class="player-background hidden-el">
-                <div class="player-static">
+                <div class="player-static" data-id="{{uid}}">
                     <div class="icon active">
                     {{#if ../../left}}
-                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" />
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" />
                     {{else}}
                         <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" />
                     {{/if}}
@@ -25,7 +25,7 @@
         {{else}}
 
             <div class="player-background hidden-el">
-                <div class="player-static">
+                <div class="player-static" data-id="{{uid}}">
                     <div class="icon">
                     {{#if ../../left}}
                         <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" />

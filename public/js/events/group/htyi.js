@@ -72,8 +72,7 @@ var gameEvents = function(eventId, eventData) {
 
     case 'hashtag:success':
 
-      var staticPlayers = $('.player-static');
-      var submitter = staticPlayers[eventData.index];
+      var submitter = $('.player-static[data-id="' + eventData.id + '"]');
 
       // Set player who submitted to 'active' state in player grid
       $(submitter).addClass('active');
@@ -84,6 +83,12 @@ var gameEvents = function(eventId, eventData) {
     case 'hashtags:received':
 
       updateGameContent(eventData, function() {
+        // Make icons inactive
+        $('.player-background .icon').removeClass('active');
+
+        // Show players
+        new TimelineLite()
+        .staggerFrom(_.shuffle($('.player-background')), 2, {scale:0, autoAlpha:0, ease:Elastic.easeOut}, .1);
      
         //instantiate a TimelineLite for hashtags received animation
         var hashtagsVoteAnim = new TimelineLite({ paused:true });
@@ -101,21 +106,20 @@ var gameEvents = function(eventId, eventData) {
 
       break;
 
-    case 'hashtag:voted':
+    /*case 'hashtag:voted':
 
-      var staticPlayers = $('.player-static');
-        var finishedPlayers = _.pluck(_.where(eventData, {voted:true}), 'username');
+      var finishedPlayerIds = eventData;
 
-        _.each(finishedPlayers, function(name, index) {
+      _.each(finishedPlayerIds, function(id, index) {
 
-            var nameFormatted = (name.length <= 15) ? name : name.substring(0, 15) + "...";
+        debugger;
 
-            $(staticPlayers[index]).children('.icon').addClass('active');
-            $(staticPlayers[index]).children('.nameplate').addClass('active').text(nameFormatted);
+          var staticPlayer = $('.player-static[data-id="' + id + '"]');
+          $(staticPlayer).find('.icon').addClass('active');
 
-        });
+      });
 
-      break;
+      break;*/
 
     case 'hashtags:results':
 
