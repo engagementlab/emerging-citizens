@@ -24,7 +24,7 @@
 
                             {{else}}
 
-                                <div class="section creatorWrapper" data-cycle-fx="flipHorz" data-cycle-speed="1200" data-cycle-timeout="1000" data-cycle-loop="1" data-cycle-slides=".creator"> 
+                                <div class="section creatorWrapper" style="display:none" data-cycle-fx="flipHorz" data-cycle-speed="1200" data-cycle-timeout="1000" data-cycle-loop="1" data-cycle-slides=".creator"> 
                                     {{#each submitters}}
                                         {{> group/player_badge user=this avatar_ind=this.index creator=true }}
                                     

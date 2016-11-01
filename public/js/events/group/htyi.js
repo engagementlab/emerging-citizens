@@ -140,16 +140,17 @@ var gameEvents = function(eventId, eventData) {
 
             creators = $(el).find('.creator');
             creatorWrapper = $(el).find('.creatorWrapper');
+            console.log(creatorWrapper);
+            // creatorWrapper.hide();
             num = creators.size();
 
             hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
-            
             .staggerFrom($(el).find('.voter'), 2, {scale:0, opacity:1, ease:Elastic.easeOut, onStart: function() {
 
                 ion.sound.play("button_tiny");
 
             }}, 2, '+=0.5')
-            .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1}, {scale: 1, opacity: 1, autoAlpha:1}, 1, '+=2.5');
+            .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1, display: 'none'}, {scale: 1, opacity: 1, autoAlpha:1, display:'block'}, '+=0.5');
 
             if (num > 1) {
                 hashtagsAnim
