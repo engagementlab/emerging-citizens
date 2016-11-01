@@ -6,7 +6,7 @@
         {{#if ../active}}
 
             <div class="player-background">
-                <div class="player-static">
+                <div class="player-static" data-id="{{uid}}">
                     <div class="icon active">
                         {{#if ../../left}}
                         <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{sum @index 4}}.png" />
@@ -33,7 +33,7 @@
         {{else}}
 
             <div class="player-background">
-                <div class="player-static">
+                <div class="player-static" data-id="{{uid}}">
                     <div class="icon">
                         {{#if ../../left}}
                             <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{sum @index 4}}.png" />

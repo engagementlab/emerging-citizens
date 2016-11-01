@@ -157,13 +157,19 @@ var gameEvents = function(eventId, eventData) {
 
     case 'meme:received':
 
-      var staticPlayers = $('.player-static');
-      var submitter = staticPlayers[eventData.index];
+      var submitter = $('.player-static[data-id="' + eventData.id + '"]');
 
       // Set player who submitted to 'active' state in player grid
       $(submitter).addClass('active');
-      $(submitter).find('.nameplate').css('opacity', '1').addClass('active');
       $(submitter).find('.icon').addClass('active');
+
+      // var staticPlayers = $('.player-static');
+      // var submitter = staticPlayers[eventData.index];
+
+      // // Set player who submitted to 'active' state in player grid
+      // $(submitter).addClass('active');
+      // $(submitter).find('.nameplate').css('opacity', '1').addClass('active');
+      // $(submitter).find('.icon').addClass('active');
 
       break;
 
@@ -267,10 +273,6 @@ var gameEvents = function(eventId, eventData) {
             .staggerFrom($(el).find('.votes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:360, ease:Elastic.easeOut}, 1, '+=.4')
 
             .from($(el).find('.name.submitter'), 1, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=2')
-
-            // .from($(el).find('.likes-box'), .5, {y:100, scale: 0, autoAlpha:0, ease:Ease.easeOut}, '+=.5')
-            // .staggerFrom($(el).find('.likes-box .vote'), .3, {scale: 0, autoAlpha:0, ease:Bounce.easeOut}, .3, '+=.4')
-            // .staggerFrom($(el).find('.likes-box .vote .score'), 1, {scale: 0, autoAlpha:0, rotation:-180, ease:Elastic.easeOut}, 1, '+=.4')
 
             .to(el, 1, {y:0, scale: 0, autoAlpha:0, display:'none', ease:Ease.easeIn}, '+=4');
 
