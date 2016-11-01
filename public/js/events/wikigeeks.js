@@ -532,7 +532,7 @@ var gameEvents = function(eventId, eventData) {
             }
 
             if (playerSubmitted === false){
-                $('.form .error').text(eventData + "If you haven't found a starting article soon, we will choose one for you..");
+                $('.form .error').text(eventData + "15 seconds left! <br> If you haven't found a starting article soon, we will choose one for you..");
                 bounce();
             }
             

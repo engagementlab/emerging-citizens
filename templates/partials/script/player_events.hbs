@@ -159,6 +159,15 @@ socketEvents = function(eventId, eventData) {
 
             break;
 
+        case 'game:error':
+            $('#loading-modal').hide();
+            $('.form input').removeAttr('disabled');
+            $('.form input').removeClass('hidden-el');
+            $('.form .error').text(eventData);
+            $('.form .error').show();
+
+            break;
+
         case 'game:ending':
 
             $('#error-box').text(eventData);
@@ -220,6 +229,8 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_ending':
+
+            console.log(eventData);
 
             $('.form .error').fadeIn().html(eventData);
 

@@ -77,9 +77,17 @@ var PlayerLogin = function (nsp, socket, emitter) {
     
     'login:submit': function(package) {
 
+
       // Handle server load testing where no uid sent
       if(!package.msgData.uid)
         package.msgData.uid = Math.floor(Math.pow(10, 10-1) + Math.random() * (Math.pow(10, 10) - Math.pow(10, 10-1) - 1));
+
+
+      if (Session.Get(package.gameId).IsFull()) {
+        console.log("game is full");
+        currentSocket.emit('game:error', "Uh oh! Looks like this game is full...");
+        return;
+      }
 
       var player = {socket_id: currentSocket.id, username: package.msgData.username, uid: package.msgData.uid};
 
