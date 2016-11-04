@@ -44,9 +44,9 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:start':
 
-            var contentHeight = window.screen.innerHeight;
-            var contentWidth = window.screen.innerWidth;
-            console.log(contentHeight);
+            var contentHeight = window.screen.height;
+            var contentWidth = window.screen.width;
+            console.log(contentHeight, contentWidth);
 
             $('.header').fadeIn();
 
@@ -75,7 +75,7 @@ var gameEvents = function(eventId, eventData) {
                 
               }
 
-              var dimensions = (window.innerWidth >= 400) ? 400 : memeHeight;
+              var dimensions = (window.innerWidth >= 400) ? memeHeight : memeHeight;
 
               // Do not allow player to submit more than once
               if(sessionStorage.getItem('playerSubmission')) {
@@ -111,7 +111,7 @@ var gameEvents = function(eventId, eventData) {
           
               var canvas = new Kinetic.Stage({
                   container: 'meme-canvas',
-                  width: dimensions,
+                  width: memeHeight,
                   height: memeHeight
               }),
               layer = new Kinetic.Layer();
@@ -151,11 +151,14 @@ var gameEvents = function(eventId, eventData) {
                   var caption = (txtElement.attr('id') === 'text-upper') ? upperCaption : lowerCaption;
 
                   caption.setText(txtElement.val().toUpperCase());
-                  caption.fontSize(getFontSize(txtElement.val()));
+                  caption.fontSize(getFontSize(txtElement.val()) * 0.8);
+                  
 
                   lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
 
                   layer.draw();
+
+                  var fontsize = getFontSize(txtElement.val() * 0.8);
               
               }
 
@@ -167,7 +170,7 @@ var gameEvents = function(eventId, eventData) {
                       imgInstance = new Kinetic.Image({
                                       x: 0,
                                       y: 0,
-                                      width: canvas.getWidth(),
+                                      width: canvas.getHeight(),
                                       height: canvas.getHeight(),
                                       image: imgElement
                                     });
@@ -207,7 +210,7 @@ var gameEvents = function(eventId, eventData) {
 
               // Mobile keyboard workaround
               $('#btn-submit').on('touchend', function(evt) {
-                $('#btn-submit').submit()
+                $('#btn-submit').submit();
               });
 
               // Write text to canvas as player types
@@ -236,6 +239,7 @@ var gameEvents = function(eventId, eventData) {
             else {
            
               $('#meme-create').fadeOut(function() {
+                $('#meme-create').parent('.form').css('display', 'none');
                 $('#meme-created').fadeIn();
               });
 
@@ -290,6 +294,8 @@ var gameEvents = function(eventId, eventData) {
                       lowerText = $(meme).data().lower ? $(meme).data().lower.toString().toUpperCase() : '',
                       dimensions = (window.innerWidth >= 400) ? 400 : memeHeight;
 
+                  // caption.fontSize(getFontSize(txtElement.val()) * 0.8);
+
                   // Create meme canvas, render layer, captions, and image
                   var canvas = new Kinetic.Stage({
                       container: $(meme)[0],
@@ -342,8 +348,8 @@ var gameEvents = function(eventId, eventData) {
                     layer.add(lowerCaption);
 
                     // Set caption font sizing and lower caption position
-                    upperCaption.fontSize(getFontSize(upperText));
-                    lowerCaption.fontSize(getFontSize(lowerText));
+                    upperCaption.fontSize(getFontSize(upperText) * 0.8);
+                    lowerCaption.fontSize(getFontSize(lowerText) * 0.8);
 
                     lowerCaption.setY(canvas.getHeight() - lowerCaption.getHeight() - 40);
 

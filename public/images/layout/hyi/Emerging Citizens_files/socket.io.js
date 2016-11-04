@@ -81,7 +81,7 @@ function Socket(uri, opts){
 
   this.agent = opts.agent || false;
   this.hostname = opts.hostname ||
-    (global.location ? location.hostname : 'localhost');
+    (global.location ? location.hostname : '199.94.86.79');
   this.port = opts.port || (global.location && location.port ?
        location.port :
        (this.secure ? 443 : 80));
@@ -4391,6 +4391,7 @@ function Manager(uri, opts){
     jitter: this.randomizationFactor()
   });
   this.timeout(null == opts.timeout ? 20000 : opts.timeout);
+  // console.log(opts.timeout);
   this.readyState = 'closed';
   this.uri = uri;
   this.connecting = [];

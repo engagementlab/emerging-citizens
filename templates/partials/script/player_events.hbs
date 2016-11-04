@@ -77,7 +77,7 @@ socketEvents = function(eventId, eventData) {
 
         case 'disconnect':
 
-            // console.log('--- Server disconnect: %s ---', eventData);
+            console.log('--- Server disconnect: %s ---', eventData);
 
             if(gameEnded)
                 return;
@@ -123,6 +123,7 @@ socketEvents = function(eventId, eventData) {
             });
 
             sessionStorage.setItem('gameType', eventData.gameType);
+            sessionStorage.setItem('gameCode', eventData.gameCode);
             sessionStorage.setItem('reconnected', false);
 
             getScript(sessionStorage.gameType);

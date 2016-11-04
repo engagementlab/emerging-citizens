@@ -2872,7 +2872,6 @@ body.newgame.wwdmm .button_text {
     margin: 0 auto; }
   .body.wwdmm.player #meme-create {
     min-height: 100%;
-    width: 30%;
     margin: 0 auto;
     margin-bottom: -200px;
     float: none;
@@ -2897,9 +2896,10 @@ body.newgame.wwdmm .button_text {
     border: 10px solid #fed34f;
     margin: 40px auto;
     padding: 10px;
+    width: 60%;
     background: white;
     color: #21b7f0;
-    position: absolute;
+    position: relative;
     top: 0; }
     @media (max-width: 426px) {
       .body.wwdmm.player #meme-created {

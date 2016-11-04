@@ -93,6 +93,7 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
       // Mark player as ready inside game session
       var session = Session.Get(package.gameId);
+      // console.log(session);
       if(session) session.PlayerReady(player, currentSpace);
       else return;
 
@@ -107,7 +108,8 @@ var PlayerLogin = function (nsp, socket, emitter) {
         var data = {
                     id: currentSocket.id,
                     html: html,
-                    gameType: Session.Get(package.gameId).GetGameType()
+                    gameType: Session.Get(package.gameId).GetGameType(), 
+                    gameCode: package.gameId
                    };
 
         currentSocket.emit('player:loggedin', data);
@@ -153,9 +155,11 @@ var PlayerLogin = function (nsp, socket, emitter) {
 
     disconnect: function(package) {
 
+      // console.log(package);
+
       var session = Session.Get(playerGameId);
 
-      logger.info(playerGameId + " lost.");
+      logger.info(playerGameId + " lost because of " + package);
 
       if(!session)
         return;

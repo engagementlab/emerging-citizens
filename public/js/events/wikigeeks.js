@@ -92,6 +92,8 @@ var gameEvents = function(eventId, eventData) {
                     if (articleData.parse.redirects.length !== 0)
                         articleTitle = articleData.parse.redirects[0].to;
 
+                    console.log(articleTitle);
+
                     displayWikiContent(articleData);
 
                     // Tell server about this article being chosen by player, unless overriden

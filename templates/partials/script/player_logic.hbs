@@ -29,7 +29,7 @@ $(document).ready(function() {
 {{#ifnoteq environment "production"}}
 {{#ifnoteq environment "development"}}
     {{!-- Smartlook integration --}}
-    window.smartlook||(function(d) {
+   {{!--  window.smartlook||(function(d) {
         var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
         var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
         c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
@@ -42,7 +42,7 @@ $(document).ready(function() {
       (e || window.event).returnValue = null;
       return null;
 
-    });
+    }); --}}
 {{/ifnoteq}}
 {{/ifnoteq}}
 
@@ -90,6 +90,7 @@ var playerLogin = function(data) {
 
     playerName = $('#player_name').val();
     sessionStorage.setItem('username', playerName);
+    {{!-- sessionStorage.setItem('gameCode', gameCode); --}}
 
     // Log player in
     socket.emit('login:submit', emitData({username: playerName, uid: data.uid}));
@@ -252,7 +253,10 @@ $(document).on('click', '.btn.game_login', function(evt) {
 });
 
 // Check if this client is logged in on server
-checkIfLoggedIn();
+window.onload = checkIfLoggedIn();{{!--  {
+console.log("checking");
+    checkIfLoggedIn();
+}; --}}
 
 // Load events for players
 {{> script/player_events gameType=gameType}}
