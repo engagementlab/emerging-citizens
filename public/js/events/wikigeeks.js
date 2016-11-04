@@ -527,8 +527,8 @@ var gameEvents = function(eventId, eventData) {
                 $('.form .error').velocity({scale:1.05}, {duration:500, loop: 1, complete: bounce}, 'easeOutElastic', 5);
             }
         
-            if (sessionStorage.currentArticle !== undefined && playerWasReconnected) {
-                socket.emit('game:start', {
+            if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
+                socket.to(eventData.socket).emit('game:start', {
                     gameId: sessionStorage.gameCode
                 });
             }

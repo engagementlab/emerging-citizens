@@ -34,11 +34,12 @@ var gameEvents = function(eventId, eventData) {
 
             sessionStorage.setItem('voted', false);
 
-            if(sessionStorage.playerSubmission && playerWasReconnected) {
+            if(sessionStorage.playerSubmission && playerWasReconnected === true) {
                 gameEvents('hashtag:success', sessionStorage.playerSubmission);
+                playerWasReconnected = false;
                 return;
             }
-
+            
             $("#tweet_input").keydown(function(event) {
                 if(event.keyCode == 13)
                     $('#btn_submit').click();
@@ -101,8 +102,10 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-            if (sessionStorage.playerSubmission && playerWasReconnected === true)
-                socket.emit('game:start', {gameId: sessionStorage.gameCode});
+            if (sessionStorage.playerSubmission && playerWasReconnected === true){
+                socket.to(eventData.socket).emit('game:start', {gameId: sessionStorage.gameCode});
+                playerWasReconnected = false;
+            }
 
             break;
 
