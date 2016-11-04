@@ -277,12 +277,15 @@
 
 		margin-bottom: 4%;
 
+		left: 25%;
+
 		#real {
 			color: $color-neon-green;
 		}
 
 	}
 	#hashtag-submissions {
+		padding-top:5%;
 		
 		.hashtag {
 			font-size: x-large;
@@ -320,12 +323,14 @@
 		.creatorWrapper {
 			position: absolute;
 			transform: translate(-200px, -60px);
+			
 			// transform: scale(0.8);
 
 			
 		}
 		.creator{
 				position: absolute;
+
 				
 			}
 

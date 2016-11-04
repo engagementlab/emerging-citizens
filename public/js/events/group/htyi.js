@@ -140,6 +140,7 @@ var gameEvents = function(eventId, eventData) {
 
             creators = $(el).find('.creator');
             creatorWrapper = $(el).find('.creatorWrapper');
+
             console.log(creatorWrapper);
             // creatorWrapper.hide();
             num = creators.size();
@@ -150,36 +151,47 @@ var gameEvents = function(eventId, eventData) {
                 ion.sound.play("button_tiny");
 
             }}, 2, '+=0.5')
-            .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1, display: 'none'}, {scale: 1, opacity: 1, autoAlpha:1, display:'block'}, '+=0.5');
-
+            .fromTo(creatorWrapper, 1, {scale:0, opacity:0, autoAlpha:0, delay: 1, display: 'none'}, {scale: 1, opacity: 1, autoAlpha:1, display:'block'}, '+=0.5')
+            .addLabel('creator');
             if (num > 1) {
+
                 hashtagsAnim
                 .add(function(){
-                  $(creatorWrapper).cycle();
-                  $(creatorWrapper).cycle('goto', 0);
-                  $(creatorWrapper).cycle("pause");                
-                }, 1, "+=0.5")
-                .add(function(){
-                  $(creatorWrapper).cycle("resume");
-                }, "-=0.5");
+                  $(el).find('.creatorWrapper').cycle({
+                    'loop': 1, 
+                    'slides': '.creator', 
+                    'delay': 200, 
+                    'paused': true, 
+                    'starting-slide': 0
+                    });
+                  $(el).find('.creatorWrapper').cycle('goto', 0);
+                  // $(creatorWrapper).cycle('reinit');
+                  console.log("cycling first");
+                  $(el).find('.creatorWrapper').cycle("pause");  
+                  $(el).find('.creatorWrapper').cycle("resume");              
+                },"creator")
+                // .add(function(){
+                //   // $(creatorWrapper).cycle("resume");
+                //   console.log("cyclingfirst");
+                // }, "creator");
                
 
-            }
-            
+            } 
+
             hashtagsAnim
             .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
-                .add(function(){
+            .add(function(){
 
-                  // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
-                  $(el).find('.voterWrapper').cycle();
-                  $(el).find('.voterWrapper').cycle('goto', 0);
-                  // $(el).find('.voterWrapper').cycle("pause");
-                  // $(el).find('.voterWrapper').cycle("next");
-                  // $(el).find('.voterWrapper').cycle("destroy");
-                  
-                  console.log("cycling");
-                }, "+=1.0")
-                .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
+              // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
+              $(el).find('.voterWrapper').cycle();
+              $(el).find('.voterWrapper').cycle('goto', 0);
+              // $(el).find('.voterWrapper').cycle("pause");
+              // $(el).find('.voterWrapper').cycle("next");
+              // $(el).find('.voterWrapper').cycle("destroy");
+              
+              console.log("cycling");
+            }, "+=1.0")
+            .to(el, 1, {delay: 3, y:250, autoAlpha:0, display:'none'});
 
         });
 

@@ -81,7 +81,7 @@ function Socket(uri, opts){
 
   this.agent = opts.agent || false;
   this.hostname = opts.hostname ||
-    (global.location ? location.hostname : '199.94.86.79');
+    (global.location ? location.hostname : 'localhost');
   this.port = opts.port || (global.location && location.port ?
        location.port :
        (this.secure ? 443 : 80));

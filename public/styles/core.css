@@ -1530,17 +1530,20 @@ body.newgame.wwdmm .button_text {
     padding-bottom: 2%;
     padding-left: 3%;
     padding-right: 3%;
-    margin-bottom: 4%; }
+    margin-bottom: 4%;
+    left: 25%; }
     .body.htyi #hashtag-submissions-prompt #real {
       color: #C8E646; }
-  .body.htyi #hashtag-submissions .hashtag {
-    font-size: x-large;
-    background-color: white;
-    padding: 10px;
-    margin: 0px 20px 20px 20px; }
-    .body.htyi #hashtag-submissions .hashtag .octothorp {
-      margin-top: 3%;
-      font-size: x-large; }
+  .body.htyi #hashtag-submissions {
+    padding-top: 5%; }
+    .body.htyi #hashtag-submissions .hashtag {
+      font-size: x-large;
+      background-color: white;
+      padding: 10px;
+      margin: 0px 20px 20px 20px; }
+      .body.htyi #hashtag-submissions .hashtag .octothorp {
+        margin-top: 3%;
+        font-size: x-large; }
   .body.htyi #hashtag-results {
     margin-top: 11%; }
     .body.htyi #hashtag-results .hashtag {
@@ -3063,7 +3066,10 @@ body {
     .modal .tutorial #img {
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      height: 100%; }
+      .modal .tutorial #img img {
+        height: 100%; }
     .modal .tutorial #countdown, .modal .tutorial #continue {
       position: fixed !important;
       bottom: 10%;
