@@ -169,11 +169,7 @@ var gameEvents = function(eventId, eventData) {
                   console.log("cycling first");
                   $(el).find('.creatorWrapper').cycle("pause");  
                   $(el).find('.creatorWrapper').cycle("resume");              
-                },"creator")
-                // .add(function(){
-                //   // $(creatorWrapper).cycle("resume");
-                //   console.log("cyclingfirst");
-                // }, "creator");
+                },"creator");
                
 
             } 

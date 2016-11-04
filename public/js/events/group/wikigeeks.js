@@ -270,7 +270,8 @@ var gameEvents = function(eventId, eventData) {
               // Animate titles and path
               _.each(articleTitles, function(title, index) {
 
-                  
+                  var destination = $(title).find('g.last');
+                  // $(destination).css('opacity', 0.0);
 
                   topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1, onStart: function() {
 
@@ -294,29 +295,34 @@ var gameEvents = function(eventId, eventData) {
                       // Animate in "final article" splash
                       if (index == last-1) {
 
-                        var destination = $('g.last').find('.destination');
-                        $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 1,
-                           begin: function(elements) { 
-                              ion.sound.play("bell_wiki");
-                           }}
-                        );
+                        // $(destination).css('opacity', 1.0);
+                        $('g.last').show();
+                        // $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 1,
+                        //    begin: function(elements) { 
+                        //       ion.sound.play("bell_wiki");
+                        //    }}
+                        // );
                        
-                        $.each(destination, function (index, path) {
-                          $(path)
-                            .velocity({ 'stroke-dashoffset': 400 }, 0)
-                            .velocity({ 'stroke-dashoffset': 0 }, {duration: 500, delay: 1});
-                        });
+                        // $.each(destination, function (index, path) {
+                        //   $(path)
+                        //     .velocity({ 'stroke-dashoffset': 400 }, 0)
+                        //     .velocity({ 'stroke-dashoffset': 0 }, {duration: 500, delay: 1});
+                        // });
 
                       }
                                           
                   }});
+
+
+
+                  
               });
 
               // $('g.last').css('opacity','0');
 
 
               // Hide this player
-              topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5});
+              topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5, onStart: function() { $('g.last').hide(); }});
 
 
           });
