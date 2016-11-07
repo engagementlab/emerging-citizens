@@ -26,7 +26,9 @@ var resetSession = function() {
 
 var getScript = function(gameType) {
 
-    $.getScript( '{{#ifnoteq environment "development"}}https://emergingcitizens.org/release{{else}}/js{{/ifnoteq}}/events/' + gameType + '.js' )
+    {{#ifeq environment "production"}}$.getScript( 'https://emergingcitizens.org/release/events/' + gameType + '.js' ){{/ifeq}}
+    {{#ifeq environment "staging"}}$.getScript( '/release/events/' + gameType + '.js' ){{/ifeq}}
+    {{#ifeq environment "development"}}$.getScript( '/js/events/' + gameType + '.js' ){{/ifeq}}
         .done(function( script, textStatus ) {
             // If any event is waiting to be called, do it now
             if(cachedEventId) {                
@@ -161,6 +163,7 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:error':
+
             $('#loading-modal').hide();
             $('.form input').removeAttr('disabled');
             $('.form input').removeClass('hidden-el');
@@ -230,8 +233,6 @@ socketEvents = function(eventId, eventData) {
             break;
 
         case 'game:countdown_ending':
-
-            console.log(eventData);
 
             $('.form .error').fadeIn().html(eventData);
 
