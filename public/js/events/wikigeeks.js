@@ -526,15 +526,9 @@ var gameEvents = function(eventId, eventData) {
             function bounce() {
                 $('.form .error').velocity({scale:1.05}, {duration:500, loop: 1, complete: bounce}, 'easeOutElastic', 5);
             }
-        
-            if (sessionStorage.currentArticle !== undefined && playerWasReconnected === true) {
-                socket.to(eventData.socket).emit('game:start', {
-                    gameId: sessionStorage.gameCode
-                });
-            }
 
             if (playerSubmitted === false){
-                $('.form .error').text(eventData + "15 seconds left! <br> If you haven't found a starting article soon, we will choose one for you..");
+                $('.form .error').html("15 seconds left! <br> If you haven't found a starting article soon, we will choose one for you..");
                 bounce();
             }
             

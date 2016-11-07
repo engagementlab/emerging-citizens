@@ -145,6 +145,8 @@ socketEvents = function(eventId, eventData) {
 
             // Set local player state as reconnected
             sessionStorage.setItem('reconnected', true);
+
+            document.title = 'EC: ' + playerName;
             
             break;
 

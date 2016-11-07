@@ -106,7 +106,7 @@ var gameEvents = function(eventId, eventData) {
                 playerWasReconnected = false;
 
             if (!sessionStorage.playerSubmission){
-                $('.form .error').text(eventData + "15 seconds left, time is almost up!<br />If you can't come up with a hashtag, we will choose one for you...");
+                $('.form .error').html("15 seconds left, time is almost up!<br />If you can't come up with a hashtag, we will choose one for you...");
                 bounce();
             }
 

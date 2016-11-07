@@ -161,6 +161,7 @@ var checkIfLoggedIn = function() {
     $('#resuming').show();
 
     gameCode = sessionStorage.getItem('gameCode');
+    playerName = sessionStorage.getItem('username')
     
     // Open socket connection
     if(!socket) {
