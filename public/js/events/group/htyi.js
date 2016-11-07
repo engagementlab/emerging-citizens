@@ -141,8 +141,6 @@ var gameEvents = function(eventId, eventData) {
             creators = $(el).find('.creator');
             creatorWrapper = $(el).find('.creatorWrapper');
 
-            console.log(creatorWrapper);
-            // creatorWrapper.hide();
             num = creators.size();
 
             hashtagsAnim.from(el, 1, {y:0, autoAlpha:0, ease:Bounce.easeOut})
@@ -178,12 +176,8 @@ var gameEvents = function(eventId, eventData) {
             .staggerTo($(el).find('.voter .nameplate'), 0.2, { scale: 0, autoAlpha:0, display: 'none'}, 0.2, '+=0.5')
             .add(function(){
 
-              // $(el).find('.voterWrapper').attr("data-cycle-delay", 500);
               $(el).find('.voterWrapper').cycle();
               $(el).find('.voterWrapper').cycle('goto', 0);
-              // $(el).find('.voterWrapper').cycle("pause");
-              // $(el).find('.voterWrapper').cycle("next");
-              // $(el).find('.voterWrapper').cycle("destroy");
               
               console.log("cycling");
             }, "+=1.0")

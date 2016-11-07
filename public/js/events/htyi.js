@@ -102,13 +102,11 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
-            if (sessionStorage.playerSubmission && playerWasReconnected === true){
-                socket.to(eventData.socket).emit('game:start', {gameId: sessionStorage.gameCode});
+            if (sessionStorage.playerSubmission && playerWasReconnected === true)
                 playerWasReconnected = false;
-            }
 
             if (!sessionStorage.playerSubmission){
-                $('.form .error').text(eventData + "15 seconds left, time is almost up! <br> If you can't come up wiht a hashtag, we will choose one for you...");
+                $('.form .error').text(eventData + "15 seconds left, time is almost up!<br />If you can't come up with a hashtag, we will choose one for you...");
                 bounce();
             }
 
