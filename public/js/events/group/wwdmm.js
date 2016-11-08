@@ -162,6 +162,7 @@ var gameEvents = function(eventId, eventData) {
       // Set player who submitted to 'active' state in player grid
       $(submitter).addClass('active');
       $(submitter).find('.icon').addClass('active');
+      $(submitter).find('.nameplate').css('opacity', '1').addClass('active');
 
       // var staticPlayers = $('.player-static');
       // var submitter = staticPlayers[eventData.index];

@@ -102,6 +102,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'game:countdown_ending':
 
+        console.log (eventData.socket)
+
             if (sessionStorage.playerSubmission && playerWasReconnected === true){
                 socket.to(eventData.socket).emit('game:start', {gameId: sessionStorage.gameCode});
                 playerWasReconnected = false;
