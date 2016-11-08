@@ -180,12 +180,8 @@ var gameEvents = function(eventId, eventData) {
       break;
 
     case 'wiki:results':
-
-
         
         updateGameContent(eventData, function() {
-
-          // $('g.last').hide();
 
           var topPlayersAnim = new TimelineLite({paused: true, onComplete: function() { scoreAnimPlay(); } });
           var scoreAnim = new TimelineLite({paused: true, onComplete: function() { nextRound(); } });
@@ -220,8 +216,6 @@ var gameEvents = function(eventId, eventData) {
               .from($('#winners-circle'), 1.5, {scale:0.5, autoAlpha:0, ease:Bounce.easeOut})
               .staggerFromTo($('#winners-circle .user'), 1, { autoAlpha:0, scale:1, y:250}, {autoAlpha:1, scale: 1, y:0, ease:Bounce.easeOut}, 0.5, 'leadersShow+=3')
               .to($('#winners-circle'), 1, {autoAlpha:0, scale: 0}, 'leadersShow+=7');
-
-              
 
             }
             else {
@@ -258,11 +252,8 @@ var gameEvents = function(eventId, eventData) {
               var articleDots = $(player).find('.articleDot');
               var articleLines = $(player).find('.articleLine');
               var last = articleTitles.size();
-              console.log(last, " is the last");
 
               var flare = $(player).find('g.last');
-
-              console.log(flare);
 
               // Animate in each top player
               topPlayersAnim.from($(player), 2, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1});
@@ -271,7 +262,6 @@ var gameEvents = function(eventId, eventData) {
               _.each(articleTitles, function(title, index) {
 
                   var destination = $(title).find('g.last');
-                  // $(destination).css('opacity', 0.0);
 
                   topPlayersAnim.from($(title), .5, {autoAlpha:0, scale: 0, ease:Bounce.easeOut, delay: 1, onStart: function() {
 
@@ -290,26 +280,9 @@ var gameEvents = function(eventId, eventData) {
                       if(line.data())
                         line.velocity({x2: line.data().x2, y2: line.data().y2}, 500, [50, 10]);
 
-                      console.log(index);
-
                       // Animate in "final article" splash
-                      if (index == last-1) {
-
-                        // $(destination).css('opacity', 1.0);
+                      if (index == last-1)
                         $('g.last').show();
-                        // $('g.last').velocity({ opacity: 1 }, {duration: 500, delay: 1,
-                        //    begin: function(elements) { 
-                        //       ion.sound.play("bell_wiki");
-                        //    }}
-                        // );
-                       
-                        // $.each(destination, function (index, path) {
-                        //   $(path)
-                        //     .velocity({ 'stroke-dashoffset': 400 }, 0)
-                        //     .velocity({ 'stroke-dashoffset': 0 }, {duration: 500, delay: 1});
-                        // });
-
-                      }
                                           
                   }});
 
@@ -318,12 +291,8 @@ var gameEvents = function(eventId, eventData) {
                   
               });
 
-              // $('g.last').css('opacity','0');
-
-
               // Hide this player
               topPlayersAnim.to($(player), 1, {autoAlpha:0, scale: 0, display: 'none', ease:Bounce.easeOut, delay: 5, onStart: function() { $('g.last').hide(); }});
-
 
           });
 
