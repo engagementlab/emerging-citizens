@@ -10,6 +10,7 @@ var retrievingData;
 var random;
 var playerSubmitted = false;
 var playerFinished = false;
+var groupReady = sessionStorage.getItem('groupReady');
 var playerWasReconnected = (sessionStorage.getItem('reconnected') === 'true');
 
 if ($('.article-error').css('display') !== 'none') {
@@ -311,9 +312,16 @@ var gameEvents = function(eventId, eventData) {
 
             updateGameContent(eventData, function() {
 
-                if (sessionStorage.currentArticle && playerWasReconnected)
-                    retrieveArticle(sessionStorage.currentArticle, false, true);
-
+                if (sessionStorage.currentArticle && playerWasReconnected){
+                    console.log("there is a stored article and player was reconnected");
+                    if (groupReady){
+                        retrieveArticle(sessionStorage.currentArticle, true, false);
+                    } else {
+                        retrieveArticle(sessionStorage.currentArticle, true, false);
+                    }
+                    
+                }
+                
                 var articleInput = $('#article_input');
 
                 if (location.href.indexOf('debug') !== -1) {
@@ -420,11 +428,16 @@ var gameEvents = function(eventId, eventData) {
                     $('#wiki-article').fadeIn();
                 });
 
-
+                // sessionStorage.setItem('')
                 playerSubmitted = true;
 
-            }
+            } 
+             if (sessionStorage.currentArticle && playerWasReconnected && groupReady)
+                retrieveArticle(sessionStorage.currentArticle, true, true);
 
+            
+
+           
             
 
             break;
@@ -502,6 +515,8 @@ var gameEvents = function(eventId, eventData) {
 
         case 'topic:info':
 
+            sessionStorage.setItem('groupReady', true);
+
             $('.timesUp').hide();
             $('input').disabled = false;
 
@@ -518,6 +533,8 @@ var gameEvents = function(eventId, eventData) {
             $('section#submitted').hide();
 
             var checkSearching = setInterval( function(){ CheckArticle() }, 1000);
+
+            
 
             break;
 
@@ -568,6 +585,38 @@ var gameEvents = function(eventId, eventData) {
             
             break;
 
+        // case 'game:countdown':
+
+        //     console.log(eventData.name, "player clock");
+
+        //     if (eventData.name === 'topicCountdown' || eventData.name === 'articleReveal') {
+        //         groupReady = false;
+        //     } else {
+        //         groupReady = true;
+        //     }
+
+        //     break;
+
+        case 'game:ended': 
+
+            sessionStorage.removeItem('currentArticle');
+            sessionStorage.removeItem('groupReady');
+
+            break;
+
+        case 'game:notfound': 
+
+            sessionStorage.removeItem('currentArticle');
+            sessionStorage.removeItem('groupReady');
+            
+            break;
+
+        case 'game:advance': 
+
+            sessionStorage.setItem('groupReady', false);
+
+            break;
+        
         
     }
 
