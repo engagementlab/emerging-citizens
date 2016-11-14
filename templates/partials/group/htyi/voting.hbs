@@ -29,11 +29,10 @@
         <section id="hashtag-submissions" class="col-sm-12">
 
             <div class="col-sm-4 leftmost col-centered">
-            
+
                 {{#each this.[hashtags]}}
-                
                     <div class="hashtag hidden-el">
-                        <span class="octothorp">#</span>{{{limit this 20}}}
+                        <span class="octothorp">#</span>{{{limit this 25}}}
                     </div>
 
                    {{#ifeq @index 2}}</div><div class="col-sm-4 left col-centered">{{/ifeq}}
