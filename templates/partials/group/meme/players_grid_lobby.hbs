@@ -1,0 +1,56 @@
+{{!-- Players grid --}}
+<div class="row players-grid">
+
+    {{#each players}}
+    
+        {{#if ../active}}
+ 
+             <div class="player-background">
+                 <div class="player-static" data-id="{{uid}}">
+                    <div class="icon active">
+                        {{#if ../../left}}
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{@index}}.png" />
+                        </div>
+                        <div class="nameplate active player-{{@index}}">
+
+                             {{username}}
+
+                        </div>
+                        {{else}}
+
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{sum @index 4}}.png" />
+                        </div>
+                        <div class="nameplate active player-{{sum @index 4}}">
+
+                            {{username}}
+
+                        </div>
+                        {{/if}}
+                    
+                 </div>
+             </div>
+        
+        {{else}}
+
+            <div class="player-background">
+                <div class="player-static" data-id="{{uid}}">
+                    <div class="icon">
+                        {{#if ../../left}}
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{@index}}.png" />
+                        </div>
+                            <div class="nameplate player-{{@index}}"> 
+                            </div>
+                        {{else}}
+                            <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/f_auto/emerging-citizens/images/layout/wwdmm/icons/avatar{{sum @index 4}}.png" />
+                        </div>
+                            <div class="nameplate player-{{sum @index 4}}"> 
+                            </div>
+                        {{/if}}
+                </div>
+            </div>
+
+        {{/if}}
+
+    {{/each}}
+
+</div>

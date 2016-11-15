@@ -3,35 +3,20 @@
 
     {{#each players}}
     
-        {{#if ../finished}}
-
             <div class="col-sm-3 player-background">
                 <div class="player-static">
-                    <div class="icon active">
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" />
+                    <div class="icon {{#if ../finished}}active{{/if}}">
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{index}}.png" />
                     </div>
-                    <div class="nameplate active">
-
+                    <div class="nameplate {{#if ../finished}}active{{/if}}">
+                        {{#if ../finished}}
                         {{username}}
+                        {{/if}}
 
                     </div>
                 </div>
             </div>
-        
-        {{else}}
-
-            <div class="col-sm-3 player-background">
-                <div class="player-static">
-                    <div class="icon">
-                    <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" /></div>
-                    <div class="nameplate"> 
-
-                    </div>
-                </div>
-            </div>
-
-        {{/if}}
-
+    
     {{/each}}
 
 </div>
