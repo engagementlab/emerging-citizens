@@ -2,22 +2,46 @@
 <div class="col-lg-3 col-sm-3 players {{#if left}}left{{else}}right{{/if}}">
 
     {{#each players}}
+    
+        {{#if ../active}}
 
             <div class="player-background hidden-el">
                 <div class="player-static" data-id="{{uid}}">
-                    <div class="icon {{#if ../active}}active{{/if}}">
-
-                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{index}}.png" />
+                    <div class="icon active">
+                    {{#if ../../left}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" />
+                    {{else}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" />
+                    {{/if}}
                     </div>
-                    <div class="nameplate {{#if ../active}}active{{/if}}">
-                        {{#if ../active}}
-                            {{username}}
-                        {{/if}}
+                    <div class="nameplate active">
+
+                        {{username}}
 
                     </div>
                 </div>
             </div>
- 
+        
+        {{else}}
+
+            <div class="player-background hidden-el">
+                <div class="player-static" data-id="{{uid}}">
+                    <div class="icon">
+                    {{#if ../../left}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{sum @index 4}}.png" />
+                    {{else}}
+                        <img src="https://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,h_180,w_180/v1465930301/emerging-citizens/images/faces/avatar{{@index}}.png" />
+                    {{/if}}
+                    </div>
+                    
+                    <div class="nameplate"> 
+
+                    </div>
+                </div>
+            </div>
+
+        {{/if}}
+
     {{/each}}
 
 </div>
