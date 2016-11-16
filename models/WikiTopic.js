@@ -59,7 +59,7 @@ WikiTopic.schema.statics.removeResourceRef = function(resourceId, callback) {
         },
 
         {
-            multi: false
+            multi: true
         },
 
         function(err, result) {
