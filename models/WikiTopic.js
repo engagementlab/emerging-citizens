@@ -29,12 +29,11 @@ WikiTopic.add({
     topicName: { type: String, label: 'Topic Name', initial:true, required:true},
     topicImage: { type: Types.CloudinaryImage, label: "Topic Image", note: "Images should be in square format to display properly"},
     topicDescription: { type: Types.Markdown, label: 'Topic Description', initial:true, required:true},
-	categoryName: {
+	category: {
         type: Types.Relationship,
         ref: 'ContentCategory',
         label: 'Category', 
-        many: false,
-        note: 'ONE CATEGORY PER TOPIC'
+        many: true
     }
 });
 
@@ -48,13 +47,13 @@ WikiTopic.schema.statics.removeResourceRef = function(resourceId, callback) {
 
     WikiTopic.model.update({
             $or: [{
-                'categoryName': resourceId
+                'category': resourceId
             }]
         },
 
         {
             $pull: {
-                'categoryName': resourceId
+                'category': resourceId
             }
         },
 
@@ -94,5 +93,5 @@ WikiTopic.schema.pre('remove', function(next) {
  * Registration
  */
 
-WikiTopic.defaultColumns = 'name, categoryName';
+WikiTopic.defaultColumns = 'name, category';
 WikiTopic.register();
