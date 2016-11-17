@@ -177,22 +177,22 @@ body.player #login {
     border: none;
     color: black;
     text-align: center;
-    background-color: #e6e6e6; }
+    background-color: #cccccc; }
     body.player #login input[type=text]::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
-      color: #b3b3b3;
+      color: #999999;
       text-align: center; }
     body.player #login input[type=text]::-moz-placeholder {
       /* Firefox 19+ */
-      color: #b3b3b3;
+      color: #999999;
       text-align: center; }
     body.player #login input[type=text]:-ms-input-placeholder {
       /* IE 10+ */
-      color: #b3b3b3;
+      color: #999999;
       text-align: center; }
     body.player #login input[type=text]:-moz-placeholder {
       /* Firefox 18- */
-      color: #b3b3b3;
+      color: #999999;
       text-align: center; }
   body.player #login input[type=submit] {
     border: solid 4px #36d5d9;
@@ -316,6 +316,13 @@ body.player .entry-footer {
   max-width: none !important;
   margin-right: auto;
   margin-left: auto; }
+
+#launch-error {
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  position: fixed;
+  display: none; }
 
 #nav-dropdown {
   margin: 10px auto;
@@ -1301,6 +1308,8 @@ body.newgame.wwdmm .button_text {
 */
 .body.htyi {
   overflow: hidden; }
+  .body.htyi #game-content {
+    padding-top: 2%; }
   .body.htyi #game_code {
     margin-top: 5%;
     padding-top: 5%; }
@@ -3017,7 +3026,7 @@ body {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png); }
     .body.game-bg.player #logo_ec {
       margin-top: -15px;
-      background-color: #e6e6e6; }
+      background-color: #cccccc; }
     .body.game-bg.player .entry-footer {
       background-color: #e6e6e6;
       padding: 10px; }
