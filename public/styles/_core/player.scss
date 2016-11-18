@@ -31,36 +31,43 @@ body.player {
 	#login {
 
 		margin-top:5%;
+		min-height: 300px;
 
 		input[type=text] {
 			width: 100%;
 			max-width: 290px;
 			border: none;
-			color: black;
 			text-align: center;
-			background-color: darken($color-gray, 10%);
+			color: white;
+			background-color: $color-gray;
 
 			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-			  color: darken($color-gray, 30%);
+			  color: darken($color-gray, 40%);
 			  text-align: center;
 			}
 			&::-moz-placeholder { /* Firefox 19+ */
-			  color: darken($color-gray, 30%);
+			  color: darken($color-gray, 40%);
 			  text-align: center;
 			}
 			&:-ms-input-placeholder { /* IE 10+ */
-			  color: darken($color-gray, 30%);
+			  color: darken($color-gray, 40%);
 			  text-align: center;
 			}
 			&:-moz-placeholder { /* Firefox 18- */
-			  color: darken($color-gray, 30%);
+			  color: darken($color-gray, 40%);
 			  text-align: center;
 			}
 		}
 
 		input[type=submit] {
 	    border: solid 4px $color-teal;
+	    color: darken($color-gray, 40%);
+	    background-color: white;
 	    width: 145px;
+
+	    &:hover, &:focus {
+	    	background-color: $color-gray;
+	    }
 		}
 	}
 
@@ -100,16 +107,7 @@ body.player {
 
 	}
 
-	#login {
-
-		input[type=text] {
-			width: 100%;
-			max-width: 290px;
-			color: white;
-		}
-
-	  min-height: 300px;
-	}
+	
 	.form-prompt {
 		color: white;
 		background-color: $color-dark-orange;
@@ -212,7 +210,8 @@ body.player {
 		background-color: white;
 
 		button {
-			background-color: white;
+			background-color: $color-gray;
+			color: darken($color-gray, 30%);
 			border-radius: 5px;
 			border: 2px solid $color-teal;
 		}

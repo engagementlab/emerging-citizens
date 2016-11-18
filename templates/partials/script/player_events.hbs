@@ -263,18 +263,31 @@ socketEvents = function(eventId, eventData) {
             }
 
             var CheckLast = function() {
-                if (eventData.data && eventData.data.last_round){
-                    console.log("this is the last round");
-                    {{!-- console.log($('div#survey')); --}}
-                    socket.emit('game:survey', eventData);
 
-                    {{!-- $('#survey').fadeIn(console.log("fade in")); --}}
-                    
-                    resetSession();
-                    
-                }
-                else {
-                    sessionStorage.removeItem('playerSubmission');
+                console.log(eventData, " this is our dddddata");
+
+                console.log("checking last round");
+                if (eventData.data) {
+                    console.log("we have the data");
+                    if (eventData.data.last_round){
+                        console.log("this is the last round");
+                        {{!-- console.log($('div#survey')); --}}
+                        socket.emit('game:survey', eventData);
+                        {{!-- if ($('#results')) {
+                            $('#results').fadeOut(function() {
+                                $('#survey').fadeIn();
+                            });
+                        } else {
+                                $('#survey').fadeIn(console.log("fade in"));
+
+                        } --}}
+                        
+                        resetSession();
+                        
+                    } else {
+                        console.log("this isnt the end");
+                        sessionStorage.removeItem('playerSubmission');
+                    }
                 }
             }
 
@@ -287,15 +300,15 @@ socketEvents = function(eventId, eventData) {
 
             console.log("now displaying ur survey");
 
-            {{!-- if ($('#results')) { --}}
-                {{!-- $('#results').fadeOut(function() {
+            if ($('#results')) {
+                $('#results').fadeOut(function() {
                     $('div#survey').fadeIn();
-                }); --}}
-            {{!-- } else { --}}
-            $('div#survey').fadeIn(console.log($('div#survey')));
+                });
+            } else {
             console.log("fade in 22");
-            {{!-- } --}}
-            {{!-- $('#survey').fadeIn(console.log("fade in 22")); --}}
+                        $('#survey').fadeIn(console.log("fade in 22"));
+
+            }
 
             break;
 
