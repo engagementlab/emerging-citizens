@@ -273,7 +273,12 @@ var gameEvents = function(eventId, eventData) {
 
         });
 
-        $('html, body').animate({scrollTop:0}, '500', 'swing');
+        $('html, body').animate({ scrollTop: 0 }, '500', function () {
+            console.log("scrollup");
+            // window.location.hash = hash;
+        });
+
+        // $(document).scrollTop();
 
 
 

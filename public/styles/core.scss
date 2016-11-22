@@ -21,7 +21,6 @@
 html, body {
 	max-height: 100%;	
 	max-width:100%;
-	overflow-x: hidden;
 }
 html {
 	height:100%;
@@ -30,6 +29,8 @@ html {
 body {
 	display: none;
 	height:100%;
+	overflow-x: hidden;
+
 }
 
 .container {
