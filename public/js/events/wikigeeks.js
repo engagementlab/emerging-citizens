@@ -273,9 +273,12 @@ var gameEvents = function(eventId, eventData) {
 
         });
         if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-            window.scrollTo(0,0);
+            window.setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
             console.log("ios scrolling");
         } else {
+            // window.scrollTo(0,0);
             $('html, body').animate({ scrollTop: 0 }, '500', function () {
                 console.log("scrollup");
             });
