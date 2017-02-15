@@ -272,13 +272,15 @@ var gameEvents = function(eventId, eventData) {
             }
 
         });
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+            window.scrollTo(0,0);
+            console.log("ios scrolling");
+        } else {
+            $('html, body').animate({ scrollTop: 0 }, '500', function () {
+                console.log("scrollup");
+            });
+        }
 
-        $('html, body').animate({ scrollTop: 0 }, '500', function () {
-            console.log("scrollup");
-            // window.location.hash = hash;
-        });
-
-        // $(document).scrollTop();
 
 
 
