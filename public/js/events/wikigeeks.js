@@ -273,39 +273,18 @@ var gameEvents = function(eventId, eventData) {
 
         });
         
-        // if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-            
-        //     console.log("ios scrolling");
-        // } else {
-            // window.scrollTo(0,0);
-            $('html, body').animate({ scrollTop: 0 }, '500', function () {
-                window.setTimeout(function() {
-                    window.scrollTo(0, 0);
-                }, 0);
-            });
-            // console.log('not ios');
-        // }
+        // Scroll to top
+        $('html, body').animate({ scrollTop: 0 }, '500', function () {
 
+            // Workaround for iOS
+            window.setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
 
-
+        });
 
         // Clear the temp workspace
         $(workspace).empty();
-
-
-        // console.log($('#article'));
-
-        // var myScroll = new IScroll('#article', {
-        //     mouseWheel: true,
-        //     scrollbars: true, 
-        //     disableMouse: false, 
-        //     disableTouch: false,
-        //     disablePointer: false,
-        //     bindToWrapper: true, 
-        //     click: true
-        // });
-
-        // console.log(myScroll.options, "valid article");
         
         loadToggle(false, true);
 
