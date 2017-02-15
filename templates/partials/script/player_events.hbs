@@ -264,14 +264,9 @@ socketEvents = function(eventId, eventData) {
 
             var CheckLast = function() {
 
-                console.log(eventData, " this is our dddddata");
-
-                console.log("checking last round");
                 if (eventData.data) {
                     console.log("we have the data");
                     if (eventData.data.last_round){
-                        console.log("this is the last round");
-                        {{!-- console.log($('div#survey')); --}}
                         socket.emit('game:survey', eventData);
                         {{!-- if ($('#results')) {
                             $('#results').fadeOut(function() {
@@ -285,7 +280,6 @@ socketEvents = function(eventId, eventData) {
                         resetSession();
                         
                     } else {
-                        console.log("this isnt the end");
                         sessionStorage.removeItem('playerSubmission');
                     }
                 }
@@ -298,15 +292,13 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:survey':
 
-            console.log("now displaying ur survey");
 
             if ($('#results')) {
                 $('#results').fadeOut(function() {
                     $('div#survey').fadeIn();
                 });
             } else {
-            console.log("fade in 22");
-                        $('#survey').fadeIn(console.log("fade in 22"));
+                $('#survey').fadeIn();
 
             }
 
