@@ -193,7 +193,7 @@ socketEvents = function(eventId, eventData) {
                 
             // Send player back to login after 5s
             setTimeout(function() {
-                window.location = {{#ifnoteq environment "development"}}'https://ecplay.org/'{{else}}window.location{{/ifnoteq}};
+                window.location = window.location;
             }, 5000);
 
             document.title = 'Game ended!';
@@ -265,18 +265,8 @@ socketEvents = function(eventId, eventData) {
             var CheckLast = function() {
 
                 if (eventData.data) {
-                    console.log("we have the data");
                     if (eventData.data.last_round){
                         socket.emit('game:survey', eventData);
-                        {{!-- if ($('#results')) {
-                            $('#results').fadeOut(function() {
-                                $('#survey').fadeIn();
-                            });
-                        } else {
-                                $('#survey').fadeIn(console.log("fade in"));
-
-                        } --}}
-                        
                         resetSession();
                         
                     } else {
