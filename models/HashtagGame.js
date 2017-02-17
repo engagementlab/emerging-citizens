@@ -22,7 +22,8 @@ var Types = keystone.Field.Types;
 
 var HashtagGame = new keystone.List('HashtagGame', {
     inherits: GameSession,
-    track: true
+    track: true,
+    hidden: true
 });
 
 HashtagGame.add({

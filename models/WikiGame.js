@@ -22,7 +22,8 @@ var Types = keystone.Field.Types;
 
 var WikiGame = new keystone.List('WikiGame', {
     inherits: GameSession,
-    track: true
+    track: true, 
+    hidden: true
 });
 
 WikiGame.add({

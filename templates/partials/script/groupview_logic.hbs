@@ -1,3 +1,10 @@
+// Tap away any errors
+$(document).on('click touchstart', 'div.error', function() {
+    $(this).hide();
+    console.log("error tap away player logic");
+});
+
+
    // Show or hide error about various game error states
   var showErrorModal = function(show, textType) {
 

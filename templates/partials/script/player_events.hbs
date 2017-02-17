@@ -193,7 +193,7 @@ socketEvents = function(eventId, eventData) {
                 
             // Send player back to login after 5s
             setTimeout(function() {
-                window.location = {{#ifnoteq environment "development"}}'https://ecplay.org/'{{else}}window.location{{/ifnoteq}};
+                window.location = window.location;
             }, 5000);
 
             document.title = 'Game ended!';
@@ -263,18 +263,15 @@ socketEvents = function(eventId, eventData) {
             }
 
             var CheckLast = function() {
-                if (eventData.data && eventData.data.last_round){
-                    console.log("this is the last round");
-                    console.log($('div#survey'));
-                    socket.emit('game:survey');
 
-                    {{!-- $('#survey').fadeIn(console.log("fade in")); --}}
-                    
-                    resetSession();
-                    
-                }
-                else {
-                    sessionStorage.removeItem('playerSubmission');
+                if (eventData.data) {
+                    if (eventData.data.last_round){
+                        socket.emit('game:survey', eventData);
+                        resetSession();
+                        
+                    } else {
+                        sessionStorage.removeItem('playerSubmission');
+                    }
                 }
             }
 
@@ -285,19 +282,15 @@ socketEvents = function(eventId, eventData) {
 
         case 'game:survey':
 
-            console.log("now displaying ur survey");
-            console.log($('div#survey'));
 
-            // Display survey on player screen if enabled
-            {{!-- if ($('#results')) { --}}
-                {{!-- $('#results').fadeOut(function() {
+            if ($('#results')) {
+                $('#results').fadeOut(function() {
                     $('div#survey').fadeIn();
-                }); --}}
-            {{!-- } else { --}}
-                $('div#survey').fadeIn(console.log($('div#survey')));
-                console.log("fade in 22");
-            {{!-- } --}}
-            {{!-- $('#survey').fadeIn(console.log("fade in 22")); --}}
+                });
+            } else {
+                $('#survey').fadeIn();
+
+            }
 
             break;
 
