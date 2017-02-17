@@ -8,7 +8,7 @@
 
   <div class="form" style="display:none">
     <input class="hidden-el" type="text" id="access_code" placeholder="room code" maxlength="4" tabindex="1"> <br />
-    <input class="hidden-el" type="text" id="player_name" placeholder="name" tabindex="2"> <br />
+    <input class="hidden-el" type="text" id="player_name" placeholder="name" tabindex="2" maxlength="15"> <br />
     <div class="error">Error!</div>
     <input id="btn_submit_code" data-event="game:entry" data-package='{"code": "#access_code", "name": "#player_name"}' class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="play">
     {{!-- <input id="btn_help" data-event="" data-package='' onclick="window.location.href='/help'" class="btn btn-default desktop-only game_login hidden-el" type="submit" name="submit" value="help"> --}}

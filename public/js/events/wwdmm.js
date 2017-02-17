@@ -79,7 +79,7 @@ var gameEvents = function(eventId, eventData) {
 
               // Do not allow player to submit more than once
               if(sessionStorage.getItem('playerSubmission')) {
-                gameEvents('meme:received');
+                gameEvents('meme:received', {random: false});
                 animateIn();
 
                 return;
@@ -105,7 +105,7 @@ var gameEvents = function(eventId, eventData) {
                   memeImgsLoaded = true;
                 }
 
-              });
+              }, true);
 
               
           

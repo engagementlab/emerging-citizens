@@ -170,33 +170,38 @@ body.player .game-message {
       padding: 10px; } }
 
 body.player #login {
-  margin-top: 5%; }
+  margin-top: 5%;
+  min-height: 300px; }
   body.player #login input[type=text] {
     width: 100%;
     max-width: 290px;
     border: none;
-    color: black;
     text-align: center;
+    color: white;
     background-color: #e6e6e6; }
     body.player #login input[type=text]::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
-      color: #b3b3b3;
+      color: gray;
       text-align: center; }
     body.player #login input[type=text]::-moz-placeholder {
       /* Firefox 19+ */
-      color: #b3b3b3;
+      color: gray;
       text-align: center; }
     body.player #login input[type=text]:-ms-input-placeholder {
       /* IE 10+ */
-      color: #b3b3b3;
+      color: gray;
       text-align: center; }
     body.player #login input[type=text]:-moz-placeholder {
       /* Firefox 18- */
-      color: #b3b3b3;
+      color: gray;
       text-align: center; }
   body.player #login input[type=submit] {
     border: solid 4px #36d5d9;
+    color: gray;
+    background-color: white;
     width: 145px; }
+    body.player #login input[type=submit]:hover, body.player #login input[type=submit]:focus {
+      background-color: #e6e6e6; }
 
 body.player .form-prompt {
   color: white;
@@ -219,13 +224,6 @@ body.player #logo_ec {
   @media only screen and (max-width: 480px) {
     body.player #logo_ec.mobile {
       display: none; } }
-
-body.player #login {
-  min-height: 300px; }
-  body.player #login input[type=text] {
-    width: 100%;
-    max-width: 290px;
-    color: white; }
 
 body.player .form-prompt {
   color: white;
@@ -306,7 +304,8 @@ body.player .entry-footer {
   right: 0;
   background-color: white; }
   body.player .entry-footer button {
-    background-color: white;
+    background-color: #e6e6e6;
+    color: #999999;
     border-radius: 5px;
     border: 2px solid #36d5d9; }
 
@@ -316,6 +315,13 @@ body.player .entry-footer {
   max-width: none !important;
   margin-right: auto;
   margin-left: auto; }
+
+#launch-error {
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  position: fixed;
+  display: none; }
 
 #nav-dropdown {
   margin: 10px auto;
@@ -1301,6 +1307,8 @@ body.newgame.wwdmm .button_text {
 */
 .body.htyi {
   overflow: hidden; }
+  .body.htyi #game-content {
+    padding-top: 2%; }
   .body.htyi #game_code {
     margin-top: 5%;
     padding-top: 5%; }
@@ -2246,7 +2254,7 @@ body.newgame.wwdmm .button_text {
     width: 80%;
     margin: 0 auto; }
     .body.wwdmm.group #results-container .vote {
-      height: 150px; }
+      height: 200px; }
     .body.wwdmm.group #results-container .results-room {
       border: 0px;
       border-radius: 0px;
@@ -2944,8 +2952,7 @@ body.newgame.wwdmm .button_text {
 
 html, body {
   max-height: 100%;
-  max-width: 100%;
-  overflow-x: hidden; }
+  max-width: 100%; }
 
 html {
   height: 100%;
@@ -2953,7 +2960,8 @@ html {
 
 body {
   display: none;
-  height: 100%; }
+  height: 100%;
+  overflow-x: hidden; }
 
 .container {
   width: 100% !important;

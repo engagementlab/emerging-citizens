@@ -21,7 +21,8 @@ var Types = keystone.Field.Types;
 
 var MemeGame = new keystone.List('MemeGame', {
     inherits: GameSession,
-    track: true
+    track: true, 
+    hidden: true
 });
 
 MemeGame.add({
