@@ -1,6 +1,6 @@
 {
   "apps" : [{
-    "name": "Emerging Citizens",
+    "name": "Learning Games",
     "script": "server.js",
     "env_production": {
       "NODE_ENV": "production"
@@ -11,7 +11,7 @@
   }],
   "deploy" : {
 
-    "web-staging" : {
+    "sdk-staging" : {
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
@@ -34,7 +34,7 @@
       "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=emerging-citizens --env staging ; NODE_ENV=staging pm2 restart 0 -- emerging-citizens --env staging"
     },
 
-    "web-production" : {
+    "sdk-production" : {
       "user": "node",
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
