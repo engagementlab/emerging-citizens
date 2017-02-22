@@ -2,6 +2,7 @@
 	"name": "Emerging Citizens",
 	"directory": "emerging-citizens",
 	"database": "emerging-citizens",
+	"subdomain": "ec",
 	"admin_nav": { 
 						"HomePage": ["HomePage"], 
 						"LessonPlan": ["LessonPlan", "ContentCategory"], 

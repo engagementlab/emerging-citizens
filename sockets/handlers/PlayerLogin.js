@@ -21,7 +21,7 @@ var appRoot = require('app-root-path'),
 
 var PlayerLogin = function (nsp, socket, emitter) {
 
-  var Templates = new TemplateLoader();
+  var Templates = new TemplateLoader(undefined, require('keystone'), require('app-root-path'));
 
   var currentSpace;
   var currentSocket;

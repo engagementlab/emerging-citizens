@@ -1,9 +1,6 @@
 // Return server object
 serverStart = function() {
   
-  /* Global accessor for underscore  */
-	_ = require('underscore');
-
   /* Global accessor for logger  */
   logger = require('winston');
 	
@@ -37,17 +34,14 @@ appStart = function(app) {
 
 };
 
-module.exports = function(frameworkDir) {
-
-	// Add main dependencies and EL web framework dependencies
-	require('app-module-path').addPath(__dirname + '/node_modules'); 
-	require('app-module-path').addPath(frameworkDir + '/node_modules'); 
+module.exports = function(frameworkDir, shared) {
+	
+	// Add main dependencies and EL web framework dependencies if not mounted with EL framework API
+	require('app-module-path').addPath(frameworkDir + '/node_modules');
 	
 	// Obtain app root path and set as keystone's module root
-	var appRootPath = require('app-root-path').path;
 	var keystoneInst = require('keystone');
-	
-	keystoneInst.set('module root', appRootPath);
+
 	keystoneInst.set('static', 'public');
 
   // Enables CORS for play domain on production, for static assets
