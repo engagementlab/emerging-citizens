@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-  var io = require('socket.io')(app);
+  var io = require('socket.io')(app, {path: '/ec-socket/'});
 
   var GameManager = require('../lib/GameManager');
   var CommonHandler = require('./handlers/Common');

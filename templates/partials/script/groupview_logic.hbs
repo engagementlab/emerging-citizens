@@ -83,7 +83,7 @@ $(document).on('click touchstart', 'div.error', function() {
     {{> script/groupview_events gameType=gameType}}
 
     // Open socket connection
-    socket = io();
+    socket = io('//{{host}}', {path: '/ec-socket', reconnection: true,'reconnectionDelay': 500,'maxReconnectionAttempts':Infinity});
     registerEvents();
 
   {{/ifnoteq}}
