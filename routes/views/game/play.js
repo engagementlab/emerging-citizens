@@ -24,7 +24,7 @@ exports = module.exports = function(req, res) {
   locals.section = 'login';
 
   // Save host to allow path specification for socket.io
-  locals.socketHost = req.headers.host;
+  locals.socketHost = (process.env.NODE_ENV === 'staging') ? 'qa.emergingcitizens.org' ? req.headers.host;
 
   // Enable debugging on staging/dev only
   if(req.params.debug === 'debug' && process.env.NODE_ENV !== 'production')
