@@ -208,9 +208,9 @@ $(document).on('click', '.btn.game_login', function(evt) {
     // Disable button and show loading modal
     $(evt.currentTarget).attr('disabled', 'disabled');
     $('#loading-modal').fadeIn(250);
-
+    
     $.post(
-        "/login",
+        {{#ifeq environment "production"}}"https://emergingcitizens.org" + {{/ifeq}}"/login",
         data,
         function( data ) {
 
