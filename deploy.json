@@ -15,7 +15,7 @@
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
-      "ref": "origin/master",
+      "ref": "origin/keystone-4.0",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
       "post-deploy" : "npm i ; npm update ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging",
