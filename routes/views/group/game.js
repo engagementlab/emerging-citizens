@@ -37,6 +37,10 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     view.on('init', function(next) {
         
+        // // WWDMM = Meme Punk
+        // if(configGameType === 'memepunk')
+        //     configGameType = 'wwdmm';
+
         locals.categories = [];
         locals.lessonPlans = [];
         locals.whichGame = configGameType.toUpperCase();

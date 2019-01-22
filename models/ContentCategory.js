@@ -64,5 +64,5 @@ ContentCategory.schema.pre('remove', function(next) {
  * Registration
  */
 
-ContentCategory.defaultColumns = 'name';
+ContentCategory.defaultColumns = 'topicName';
 ContentCategory.register();

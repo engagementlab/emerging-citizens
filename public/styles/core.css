@@ -178,30 +178,30 @@ body.player #login {
     border: none;
     text-align: center;
     color: white;
-    background-color: #e6e6e6; }
+    background-color: #e6e5e5; }
     body.player #login input[type=text]::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
-      color: gray;
+      color: #807f7f;
       text-align: center; }
     body.player #login input[type=text]::-moz-placeholder {
       /* Firefox 19+ */
-      color: gray;
+      color: #807f7f;
       text-align: center; }
     body.player #login input[type=text]:-ms-input-placeholder {
       /* IE 10+ */
-      color: gray;
+      color: #807f7f;
       text-align: center; }
     body.player #login input[type=text]:-moz-placeholder {
       /* Firefox 18- */
-      color: gray;
+      color: #807f7f;
       text-align: center; }
   body.player #login input[type=submit] {
     border: solid 4px #36d5d9;
-    color: gray;
+    color: #807f7f;
     background-color: white;
     width: 145px; }
     body.player #login input[type=submit]:hover, body.player #login input[type=submit]:focus {
-      background-color: #e6e6e6; }
+      background-color: #e6e5e5; }
 
 body.player .form-prompt {
   color: white;
@@ -292,7 +292,7 @@ body.player .voting-button {
 body.player .generic-game-message {
   font-size: 2em;
   color: black;
-  background-color: #e6e6e6;
+  background-color: #e6e5e5;
   padding: 3%; }
 
 body.player body .player-form {
@@ -304,14 +304,14 @@ body.player .entry-footer {
   right: 0;
   background-color: white; }
   body.player .entry-footer button {
-    background-color: #e6e6e6;
+    background-color: #e6e5e5;
     color: #999999;
     border-radius: 5px;
     border: 2px solid #36d5d9; }
 
 #wrapper.group {
   height: 100%;
-  width: 1680px !important;
+  width: 100% !important;
   max-width: none !important;
   margin-right: auto;
   margin-left: auto; }
@@ -330,7 +330,7 @@ body.player .entry-footer {
   font-size: 2em;
   color: #d9d9d9; }
   #nav-dropdown:hover, #nav-dropdownfocus {
-    color: #b3b3b3;
+    color: #b3b2b2;
     text-decoration: none;
     cursor: pointer; }
 
@@ -339,7 +339,7 @@ body.player .entry-footer {
   font-size: 2em;
   color: #d9d9d9; }
   .nav-close:hover, .nav-closefocus {
-    color: #b3b3b3;
+    color: #b3b2b2;
     text-decoration: none;
     cursor: pointer; }
 
@@ -496,7 +496,7 @@ body.landing #nav-close-wrapper {
     font-size: 4.6em;
     font-weight: bold;
     color: #91c92f;
-    text-shadow: -1px -1px 0 #FFF,   1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF; }
   .player-background .nameplate {
     position: relative;
     background-color: white;
@@ -531,7 +531,7 @@ body.landing #nav-close-wrapper {
   margin-left: -15px;
   margin-bottom: 3%;
   margin: 0 auto;
-  color: gray;
+  color: #807f7f;
   align-items: center; }
   .gameLanding strong {
     font-family: "AvenirBold"; }
@@ -613,7 +613,7 @@ body.landing #nav-close-wrapper {
       width: 160px;
       height: 160px;
       border-radius: 80px;
-      border: 2px gray solid; }
+      border: 2px #807f7f solid; }
   .gameLanding h1 {
     width: 100%;
     font-size: 5em;
@@ -893,7 +893,7 @@ body.landing #nav-close-wrapper {
     -webkit-transition: transform, 0.5s, ease-in-out-expo;
     transition: transform, 0.5s, ease-in-out-expo; }
     .landing .game-about #launch:hover {
-      background-color: #e6e6e6;
+      background-color: #e6e5e5;
       -moz-transform: scale(1.2);
       -o-transform: scale(1.2);
       -ms-transform: scale(1.2);
@@ -915,7 +915,7 @@ body.landing #nav-close-wrapper {
   .landing .game-about .row {
     margin: 0 auto; }
   .landing .game-about .divider {
-    border-top: 2px solid #e6e6e6;
+    border-top: 2px solid #e6e5e5;
     width: 100%; }
   .landing .game-about .logo {
     padding: 0px;
@@ -953,7 +953,7 @@ body.landing #nav-close-wrapper {
     .landing .game-about .content .plan-card {
       background-colorw: white;
       border-radius: 40px;
-      border: 2px solid #e6e6e6; }
+      border: 2px solid #e6e5e5; }
       .landing .game-about .content .plan-card button {
         border-radius: 25px;
         height: 50px;
@@ -1001,7 +1001,7 @@ body.landing #nav-close-wrapper {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: gray; }
+  color: #807f7f; }
   .aboutPage .aboutResearch .research {
     padding: 0px 10%; }
     .aboutPage .aboutResearch .research .about-title {
@@ -2626,15 +2626,15 @@ body.newgame.wwdmm .button_text {
         color: black;
         background-color: white; }
     .body.wikigeeks.player .submission ::-webkit-input-placeholder {
-      color: #e6e6e6; }
+      color: #e6e5e5; }
     .body.wikigeeks.player .submission :-moz-placeholder {
       /* Firefox 18- */
-      color: #e6e6e6; }
+      color: #e6e5e5; }
     .body.wikigeeks.player .submission ::-moz-placeholder {
       /* Firefox 19+ */
-      color: #e6e6e6; }
+      color: #e6e5e5; }
     .body.wikigeeks.player .submission :-ms-input-placeholder {
-      color: #e6e6e6; }
+      color: #e6e5e5; }
     .body.wikigeeks.player .submission .form {
       width: 80%;
       margin: 20px auto;
@@ -2758,7 +2758,7 @@ body.newgame.wwdmm .button_text {
     padding-top: 5%;
     padding-bottom: 5%; }
   .body.wikigeeks.player #toc {
-    background-color: #e6e6e6;
+    background-color: #e6e5e5;
     border: 2px solid; }
   .body.wikigeeks.player #wiki-article, .body.wikigeeks.player #wiki-workspace {
     display: none; }
@@ -3025,12 +3025,12 @@ body {
     background-image: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/background_tileable.png); }
     .body.game-bg.player #logo_ec {
       margin-top: -15px;
-      background-color: #e6e6e6; }
+      background-color: #e6e5e5; }
     .body.game-bg.player .entry-footer {
-      background-color: #e6e6e6;
+      background-color: #e6e5e5;
       padding: 10px; }
       .body.game-bg.player .entry-footer button {
-        background-color: #e6e6e6; }
+        background-color: #e6e5e5; }
   .body.game-bg.htyi {
     background: url(https://res.cloudinary.com/engagement-lab-home/image/upload/v1/emerging-citizens/images/layout/htyi/raindrops_tileable.png), #ff9971 !important; }
   .body.game-bg.wikigeeks {
@@ -3274,3 +3274,5 @@ footer {
       font-size: 7em; }
     .error-modal h2 {
       font-size: 4em; } }
+
+/*# sourceMappingURL=core.css.map */
