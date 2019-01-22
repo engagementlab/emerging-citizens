@@ -53,7 +53,7 @@ exports.create = function(req, res) {
     else if (data.gameType === "wikigeeks")
         sessionType = new WikiGame.model();
     
-    else if (data.gameType === "wwdmm")
+    else if (data.gameType === "wwdmm" || data.gameType === "mememachine")
         sessionType = new MemeGame.model();
 
     sessionType.getUpdateHandler(req).process(data, function(err) {

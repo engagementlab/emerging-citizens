@@ -46,5 +46,5 @@ MemeTopic.add({
  * Registration
  */
 
-MemeTopic.defaultColumns = 'name, category';
+MemeTopic.defaultColumns = 'topicName, category';
 MemeTopic.register();

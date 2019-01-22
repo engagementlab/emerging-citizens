@@ -15,7 +15,7 @@
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
-      "ref": "origin/master",
+      "ref": "origin/keystone-4.0",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
       "post-deploy" : "npm i ; npm update ; grunt compile --sites=emerging-citizens --env staging ; pm2 restart 0 -- emerging-citizens --env staging",
@@ -38,10 +38,10 @@
       "user": "node",
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/el-web-sdk.git",
-      "ref": "origin/production",
-      "path": "/srv/framework",
+      "ref": "origin/keystone-4.0",
+      "path": "/srv/framework-ec",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; npm update ; grunt compile --sites=emerging-citizens --env production ; pm2 restart 'server' -- emerging-citizens --env production",
+      "post-deploy" : "nvm use ; npm install ; npm update",
       "env": {
         "NODE_ENV": "production"
       }
@@ -54,7 +54,7 @@
       "ref": "origin/production",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
-      "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; grunt compile --sites=emerging-citizens --env production ; NODE_ENV=production pm2 restart 'server'"
+      "post-deploy" : "nvm use ; npm i ; npm update ; cd /srv/framework-ec/current/ ; npm link /srv/emerging-citizens/source ; grunt compile --sites=emerging-citizens --env production ; NODE_ENV=production pm2 restart 'emerging-citizens'"
     }
 
   }

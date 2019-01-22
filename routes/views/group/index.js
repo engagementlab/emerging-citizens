@@ -29,6 +29,9 @@ exports = module.exports = function(req, res) {
     var locals = res.locals;
 
     var gameType = req.params.game_type;
+    // WWDMM = Meme Punk
+    if(gameType === 'mememachine')
+        gameType = 'wwdmm';
 
     var gameCode;
 

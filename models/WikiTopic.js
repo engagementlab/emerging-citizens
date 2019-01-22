@@ -94,5 +94,5 @@ WikiTopic.schema.pre('remove', function(next) {
  * Registration
  */
 
-WikiTopic.defaultColumns = 'name, categoryName';
+WikiTopic.defaultColumns = 'topicName, categoryName';
 WikiTopic.register();

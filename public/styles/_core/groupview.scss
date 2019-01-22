@@ -1,12 +1,10 @@
-
-
 // Disable scrolling on groupview and fix width
 #wrapper.group {
-	height:100%;
-  width: 1680px !important;
-  max-width: none !important;
-  margin-right: auto;
-  margin-left: auto;
+	height: 100%;
+	width: 100% !important;
+	max-width: none !important;
+	margin-right: auto;
+	margin-left: auto;
 
 }
 
@@ -20,28 +18,33 @@
 
 // NAV BAR
 #nav-dropdown {
-	margin:10px auto;
+	margin: 10px auto;
 	display: block;
-	text-align:center;
+	text-align: center;
 	font-size: 2em;
 	color: darken(white, 15%);
 
-	&:hover, &focus {
+	&:hover,
+	&focus {
 		color: darken(white, 30%);
 		text-decoration: none;
 		cursor: pointer;
 	}
 }
+
 .nav-close {
-  text-align: center;
-  font-size: 2em;
-  color: #d9d9d9;
-  &:hover, &focus {
+	text-align: center;
+	font-size: 2em;
+	color: #d9d9d9;
+
+	&:hover,
+	&focus {
 		color: darken(white, 30%);
 		text-decoration: none;
 		cursor: pointer;
 	}
 }
+
 #nav-close-wrapper {
 	position: fixed;
 	z-index: 2000;
@@ -59,9 +62,10 @@ body.landing {
 	z-index: 1000;
 	position: absolute;
 	top: 40px;
-	#nav-dropdown{
-		margin-left:40px;
-		position:fixed;
+
+	#nav-dropdown {
+		margin-left: 40px;
+		position: fixed;
 	}
 
 }
@@ -89,7 +93,8 @@ body.landing {
 				color: white;
 				cursor: pointer;
 
-				&:hover, &:focus {
+				&:hover,
+				&:focus {
 					color: darken(white, 20%);
 					font-size: 3em;
 					text-decoration: none;
@@ -102,8 +107,9 @@ body.landing {
 .game-nav {
 	display: none;
 	overflow-y: scroll;
+
 	ul {
-		padding-top:5%;
+		padding-top: 5%;
 	}
 }
 
@@ -119,13 +125,14 @@ body.landing {
 	background: transparent;
 	margin-left: -30px;
 	margin-right: -30px;
-	img {
-    height: 100%;
-    width: 200px;
-		display: block;
-		margin:0 auto;
 
-		@media(max-width:1024px) {
+	img {
+		height: 100%;
+		width: 200px;
+		display: block;
+		margin: 0 auto;
+
+		@media(max-width: 1024px) {
 			width: 160px;
 		}
 	}
@@ -143,10 +150,11 @@ body.landing {
 	width: 90%;
 	margin: 0 auto;
 }
+
 .plans-item {
-	
+
 	min-height: 300px;
-	
+
 
 	.plan-card {
 		padding: 40px;
@@ -189,21 +197,19 @@ body.landing {
 	width: 100%;
 	display: inline-block;
 }
+
 .person-image {
 	height: 192px;
 	width: 192px;
 	border-radius: 96px;
 }
-.person-info {
 
-}
+.person-info {}
 
 
 // HELP PAGE
 
-.qa {
-	
-}
+.qa {}
 
 
 // CONTENT SELECTION
@@ -214,8 +220,8 @@ body.landing {
 
 .room-container {
 	padding-left: 10%;
-  padding-right: 10%;
-  height:75%;
+	padding-right: 10%;
+	height: 75%;
 	position: relative;
 	margin: 10px auto;
 	background-color: white;
@@ -226,18 +232,18 @@ body.landing {
 }
 
 .player-background {
-	
+
 	display: block;
 	position: relative;
 	margin: 20px auto;
 	margin-bottom: 40px;
 	background: white;
 	height: 175px;
-	
+
 	.icon {
 		margin: 10px auto;
 		display: block;
-		position:relative;
+		position: relative;
 		width: 100%;
 		opacity: 0.3;
 		padding-left: 5px;
@@ -251,8 +257,8 @@ body.landing {
 		display: none;
 		float: left;
 		width: 100%;
-    position: absolute;
-    padding-top: 30%;
+		position: absolute;
+		padding-top: 30%;
 		font-size: 3.6em;
 	}
 
@@ -260,22 +266,22 @@ body.landing {
 		font-size: 4.6em;
 		font-weight: bold;
 		color: #91c92f;
-	  text-shadow:
-	   -1px -1px 0 #FFF,  
-	    1px -1px 0 #FFF,
-	    -1px 1px 0 #FFF,
-	     1px 1px 0 #FFF;
+		text-shadow:
+			-1px -1px 0 #FFF,
+			1px -1px 0 #FFF,
+			-1px 1px 0 #FFF,
+			1px 1px 0 #FFF;
 
 	}
 
 	.nameplate {
 
-	  position: relative;
-	  background-color: white;
-	  padding: 2px;
-	  opacity: 0;
-	  font-weight: bold;
-	  font-size: medium;
+		position: relative;
+		background-color: white;
+		padding: 2px;
+		opacity: 0;
+		font-weight: bold;
+		font-size: medium;
 
 		@include transition(opacity .5s, transform .5s);
 
@@ -290,7 +296,7 @@ body.landing {
 // RESULTS LAST SECTION COUNTDOWN
 .last {
 	.text {
-	  font-size: 26em;
-  	top: 58% !important;
+		font-size: 26em;
+		top: 58% !important;
 	}
 }

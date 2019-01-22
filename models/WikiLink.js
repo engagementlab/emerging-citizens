@@ -70,5 +70,5 @@ WikiLink.schema.statics.removeResourceRef = function(resourceId, callback) {
  * Registration
  */
 
-WikiLink.defaultColumns = 'name, category';
+WikiLink.defaultColumns = 'articleName, category';
 WikiLink.register();
