@@ -65,7 +65,7 @@ exports = module.exports = function(req, res) {
         ContentCategory = keystone.list('ContentCategory');
 
         // WWDMM = Meme Punk
-        if(configGameType === 'memepunk')
+        if(configGameType === 'mememachine')
             configGameType = 'wwdmm';
 
         locals.section = configGameType.toUpperCase();
@@ -77,7 +77,7 @@ exports = module.exports = function(req, res) {
             locals.categories = [];
             locals.lessonPlans = [];
             locals.whichGame = configGameType.toUpperCase();
-            locals.gameLink = (configGameType === 'wwdmm') ? 'memepunk' : configGameType;
+            locals.gameLink = (configGameType === 'wwdmm') ? 'mememachine' : configGameType;
 
             var queryContent = ContentCategory.model.find({});
 

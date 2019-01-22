@@ -38,7 +38,7 @@ exports = module.exports = function(req, res) {
     view.on('init', function(next) {
         
         // // WWDMM = Meme Punk
-        // if(configGameType === 'memepunk')
+        // if(configGameType === 'mememachine')
         //     configGameType = 'wwdmm';
 
         locals.categories = [];

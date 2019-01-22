@@ -30,9 +30,9 @@ exports = module.exports = function(req, res) {
 
     var gameType = req.params.game_type;
     // WWDMM = Meme Punk
-    if(gameType === 'memepunk')
+    if(gameType === 'mememachine')
         gameType = 'wwdmm';
-        
+
     var gameCode;
 
     locals.viewType = 'group';
