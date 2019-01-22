@@ -38,7 +38,7 @@
       "user": "node",
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/el-web-sdk.git",
-      "ref": "origin/production",
+      "ref": "origin/keystone-4.0",
       "path": "/srv/framework-ec",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
       "post-deploy" : "nvm use ; npm install ; npm update",
