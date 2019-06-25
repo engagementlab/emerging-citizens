@@ -187,7 +187,8 @@
          howToPlay: {
              type: Types.Markdown,
              label: "How To Play Steps"
-         }
+         },
+         vimeoId: { type: String, label: "Vimeo video ID for tutorial video" }
      }
  );
 

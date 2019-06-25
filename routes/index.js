@@ -46,6 +46,7 @@ if(process.env.NODE_ENV === 'production') {
 router.get('/', routes.views.index);
 router.get('/play/:debug?', routes.views.game.play);
 router.post('/login', routes.views.game.login);
+router.get('/privacy', routes.views.privacy);
 
 // Group screen
 router.get('/game/:accesscode/:debug?', routes.views.group.lobby);    
@@ -58,10 +59,6 @@ router.get('/new/:game_type', routes.views.group.index);
 
 router.post('/api/create/:game_type', keystone.middleware.api, routes.api.gamesession.create);
 router.post('/api/load/', keystone.middleware.api, routes.api.templates.load);
-
-// router.post('/login', routes.views.user.login);
-
-	// router.all('/api/gameuser/create', keystone.initAPI, routes.api.gameusers.create);
 
 module.exports = router;
     
