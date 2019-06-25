@@ -318,6 +318,7 @@ footer {
 
 .footer {
 	background-color: white;
+	text-align: center;
 
 	@include mobile-landscape-and-up {
 		font-size: 1.6em;
@@ -336,7 +337,6 @@ footer {
 	}
 
 	#tagline {
-		text-align: center;
 		padding: 2% 0px;
 		margin: 0 auto;
 	}

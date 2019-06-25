@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 
       // If game is enabled, get home page content
       queryHomePage.exec(function (err, resultHomePage) {
-      
+
         locals.content = resultHomePage;
         locals.viewType = 'landing';
         locals.section = 'index';
