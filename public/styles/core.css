@@ -968,6 +968,8 @@ body.landing #nav-close-wrapper {
       color: white;
       padding: 5%;
       margin: 4% 0px; }
+      .landing .game-about .content .how-to-play .video {
+        text-align: center; }
     .landing .game-about .content .learning-guide {
       text-align: left;
       background-color: white;
