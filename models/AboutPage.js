@@ -22,7 +22,8 @@ var AboutPage = new keystone.List('AboutPage', {
     
     label: 'About Page Content',
     singular: 'About Page Content',
-    nodelete: true
+	nodelete: true,
+	nocreate: true
 
 });
 
@@ -32,7 +33,8 @@ AboutPage.add({
     top_text: { type: Types.Markdown, label: 'About Text Title', required: true, initial: true }, 
     research: { type: Types.Markdown, label: 'About Text - Research Rationale', required: true, initial: true }, 
     image: { type: Types.CloudinaryImage, label: "Big Image", note: "Images should be in square format to display properly"}, 
-    bottom_text: { type: Types.Markdown, label: 'Title Text at bottom of page'}
+    bottom_text: { type: Types.Markdown, label: 'Title Text at bottom of page'},
+    privacy: { type: Types.Markdown, label: 'Privacy Policy'}
 
 }, 
 		'Features', {

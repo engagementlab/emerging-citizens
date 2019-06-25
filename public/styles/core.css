@@ -3143,7 +3143,8 @@ footer {
     margin: 0px; }
 
 .footer {
-  background-color: white; }
+  background-color: white;
+  text-align: center; }
   @media only screen and (min-width: 481px) {
     .footer {
       font-size: 1.6em; } }
@@ -3156,7 +3157,6 @@ footer {
     padding: 2%;
     text-align: center; }
   .footer #tagline {
-    text-align: center;
     padding: 2% 0px;
     margin: 0 auto; }
 
