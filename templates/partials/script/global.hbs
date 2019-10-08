@@ -345,13 +345,10 @@
 
 	}
 
-window.onload = function() {
-
+$(window).load(function() {
+	
 	// Show body only after everything is loaded
-  // document.body.style.display = "block";
-  $('body').fadeIn(1000);
-
-  
+	$('body').fadeIn(1000);
 
 	// Detect if browser is in private/ingonito mode and if so, prevent any execution and show warning message
 	detectPrivateMode(function(isPrivate) {
@@ -376,7 +373,9 @@ window.onload = function() {
 		.to($('.nav-dropdown'), .2, {autoAlpha:0, display:'none'})
 		.to($('#game-menu'), .3, {autoAlpha:1});
 
-		$("#nav-dropdown").on('click', function() {
+		$("#nav-dropdown").on('click', function(e) {
+			e.preventDefault();
+
 			$('.nav-dropdown').show();
 			$('#nav-close').show();
 
@@ -601,5 +600,5 @@ window.onload = function() {
 
 	});
 
-}
+});
 </script>
