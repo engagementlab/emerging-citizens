@@ -30,7 +30,7 @@
       "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
       "ref": "origin/master",
       "path": "/srv/emerging-citizens",
-      "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.'; git pull git@github.com:engagementgamelab/EL-Website.git master;",
+      "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
       "post-deploy" : "npm i ; npm update ; cd /srv/framework/current/ ; npm i ; grunt compile --sites=emerging-citizens --env staging ; NODE_ENV=staging pm2 restart 0 -- emerging-citizens --env staging"
     },
 
